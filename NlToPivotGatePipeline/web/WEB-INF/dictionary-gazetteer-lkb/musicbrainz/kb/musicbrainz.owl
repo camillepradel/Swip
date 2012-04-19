@@ -1,0 +1,619 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY wordnet "http://xmlns.com/wordnet/1.6/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY ar-1 "http://musicbrainz.org/ar/ar-1.0#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdf2 "http://www.w3.org/1999/02/22-rdf-syntax-ns#rdf:" >
+]>
+
+
+<rdf:RDF xmlns="http://musicbrainz.org/mm/mm-2.1#"
+     xml:base="http://musicbrainz.org/mm/mm-2.1"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf2="&rdf;rdf:"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ar-1="http://musicbrainz.org/ar/ar-1.0#"
+     xmlns:wordnet="http://xmlns.com/wordnet/1.6/">
+    <owl:Ontology rdf:about="http://musicbrainz.org/mm/mm-2.1">
+        <dc:description rdf:datatype="&rdf;PlainLiteral">
+        The MusicBrainz Metadata Vocabulary described using W3C RDF Schema
+        and the Web Ontology Language. The vocabulary provides terms for
+        describing music, i.e. artists, albums, and tracks.
+    </dc:description>
+        <dc:date rdf:datatype="&rdf;PlainLiteral">2010-01-27 08:28</dc:date>
+        <dc:title rdf:datatype="&rdf;PlainLiteral">MusicBrainz Metadata Vocabulary</dc:title>
+        <rdfs:seeAlso rdf:resource="http://www.musicbrainz.org/MM/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator">
+        <rdfs:label>Creator</rdfs:label>
+        <rdfs:comment>
+        The creator (artist) of an album or a track
+    </rdfs:comment>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Track"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&dc;title">
+        <rdfs:label>Title</rdfs:label>
+        <rdfs:comment>
+        The name of an artist or group / the title of an album / the title of a track
+    </rdfs:comment>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Track"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#collaboratedWith -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;collaboratedWith">
+        <rdfs:label>collaborated with</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#composer -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;composer">
+        <rdfs:label>Composer</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#conductor -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;conductor">
+        <rdfs:label>Conductor</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#instrument -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;instrument">
+        <rdfs:label>Instrumental Artist</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#involvedWith -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;involvedWith">
+        <rdfs:label>involved with</rdfs:label>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#isParent -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;isParent">
+        <rdfs:label>is Parent</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#isSibling -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;isSibling">
+        <rdfs:label>is Sibling</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#lyricist -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;lyricist">
+        <rdfs:label>Lyricist</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#marriedTo -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;marriedTo">
+        <rdfs:label>married to</rdfs:label>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#memberOfBand -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;memberOfBand">
+        <rdfs:label>Member of Band</rdfs:label>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#performer -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;performer">
+        <rdfs:label>Performing Artist</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#performingOrchestra -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;performingOrchestra">
+        <rdfs:label>Performing Orchestra</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#producer -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;producer">
+        <rdfs:label>Producer</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#toArtist -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;toArtist">
+        <rdfs:label>connection to an Artist</rdfs:label>
+        <rdfs:comment>
+        connects an artist-to-artist-relationship (blank node) to the second artist
+    </rdfs:comment>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/ar/ar-1.0#vocal -->
+
+    <owl:ObjectProperty rdf:about="&ar-1;vocal">
+        <rdfs:label>Vocal Artist</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#artistType -->
+
+    <owl:ObjectProperty rdf:about="http://musicbrainz.org/mm/mm-2.1#artistType">
+        <rdfs:label>Artist Type</rdfs:label>
+        <rdfs:comment>Type of an Artist, e.g. person or group.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#ArtistType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#releaseStatus -->
+
+    <owl:ObjectProperty rdf:about="http://musicbrainz.org/mm/mm-2.1#releaseStatus">
+        <rdfs:label>Album Release Status</rdfs:label>
+        <rdfs:comment>Release status for an album, e.g. official, bootleg, etc.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#releaseType -->
+
+    <owl:ObjectProperty rdf:about="http://musicbrainz.org/mm/mm-2.1#releaseType">
+        <rdfs:label>Album Release Type</rdfs:label>
+        <rdfs:comment>Release status for an album, e.g. official, bootleg, etc.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#trackList -->
+
+    <owl:ObjectProperty rdf:about="http://musicbrainz.org/mm/mm-2.1#trackList">
+        <rdfs:label>Album Tracklist</rdfs:label>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Album"/>
+        <rdfs:range rdf:resource="&rdf;rdf:Seq"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#beginDate -->
+
+    <owl:DatatypeProperty rdf:about="http://musicbrainz.org/mm/mm-2.1#beginDate">
+        <rdfs:label>Begin Date</rdfs:label>
+        <rdfs:comment>
+      The date of birth of an artist or the date of formation of a group
+      Also used for the begin of a relationship between two artists (e.g. ar:memberOfBand).
+      </rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#duration -->
+
+    <owl:DatatypeProperty rdf:about="http://musicbrainz.org/mm/mm-2.1#duration">
+        <rdfs:label>Duration</rdfs:label>
+        <rdfs:comment>Duration of a track. In milliseconds</rdfs:comment>
+        <rdfs:domain rdf:resource="http://musicbrainz.org/mm/mm-2.1#Track"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#endDate -->
+
+    <owl:DatatypeProperty rdf:about="http://musicbrainz.org/mm/mm-2.1#endDate">
+        <rdfs:label>End Date</rdfs:label>
+        <rdfs:comment>
+        The date of death of an artist or the date a group dissolved
+        Also used for the end of a relationship between two artists (e.g. ar:memberOfBand).
+    </rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#Album -->
+
+    <owl:Class rdf:about="http://musicbrainz.org/mm/mm-2.1#Album">
+        <rdfs:label>Album</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&wordnet;AudioCD"/>
+        <owl:disjointWith rdf:resource="http://musicbrainz.org/mm/mm-2.1#Artist"/>
+        <owl:disjointWith rdf:resource="http://musicbrainz.org/mm/mm-2.1#Track"/>
+        <rdfs:comment>A compact disk. This is a generic term which applies not only to actual albums but also 
+    CD singles, EPs, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#Artist -->
+
+    <owl:Class rdf:about="http://musicbrainz.org/mm/mm-2.1#Artist">
+        <rdfs:label>Artist</rdfs:label>
+        <owl:disjointWith rdf:resource="http://musicbrainz.org/mm/mm-2.1#Track"/>
+        <rdfs:comment>An artist. This is a generic term which is applied to solo articles, groups, and also &quot;various artists&quot;. 
+    The Musicbrainz II database schema will refine the model to further distinguish between artists/band members and 
+    groups.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#ArtistType -->
+
+    <owl:Class rdf:about="http://musicbrainz.org/mm/mm-2.1#ArtistType">
+        <rdfs:label>Artist Type</rdfs:label>
+        <rdfs:comment>
+        There are two sub-classes of this type that explicitly define whether the artist is a person or a group.
+    </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#Status -->
+
+    <owl:Class rdf:about="http://musicbrainz.org/mm/mm-2.1#Status">
+        <rdfs:label>Status Type</rdfs:label>
+        <rdfs:comment>Album release status. There are several sub-classes of this type that explicitly define all of the 
+    statuses that MusicBrainz currently understands.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#Track -->
+
+    <owl:Class rdf:about="http://musicbrainz.org/mm/mm-2.1#Track">
+        <rdfs:label>Track</rdfs:label>
+        <rdfs:comment>A track on a compact disk. The term is not limited to simply music as it could cover a spoken word 
+    track, an audio book, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#Type -->
+
+    <owl:Class rdf:about="http://musicbrainz.org/mm/mm-2.1#Type">
+        <rdfs:label>Release Type</rdfs:label>
+        <rdfs:comment>A type of Album release. There are several sub-classes of this type that explicitly define all of the 
+    release types that MusicBrainz currently understands.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#rdf:Seq -->
+
+    <owl:Class rdf:about="&rdf;rdf:Seq"/>
+    
+
+
+    <!-- http://xmlns.com/wordnet/1.6/AudioCD -->
+
+    <owl:Class rdf:about="&wordnet;AudioCD"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#StatusBootleg -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#StatusBootleg">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#StatusOfficial -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#StatusOfficial">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#StatusPromotion -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#StatusPromotion">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeAlbum -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeAlbum">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Album</rdfs:label>
+        <rdfs:comment>A collection of tracks from the same Artist (solo artist or group)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeAudiobook -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeAudiobook">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Audiobook</rdfs:label>
+        <rdfs:comment>An audiobook</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeCompilation -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeCompilation">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Compilation</rdfs:label>
+        <rdfs:comment>A collection of tracks from several artists</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeEP -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeEP">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>EP</rdfs:label>
+        <rdfs:comment>&quot;Extended Play&quot; format CD</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeGroup -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeGroup">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#ArtistType"/>
+        <rdfs:label>Group</rdfs:label>
+        <rdfs:comment>The artist is a group.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeInterview -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeInterview">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Interview</rdfs:label>
+        <rdfs:comment>An Interview</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeLive -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeLive">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Live Album</rdfs:label>
+        <rdfs:comment>A live performance by an Artist</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeOther -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeOther">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Other</rdfs:label>
+        <rdfs:comment>Other types of album release. Catch-all for anything not covered 
+    by the other types.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypePerson -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypePerson">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#ArtistType"/>
+        <rdfs:label>Person</rdfs:label>
+        <rdfs:comment>The artist is a Person.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeRemix -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeRemix">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Remix album</rdfs:label>
+        <rdfs:comment>An album of remixes, or a remix of an existing album</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeSingle -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeSingle">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>a single</rdfs:label>
+        <rdfs:label>A CD Single</rdfs:label>
+        <rdfs:comment>A CD single, typically contains tracks from a single artist, but not exclusively.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeSoundtrack -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeSoundtrack">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Soundtrack</rdfs:label>
+        <rdfs:comment>A soundtrack album, e.g. for a film, TV show, play, etc</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://musicbrainz.org/mm/mm-2.1#TypeSpokenword -->
+
+    <owl:NamedIndividual rdf:about="http://musicbrainz.org/mm/mm-2.1#TypeSpokenword">
+        <rdf:type rdf:resource="http://musicbrainz.org/mm/mm-2.1#Type"/>
+        <rdfs:label>Spokenword</rdfs:label>
+        <rdfs:comment>A spoken word album. Note that this is distinct from AudioBook and Interview 
+    both of which have their own release types.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.sc.cit-ec.uni-bielefeld.de/ontologies/musicbrainz#tag">
+        <rdfs:label>Tag</rdfs:label>
+        <rdfs:comment>Contains the music brainz tag (in most cases the genre of an album) as a literal. i.e. rock, classical, ...</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

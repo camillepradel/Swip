@@ -1,0 +1,261 @@
+/* 
+    Document   : newcss
+    Created on : Aug 22, 2011, 1:43:34 PM
+    Author     : anna
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.search-results a {
+                     color:#555;     
+/*                   color:  #000000  ;              */
+/*                   color: #385F95;*/
+                   font:bold 13px tahoma, arial, helvetica, sans-serif;
+                   text-decoration:none;
+                  
+                   border-style: none;
+                   white-space:normal;
+   
+                   
+               }
+.search-results h3 {
+                   display:block;
+                   font:inherit;
+                   font-weight:bold;
+/*                   color:  #000000  ;  */
+/*                   color:#385F95;*/
+                     color:#555;  
+                   font-size: 13px;
+
+                   margin-top: 3px;
+                }
+                   
+                
+.search-results  h3 span {
+/*                   color:  #000000  ;  */
+/*                   color: #385F95;*/
+                   color:#555;
+                   float: right;
+                   font-weight:bold;
+                   margin:0 0 5px 5px;
+                   width:100px;
+                   display:block;
+                   clear:none;
+                }
+              
+               
+.search-results a:link {
+                            text-decoration:none;
+                        }    /* unvisited link */
+.search-results a:visited {
+                            text-decoration:none;
+                            color: #15428B;
+                            } /* visited link */
+.search-results a:hover {
+                            text-decoration:none;
+                            color: #000000;
+                            
+                        }   /* mouse over link */
+.search-results a:active {
+                            text-decoration:none;
+                            color: #000000;
+                         }
+               
+.search-results p {
+                   margin:3px !important;
+               }
+                   
+.search-item {
+                   font:normal 11px tahoma, arial, helvetica, sans-serif;
+                   /*                   padding:3px 10px 3px 10px;*/
+                   margin-top: 3px;
+                   padding-left: 10px;
+                   border-style: none;
+                   white-space:normal;
+                   color:#555;
+               }
+                        
+.search-item-selected {
+    font-weight: bold; 
+    color: #15428B;
+    border: 1px dotted #A3BAE9;
+}
+
+
+.search-item-hover {
+    background-color: #eee;
+}                        
+                        
+.search-item h3 {
+                   display:block;
+                   font:inherit;
+                   font-weight:bold;
+                   color:#222;
+                   border-style: none;
+               }
+.search-item h4 {
+                   display:block;
+                   font:normal 11px tahoma, arial, helvetica, sans-serif;
+                   font-weight:bold;
+                   color: #385F95;
+                   border-style: none;
+                 
+               }
+
+                   
+.search-item h3 span {
+                   color: #385F95;
+                   float: right;
+                   font-weight:bold;
+                   margin:0 0 5px 5px;
+                   display:block;
+                   clear:none;
+                   border-style: none;
+               }
+                   
+
+
+               
+               
+.search-item-combo {
+                   font:normal 13px tahoma, arial, helvetica, sans-serif;
+                   margin-top: 3px;
+                   border-style: none;
+                   white-space:normal;
+                   color:#555;
+               }
+
+.search-item-combo h3 {
+                   display:block;
+                   font:inherit;
+                   color:#222;
+                   border-style: none;
+               }
+
+
+
+
+.search-item-combo h3 span {
+                   color: #385F95;
+                   float: right;
+                   margin:0 0 5px 5px;
+                   display:block;
+                   clear:none;
+                   border-style: none;
+               }               
+               
+ #matching-class {
+     background-image: url(../images/classMulticolor.png);
+/*       background-image: url(../images/class.png);*/
+     background-repeat: no-repeat;
+     padding-left: 50px;
+}              
+ #matching-instance {
+     background-image: url(../images/instanceMulticolor.png);
+/*         background-image: url(../images/instance.png);*/
+     background-repeat: no-repeat;
+     padding-left: 50px;
+}  
+ #matching-property {
+     background-image: url(../images/propertyMulticolor.png);
+/*      background-image: url(../images/property.png);*/
+     background-repeat: no-repeat;
+     padding-left: 50px;
+}
+
+#mapping-info {
+     background-image: url(../images/info.png);
+     background-repeat: no-repeat;
+/*     display:block;*/
+     font:normal 13px tahoma, arial, helvetica, sans-serif;
+/*     font-weight:bold;*/
+     color: #385F95;
+     padding-left: 20px;
+   
+  
+}
+
+.app-header {
+    color: #596F8F;
+    font-size: 22px;
+    font-weight: 200;
+    padding: 8px 40px;
+    text-shadow: 0 1px 0 #fff;
+    background-image:url(../images/beta.png);
+    background-repeat: no-repeat;
+    
+    
+}
+
+.settings {
+     background-image:url(../images/settings.png);
+}
+.validate {
+     background-image:url(../images/accept.png);
+}
+.copyright {
+     background-image:url(../images/transparent.png) !important;
+}
+
+.field-label{
+                   font-weight:bold;
+                   color:#385F95;
+                   font-size: 13px;
+
+ }
+.tabs-icon {
+     background-image:url(../images/tabs.gif);
+}
+
+.x-selectable, .x-selectable * {
+		-moz-user-select: text!important;
+		-khtml-user-select: text!important;
+	}
+        
+.x-grid-row td,
+.x-grid-summary-row td,
+.x-grid-cell-text,
+.x-grid-hd-text,
+.x-grid-hd,
+.x-grid-row
+{
+    -moz-user-select: inherit;
+    -khtml-user-select: text;
+    -webkit-user-select: text;
+}
+               
+.x-form-clear-trigger {
+                   background-image: url(../images/clear-trigger.gif);
+               }
+                   
+.x-form-search-trigger {
+                   background-image: url(../images/search-trigger.gif);
+               }
+.x-tab-tabmenu-right {
+    background: transparent url('../images/tab-scroller-menu.gif') no-repeat 0 0;
+    width:18px;
+    height: 20px;
+    cursor:pointer;
+    zoom: 1;
+    z-index: 6;
+    float: right;
+}
+.x-tab-tabmenu-over {
+    background-position: -18px 0;
+}
+.x-tab-tabmenu-disabled {
+    background-position: 0 0;
+    opacity:.5;
+    -moz-opacity:.5;
+    filter:alpha(opacity=50);
+    cursor:default;
+}
