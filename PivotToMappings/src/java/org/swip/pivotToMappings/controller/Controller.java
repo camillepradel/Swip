@@ -35,6 +35,8 @@ import org.swip.pivotToMappings.sparql.SparqlServer;
 
 public class Controller {
 
+    // vive les loutres!
+    
     private static final Logger logger = Logger.getLogger(Controller.class);
     static final boolean remote = true;
     static Controller staticController = null;
