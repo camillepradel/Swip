@@ -35,7 +35,7 @@ import org.swip.pivotToMappings.sparql.SparqlServer;
 
 public class Controller {
 
-    // vive les loutres!
+    // vive les loutres! *2 plus plus pour essayer
     
     private static final Logger logger = Logger.getLogger(Controller.class);
     static final boolean remote = true;
