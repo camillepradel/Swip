@@ -15,7 +15,9 @@ import java.util.Scanner;
 public class NlToPivotPreParser 
 {
     
-    private static String tokensPreParser = "/Users/Murloc/Documents/IRIT/svn/swip/NlToPivot/resources/preParser/";
+    //private static String tokensPreParser = "/Users/Murloc/Documents/IRIT/svn/swip/NlToPivot/resources/preParser/";
+    
+    private static String tokensPreParser = "../../ressources/preParser";
     
     private boolean startMaximum = false;
     private boolean startMinimum = false;
@@ -42,71 +44,71 @@ public class NlToPivotPreParser
         //System.out.println("PreParser : "+this.query);
         
         
-        File f = new File(NlToPivotPreParser.tokensPreParser+"list");
+        File f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"list").getPath());
         this.parseToken(f, "", true);
         
         if(!aggBeginFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"count");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"count").getPath());
             aggBeginFound = this.count = this.parseToken(f, "", true);
         }
         
         if(!aggBeginFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"maximum");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"maximum").getPath());
             aggBeginFound = this.startMaximum = this.parseToken(f, "", true);
         }
         
         if(!aggBeginFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"minimum");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"minimum").getPath());
             aggBeginFound = this.startMinimum = this.parseToken(f, "", true);
         }
         
         if(!aggBeginFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"average");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"average").getPath());
             aggBeginFound = this.startAverage = this.parseToken(f, "", true);
         }
         
         if(!aggBeginFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"sum");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"sum").getPath());
             aggBeginFound = this.startSum = this.parseToken(f, "", true);
         }
         
         if(!aggFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"maximum");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"maximum").getPath());
             aggFound = this.maximum = this.parseToken(f, "");
         }
         
         if(!aggFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"minimum");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"minimum").getPath());
             aggFound = this.minimum = this.parseToken(f, "");
         }
         
         if(!aggFound)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"average");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"average").getPath());
             aggFound = this.average = this.parseToken(f, "");
         }
         
-        f = new File(NlToPivotPreParser.tokensPreParser+"moreThan");
+        f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"moreThan").getPath());
         this.moreThan = this.parseToken(f, "");
 
         if(!this.moreThan)
         {
-            f = new File(NlToPivotPreParser.tokensPreParser+"lessThan");
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"lessThan").getPath());
             this.lessThan = this.parseToken(f, "");
         }
         
         
-        f = new File(NlToPivotPreParser.tokensPreParser+"with");
+        f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"with").getPath());
         this.parseToken(f, "with");
         
-        f = new File(NlToPivotPreParser.tokensPreParser+"stopList");
+        f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"stopList").getPath());
         this.parseToken(f, "");
     }
     
