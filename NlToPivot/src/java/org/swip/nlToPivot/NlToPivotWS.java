@@ -106,9 +106,7 @@ public class NlToPivotWS {
             
         logger.info("Generated pivot query: " + pivotQuery);
         
-        //pivotQuery = pivotQuery.replaceAll("\s+[:;()<>=", "");
-        
-        pivotQuery = pivotQuery.replaceAll(" ", "");
+        pivotQuery = pivotQuery.replaceAll("\s+[:;()<>=", "");
         
         return pivotQuery;
     }
