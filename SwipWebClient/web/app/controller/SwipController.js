@@ -43,7 +43,6 @@ Ext.define('SWIP.controller.SwipController', {
         this.control({
             'mappingrid': {
                 itemdblclick: this.viewSearchResult
-            // checkchange: this.editResult
             },
             'mappingrid checkcolumn': {
                 checkchange: this.editResult
@@ -232,49 +231,12 @@ Ext.define('SWIP.controller.SwipController', {
     },
   
   
-    validateResult: function(){
-        //this.getMappingsStore().sync(); 
+    validateResult: function(){ 
     },
     editResult: function(column, recordIndex, checked){
          
         console.log('validate? ' +recordIndex+ '  '+checked);
-        //       this.getMappingsStore().store.getAt(recordIndex).set('validate',checked);
         console.log('validate value ' + this.getMappingsStore().getAt(recordIndex).get('validate'));
-//        this.getMappingsStore().getAt(recordIndex).save({
-//            success: function() {
-//            console.log('The Validate was updated');
-//        }
-//       });
-           model =  this.getMappingsStore().getAt(recordIndex);
-//           Ext.Ajax.request({
-//           url: 'resources/swip/reponse',
-//           method: 'POST',
-//             params: {
-//              id: '1',
-//              relevanceMark: '2',
-//              descriptiveSentence: 'descriptiveSentence',
-//              sparqlQuery: 'sparqlQuery',
-//              mappingDescription: 'mappingDescription',
-//              validate: '1'
-//              }
-// params: {
-//  id: model.get('id'),
-//  relevanceMark: model.get('relevanceMark'),
-//  descriptiveSentence: model.get('descriptiveSentence'),
-//  sparqlQuery: model.get('sparqlQuery'),
-//  mappingDescription: model.get('mappingDescription'),
-//  validate: model.get('validate')
-//  }
-//        })
-          // this.getValidMappingsStore().add(model);
-          // this.getValidMappingsStore().load();
-    //       model.set('validate',checked);
-     //   this.getValidMappingsStore().sync(); 
-    //   user.save({
-//    success: function() {
-//        console.log('The User was updated');
-//    }
- 
-
+        model =  this.getMappingsStore().getAt(recordIndex);
   }
 });

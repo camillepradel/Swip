@@ -20,10 +20,7 @@ Ext.define('SWIP.store.Mappings', {
         type: 'rest',
         api: {
             read    : '/SwipWorkflow/resources/mappings/{plquery}'
-        //   update  : 'resources/swip/mappings/plquery/{id}'
-        //            
-        }, 
-        //        url: 'resources/swip/mappings/{plquery}',    
+        },
 
         headers: {
             'Content-type': 'application/json'
@@ -35,30 +32,22 @@ Ext.define('SWIP.store.Mappings', {
         },
         
         [
-        //        {
-        //            name: 'id'
-        //        },
-        {
-            name: 'sparqlQuery'
-        },
-        {
-            name: 'descriptiveSentence'
-        },
-        {
-            name: 'mappingDescription'
-        },
-        {
-            name: 'relevanceMark'
-        },
-        {
-            name: 'validate'
-        }
+            {
+                name: 'sparqlQuery'
+            },
+            {
+                name: 'descriptiveSentence'
+            },
+            {
+                name: 'mappingDescription'
+            },
+            {
+                name: 'relevanceMark'
+            },
+            {
+                name: 'validate'
+            }
         ])
-    //        writer: new Ext.data.JsonWriter({
-    //            writeAllFields: true,
-    //             encode: true
-    //       
-    //        })
         
     },
     constructor : function() {
