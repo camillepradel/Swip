@@ -29,8 +29,8 @@
     </target>
     <target name="wsimport-client-NlToPivotWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/NlToPivotWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NlToPivotWS" destdir="${build.generated.dir}/jax-wsCache/NlToPivotWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotWS/wsdl/swipserver_8080/NlToPivot/NlToPivotWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://swipserver:8080/NlToPivot/NlToPivotWS?wsdl" xnocompile="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotWS/wsdl/swipserver_8080/NlToPivot/NlToPivotWS.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NlToPivotWS" destdir="${build.generated.dir}/jax-wsCache/NlToPivotWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotWS/wsdl/localhost_8080/NlToPivot/NlToPivotWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/NlToPivot/NlToPivotWS?wsdl" xnocompile="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotWS/wsdl/localhost_8080/NlToPivot/NlToPivotWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/NlToPivotWS"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
@@ -45,8 +45,8 @@
     </target>
     <target name="wsimport-client-PivotToMappingsWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/PivotToMappingsWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PivotToMappingsWS" destdir="${build.generated.dir}/jax-wsCache/PivotToMappingsWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PivotToMappingsWS/wsdl/swipserver_8080/PivotToMappings/PivotToMappingsWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://swipserver:8080/PivotToMappings/PivotToMappingsWS?wsdl" xnocompile="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PivotToMappingsWS/wsdl/swipserver_8080/PivotToMappings/PivotToMappingsWS.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PivotToMappingsWS" destdir="${build.generated.dir}/jax-wsCache/PivotToMappingsWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PivotToMappingsWS/wsdl/localhost_8080/PivotToMappings/PivotToMappingsWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/PivotToMappings/PivotToMappingsWS?wsdl" xnocompile="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PivotToMappingsWS/wsdl/localhost_8080/PivotToMappings/PivotToMappingsWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/PivotToMappingsWS"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">

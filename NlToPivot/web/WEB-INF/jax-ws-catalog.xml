@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://swipserver:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl" uri="conf/xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/swipserver_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl"/>
-    <system systemId="http://swipserver:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?xsd=1" uri="conf/xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/swipserver_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl" uri="wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl"/>
+    <system systemId="http://localhost:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?xsd=1" uri="wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl" uri="wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl"/>
+    <system systemId="http://localhost:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?xsd=1" uri="wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.xsd_1.xsd"/>
 </catalog>

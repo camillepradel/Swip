@@ -4,4 +4,8 @@
     <system systemId="http://swipserver:8080/PivotToMappings/PivotToMappingsWS?xsd=1" uri="wsdl/swipserver_8080/PivotToMappings/PivotToMappingsWS.xsd_1.xsd"/>
     <system systemId="http://swipserver:8080/NlToPivot/NlToPivotWS?wsdl" uri="wsdl/swipserver_8080/NlToPivot/NlToPivotWS.wsdl"/>
     <system systemId="http://swipserver:8080/NlToPivot/NlToPivotWS?xsd=1" uri="wsdl/swipserver_8080/NlToPivot/NlToPivotWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/NlToPivot/NlToPivotWS?wsdl" uri="wsdl/localhost_8080/NlToPivot/NlToPivotWS.wsdl"/>
+    <system systemId="http://localhost:8080/NlToPivot/NlToPivotWS?xsd=1" uri="wsdl/localhost_8080/NlToPivot/NlToPivotWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PivotToMappings/PivotToMappingsWS?wsdl" uri="wsdl/localhost_8080/PivotToMappings/PivotToMappingsWS.wsdl"/>
+    <system systemId="http://localhost:8080/PivotToMappings/PivotToMappingsWS?xsd=1" uri="wsdl/localhost_8080/PivotToMappings/PivotToMappingsWS.xsd_1.xsd"/>
 </catalog>

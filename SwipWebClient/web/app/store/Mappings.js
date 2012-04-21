@@ -29,8 +29,8 @@ Ext.define('SWIP.store.Mappings', {
             'Content-type': 'application/json'
         },
         reader: new Ext.data.JsonReader({
-            root:'queryInterpretation',
-            totalProperty: 'total',
+            root:'result',
+            totalProperty:'totalCount',
             successProperty: 'success'
         },
         

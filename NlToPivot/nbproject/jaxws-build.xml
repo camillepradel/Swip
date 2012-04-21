@@ -46,8 +46,8 @@
     </target>
     <target name="wsimport-client-NlToPivotGatePipelineWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" destdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/swipserver_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://swipserver:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl" xnocompile="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/swipserver_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" destdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl" xnocompile="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">

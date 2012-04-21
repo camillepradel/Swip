@@ -4,6 +4,7 @@
  */
 package org.swip.pivotToMappings;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import javax.jws.WebService;
@@ -116,7 +117,9 @@ public class PivotToMappingsWS {
      */
     @WebMethod(operationName = "generateBestMappings")
     public java.util.List<org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping> generateBestMappings(@WebParam(name = "pivotQueryString") String pivotQueryString, @WebParam(name = "numMappings") int numMappings) {
-        return Controller.getInstance().getBestMappings(pivotQueryString, numMappings);
+        List ret = Controller.getInstance().getBestMappings(pivotQueryString, numMappings);
+        Collections.reverse(ret);
+        return ret;
     }
 
     /**

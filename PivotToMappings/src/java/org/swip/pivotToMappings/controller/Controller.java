@@ -80,7 +80,7 @@ public class Controller {
         logger.info("----------------------\n");
         long time = System.currentTimeMillis();
         if (remote) {
-            this.sparqlServer = new RemoteSparqlServer("http://swipserver:2020/music");
+            this.sparqlServer = new RemoteSparqlServer("http://localhost:2020/music");
         } else {
             List<String> uris = new LinkedList<String>();
             uris.add("D:/QALDworkshop/musicbrainz/musicbrainz.owl");
