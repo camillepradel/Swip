@@ -12,9 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import org.codehaus.jettison.json.JSONArray;
 import org.json.JSONObject;
-import org.swip.workflow.model.QueryInterpretation;
 
 /**
  *
@@ -25,43 +23,19 @@ public class SwipResource {
 
     public SwipResource() {
     }
-
-    /*@GET
-    @Produces({MediaType.APPLICATION_JSON})
-    @Path("{plquery}")
-    public List<QueryInterpretation> processQuery(
-            @QueryParam("plquery") @DefaultValue("") String plquery) {
-//        List<QueryInterpretation> queryResults = new ArrayList<QueryInterpretation>();
-//        queryResults.add(new QueryInterpretation("0.75",
-//                                "sentence2", "sparql query2", "mapping description2", 0));
-//        return queryResults;
-
-        // NL to pivot query
-//        String pivotQuery = plquery;
-        String pivotQuery = translateQuery(plquery);
-
-        // pivot to formal query
-        List<QueryInterpretation> queryResults = null;
-        if (!pivotQuery.equals("")) {
-            List<org.swip.pivottomappings.PatternToQueryMapping> ptqms = generateBestMappings(pivotQuery, 50);
-
-            if (ptqms != null) {
-                queryResults = new ArrayList<QueryInterpretation>();
-                for (org.swip.pivottomappings.PatternToQueryMapping ptqm : ptqms) {
-                    queryResults.add(new QueryInterpretation(String.valueOf(ptqm.getRelevanceMark()),
-                            ptqm.getSentence(), ptqm.getSparqlQuery(), ptqm.getStringDescription(), 0));
-                }
-                return queryResults;
-            }
-        }
-        
-        return queryResults;
-    }*/
     
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("{plquery}")
-    public String processQuery(@QueryParam("plquery") @DefaultValue("") String plquery) {
+    public String processQuery(
+            @QueryParam("plquery") @DefaultValue("") String plquery,
+            @QueryParam("start") @DefaultValue("") String strStart,
+            @QueryParam("limit") @DefaultValue("") String limit) {
+        
+        int providedResults = Integer.parseInt(limit);
+        int start = Integer.parseInt(strStart);
+        int totalResults = 0;
+        int maxResults = 50;
         
         String pivotQuery = translateQuery(plquery);
        
@@ -71,23 +45,30 @@ public class SwipResource {
         // pivot to formal query
         
         if (!pivotQuery.equals("")) {
-            List<org.swip.pivottomappings.PatternToQueryMapping> ptqms = generateBestMappings(pivotQuery, 25);
-
+            List<org.swip.pivottomappings.PatternToQueryMapping> ptqms = generateBestMappings(pivotQuery, maxResults);
+        
             if (ptqms != null) {
-                for (org.swip.pivottomappings.PatternToQueryMapping ptqm : ptqms) {
-                    JSONObject query = new JSONObject();
-                    query.put("descriptiveSentence", ptqm.getSentence());
-                    query.put("mappingDescription", ptqm.getStringDescription());
-                    query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
-                    query.put("sparqlQuery", ptqm.getSparqlQuery());
-                    query.put("validate", 0);
-                    
-                    queryResults.add(query);
+                totalResults = ptqms.size();
+                
+                int i = 0;
+                while(i < totalResults) {
+                    if(i >= start && i < start + providedResults) {
+                        org.swip.pivottomappings.PatternToQueryMapping ptqm = ptqms.get(i);
+                        
+                        JSONObject query = new JSONObject();
+                        query.put("descriptiveSentence", ptqm.getSentence());
+                        query.put("mappingDescription", ptqm.getStringDescription());
+                        query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
+                        query.put("sparqlQuery", ptqm.getSparqlQuery());
+                        query.put("validate", 0);
+
+                        queryResults.add(query);
+                    }
+                    i++;
                 }
                 
-                //JSONArray queryResultsJson = new JSONArray(queryResults);
                 response.put("result", queryResults);
-                response.put("totalCount", 200);
+                response.put("totalCount", totalResults);
                 
                 return response.toString();
             }
