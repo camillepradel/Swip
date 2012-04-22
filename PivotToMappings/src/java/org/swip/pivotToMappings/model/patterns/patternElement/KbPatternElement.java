@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.exceptions.PatternsParsingException;
+import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
@@ -150,17 +151,17 @@ public abstract class KbPatternElement extends PatternElement {
         }
     }
 
-    public void addKbMapping(QueryElement qe, float trustMark, String firstlyMatched, String bestLabel, ElementMapping impliedBy) {
+    public void addKbMapping(QueryElement qe, float trustMark, String firstlyMatched, String bestLabel, ElementMapping impliedBy, KbTypeEnum kbType) {
         for (ElementMapping em : Controller.getInstance().getElementMappingsForPatternElement(this)) {
             KbElementMapping kbem = (KbElementMapping)em;
             if (kbem.getQueryElement() == qe && kbem.getFirstlyMatchedOntResourceUri().equals(firstlyMatched)) {
                 if (trustMark > kbem.getTrustMark()) {
-                    kbem.changeValues(trustMark, bestLabel);
+                    kbem.changeValues(trustMark, bestLabel, kbType);
                 }
                 return;
             }
         }
-        Controller.getInstance().addElementMappingForPatternElement(new KbElementMapping(this, qe, trustMark, firstlyMatched, bestLabel, impliedBy), this);
+        Controller.getInstance().addElementMappingForPatternElement(new KbElementMapping(this, qe, trustMark, firstlyMatched, bestLabel, impliedBy, kbType), this);
     }
 
     @Override

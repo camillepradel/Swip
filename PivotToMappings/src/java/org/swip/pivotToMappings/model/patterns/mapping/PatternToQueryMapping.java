@@ -433,7 +433,15 @@ public class PatternToQueryMapping {
         for (ElementMapping em : this.getElementMappings()) {
             QueryElement qe = em.queryElement;
             String queried = qe.isQueried() ? "?" : "";
-            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
+            String kbtype = "None";
+            if(em instanceof KbElementMapping) {
+                KbElementMapping kbem = (KbElementMapping) em;
+                if(kbem.isClass()) kbtype = "(C)";
+                else if(kbem.isInd()) kbtype = "(I)";
+                else if(kbem.isProp()) kbtype = "(P)";
+                else kbtype = "(WTF)";
+            }
+            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried + kbtype);
             replacedPatternElements.add(em.patternElement);
         }
         for (PatternElement pe : Controller.getInstance().getPatternElementsForPattern(this.pattern)) {

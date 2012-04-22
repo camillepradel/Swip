@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.swip.pivotToMappings.controller.Controller;
+import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
@@ -158,7 +159,7 @@ public class PatternTriple extends Subpattern {
                 for (PatternElement elementToMap : elementsToMap) {
                     if (elementToMap instanceof KbPatternElement) {
                         KbPatternElement kbe = (KbPatternElement) elementToMap;
-                        kbe.addKbMapping(em2.getQueryElement(), em2.getTrustMark(), kbe.getUri(), serv.getALabel(kbe.getUri()), em2);
+                        kbe.addKbMapping(em2.getQueryElement(), em2.getTrustMark(), kbe.getUri(), serv.getALabel(kbe.getUri()), em2, KbTypeEnum.CLASS);
                     } else if (elementToMap instanceof LiteralPatternElement) {
                         LiteralPatternElement le = (LiteralPatternElement) elementToMap;
                         le.addLiteralMapping(em2.getQueryElement(), em2.getTrustMark(), em2);

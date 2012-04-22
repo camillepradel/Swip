@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 import org.apache.log4j.Logger;
+import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.patternElement.KbPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
@@ -142,10 +143,14 @@ public class Keyword extends QueryElement {
 
             if (isIndividual) {
                 for (String type : types) {
-                    this.addMatch(type, bestTrustMark, uri, bestLabel, true, matches);
+                    this.addMatch(type, bestTrustMark, uri, bestLabel, true, matches, KbTypeEnum.IND);
                 }
+            } else if(isClass) {
+                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.CLASS);
+            } else if(isProperty) {
+                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.PROP);
             } else {
-                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches);
+                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.NONE);
                 // if query element matches a property and has not a property role in query,
                 // we add a mapping from the property's range to that query element, with the same trust mark
 //                if (isProperty && !this.roles.usedAsProperty()) {
@@ -164,26 +169,13 @@ public class Keyword extends QueryElement {
         map(matches, serv);
 
         long time2 = System.currentTimeMillis();
-        logger.info("time: " + (double) (time2 - time) / 1000. + "s to match keyword " + this.keywordValue + "\n");
-    }
-    
-    public boolean isClass() {
-        return false;
-    }
-    
-    public boolean isIndividual() {
-        return false;
-    }
-    
-    public boolean isProperty() {
-        return false;
+       logger.info("time: " + (double) (time2 - time) / 1000. + "s to match keyword " + this.keywordValue + "\n");
     }
 
-
-    void addMatch(String resourceUri, float trustMark, String firstlyMatched, String label, boolean checkMappingCondition, PriorityQueue<Match> matches) {
+    void addMatch(String resourceUri, float trustMark, String firstlyMatched, String label, boolean checkMappingCondition, PriorityQueue<Match> matches, KbTypeEnum kbType) {
         final int maxNumMatches = 50;
         if (matches.size() < maxNumMatches || trustMark > matches.peek().trustMark || trustMark >= 1.0) {
-            matches.add(new Match(resourceUri, trustMark, firstlyMatched, label, checkMappingCondition));
+            matches.add(new Match(resourceUri, trustMark, firstlyMatched, label, checkMappingCondition, kbType));
             if (matches.size() > maxNumMatches && matches.peek().trustMark < 1.0) {
                 matches.poll();
             }
@@ -204,7 +196,7 @@ public class Keyword extends QueryElement {
                         float mapTrustMark = match.trustMark * pem.getTrustMarkFactor();
                         PatternElement pe = pem.getPatternElement();
                         if (pe instanceof KbPatternElement) {
-                            ((KbPatternElement) pe).addKbMapping(this, mapTrustMark, match.firstlyMatched, match.label, null);
+                            ((KbPatternElement) pe).addKbMapping(this, mapTrustMark, match.firstlyMatched, match.label, null, match.kbType);
                         } else if (pe instanceof LiteralPatternElement) {
                             ((LiteralPatternElement) pe).addLiteralMapping(this, mapTrustMark, null);
                         }
@@ -221,13 +213,15 @@ public class Keyword extends QueryElement {
         String firstlyMatched = null;
         String label = null;
         boolean checkMappingCondition;
+        KbTypeEnum kbType;
 
-        public Match(String resourceUri, float trustMark, String firstlyMatched, String label, boolean checkMappingCondition) {
+        public Match(String resourceUri, float trustMark, String firstlyMatched, String label, boolean checkMappingCondition, KbTypeEnum kbType) {
             this.resourceUri = resourceUri;
             this.trustMark = trustMark;
             this.firstlyMatched = firstlyMatched;
             this.label = label;
             this.checkMappingCondition = checkMappingCondition;
+            this.kbType = kbType;
         }
 
         public int compareTo(Match o) {

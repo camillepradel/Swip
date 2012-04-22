@@ -238,24 +238,6 @@ public class Controller {
                     
                     // Generalization
                     
-                    for(ElementMapping eltMap : nextBestMapping.getElementMappings()) {
-                        if(eltMap instanceof KbElementMapping) {
-                            KbElementMapping kbEltMap = (KbElementMapping) eltMap;
-                            QueryElement qeEltMap = kbEltMap.getQueryElement();
-                            if(qeEltMap instanceof Keyword) {
-                                Keyword keEltMap = (Keyword) qeEltMap;
-                                if(keEltMap.isClass()) {
-                                    kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Class)");
-                                } else if(keEltMap.isProperty()) {
-                                    kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Prop)");
-                                } else if(keEltMap.isIndividual()) {
-                                    kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Ind)");
-                                }
-                            } else {
-                                kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Noth)");
-                            }
-                        }
-                    }
                     bestMappingsList.add(nextBestMapping);
                     // store the string description of each mapping in order to be able to display it in the client application
                     nextBestMapping.setStringDescription(nextBestMapping.toString());
