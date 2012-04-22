@@ -24,11 +24,14 @@ import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.antlr.patternsDefinitionGrammarLexer;
 import org.swip.pivotToMappings.model.patterns.antlr.patternsDefinitionGrammarParser;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
+import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.query.Query;
 import org.swip.pivotToMappings.model.query.antlr.userQueryGrammarLexer;
 import org.swip.pivotToMappings.model.query.antlr.userQueryGrammarParser;
+import org.swip.pivotToMappings.model.query.queryElement.Keyword;
+import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
 import org.swip.pivotToMappings.sparql.LocalSparqlServer;
 import org.swip.pivotToMappings.sparql.RemoteSparqlServer;
 import org.swip.pivotToMappings.sparql.SparqlServer;
@@ -232,6 +235,27 @@ public class Controller {
                 int numQuery = 1;
                 while (!bestMappingsPQ.isEmpty()) {
                     PatternToQueryMapping nextBestMapping = bestMappingsPQ.poll();
+                    
+                    // Generalization
+                    
+                    for(ElementMapping eltMap : nextBestMapping.getElementMappings()) {
+                        if(eltMap instanceof KbElementMapping) {
+                            KbElementMapping kbEltMap = (KbElementMapping) eltMap;
+                            QueryElement qeEltMap = kbEltMap.getQueryElement();
+                            if(qeEltMap instanceof Keyword) {
+                                Keyword keEltMap = (Keyword) qeEltMap;
+                                if(keEltMap.isClass()) {
+                                    kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Class)");
+                                } else if(keEltMap.isProperty()) {
+                                    kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Prop)");
+                                } else if(keEltMap.isIndividual()) {
+                                    kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Ind)");
+                                }
+                            } else {
+                                kbEltMap.setBestLabel(kbEltMap.getBestLabel() + " (Noth)");
+                            }
+                        }
+                    }
                     bestMappingsList.add(nextBestMapping);
                     // store the string description of each mapping in order to be able to display it in the client application
                     nextBestMapping.setStringDescription(nextBestMapping.toString());
@@ -254,6 +278,7 @@ public class Controller {
                     logger.info(stringToDisplay);
                 }
                 logger.info("Query processed");
+                
                 return bestMappingsList;
             } catch (QueryParsingException ex) {
                 logger.info("An error occured while parsing query: " + pivotQueryString + "\n" + ex.getMessage());

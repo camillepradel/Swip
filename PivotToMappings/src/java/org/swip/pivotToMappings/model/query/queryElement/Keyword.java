@@ -106,10 +106,10 @@ public class Keyword extends QueryElement {
 
             float bestTrustMark = scoresMap.get(uri);
             String bestLabel = labelsMap.get(uri);
-
             boolean isClass = false;
             boolean isIndividual = false;
             boolean isProperty = false;
+
             List<String> types = serv.listTypes(uri);
             if (serv.isClass(types)) {
                 isClass = true;
@@ -165,6 +165,18 @@ public class Keyword extends QueryElement {
 
         long time2 = System.currentTimeMillis();
         logger.info("time: " + (double) (time2 - time) / 1000. + "s to match keyword " + this.keywordValue + "\n");
+    }
+    
+    public boolean isClass() {
+        return false;
+    }
+    
+    public boolean isIndividual() {
+        return false;
+    }
+    
+    public boolean isProperty() {
+        return false;
     }
 
 
