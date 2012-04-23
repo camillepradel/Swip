@@ -439,13 +439,13 @@ public class PatternToQueryMapping {
                 KbElementMapping kbem = (KbElementMapping) em;
                 if(kbem.isClass()) {
                     webClientPre = "<select><option>";
-                    webClientPost = "</option></select>";
+                    webClientPost = "</option><option>CLASS</option></select>";
                 } else if(kbem.isInd()) {
                     webClientPre = "<select><option>";
-                    webClientPost = "</option></select>";
+                    webClientPost = "</option><option>IND</option></select>";
                 } else if(kbem.isProp()) {
                     webClientPre = "<select><option>";
-                    webClientPost = "</option></select>";
+                    webClientPost = "</option><option>PROP</option></select>";
                 }
             }
             
