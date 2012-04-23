@@ -37,16 +37,28 @@ public class Literal extends QueryElement {
     String stringValue = null;
 
     public Literal() {
+        super();
     }
 
     public Literal(String stringType, String stringValue) throws LiteralException {
+        super();
+        if (stringValue.equals("?")) {
+            super.queried = true;
+        }
         this.stringType = stringType;
         this.stringValue = stringValue;
-        if (stringValue.equals("?")) {
-            this.queried = true;
-        }
     }
 
+     public String getVarName()
+    {
+        return "?"+this.stringValue;
+    }
+     
+      public boolean isAggregate()
+    {
+        return false;
+    }
+      
     public static HashMap<String, LiteralTypeElements> getLiteralTypes() {
         return literalTypes;
     }
@@ -82,7 +94,8 @@ public class Literal extends QueryElement {
     public String getStringForSparql(List<String> typeStrings) {
         String result = "";
         if (this.stringType.equals("date") && !this.stringValue.contains("-")) {
-            result = "?literal" + ++(Subpattern.varCount);
+            //result = "?literal" + ++(Subpattern.varCount);
+            result = this.getVarName();
             typeStrings.add("FILTER ( " + result + " <= '" + this.stringValue + "-12-31'^^xsd:date && " + result + " >= '" + this.stringValue + "-01-01'^^xsd:date )");
         } else {
             result = "\"" + this.stringValue + "\"^^xsd:" + this.stringType;
@@ -110,7 +123,8 @@ public class Literal extends QueryElement {
 
     @Override
     public String getStringRepresentation() {
-        return this.stringType + "<" + this.stringValue + ">";
+        //return this.stringType + "<" + this.stringValue + ">";
+        return this.stringValue;
     }
 
     public String getStringValue() {

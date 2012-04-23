@@ -18,12 +18,16 @@ public abstract class QueryElement {
     boolean queried = false;
     QeRoles roles = new QeRoles();
 
+    
+    protected QueryElement()
+    {}
+    
     public void addRole(QeRole role) throws QueryElementException {
         try {
             this.roles.addRole(role);
         } catch (QueryElementException ex) {
             logger.error(ex);
-            throw new QueryElementException("role of \"" + this.getStringRepresentation() + "\" doesn't match with previous occurence(s).\n"
+            throw new QueryElementException("role of \"" + this.toString() + "\" doesn't match with previous occurence(s).\n"
                                 + "change keyword from one or use different id");
         }
     }
@@ -39,4 +43,11 @@ public abstract class QueryElement {
     public abstract void match(SparqlServer server);
 
     public abstract String getStringRepresentation();
+    
+     
+    public abstract String getVarName();
+    
+    public abstract boolean isAggregate();
+    
+    public abstract String getStringValue();
 }

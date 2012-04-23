@@ -20,17 +20,42 @@ public class Keyword extends QueryElement {
 
     int id = 0;
     String keywordValue = null;
+     String aggregat = "";
+    String cond = "";
+    boolean isAggregate = false;
     
     private static final Logger logger = Logger.getLogger(QueryElement.class);
 
     public Keyword() {
+        super();
     }
 
     public Keyword(boolean queried, int id, String keywordValue) {
-        this.queried = queried;
+        super();
+        super.queried = queried;
         this.id = id;
         this.keywordValue = keywordValue;
     }
+    
+    public Keyword(boolean queried, int id, String keywordValue, String aggregat) {
+        super();
+        if(aggregat != null)
+        {
+            super.queried = queried;
+            this.id = id;
+            this.keywordValue = keywordValue;
+            this.aggregat = aggregat;
+            this.isAggregate = true;
+        }
+        else
+        {
+            super.queried = queried;
+            this.id = id;
+            this.keywordValue = keywordValue;
+        }
+        
+    }
+
 
     public int getId() {
         return id;
@@ -44,9 +69,20 @@ public class Keyword extends QueryElement {
         return keywordValue;
     }
 
+    public String getVarName()
+    {
+        return "?"+this.keywordValue;
+    }
+
     public void setKeywordValue(String keywordValue) {
         this.keywordValue = keywordValue;
     }
+    
+    public void setCond(String cond)
+    {
+        this.cond = cond;
+    }
+
 
     public void match(SparqlServer serv) {
         logger.info(this.keywordValue + " matches with: ");
@@ -244,14 +280,47 @@ public class Keyword extends QueryElement {
         stemmer.stem();
         return stemmer.getCurrent();
     }
+    
+    
+    /*
+     * return null if is not an aggregate
+     */
+    public String getAggregate()
+    {
+        String ret = null;
+        if(this.aggregat!=null)
+        {
+            ret = this.aggregat+"("+this.getVarName()+")"+this.cond;
+        }
+        return ret;
+    }
+    
+    public boolean isAggregate()
+    {
+        return this.isAggregate;
+    }
+    
 
     @Override
     public String toString() {
-        return "Keyword{\"" + keywordValue + "\" - queried=" + queried + " - id=" + id + "}";
+        return "Keyword{\"" + keywordValue + "\" - queried=" + queried + " - id=" + id + " - varName = "+this.getVarName()+" - cond = "+this.aggregat+"("+this.getVarName()+")"+this.cond+"}";
     }
 
     @Override
     public String getStringRepresentation() {
-        return (this.queried ? "?" : "") + (this.id > 0 ? "$" + this.id : "") + this.keywordValue;
+        //return (this.queried ? "?" : "") + (this.id > 0 ? "$" + this.id : "") + this.keywordValue;
+        String ret = "";
+        
+        if(this.isAggregate)
+        {
+            ret = " which "+this.aggregat+" "+this.keywordValue+" must be "+this.cond+". ";
+        }
+        
+        return ret;
+    }
+    
+     public String getStringValue()
+    {
+        return this.keywordValue;
     }
 }

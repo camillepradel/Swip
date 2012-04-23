@@ -177,12 +177,12 @@ public class SubpatternCollection extends Subpattern {
         String result = "";
         // TODO: factoriser cette partie avec celle de PatternTriple
         for (ElementMapping pivotElementMapping : pivotElementMappings) {
-                String pivotVarName = null;
+               String pivotVarName = pivotElementMapping.getQueryElement().getVarName();
             if (pivotElementMapping instanceof KbElementMapping) {
                 KbElementMapping pivotKbElementMapping = (KbElementMapping) pivotElementMapping;
                 String firstlyMatchedOntResource = pivotKbElementMapping.getFirstlyMatchedOntResourceUri();
                 if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
-                    pivotVarName = "?var" + ++(Subpattern.varCount);
+                    //pivotVarName = "?var" + ++(Subpattern.varCount);
                     result += "       " + pivotVarName + " rdf:type <" + firstlyMatchedOntResource + ">.\n";
                     if (pivotKbElementMapping.getQueryElement().isQueried()) {
                         selectElements.add(pivotVarName);
@@ -190,24 +190,25 @@ public class SubpatternCollection extends Subpattern {
                 } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
                     pivotVarName = "<" + firstlyMatchedOntResource + ">";
                 } else { // instance
-                    pivotVarName = "?var" + ++(Subpattern.varCount);
+                    //pivotVarName = "?var" + ++(Subpattern.varCount);
                     List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
                     for (String type : types) {
                         result += "       " + pivotVarName + " rdf:type <" + type + ">.\n";
                     }
                     String matchedLabel = ((KbElementMapping) pivotElementMapping).getBestLabel();
-                    result += "       { " + pivotVarName + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
+                    /*result += "       { " + pivotVarName + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
                             + "UNION "
-                            + "{ " + pivotVarName + " rdfs:label \"" + matchedLabel + "\". }\n";
+                            + "{ " + pivotVarName + " rdfs:label \"" + matchedLabel + "\". }\n";*/
+                    result += "       " + pivotVarName + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\". ";
                 }
             } else { // literal
                 if (pivotElementMapping.getQueryElement().isQueried()) {
-                    pivotVarName = "?literal" + ++(Subpattern.varCount);
+                    //pivotVarName = "?literal" + ++(Subpattern.varCount);
                     // TODO: eventuellemnt contraindre le type du literal avec FILTER (datatype...
                     selectElements.add(pivotVarName);
                 } else {
                     List<String> typeStrings = new LinkedList<String>();
-                    pivotVarName = ((Literal) pivotElementMapping.getQueryElement()).getStringForSparql(typeStrings);
+                    pivotVarName =  pivotElementMapping.getQueryElement().getVarName();
                     for (String typeString : typeStrings) {
                         result += typeString;
                     }

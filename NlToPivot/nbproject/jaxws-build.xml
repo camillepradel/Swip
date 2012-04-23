@@ -38,7 +38,7 @@
         <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
         <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
         <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
-            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}"/>
         </taskdef>
         <condition property="conf-dir" value="${conf.dir}/" else="">
             <isset property="conf.dir"/>
@@ -46,7 +46,7 @@
     </target>
     <target name="wsimport-client-NlToPivotGatePipelineWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" destdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl" xnocompile="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" destdir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotGatePipelineWS/wsdl/localhost_8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/NlToPivotGatePipelineWS"/>
         </wsimport>

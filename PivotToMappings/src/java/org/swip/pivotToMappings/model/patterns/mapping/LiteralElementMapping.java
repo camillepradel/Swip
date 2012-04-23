@@ -20,6 +20,6 @@ public class LiteralElementMapping extends ElementMapping {
         if (this.queryElement.isQueried()) {
             return this.patternElement.getDefaultStringForSentence(sparqlServer);
         }
-        return ((Literal)this.queryElement).getStringValue();
+        return this.queryElement.getStringValue();
     }
 }

@@ -1,5 +1,6 @@
 package org.swip.pivotToMappings.model.patterns.mapping;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,6 +16,7 @@ import org.swip.pivotToMappings.model.patterns.subpattern.PatternTriple;
 import org.swip.pivotToMappings.model.patterns.subpattern.Subpattern;
 import org.swip.pivotToMappings.model.patterns.subpattern.SubpatternCollection;
 import org.swip.pivotToMappings.model.query.Query;
+import org.swip.pivotToMappings.model.query.queryElement.Keyword;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
 import org.swip.pivotToMappings.sparql.SparqlServer;
 
@@ -426,6 +428,8 @@ public class PatternToQueryMapping {
 
     private void generateSentence(SparqlServer sparqlServer, Query userQuery) {
         String localSentence = this.getPattern().getSentenceTemplate();
+        String aggregateSentence = "";
+        ArrayList<QueryElement> aggregateProcessed = new ArrayList<QueryElement>();
 
         localSentence = this.getPattern().modifySentence(localSentence, this, sparqlServer);
 
@@ -451,6 +455,12 @@ public class PatternToQueryMapping {
             
             localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + webClientPre + em.getStringForSentence(sparqlServer) + webClientPost + queried);
             replacedPatternElements.add(em.patternElement);
+            
+             if(qe.isAggregate() && !aggregateProcessed.contains(qe))
+            {
+                aggregateSentence += qe.getStringRepresentation();
+                aggregateProcessed.add(qe);
+            }
         }
         for (PatternElement pe : Controller.getInstance().getPatternElementsForPattern(this.pattern)) {
             if (!replacedPatternElements.contains(pe)) {
@@ -460,9 +470,23 @@ public class PatternToQueryMapping {
         if (userQuery.isCount()) {
             localSentence = "NUMBER OF ( " + localSentence + " )";
         }
-        if (userQuery.isAsk()) {
+        else if (userQuery.isAsk()) {
             localSentence = "ASK ( " + localSentence + " )";
         }
+        else if (userQuery.isAvg()) {
+            localSentence = "AVERAGE ( " + localSentence + " )";
+        }
+        else if (userQuery.isMax()) {
+            localSentence = "MAXIMUM ( " + localSentence + " )";
+        }
+        else if (userQuery.isMin()) {
+            localSentence = "MINIMUM ( " + localSentence + " )";
+        }
+        else if (userQuery.isSum()) {
+            localSentence = "SUM ( " + localSentence + " )";
+        }
+        
+        localSentence += aggregateSentence;
         this.sentence = localSentence;
     }
 
@@ -471,22 +495,73 @@ public class PatternToQueryMapping {
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>";
         Set<String> selectElements = new HashSet<String>();
         String where = "";
+        String query = "";
         Map<PatternElement, String> pivotsNames = new HashMap<PatternElement, String>();
         for (Subpattern sp : this.getPattern().getSubpatterns()) {
             where += sp.generateSparqlWhere(this, sparqlServer, pivotsNames, selectElements);
         }
-        String select = "";
-        for (String selectElement : selectElements) {
-            select += selectElement + " ";
+        
+        String aggSelectFormat = "";
+        if (userQuery.isCount()) 
+        {
+            //select = "COUNT(" + select + " AS "+(select.replaceAll("?", "?Nb"))+")";
+            aggSelectFormat = "(COUNT(%s) AS %sNb)";
         }
-        if (userQuery.isCount()) {
-            select = "COUNT(" + select + ")";
+        else if(userQuery.isAvg())
+        {
+            aggSelectFormat = "(AVG(%s) AS %sAvg)";
+        }
+        else if(userQuery.isMax())
+        {
+            aggSelectFormat = "(MAX(%s) AS %sMax)";
+        }
+        else if(userQuery.isMin())
+        {
+            aggSelectFormat = "(MIN(%s) AS %sMin)";
+        }
+        else if(userQuery.isSum())
+        {
+            aggSelectFormat = "SUM(%s) AS %sSum";
+        }
+        else
+            aggSelectFormat = "%s";
+        
+        String select = "";
+        String varsSelect = "";
+        for (String selectElement : selectElements) {
+             varsSelect += selectElement + " ";
+            select += (String.format(aggSelectFormat, selectElement, selectElement))+ " ";
+        }
+         if(select.compareTo("")==0)
+        {
+            varsSelect = "*";
+            select = String.format(aggSelectFormat, "*", "All");
         }
 
         if (userQuery.isAsk()) {
-            this.setSparqlQuery(prefixes + "\nASK {\n" + where + "}\n");
+            //this.setSparqlQuery();
+            query += prefixes + "\nASK {\n" + where + "}\n";
         } else {
-            this.setSparqlQuery(prefixes + "\nSELECT " + select + "\nWHERE {\n" + where + "}\n");
+            //this.setSparqlQuery();
+            query += prefixes + "\nSELECT " + select + "\nWHERE {\n" + where + "}\n";
         }
+        
+        String aggregat = "";
+        boolean isAgg = false;
+        for(QueryElement q : userQuery.getQueryElements())
+        {
+            if(q.isAggregate())
+            {
+                Keyword k = (Keyword)q;
+                aggregat += k.getAggregate();
+                isAgg = true;
+            }
+        }
+        if(isAgg)
+        {
+            query += "GROUPBY "+varsSelect+" \n";
+            query += "HAVING "+aggregat+"\n";
+        }
+        this.setSparqlQuery(query);
     }
 }
