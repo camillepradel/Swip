@@ -57,7 +57,7 @@ Ext.define('SWIP.view.search.MappingGrid', {
         flex: 1,
         xtype: 'templatecolumn',
         renderer: function (value) {
-            return '<a href="#">GAGA'+value+'</a>';
+            return '<a href="#">'+value+'</a>';
         },
 
         tpl: new Ext.XTemplate('<tpl for=".">',

@@ -1,5 +1,7 @@
-*/nbproject/private/*
-*/nbproject/private
-*/nbproject/jax-ws.xml
-*/dist
-*/build
+private
+jax-ws.xml
+dist
+build
+conf
+.DS_Store
+._*
