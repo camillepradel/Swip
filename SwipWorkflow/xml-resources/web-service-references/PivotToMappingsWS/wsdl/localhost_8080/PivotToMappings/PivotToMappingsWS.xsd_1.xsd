@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://pivotToMappings.swip.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://pivotToMappings.swip.org/">
+
+<xs:element name="generateBestMappings" type="tns:generateBestMappings" />
+
+<xs:element name="generateBestMappingsResponse" type="tns:generateBestMappingsResponse" />
+
+<xs:element name="getMatchings" type="tns:getMatchings" />
+
+<xs:element name="getMatchingsResponse" type="tns:getMatchingsResponse" />
+
+<xs:element name="getPatterns" type="tns:getPatterns" />
+
+<xs:element name="getPatternsResponse" type="tns:getPatternsResponse" />
+
+<xs:element name="operation1" type="tns:operation1" />
+
+<xs:element name="operation1Response" type="tns:operation1Response" />
+
+<xs:element name="operation2" type="tns:operation2" />
+
+<xs:element name="operation2Response" type="tns:operation2Response" />
+
+<xs:element name="operation3" type="tns:operation3" />
+
+<xs:element name="operation3Response" type="tns:operation3Response" />
+
+<xs:complexType name="class1">
+<xs:complexContent>
+<xs:extension base="tns:abstractClass">
+<xs:sequence>
+<xs:element name="field12" type="xs:int" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="abstractClass" abstract="true">
+<xs:sequence>
+<xs:element name="int1" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="class2">
+<xs:complexContent>
+<xs:extension base="tns:abstractClass">
+<xs:sequence>
+<xs:element name="field22" type="xs:int" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="propertyPatternElement" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:kbPatternElement">
+<xs:sequence>
+<xs:element name="referedElements" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="kbPatternElement" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:patternElement">
+<xs:sequence>
+<xs:element name="uri" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="patternElement" abstract="true">
+<xs:sequence>
+<xs:element name="mappingCondition" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="classPatternElement" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:kbPatternElement">
+<xs:sequence />
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="literalPatternElement">
+<xs:complexContent>
+<xs:extension base="tns:patternElement">
+<xs:sequence>
+<xs:element name="type" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="patternTriple">
+<xs:complexContent>
+<xs:extension base="tns:subpattern">
+<xs:sequence>
+<xs:element name="e1" type="tns:classPatternElement" minOccurs="0" />
+<xs:element name="e2" type="tns:propertyPatternElement" minOccurs="0" />
+<xs:element name="e3" type="tns:patternElement" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="subpattern" abstract="true">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="subpatternCollection">
+<xs:complexContent>
+<xs:extension base="tns:subpattern">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0" />
+<xs:element name="maxOccurrences" type="xs:int" />
+<xs:element name="minOccurrences" type="xs:int" />
+<xs:element name="pivotElement" type="tns:patternElement" minOccurs="0" />
+<xs:element name="subpatterns" type="tns:subpattern" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="kbElementMapping">
+<xs:complexContent>
+<xs:extension base="tns:elementMapping">
+<xs:sequence>
+<xs:element name="bestLabel" type="xs:string" minOccurs="0" />
+<xs:element name="firstlyMatchedOntResourceUri" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="elementMapping" abstract="true">
+<xs:sequence>
+<xs:element name="impliedBy" type="tns:elementMapping" minOccurs="0" />
+<xs:element name="patternElement" type="tns:patternElement" minOccurs="0" />
+<xs:element name="queryElement" type="tns:queryElement" minOccurs="0" />
+<xs:element name="trustMark" type="xs:float" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryElement" abstract="true">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="literalElementMapping">
+<xs:complexContent>
+<xs:extension base="tns:elementMapping">
+<xs:sequence />
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="keyword">
+<xs:complexContent>
+<xs:extension base="tns:queryElement">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="keywordValue" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="literal">
+<xs:complexContent>
+<xs:extension base="tns:queryElement">
+<xs:sequence>
+<xs:element name="stringType" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getMatchings">
+<xs:sequence>
+<xs:element name="queryString" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMatchingsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:patternToQueryMapping" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="patternToQueryMapping">
+<xs:sequence>
+<xs:element name="elementMappings" type="tns:elementMapping" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="pattern" type="tns:pattern" minOccurs="0" />
+<xs:element name="relevanceMark" type="xs:float" />
+<xs:element name="sentence" type="xs:string" minOccurs="0" />
+<xs:element name="sparqlQuery" type="xs:string" minOccurs="0" />
+<xs:element name="stringDescription" type="xs:string" minOccurs="0" />
+<xs:element name="rMap" type="xs:float" />
+<xs:element name="rNumQueried" type="xs:float" />
+<xs:element name="rPatternCov" type="xs:float" />
+<xs:element name="rQueryCov" type="xs:float" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pattern">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+<xs:element name="numMappingsCombinations" type="xs:int" />
+<xs:element name="sentenceTemplate" type="xs:string" minOccurs="0" />
+<xs:element name="subpatterns" type="tns:subpattern" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPatterns">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getPatternsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:pattern" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operation1">
+<xs:sequence>
+<xs:element name="stringParam" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operation1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:classToBeReturned" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="classToBeReturned">
+<xs:sequence>
+<xs:element name="int1" type="xs:int" />
+<xs:element name="nestedObject" type="tns:nestedClassToBeReturned" minOccurs="0" />
+<xs:element name="string1" type="xs:string" minOccurs="0" />
+<xs:element name="string2" type="xs:string" minOccurs="0" />
+<xs:element name="strings" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nestedClassToBeReturned">
+<xs:sequence>
+<xs:element name="int2" type="xs:int" />
+<xs:element name="string3" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generateBestMappings">
+<xs:sequence>
+<xs:element name="pivotQueryString" type="xs:string" minOccurs="0" />
+<xs:element name="numMappings" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generateBestMappingsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:patternToQueryMapping" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operation2">
+<xs:sequence>
+<xs:element name="parameter" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operation2Response">
+<xs:sequence>
+<xs:element name="return" type="tns:classToBeReturned" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operation3">
+<xs:sequence>
+<xs:element name="whichClass" type="xs:int" />
+<xs:element name="intValue" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operation3Response">
+<xs:sequence>
+<xs:element name="return" type="tns:abstractClass" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
