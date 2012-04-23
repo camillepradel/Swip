@@ -72,21 +72,54 @@ public class PivotQueryGraph {
             return result;
         }
     }
+    
+    
+     class CountCond
+    {
+        public String num;
+        public int val;
+        
+        public CountCond(String num, int val)
+        {
+            this.num = num;
+            this.val = val;
+        }
+    }
+    
     //TODO: use Vector instead of Map
     Map<String, QuerySubstring> substrings = new HashMap<String, QuerySubstring>();
     String queryObjectId = null;
     List<Q> qs = new LinkedList<Q>();
-    List<String> countIds = new LinkedList<String>();
+    HashMap<String, CountCond> countIds = new HashMap<String, CountCond>();
     Map<String, String> adjs = new HashMap<String, String>();
+    
+    boolean moreThan = false;
+    boolean lessThan = false;
+    boolean maximum = false;
+    boolean minimum = false;
+    boolean average = false;
+    boolean sum = false;
 
     void addQuerySubstring(String id, int startId, int endId) {
         substrings.put(id, new QuerySubstring(startId, endId));
     }
 
-    void setASubstringAsCount(String id) {
-        countIds.add(id);
+    void setASubstringAsCount(String id, int val) {
+        
+        CountCond cc = new CountCond(""+val, val);
+        
+        countIds.put(id, cc);
     }
 
+    void setOptions(NlToPivotPreParser pp)
+    {
+        this.moreThan = pp.getMoreThan();
+        this.lessThan = pp.getLessThan();
+        this.maximum = pp.getMaximum();
+        this.minimum = pp.getMinimum();
+        this.average = pp.getAverage();
+    }
+    
     void addAdjToSubstring(String id, String adjValue) {
         logger.debug("addAdjToSubstring(" + id + ", " + adjValue + ")");
         this.adjs.put(id, adjValue);
@@ -155,9 +188,53 @@ public class PivotQueryGraph {
             qs.setStringValue(qs.getStringValue().replace(this.adjs.get(id), ""));
         }
         // add type information
-        for (String countId : this.countIds) {
+        HashMap<String, String> aggAlone = new HashMap<String, String>();
+        
+         for (String countId : this.countIds.keySet()) 
+        {
+            CountCond cc = this.countIds.get(countId);
+            int val = cc.val;
+            String cond = "";
+            String agg = "";
+            if(this.moreThan)
+            {
+                cond = " > "+val;
+            }
+            else if(this.lessThan)
+            {
+                cond = " < "+val;
+            }
+            else
+            {
+                cond = " = "+val;
+            }
+            
+            if(this.maximum)
+            {
+                agg = "MAX";
+            }
+            else if(this.minimum)
+            {
+                agg = "MIN";
+            }
+            else if(this.average)
+            {
+                agg = "AVG";
+            }
+            else
+            {
+                agg = "COUNT";
+            }
+            
+            
             QuerySubstring qs = this.substrings.get(countId);
-            qs.setStringValue("COUNT<" + qs.getStringValue() + ">");
+            String s = qs.getStringValue().replace(cc.num, "");
+            if(s.compareTo("") == 0)
+            {
+                aggAlone.put(countId, agg+"(%s) "+cond);
+            }
+            else
+                qs.setStringValue(agg+"(" + s + ") "+cond);
         }
         logger.debug(getSubstringsList(nlQuery));
 
@@ -178,24 +255,45 @@ public class PivotQueryGraph {
         logger.debug(getSubstringsList(nlQuery));
 
         String pivotQuery = "";
+         String sLast = "";
         Set<String> usedIds = new HashSet<String>();
 
         // generate pivot query parts for each subquery
+        int lastItem = this.qs.size() -1;
+        int i = 0;
         for (Q q : this.qs) {
-            try {
-                pivotQuery += q.generateStringRepresentation(nlQuery) + "  ";
+             try {
+                String s = q.generateStringRepresentation(nlQuery).replaceAll("_", " ") + "  ";
+                pivotQuery += s;
+                
+                if( i == lastItem)
+                {
+                    sLast = s.trim();
+                    sLast = sLast.substring(sLast.lastIndexOf(" "));
+                    sLast = sLast.replaceAll("\\.", "");
+                }
+                
                 usedIds.addAll(q.getIdsList());
             } catch (NullPointerException ex) {
                 logger.error(ex);
             }
+             i++;
         }
 
         // add query elements which were not involved in any subquery
         for (String id : substrings.keySet()) {
-            if (!usedIds.contains(id)) {
-                pivotQuery += (id.equals(this.queryObjectId) ? "?" : "")
-                        + substrings.get(id).getStringValue()
-                        + ".  ";
+           if (!usedIds.contains(id)) 
+            {
+                pivotQuery += (id.equals(this.queryObjectId) ? "?" : "");
+                if(aggAlone.containsKey(id))
+                {
+                    String formatS = aggAlone.get(id);
+                    pivotQuery = pivotQuery.replaceAll(sLast, String.format(formatS, sLast));
+                }
+                else
+                {
+                    pivotQuery += substrings.get(id).getStringValue();
+                }
             }
         }
 
