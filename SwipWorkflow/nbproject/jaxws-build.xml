@@ -43,5 +43,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/org/swip/pivottomappings"/>
         <delete dir="${build.generated.dir}/jax-wsCache/PivotToMappingsWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-PivotToMappingsWS"/>
+    <target name="wsimport-client-NlToPivotWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/NlToPivotWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NlToPivotWS" destdir="${build.generated.dir}/jax-wsCache/NlToPivotWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotWS/wsdl/localhost_8080/NlToPivot/NlToPivotWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/NlToPivot/NlToPivotWS?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NlToPivotWS/wsdl/localhost_8080/NlToPivot/NlToPivotWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/NlToPivotWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/NlToPivotWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-NlToPivotWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/org/swip/nltopivot"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/NlToPivotWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-PivotToMappingsWS, wsimport-client-NlToPivotWS"/>
 </project>
