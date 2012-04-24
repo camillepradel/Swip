@@ -1,5 +1,8 @@
 private
 jax-ws.xml
+jaxws-build.xml
+jax-ws-catalog.xml
+catalog.xml
 dist
 build
 conf
