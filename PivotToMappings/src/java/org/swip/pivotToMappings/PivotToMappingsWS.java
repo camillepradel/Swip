@@ -118,8 +118,11 @@ public class PivotToMappingsWS {
     @WebMethod(operationName = "generateBestMappings")
     public java.util.List<org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping> generateBestMappings(@WebParam(name = "pivotQueryString") String pivotQueryString, @WebParam(name = "numMappings") int numMappings) {
         List ret = Controller.getInstance().getBestMappings(pivotQueryString, numMappings);
-        Collections.reverse(ret);
-        return ret;
+	
+	if(ret != null)
+	        Collections.reverse(ret);
+        
+	return ret;
     }
 
     /**
