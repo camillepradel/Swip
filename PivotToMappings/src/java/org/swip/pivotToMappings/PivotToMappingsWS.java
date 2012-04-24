@@ -120,7 +120,10 @@ public class PivotToMappingsWS {
         List ret = Controller.getInstance().getBestMappings(pivotQueryString, numMappings);
 	
 	if(ret != null)
+        {
+            System.out.println("lolilol");
 	        Collections.reverse(ret);
+        }
         
 	return ret;
     }

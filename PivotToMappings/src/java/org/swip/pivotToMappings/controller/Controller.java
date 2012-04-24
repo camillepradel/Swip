@@ -83,7 +83,7 @@ public class Controller {
         logger.info("----------------------\n");
         long time = System.currentTimeMillis();
         if (remote) {
-            this.sparqlServer = new RemoteSparqlServer("http://localhost:2020/music");
+            this.sparqlServer = new RemoteSparqlServer("http://swipserver:2020/music");
         } else {
             List<String> uris = new LinkedList<String>();
             uris.add("D:/QALDworkshop/musicbrainz/musicbrainz.owl");
@@ -181,7 +181,7 @@ public class Controller {
             logger.info("There is no loaded patterns");
         } else {
             try {
-                logger.info("Parsing pivot query:");
+                logger.info("Parsing pivot query : <"+pivotQueryString+"> \n");
                 logger.info("-------------------\n");
                 final Query userQuery = createQuery(pivotQueryString);
                 logger.info("parsed query: " + userQuery.toString() + "\n");

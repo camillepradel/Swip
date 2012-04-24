@@ -93,6 +93,7 @@ public class NlToPivotWS {
             pivotQuery += " SUM.";
         }
         
+        pivotQuery = pivotQuery.trim();
         pivotQuery = pivotQuery.replaceAll("\\s*([:;\\(\\)<>=\\.\\?])\\s*", "$1");
         
         logger.info("Generated pivot query: " + pivotQuery);

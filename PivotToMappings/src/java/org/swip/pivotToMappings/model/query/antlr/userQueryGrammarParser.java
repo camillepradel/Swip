@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-24 15:11:36
+// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-24 16:03:33
 
 package org.swip.pivotToMappings.model.query.antlr;
 import java.util.HashMap;
