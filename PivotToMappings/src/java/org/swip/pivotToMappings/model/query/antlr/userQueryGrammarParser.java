@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-19 15:17:28
+// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-24 15:11:36
 
 package org.swip.pivotToMappings.model.query.antlr;
 import java.util.HashMap;
@@ -16,10 +16,11 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class userQueryGrammarParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "COMMENT", "ID", "INT", "KEYVALUE", "LITVALUE", "WS", "'('", "')'", "','", "'.'", "':'", "';'", "'<'", "'='", "'>'", "'?'", "'ASK'", "'AVG'", "'COUNT'", "'MAX'", "'MIN'", "'SUM'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "COMMENT", "ID", "INT", "LITVALUE", "WS", "'('", "')'", "','", "'.'", "':'", "';'", "'<'", "'='", "'>'", "'?'", "'ASK'", "'AVG'", "'COUNT'", "'MAX'", "'MIN'", "'SUM'"
     };
 
     public static final int EOF=-1;
+    public static final int T__9=9;
     public static final int T__10=10;
     public static final int T__11=11;
     public static final int T__12=12;
@@ -35,13 +36,11 @@ public class userQueryGrammarParser extends Parser {
     public static final int T__22=22;
     public static final int T__23=23;
     public static final int T__24=24;
-    public static final int T__25=25;
     public static final int COMMENT=4;
     public static final int ID=5;
     public static final int INT=6;
-    public static final int KEYVALUE=7;
-    public static final int LITVALUE=8;
-    public static final int WS=9;
+    public static final int LITVALUE=7;
+    public static final int WS=8;
 
     // delegates
     public Parser[] getDelegates() {
@@ -110,13 +109,24 @@ public class userQueryGrammarParser extends Parser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==13) ) {
+                if ( (LA1_0==12) ) {
                     switch ( input.LA(2) ) {
-                    case 22:
+                    case 21:
                         {
                         int LA1_3 = input.LA(3);
 
-                        if ( (LA1_3==10) ) {
+                        if ( (LA1_3==9) ) {
+                            alt1=1;
+                        }
+
+
+                        }
+                        break;
+                    case 22:
+                        {
+                        int LA1_4 = input.LA(3);
+
+                        if ( (LA1_4==9) ) {
                             alt1=1;
                         }
 
@@ -125,9 +135,20 @@ public class userQueryGrammarParser extends Parser {
                         break;
                     case 23:
                         {
-                        int LA1_4 = input.LA(3);
+                        int LA1_5 = input.LA(3);
 
-                        if ( (LA1_4==10) ) {
+                        if ( (LA1_5==9) ) {
+                            alt1=1;
+                        }
+
+
+                        }
+                        break;
+                    case 20:
+                        {
+                        int LA1_6 = input.LA(3);
+
+                        if ( (LA1_6==9) ) {
                             alt1=1;
                         }
 
@@ -136,31 +157,9 @@ public class userQueryGrammarParser extends Parser {
                         break;
                     case 24:
                         {
-                        int LA1_5 = input.LA(3);
-
-                        if ( (LA1_5==10) ) {
-                            alt1=1;
-                        }
-
-
-                        }
-                        break;
-                    case 21:
-                        {
-                        int LA1_6 = input.LA(3);
-
-                        if ( (LA1_6==10) ) {
-                            alt1=1;
-                        }
-
-
-                        }
-                        break;
-                    case 25:
-                        {
                         int LA1_7 = input.LA(3);
 
-                        if ( (LA1_7==10) ) {
+                        if ( (LA1_7==9) ) {
                             alt1=1;
                         }
 
@@ -168,7 +167,7 @@ public class userQueryGrammarParser extends Parser {
                         }
                         break;
                     case ID:
-                    case 19:
+                    case 18:
                         {
                         alt1=1;
                         }
@@ -183,7 +182,7 @@ public class userQueryGrammarParser extends Parser {
             	case 1 :
             	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:41: '.' subquerySet[$q]
             	    {
-            	    match(input,13,FOLLOW_13_in_query42); 
+            	    match(input,12,FOLLOW_12_in_query42); 
 
             	    pushFollow(FOLLOW_subquerySet_in_query44);
             	    subquerySet(q);
@@ -204,14 +203,14 @@ public class userQueryGrammarParser extends Parser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==13) ) {
+            if ( (LA2_0==12) ) {
                 alt2=1;
             }
             switch (alt2) {
                 case 1 :
                     // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:64: '.'
                     {
-                    match(input,13,FOLLOW_13_in_query50); 
+                    match(input,12,FOLLOW_12_in_query50); 
 
                     }
                     break;
@@ -223,7 +222,7 @@ public class userQueryGrammarParser extends Parser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( ((LA5_0 >= 20 && LA5_0 <= 25)) ) {
+            if ( ((LA5_0 >= 19 && LA5_0 <= 24)) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -233,32 +232,32 @@ public class userQueryGrammarParser extends Parser {
                     // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:71: ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' | 'ASK' )
                     int alt3=6;
                     switch ( input.LA(1) ) {
-                    case 22:
+                    case 21:
                         {
                         alt3=1;
                         }
                         break;
-                    case 23:
+                    case 22:
                         {
                         alt3=2;
                         }
                         break;
-                    case 24:
+                    case 23:
                         {
                         alt3=3;
                         }
                         break;
-                    case 21:
+                    case 20:
                         {
                         alt3=4;
                         }
                         break;
-                    case 25:
+                    case 24:
                         {
                         alt3=5;
                         }
                         break;
-                    case 20:
+                    case 19:
                         {
                         alt3=6;
                         }
@@ -275,7 +274,7 @@ public class userQueryGrammarParser extends Parser {
                         case 1 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:72: 'COUNT'
                             {
-                            match(input,22,FOLLOW_22_in_query56); 
+                            match(input,21,FOLLOW_21_in_query56); 
 
                             q.setCount(true);
 
@@ -284,7 +283,7 @@ public class userQueryGrammarParser extends Parser {
                         case 2 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:102: 'MAX'
                             {
-                            match(input,23,FOLLOW_23_in_query61); 
+                            match(input,22,FOLLOW_22_in_query61); 
 
                             q.setMax(true);
 
@@ -293,7 +292,7 @@ public class userQueryGrammarParser extends Parser {
                         case 3 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:129: 'MIN'
                             {
-                            match(input,24,FOLLOW_24_in_query67); 
+                            match(input,23,FOLLOW_23_in_query67); 
 
                             q.setMin(true);
 
@@ -302,7 +301,7 @@ public class userQueryGrammarParser extends Parser {
                         case 4 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:155: 'AVG'
                             {
-                            match(input,21,FOLLOW_21_in_query72); 
+                            match(input,20,FOLLOW_20_in_query72); 
 
                             q.setAvg(true);
 
@@ -311,7 +310,7 @@ public class userQueryGrammarParser extends Parser {
                         case 5 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:181: 'SUM'
                             {
-                            match(input,25,FOLLOW_25_in_query77); 
+                            match(input,24,FOLLOW_24_in_query77); 
 
                             q.setSum(true);
 
@@ -320,7 +319,7 @@ public class userQueryGrammarParser extends Parser {
                         case 6 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:207: 'ASK'
                             {
-                            match(input,20,FOLLOW_20_in_query82); 
+                            match(input,19,FOLLOW_19_in_query82); 
 
                             q.setAsk(true);
 
@@ -334,14 +333,14 @@ public class userQueryGrammarParser extends Parser {
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
-                    if ( (LA4_0==13) ) {
+                    if ( (LA4_0==12) ) {
                         alt4=1;
                     }
                     switch (alt4) {
                         case 1 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:39:234: '.'
                             {
-                            match(input,13,FOLLOW_13_in_query88); 
+                            match(input,12,FOLLOW_12_in_query88); 
 
                             }
                             break;
@@ -384,32 +383,32 @@ public class userQueryGrammarParser extends Parser {
             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:43:2: ( e1q23[$q] ':' q23End[$q, $e1q23.qe] ( ';' q23End[$q, $e1q23.qe] )* | e1q1[$q] )
             int alt7=2;
             switch ( input.LA(1) ) {
-            case 22:
+            case 21:
                 {
                 int LA7_1 = input.LA(2);
 
-                if ( (LA7_1==10) ) {
+                if ( (LA7_1==9) ) {
                     int LA7_8 = input.LA(3);
 
-                    if ( (LA7_8==19) ) {
+                    if ( (LA7_8==18) ) {
                         int LA7_6 = input.LA(4);
 
                         if ( (LA7_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA7_10 = input.LA(7);
 
                                     if ( (LA7_10==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -429,17 +428,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA7_11 = input.LA(7);
 
                                     if ( (LA7_11==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -459,17 +458,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA7_12 = input.LA(7);
 
                                     if ( (LA7_12==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -489,19 +488,19 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 14:
+                                case 13:
                                     {
                                     alt7=1;
                                     }
                                     break;
                                 case EOF:
-                                case 13:
+                                case 12:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt7=2;
                                     }
@@ -516,17 +515,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -546,17 +545,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -576,17 +575,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -606,19 +605,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -642,20 +641,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA7_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -675,17 +674,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -705,17 +704,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -735,19 +734,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -762,17 +761,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA7_10 = input.LA(5);
 
                             if ( (LA7_10==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -792,17 +791,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA7_11 = input.LA(5);
 
                             if ( (LA7_11==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -822,17 +821,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA7_12 = input.LA(5);
 
                             if ( (LA7_12==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -852,19 +851,19 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 14:
+                        case 13:
                             {
                             alt7=1;
                             }
                             break;
                         case EOF:
-                        case 13:
+                        case 12:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt7=2;
                             }
@@ -895,32 +894,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 23:
+            case 22:
                 {
                 int LA7_2 = input.LA(2);
 
-                if ( (LA7_2==10) ) {
+                if ( (LA7_2==9) ) {
                     int LA7_8 = input.LA(3);
 
-                    if ( (LA7_8==19) ) {
+                    if ( (LA7_8==18) ) {
                         int LA7_6 = input.LA(4);
 
                         if ( (LA7_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA7_10 = input.LA(7);
 
                                     if ( (LA7_10==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -940,17 +939,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA7_11 = input.LA(7);
 
                                     if ( (LA7_11==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -970,17 +969,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA7_12 = input.LA(7);
 
                                     if ( (LA7_12==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -1000,19 +999,19 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 14:
+                                case 13:
                                     {
                                     alt7=1;
                                     }
                                     break;
                                 case EOF:
-                                case 13:
+                                case 12:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt7=2;
                                     }
@@ -1027,17 +1026,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1057,17 +1056,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1087,17 +1086,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1117,19 +1116,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -1153,20 +1152,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA7_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1186,17 +1185,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1216,17 +1215,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1246,19 +1245,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -1273,17 +1272,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA7_10 = input.LA(5);
 
                             if ( (LA7_10==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -1303,17 +1302,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA7_11 = input.LA(5);
 
                             if ( (LA7_11==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -1333,17 +1332,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA7_12 = input.LA(5);
 
                             if ( (LA7_12==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -1363,19 +1362,19 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 14:
+                        case 13:
                             {
                             alt7=1;
                             }
                             break;
                         case EOF:
-                        case 13:
+                        case 12:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt7=2;
                             }
@@ -1406,32 +1405,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 24:
+            case 23:
                 {
                 int LA7_3 = input.LA(2);
 
-                if ( (LA7_3==10) ) {
+                if ( (LA7_3==9) ) {
                     int LA7_8 = input.LA(3);
 
-                    if ( (LA7_8==19) ) {
+                    if ( (LA7_8==18) ) {
                         int LA7_6 = input.LA(4);
 
                         if ( (LA7_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA7_10 = input.LA(7);
 
                                     if ( (LA7_10==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -1451,17 +1450,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA7_11 = input.LA(7);
 
                                     if ( (LA7_11==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -1481,17 +1480,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA7_12 = input.LA(7);
 
                                     if ( (LA7_12==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -1511,19 +1510,19 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 14:
+                                case 13:
                                     {
                                     alt7=1;
                                     }
                                     break;
                                 case EOF:
-                                case 13:
+                                case 12:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt7=2;
                                     }
@@ -1538,17 +1537,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1568,17 +1567,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1598,17 +1597,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1628,19 +1627,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -1664,20 +1663,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA7_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1697,17 +1696,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1727,17 +1726,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -1757,19 +1756,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -1784,17 +1783,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA7_10 = input.LA(5);
 
                             if ( (LA7_10==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -1814,17 +1813,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA7_11 = input.LA(5);
 
                             if ( (LA7_11==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -1844,17 +1843,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA7_12 = input.LA(5);
 
                             if ( (LA7_12==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -1874,19 +1873,19 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 14:
+                        case 13:
                             {
                             alt7=1;
                             }
                             break;
                         case EOF:
-                        case 13:
+                        case 12:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt7=2;
                             }
@@ -1917,32 +1916,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 21:
+            case 20:
                 {
                 int LA7_4 = input.LA(2);
 
-                if ( (LA7_4==10) ) {
+                if ( (LA7_4==9) ) {
                     int LA7_8 = input.LA(3);
 
-                    if ( (LA7_8==19) ) {
+                    if ( (LA7_8==18) ) {
                         int LA7_6 = input.LA(4);
 
                         if ( (LA7_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA7_10 = input.LA(7);
 
                                     if ( (LA7_10==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -1962,17 +1961,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA7_11 = input.LA(7);
 
                                     if ( (LA7_11==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -1992,17 +1991,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA7_12 = input.LA(7);
 
                                     if ( (LA7_12==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -2022,19 +2021,19 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 14:
+                                case 13:
                                     {
                                     alt7=1;
                                     }
                                     break;
                                 case EOF:
-                                case 13:
+                                case 12:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt7=2;
                                     }
@@ -2049,17 +2048,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2079,17 +2078,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2109,17 +2108,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2139,19 +2138,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -2175,20 +2174,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA7_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2208,17 +2207,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2238,17 +2237,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2268,19 +2267,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -2295,17 +2294,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA7_10 = input.LA(5);
 
                             if ( (LA7_10==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -2325,17 +2324,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA7_11 = input.LA(5);
 
                             if ( (LA7_11==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -2355,17 +2354,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA7_12 = input.LA(5);
 
                             if ( (LA7_12==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -2385,19 +2384,19 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 14:
+                        case 13:
                             {
                             alt7=1;
                             }
                             break;
                         case EOF:
-                        case 13:
+                        case 12:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt7=2;
                             }
@@ -2428,32 +2427,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 25:
+            case 24:
                 {
                 int LA7_5 = input.LA(2);
 
-                if ( (LA7_5==10) ) {
+                if ( (LA7_5==9) ) {
                     int LA7_8 = input.LA(3);
 
-                    if ( (LA7_8==19) ) {
+                    if ( (LA7_8==18) ) {
                         int LA7_6 = input.LA(4);
 
                         if ( (LA7_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA7_10 = input.LA(7);
 
                                     if ( (LA7_10==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -2473,17 +2472,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA7_11 = input.LA(7);
 
                                     if ( (LA7_11==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -2503,17 +2502,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA7_12 = input.LA(7);
 
                                     if ( (LA7_12==INT) ) {
                                         int LA7_15 = input.LA(8);
 
-                                        if ( (LA7_15==14) ) {
+                                        if ( (LA7_15==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
@@ -2533,19 +2532,19 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 14:
+                                case 13:
                                     {
                                     alt7=1;
                                     }
                                     break;
                                 case EOF:
-                                case 13:
+                                case 12:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt7=2;
                                     }
@@ -2560,17 +2559,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2590,17 +2589,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2620,17 +2619,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2650,19 +2649,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -2686,20 +2685,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA7_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA7_10 = input.LA(6);
 
                                 if ( (LA7_10==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2719,17 +2718,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA7_11 = input.LA(6);
 
                                 if ( (LA7_11==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2749,17 +2748,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA7_12 = input.LA(6);
 
                                 if ( (LA7_12==INT) ) {
                                     int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_15==14) ) {
+                                    if ( (LA7_15==13) ) {
                                         alt7=1;
                                     }
-                                    else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                         alt7=2;
                                     }
                                     else {
@@ -2779,19 +2778,19 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 14:
+                            case 13:
                                 {
                                 alt7=1;
                                 }
                                 break;
                             case EOF:
-                            case 13:
+                            case 12:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt7=2;
                                 }
@@ -2806,17 +2805,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA7_10 = input.LA(5);
 
                             if ( (LA7_10==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -2836,17 +2835,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA7_11 = input.LA(5);
 
                             if ( (LA7_11==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -2866,17 +2865,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA7_12 = input.LA(5);
 
                             if ( (LA7_12==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -2896,19 +2895,19 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 14:
+                        case 13:
                             {
                             alt7=1;
                             }
                             break;
                         case EOF:
-                        case 13:
+                        case 12:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt7=2;
                             }
@@ -2939,26 +2938,26 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 19:
+            case 18:
                 {
                 int LA7_6 = input.LA(2);
 
                 if ( (LA7_6==ID) ) {
                     switch ( input.LA(3) ) {
-                    case 11:
+                    case 10:
                         {
                         switch ( input.LA(4) ) {
-                        case 17:
+                        case 16:
                             {
                             int LA7_10 = input.LA(5);
 
                             if ( (LA7_10==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -2978,17 +2977,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA7_11 = input.LA(5);
 
                             if ( (LA7_11==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -3008,17 +3007,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA7_12 = input.LA(5);
 
                             if ( (LA7_12==INT) ) {
                                 int LA7_15 = input.LA(6);
 
-                                if ( (LA7_15==14) ) {
+                                if ( (LA7_15==13) ) {
                                     alt7=1;
                                 }
-                                else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                     alt7=2;
                                 }
                                 else {
@@ -3038,19 +3037,19 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 14:
+                        case 13:
                             {
                             alt7=1;
                             }
                             break;
                         case EOF:
-                        case 13:
+                        case 12:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt7=2;
                             }
@@ -3065,17 +3064,17 @@ public class userQueryGrammarParser extends Parser {
 
                         }
                         break;
-                    case 17:
+                    case 16:
                         {
                         int LA7_10 = input.LA(4);
 
                         if ( (LA7_10==INT) ) {
                             int LA7_15 = input.LA(5);
 
-                            if ( (LA7_15==14) ) {
+                            if ( (LA7_15==13) ) {
                                 alt7=1;
                             }
-                            else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                 alt7=2;
                             }
                             else {
@@ -3095,17 +3094,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 18:
+                    case 17:
                         {
                         int LA7_11 = input.LA(4);
 
                         if ( (LA7_11==INT) ) {
                             int LA7_15 = input.LA(5);
 
-                            if ( (LA7_15==14) ) {
+                            if ( (LA7_15==13) ) {
                                 alt7=1;
                             }
-                            else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                 alt7=2;
                             }
                             else {
@@ -3125,17 +3124,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 16:
+                    case 15:
                         {
                         int LA7_12 = input.LA(4);
 
                         if ( (LA7_12==INT) ) {
                             int LA7_15 = input.LA(5);
 
-                            if ( (LA7_15==14) ) {
+                            if ( (LA7_15==13) ) {
                                 alt7=1;
                             }
-                            else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                 alt7=2;
                             }
                             else {
@@ -3155,19 +3154,19 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 14:
+                    case 13:
                         {
                         alt7=1;
                         }
                         break;
                     case EOF:
-                    case 13:
+                    case 12:
+                    case 19:
                     case 20:
                     case 21:
                     case 22:
                     case 23:
                     case 24:
-                    case 25:
                         {
                         alt7=2;
                         }
@@ -3193,20 +3192,20 @@ public class userQueryGrammarParser extends Parser {
             case ID:
                 {
                 switch ( input.LA(2) ) {
-                case 11:
+                case 10:
                     {
                     switch ( input.LA(3) ) {
-                    case 17:
+                    case 16:
                         {
                         int LA7_10 = input.LA(4);
 
                         if ( (LA7_10==INT) ) {
                             int LA7_15 = input.LA(5);
 
-                            if ( (LA7_15==14) ) {
+                            if ( (LA7_15==13) ) {
                                 alt7=1;
                             }
-                            else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                 alt7=2;
                             }
                             else {
@@ -3226,17 +3225,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 18:
+                    case 17:
                         {
                         int LA7_11 = input.LA(4);
 
                         if ( (LA7_11==INT) ) {
                             int LA7_15 = input.LA(5);
 
-                            if ( (LA7_15==14) ) {
+                            if ( (LA7_15==13) ) {
                                 alt7=1;
                             }
-                            else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                 alt7=2;
                             }
                             else {
@@ -3256,17 +3255,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 16:
+                    case 15:
                         {
                         int LA7_12 = input.LA(4);
 
                         if ( (LA7_12==INT) ) {
                             int LA7_15 = input.LA(5);
 
-                            if ( (LA7_15==14) ) {
+                            if ( (LA7_15==13) ) {
                                 alt7=1;
                             }
-                            else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                                 alt7=2;
                             }
                             else {
@@ -3286,19 +3285,19 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 14:
+                    case 13:
                         {
                         alt7=1;
                         }
                         break;
                     case EOF:
-                    case 13:
+                    case 12:
+                    case 19:
                     case 20:
                     case 21:
                     case 22:
                     case 23:
                     case 24:
-                    case 25:
                         {
                         alt7=2;
                         }
@@ -3313,17 +3312,17 @@ public class userQueryGrammarParser extends Parser {
 
                     }
                     break;
-                case 17:
+                case 16:
                     {
                     int LA7_10 = input.LA(3);
 
                     if ( (LA7_10==INT) ) {
                         int LA7_15 = input.LA(4);
 
-                        if ( (LA7_15==14) ) {
+                        if ( (LA7_15==13) ) {
                             alt7=1;
                         }
-                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                             alt7=2;
                         }
                         else {
@@ -3343,17 +3342,17 @@ public class userQueryGrammarParser extends Parser {
                     }
                     }
                     break;
-                case 18:
+                case 17:
                     {
                     int LA7_11 = input.LA(3);
 
                     if ( (LA7_11==INT) ) {
                         int LA7_15 = input.LA(4);
 
-                        if ( (LA7_15==14) ) {
+                        if ( (LA7_15==13) ) {
                             alt7=1;
                         }
-                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                             alt7=2;
                         }
                         else {
@@ -3373,17 +3372,17 @@ public class userQueryGrammarParser extends Parser {
                     }
                     }
                     break;
-                case 16:
+                case 15:
                     {
                     int LA7_12 = input.LA(3);
 
                     if ( (LA7_12==INT) ) {
                         int LA7_15 = input.LA(4);
 
-                        if ( (LA7_15==14) ) {
+                        if ( (LA7_15==13) ) {
                             alt7=1;
                         }
-                        else if ( (LA7_15==EOF||LA7_15==13||(LA7_15 >= 20 && LA7_15 <= 25)) ) {
+                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
                             alt7=2;
                         }
                         else {
@@ -3403,19 +3402,19 @@ public class userQueryGrammarParser extends Parser {
                     }
                     }
                     break;
-                case 14:
+                case 13:
                     {
                     alt7=1;
                     }
                     break;
                 case EOF:
-                case 13:
+                case 12:
+                case 19:
                 case 20:
                 case 21:
                 case 22:
                 case 23:
                 case 24:
-                case 25:
                     {
                     alt7=2;
                     }
@@ -3448,7 +3447,7 @@ public class userQueryGrammarParser extends Parser {
                     state._fsp--;
 
 
-                    match(input,14,FOLLOW_14_in_subquerySet111); 
+                    match(input,13,FOLLOW_13_in_subquerySet111); 
 
                     pushFollow(FOLLOW_q23End_in_subquerySet113);
                     q23End(q, e1q231);
@@ -3462,7 +3461,7 @@ public class userQueryGrammarParser extends Parser {
                         int alt6=2;
                         int LA6_0 = input.LA(1);
 
-                        if ( (LA6_0==15) ) {
+                        if ( (LA6_0==14) ) {
                             alt6=1;
                         }
 
@@ -3471,7 +3470,7 @@ public class userQueryGrammarParser extends Parser {
                     	case 1 :
                     	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:43:41: ';' q23End[$q, $e1q23.qe]
                     	    {
-                    	    match(input,15,FOLLOW_15_in_subquerySet117); 
+                    	    match(input,14,FOLLOW_14_in_subquerySet117); 
 
                     	    pushFollow(FOLLOW_q23End_in_subquerySet119);
                     	    q23End(q, e1q231);
@@ -3608,32 +3607,32 @@ public class userQueryGrammarParser extends Parser {
             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:57:2: ( e2q3[$q] '=' q3End[$q, $e1, $e2q3.qe] ( ',' q3End[$q, $e1, $e2q3.qe] )* | e2q2[$q] )
             int alt9=2;
             switch ( input.LA(1) ) {
-            case 22:
+            case 21:
                 {
                 int LA9_1 = input.LA(2);
 
-                if ( (LA9_1==10) ) {
+                if ( (LA9_1==9) ) {
                     int LA9_8 = input.LA(3);
 
-                    if ( (LA9_8==19) ) {
+                    if ( (LA9_8==18) ) {
                         int LA9_6 = input.LA(4);
 
                         if ( (LA9_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA9_12 = input.LA(7);
 
                                     if ( (LA9_12==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -3644,7 +3643,7 @@ public class userQueryGrammarParser extends Parser {
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                         alt9=1;
                                     }
                                     else {
@@ -3656,17 +3655,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA9_13 = input.LA(7);
 
                                     if ( (LA9_13==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -3686,17 +3685,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA9_14 = input.LA(7);
 
                                     if ( (LA9_14==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -3717,14 +3716,14 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     break;
                                 case EOF:
-                                case 13:
-                                case 15:
+                                case 12:
+                                case 14:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt9=2;
                                     }
@@ -3739,17 +3738,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -3760,7 +3759,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -3772,17 +3771,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -3802,17 +3801,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -3833,14 +3832,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -3864,20 +3863,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA9_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -3888,7 +3887,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -3900,17 +3899,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -3930,17 +3929,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -3961,14 +3960,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -3983,17 +3982,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA9_12 = input.LA(5);
 
                             if ( (LA9_12==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -4004,7 +4003,7 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                             }
-                            else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                 alt9=1;
                             }
                             else {
@@ -4016,17 +4015,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA9_13 = input.LA(5);
 
                             if ( (LA9_13==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -4046,17 +4045,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA9_14 = input.LA(5);
 
                             if ( (LA9_14==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -4077,14 +4076,14 @@ public class userQueryGrammarParser extends Parser {
                             }
                             break;
                         case EOF:
-                        case 13:
-                        case 15:
+                        case 12:
+                        case 14:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt9=2;
                             }
@@ -4115,32 +4114,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 23:
+            case 22:
                 {
                 int LA9_2 = input.LA(2);
 
-                if ( (LA9_2==10) ) {
+                if ( (LA9_2==9) ) {
                     int LA9_8 = input.LA(3);
 
-                    if ( (LA9_8==19) ) {
+                    if ( (LA9_8==18) ) {
                         int LA9_6 = input.LA(4);
 
                         if ( (LA9_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA9_12 = input.LA(7);
 
                                     if ( (LA9_12==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -4151,7 +4150,7 @@ public class userQueryGrammarParser extends Parser {
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                         alt9=1;
                                     }
                                     else {
@@ -4163,17 +4162,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA9_13 = input.LA(7);
 
                                     if ( (LA9_13==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -4193,17 +4192,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA9_14 = input.LA(7);
 
                                     if ( (LA9_14==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -4224,14 +4223,14 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     break;
                                 case EOF:
-                                case 13:
-                                case 15:
+                                case 12:
+                                case 14:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt9=2;
                                     }
@@ -4246,17 +4245,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4267,7 +4266,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -4279,17 +4278,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4309,17 +4308,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4340,14 +4339,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -4371,20 +4370,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA9_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4395,7 +4394,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -4407,17 +4406,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4437,17 +4436,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4468,14 +4467,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -4490,17 +4489,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA9_12 = input.LA(5);
 
                             if ( (LA9_12==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -4511,7 +4510,7 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                             }
-                            else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                 alt9=1;
                             }
                             else {
@@ -4523,17 +4522,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA9_13 = input.LA(5);
 
                             if ( (LA9_13==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -4553,17 +4552,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA9_14 = input.LA(5);
 
                             if ( (LA9_14==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -4584,14 +4583,14 @@ public class userQueryGrammarParser extends Parser {
                             }
                             break;
                         case EOF:
-                        case 13:
-                        case 15:
+                        case 12:
+                        case 14:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt9=2;
                             }
@@ -4622,32 +4621,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 24:
+            case 23:
                 {
                 int LA9_3 = input.LA(2);
 
-                if ( (LA9_3==10) ) {
+                if ( (LA9_3==9) ) {
                     int LA9_8 = input.LA(3);
 
-                    if ( (LA9_8==19) ) {
+                    if ( (LA9_8==18) ) {
                         int LA9_6 = input.LA(4);
 
                         if ( (LA9_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA9_12 = input.LA(7);
 
                                     if ( (LA9_12==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -4658,7 +4657,7 @@ public class userQueryGrammarParser extends Parser {
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                         alt9=1;
                                     }
                                     else {
@@ -4670,17 +4669,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA9_13 = input.LA(7);
 
                                     if ( (LA9_13==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -4700,17 +4699,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA9_14 = input.LA(7);
 
                                     if ( (LA9_14==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -4731,14 +4730,14 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     break;
                                 case EOF:
-                                case 13:
-                                case 15:
+                                case 12:
+                                case 14:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt9=2;
                                     }
@@ -4753,17 +4752,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4774,7 +4773,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -4786,17 +4785,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4816,17 +4815,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4847,14 +4846,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -4878,20 +4877,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA9_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4902,7 +4901,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -4914,17 +4913,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4944,17 +4943,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -4975,14 +4974,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -4997,17 +4996,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA9_12 = input.LA(5);
 
                             if ( (LA9_12==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -5018,7 +5017,7 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                             }
-                            else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                 alt9=1;
                             }
                             else {
@@ -5030,17 +5029,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA9_13 = input.LA(5);
 
                             if ( (LA9_13==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -5060,17 +5059,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA9_14 = input.LA(5);
 
                             if ( (LA9_14==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -5091,14 +5090,14 @@ public class userQueryGrammarParser extends Parser {
                             }
                             break;
                         case EOF:
-                        case 13:
-                        case 15:
+                        case 12:
+                        case 14:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt9=2;
                             }
@@ -5129,32 +5128,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 21:
+            case 20:
                 {
                 int LA9_4 = input.LA(2);
 
-                if ( (LA9_4==10) ) {
+                if ( (LA9_4==9) ) {
                     int LA9_8 = input.LA(3);
 
-                    if ( (LA9_8==19) ) {
+                    if ( (LA9_8==18) ) {
                         int LA9_6 = input.LA(4);
 
                         if ( (LA9_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA9_12 = input.LA(7);
 
                                     if ( (LA9_12==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -5165,7 +5164,7 @@ public class userQueryGrammarParser extends Parser {
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                         alt9=1;
                                     }
                                     else {
@@ -5177,17 +5176,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA9_13 = input.LA(7);
 
                                     if ( (LA9_13==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -5207,17 +5206,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA9_14 = input.LA(7);
 
                                     if ( (LA9_14==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -5238,14 +5237,14 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     break;
                                 case EOF:
-                                case 13:
-                                case 15:
+                                case 12:
+                                case 14:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt9=2;
                                     }
@@ -5260,17 +5259,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5281,7 +5280,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -5293,17 +5292,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5323,17 +5322,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5354,14 +5353,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -5385,20 +5384,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA9_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5409,7 +5408,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -5421,17 +5420,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5451,17 +5450,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5482,14 +5481,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -5504,17 +5503,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA9_12 = input.LA(5);
 
                             if ( (LA9_12==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -5525,7 +5524,7 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                             }
-                            else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                 alt9=1;
                             }
                             else {
@@ -5537,17 +5536,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA9_13 = input.LA(5);
 
                             if ( (LA9_13==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -5567,17 +5566,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA9_14 = input.LA(5);
 
                             if ( (LA9_14==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -5598,14 +5597,14 @@ public class userQueryGrammarParser extends Parser {
                             }
                             break;
                         case EOF:
-                        case 13:
-                        case 15:
+                        case 12:
+                        case 14:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt9=2;
                             }
@@ -5636,32 +5635,32 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 25:
+            case 24:
                 {
                 int LA9_5 = input.LA(2);
 
-                if ( (LA9_5==10) ) {
+                if ( (LA9_5==9) ) {
                     int LA9_8 = input.LA(3);
 
-                    if ( (LA9_8==19) ) {
+                    if ( (LA9_8==18) ) {
                         int LA9_6 = input.LA(4);
 
                         if ( (LA9_6==ID) ) {
                             switch ( input.LA(5) ) {
-                            case 11:
+                            case 10:
                                 {
                                 switch ( input.LA(6) ) {
-                                case 17:
+                                case 16:
                                     {
                                     int LA9_12 = input.LA(7);
 
                                     if ( (LA9_12==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -5672,7 +5671,7 @@ public class userQueryGrammarParser extends Parser {
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                         alt9=1;
                                     }
                                     else {
@@ -5684,17 +5683,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 18:
+                                case 17:
                                     {
                                     int LA9_13 = input.LA(7);
 
                                     if ( (LA9_13==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -5714,17 +5713,17 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     }
                                     break;
-                                case 16:
+                                case 15:
                                     {
                                     int LA9_14 = input.LA(7);
 
                                     if ( (LA9_14==INT) ) {
                                         int LA9_15 = input.LA(8);
 
-                                        if ( (LA9_15==17) ) {
+                                        if ( (LA9_15==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
@@ -5745,14 +5744,14 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     break;
                                 case EOF:
-                                case 13:
-                                case 15:
+                                case 12:
+                                case 14:
+                                case 19:
                                 case 20:
                                 case 21:
                                 case 22:
                                 case 23:
                                 case 24:
-                                case 25:
                                     {
                                     alt9=2;
                                     }
@@ -5767,17 +5766,17 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                                 break;
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5788,7 +5787,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -5800,17 +5799,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5830,17 +5829,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5861,14 +5860,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -5892,20 +5891,20 @@ public class userQueryGrammarParser extends Parser {
                     }
                     else if ( (LA9_8==ID) ) {
                         switch ( input.LA(4) ) {
-                        case 11:
+                        case 10:
                             {
                             switch ( input.LA(5) ) {
-                            case 17:
+                            case 16:
                                 {
                                 int LA9_12 = input.LA(6);
 
                                 if ( (LA9_12==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5916,7 +5915,7 @@ public class userQueryGrammarParser extends Parser {
 
                                     }
                                 }
-                                else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                     alt9=1;
                                 }
                                 else {
@@ -5928,17 +5927,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 18:
+                            case 17:
                                 {
                                 int LA9_13 = input.LA(6);
 
                                 if ( (LA9_13==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5958,17 +5957,17 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 }
                                 break;
-                            case 16:
+                            case 15:
                                 {
                                 int LA9_14 = input.LA(6);
 
                                 if ( (LA9_14==INT) ) {
                                     int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_15==17) ) {
+                                    if ( (LA9_15==16) ) {
                                         alt9=1;
                                     }
-                                    else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                         alt9=2;
                                     }
                                     else {
@@ -5989,14 +5988,14 @@ public class userQueryGrammarParser extends Parser {
                                 }
                                 break;
                             case EOF:
-                            case 13:
-                            case 15:
+                            case 12:
+                            case 14:
+                            case 19:
                             case 20:
                             case 21:
                             case 22:
                             case 23:
                             case 24:
-                            case 25:
                                 {
                                 alt9=2;
                                 }
@@ -6011,17 +6010,17 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                             break;
-                        case 17:
+                        case 16:
                             {
                             int LA9_12 = input.LA(5);
 
                             if ( (LA9_12==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -6032,7 +6031,7 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                             }
-                            else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                 alt9=1;
                             }
                             else {
@@ -6044,17 +6043,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA9_13 = input.LA(5);
 
                             if ( (LA9_13==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -6074,17 +6073,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA9_14 = input.LA(5);
 
                             if ( (LA9_14==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -6105,14 +6104,14 @@ public class userQueryGrammarParser extends Parser {
                             }
                             break;
                         case EOF:
-                        case 13:
-                        case 15:
+                        case 12:
+                        case 14:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt9=2;
                             }
@@ -6143,26 +6142,26 @@ public class userQueryGrammarParser extends Parser {
                 }
                 }
                 break;
-            case 19:
+            case 18:
                 {
                 int LA9_6 = input.LA(2);
 
                 if ( (LA9_6==ID) ) {
                     switch ( input.LA(3) ) {
-                    case 11:
+                    case 10:
                         {
                         switch ( input.LA(4) ) {
-                        case 17:
+                        case 16:
                             {
                             int LA9_12 = input.LA(5);
 
                             if ( (LA9_12==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -6173,7 +6172,7 @@ public class userQueryGrammarParser extends Parser {
 
                                 }
                             }
-                            else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                                 alt9=1;
                             }
                             else {
@@ -6185,17 +6184,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 18:
+                        case 17:
                             {
                             int LA9_13 = input.LA(5);
 
                             if ( (LA9_13==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -6215,17 +6214,17 @@ public class userQueryGrammarParser extends Parser {
                             }
                             }
                             break;
-                        case 16:
+                        case 15:
                             {
                             int LA9_14 = input.LA(5);
 
                             if ( (LA9_14==INT) ) {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==17) ) {
+                                if ( (LA9_15==16) ) {
                                     alt9=1;
                                 }
-                                else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                     alt9=2;
                                 }
                                 else {
@@ -6246,14 +6245,14 @@ public class userQueryGrammarParser extends Parser {
                             }
                             break;
                         case EOF:
-                        case 13:
-                        case 15:
+                        case 12:
+                        case 14:
+                        case 19:
                         case 20:
                         case 21:
                         case 22:
                         case 23:
                         case 24:
-                        case 25:
                             {
                             alt9=2;
                             }
@@ -6268,17 +6267,17 @@ public class userQueryGrammarParser extends Parser {
 
                         }
                         break;
-                    case 17:
+                    case 16:
                         {
                         int LA9_12 = input.LA(4);
 
                         if ( (LA9_12==INT) ) {
                             int LA9_15 = input.LA(5);
 
-                            if ( (LA9_15==17) ) {
+                            if ( (LA9_15==16) ) {
                                 alt9=1;
                             }
-                            else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                 alt9=2;
                             }
                             else {
@@ -6289,7 +6288,7 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                         }
-                        else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                        else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                             alt9=1;
                         }
                         else {
@@ -6301,17 +6300,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 18:
+                    case 17:
                         {
                         int LA9_13 = input.LA(4);
 
                         if ( (LA9_13==INT) ) {
                             int LA9_15 = input.LA(5);
 
-                            if ( (LA9_15==17) ) {
+                            if ( (LA9_15==16) ) {
                                 alt9=1;
                             }
-                            else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                 alt9=2;
                             }
                             else {
@@ -6331,17 +6330,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 16:
+                    case 15:
                         {
                         int LA9_14 = input.LA(4);
 
                         if ( (LA9_14==INT) ) {
                             int LA9_15 = input.LA(5);
 
-                            if ( (LA9_15==17) ) {
+                            if ( (LA9_15==16) ) {
                                 alt9=1;
                             }
-                            else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                 alt9=2;
                             }
                             else {
@@ -6362,14 +6361,14 @@ public class userQueryGrammarParser extends Parser {
                         }
                         break;
                     case EOF:
-                    case 13:
-                    case 15:
+                    case 12:
+                    case 14:
+                    case 19:
                     case 20:
                     case 21:
                     case 22:
                     case 23:
                     case 24:
-                    case 25:
                         {
                         alt9=2;
                         }
@@ -6397,32 +6396,32 @@ public class userQueryGrammarParser extends Parser {
                 switch ( input.LA(2) ) {
                 case EOF:
                 case LITVALUE:
-                case 13:
-                case 15:
+                case 12:
+                case 14:
+                case 19:
                 case 20:
                 case 21:
                 case 22:
                 case 23:
                 case 24:
-                case 25:
                     {
                     alt9=2;
                     }
                     break;
-                case 11:
+                case 10:
                     {
                     switch ( input.LA(3) ) {
-                    case 17:
+                    case 16:
                         {
                         int LA9_12 = input.LA(4);
 
                         if ( (LA9_12==INT) ) {
                             int LA9_15 = input.LA(5);
 
-                            if ( (LA9_15==17) ) {
+                            if ( (LA9_15==16) ) {
                                 alt9=1;
                             }
-                            else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                 alt9=2;
                             }
                             else {
@@ -6433,7 +6432,7 @@ public class userQueryGrammarParser extends Parser {
 
                             }
                         }
-                        else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                        else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                             alt9=1;
                         }
                         else {
@@ -6445,17 +6444,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 18:
+                    case 17:
                         {
                         int LA9_13 = input.LA(4);
 
                         if ( (LA9_13==INT) ) {
                             int LA9_15 = input.LA(5);
 
-                            if ( (LA9_15==17) ) {
+                            if ( (LA9_15==16) ) {
                                 alt9=1;
                             }
-                            else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                 alt9=2;
                             }
                             else {
@@ -6475,17 +6474,17 @@ public class userQueryGrammarParser extends Parser {
                         }
                         }
                         break;
-                    case 16:
+                    case 15:
                         {
                         int LA9_14 = input.LA(4);
 
                         if ( (LA9_14==INT) ) {
                             int LA9_15 = input.LA(5);
 
-                            if ( (LA9_15==17) ) {
+                            if ( (LA9_15==16) ) {
                                 alt9=1;
                             }
-                            else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                                 alt9=2;
                             }
                             else {
@@ -6506,14 +6505,14 @@ public class userQueryGrammarParser extends Parser {
                         }
                         break;
                     case EOF:
-                    case 13:
-                    case 15:
+                    case 12:
+                    case 14:
+                    case 19:
                     case 20:
                     case 21:
                     case 22:
                     case 23:
                     case 24:
-                    case 25:
                         {
                         alt9=2;
                         }
@@ -6528,17 +6527,17 @@ public class userQueryGrammarParser extends Parser {
 
                     }
                     break;
-                case 17:
+                case 16:
                     {
                     int LA9_12 = input.LA(3);
 
                     if ( (LA9_12==INT) ) {
                         int LA9_15 = input.LA(4);
 
-                        if ( (LA9_15==17) ) {
+                        if ( (LA9_15==16) ) {
                             alt9=1;
                         }
-                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                             alt9=2;
                         }
                         else {
@@ -6549,7 +6548,7 @@ public class userQueryGrammarParser extends Parser {
 
                         }
                     }
-                    else if ( (LA9_12==ID||LA9_12==19||(LA9_12 >= 21 && LA9_12 <= 25)) ) {
+                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
                         alt9=1;
                     }
                     else {
@@ -6561,17 +6560,17 @@ public class userQueryGrammarParser extends Parser {
                     }
                     }
                     break;
-                case 18:
+                case 17:
                     {
                     int LA9_13 = input.LA(3);
 
                     if ( (LA9_13==INT) ) {
                         int LA9_15 = input.LA(4);
 
-                        if ( (LA9_15==17) ) {
+                        if ( (LA9_15==16) ) {
                             alt9=1;
                         }
-                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                             alt9=2;
                         }
                         else {
@@ -6591,17 +6590,17 @@ public class userQueryGrammarParser extends Parser {
                     }
                     }
                     break;
-                case 16:
+                case 15:
                     {
                     int LA9_14 = input.LA(3);
 
                     if ( (LA9_14==INT) ) {
                         int LA9_15 = input.LA(4);
 
-                        if ( (LA9_15==17) ) {
+                        if ( (LA9_15==16) ) {
                             alt9=1;
                         }
-                        else if ( (LA9_15==EOF||LA9_15==13||LA9_15==15||(LA9_15 >= 20 && LA9_15 <= 25)) ) {
+                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
                             alt9=2;
                         }
                         else {
@@ -6649,7 +6648,7 @@ public class userQueryGrammarParser extends Parser {
                     state._fsp--;
 
 
-                    match(input,17,FOLLOW_17_in_q23End192); 
+                    match(input,16,FOLLOW_16_in_q23End192); 
 
                     pushFollow(FOLLOW_q3End_in_q23End194);
                     q3End(q, e1, e2q35);
@@ -6663,7 +6662,7 @@ public class userQueryGrammarParser extends Parser {
                         int alt8=2;
                         int LA8_0 = input.LA(1);
 
-                        if ( (LA8_0==12) ) {
+                        if ( (LA8_0==11) ) {
                             alt8=1;
                         }
 
@@ -6672,7 +6671,7 @@ public class userQueryGrammarParser extends Parser {
                     	case 1 :
                     	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:57:43: ',' q3End[$q, $e1, $e2q3.qe]
                     	    {
-                    	    match(input,12,FOLLOW_12_in_q23End198); 
+                    	    match(input,11,FOLLOW_11_in_q23End198); 
 
                     	    pushFollow(FOLLOW_q3End_in_q23End200);
                     	    q3End(q, e1, e2q35);
@@ -6737,7 +6736,7 @@ public class userQueryGrammarParser extends Parser {
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==19||(LA10_0 >= 21 && LA10_0 <= 25)) ) {
+            if ( (LA10_0==18||(LA10_0 >= 20 && LA10_0 <= 24)) ) {
                 alt10=1;
             }
             else if ( (LA10_0==ID) ) {
@@ -6746,7 +6745,7 @@ public class userQueryGrammarParser extends Parser {
                 if ( (LA10_2==LITVALUE) ) {
                     alt10=2;
                 }
-                else if ( (LA10_2==EOF||LA10_2==11||LA10_2==13||(LA10_2 >= 15 && LA10_2 <= 18)||(LA10_2 >= 20 && LA10_2 <= 25)) ) {
+                else if ( (LA10_2==EOF||LA10_2==10||LA10_2==12||(LA10_2 >= 14 && LA10_2 <= 17)||(LA10_2 >= 19 && LA10_2 <= 24)) ) {
                     alt10=1;
                 }
                 else {
@@ -6897,7 +6896,7 @@ public class userQueryGrammarParser extends Parser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==19||(LA11_0 >= 21 && LA11_0 <= 25)) ) {
+            if ( (LA11_0==18||(LA11_0 >= 20 && LA11_0 <= 24)) ) {
                 alt11=1;
             }
             else if ( (LA11_0==ID) ) {
@@ -6906,7 +6905,7 @@ public class userQueryGrammarParser extends Parser {
                 if ( (LA11_2==LITVALUE) ) {
                     alt11=2;
                 }
-                else if ( (LA11_2==EOF||(LA11_2 >= 11 && LA11_2 <= 13)||(LA11_2 >= 15 && LA11_2 <= 18)||(LA11_2 >= 20 && LA11_2 <= 25)) ) {
+                else if ( (LA11_2==EOF||(LA11_2 >= 10 && LA11_2 <= 12)||(LA11_2 >= 14 && LA11_2 <= 17)||(LA11_2 >= 19 && LA11_2 <= 24)) ) {
                     alt11=1;
                 }
                 else {
@@ -6993,7 +6992,7 @@ public class userQueryGrammarParser extends Parser {
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( ((LA13_0 >= 21 && LA13_0 <= 25)) ) {
+            if ( ((LA13_0 >= 20 && LA13_0 <= 24)) ) {
                 alt13=1;
             }
             switch (alt13) {
@@ -7003,27 +7002,27 @@ public class userQueryGrammarParser extends Parser {
                     // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:4: ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' )
                     int alt12=5;
                     switch ( input.LA(1) ) {
-                    case 22:
+                    case 21:
                         {
                         alt12=1;
                         }
                         break;
-                    case 23:
+                    case 22:
                         {
                         alt12=2;
                         }
                         break;
-                    case 24:
+                    case 23:
                         {
                         alt12=3;
                         }
                         break;
-                    case 21:
+                    case 20:
                         {
                         alt12=4;
                         }
                         break;
-                    case 25:
+                    case 24:
                         {
                         alt12=5;
                         }
@@ -7040,7 +7039,7 @@ public class userQueryGrammarParser extends Parser {
                         case 1 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:5: 'COUNT'
                             {
-                            match(input,22,FOLLOW_22_in_keyword338); 
+                            match(input,21,FOLLOW_21_in_keyword338); 
 
                             agg = "COUNT";
 
@@ -7049,7 +7048,7 @@ public class userQueryGrammarParser extends Parser {
                         case 2 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:31: 'MAX'
                             {
-                            match(input,23,FOLLOW_23_in_keyword343); 
+                            match(input,22,FOLLOW_22_in_keyword343); 
 
                             agg = "MAX";
 
@@ -7058,7 +7057,7 @@ public class userQueryGrammarParser extends Parser {
                         case 3 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:53: 'MIN'
                             {
-                            match(input,24,FOLLOW_24_in_keyword348); 
+                            match(input,23,FOLLOW_23_in_keyword348); 
 
                             agg = "MIN";
 
@@ -7067,7 +7066,7 @@ public class userQueryGrammarParser extends Parser {
                         case 4 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:75: 'AVG'
                             {
-                            match(input,21,FOLLOW_21_in_keyword353); 
+                            match(input,20,FOLLOW_20_in_keyword353); 
 
                             agg = "AVG";
 
@@ -7076,7 +7075,7 @@ public class userQueryGrammarParser extends Parser {
                         case 5 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:97: 'SUM'
                             {
-                            match(input,25,FOLLOW_25_in_keyword358); 
+                            match(input,24,FOLLOW_24_in_keyword358); 
 
                             agg="SUM";
 
@@ -7086,7 +7085,7 @@ public class userQueryGrammarParser extends Parser {
                     }
 
 
-                    match(input,10,FOLLOW_10_in_keyword362); 
+                    match(input,9,FOLLOW_9_in_keyword362); 
 
                     }
                     break;
@@ -7098,14 +7097,14 @@ public class userQueryGrammarParser extends Parser {
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==19) ) {
+            if ( (LA14_0==18) ) {
                 alt14=1;
             }
             switch (alt14) {
                 case 1 :
                     // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:91:4: '?'
                     {
-                    match(input,19,FOLLOW_19_in_keyword370); 
+                    match(input,18,FOLLOW_18_in_keyword370); 
 
                     queried = true;
 
@@ -7133,14 +7132,14 @@ public class userQueryGrammarParser extends Parser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==11) ) {
+            if ( (LA15_0==10) ) {
                 alt15=1;
             }
             switch (alt15) {
                 case 1 :
                     // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:109:4: ')'
                     {
-                    match(input,11,FOLLOW_11_in_keyword389); 
+                    match(input,10,FOLLOW_10_in_keyword389); 
 
                     }
                     break;
@@ -7152,14 +7151,14 @@ public class userQueryGrammarParser extends Parser {
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==17) ) {
+            if ( (LA17_0==16) ) {
                 int LA17_1 = input.LA(2);
 
                 if ( (LA17_1==INT) ) {
                     alt17=1;
                 }
             }
-            else if ( (LA17_0==16||LA17_0==18) ) {
+            else if ( (LA17_0==15||LA17_0==17) ) {
                 alt17=1;
             }
             switch (alt17) {
@@ -7169,17 +7168,17 @@ public class userQueryGrammarParser extends Parser {
                     // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:4: ( '=' | '>' | '<' )
                     int alt16=3;
                     switch ( input.LA(1) ) {
-                    case 17:
+                    case 16:
                         {
                         alt16=1;
                         }
                         break;
-                    case 18:
+                    case 17:
                         {
                         alt16=2;
                         }
                         break;
-                    case 16:
+                    case 15:
                         {
                         alt16=3;
                         }
@@ -7196,7 +7195,7 @@ public class userQueryGrammarParser extends Parser {
                         case 1 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:5: '='
                             {
-                            match(input,17,FOLLOW_17_in_keyword397); 
+                            match(input,16,FOLLOW_16_in_keyword397); 
 
                             cond = "=";
 
@@ -7205,7 +7204,7 @@ public class userQueryGrammarParser extends Parser {
                         case 2 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:25: '>'
                             {
-                            match(input,18,FOLLOW_18_in_keyword403); 
+                            match(input,17,FOLLOW_17_in_keyword403); 
 
                             cond = ">";
 
@@ -7214,7 +7213,7 @@ public class userQueryGrammarParser extends Parser {
                         case 3 :
                             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:45: '<'
                             {
-                            match(input,16,FOLLOW_16_in_keyword409); 
+                            match(input,15,FOLLOW_15_in_keyword409); 
 
                             cond = "<";
 
@@ -7297,30 +7296,30 @@ public class userQueryGrammarParser extends Parser {
 
  
 
-    public static final BitSet FOLLOW_subquerySet_in_query38 = new BitSet(new long[]{0x0000000003F02002L});
-    public static final BitSet FOLLOW_13_in_query42 = new BitSet(new long[]{0x0000000003E80020L});
-    public static final BitSet FOLLOW_subquerySet_in_query44 = new BitSet(new long[]{0x0000000003F02002L});
-    public static final BitSet FOLLOW_13_in_query50 = new BitSet(new long[]{0x0000000003F00002L});
-    public static final BitSet FOLLOW_22_in_query56 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_23_in_query61 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_24_in_query67 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_21_in_query72 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_25_in_query77 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_20_in_query82 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_13_in_query88 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_e1q23_in_subquerySet108 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_subquerySet111 = new BitSet(new long[]{0x0000000003E80020L});
-    public static final BitSet FOLLOW_q23End_in_subquerySet113 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_subquerySet117 = new BitSet(new long[]{0x0000000003E80020L});
-    public static final BitSet FOLLOW_q23End_in_subquerySet119 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_subquerySet_in_query38 = new BitSet(new long[]{0x0000000001F81002L});
+    public static final BitSet FOLLOW_12_in_query42 = new BitSet(new long[]{0x0000000001F40020L});
+    public static final BitSet FOLLOW_subquerySet_in_query44 = new BitSet(new long[]{0x0000000001F81002L});
+    public static final BitSet FOLLOW_12_in_query50 = new BitSet(new long[]{0x0000000001F80002L});
+    public static final BitSet FOLLOW_21_in_query56 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_22_in_query61 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_23_in_query67 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_20_in_query72 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_24_in_query77 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_19_in_query82 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_12_in_query88 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_e1q23_in_subquerySet108 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_subquerySet111 = new BitSet(new long[]{0x0000000001F40020L});
+    public static final BitSet FOLLOW_q23End_in_subquerySet113 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_14_in_subquerySet117 = new BitSet(new long[]{0x0000000001F40020L});
+    public static final BitSet FOLLOW_q23End_in_subquerySet119 = new BitSet(new long[]{0x0000000000004002L});
     public static final BitSet FOLLOW_e1q1_in_subquerySet127 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_keyword_in_e1q1149 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_keyword_in_e1q23170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_e2q3_in_q23End189 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_q23End192 = new BitSet(new long[]{0x0000000003E80020L});
-    public static final BitSet FOLLOW_q3End_in_q23End194 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_12_in_q23End198 = new BitSet(new long[]{0x0000000003E80020L});
-    public static final BitSet FOLLOW_q3End_in_q23End200 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_e2q3_in_q23End189 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_q23End192 = new BitSet(new long[]{0x0000000001F40020L});
+    public static final BitSet FOLLOW_q3End_in_q23End194 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_11_in_q23End198 = new BitSet(new long[]{0x0000000001F40020L});
+    public static final BitSet FOLLOW_q3End_in_q23End200 = new BitSet(new long[]{0x0000000000000802L});
     public static final BitSet FOLLOW_e2q2_in_q23End208 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_keyword_in_e2q2230 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_literal_in_e2q2238 = new BitSet(new long[]{0x0000000000000002L});
@@ -7328,20 +7327,20 @@ public class userQueryGrammarParser extends Parser {
     public static final BitSet FOLLOW_e3q3_in_q3End279 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_keyword_in_e3q3302 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_literal_in_e3q3310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_keyword338 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_23_in_keyword343 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_24_in_keyword348 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_21_in_keyword353 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_25_in_keyword358 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_10_in_keyword362 = new BitSet(new long[]{0x0000000000080020L});
-    public static final BitSet FOLLOW_19_in_keyword370 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ID_in_keyword382 = new BitSet(new long[]{0x0000000000070802L});
-    public static final BitSet FOLLOW_11_in_keyword389 = new BitSet(new long[]{0x0000000000070002L});
-    public static final BitSet FOLLOW_17_in_keyword397 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_18_in_keyword403 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_16_in_keyword409 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_21_in_keyword338 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_22_in_keyword343 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_23_in_keyword348 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_20_in_keyword353 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_24_in_keyword358 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_keyword362 = new BitSet(new long[]{0x0000000000040020L});
+    public static final BitSet FOLLOW_18_in_keyword370 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ID_in_keyword382 = new BitSet(new long[]{0x0000000000038402L});
+    public static final BitSet FOLLOW_10_in_keyword389 = new BitSet(new long[]{0x0000000000038002L});
+    public static final BitSet FOLLOW_16_in_keyword397 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_17_in_keyword403 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_15_in_keyword409 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_INT_in_keyword413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_literal455 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_ID_in_literal455 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_LITVALUE_in_literal457 = new BitSet(new long[]{0x0000000000000002L});
 
 }

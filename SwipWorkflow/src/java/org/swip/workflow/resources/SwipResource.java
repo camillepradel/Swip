@@ -39,6 +39,8 @@ public class SwipResource {
         
         String pivotQuery = translateQuery(plquery);
        
+         System.out.println("\n--------PIVOT QUERY---------- \n "+pivotQuery+"\n------------------\n");
+        
         JSONObject response = new JSONObject();
         ArrayList<JSONObject> queryResults = new ArrayList();
 
@@ -46,7 +48,7 @@ public class SwipResource {
         
         if (!pivotQuery.equals("")) {
             List<org.swip.pivottomappings.PatternToQueryMapping> ptqms = generateBestMappings(pivotQuery, maxResults);
-        
+            System.out.println("Pivot To Mappings : "+ptqms.size());
             if (ptqms != null) {
                 totalResults = ptqms.size();
                 

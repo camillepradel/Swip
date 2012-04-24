@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-19 15:17:29
+// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-24 15:11:37
 package  org.swip.pivotToMappings.model.query.antlr;
 
 import org.antlr.runtime.*;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class userQueryGrammarLexer extends Lexer {
     public static final int EOF=-1;
+    public static final int T__9=9;
     public static final int T__10=10;
     public static final int T__11=11;
     public static final int T__12=12;
@@ -24,13 +25,11 @@ public class userQueryGrammarLexer extends Lexer {
     public static final int T__22=22;
     public static final int T__23=23;
     public static final int T__24=24;
-    public static final int T__25=25;
     public static final int COMMENT=4;
     public static final int ID=5;
     public static final int INT=6;
-    public static final int KEYVALUE=7;
-    public static final int LITVALUE=8;
-    public static final int WS=9;
+    public static final int LITVALUE=7;
+    public static final int WS=8;
 
     // delegates
     // delegators
@@ -47,15 +46,36 @@ public class userQueryGrammarLexer extends Lexer {
     }
     public String getGrammarFileName() { return "/Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g"; }
 
+    // $ANTLR start "T__9"
+    public final void mT__9() throws RecognitionException {
+        try {
+            int _type = T__9;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:4:6: ( '(' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:4:8: '('
+            {
+            match('('); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__9"
+
     // $ANTLR start "T__10"
     public final void mT__10() throws RecognitionException {
         try {
             int _type = T__10;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:4:7: ( '(' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:4:9: '('
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:5:7: ( ')' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:5:9: ')'
             {
-            match('('); 
+            match(')'); 
 
             }
 
@@ -73,10 +93,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__11;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:5:7: ( ')' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:5:9: ')'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:6:7: ( ',' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:6:9: ','
             {
-            match(')'); 
+            match(','); 
 
             }
 
@@ -94,10 +114,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:6:7: ( ',' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:6:9: ','
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:7:7: ( '.' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:7:9: '.'
             {
-            match(','); 
+            match('.'); 
 
             }
 
@@ -115,10 +135,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:7:7: ( '.' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:7:9: '.'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:8:7: ( ':' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:8:9: ':'
             {
-            match('.'); 
+            match(':'); 
 
             }
 
@@ -136,10 +156,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:8:7: ( ':' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:8:9: ':'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:9:7: ( ';' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:9:9: ';'
             {
-            match(':'); 
+            match(';'); 
 
             }
 
@@ -157,10 +177,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:9:7: ( ';' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:9:9: ';'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:10:7: ( '<' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:10:9: '<'
             {
-            match(';'); 
+            match('<'); 
 
             }
 
@@ -178,10 +198,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:10:7: ( '<' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:10:9: '<'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:11:7: ( '=' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:11:9: '='
             {
-            match('<'); 
+            match('='); 
 
             }
 
@@ -199,10 +219,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:11:7: ( '=' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:11:9: '='
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:12:7: ( '>' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:12:9: '>'
             {
-            match('='); 
+            match('>'); 
 
             }
 
@@ -220,10 +240,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:12:7: ( '>' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:12:9: '>'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:13:7: ( '?' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:13:9: '?'
             {
-            match('>'); 
+            match('?'); 
 
             }
 
@@ -241,10 +261,12 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:13:7: ( '?' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:13:9: '?'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:14:7: ( 'ASK' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:14:9: 'ASK'
             {
-            match('?'); 
+            match("ASK"); 
+
+
 
             }
 
@@ -262,10 +284,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:14:7: ( 'ASK' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:14:9: 'ASK'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:15:7: ( 'AVG' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:15:9: 'AVG'
             {
-            match("ASK"); 
+            match("AVG"); 
 
 
 
@@ -285,10 +307,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:15:7: ( 'AVG' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:15:9: 'AVG'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:16:7: ( 'COUNT' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:16:9: 'COUNT'
             {
-            match("AVG"); 
+            match("COUNT"); 
 
 
 
@@ -308,10 +330,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:16:7: ( 'COUNT' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:16:9: 'COUNT'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:17:7: ( 'MAX' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:17:9: 'MAX'
             {
-            match("COUNT"); 
+            match("MAX"); 
 
 
 
@@ -331,10 +353,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:17:7: ( 'MAX' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:17:9: 'MAX'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:18:7: ( 'MIN' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:18:9: 'MIN'
             {
-            match("MAX"); 
+            match("MIN"); 
 
 
 
@@ -354,29 +376,6 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:18:7: ( 'MIN' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:18:9: 'MIN'
-            {
-            match("MIN"); 
-
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__24"
-
-    // $ANTLR start "T__25"
-    public final void mT__25() throws RecognitionException {
-        try {
-            int _type = T__25;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:19:7: ( 'SUM' )
             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:19:9: 'SUM'
             {
@@ -393,15 +392,15 @@ public class userQueryGrammarLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__25"
+    // $ANTLR end "T__24"
 
     // $ANTLR start "ID"
     public final void mID() throws RecognitionException {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )* )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -413,13 +412,13 @@ public class userQueryGrammarLexer extends Lexer {
             }
 
 
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0 >= '0' && LA1_0 <= '9')||(LA1_0 >= 'A' && LA1_0 <= 'Z')||LA1_0=='_'||(LA1_0 >= 'a' && LA1_0 <= 'z')) ) {
+                if ( (LA1_0==' '||(LA1_0 >= '0' && LA1_0 <= '9')||(LA1_0 >= 'A' && LA1_0 <= 'Z')||LA1_0=='_'||(LA1_0 >= 'a' && LA1_0 <= 'z')) ) {
                     alt1=1;
                 }
 
@@ -428,7 +427,7 @@ public class userQueryGrammarLexer extends Lexer {
             	case 1 :
             	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:
             	    {
-            	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+            	    if ( input.LA(1)==' '||(input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
             	    }
             	    else {
@@ -740,69 +739,6 @@ public class userQueryGrammarLexer extends Lexer {
     }
     // $ANTLR end "WS"
 
-    // $ANTLR start "KEYVALUE"
-    public final void mKEYVALUE() throws RecognitionException {
-        try {
-            int _type = KEYVALUE;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:157:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )* )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:157:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
-            {
-            if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
-                input.consume();
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;
-            }
-
-
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:157:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
-
-                if ( (LA8_0==' '||(LA8_0 >= '0' && LA8_0 <= '9')||(LA8_0 >= 'A' && LA8_0 <= 'Z')||LA8_0=='_'||(LA8_0 >= 'a' && LA8_0 <= 'z')) ) {
-                    alt8=1;
-                }
-
-
-                switch (alt8) {
-            	case 1 :
-            	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:
-            	    {
-            	    if ( input.LA(1)==' '||(input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
-            	        input.consume();
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "KEYVALUE"
-
     // $ANTLR start "LITVALUE"
     public final void mLITVALUE() throws RecognitionException {
         try {
@@ -814,20 +750,20 @@ public class userQueryGrammarLexer extends Lexer {
             match('<'); 
 
             // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:161:12: ( . )*
-            loop9:
+            loop8:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA9_0=='>') ) {
-                    alt9=2;
+                if ( (LA8_0=='>') ) {
+                    alt8=2;
                 }
-                else if ( ((LA9_0 >= '\u0000' && LA9_0 <= '=')||(LA9_0 >= '?' && LA9_0 <= '\uFFFF')) ) {
-                    alt9=1;
+                else if ( ((LA8_0 >= '\u0000' && LA8_0 <= '=')||(LA8_0 >= '?' && LA8_0 <= '\uFFFF')) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt8) {
             	case 1 :
             	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:161:12: .
             	    {
@@ -837,7 +773,7 @@ public class userQueryGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop8;
                 }
             } while (true);
 
@@ -856,140 +792,445 @@ public class userQueryGrammarLexer extends Lexer {
     // $ANTLR end "LITVALUE"
 
     public void mTokens() throws RecognitionException {
-        // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:8: ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | ID | INT | COMMENT | WS | KEYVALUE | LITVALUE )
-        int alt10=22;
-        alt10 = dfa10.predict(input);
-        switch (alt10) {
+        // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:8: ( T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | ID | INT | COMMENT | WS | LITVALUE )
+        int alt9=21;
+        switch ( input.LA(1) ) {
+        case '(':
+            {
+            alt9=1;
+            }
+            break;
+        case ')':
+            {
+            alt9=2;
+            }
+            break;
+        case ',':
+            {
+            alt9=3;
+            }
+            break;
+        case '.':
+            {
+            alt9=4;
+            }
+            break;
+        case ':':
+            {
+            alt9=5;
+            }
+            break;
+        case ';':
+            {
+            alt9=6;
+            }
+            break;
+        case '<':
+            {
+            int LA9_7 = input.LA(2);
+
+            if ( ((LA9_7 >= '\u0000' && LA9_7 <= '\uFFFF')) ) {
+                alt9=21;
+            }
+            else {
+                alt9=7;
+            }
+            }
+            break;
+        case '=':
+            {
+            alt9=8;
+            }
+            break;
+        case '>':
+            {
+            alt9=9;
+            }
+            break;
+        case '?':
+            {
+            alt9=10;
+            }
+            break;
+        case 'A':
+            {
+            switch ( input.LA(2) ) {
+            case 'S':
+                {
+                int LA9_21 = input.LA(3);
+
+                if ( (LA9_21=='K') ) {
+                    int LA9_27 = input.LA(4);
+
+                    if ( (LA9_27==' '||(LA9_27 >= '0' && LA9_27 <= '9')||(LA9_27 >= 'A' && LA9_27 <= 'Z')||LA9_27=='_'||(LA9_27 >= 'a' && LA9_27 <= 'z')) ) {
+                        alt9=17;
+                    }
+                    else {
+                        alt9=11;
+                    }
+                }
+                else {
+                    alt9=17;
+                }
+                }
+                break;
+            case 'V':
+                {
+                int LA9_22 = input.LA(3);
+
+                if ( (LA9_22=='G') ) {
+                    int LA9_28 = input.LA(4);
+
+                    if ( (LA9_28==' '||(LA9_28 >= '0' && LA9_28 <= '9')||(LA9_28 >= 'A' && LA9_28 <= 'Z')||LA9_28=='_'||(LA9_28 >= 'a' && LA9_28 <= 'z')) ) {
+                        alt9=17;
+                    }
+                    else {
+                        alt9=12;
+                    }
+                }
+                else {
+                    alt9=17;
+                }
+                }
+                break;
+            default:
+                alt9=17;
+            }
+
+            }
+            break;
+        case 'C':
+            {
+            int LA9_12 = input.LA(2);
+
+            if ( (LA9_12=='O') ) {
+                int LA9_23 = input.LA(3);
+
+                if ( (LA9_23=='U') ) {
+                    int LA9_29 = input.LA(4);
+
+                    if ( (LA9_29=='N') ) {
+                        int LA9_35 = input.LA(5);
+
+                        if ( (LA9_35=='T') ) {
+                            int LA9_39 = input.LA(6);
+
+                            if ( (LA9_39==' '||(LA9_39 >= '0' && LA9_39 <= '9')||(LA9_39 >= 'A' && LA9_39 <= 'Z')||LA9_39=='_'||(LA9_39 >= 'a' && LA9_39 <= 'z')) ) {
+                                alt9=17;
+                            }
+                            else {
+                                alt9=13;
+                            }
+                        }
+                        else {
+                            alt9=17;
+                        }
+                    }
+                    else {
+                        alt9=17;
+                    }
+                }
+                else {
+                    alt9=17;
+                }
+            }
+            else {
+                alt9=17;
+            }
+            }
+            break;
+        case 'M':
+            {
+            switch ( input.LA(2) ) {
+            case 'A':
+                {
+                int LA9_24 = input.LA(3);
+
+                if ( (LA9_24=='X') ) {
+                    int LA9_30 = input.LA(4);
+
+                    if ( (LA9_30==' '||(LA9_30 >= '0' && LA9_30 <= '9')||(LA9_30 >= 'A' && LA9_30 <= 'Z')||LA9_30=='_'||(LA9_30 >= 'a' && LA9_30 <= 'z')) ) {
+                        alt9=17;
+                    }
+                    else {
+                        alt9=14;
+                    }
+                }
+                else {
+                    alt9=17;
+                }
+                }
+                break;
+            case 'I':
+                {
+                int LA9_25 = input.LA(3);
+
+                if ( (LA9_25=='N') ) {
+                    int LA9_31 = input.LA(4);
+
+                    if ( (LA9_31==' '||(LA9_31 >= '0' && LA9_31 <= '9')||(LA9_31 >= 'A' && LA9_31 <= 'Z')||LA9_31=='_'||(LA9_31 >= 'a' && LA9_31 <= 'z')) ) {
+                        alt9=17;
+                    }
+                    else {
+                        alt9=15;
+                    }
+                }
+                else {
+                    alt9=17;
+                }
+                }
+                break;
+            default:
+                alt9=17;
+            }
+
+            }
+            break;
+        case 'S':
+            {
+            int LA9_14 = input.LA(2);
+
+            if ( (LA9_14=='U') ) {
+                int LA9_26 = input.LA(3);
+
+                if ( (LA9_26=='M') ) {
+                    int LA9_32 = input.LA(4);
+
+                    if ( (LA9_32==' '||(LA9_32 >= '0' && LA9_32 <= '9')||(LA9_32 >= 'A' && LA9_32 <= 'Z')||LA9_32=='_'||(LA9_32 >= 'a' && LA9_32 <= 'z')) ) {
+                        alt9=17;
+                    }
+                    else {
+                        alt9=16;
+                    }
+                }
+                else {
+                    alt9=17;
+                }
+            }
+            else {
+                alt9=17;
+            }
+            }
+            break;
+        case 'B':
+        case 'D':
+        case 'E':
+        case 'F':
+        case 'G':
+        case 'H':
+        case 'I':
+        case 'J':
+        case 'K':
+        case 'L':
+        case 'N':
+        case 'O':
+        case 'P':
+        case 'Q':
+        case 'R':
+        case 'T':
+        case 'U':
+        case 'V':
+        case 'W':
+        case 'X':
+        case 'Y':
+        case 'Z':
+        case '_':
+        case 'a':
+        case 'b':
+        case 'c':
+        case 'd':
+        case 'e':
+        case 'f':
+        case 'g':
+        case 'h':
+        case 'i':
+        case 'j':
+        case 'k':
+        case 'l':
+        case 'm':
+        case 'n':
+        case 'o':
+        case 'p':
+        case 'q':
+        case 'r':
+        case 's':
+        case 't':
+        case 'u':
+        case 'v':
+        case 'w':
+        case 'x':
+        case 'y':
+        case 'z':
+            {
+            alt9=17;
+            }
+            break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            {
+            alt9=18;
+            }
+            break;
+        case '/':
+            {
+            alt9=19;
+            }
+            break;
+        case '\t':
+        case '\n':
+        case '\r':
+        case ' ':
+            {
+            alt9=20;
+            }
+            break;
+        default:
+            NoViableAltException nvae =
+                new NoViableAltException("", 9, 0, input);
+
+            throw nvae;
+
+        }
+
+        switch (alt9) {
             case 1 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:10: T__10
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:10: T__9
+                {
+                mT__9(); 
+
+
+                }
+                break;
+            case 2 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:15: T__10
                 {
                 mT__10(); 
 
 
                 }
                 break;
-            case 2 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:16: T__11
+            case 3 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:21: T__11
                 {
                 mT__11(); 
 
 
                 }
                 break;
-            case 3 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:22: T__12
+            case 4 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:27: T__12
                 {
                 mT__12(); 
 
 
                 }
                 break;
-            case 4 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:28: T__13
+            case 5 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:33: T__13
                 {
                 mT__13(); 
 
 
                 }
                 break;
-            case 5 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:34: T__14
+            case 6 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:39: T__14
                 {
                 mT__14(); 
 
 
                 }
                 break;
-            case 6 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:40: T__15
+            case 7 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:45: T__15
                 {
                 mT__15(); 
 
 
                 }
                 break;
-            case 7 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:46: T__16
+            case 8 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:51: T__16
                 {
                 mT__16(); 
 
 
                 }
                 break;
-            case 8 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:52: T__17
+            case 9 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:57: T__17
                 {
                 mT__17(); 
 
 
                 }
                 break;
-            case 9 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:58: T__18
+            case 10 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:63: T__18
                 {
                 mT__18(); 
 
 
                 }
                 break;
-            case 10 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:64: T__19
+            case 11 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:69: T__19
                 {
                 mT__19(); 
 
 
                 }
                 break;
-            case 11 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:70: T__20
+            case 12 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:75: T__20
                 {
                 mT__20(); 
 
 
                 }
                 break;
-            case 12 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:76: T__21
+            case 13 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:81: T__21
                 {
                 mT__21(); 
 
 
                 }
                 break;
-            case 13 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:82: T__22
+            case 14 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:87: T__22
                 {
                 mT__22(); 
 
 
                 }
                 break;
-            case 14 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:88: T__23
+            case 15 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:93: T__23
                 {
                 mT__23(); 
 
 
                 }
                 break;
-            case 15 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:94: T__24
+            case 16 :
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:99: T__24
                 {
                 mT__24(); 
 
 
                 }
                 break;
-            case 16 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:100: T__25
-                {
-                mT__25(); 
-
-
-                }
-                break;
             case 17 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:106: ID
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:105: ID
                 {
                 mID(); 
 
@@ -997,7 +1238,7 @@ public class userQueryGrammarLexer extends Lexer {
                 }
                 break;
             case 18 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:109: INT
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:108: INT
                 {
                 mINT(); 
 
@@ -1005,7 +1246,7 @@ public class userQueryGrammarLexer extends Lexer {
                 }
                 break;
             case 19 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:113: COMMENT
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:112: COMMENT
                 {
                 mCOMMENT(); 
 
@@ -1013,7 +1254,7 @@ public class userQueryGrammarLexer extends Lexer {
                 }
                 break;
             case 20 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:121: WS
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:120: WS
                 {
                 mWS(); 
 
@@ -1021,15 +1262,7 @@ public class userQueryGrammarLexer extends Lexer {
                 }
                 break;
             case 21 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:124: KEYVALUE
-                {
-                mKEYVALUE(); 
-
-
-                }
-                break;
-            case 22 :
-                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:133: LITVALUE
+                // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:1:123: LITVALUE
                 {
                 mLITVALUE(); 
 
@@ -1042,148 +1275,6 @@ public class userQueryGrammarLexer extends Lexer {
     }
 
 
-    protected DFA10 dfa10 = new DFA10(this);
-    static final String DFA10_eotS =
-        "\7\uffff\1\23\3\uffff\5\30\5\uffff\3\30\2\uffff\4\30\1\44\1\45\1"+
-        "\30\1\47\1\50\1\51\2\uffff\1\30\3\uffff\1\53\1\uffff";
-    static final String DFA10_eofS =
-        "\54\uffff";
-    static final String DFA10_minS =
-        "\1\11\6\uffff\1\0\3\uffff\5\40\5\uffff\3\40\2\uffff\12\40\2\uffff"+
-        "\1\40\3\uffff\1\40\1\uffff";
-    static final String DFA10_maxS =
-        "\1\172\6\uffff\1\uffff\3\uffff\5\172\5\uffff\3\172\2\uffff\12\172"+
-        "\2\uffff\1\172\3\uffff\1\172\1\uffff";
-    static final String DFA10_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\uffff\1\10\1\11\1\12\5\uffff"+
-        "\1\22\1\23\1\24\1\7\1\26\3\uffff\1\21\1\25\12\uffff\1\13\1\14\1"+
-        "\uffff\1\16\1\17\1\20\1\uffff\1\15";
-    static final String DFA10_specialS =
-        "\7\uffff\1\0\44\uffff}>";
-    static final String[] DFA10_transitionS = {
-            "\2\22\2\uffff\1\22\22\uffff\1\22\7\uffff\1\1\1\2\2\uffff\1\3"+
-            "\1\uffff\1\4\1\21\12\20\1\5\1\6\1\7\1\10\1\11\1\12\1\uffff\1"+
-            "\13\1\17\1\14\11\17\1\15\5\17\1\16\7\17\4\uffff\1\17\1\uffff"+
-            "\32\17",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\0\24",
-            "",
-            "",
-            "",
-            "\1\31\17\uffff\12\27\7\uffff\22\27\1\25\2\27\1\26\4\27\4\uffff"+
-            "\1\27\1\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\16\27\1\32\13\27\4\uffff\1\27"+
-            "\1\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\1\33\7\27\1\34\21\27\4\uffff\1"+
-            "\27\1\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\24\27\1\35\5\27\4\uffff\1\27\1"+
-            "\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\31\17\uffff\12\27\7\uffff\12\27\1\36\17\27\4\uffff\1\27"+
-            "\1\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\6\27\1\37\23\27\4\uffff\1\27\1"+
-            "\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            "",
-            "",
-            "\1\31\17\uffff\12\27\7\uffff\24\27\1\40\5\27\4\uffff\1\27\1"+
-            "\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\27\27\1\41\2\27\4\uffff\1\27\1"+
-            "\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\15\27\1\42\14\27\4\uffff\1\27"+
-            "\1\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\14\27\1\43\15\27\4\uffff\1\27"+
-            "\1\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            "\1\31\17\uffff\12\27\7\uffff\15\27\1\46\14\27\4\uffff\1\27"+
-            "\1\uffff\32\27",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            "",
-            "",
-            "\1\31\17\uffff\12\27\7\uffff\23\27\1\52\6\27\4\uffff\1\27\1"+
-            "\uffff\32\27",
-            "",
-            "",
-            "",
-            "\1\31\17\uffff\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32"+
-            "\27",
-            ""
-    };
-
-    static final short[] DFA10_eot = DFA.unpackEncodedString(DFA10_eotS);
-    static final short[] DFA10_eof = DFA.unpackEncodedString(DFA10_eofS);
-    static final char[] DFA10_min = DFA.unpackEncodedStringToUnsignedChars(DFA10_minS);
-    static final char[] DFA10_max = DFA.unpackEncodedStringToUnsignedChars(DFA10_maxS);
-    static final short[] DFA10_accept = DFA.unpackEncodedString(DFA10_acceptS);
-    static final short[] DFA10_special = DFA.unpackEncodedString(DFA10_specialS);
-    static final short[][] DFA10_transition;
-
-    static {
-        int numStates = DFA10_transitionS.length;
-        DFA10_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA10_transition[i] = DFA.unpackEncodedString(DFA10_transitionS[i]);
-        }
-    }
-
-    class DFA10 extends DFA {
-
-        public DFA10(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 10;
-            this.eot = DFA10_eot;
-            this.eof = DFA10_eof;
-            this.min = DFA10_min;
-            this.max = DFA10_max;
-            this.accept = DFA10_accept;
-            this.special = DFA10_special;
-            this.transition = DFA10_transition;
-        }
-        public String getDescription() {
-            return "1:1: Tokens : ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | ID | INT | COMMENT | WS | KEYVALUE | LITVALUE );";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            IntStream input = _input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA10_7 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA10_7 >= '\u0000' && LA10_7 <= '\uFFFF')) ) {s = 20;}
-
-                        else s = 19;
-
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 10, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-
-    }
  
 
 }
