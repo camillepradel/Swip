@@ -4,6 +4,7 @@
  */
 package org.swip.pivotToMappings;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import org.json.JSONObject;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.AbstractClass;
 import org.swip.pivotToMappings.model.Class1;
@@ -19,6 +21,7 @@ import org.swip.pivotToMappings.model.ClassToBeReturned;
 import org.swip.pivotToMappings.model.NestedClassToBeReturned;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.LiteralElementMapping;
+import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.patterns.patternElement.ClassPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PropertyPatternElement;
@@ -116,16 +119,34 @@ public class PivotToMappingsWS {
      * Web service operation
      */
     @WebMethod(operationName = "generateBestMappings")
-    public java.util.List<org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping> generateBestMappings(@WebParam(name = "pivotQueryString") String pivotQueryString, @WebParam(name = "numMappings") int numMappings) {
-        List ret = Controller.getInstance().getBestMappings(pivotQueryString, numMappings);
+    public String generateBestMappings(@WebParam(name = "pivotQueryString") String pivotQueryString, @WebParam(name = "numMappings") int numMappings) {
+        JSONObject response = new JSONObject();
+        
+        if(numMappings > 50) numMappings = 50;  // avoid to request the server with an infinite result
+        List<PatternToQueryMapping> bestMappings = Controller.getInstance().getBestMappings(pivotQueryString, numMappings);
 	
-	if(ret != null)
+	if(bestMappings != null)
         {
-            System.out.println("lolilol");
-	        Collections.reverse(ret);
+	        Collections.reverse(bestMappings);
+                
+                ArrayList<JSONObject> queryResults = new ArrayList();
+                
+                for(PatternToQueryMapping ptqm : bestMappings)
+                {
+                    JSONObject query = new JSONObject();
+                    query.put("descriptiveSentence", ptqm.getSentence());
+                    query.put("mappingDescription", ptqm.getStringDescription());
+                    query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
+                    query.put("sparqlQuery", ptqm.getSparqlQuery());
+                    //query.put("validate", 0);
+
+                    queryResults.add(query);
+                }
+                
+                response.put("content", queryResults);
         }
         
-	return ret;
+	return response.toString();
     }
 
     /**

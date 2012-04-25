@@ -27,6 +27,7 @@ public class NlToPivotPreParser
     private boolean maximum = false;
     private boolean minimum = false;
     private boolean average = false;
+    private boolean sum = false;
     private boolean moreThan = false;
     private boolean lessThan = false;
     
@@ -95,6 +96,12 @@ public class NlToPivotPreParser
             aggFound = this.average = this.parseToken(f, "");
         }
         
+        if(!aggFound)
+        {
+            f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"sum").getPath());
+            aggFound = this.sum = this.parseToken(f, "");
+        }
+        
         f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"moreThan").getPath());
         this.moreThan = this.parseToken(f, "");
 
@@ -110,6 +117,9 @@ public class NlToPivotPreParser
         
         f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"stopList").getPath());
         this.parseToken(f, "");
+        
+        
+        System.out.println("PreParser return : "+this.adaptedQuery);
     }
     
     private boolean parseToken(File f, String replace)
@@ -168,6 +178,11 @@ public class NlToPivotPreParser
     public boolean getAverage()
     {
         return this.average;
+    }
+    
+    public boolean getSum()
+    {
+        return this.sum;
     }
     
     

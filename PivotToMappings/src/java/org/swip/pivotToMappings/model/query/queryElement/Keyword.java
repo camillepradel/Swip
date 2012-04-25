@@ -37,7 +37,7 @@ public class Keyword extends QueryElement {
         this.keywordValue = keywordValue;
     }
     
-    public Keyword(boolean queried, int id, String keywordValue, String aggregat) {
+    /*public Keyword(boolean queried, int id, String keywordValue, String aggregat) {
         super();
         if(aggregat != null)
         {
@@ -54,7 +54,7 @@ public class Keyword extends QueryElement {
             this.keywordValue = keywordValue;
         }
         
-    }
+    }*/
 
 
     public int getId() {
@@ -78,8 +78,10 @@ public class Keyword extends QueryElement {
         this.keywordValue = keywordValue;
     }
     
-    public void setCond(String cond)
+    public void setCond(String agg, String cond)
     {
+        this.isAggregate = true;
+        this.aggregat = agg;
         this.cond = cond;
     }
 

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-24 16:03:33
+// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-25 13:30:47
 
 package org.swip.pivotToMappings.model.query.antlr;
 import java.util.HashMap;
@@ -391,29 +391,29 @@ public class userQueryGrammarParser extends Parser {
                     int LA7_8 = input.LA(3);
 
                     if ( (LA7_8==18) ) {
-                        int LA7_6 = input.LA(4);
+                        int LA7_11 = input.LA(4);
 
-                        if ( (LA7_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA7_11==ID) ) {
+                            int LA7_12 = input.LA(5);
+
+                            if ( (LA7_12==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA7_10 = input.LA(7);
+                                    int LA7_14 = input.LA(7);
 
-                                    if ( (LA7_10==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_14==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -421,7 +421,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 10, input);
+                                            new NoViableAltException("", 7, 14, input);
 
                                         throw nvae;
 
@@ -430,20 +430,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA7_11 = input.LA(7);
+                                    int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_11==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_15==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -451,7 +451,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 11, input);
+                                            new NoViableAltException("", 7, 15, input);
 
                                         throw nvae;
 
@@ -460,20 +460,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA7_12 = input.LA(7);
+                                    int LA7_16 = input.LA(7);
 
-                                    if ( (LA7_12==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_16==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -481,366 +481,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 12, input);
+                                            new NoViableAltException("", 7, 16, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case 13:
-                                    {
-                                    alt7=1;
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt7=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 9, input);
+                                        new NoViableAltException("", 7, 13, input);
 
                                     throw nvae;
 
                                 }
 
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 7, input);
-
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA7_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 9, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA7_10 = input.LA(5);
-
-                            if ( (LA7_10==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 10, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA7_11 = input.LA(5);
-
-                            if ( (LA7_11==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 11, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA7_12 = input.LA(5);
-
-                            if ( (LA7_12==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -849,33 +504,126 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 13:
-                            {
-                            alt7=1;
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt7=2;
-                            }
-                            break;
-                        default:
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 7, 7, input);
+                                new NoViableAltException("", 7, 11, input);
 
                             throw nvae;
 
                         }
+                    }
+                    else if ( (LA7_8==ID) ) {
+                        int LA7_12 = input.LA(4);
 
+                        if ( (LA7_12==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
+                                int LA7_14 = input.LA(6);
+
+                                if ( (LA7_14==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 14, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA7_15 = input.LA(6);
+
+                                if ( (LA7_15==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 15, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA7_16 = input.LA(6);
+
+                                if ( (LA7_16==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 7, 13, input);
+
+                                throw nvae;
+
+                            }
+
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 7, 12, input);
+
+                            throw nvae;
+
+                        }
                     }
                     else {
                         NoViableAltException nvae =
@@ -902,29 +650,29 @@ public class userQueryGrammarParser extends Parser {
                     int LA7_8 = input.LA(3);
 
                     if ( (LA7_8==18) ) {
-                        int LA7_6 = input.LA(4);
+                        int LA7_11 = input.LA(4);
 
-                        if ( (LA7_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA7_11==ID) ) {
+                            int LA7_12 = input.LA(5);
+
+                            if ( (LA7_12==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA7_10 = input.LA(7);
+                                    int LA7_14 = input.LA(7);
 
-                                    if ( (LA7_10==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_14==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -932,7 +680,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 10, input);
+                                            new NoViableAltException("", 7, 14, input);
 
                                         throw nvae;
 
@@ -941,20 +689,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA7_11 = input.LA(7);
+                                    int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_11==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_15==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -962,7 +710,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 11, input);
+                                            new NoViableAltException("", 7, 15, input);
 
                                         throw nvae;
 
@@ -971,20 +719,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA7_12 = input.LA(7);
+                                    int LA7_16 = input.LA(7);
 
-                                    if ( (LA7_12==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_16==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -992,366 +740,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 12, input);
+                                            new NoViableAltException("", 7, 16, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case 13:
-                                    {
-                                    alt7=1;
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt7=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 9, input);
+                                        new NoViableAltException("", 7, 13, input);
 
                                     throw nvae;
 
                                 }
 
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 7, input);
-
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA7_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 9, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA7_10 = input.LA(5);
-
-                            if ( (LA7_10==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 10, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA7_11 = input.LA(5);
-
-                            if ( (LA7_11==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 11, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA7_12 = input.LA(5);
-
-                            if ( (LA7_12==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -1360,33 +763,126 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 13:
-                            {
-                            alt7=1;
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt7=2;
-                            }
-                            break;
-                        default:
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 7, 7, input);
+                                new NoViableAltException("", 7, 11, input);
 
                             throw nvae;
 
                         }
+                    }
+                    else if ( (LA7_8==ID) ) {
+                        int LA7_12 = input.LA(4);
 
+                        if ( (LA7_12==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
+                                int LA7_14 = input.LA(6);
+
+                                if ( (LA7_14==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 14, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA7_15 = input.LA(6);
+
+                                if ( (LA7_15==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 15, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA7_16 = input.LA(6);
+
+                                if ( (LA7_16==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 7, 13, input);
+
+                                throw nvae;
+
+                            }
+
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 7, 12, input);
+
+                            throw nvae;
+
+                        }
                     }
                     else {
                         NoViableAltException nvae =
@@ -1413,29 +909,29 @@ public class userQueryGrammarParser extends Parser {
                     int LA7_8 = input.LA(3);
 
                     if ( (LA7_8==18) ) {
-                        int LA7_6 = input.LA(4);
+                        int LA7_11 = input.LA(4);
 
-                        if ( (LA7_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA7_11==ID) ) {
+                            int LA7_12 = input.LA(5);
+
+                            if ( (LA7_12==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA7_10 = input.LA(7);
+                                    int LA7_14 = input.LA(7);
 
-                                    if ( (LA7_10==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_14==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -1443,7 +939,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 10, input);
+                                            new NoViableAltException("", 7, 14, input);
 
                                         throw nvae;
 
@@ -1452,20 +948,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA7_11 = input.LA(7);
+                                    int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_11==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_15==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -1473,7 +969,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 11, input);
+                                            new NoViableAltException("", 7, 15, input);
 
                                         throw nvae;
 
@@ -1482,20 +978,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA7_12 = input.LA(7);
+                                    int LA7_16 = input.LA(7);
 
-                                    if ( (LA7_12==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_16==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -1503,366 +999,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 12, input);
+                                            new NoViableAltException("", 7, 16, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case 13:
-                                    {
-                                    alt7=1;
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt7=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 9, input);
+                                        new NoViableAltException("", 7, 13, input);
 
                                     throw nvae;
 
                                 }
 
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 7, input);
-
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA7_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 9, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA7_10 = input.LA(5);
-
-                            if ( (LA7_10==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 10, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA7_11 = input.LA(5);
-
-                            if ( (LA7_11==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 11, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA7_12 = input.LA(5);
-
-                            if ( (LA7_12==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -1871,33 +1022,126 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 13:
-                            {
-                            alt7=1;
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt7=2;
-                            }
-                            break;
-                        default:
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 7, 7, input);
+                                new NoViableAltException("", 7, 11, input);
 
                             throw nvae;
 
                         }
+                    }
+                    else if ( (LA7_8==ID) ) {
+                        int LA7_12 = input.LA(4);
 
+                        if ( (LA7_12==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
+                                int LA7_14 = input.LA(6);
+
+                                if ( (LA7_14==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 14, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA7_15 = input.LA(6);
+
+                                if ( (LA7_15==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 15, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA7_16 = input.LA(6);
+
+                                if ( (LA7_16==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 7, 13, input);
+
+                                throw nvae;
+
+                            }
+
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 7, 12, input);
+
+                            throw nvae;
+
+                        }
                     }
                     else {
                         NoViableAltException nvae =
@@ -1924,29 +1168,29 @@ public class userQueryGrammarParser extends Parser {
                     int LA7_8 = input.LA(3);
 
                     if ( (LA7_8==18) ) {
-                        int LA7_6 = input.LA(4);
+                        int LA7_11 = input.LA(4);
 
-                        if ( (LA7_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA7_11==ID) ) {
+                            int LA7_12 = input.LA(5);
+
+                            if ( (LA7_12==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA7_10 = input.LA(7);
+                                    int LA7_14 = input.LA(7);
 
-                                    if ( (LA7_10==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_14==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -1954,7 +1198,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 10, input);
+                                            new NoViableAltException("", 7, 14, input);
 
                                         throw nvae;
 
@@ -1963,20 +1207,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA7_11 = input.LA(7);
+                                    int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_11==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_15==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -1984,7 +1228,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 11, input);
+                                            new NoViableAltException("", 7, 15, input);
 
                                         throw nvae;
 
@@ -1993,20 +1237,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA7_12 = input.LA(7);
+                                    int LA7_16 = input.LA(7);
 
-                                    if ( (LA7_12==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_16==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -2014,366 +1258,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 12, input);
+                                            new NoViableAltException("", 7, 16, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case 13:
-                                    {
-                                    alt7=1;
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt7=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 9, input);
+                                        new NoViableAltException("", 7, 13, input);
 
                                     throw nvae;
 
                                 }
 
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 7, input);
-
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA7_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 9, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA7_10 = input.LA(5);
-
-                            if ( (LA7_10==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 10, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA7_11 = input.LA(5);
-
-                            if ( (LA7_11==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 11, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA7_12 = input.LA(5);
-
-                            if ( (LA7_12==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -2382,33 +1281,126 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 13:
-                            {
-                            alt7=1;
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt7=2;
-                            }
-                            break;
-                        default:
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 7, 7, input);
+                                new NoViableAltException("", 7, 11, input);
 
                             throw nvae;
 
                         }
+                    }
+                    else if ( (LA7_8==ID) ) {
+                        int LA7_12 = input.LA(4);
 
+                        if ( (LA7_12==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
+                                int LA7_14 = input.LA(6);
+
+                                if ( (LA7_14==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 14, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA7_15 = input.LA(6);
+
+                                if ( (LA7_15==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 15, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA7_16 = input.LA(6);
+
+                                if ( (LA7_16==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 7, 13, input);
+
+                                throw nvae;
+
+                            }
+
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 7, 12, input);
+
+                            throw nvae;
+
+                        }
                     }
                     else {
                         NoViableAltException nvae =
@@ -2435,29 +1427,29 @@ public class userQueryGrammarParser extends Parser {
                     int LA7_8 = input.LA(3);
 
                     if ( (LA7_8==18) ) {
-                        int LA7_6 = input.LA(4);
+                        int LA7_11 = input.LA(4);
 
-                        if ( (LA7_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA7_11==ID) ) {
+                            int LA7_12 = input.LA(5);
+
+                            if ( (LA7_12==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA7_10 = input.LA(7);
+                                    int LA7_14 = input.LA(7);
 
-                                    if ( (LA7_10==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_14==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -2465,7 +1457,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 10, input);
+                                            new NoViableAltException("", 7, 14, input);
 
                                         throw nvae;
 
@@ -2474,20 +1466,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA7_11 = input.LA(7);
+                                    int LA7_15 = input.LA(7);
 
-                                    if ( (LA7_11==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_15==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -2495,7 +1487,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 11, input);
+                                            new NoViableAltException("", 7, 15, input);
 
                                         throw nvae;
 
@@ -2504,20 +1496,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA7_12 = input.LA(7);
+                                    int LA7_16 = input.LA(7);
 
-                                    if ( (LA7_12==INT) ) {
-                                        int LA7_15 = input.LA(8);
+                                    if ( (LA7_16==INT) ) {
+                                        int LA7_17 = input.LA(8);
 
-                                        if ( (LA7_15==13) ) {
+                                        if ( (LA7_17==13) ) {
                                             alt7=1;
                                         }
-                                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
+                                        else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
                                             alt7=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 7, 15, input);
+                                                new NoViableAltException("", 7, 17, input);
 
                                             throw nvae;
 
@@ -2525,366 +1517,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 12, input);
+                                            new NoViableAltException("", 7, 16, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case 13:
-                                    {
-                                    alt7=1;
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt7=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 9, input);
+                                        new NoViableAltException("", 7, 13, input);
 
                                     throw nvae;
 
                                 }
 
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 7, input);
-
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA7_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA7_10 = input.LA(6);
-
-                                if ( (LA7_10==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 10, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA7_11 = input.LA(6);
-
-                                if ( (LA7_11==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 11, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA7_12 = input.LA(6);
-
-                                if ( (LA7_12==INT) ) {
-                                    int LA7_15 = input.LA(7);
-
-                                    if ( (LA7_15==13) ) {
-                                        alt7=1;
-                                    }
-                                    else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                        alt7=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 7, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 13:
-                                {
-                                alt7=1;
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt7=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 9, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA7_10 = input.LA(5);
-
-                            if ( (LA7_10==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 10, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA7_11 = input.LA(5);
-
-                            if ( (LA7_11==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 11, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA7_12 = input.LA(5);
-
-                            if ( (LA7_12==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -2893,33 +1540,126 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 13:
-                            {
-                            alt7=1;
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt7=2;
-                            }
-                            break;
-                        default:
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 7, 7, input);
+                                new NoViableAltException("", 7, 11, input);
 
                             throw nvae;
 
                         }
+                    }
+                    else if ( (LA7_8==ID) ) {
+                        int LA7_12 = input.LA(4);
 
+                        if ( (LA7_12==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
+                                int LA7_14 = input.LA(6);
+
+                                if ( (LA7_14==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 14, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA7_15 = input.LA(6);
+
+                                if ( (LA7_15==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 15, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA7_16 = input.LA(6);
+
+                                if ( (LA7_16==INT) ) {
+                                    int LA7_17 = input.LA(7);
+
+                                    if ( (LA7_17==13) ) {
+                                        alt7=1;
+                                    }
+                                    else if ( (LA7_17==EOF||LA7_17==12||(LA7_17 >= 19 && LA7_17 <= 24)) ) {
+                                        alt7=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 7, 17, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 7, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 7, 13, input);
+
+                                throw nvae;
+
+                            }
+
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 7, 12, input);
+
+                            throw nvae;
+
+                        }
                     }
                     else {
                         NoViableAltException nvae =
@@ -2943,242 +1683,21 @@ public class userQueryGrammarParser extends Parser {
                 int LA7_6 = input.LA(2);
 
                 if ( (LA7_6==ID) ) {
-                    switch ( input.LA(3) ) {
-                    case 10:
-                        {
-                        switch ( input.LA(4) ) {
-                        case 16:
-                            {
-                            int LA7_10 = input.LA(5);
+                    int LA7_7 = input.LA(3);
 
-                            if ( (LA7_10==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 10, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA7_11 = input.LA(5);
-
-                            if ( (LA7_11==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 11, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA7_12 = input.LA(5);
-
-                            if ( (LA7_12==INT) ) {
-                                int LA7_15 = input.LA(6);
-
-                                if ( (LA7_15==13) ) {
-                                    alt7=1;
-                                }
-                                else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                    alt7=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 7, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 12, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 13:
-                            {
-                            alt7=1;
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt7=2;
-                            }
-                            break;
-                        default:
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 9, input);
-
-                            throw nvae;
-
-                        }
-
-                        }
-                        break;
-                    case 16:
-                        {
-                        int LA7_10 = input.LA(4);
-
-                        if ( (LA7_10==INT) ) {
-                            int LA7_15 = input.LA(5);
-
-                            if ( (LA7_15==13) ) {
-                                alt7=1;
-                            }
-                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                alt7=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 10, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 17:
-                        {
-                        int LA7_11 = input.LA(4);
-
-                        if ( (LA7_11==INT) ) {
-                            int LA7_15 = input.LA(5);
-
-                            if ( (LA7_15==13) ) {
-                                alt7=1;
-                            }
-                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                alt7=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 11, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 15:
-                        {
-                        int LA7_12 = input.LA(4);
-
-                        if ( (LA7_12==INT) ) {
-                            int LA7_15 = input.LA(5);
-
-                            if ( (LA7_15==13) ) {
-                                alt7=1;
-                            }
-                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                alt7=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 12, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 13:
-                        {
+                    if ( (LA7_7==13) ) {
                         alt7=1;
-                        }
-                        break;
-                    case EOF:
-                    case 12:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                        {
+                    }
+                    else if ( (LA7_7==EOF||LA7_7==12||(LA7_7 >= 19 && LA7_7 <= 24)) ) {
                         alt7=2;
-                        }
-                        break;
-                    default:
+                    }
+                    else {
                         NoViableAltException nvae =
                             new NoViableAltException("", 7, 7, input);
 
                         throw nvae;
 
                     }
-
                 }
                 else {
                     NoViableAltException nvae =
@@ -3191,242 +1710,21 @@ public class userQueryGrammarParser extends Parser {
                 break;
             case ID:
                 {
-                switch ( input.LA(2) ) {
-                case 10:
-                    {
-                    switch ( input.LA(3) ) {
-                    case 16:
-                        {
-                        int LA7_10 = input.LA(4);
+                int LA7_7 = input.LA(2);
 
-                        if ( (LA7_10==INT) ) {
-                            int LA7_15 = input.LA(5);
-
-                            if ( (LA7_15==13) ) {
-                                alt7=1;
-                            }
-                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                alt7=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 10, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 17:
-                        {
-                        int LA7_11 = input.LA(4);
-
-                        if ( (LA7_11==INT) ) {
-                            int LA7_15 = input.LA(5);
-
-                            if ( (LA7_15==13) ) {
-                                alt7=1;
-                            }
-                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                alt7=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 11, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 15:
-                        {
-                        int LA7_12 = input.LA(4);
-
-                        if ( (LA7_12==INT) ) {
-                            int LA7_15 = input.LA(5);
-
-                            if ( (LA7_15==13) ) {
-                                alt7=1;
-                            }
-                            else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                                alt7=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 7, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 12, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 13:
-                        {
-                        alt7=1;
-                        }
-                        break;
-                    case EOF:
-                    case 12:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                        {
-                        alt7=2;
-                        }
-                        break;
-                    default:
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 7, 9, input);
-
-                        throw nvae;
-
-                    }
-
-                    }
-                    break;
-                case 16:
-                    {
-                    int LA7_10 = input.LA(3);
-
-                    if ( (LA7_10==INT) ) {
-                        int LA7_15 = input.LA(4);
-
-                        if ( (LA7_15==13) ) {
-                            alt7=1;
-                        }
-                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                            alt7=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 15, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 7, 10, input);
-
-                        throw nvae;
-
-                    }
-                    }
-                    break;
-                case 17:
-                    {
-                    int LA7_11 = input.LA(3);
-
-                    if ( (LA7_11==INT) ) {
-                        int LA7_15 = input.LA(4);
-
-                        if ( (LA7_15==13) ) {
-                            alt7=1;
-                        }
-                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                            alt7=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 15, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 7, 11, input);
-
-                        throw nvae;
-
-                    }
-                    }
-                    break;
-                case 15:
-                    {
-                    int LA7_12 = input.LA(3);
-
-                    if ( (LA7_12==INT) ) {
-                        int LA7_15 = input.LA(4);
-
-                        if ( (LA7_15==13) ) {
-                            alt7=1;
-                        }
-                        else if ( (LA7_15==EOF||LA7_15==12||(LA7_15 >= 19 && LA7_15 <= 24)) ) {
-                            alt7=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 7, 15, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 7, 12, input);
-
-                        throw nvae;
-
-                    }
-                    }
-                    break;
-                case 13:
-                    {
+                if ( (LA7_7==13) ) {
                     alt7=1;
-                    }
-                    break;
-                case EOF:
-                case 12:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                    {
+                }
+                else if ( (LA7_7==EOF||LA7_7==12||(LA7_7 >= 19 && LA7_7 <= 24)) ) {
                     alt7=2;
-                    }
-                    break;
-                default:
+                }
+                else {
                     NoViableAltException nvae =
                         new NoViableAltException("", 7, 7, input);
 
                     throw nvae;
 
                 }
-
                 }
                 break;
             default:
@@ -3615,40 +1913,37 @@ public class userQueryGrammarParser extends Parser {
                     int LA9_8 = input.LA(3);
 
                     if ( (LA9_8==18) ) {
-                        int LA9_6 = input.LA(4);
+                        int LA9_12 = input.LA(4);
 
-                        if ( (LA9_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA9_12==ID) ) {
+                            int LA9_13 = input.LA(5);
+
+                            if ( (LA9_13==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA9_12 = input.LA(7);
+                                    int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_12==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_15==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                        alt9=1;
-                                    }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 12, input);
+                                            new NoViableAltException("", 9, 15, input);
 
                                         throw nvae;
 
@@ -3657,20 +1952,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA9_13 = input.LA(7);
+                                    int LA9_16 = input.LA(7);
 
-                                    if ( (LA9_13==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_16==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -3678,7 +1973,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 13, input);
+                                            new NoViableAltException("", 9, 16, input);
 
                                         throw nvae;
 
@@ -3687,20 +1982,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA9_14 = input.LA(7);
+                                    int LA9_17 = input.LA(7);
 
-                                    if ( (LA9_14==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_17==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -3708,333 +2003,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 14, input);
+                                            new NoViableAltException("", 9, 17, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 14:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt9=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 11, input);
-
-                                    throw nvae;
-
-                                }
-
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
                                         new NoViableAltException("", 9, 14, input);
 
                                     throw nvae;
 
                                 }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 9, input);
 
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA9_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 14, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 11, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA9_12 = input.LA(5);
-
-                            if ( (LA9_12==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                alt9=1;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 12, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA9_13 = input.LA(5);
-
-                            if ( (LA9_13==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -4043,20 +2026,40 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA9_14 = input.LA(5);
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 9, 12, input);
 
-                            if ( (LA9_14==INT) ) {
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA9_8==ID) ) {
+                        int LA9_13 = input.LA(4);
+
+                        if ( (LA9_13==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
+                                if ( (LA9_15==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
                                 }
                                 else {
                                     NoViableAltException nvae =
@@ -4065,37 +2068,84 @@ public class userQueryGrammarParser extends Parser {
                                     throw nvae;
 
                                 }
-                            }
-                            else {
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA9_16 = input.LA(6);
+
+                                if ( (LA9_16==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA9_17 = input.LA(6);
+
+                                if ( (LA9_17==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 17, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 9, 14, input);
 
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 14:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt9=2;
-                            }
-                            break;
-                        default:
+
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 9, 9, input);
+                                new NoViableAltException("", 9, 13, input);
 
                             throw nvae;
 
                         }
-
                     }
                     else {
                         NoViableAltException nvae =
@@ -4122,40 +2172,37 @@ public class userQueryGrammarParser extends Parser {
                     int LA9_8 = input.LA(3);
 
                     if ( (LA9_8==18) ) {
-                        int LA9_6 = input.LA(4);
+                        int LA9_12 = input.LA(4);
 
-                        if ( (LA9_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA9_12==ID) ) {
+                            int LA9_13 = input.LA(5);
+
+                            if ( (LA9_13==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA9_12 = input.LA(7);
+                                    int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_12==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_15==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                        alt9=1;
-                                    }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 12, input);
+                                            new NoViableAltException("", 9, 15, input);
 
                                         throw nvae;
 
@@ -4164,20 +2211,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA9_13 = input.LA(7);
+                                    int LA9_16 = input.LA(7);
 
-                                    if ( (LA9_13==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_16==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -4185,7 +2232,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 13, input);
+                                            new NoViableAltException("", 9, 16, input);
 
                                         throw nvae;
 
@@ -4194,20 +2241,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA9_14 = input.LA(7);
+                                    int LA9_17 = input.LA(7);
 
-                                    if ( (LA9_14==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_17==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -4215,333 +2262,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 14, input);
+                                            new NoViableAltException("", 9, 17, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 14:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt9=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 11, input);
-
-                                    throw nvae;
-
-                                }
-
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
                                         new NoViableAltException("", 9, 14, input);
 
                                     throw nvae;
 
                                 }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 9, input);
 
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA9_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 14, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 11, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA9_12 = input.LA(5);
-
-                            if ( (LA9_12==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                alt9=1;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 12, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA9_13 = input.LA(5);
-
-                            if ( (LA9_13==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -4550,20 +2285,40 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA9_14 = input.LA(5);
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 9, 12, input);
 
-                            if ( (LA9_14==INT) ) {
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA9_8==ID) ) {
+                        int LA9_13 = input.LA(4);
+
+                        if ( (LA9_13==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
+                                if ( (LA9_15==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
                                 }
                                 else {
                                     NoViableAltException nvae =
@@ -4572,37 +2327,84 @@ public class userQueryGrammarParser extends Parser {
                                     throw nvae;
 
                                 }
-                            }
-                            else {
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA9_16 = input.LA(6);
+
+                                if ( (LA9_16==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA9_17 = input.LA(6);
+
+                                if ( (LA9_17==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 17, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 9, 14, input);
 
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 14:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt9=2;
-                            }
-                            break;
-                        default:
+
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 9, 9, input);
+                                new NoViableAltException("", 9, 13, input);
 
                             throw nvae;
 
                         }
-
                     }
                     else {
                         NoViableAltException nvae =
@@ -4629,40 +2431,37 @@ public class userQueryGrammarParser extends Parser {
                     int LA9_8 = input.LA(3);
 
                     if ( (LA9_8==18) ) {
-                        int LA9_6 = input.LA(4);
+                        int LA9_12 = input.LA(4);
 
-                        if ( (LA9_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA9_12==ID) ) {
+                            int LA9_13 = input.LA(5);
+
+                            if ( (LA9_13==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA9_12 = input.LA(7);
+                                    int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_12==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_15==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                        alt9=1;
-                                    }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 12, input);
+                                            new NoViableAltException("", 9, 15, input);
 
                                         throw nvae;
 
@@ -4671,20 +2470,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA9_13 = input.LA(7);
+                                    int LA9_16 = input.LA(7);
 
-                                    if ( (LA9_13==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_16==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -4692,7 +2491,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 13, input);
+                                            new NoViableAltException("", 9, 16, input);
 
                                         throw nvae;
 
@@ -4701,20 +2500,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA9_14 = input.LA(7);
+                                    int LA9_17 = input.LA(7);
 
-                                    if ( (LA9_14==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_17==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -4722,333 +2521,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 14, input);
+                                            new NoViableAltException("", 9, 17, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 14:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt9=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 11, input);
-
-                                    throw nvae;
-
-                                }
-
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
                                         new NoViableAltException("", 9, 14, input);
 
                                     throw nvae;
 
                                 }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 9, input);
 
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA9_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 14, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 11, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA9_12 = input.LA(5);
-
-                            if ( (LA9_12==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                alt9=1;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 12, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA9_13 = input.LA(5);
-
-                            if ( (LA9_13==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -5057,20 +2544,40 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA9_14 = input.LA(5);
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 9, 12, input);
 
-                            if ( (LA9_14==INT) ) {
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA9_8==ID) ) {
+                        int LA9_13 = input.LA(4);
+
+                        if ( (LA9_13==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
+                                if ( (LA9_15==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
                                 }
                                 else {
                                     NoViableAltException nvae =
@@ -5079,37 +2586,84 @@ public class userQueryGrammarParser extends Parser {
                                     throw nvae;
 
                                 }
-                            }
-                            else {
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA9_16 = input.LA(6);
+
+                                if ( (LA9_16==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA9_17 = input.LA(6);
+
+                                if ( (LA9_17==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 17, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 9, 14, input);
 
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 14:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt9=2;
-                            }
-                            break;
-                        default:
+
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 9, 9, input);
+                                new NoViableAltException("", 9, 13, input);
 
                             throw nvae;
 
                         }
-
                     }
                     else {
                         NoViableAltException nvae =
@@ -5136,40 +2690,37 @@ public class userQueryGrammarParser extends Parser {
                     int LA9_8 = input.LA(3);
 
                     if ( (LA9_8==18) ) {
-                        int LA9_6 = input.LA(4);
+                        int LA9_12 = input.LA(4);
 
-                        if ( (LA9_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA9_12==ID) ) {
+                            int LA9_13 = input.LA(5);
+
+                            if ( (LA9_13==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA9_12 = input.LA(7);
+                                    int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_12==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_15==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                        alt9=1;
-                                    }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 12, input);
+                                            new NoViableAltException("", 9, 15, input);
 
                                         throw nvae;
 
@@ -5178,20 +2729,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA9_13 = input.LA(7);
+                                    int LA9_16 = input.LA(7);
 
-                                    if ( (LA9_13==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_16==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -5199,7 +2750,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 13, input);
+                                            new NoViableAltException("", 9, 16, input);
 
                                         throw nvae;
 
@@ -5208,20 +2759,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA9_14 = input.LA(7);
+                                    int LA9_17 = input.LA(7);
 
-                                    if ( (LA9_14==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_17==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -5229,333 +2780,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 14, input);
+                                            new NoViableAltException("", 9, 17, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 14:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt9=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 11, input);
-
-                                    throw nvae;
-
-                                }
-
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
                                         new NoViableAltException("", 9, 14, input);
 
                                     throw nvae;
 
                                 }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 9, input);
 
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA9_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 14, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 11, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA9_12 = input.LA(5);
-
-                            if ( (LA9_12==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                alt9=1;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 12, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA9_13 = input.LA(5);
-
-                            if ( (LA9_13==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -5564,20 +2803,40 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA9_14 = input.LA(5);
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 9, 12, input);
 
-                            if ( (LA9_14==INT) ) {
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA9_8==ID) ) {
+                        int LA9_13 = input.LA(4);
+
+                        if ( (LA9_13==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
+                                if ( (LA9_15==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
                                 }
                                 else {
                                     NoViableAltException nvae =
@@ -5586,37 +2845,84 @@ public class userQueryGrammarParser extends Parser {
                                     throw nvae;
 
                                 }
-                            }
-                            else {
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA9_16 = input.LA(6);
+
+                                if ( (LA9_16==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA9_17 = input.LA(6);
+
+                                if ( (LA9_17==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 17, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 9, 14, input);
 
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 14:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt9=2;
-                            }
-                            break;
-                        default:
+
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 9, 9, input);
+                                new NoViableAltException("", 9, 13, input);
 
                             throw nvae;
 
                         }
-
                     }
                     else {
                         NoViableAltException nvae =
@@ -5643,40 +2949,37 @@ public class userQueryGrammarParser extends Parser {
                     int LA9_8 = input.LA(3);
 
                     if ( (LA9_8==18) ) {
-                        int LA9_6 = input.LA(4);
+                        int LA9_12 = input.LA(4);
 
-                        if ( (LA9_6==ID) ) {
-                            switch ( input.LA(5) ) {
-                            case 10:
-                                {
+                        if ( (LA9_12==ID) ) {
+                            int LA9_13 = input.LA(5);
+
+                            if ( (LA9_13==10) ) {
                                 switch ( input.LA(6) ) {
                                 case 16:
                                     {
-                                    int LA9_12 = input.LA(7);
+                                    int LA9_15 = input.LA(7);
 
-                                    if ( (LA9_12==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_15==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
                                         }
                                     }
-                                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                        alt9=1;
-                                    }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 12, input);
+                                            new NoViableAltException("", 9, 15, input);
 
                                         throw nvae;
 
@@ -5685,20 +2988,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 17:
                                     {
-                                    int LA9_13 = input.LA(7);
+                                    int LA9_16 = input.LA(7);
 
-                                    if ( (LA9_13==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_16==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -5706,7 +3009,7 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 13, input);
+                                            new NoViableAltException("", 9, 16, input);
 
                                         throw nvae;
 
@@ -5715,20 +3018,20 @@ public class userQueryGrammarParser extends Parser {
                                     break;
                                 case 15:
                                     {
-                                    int LA9_14 = input.LA(7);
+                                    int LA9_17 = input.LA(7);
 
-                                    if ( (LA9_14==INT) ) {
-                                        int LA9_15 = input.LA(8);
+                                    if ( (LA9_17==INT) ) {
+                                        int LA9_18 = input.LA(8);
 
-                                        if ( (LA9_15==16) ) {
+                                        if ( (LA9_18==16) ) {
                                             alt9=1;
                                         }
-                                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
+                                        else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
                                             alt9=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("", 9, 15, input);
+                                                new NoViableAltException("", 9, 18, input);
 
                                             throw nvae;
 
@@ -5736,333 +3039,21 @@ public class userQueryGrammarParser extends Parser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 14, input);
+                                            new NoViableAltException("", 9, 17, input);
 
                                         throw nvae;
 
                                     }
-                                    }
-                                    break;
-                                case EOF:
-                                case 12:
-                                case 14:
-                                case 19:
-                                case 20:
-                                case 21:
-                                case 22:
-                                case 23:
-                                case 24:
-                                    {
-                                    alt9=2;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 11, input);
-
-                                    throw nvae;
-
-                                }
-
-                                }
-                                break;
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
                                         new NoViableAltException("", 9, 14, input);
 
                                     throw nvae;
 
                                 }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 9, input);
 
-                                throw nvae;
-
-                            }
-
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 6, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA9_8==ID) ) {
-                        switch ( input.LA(4) ) {
-                        case 10:
-                            {
-                            switch ( input.LA(5) ) {
-                            case 16:
-                                {
-                                int LA9_12 = input.LA(6);
-
-                                if ( (LA9_12==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                    alt9=1;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 12, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 17:
-                                {
-                                int LA9_13 = input.LA(6);
-
-                                if ( (LA9_13==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 13, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case 15:
-                                {
-                                int LA9_14 = input.LA(6);
-
-                                if ( (LA9_14==INT) ) {
-                                    int LA9_15 = input.LA(7);
-
-                                    if ( (LA9_15==16) ) {
-                                        alt9=1;
-                                    }
-                                    else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                        alt9=2;
-                                    }
-                                    else {
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 9, 15, input);
-
-                                        throw nvae;
-
-                                    }
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 14, input);
-
-                                    throw nvae;
-
-                                }
-                                }
-                                break;
-                            case EOF:
-                            case 12:
-                            case 14:
-                            case 19:
-                            case 20:
-                            case 21:
-                            case 22:
-                            case 23:
-                            case 24:
-                                {
-                                alt9=2;
-                                }
-                                break;
-                            default:
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 11, input);
-
-                                throw nvae;
-
-                            }
-
-                            }
-                            break;
-                        case 16:
-                            {
-                            int LA9_12 = input.LA(5);
-
-                            if ( (LA9_12==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                alt9=1;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 12, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA9_13 = input.LA(5);
-
-                            if ( (LA9_13==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
                             }
                             else {
                                 NoViableAltException nvae =
@@ -6071,20 +3062,40 @@ public class userQueryGrammarParser extends Parser {
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA9_14 = input.LA(5);
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 9, 12, input);
 
-                            if ( (LA9_14==INT) ) {
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA9_8==ID) ) {
+                        int LA9_13 = input.LA(4);
+
+                        if ( (LA9_13==10) ) {
+                            switch ( input.LA(5) ) {
+                            case 16:
+                                {
                                 int LA9_15 = input.LA(6);
 
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
+                                if ( (LA9_15==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
                                 }
                                 else {
                                     NoViableAltException nvae =
@@ -6093,37 +3104,84 @@ public class userQueryGrammarParser extends Parser {
                                     throw nvae;
 
                                 }
-                            }
-                            else {
+                                }
+                                break;
+                            case 17:
+                                {
+                                int LA9_16 = input.LA(6);
+
+                                if ( (LA9_16==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 16, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 15:
+                                {
+                                int LA9_17 = input.LA(6);
+
+                                if ( (LA9_17==INT) ) {
+                                    int LA9_18 = input.LA(7);
+
+                                    if ( (LA9_18==16) ) {
+                                        alt9=1;
+                                    }
+                                    else if ( (LA9_18==EOF||LA9_18==12||LA9_18==14||(LA9_18 >= 19 && LA9_18 <= 24)) ) {
+                                        alt9=2;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 9, 18, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 9, 17, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            default:
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 9, 14, input);
 
                                 throw nvae;
 
                             }
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 14:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt9=2;
-                            }
-                            break;
-                        default:
+
+                        }
+                        else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 9, 9, input);
+                                new NoViableAltException("", 9, 13, input);
 
                             throw nvae;
 
                         }
-
                     }
                     else {
                         NoViableAltException nvae =
@@ -6147,240 +3205,21 @@ public class userQueryGrammarParser extends Parser {
                 int LA9_6 = input.LA(2);
 
                 if ( (LA9_6==ID) ) {
-                    switch ( input.LA(3) ) {
-                    case 10:
-                        {
-                        switch ( input.LA(4) ) {
-                        case 16:
-                            {
-                            int LA9_12 = input.LA(5);
+                    int LA9_9 = input.LA(3);
 
-                            if ( (LA9_12==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                                alt9=1;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 12, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 17:
-                            {
-                            int LA9_13 = input.LA(5);
-
-                            if ( (LA9_13==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 13, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case 15:
-                            {
-                            int LA9_14 = input.LA(5);
-
-                            if ( (LA9_14==INT) ) {
-                                int LA9_15 = input.LA(6);
-
-                                if ( (LA9_15==16) ) {
-                                    alt9=1;
-                                }
-                                else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                    alt9=2;
-                                }
-                                else {
-                                    NoViableAltException nvae =
-                                        new NoViableAltException("", 9, 15, input);
-
-                                    throw nvae;
-
-                                }
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 14, input);
-
-                                throw nvae;
-
-                            }
-                            }
-                            break;
-                        case EOF:
-                        case 12:
-                        case 14:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 22:
-                        case 23:
-                        case 24:
-                            {
-                            alt9=2;
-                            }
-                            break;
-                        default:
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 11, input);
-
-                            throw nvae;
-
-                        }
-
-                        }
-                        break;
-                    case 16:
-                        {
-                        int LA9_12 = input.LA(4);
-
-                        if ( (LA9_12==INT) ) {
-                            int LA9_15 = input.LA(5);
-
-                            if ( (LA9_15==16) ) {
-                                alt9=1;
-                            }
-                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                alt9=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                            alt9=1;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 12, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 17:
-                        {
-                        int LA9_13 = input.LA(4);
-
-                        if ( (LA9_13==INT) ) {
-                            int LA9_15 = input.LA(5);
-
-                            if ( (LA9_15==16) ) {
-                                alt9=1;
-                            }
-                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                alt9=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 13, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 15:
-                        {
-                        int LA9_14 = input.LA(4);
-
-                        if ( (LA9_14==INT) ) {
-                            int LA9_15 = input.LA(5);
-
-                            if ( (LA9_15==16) ) {
-                                alt9=1;
-                            }
-                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                alt9=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 14, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case EOF:
-                    case 12:
-                    case 14:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                        {
+                    if ( (LA9_9==16) ) {
+                        alt9=1;
+                    }
+                    else if ( (LA9_9==EOF||LA9_9==12||LA9_9==14||(LA9_9 >= 19 && LA9_9 <= 24)) ) {
                         alt9=2;
-                        }
-                        break;
-                    default:
+                    }
+                    else {
                         NoViableAltException nvae =
                             new NoViableAltException("", 9, 9, input);
 
                         throw nvae;
 
                     }
-
                 }
                 else {
                     NoViableAltException nvae =
@@ -6393,241 +3232,21 @@ public class userQueryGrammarParser extends Parser {
                 break;
             case ID:
                 {
-                switch ( input.LA(2) ) {
-                case EOF:
-                case LITVALUE:
-                case 12:
-                case 14:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                    {
+                int LA9_7 = input.LA(2);
+
+                if ( (LA9_7==EOF||LA9_7==LITVALUE||LA9_7==12||LA9_7==14||(LA9_7 >= 19 && LA9_7 <= 24)) ) {
                     alt9=2;
-                    }
-                    break;
-                case 10:
-                    {
-                    switch ( input.LA(3) ) {
-                    case 16:
-                        {
-                        int LA9_12 = input.LA(4);
-
-                        if ( (LA9_12==INT) ) {
-                            int LA9_15 = input.LA(5);
-
-                            if ( (LA9_15==16) ) {
-                                alt9=1;
-                            }
-                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                alt9=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                            alt9=1;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 12, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 17:
-                        {
-                        int LA9_13 = input.LA(4);
-
-                        if ( (LA9_13==INT) ) {
-                            int LA9_15 = input.LA(5);
-
-                            if ( (LA9_15==16) ) {
-                                alt9=1;
-                            }
-                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                alt9=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 13, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case 15:
-                        {
-                        int LA9_14 = input.LA(4);
-
-                        if ( (LA9_14==INT) ) {
-                            int LA9_15 = input.LA(5);
-
-                            if ( (LA9_15==16) ) {
-                                alt9=1;
-                            }
-                            else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                                alt9=2;
-                            }
-                            else {
-                                NoViableAltException nvae =
-                                    new NoViableAltException("", 9, 15, input);
-
-                                throw nvae;
-
-                            }
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 14, input);
-
-                            throw nvae;
-
-                        }
-                        }
-                        break;
-                    case EOF:
-                    case 12:
-                    case 14:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                        {
-                        alt9=2;
-                        }
-                        break;
-                    default:
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 9, 11, input);
-
-                        throw nvae;
-
-                    }
-
-                    }
-                    break;
-                case 16:
-                    {
-                    int LA9_12 = input.LA(3);
-
-                    if ( (LA9_12==INT) ) {
-                        int LA9_15 = input.LA(4);
-
-                        if ( (LA9_15==16) ) {
-                            alt9=1;
-                        }
-                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                            alt9=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 15, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else if ( (LA9_12==ID||LA9_12==18||(LA9_12 >= 20 && LA9_12 <= 24)) ) {
-                        alt9=1;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 9, 12, input);
-
-                        throw nvae;
-
-                    }
-                    }
-                    break;
-                case 17:
-                    {
-                    int LA9_13 = input.LA(3);
-
-                    if ( (LA9_13==INT) ) {
-                        int LA9_15 = input.LA(4);
-
-                        if ( (LA9_15==16) ) {
-                            alt9=1;
-                        }
-                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                            alt9=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 15, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 9, 13, input);
-
-                        throw nvae;
-
-                    }
-                    }
-                    break;
-                case 15:
-                    {
-                    int LA9_14 = input.LA(3);
-
-                    if ( (LA9_14==INT) ) {
-                        int LA9_15 = input.LA(4);
-
-                        if ( (LA9_15==16) ) {
-                            alt9=1;
-                        }
-                        else if ( (LA9_15==EOF||LA9_15==12||LA9_15==14||(LA9_15 >= 19 && LA9_15 <= 24)) ) {
-                            alt9=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 15, input);
-
-                            throw nvae;
-
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 9, 14, input);
-
-                        throw nvae;
-
-                    }
-                    }
-                    break;
-                default:
+                }
+                else if ( (LA9_7==16) ) {
+                    alt9=1;
+                }
+                else {
                     NoViableAltException nvae =
                         new NoViableAltException("", 9, 7, input);
 
                     throw nvae;
 
                 }
-
                 }
                 break;
             default:
@@ -6745,7 +3364,7 @@ public class userQueryGrammarParser extends Parser {
                 if ( (LA10_2==LITVALUE) ) {
                     alt10=2;
                 }
-                else if ( (LA10_2==EOF||LA10_2==10||LA10_2==12||(LA10_2 >= 14 && LA10_2 <= 17)||(LA10_2 >= 19 && LA10_2 <= 24)) ) {
+                else if ( (LA10_2==EOF||LA10_2==12||LA10_2==14||(LA10_2 >= 19 && LA10_2 <= 24)) ) {
                     alt10=1;
                 }
                 else {
@@ -6905,7 +3524,7 @@ public class userQueryGrammarParser extends Parser {
                 if ( (LA11_2==LITVALUE) ) {
                     alt11=2;
                 }
-                else if ( (LA11_2==EOF||(LA11_2 >= 10 && LA11_2 <= 12)||(LA11_2 >= 14 && LA11_2 <= 17)||(LA11_2 >= 19 && LA11_2 <= 24)) ) {
+                else if ( (LA11_2==EOF||(LA11_2 >= 11 && LA11_2 <= 12)||LA11_2==14||(LA11_2 >= 19 && LA11_2 <= 24)) ) {
                     alt11=1;
                 }
                 else {
@@ -6968,124 +3587,75 @@ public class userQueryGrammarParser extends Parser {
 
 
     // $ANTLR start "keyword"
-    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:82:1: keyword[Query q] returns [Keyword k] : ( ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '(' )? ( '?' )? ID ( ')' )? ( ( '=' | '>' | '<' ) INT )? ;
+    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:84:1: keyword[Query q] returns [Keyword k] : ( ( keywordAgg ) | ( keywordUnit ) ) ;
     public final Keyword keyword(Query q) throws RecognitionException {
         Keyword k = null;
 
 
-        Token ID13=null;
-        Token INT14=null;
+        Keyword keywordAgg13 =null;
+
+        Keyword keywordUnit14 =null;
+
 
         try {
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:83:2: ( ( ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '(' )? ( '?' )? ID ( ')' )? ( ( '=' | '>' | '<' ) INT )? )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:83:4: ( ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '(' )? ( '?' )? ID ( ')' )? ( ( '=' | '>' | '<' ) INT )?
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:85:2: ( ( ( keywordAgg ) | ( keywordUnit ) ) )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:86:3: ( ( keywordAgg ) | ( keywordUnit ) )
             {
+            Keyword keyw = null; 
 
-            		String s = "";
-            		boolean queried = false;
-            		Integer keywordId = new Integer(0);
-            		String agg = null;
-            		String cond = null;
-            		
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:87:3: ( ( keywordAgg ) | ( keywordUnit ) )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:3: ( ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '(' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
-
-            if ( ((LA13_0 >= 20 && LA13_0 <= 24)) ) {
-                alt13=1;
+            if ( ((LA12_0 >= 20 && LA12_0 <= 24)) ) {
+                alt12=1;
             }
-            switch (alt13) {
+            else if ( (LA12_0==ID||LA12_0==18) ) {
+                alt12=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 12, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt12) {
                 case 1 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:4: ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '('
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:87:5: ( keywordAgg )
                     {
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:4: ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' )
-                    int alt12=5;
-                    switch ( input.LA(1) ) {
-                    case 21:
-                        {
-                        alt12=1;
-                        }
-                        break;
-                    case 22:
-                        {
-                        alt12=2;
-                        }
-                        break;
-                    case 23:
-                        {
-                        alt12=3;
-                        }
-                        break;
-                    case 20:
-                        {
-                        alt12=4;
-                        }
-                        break;
-                    case 24:
-                        {
-                        alt12=5;
-                        }
-                        break;
-                    default:
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 12, 0, input);
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:87:5: ( keywordAgg )
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:87:6: keywordAgg
+                    {
+                    pushFollow(FOLLOW_keywordAgg_in_keyword343);
+                    keywordAgg13=keywordAgg();
 
-                        throw nvae;
+                    state._fsp--;
 
-                    }
 
-                    switch (alt12) {
-                        case 1 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:5: 'COUNT'
-                            {
-                            match(input,21,FOLLOW_21_in_keyword338); 
-
-                            agg = "COUNT";
-
-                            }
-                            break;
-                        case 2 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:31: 'MAX'
-                            {
-                            match(input,22,FOLLOW_22_in_keyword343); 
-
-                            agg = "MAX";
-
-                            }
-                            break;
-                        case 3 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:53: 'MIN'
-                            {
-                            match(input,23,FOLLOW_23_in_keyword348); 
-
-                            agg = "MIN";
-
-                            }
-                            break;
-                        case 4 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:75: 'AVG'
-                            {
-                            match(input,20,FOLLOW_20_in_keyword353); 
-
-                            agg = "AVG";
-
-                            }
-                            break;
-                        case 5 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:90:97: 'SUM'
-                            {
-                            match(input,24,FOLLOW_24_in_keyword358); 
-
-                            agg="SUM";
-
-                            }
-                            break;
+                    keyw = keywordAgg13;
 
                     }
 
 
-                    match(input,9,FOLLOW_9_in_keyword362); 
+                    }
+                    break;
+                case 2 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:87:43: ( keywordUnit )
+                    {
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:87:43: ( keywordUnit )
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:87:45: keywordUnit
+                    {
+                    pushFollow(FOLLOW_keywordUnit_in_keyword351);
+                    keywordUnit14=keywordUnit();
+
+                    state._fsp--;
+
+
+                    keyw = keywordUnit14;
+
+                    }
+
 
                     }
                     break;
@@ -7093,145 +3663,9 @@ public class userQueryGrammarParser extends Parser {
             }
 
 
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:91:3: ( '?' )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
-
-            if ( (LA14_0==18) ) {
-                alt14=1;
-            }
-            switch (alt14) {
-                case 1 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:91:4: '?'
-                    {
-                    match(input,18,FOLLOW_18_in_keyword370); 
-
-                    queried = true;
-
-                    }
-                    break;
-
-            }
-
-
-            ID13=(Token)match(input,ID,FOLLOW_ID_in_keyword382); 
-
-
-            			String keywordValue = (ID13!=null?ID13.getText():null);
-            			String key = (queried==true? "t": "f") + keywordId.toString() + keywordValue;
-            			Keyword keyword = keywords.get(key);
-            			if (keyword == null) {
-            				keyword  = new Keyword(queried, keywordId, keywordValue, agg);
-            				keywords.put(key, keyword);
-            				q.addQueryElement(keyword);
-            			}
-            			k = keyword;
-            		
-
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:109:3: ( ')' )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
-
-            if ( (LA15_0==10) ) {
-                alt15=1;
-            }
-            switch (alt15) {
-                case 1 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:109:4: ')'
-                    {
-                    match(input,10,FOLLOW_10_in_keyword389); 
-
-                    }
-                    break;
-
-            }
-
-
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:3: ( ( '=' | '>' | '<' ) INT )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
-
-            if ( (LA17_0==16) ) {
-                int LA17_1 = input.LA(2);
-
-                if ( (LA17_1==INT) ) {
-                    alt17=1;
-                }
-            }
-            else if ( (LA17_0==15||LA17_0==17) ) {
-                alt17=1;
-            }
-            switch (alt17) {
-                case 1 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:4: ( '=' | '>' | '<' ) INT
-                    {
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:4: ( '=' | '>' | '<' )
-                    int alt16=3;
-                    switch ( input.LA(1) ) {
-                    case 16:
-                        {
-                        alt16=1;
-                        }
-                        break;
-                    case 17:
-                        {
-                        alt16=2;
-                        }
-                        break;
-                    case 15:
-                        {
-                        alt16=3;
-                        }
-                        break;
-                    default:
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 16, 0, input);
-
-                        throw nvae;
-
-                    }
-
-                    switch (alt16) {
-                        case 1 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:5: '='
-                            {
-                            match(input,16,FOLLOW_16_in_keyword397); 
-
-                            cond = "=";
-
-                            }
-                            break;
-                        case 2 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:25: '>'
-                            {
-                            match(input,17,FOLLOW_17_in_keyword403); 
-
-                            cond = ">";
-
-                            }
-                            break;
-                        case 3 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:110:45: '<'
-                            {
-                            match(input,15,FOLLOW_15_in_keyword409); 
-
-                            cond = "<";
-
-                            }
-                            break;
-
-                    }
-
-
-                    INT14=(Token)match(input,INT,FOLLOW_INT_in_keyword413); 
-
-                    cond += (INT14!=null?INT14.getText():null); keyword.setCond(cond);
-
-                    }
-                    break;
-
-            }
-
+             if(keyw != null) q.addQueryElement(keyw); 
+            			  k = keyw;
+            			
 
             }
 
@@ -7250,26 +3684,298 @@ public class userQueryGrammarParser extends Parser {
 
 
 
+    // $ANTLR start "keywordAgg"
+    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:93:1: keywordAgg returns [Keyword k] : ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '(' keywordUnit ( ')' ( '=' | '>' | '<' ) INT ) ;
+    public final Keyword keywordAgg() throws RecognitionException {
+        Keyword k = null;
+
+
+        Token INT16=null;
+        Keyword keywordUnit15 =null;
+
+
+        try {
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:94:2: ( ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '(' keywordUnit ( ')' ( '=' | '>' | '<' ) INT ) )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:94:4: ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' ) '(' keywordUnit ( ')' ( '=' | '>' | '<' ) INT )
+            {
+
+            			String agg = "";
+            			String cond = "";
+            			Keyword keyw = null;
+            		
+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:99:3: ( 'COUNT' | 'MAX' | 'MIN' | 'AVG' | 'SUM' )
+            int alt13=5;
+            switch ( input.LA(1) ) {
+            case 21:
+                {
+                alt13=1;
+                }
+                break;
+            case 22:
+                {
+                alt13=2;
+                }
+                break;
+            case 23:
+                {
+                alt13=3;
+                }
+                break;
+            case 20:
+                {
+                alt13=4;
+                }
+                break;
+            case 24:
+                {
+                alt13=5;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 13, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt13) {
+                case 1 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:99:4: 'COUNT'
+                    {
+                    match(input,21,FOLLOW_21_in_keywordAgg381); 
+
+                    agg = "COUNT";
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:99:30: 'MAX'
+                    {
+                    match(input,22,FOLLOW_22_in_keywordAgg386); 
+
+                    agg = "MAX";
+
+                    }
+                    break;
+                case 3 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:99:52: 'MIN'
+                    {
+                    match(input,23,FOLLOW_23_in_keywordAgg391); 
+
+                    agg = "MIN";
+
+                    }
+                    break;
+                case 4 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:99:74: 'AVG'
+                    {
+                    match(input,20,FOLLOW_20_in_keywordAgg396); 
+
+                    agg = "AVG";
+
+                    }
+                    break;
+                case 5 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:99:96: 'SUM'
+                    {
+                    match(input,24,FOLLOW_24_in_keywordAgg401); 
+
+                    agg="SUM";
+
+                    }
+                    break;
+
+            }
+
+
+            match(input,9,FOLLOW_9_in_keywordAgg405); 
+
+            pushFollow(FOLLOW_keywordUnit_in_keywordAgg410);
+            keywordUnit15=keywordUnit();
+
+            state._fsp--;
+
+
+            keyw = keywordUnit15;
+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:101:3: ( ')' ( '=' | '>' | '<' ) INT )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:101:4: ')' ( '=' | '>' | '<' ) INT
+            {
+            match(input,10,FOLLOW_10_in_keywordAgg417); 
+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:102:3: ( '=' | '>' | '<' )
+            int alt14=3;
+            switch ( input.LA(1) ) {
+            case 16:
+                {
+                alt14=1;
+                }
+                break;
+            case 17:
+                {
+                alt14=2;
+                }
+                break;
+            case 15:
+                {
+                alt14=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 14, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt14) {
+                case 1 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:102:4: '='
+                    {
+                    match(input,16,FOLLOW_16_in_keywordAgg422); 
+
+                    cond = "=";
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:102:24: '>'
+                    {
+                    match(input,17,FOLLOW_17_in_keywordAgg428); 
+
+                    cond = ">";
+
+                    }
+                    break;
+                case 3 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:102:44: '<'
+                    {
+                    match(input,15,FOLLOW_15_in_keywordAgg434); 
+
+                    cond = "<";
+
+                    }
+                    break;
+
+            }
+
+
+            INT16=(Token)match(input,INT,FOLLOW_INT_in_keywordAgg441); 
+
+            cond += (INT16!=null?INT16.getText():null); if(keyw != null) keyw.setCond(agg, cond); k =keyw;
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return k;
+    }
+    // $ANTLR end "keywordAgg"
+
+
+
+    // $ANTLR start "keywordUnit"
+    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:106:1: keywordUnit returns [Keyword k] : ( '?' )? ID ;
+    public final Keyword keywordUnit() throws RecognitionException {
+        Keyword k = null;
+
+
+        Token ID17=null;
+
+        try {
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:107:2: ( ( '?' )? ID )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:107:5: ( '?' )? ID
+            {
+
+            			String s = "";
+            			boolean queried = false;
+            			Integer keywordId = new Integer(0);
+            		
+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:112:3: ( '?' )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
+
+            if ( (LA15_0==18) ) {
+                alt15=1;
+            }
+            switch (alt15) {
+                case 1 :
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:112:4: '?'
+                    {
+                    match(input,18,FOLLOW_18_in_keywordUnit468); 
+
+                    queried = true;
+
+                    }
+                    break;
+
+            }
+
+
+            ID17=(Token)match(input,ID,FOLLOW_ID_in_keywordUnit476); 
+
+
+            			String keywordValue = (ID17!=null?ID17.getText():null);
+            			String key = (queried==true? "t": "f") + keywordId.toString() + keywordValue;
+            			Keyword keyword = keywords.get(key);
+            			if (keyword == null) {
+            				keyword  = new Keyword(queried, keywordId, keywordValue);
+            				keywords.put(key, keyword);
+            			}
+            			k = keyword;
+            		
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return k;
+    }
+    // $ANTLR end "keywordUnit"
+
+
+
     // $ANTLR start "literal"
-    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:131:1: literal[Query q] returns [Literal l] : ID LITVALUE ;
+    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:1: literal[Query q] returns [Literal l] : ID LITVALUE ;
     public final Literal literal(Query q) throws RecognitionException {
         Literal l = null;
 
 
-        Token ID15=null;
-        Token LITVALUE16=null;
+        Token ID18=null;
+        Token LITVALUE19=null;
 
         try {
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:132:2: ( ID LITVALUE )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:132:4: ID LITVALUE
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:144:2: ( ID LITVALUE )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:144:4: ID LITVALUE
             {
-            ID15=(Token)match(input,ID,FOLLOW_ID_in_literal455); 
+            ID18=(Token)match(input,ID,FOLLOW_ID_in_literal518); 
 
-            LITVALUE16=(Token)match(input,LITVALUE,FOLLOW_LITVALUE_in_literal457); 
+            LITVALUE19=(Token)match(input,LITVALUE,FOLLOW_LITVALUE_in_literal520); 
 
 
             		try {
-            			l = new Literal((ID15!=null?ID15.getText():null), (LITVALUE16!=null?LITVALUE16.getText():null).substring(1, (LITVALUE16!=null?LITVALUE16.getText():null).length()-1));
+            			l = new Literal((ID18!=null?ID18.getText():null), (LITVALUE19!=null?LITVALUE19.getText():null).substring(1, (LITVALUE19!=null?LITVALUE19.getText():null).length()-1));
             			q.addQueryElement(l);
             		} catch (LiteralException ex) {
             			throw new LiteralRuntimeException(ex.getMessage());
@@ -7327,20 +4033,23 @@ public class userQueryGrammarParser extends Parser {
     public static final BitSet FOLLOW_e3q3_in_q3End279 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_keyword_in_e3q3302 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_literal_in_e3q3310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_keyword338 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_22_in_keyword343 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_23_in_keyword348 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_20_in_keyword353 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_24_in_keyword358 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_keyword362 = new BitSet(new long[]{0x0000000000040020L});
-    public static final BitSet FOLLOW_18_in_keyword370 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ID_in_keyword382 = new BitSet(new long[]{0x0000000000038402L});
-    public static final BitSet FOLLOW_10_in_keyword389 = new BitSet(new long[]{0x0000000000038002L});
-    public static final BitSet FOLLOW_16_in_keyword397 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_17_in_keyword403 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_15_in_keyword409 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_INT_in_keyword413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_literal455 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_LITVALUE_in_literal457 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_keywordAgg_in_keyword343 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_keywordUnit_in_keyword351 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_keywordAgg381 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_22_in_keywordAgg386 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_23_in_keywordAgg391 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_20_in_keywordAgg396 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_24_in_keywordAgg401 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_keywordAgg405 = new BitSet(new long[]{0x0000000000040020L});
+    public static final BitSet FOLLOW_keywordUnit_in_keywordAgg410 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_10_in_keywordAgg417 = new BitSet(new long[]{0x0000000000038000L});
+    public static final BitSet FOLLOW_16_in_keywordAgg422 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_17_in_keywordAgg428 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_15_in_keywordAgg434 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_INT_in_keywordAgg441 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_keywordUnit468 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ID_in_keywordUnit476 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_literal518 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_LITVALUE_in_literal520 = new BitSet(new long[]{0x0000000000000002L});
 
 }

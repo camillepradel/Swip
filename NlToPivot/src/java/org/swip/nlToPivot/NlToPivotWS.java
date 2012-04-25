@@ -96,6 +96,7 @@ public class NlToPivotWS {
         pivotQuery = pivotQuery.trim();
         pivotQuery = pivotQuery.replaceAll("\\s*([:;\\(\\)<>=\\.\\?])\\s*", "$1");
         
+        System.out.println("Generated pivot query: " + pivotQuery);
         logger.info("Generated pivot query: " + pivotQuery);
         return pivotQuery;
     }

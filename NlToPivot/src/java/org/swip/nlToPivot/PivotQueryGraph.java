@@ -118,6 +118,7 @@ public class PivotQueryGraph {
         this.maximum = pp.getMaximum();
         this.minimum = pp.getMinimum();
         this.average = pp.getAverage();
+        this.sum = pp.getSum();
     }
     
     void addAdjToSubstring(String id, String adjValue) {
@@ -198,19 +199,20 @@ public class PivotQueryGraph {
             String agg = "";
             if(this.moreThan)
             {
-                cond = " > "+val;
+                cond = ">"+val;
             }
             else if(this.lessThan)
             {
-                cond = " < "+val;
+                cond = "<"+val;
             }
             else
             {
-                cond = " = "+val;
+                cond = "="+val;
             }
             
             if(this.maximum)
             {
+                System.out.println("MAX tas vu !! !");
                 agg = "MAX";
             }
             else if(this.minimum)
@@ -220,6 +222,10 @@ public class PivotQueryGraph {
             else if(this.average)
             {
                 agg = "AVG";
+            }
+            else if(this.sum)
+            {
+                agg = "SUM";
             }
             else
             {
@@ -264,7 +270,7 @@ public class PivotQueryGraph {
         for (Q q : this.qs) {
              try {
                 String s = q.generateStringRepresentation(nlQuery).replaceAll("_", " ") + "  ";
-                pivotQuery += s;
+                pivotQuery += s ;
                 
                 if( i == lastItem)
                 {
@@ -288,11 +294,13 @@ public class PivotQueryGraph {
                 if(aggAlone.containsKey(id))
                 {
                     String formatS = aggAlone.get(id);
+                    System.out.println("format aggAlone : "+formatS+" || slast : "+sLast);
                     pivotQuery = pivotQuery.replaceAll(sLast, String.format(formatS, sLast));
                 }
                 else
                 {
-                    pivotQuery += substrings.get(id).getStringValue();
+                    System.out.println("add things : "+substrings.get(id).getStringValue());
+                    pivotQuery += substrings.get(id).getStringValue()+".";
                 }
             }
         }

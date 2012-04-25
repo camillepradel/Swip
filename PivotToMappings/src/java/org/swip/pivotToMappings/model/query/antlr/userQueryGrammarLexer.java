@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-24 16:03:33
+// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-25 13:30:47
 package  org.swip.pivotToMappings.model.query.antlr;
 
 import org.antlr.runtime.*;
@@ -399,8 +399,8 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )* )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:156:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )* )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:156:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -412,7 +412,7 @@ public class userQueryGrammarLexer extends Lexer {
             }
 
 
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:143:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:156:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
             loop1:
             do {
                 int alt1=2;
@@ -462,10 +462,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:146:5: ( ( '0' .. '9' )+ )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:146:7: ( '0' .. '9' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:159:5: ( ( '0' .. '9' )+ )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:159:7: ( '0' .. '9' )+
             {
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:146:7: ( '0' .. '9' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:159:7: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -520,7 +520,7 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:150:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -550,13 +550,13 @@ public class userQueryGrammarLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:150:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     {
                     match("//"); 
 
 
 
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:150:14: (~ ( '\\n' | '\\r' ) )*
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:14: (~ ( '\\n' | '\\r' ) )*
                     loop3:
                     do {
                         int alt3=2;
@@ -590,7 +590,7 @@ public class userQueryGrammarLexer extends Lexer {
                     } while (true);
 
 
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:150:28: ( '\\r' )?
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:28: ( '\\r' )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
@@ -599,7 +599,7 @@ public class userQueryGrammarLexer extends Lexer {
                     }
                     switch (alt4) {
                         case 1 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:150:28: '\\r'
+                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:28: '\\r'
                             {
                             match('\r'); 
 
@@ -616,13 +616,13 @@ public class userQueryGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:151:9: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:164:9: '/*' ( options {greedy=false; } : . )* '*/'
                     {
                     match("/*"); 
 
 
 
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:151:14: ( options {greedy=false; } : . )*
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:164:14: ( options {greedy=false; } : . )*
                     loop5:
                     do {
                         int alt5=2;
@@ -647,7 +647,7 @@ public class userQueryGrammarLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:151:42: .
+                    	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:164:42: .
                     	    {
                     	    matchAny(); 
 
@@ -684,10 +684,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:154:5: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:154:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:167:5: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:167:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
             {
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:154:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:167:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
             int cnt7=0;
             loop7:
             do {
@@ -744,28 +744,28 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = LITVALUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:161:6: ( '<' ( . )* '>' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:161:8: '<' ( . )* '>'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:6: ( '[' ( . )* ']' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:8: '[' ( . )* ']'
             {
-            match('<'); 
+            match('['); 
 
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:161:12: ( . )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:12: ( . )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0=='>') ) {
+                if ( (LA8_0==']') ) {
                     alt8=2;
                 }
-                else if ( ((LA8_0 >= '\u0000' && LA8_0 <= '=')||(LA8_0 >= '?' && LA8_0 <= '\uFFFF')) ) {
+                else if ( ((LA8_0 >= '\u0000' && LA8_0 <= '\\')||(LA8_0 >= '^' && LA8_0 <= '\uFFFF')) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:161:12: .
+            	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:12: .
             	    {
             	    matchAny(); 
 
@@ -778,7 +778,7 @@ public class userQueryGrammarLexer extends Lexer {
             } while (true);
 
 
-            match('>'); 
+            match(']'); 
 
             }
 
@@ -827,14 +827,7 @@ public class userQueryGrammarLexer extends Lexer {
             break;
         case '<':
             {
-            int LA9_7 = input.LA(2);
-
-            if ( ((LA9_7 >= '\u0000' && LA9_7 <= '\uFFFF')) ) {
-                alt9=21;
-            }
-            else {
-                alt9=7;
-            }
+            alt9=7;
             }
             break;
         case '=':
@@ -857,12 +850,12 @@ public class userQueryGrammarLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'S':
                 {
-                int LA9_21 = input.LA(3);
+                int LA9_20 = input.LA(3);
 
-                if ( (LA9_21=='K') ) {
-                    int LA9_27 = input.LA(4);
+                if ( (LA9_20=='K') ) {
+                    int LA9_26 = input.LA(4);
 
-                    if ( (LA9_27==' '||(LA9_27 >= '0' && LA9_27 <= '9')||(LA9_27 >= 'A' && LA9_27 <= 'Z')||LA9_27=='_'||(LA9_27 >= 'a' && LA9_27 <= 'z')) ) {
+                    if ( (LA9_26==' '||(LA9_26 >= '0' && LA9_26 <= '9')||(LA9_26 >= 'A' && LA9_26 <= 'Z')||LA9_26=='_'||(LA9_26 >= 'a' && LA9_26 <= 'z')) ) {
                         alt9=17;
                     }
                     else {
@@ -876,12 +869,12 @@ public class userQueryGrammarLexer extends Lexer {
                 break;
             case 'V':
                 {
-                int LA9_22 = input.LA(3);
+                int LA9_21 = input.LA(3);
 
-                if ( (LA9_22=='G') ) {
-                    int LA9_28 = input.LA(4);
+                if ( (LA9_21=='G') ) {
+                    int LA9_27 = input.LA(4);
 
-                    if ( (LA9_28==' '||(LA9_28 >= '0' && LA9_28 <= '9')||(LA9_28 >= 'A' && LA9_28 <= 'Z')||LA9_28=='_'||(LA9_28 >= 'a' && LA9_28 <= 'z')) ) {
+                    if ( (LA9_27==' '||(LA9_27 >= '0' && LA9_27 <= '9')||(LA9_27 >= 'A' && LA9_27 <= 'Z')||LA9_27=='_'||(LA9_27 >= 'a' && LA9_27 <= 'z')) ) {
                         alt9=17;
                     }
                     else {
@@ -904,18 +897,18 @@ public class userQueryGrammarLexer extends Lexer {
             int LA9_12 = input.LA(2);
 
             if ( (LA9_12=='O') ) {
-                int LA9_23 = input.LA(3);
+                int LA9_22 = input.LA(3);
 
-                if ( (LA9_23=='U') ) {
-                    int LA9_29 = input.LA(4);
+                if ( (LA9_22=='U') ) {
+                    int LA9_28 = input.LA(4);
 
-                    if ( (LA9_29=='N') ) {
-                        int LA9_35 = input.LA(5);
+                    if ( (LA9_28=='N') ) {
+                        int LA9_34 = input.LA(5);
 
-                        if ( (LA9_35=='T') ) {
-                            int LA9_39 = input.LA(6);
+                        if ( (LA9_34=='T') ) {
+                            int LA9_38 = input.LA(6);
 
-                            if ( (LA9_39==' '||(LA9_39 >= '0' && LA9_39 <= '9')||(LA9_39 >= 'A' && LA9_39 <= 'Z')||LA9_39=='_'||(LA9_39 >= 'a' && LA9_39 <= 'z')) ) {
+                            if ( (LA9_38==' '||(LA9_38 >= '0' && LA9_38 <= '9')||(LA9_38 >= 'A' && LA9_38 <= 'Z')||LA9_38=='_'||(LA9_38 >= 'a' && LA9_38 <= 'z')) ) {
                                 alt9=17;
                             }
                             else {
@@ -944,12 +937,12 @@ public class userQueryGrammarLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'A':
                 {
-                int LA9_24 = input.LA(3);
+                int LA9_23 = input.LA(3);
 
-                if ( (LA9_24=='X') ) {
-                    int LA9_30 = input.LA(4);
+                if ( (LA9_23=='X') ) {
+                    int LA9_29 = input.LA(4);
 
-                    if ( (LA9_30==' '||(LA9_30 >= '0' && LA9_30 <= '9')||(LA9_30 >= 'A' && LA9_30 <= 'Z')||LA9_30=='_'||(LA9_30 >= 'a' && LA9_30 <= 'z')) ) {
+                    if ( (LA9_29==' '||(LA9_29 >= '0' && LA9_29 <= '9')||(LA9_29 >= 'A' && LA9_29 <= 'Z')||LA9_29=='_'||(LA9_29 >= 'a' && LA9_29 <= 'z')) ) {
                         alt9=17;
                     }
                     else {
@@ -963,12 +956,12 @@ public class userQueryGrammarLexer extends Lexer {
                 break;
             case 'I':
                 {
-                int LA9_25 = input.LA(3);
+                int LA9_24 = input.LA(3);
 
-                if ( (LA9_25=='N') ) {
-                    int LA9_31 = input.LA(4);
+                if ( (LA9_24=='N') ) {
+                    int LA9_30 = input.LA(4);
 
-                    if ( (LA9_31==' '||(LA9_31 >= '0' && LA9_31 <= '9')||(LA9_31 >= 'A' && LA9_31 <= 'Z')||LA9_31=='_'||(LA9_31 >= 'a' && LA9_31 <= 'z')) ) {
+                    if ( (LA9_30==' '||(LA9_30 >= '0' && LA9_30 <= '9')||(LA9_30 >= 'A' && LA9_30 <= 'Z')||LA9_30=='_'||(LA9_30 >= 'a' && LA9_30 <= 'z')) ) {
                         alt9=17;
                     }
                     else {
@@ -991,12 +984,12 @@ public class userQueryGrammarLexer extends Lexer {
             int LA9_14 = input.LA(2);
 
             if ( (LA9_14=='U') ) {
-                int LA9_26 = input.LA(3);
+                int LA9_25 = input.LA(3);
 
-                if ( (LA9_26=='M') ) {
-                    int LA9_32 = input.LA(4);
+                if ( (LA9_25=='M') ) {
+                    int LA9_31 = input.LA(4);
 
-                    if ( (LA9_32==' '||(LA9_32 >= '0' && LA9_32 <= '9')||(LA9_32 >= 'A' && LA9_32 <= 'Z')||LA9_32=='_'||(LA9_32 >= 'a' && LA9_32 <= 'z')) ) {
+                    if ( (LA9_31==' '||(LA9_31 >= '0' && LA9_31 <= '9')||(LA9_31 >= 'A' && LA9_31 <= 'Z')||LA9_31=='_'||(LA9_31 >= 'a' && LA9_31 <= 'z')) ) {
                         alt9=17;
                     }
                     else {
@@ -1090,6 +1083,11 @@ public class userQueryGrammarLexer extends Lexer {
         case ' ':
             {
             alt9=20;
+            }
+            break;
+        case '[':
+            {
+            alt9=21;
             }
             break;
         default:
