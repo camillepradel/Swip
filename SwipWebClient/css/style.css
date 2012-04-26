@@ -79,12 +79,36 @@ body
 	padding-left: 20px;
 	text-align: left;
 }
-#results #jqGrid td.relevanceMark
+#results #jqGrid td.relevanceMark,
+#results #jqGrid td.id
 {
 	text-align: center;
+}
+
+#results .subgrid
+{
+	padding: 20px;
+}
+
+#results .subgrid span.title
+{
+	color: #448ac4;
+	font-weight: bold;
 }
 
 #results ul.ui-tabs-nav li a
 {
 	padding: 4px 15px 2px 15px;
 }
+
+#results div.query
+{
+	padding: 20px;
+}
+
+#results div.query span.title
+{
+	color: #448ac4;
+	font-weight: bold;
+}
+
