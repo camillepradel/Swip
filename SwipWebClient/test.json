@@ -1,0 +1,13 @@
+{
+    "content" :
+    [
+        {
+            "descriptiveSentence" : "Lalalala",
+            "relevanceMark" : 10
+        },
+        {
+            "descriptiveSentence" : "Lelelele",
+            "relevanceMark" : 5
+        }
+    ]
+}

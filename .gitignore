@@ -10,3 +10,5 @@ xml-resources
 wsdl
 .DS_Store
 ._*
+log*
+myLogs
