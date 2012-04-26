@@ -25,7 +25,6 @@ $(function()
 	$('#results').tabs();
 });
 
-
 function fillTab(data)
 {
 
@@ -78,8 +77,9 @@ function search(query)
 
 function selectQuery(id)
 {
-	console.log('#jqGrid_' + id);
-	$('#results').tabs('add', '#jqGrid_' + id, 'Request');
+	/*console.log('#jqGrid_' + id);
+	$('#results').tabs('add', '#jqGrid_' + id, 'Request');*/
+	alert("Not implemented yet !");
 }
 
 function nlToPivotSuccHandler(data, status, req) 

@@ -1,6 +1,6 @@
 function nlToPivot(nlQuery)
 {
-	var wsUrl = 'http://swipserver:8080/NlToPivot/NlToPivotWS';
+	var wsUrl = 'http://localhost:8080/NlToPivot/NlToPivotWS';
 
     var soapRequest = '<?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:translateQuery xmlns:ns2="http://nlToPivot.swip.org/"><nlQuery><![CDATA[' + nlQuery + ']]></nlQuery></ns2:translateQuery></S:Body></S:Envelope>';
 
@@ -18,7 +18,7 @@ function nlToPivot(nlQuery)
 
 function pivotToSparql(pvQuery, respNum)
 {
-	var wsUrl = 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS';
+	var wsUrl = 'http://localhost:8080/PivotToMappings/PivotToMappingsWS';
 
     var soapRequest = '<?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:generateBestMappings xmlns:ns2="http://pivotToMappings.swip.org/"><pivotQueryString><![CDATA[' + pvQuery + ']]></pivotQueryString><numMappings><![CDATA[' + respNum + ']]></numMappings></ns2:generateBestMappings></S:Body></S:Envelope>';
 
