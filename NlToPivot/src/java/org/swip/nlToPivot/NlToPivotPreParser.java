@@ -6,7 +6,11 @@ package org.swip.nlToPivot;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -34,6 +38,7 @@ public class NlToPivotPreParser
     private String query;
     private String adaptedQuery;
     
+    private HashMap<String, String> importantWord;
     
     public NlToPivotPreParser(String query)
     {
@@ -41,10 +46,15 @@ public class NlToPivotPreParser
         this.adaptedQuery = query;
         boolean aggBeginFound = false;
         boolean aggFound = false;
+        this.importantWord = new HashMap<String, String>();
         
-        System.out.println("PreParser : "+this.query);
+        
+        System.out.println("PreParser process : "+query+" ... ");
+        
+        adaptedQuery = this.clearImportantWords(adaptedQuery);
+        
+        System.out.println("PreParser without important words : "+this.adaptedQuery);
 
-        System.out.println(this.getClass().getClassLoader().getResource("/").getPath());
         File f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"list").getPath());
         this.parseToken(f, "", true);
         
@@ -118,8 +128,42 @@ public class NlToPivotPreParser
         f = new File(this.getClass().getClassLoader().getResource(NlToPivotPreParser.tokensPreParser+"stopList").getPath());
         this.parseToken(f, "");
         
+        adaptedQuery = this.restoreImportantWords(adaptedQuery);
         
         System.out.println("PreParser return : "+this.adaptedQuery);
+    }
+    
+    private String clearImportantWords(String query)
+    {
+        String ret = query;
+        //replace all important words (matched with the " character) with a token to avoid to process them
+        Pattern p = Pattern.compile("\"([^\"]+)*\"");
+        Matcher m = p.matcher(ret);
+        int i = 0;
+        while(m.find())
+        {
+            String founded = m.group();
+            String token = "%"+(i++)+"%";
+            ret = ret.replaceAll(founded, " "+token+" ");
+            System.out.println("REPLACE : "+founded+" BY "+token);
+            this.importantWord.put(token, founded.replaceAll("\"", ""));
+        }
+        
+        return ret;
+    }
+    
+    private String restoreImportantWords(String query)
+    {
+        String ret = query;
+        for(String token : this.importantWord.keySet())
+        {
+            String words = this.importantWord.get(token);
+            System.out.println("RESTORE : "+token+" BY "+words);
+            ret = ret.replaceAll(token, words);
+        }
+        this.importantWord.clear();
+        
+        return ret;
     }
     
     private boolean parseToken(File f, String replace)
