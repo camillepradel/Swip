@@ -1,11 +1,14 @@
 package org.swip.pivotToMappings.controller;
 
+import com.hp.hpl.jena.query.QuerySolution;
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +17,7 @@ import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.swip.pivotToMappings.exceptions.KeywordRuntimeException;
 import org.swip.pivotToMappings.exceptions.LexicalErrorRuntimeException;
 import org.swip.pivotToMappings.exceptions.LiteralRuntimeException;
@@ -41,6 +45,7 @@ public class Controller {
     // vive les loutres! *2 plus plus pour essayer
     
     private static final Logger logger = Logger.getLogger(Controller.class);
+    private static final String sparqlURL = "http://swipserver:2020/music";
     static final boolean remote = true;
     static Controller staticController = null;
     private SparqlServer sparqlServer = null;
@@ -83,7 +88,7 @@ public class Controller {
         logger.info("----------------------\n");
         long time = System.currentTimeMillis();
         if (remote) {
-            this.sparqlServer = new RemoteSparqlServer("http://localhost:2020/music");
+            this.sparqlServer = new RemoteSparqlServer(sparqlURL);
         } else {
             List<String> uris = new LinkedList<String>();
             uris.add("D:/QALDworkshop/musicbrainz/musicbrainz.owl");
@@ -316,5 +321,30 @@ public class Controller {
 
     public List<Pattern> getPatterns() {
         return this.patterns;
+    }
+    
+    public String processQuery(String sparqlQuery)
+    {
+        logger.info("process Query to "+sparqlURL);
+        logger.info("Query : "+sparqlQuery);
+        JSONObject response = new JSONObject();
+        ArrayList<JSONObject> queryResults = new ArrayList();
+        logger.info("Waiting for sparql server response ... ");
+        Iterable<QuerySolution> sols = this.sparqlServer.select(sparqlQuery);
+        logger.info("Response received.");
+        for(QuerySolution sol : sols)
+        {
+            JSONObject query = new JSONObject();
+            Iterator<String> varNames = sol.varNames();
+            while(varNames.hasNext())
+            {
+                String varName = varNames.next();
+                query.put(varName, "\""+sol.get(varName)+"\"");
+            }
+            queryResults.add(query);
+        }
+        response.put("content", queryResults);
+        logger.info("return to client : "+response.toString());
+        return response.toString();
     }
 }

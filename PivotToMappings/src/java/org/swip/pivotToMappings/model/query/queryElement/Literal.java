@@ -51,7 +51,7 @@ public class Literal extends QueryElement {
 
      public String getVarName()
     {
-        return "?"+this.stringValue;
+        return "?"+(this.stringValue.replaceAll(" ", "_"));
     }
      
       public boolean isAggregate()

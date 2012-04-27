@@ -71,7 +71,7 @@ public class Keyword extends QueryElement {
 
     public String getVarName()
     {
-        return "?"+this.keywordValue;
+        return "?"+(this.keywordValue.replaceAll(" ", "_"));
     }
 
     public void setKeywordValue(String keywordValue) {

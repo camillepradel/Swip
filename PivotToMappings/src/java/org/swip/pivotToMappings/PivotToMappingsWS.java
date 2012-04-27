@@ -156,4 +156,12 @@ public class PivotToMappingsWS {
     public java.util.List<org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping> getMatchings(@WebParam(name = "queryString") String pivotQueryString) {
         return null;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "processQuery")
+    public String processQuery(@WebParam(name = "pivotQuery") String pivotQuery) {
+       return Controller.getInstance().processQuery(pivotQuery);
+    }
 }
