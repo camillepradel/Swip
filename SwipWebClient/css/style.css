@@ -42,7 +42,7 @@ body
  * Loading icon
  **/
 
-#loading
+.loading
 {
 	display: none;
 	width: 100%;
@@ -112,3 +112,9 @@ body
 	font-weight: bold;
 }
 
+
+/**
+ * jQuery UI override
+ **/
+
+#results li .ui-icon-close { float: left; margin: 4px 0px 0px 0px; cursor: pointer; }

@@ -22,7 +22,29 @@ $(function()
 		selectQuery($(this).attr('id'));
 	});
 
-	$('#results').tabs();
+	var previousTab = 'tabs-1';
+	$('#results').tabs
+	({
+		tabTemplate: "<li><a href='#{href}'>#{label}</a><span class='ui-icon ui-icon-close'>Remove Tab</span></li>",
+		add: function(event, ui) 
+		{
+	        $('#results').tabs('select', '#' + ui.panel.id);
+	    },
+	    select: function(event, ui)
+	    {
+	    	if(ui.panel.id != 'tabs-1')
+	    	{
+	    		$('#' + ui.panel.id).css('height', $('#' + previousTab).css('height'));
+	    	}
+	    	previousTab = ui.panel.id;
+	    }
+	});
+
+	$('#results span.ui-icon-close').live('click', function() 
+	{
+		var index = $('li', $('#results')).index($(this).parent());
+		$('#results').tabs('remove', index);
+	});
 });
 
 function fillTab()
@@ -54,7 +76,7 @@ function fillTab()
 	   		var queryPre = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
 	   		var mappingPre = '<span class="title">Mapping Description :</span><br /><br /><span class="mappingSpan"></span>';
             $('#' + subgrid_id).addClass('subgrid');
-            $('#' + subgrid_id).append(queryPre + '<hr />' + mappingPre);
+            $('#' + subgrid_id).append(queryPre + '<br /><hr /><br />' + mappingPre);
             $('#' + subgrid_id + ' .queryPre').text(parsedJson.content[row_id].sparqlQuery);
             $('#' + subgrid_id + ' .mappingSpan').text(parsedJson.content[row_id].mappingDescription);
         },
@@ -83,19 +105,21 @@ function search(query)
 	if(query != '')
 	{
 		$('#searchButton').attr('disabled', 'disabled');
-		$('#loading').css('display', 'block');
+		$('#searchLoading').css('display', 'block');
 		nlToPivot(query);
 	}
 }
 
 function selectQuery(id)
 {
+	var descSentence = '<span class="title">Search :</span><br /><br /><span class="searchSpan"></span>'; 
 	var sparqlQuery = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
-	var sparqlResult = '<span class="title">SPARQL Result :</span><pre class="resultPre">Not implemented yet !</pre>'
-	$('#results').append('<div id="query' + id + '" class="query">' + sparqlQuery + '<hr />' + sparqlResult + '</div>');
+	var sparqlResult = '<span class="title">SPARQL Result :</span><div class="loading" style="display: block"><img src="img/loading_icon.gif" alt="Loading" /></div>'
+	$('#results').append('<div id="query' + id + '" class="query">' + descSentence + '<br /><hr /><br />' + sparqlQuery + '<br /><hr /><br />' + sparqlResult + '</div>');
 	$('#query' + id + ' .queryPre').text(parsedJson.content[id].sparqlQuery);
-	$('#query' + id).css('height', $('#tabs-1').css('height'));
+	$('#query' + id + ' .searchSpan').html(parsedJson.content[id].descriptiveSentence);
 	$('#results').tabs('add', '#query' + id, 'Query #' + id);
+	processQuery(parsedJson.content[id].sparqlQuery, id);
 
 }
 
@@ -109,7 +133,7 @@ function pivotToSparqlSuccHandler(data, status, req)
 {
     if (status == 'success')
     {
-    	$('#loading').css('display', 'none');
+    	$('#searchLoading').css('display', 'none');
 
         $('#logo').animate
 		({
@@ -123,12 +147,28 @@ function pivotToSparqlSuccHandler(data, status, req)
 	}
 }
 
+function processQuerySuccHandler(data, status, req, id)
+{
+	if (status == 'success')
+	{
+        console.log($(req.responseXML).find('processQueryResponse').text());
+    	console.log(id);
+    }
+}
+
 function nlToPivotErrHandler()
 {
-	alert('SOAP Error (NlToPivot)');
+	$('#searchButton').removeAttr('disabled');
+	console.log('SOAP Error (NlToPivot)');
 }
 
 function pivotToSparqlErrHandler()
 {
-	alert('SOAP Error (PivotToSparql)');
+	$('#searchButton').removeAttr('disabled');
+	console.log('SOAP Error (PivotToSparql)');
+}
+
+function processQueryErrHandler()
+{
+	console.log('SOAP Error (SparlQuery)');
 }
