@@ -1,3 +1,18 @@
+/*====================================
+ * soap.js
+ *
+ * Interface for querying the WS
+ * using the SOAP protocol
+ ====================================*/
+
+
+/**
+ * Translates a query from natural language
+ * to pivot
+ * Provides two handlers (nlToPivotSuccHandler & 
+ * nlToPivotErrHandler)
+ * @param nlQuery Query in natural language
+ **/
 function nlToPivot(nlQuery)
 {
 	var wsUrl = 'http://swipserver:8080/NlToPivot/NlToPivotWS';
@@ -16,6 +31,14 @@ function nlToPivot(nlQuery)
     });
 }
 
+
+/**
+ * Gets best mappigns for a pivot query
+ * Provides two handlers (pivotToSparqlSuccHandler & 
+ * pivotToSparqlErrHandler)
+ * @param pvQuery Query in pivot
+ * @param respNum Size of the returned array
+ **/
 function pivotToSparql(pvQuery, respNum)
 {
 	var wsUrl = 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS';
@@ -34,6 +57,14 @@ function pivotToSparql(pvQuery, respNum)
     });
 }
 
+
+/**
+ * Processes a SPARQL query
+ * Provides two handlers (processQuerySuccHandler & 
+ * processQueryErrHandler)
+ * @param query SPARQL query to process
+ * @param id Query's ID (concerns the view)
+ **/
 function processQuery(query, id)
 {
     var wsUrl = 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS';

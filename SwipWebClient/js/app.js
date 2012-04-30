@@ -3,7 +3,7 @@ $(function()
 	/** 
 	 * Submits the form when the return key
 	 * is pressed in the search field
-	**/
+	 **/
 	$('#searchField').keydown(function(event)
 	{
     	if(event.keyCode == 13)
@@ -12,16 +12,26 @@ $(function()
 	    }
 	});
 
+	/** 
+	 * Submits the form when the "Search"
+	 * button is clicked in the search field
+	 **/
 	$('#searchButton').click(function()
 	{
 		search($('#searchField').val());
 	});
 
+	/**
+	 * Handles the double click on a query
+	 **/
 	$('.jqgrow').live('dblclick', function()
 	{
 		selectQuery($(this).attr('id'));
 	});
 
+	/**
+	 * Tabs management
+	 **/
 	var previousTab = 'tabs-1';
 	$('#results').tabs
 	({
@@ -39,7 +49,6 @@ $(function()
 	    	previousTab = ui.panel.id;
 	    }
 	});
-
 	$('#results span.ui-icon-close').live('click', function() 
 	{
 		var index = $('li', $('#results')).index($(this).parent());
@@ -47,8 +56,15 @@ $(function()
 	});
 });
 
+
+/**
+ * Fills the results tab with data extracted from
+ * a JSON string
+ **/
 function fillTab()
 {
+	// For further information, see the JqGrid documentation
+
 	jQuery('#jqGrid').jqGrid
 	({
 		datatype: 'jsonstring',
@@ -93,6 +109,10 @@ function fillTab()
 	});
 }
 
+
+/**
+ * Called when results have to be displayed
+ **/
 function displayResults()
 {
 	$('#results').css('display', 'block');
@@ -100,6 +120,9 @@ function displayResults()
 }
 
 
+/**
+ * Called when the user has validated their input
+ **/
 function search(query)
 {
 	if(query != '')
@@ -110,6 +133,10 @@ function search(query)
 	}
 }
 
+
+/**
+ * Called when a query is selected
+ **/
 function selectQuery(id)
 {
 	var descSentence = '<span class="title">Search :</span><br /><br /><span class="searchSpan"></span>'; 
@@ -123,6 +150,12 @@ function selectQuery(id)
 
 }
 
+
+/**
+ * SOAP handlers
+ * See soap.js
+ **/
+ 
 function nlToPivotSuccHandler(data, status, req) 
 {
     if (status == 'success')
