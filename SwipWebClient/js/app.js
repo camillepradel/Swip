@@ -111,6 +111,20 @@ function fillTab()
 
 
 /**
+ * Results pre-processing
+ * (String replacements)
+ **/
+function preProcessResults(jsonString)
+{
+	jsonString = jsonString.replace(/_selBeg_/g, '<select><option>');
+	jsonString = jsonString.replace(/_selSep_/g, '</option><option>');
+	jsonString = jsonString.replace(/_selEnd_/g, '</option></select>');
+
+	return jsonString;
+}
+
+
+/**
  * Called when results have to be displayed
  **/
 function displayResults()
@@ -174,7 +188,8 @@ function pivotToSparqlSuccHandler(data, status, req)
 		}, 'slow', function()
 		{
 			$('#searchButton').removeAttr('disabled');
-			parsedJson = $.parseJSON($(req.responseXML).find('generateBestMappingsResponse').text());
+			var jsonString = $(req.responseXML).find('generateBestMappingsResponse').text();
+			parsedJson = $.parseJSON(preProcessResults(jsonString));
 			displayResults();
 		});
 	}

@@ -442,14 +442,14 @@ public class PatternToQueryMapping {
             if(em instanceof KbElementMapping) {
                 KbElementMapping kbem = (KbElementMapping) em;
                 if(kbem.isClass()) {
-                    webClientPre = "<select><option>";
-                    webClientPost = "</option><option>CLASS</option></select>";
+                    webClientPre = "_selBeg_";
+                    webClientPost = "_selSep_CLASS_selEnd_";
                 } else if(kbem.isInd()) {
-                    webClientPre = "<select><option>";
-                    webClientPost = "</option><option>IND</option></select>";
+                    webClientPre = "_selBeg_";
+                    webClientPost = "_selSep_IND_selEnd_";
                 } else if(kbem.isProp()) {
-                    webClientPre = "<select><option>";
-                    webClientPost = "</option><option>PROP</option></select>";
+                    webClientPre = "_selBeg_";
+                    webClientPost = "_selSep_PROP_selEnd_";
                 }
             }
             
