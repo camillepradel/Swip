@@ -45,7 +45,7 @@ public class Controller {
     // vive les loutres! *2 plus plus pour essayer
     
     private static final Logger logger = Logger.getLogger(Controller.class);
-    private static final String sparqlURL = "http://swipserver:2020/music";
+    private static final String sparqlURL = "http://localhost:2020/music";
     static final boolean remote = true;
     static Controller staticController = null;
     private SparqlServer sparqlServer = null;
