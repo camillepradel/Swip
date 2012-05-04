@@ -1,0 +1,146 @@
+Scripts to parse raw French texts,
+
+and output either:
+- constituents
+- unlabeled/labeled dependencies
+
+using either:
+
+- the Berkeley parser v1.0, slightly adapted to French (for unknown words suffixes). Many thanks to Slav Petrov for making his code available.
+
+- the Malt parser v1.3.1
+
+- the MST parser v0.4.3b
+
+(see publication list at the end of this file)
+
+-------------------------------------------------
+    Version information
+-------------------------------------------------
+
+----------------
+Bonsai version 3.2, september 2010 :
+----------------
+** debugged lemmatisation
+
+----------------
+Bonsai version 3.1, september 2010 :
+----------------
+Modifications :
+
+** input and ouput files are in UTF-8 (used to be latin1)
+** debugged script to parse with MST, in order to get the original tokens in the CoNLL output file
+** Modified script to parse with Berkeley+functional_role_labeler, in order to get predicted lemmas in CoNLL output file (in case of dependency output only)
+** Option -n available to skip tokenization step
+** Debugged tokenisation
+
+---------
+Bonsai version 3, august 2010 
+---------
+First public release
+
+-------------------------------------------------
+    parse French with the Berkeley parser
+-------------------------------------------------
+The following code makes use of the Berkeley Parser v1.0, slightly adapted to French (for unknown words suffixes). Many thanks to Slav Petrov for making his code available.
+---------------
+Prerequisites
+---------------
+    * Download the BONSAI archive, to get preprocessing code, Berkeley jar 1.0 adapted to French, Berkeley grammar learnt on French Treebank, and code for functional role labelling and constituency-to-dependency conversion. Note it requires:
+          o perl and python >2.5
+          o python-cjson, to install with : python setup.py install
+          o ply (>3.3) (needed only to get labeled dependencies) 
+
+    * Set the BONSAI variable to your local path to BONSAI v3 
+
+---------------
+Parsing command
+---------------
+The following command will preprocess and parse a raw latin1 text file INFILE and print output to STDOUT
+
+$BONSAI/bin/bonsai_bky_parse_rawtext.sh -f [const|udep|ldep] [-n] [-h] INFILE
+
+Use -h option for online help
+Use -n option if your text is already tokenized
+Use -f option to choose the ouput format :
+-f const outputs FrenchTreebank-like constituents
+-f udep for unlabeled dependencies (conll format)
+-f ldep for labeled dependencies (conll format)
+
+The parsing corresponds to the best Berkeley configuration described in the benchmark (coling 2010 poster) : it segments text, replaces tokens by clusters, parses, and reinsert original tokens.
+
+Coming soon... : improved functional role labeler 
+
+-------------------------------------------------
+    parse French with the Malt parser
+-------------------------------------------------
+(these resources have been output by Joakim Nivre)
+
+Prerequisites
+
+    * Malt Parser (http://www.maltparser.org/) version 1.3.1, developed by Johan Hall, Jens Nilsson and Joakim Nivre at Växjö University and Uppsala University, Sweden.
+
+    * the MElt tagger, developed by Pascal Denis & Benoît Sagot, (Coupling an annotated corpus and a morphosyntactic lexicon for state-of-the-art POS tagging with less human effort. In Proceedings of PACLIC 2009, Hong Kong, China).
+
+    * download and unzip the BONSAI v3 archive, to get preprocessing code, and malt model and settings (best Malt model according to benchmark : uses predicted POS, predicted lemmas, predicted morpho features, and unsupervised word clusters). Note preprocessing code requires:
+          o perl and python >2.5
+          o python-cjson, to install with : python setup.py install 
+
+    * Set the MALT_DIR variable to your local path to Malt 1.3.1
+
+    * Set the BONSAI variable to your local path to BONSAI v3 
+
+Parsing command
+The following command will preprocess and parse a raw latin1 text file INFILE into INFILE.outmalt :
+$BONSAI/bin/bonsai_malt_parse_rawtext.sh [-n] INFILE
+
+Use -n option if your text is already tokenized
+
+-------------------------------------------------
+    parse French with the MST parser
+-------------------------------------------------
+
+Prerequisites
+
+    * MSTParser (http://mstparser.sourceforge.net/) version 0.4.3b, originally designed by Ryan McDonald
+
+    * the MElt tagger (Pascal Denis & Benoît Sagot, Coupling an annotated corpus and a morphosyntactic lexicon for state-of-the-art POS tagging with less human effort. In Proceedings of PACLIC 2009, Hong Kong, China).
+
+    * BONSAI archive, to get preprocessing code and MST model (best MST model according to benchmark : uses predicted POS, predicted lemmas, predicted morpho features, and unsupervised word clusters). Note preprocessing code requires:
+          o perl and python >2.5
+          o python-cjson, to install with : python setup.py install 
+          o recode >3.6
+
+
+    * Set the MSTPARSER_DIR variable to your local path to MST parser
+
+    * Set the BONSAI variable to your local path to BONSAI v3 
+
+Parsing command
+The following command will preprocess and parse a raw latin1 text file INFILE into INFILE.outmst :
+
+$BONSAI/bin/bonsai_mst_parse_rawtext.sh [-n] INFILE
+
+Use -n option if your text is already tokenized
+
+---------------------------------------------------------
+Publications
+---------------------------------------------------------
+
+Candito M.-H., Nivre J., Denis P. and Henestroza Anguiano E., 2010,
+Benchmarking of Statistical Dependency Parsers for French, Proceedings of COLING'2010 (poster session), Beijing, China
+
+Candito M.-H., Crabbé B., and Denis P., 2010,
+Statistical French dependency parsing: treebank conversion and first results, Proceedings of LREC'2010, La Valletta, Malta
+
+Seddah D., Candito M.-H. and Crabbé B., 2009,
+Cross-parser evaluation and tagset variation: a French treebank study, in Proceedings of IWPT 2009, Paris, France
+
+Candito M.-H. and Crabbé B., 2009,
+Improving generative statistical parsing with semi-supervised word clustering, in Proceedings of IWPT 2009 (short paper), Paris, France
+
+Candito M.-H., Crabbé B., Denis P. and Guérin F., 2009,
+Analyse syntaxique du français : des constituants aux dépendances, Proceedings of TALN 2009, Senlis, France
+
+Crabbé B. and Candito M.-H., 2008,
+Expériences d'analyse syntaxique du français, Proceedings of TALN 2008, Avignon, France 

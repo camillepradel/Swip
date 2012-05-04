@@ -1,0 +1,241 @@
+#!/usr/bin/perl
+# $Id: lingpipe 2301 2009-05-19 08:26:39Z sagot $
+
+use 5.006;
+use strict;
+use warnings;
+
+my $VERSION= '0.2';
+
+my $mode = "run";
+my $lang = "fr";
+my ($global_options,$components,$first,$last,$skip,$dump,$config,$path) = ('','','','','','','','');
+while (1) {
+    $_=shift;
+    if (!defined($_) || /^$/) {last;}
+    elsif (/^--?path=(.*)$/i) {$path=$1;} elsif (/^--?path$/i) {$path=shift;}
+    elsif (/^--?config=(.*)$/i) {$config=$1;} elsif (/^--?config$/i) {$config=shift;}
+    elsif (/^--?options=(.*)$/i) {$global_options=$1;} elsif (/^--?options$/i) {$global_options=shift;}
+    elsif (/^--?components=(.*)$/i) {$components=$1;} elsif (/^--?components$/i) {$components=shift;}
+    elsif (/^--?first=(.*)$/i) {$first=$1;} elsif (/^--?first$/i) {$first=shift;}
+    elsif (/^--?last=(.*)$/i) {$last=$1;} elsif (/^--?last$/i) {$last=shift;}
+    elsif (/^--?skip=(.*)$/i) {$skip=$1;} elsif (/^--?skip$/i) {$skip=shift;}
+    elsif (/^--?dump=(.*)$/i) {$dump=$1;} elsif (/^--?dump$/i) {$dump=shift;}
+    elsif (/^--?mode=(.*)$/i) {$mode=$1;} elsif (/^--?mode$/i) {$mode=shift;}
+    elsif (/^--?l(?:ang)?=(.*)$/i) {$lang=$1;} elsif (/^--?l(?:ang)?$/i) {$lang=shift;}
+}
+
+my %seen;
+
+unless ($mode =~ /^run|create$/) {
+    usage();
+    die "wrong mode '$mode' given, aborting";
+}
+
+my (@allcomponents, %allcomponents);
+
+die "no config file provided (use option --config)" unless $config;
+open (CONFIG, "<$config") || die "could not open config file $config: $!";
+my $curline = "";
+my $curcomponent = "";
+my $i = -1;
+my %vars;
+while (<CONFIG>) {
+  chomp;
+  $curline .= $_;
+  if ($curline !~ s/\\$//) {
+    $_ = $curline;
+    s/#.*//;
+    unless (/^\s*$/) {
+      s/^\s+//;
+      s/\s+$//;
+      s/\s*=\s*/=/;
+      if (/^\[(\S+)\]$/) {
+	$i++; $curcomponent = $1; $allcomponents[$i]->{id} = $curcomponent;
+	$allcomponents{$curcomponent} = $i;
+      }
+      elsif (s/^(\w[\w\d_]*)=(.*)$/$2/) {
+	for my $v (keys %vars) {
+	  s/\$$v([^\d\w_]|$)/$vars{$v}$1/g;
+	}
+	if ($i == -1) {
+	  $vars{quotemeta($1)} = $_;
+	} else {
+	  $allcomponents[$i]->{$1} = $_;
+	}
+      }
+    }
+    $curline = "";
+  }
+}
+
+my (@components, %components);
+
+foreach my $id (split(/\s+/, $vars{components})) {
+  push @components, $allcomponents[$allcomponents{$id}];
+  $components{$id} = $#components;
+}
+
+
+
+if ($first) {
+    if (defined $components{$first}) {
+	$first = $components{$first};
+    } else {
+	warn "non-existant first component $first, defaulting to $components[0]->{id}";
+	$first = 0;
+    }
+} else {
+    $first = 0;
+}
+
+if ($last) {
+    if (defined $components{$last}) {
+	$last = $components{$last};
+    } else {
+	warn "non-existant last component $last, defaulting to $components[-1]->{id}";
+	$last = $#components;
+    }
+} else {
+    $last = $#components;
+}
+
+my %skip = map { $_ => 1 } split(/,/, $skip);
+my %dump = map { $_ => 1 } split(/,/, $dump);
+
+my @pipe = ();
+
+for my $i ($first .. $last) {
+    my $id = $components[$i]->{id};
+    next if $skip{$id};
+
+    my @cmd;
+    if ($components[$i]->{options}) {
+      if ($mode eq 'run') {
+	$components[$i]->{options} =~ s/\$\*/$global_options/g;
+	$components[$i]->{options} =~ s/\$lang\b/$lang/g;
+	$components[$i]->{cmd} =~ s/\$\*/$global_options/g;
+	$components[$i]->{cmd} =~ s/\$lang\b/$lang/g;
+      } else {
+	$components[$i]->{options} =~ s/\$lang\b/\$lang/g;
+      }
+      push(@cmd, $components[$i]->{cmd});
+      push(@cmd, $components[$i]->{options}) ;
+    } else {
+      if ($mode eq 'run') {
+	$components[$i]->{cmd} =~ s/\$\*/$global_options/g;
+	$components[$i]->{cmd} =~ s/\$lang\b/$lang/g;
+      }
+      push(@cmd, $components[$i]->{cmd});
+    }
+
+    push(@pipe, join(' ', @cmd));
+    push(@pipe, "tee $id.dump") if $dump{$id};
+}
+
+
+if ($mode eq 'run') {
+    unshift(@pipe, "cat @ARGV") if @ARGV;
+    my $pipe = join('|', @pipe);
+
+    # set path
+    $ENV{PATH} = join(':', $path, $ENV{PATH}) unless $path eq "";
+
+    # disable buffering
+    $| = 1;
+
+    exec $pipe;
+} else {
+    my $path = join(':', $path, '$PATH');
+    $path =~ s/^://;
+  
+    print <<EOF;
+#!/bin/sh
+
+export PATH=$path
+
+lang=fr
+
+defininglang=0
+tokonly=0
+for o in \$@
+do
+  if [ \$defininglang -gt 0 ]
+  then
+    lang=\$o;
+    defininglang=0
+  elif [ \$o = '-l' ]
+  then
+    defininglang=1
+  elif [ \$o = '-t' ]
+  then
+    defininglang=0
+    tokonly=1
+  fi
+done
+
+if [ \$tokonly -gt 0 ]
+then
+EOF
+    my $i = 0;
+    while (defined($pipe[$i])) {
+      if ($i > 0) {print " \\\n\t | "};
+      print $pipe[$i];
+      last if ($pipe[$i] =~ /segmente/);
+      $i++;
+    }
+    print "\n";
+    print <<EOF;
+else
+EOF
+    print join(" \\\n\t | ", @pipe)."\n";  
+    print <<EOF;
+fi
+EOF
+}
+
+sub usage {
+    print <<EOF;
+lingpipe $VERSION;
+Usage: lingpipe [options] [mode]
+
+mode is either run (default value) or create
+
+EOF
+}
+
+__END__
+
+=head1 NAME
+
+lingpipe - Perl script to run Linguistic Pipelines
+
+=head1 SYNOPSIS
+
+# Process from file
+cat file.txt | lingpipe
+
+# Process from string
+echo "Yves aime Sabine" | lingpipe
+
+# create pipe for later use
+lingpipe create
+
+=head1 DESCRIPTION
+
+Script B<lingpipe> may be used to run pipelines of linguistic
+components, such as tokenizer, taggers, morphological analyzer,
+parsers, ...
+
+Pipelines may be described in configuration files (see lingpipe.conf)
+    and tuned with command-line options
+
+=head1 AUTHORS
+
+Lionel Clément, E<lt>Lionel.Clement@inria.frE<gt>
+
+Eric de la Clergerie, E<lt>Eric.De_La_Clergerie@inria.frE<gt>
+
+Guillaume Rousse, E<lt>Guillaume.Rousse@inria.frE<gt>
+
+=cut

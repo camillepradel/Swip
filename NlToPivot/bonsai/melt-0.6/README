@@ -1,0 +1,99 @@
+Introduction
+============
+
+MElt is a Python implementation of the MaxEnt Markov Model part-of-speech tagger
+described in:
+
+P. Denis and B. Sagot. 2009. Coupling an annotated corpus and a
+morphosyntactic lexicon for state-of-the-art POS tagging with less
+human effort. In Proc. of PACLIC 23, Hong Kong, China.
+
+P. Denis and B. Sagot. 2010. Exploitation d'une ressource lexicale pour la 
+construction d'un étiqueteur morphosyntaxique état-de-l'art du français.  
+In Proc. of TALN 2010, Montreal, Canada.
+
+MElt is released with an LGPL licence (see LICENCE). 
+
+
+Installation
+============
+
+You first need to download the current release of the MELT tagger from
+the INRIA forge:
+
+http://gforge.inria.fr/projects/lingwb/
+
+You can then install MElt by running the usual sequence of commands:
+
+$> ./configure
+$> make
+$> make install 
+
+The default location for the MElt executable in /usr/local/bin, so
+make sure this is part of PATH variable. 
+
+To successfully run MElt, you need to install Numpy along with a fairly 
+recent version of Python --we've tried 2.5 and 2.6. 
+
+You also need to setup the PYTHONPATH variable to the appropriate value,
+such that it includes the path to MElt modules as installed by the
+make install command (e.g., /usr/local/lib/python2.5/site-packages or 
+/usr/local/lib/python2.6/site-packages)
+
+
+Running the tagger
+==================
+
+The MElt tagger is run as follows:
+
+$> cat <file> | MElt <options>
+
+If your corpus is already tokenized and segmented in sentences (one
+sentence per line), following the French Treebank
+conventions (http://www.llf.cnrs.fr/Gens/Abeille/French-Treebank-fr.php),
+you should use MElt with no options.
+
+If your corpus is raw (no tokenization, no segmentation in sentences),
+you can activate MElt's embedded lightweight tokenizer by using the '-t'
+option. This tokenizer is a small subset of the SxPipe pre-parsing
+processing chain (see Sagot & Boullier 2005, 2008). It can be invoked
+independently of MElt (cat <file> | sxpipe-light).
+
+Also, note that currently MElt only supports utf-8 encoding.
+
+
+Tagset
+======
+
+The current tagset used by MElt is as follows (Crabbé & Candito,
+2008):
+
+ADJ 	   adjective
+ADJWH	   interrogative adjective
+ADV	   adverb
+ADVWH	   interrogative adverb
+CC	   coordination conjunction
+CLO	   object clitic pronoun
+CLR	   reflexive clitic pronoun
+CLS	   subject clitic pronoun
+CS	   subordination conjunction
+DET	   determiner
+DETWH	   interrogative determiner
+ET	   foreign word
+I	   interjection
+NC	   common noun
+NPP	   proper noun
+P	   preposition
+P+D	   preposition+determiner amalgam
+P+PRO	   prepositon+pronoun amalgam
+PONCT	   punctuation mark
+PREF	   prefix
+PRO	   full pronoun
+PROREL	   relative pronoun
+PROWH	   interrogative pronoun
+V	   indicative or conditional verb form
+VIMP	   imperative verb form
+VINF	   infinitive verb form
+VPP	   past participle
+VPR	   present participle
+VS	   subjunctive verb form

@@ -1,0 +1,45 @@
+#!/bin/sh
+
+VERSION=0.6
+PYTHONPATH=/usr/local/lib/python2.7/dist-packages
+MODEL=/usr/local/share/melt
+TAGDICO=${MODEL}/tag_dict.json
+LEXICON=${MODEL}/lexicon.json
+HANDLE_COMMENTS=
+DO_TOKENIZE=0
+
+while getopts :m:cvth o
+do case "$o" in
+	v)  echo $VERSION && exit 1;;
+	h)  echo "Usage: MElt [ -cthv ] < input > output" \
+            && echo "-c	Handle SxPipe-like 'comments' (arbitrary sequence of characters preceeding a token and surrounded by curly brackets)" \
+            && echo "-t	Use the SxPipe-light tokenizer before tagging (SxPpipe-light, included in MElt's distribution, is a lightweight version of SxPipe, a full-featured pre-parsing processing chain)" \
+            && echo "-h	Output this help message" \
+            && echo "-v	Output MElt version" \
+            && exit 1;;
+	c)  HANDLE_COMMENTS="-c";;
+	t)  DO_TOKENIZE=1;;
+	m) rep=$OPTARG
+	    if  ! [ -d $rep -a -r $rep -a -x $rep ]; then
+		echo "Error $rep is not accessible" >&2
+		exit 4
+	    else
+		MODEL=$OPTARG
+		LEXICON=${OPTARG}/lexicon.json
+		TAGDICO=${OPTARG}/tag_dict.json
+	    fi
+	    ;;
+	:) # ici $OPTARG==d
+	    echo "Error: model name missing after '-d'" >&2
+	    exit 4
+	    ;;
+    esac
+done
+
+
+if [ $DO_TOKENIZE -eq 1 ]
+then
+    sxpipe-light | python /usr/local/lib/python2.7/dist-packages/melt/pos_tag.py -m ${MODEL} -d ${TAGDICO} -l ${LEXICON} -c | perl -pe "while (s/({[^} ]*) /\\1_/g) {}; s/{(.*?)}\s*\S+?\//\1\//g"
+else
+    python /usr/local/lib/python2.7/dist-packages/melt/pos_tag.py -m ${MODEL} -d ${TAGDICO} -l ${LEXICON} ${HANDLE_COMMENTS};
+fi

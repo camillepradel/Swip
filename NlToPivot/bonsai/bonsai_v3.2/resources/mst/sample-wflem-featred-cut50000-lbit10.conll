@@ -1,0 +1,15 @@
+1	cln	_	CL	CLS	lc=1101110110	2	suj	_	_
+2	prier	_	V	V	n=p|p=1|t=pst	0	root	_	_
+3	le	_	D	DET	n=p|s=def|lc=100	4	det	_	_
+4	cinéaste	_	N	NC	n=p	2	obj	_	_
+5	et	_	C	CC	lc=11101111	4	coord	_	_
+6	tout	_	A	ADJ	g=m|n=p|s=ind|lc=1100101101	8	mod	_	_
+7	son	_	D	DET	n=p|s=poss|lc=10111100	8	det	_	_
+8	lecteur	_	N	NC	g=m|n=p	5	dep_coord	_	_
+9	de	_	P	P	lc=11110	2	de_obj	_	_
+10	bien	_	ADV	ADV	lc=1100010111	11	mod	_	_
+11	vouloir	_	V	VINF		9	obj	_	_
+12	cln	_	CL	CLS	lc=1101110110	14	de_obj	_	_
+13	en	_	CL	CLO	p=3|lc=111110	14	obj	_	_
+14	excuser	_	V	VINF		11	obj	_	_
+15	.	_	PONCT	PONCT	s=s	2	ponct	_	_

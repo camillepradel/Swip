@@ -1,0 +1,54 @@
+#!/bin/sh
+
+export PATH=$PATH
+
+lang=fr
+
+defininglang=0
+tokonly=0
+for o in $@
+do
+  if [ $defininglang -gt 0 ]
+  then
+    lang=$o;
+    defininglang=0
+  elif [ $o = '-l' ]
+  then
+    defininglang=1
+  elif [ $o = '-t' ]
+  then
+    defininglang=0
+    tokonly=1
+  fi
+done
+
+if [ $tokonly -gt 0 ]
+then
+/usr/local/share/melt/tag_meta.pl \
+	 | /usr/local/share/melt/gl_entities.pl \
+	 | /usr/local/share/melt/gl_email.pl \
+	 | /usr/local/share/melt/gl_url.pl -l $lang \
+	 | /usr/local/share/melt/gl_mtponct.pl $* -l $lang \
+	 | /usr/local/share/melt/gl_numtruc.pl \
+	 | /usr/local/share/melt/gl_number.pl -l $lang \
+	 | /usr/local/share/melt/gl_smiley.pl \
+	 | /usr/local/share/melt/gl_format.pl \
+	 | /usr/local/share/melt/remove_inner_ne.pl \
+	 | /usr/local/share/melt/caponlysentences.pl \
+	 | /usr/local/share/melt/segmenteur.pl -a -ca -af=/usr/local/share/melt/pctabr -p=r $*
+else
+/usr/local/share/melt/tag_meta.pl \
+	 | /usr/local/share/melt/gl_entities.pl \
+	 | /usr/local/share/melt/gl_email.pl \
+	 | /usr/local/share/melt/gl_url.pl -l $lang \
+	 | /usr/local/share/melt/gl_mtponct.pl $* -l $lang \
+	 | /usr/local/share/melt/gl_numtruc.pl \
+	 | /usr/local/share/melt/gl_number.pl -l $lang \
+	 | /usr/local/share/melt/gl_smiley.pl \
+	 | /usr/local/share/melt/gl_format.pl \
+	 | /usr/local/share/melt/remove_inner_ne.pl \
+	 | /usr/local/share/melt/caponlysentences.pl \
+	 | /usr/local/share/melt/segmenteur.pl -a -ca -af=/usr/local/share/melt/pctabr -p=r $* \
+	 | /usr/local/share/melt/rebuild_easy_tags.pl | perl -pe "s/<F id.*?>//g; s/<\/F>//g; s/  +/ /g" \
+	 | /usr/local/share/melt/normalize_blanks.pl | perl -pe "s/(\S+ss)[éè](-je)/\1s\2/g; s/(\S+)[éè](-je)/\1e\2/g"
+fi
