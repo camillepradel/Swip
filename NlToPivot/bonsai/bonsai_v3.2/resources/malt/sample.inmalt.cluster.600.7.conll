@@ -1,0 +1,16 @@
+1	Nous	cln	CL	CLS	s=suj	1011101	2	suj	_	_
+2	form	prier	V	V	m=ind|n=p|p=1|t=pst	_	0	root	_	_
+3	les	le	D	DET	n=p|s=def	00	4	det	_	_
+4	cinéastes	cinéaste	N	NC	n=p|s=c	0101011	2	obj	_	_
+5	et	et	C	CC	s=c	1101111	4	coord	_	_
+6	tous	tout	A	ADJ	g=m|n=p|s=ind	1001011	8	mod	_	_
+7	nos	son	D	DET	n=p|s=poss	0111100	8	det	_	_
+8	lecteurs	lecteur	N	NC	g=m|n=p|s=c	0101001	5	dep_coord	_	_
+9	de	de	P	P	_	1110	2	de_obj	_	_
+10	bien	bien	ADV	ADV	_	1000101	11	mod	_	_
+11	vouloir	vouloir	V	VINF	m=inf	1000011	9	obj	_	_
+12	nous	cln	CL	CLS	s=suj	1011101	14	de_obj	_	_
+13	en	en	CL	CLO	p=3|s=obj	11110	14	obj	_	_
+14	form	excuser	V	VINF	m=inf	_	11	obj	_	_
+15	.	.	PONCT	PONCT	s=s	_	2	ponct	_	_
+

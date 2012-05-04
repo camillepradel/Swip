@@ -1,0 +1,26 @@
+#!/bin/sh
+
+VERSION=@version@
+PYTHONPATH=@pythondir@
+BINDIR=@bindir@
+MODEL=@datadir@
+
+# usage: MElt-train trained-model-name lexicon training-corpus eval-corpus
+
+# cat ancora | perl -pe "s/\t/\//; s/ /_/g; s/\n/ /; s/poncts/poncts\n/g;" | perl -pe "s/^ +//; s/ +$//" > ancora.btag
+
+echo Serializing the lexicon && \
+python @bindir@/serialize_lefff.py $2 -p $1/lexicon.json && \
+echo Computing the dictionary of tags && \
+python @bindir@/build_tag_dict.py $3 -p $1/tag_dict.json && \
+echo Training the tagger && \
+cat $4 | perl -pe 's/\/\S+//g' > $4.txt && \
+python @pythondir@/melt/pos_tag.py $4.txt -o $4.melt -t $3 -l $1/lexicon.json -g $4 -d $1/tag_dict.json -m $1
+
+
+# if [ $DO_TOKENIZE -eq 1 ]
+# then
+#     sxpipe-light | python /usr/local/lib/python2.6/dist-packages/melt/pos_tag.py -m ${MODEL} -d ${TAGDICO} -l ${LEFFF} -c | perl -pe "while (s/({[^} ]*) /\\1_/g) {}; s/{(.*?)}\s*\S+?\//\1\//g"
+# else
+#     python /usr/local/lib/python2.6/dist-packages/melt/pos_tag.py -m ${MODEL} -d ${TAGDICO} -l ${LEFFF} ${HANDLE_COMMENTS}
+# fi

@@ -1,0 +1,1 @@
+include LICENSE ChangeLog MANIFEST.in build_inplace jsontest.py

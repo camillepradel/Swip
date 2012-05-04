@@ -1,0 +1,53 @@
+'''
+Sentence Class
+'''
+
+from mytoken import Token
+import sys
+
+
+class Sentence(object):
+
+    def __init__(self, items):
+        item_ct = len(items)
+        self.tokens = []
+        for i,conll_token in enumerate(items):
+            token = Token(conll_token,self,i)
+            self.tokens.append( token )
+        self.index = -1
+        return
+
+    def __iter__(self):
+        return self
+    
+
+    def next(self):
+        if self.index == len(self.tokens)-1:
+            self.index = -1
+            raise StopIteration
+        self.index += 1
+        return self.tokens[self.index]
+
+
+    def token_count(self):
+        return len(self.tokens)
+
+
+    def __repr__(self):
+        return u"%s: %s" %(type(self).__name__,self.tokens)
+
+
+
+
+if __name__ == "__main__":
+    import sys
+    import codecs
+    from melt.corpus_reader import BrownReader
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
+    sys.stderr = codecs.getwriter("utf-8")(sys.stderr)
+
+    doc = BrownReader( sys.argv[1] )
+    for sentence in doc:
+        print sentence
+
+

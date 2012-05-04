@@ -1,0 +1,26 @@
+The output format is (almost) CoNLL : the 10 usual CoNLL columns, plus an extra column for word cluster ids (between the 6th and 7th usual CoNLL columns).
+
+========================================================================
+
+Format CoNLL de 2007:
+--------------------
+
+The data sets derived from the original treebanks
+(section 3) were in the same column-based format
+as for the 2006 shared task (Buchholz and Marsi,
+2006). In this format, sentences are separated by a
+blank line; a sentence consists of one or more to-
+kens, each one starting on a new line; and a token
+consists of the following ten fields, separated by a
+single tab character:
+1. ID: Token counter, starting at 1 for each new sentence.
+2. FORM: Word form or punctuation symbol.
+3. LEMMA: Lemma or stem of word form, or an underscore if not available.
+4. CPOSTAG: Coarse-grained part-of-speech tag, where the tagset depends on the language.
+5. POSTAG: Fine-grained part-of-speech tag, where the tagset depends on the language, or identical to the coarse-grained part-of-speech tag if not available.
+6. FEATS: Unordered set of syntactic and/or morphological features (depending on the particular language), separated by a vertical bar (|), or an underscore if not available.
+7. HEAD: Head of the current token, which is either a value of ID or zero (0). Note that, depending on the original treebank annotation, there may be multiple tokens with HEAD=0.
+8. DEPREL: Dependency relation to the HEAD. The set of dependency relations depends on the particular language. Note that, depending on the original treebank annotation, the dependency relation when HEAD=0 may be meaningful or simply ROOT.
+9. PHEAD: Projective head of current token, which is either a value of ID or zero (0), or an underscore if not available.
+10. PDEPREL: Dependency relation to the PHEAD, or an underscore if not available.
+
