@@ -3,5 +3,4 @@
   <endpoint implementation="org.swip.pivotToMappings.PivotToMappingsWS" name="PivotToMappingsWS" url-pattern="/PivotToMappingsWS"/>
   <endpoint implementation="org.swip.pivotToMappings.PivotToMappingsWS" name="PivotToMappingsWS" url-pattern="/PivotToMappingsWS"/>
   <endpoint implementation="org.swip.pivotToMappings.PivotToMappingsWS" name="PivotToMappingsWS" url-pattern="/PivotToMappingsWS"/>
-  <endpoint implementation="org.swip.pivotToMappings.PivotToMappingsWS" name="PivotToMappingsWS" url-pattern="/PivotToMappingsWS"/>
 </endpoints>

@@ -45,23 +45,25 @@ public class Controller {
     // vive les loutres! *2 plus plus pour essayer
     
     private static final Logger logger = Logger.getLogger(Controller.class);
-    private static final String sparqlURL = "http://swipserver:2020/music";
-    static final boolean remote = true;
     static Controller staticController = null;
-    private SparqlServer sparqlServer = null;
-    private List<Pattern> patterns = null;
+    private final static ArrayList<KbConfiguration>  kbConfs = new ArrayList<KbConfiguration>();
+    private HashMap<String, SparqlServer> sparqlServers = null;
+    private HashMap<String, List<Pattern>> patternsMap = null;
     private Map<Pattern, List<PatternElement>> patternElements = new HashMap<Pattern, List<PatternElement>>();
     private Map<PatternElement, List<ElementMapping>> elementMappings = new HashMap<PatternElement, List<ElementMapping>>();
 
     public Controller() {
-        this.sparqlServer = null;
-        this.patterns = null;
+        this.sparqlServers = null;
+        this.patternsMap = null;
+        
+        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "../../patterns-cinema.txt"));
+        this.kbConfs.add(new KbConfiguration("music", "http://localhost:2020/music", "../../patterns-musicbrainz.txt"));
     }
 
     public static Controller getInstance() {
         if (staticController == null) {
             staticController = new Controller();
-            staticController.createSparqlServer(remote);
+            staticController.createSparqlServer();
             staticController.loadPatterns();
         }
         return staticController;
@@ -83,106 +85,104 @@ public class Controller {
         this.elementMappings.get(pe).add(em);
     }
 
-    private void createSparqlServer(boolean remote) {
+    private void createSparqlServer() {
         logger.info("Creating sparql server:");
         logger.info("----------------------\n");
+        
+        this.sparqlServers = new HashMap<String, SparqlServer>();
+        
         long time = System.currentTimeMillis();
-        if (remote) {
-            this.sparqlServer = new RemoteSparqlServer(sparqlURL);
-        } else {
-            List<String> uris = new LinkedList<String>();
-            uris.add("D:/QALDworkshop/musicbrainz/musicbrainz.owl");
-            uris.add("D:/QALDworkshop/musicbrainz/artists.rdf");
-            uris.add("D:/QALDworkshop/musicbrainz/albums.rdf");
-//            uris.add("D:/QALDworkshop/musicbrainz/tracks.rdf");
-            uris.add("D:/QALDworkshop/musicbrainz/relations_artist_to_artist.rdf");
-            uris.add("D:/QALDworkshop/musicbrainz/relations_album_to_artist.rdf");
-//            uris.add("D:/QALDworkshop/musicbrainz/artists-verysmall.rdf");
-//            uris.add("D:/QALDworkshop/musicbrainz/albums-verysmall.rdf");
-            uris.add("D:/QALDworkshop/musicbrainz/tracks-verysmall.rdf");
-            uris.add("D:/QALDworkshop/musicbrainz/complements.rdf");
-            this.sparqlServer = new LocalSparqlServer(uris);
+        for(KbConfiguration kbConf : this.kbConfs)
+        {
+            this.sparqlServers.put(kbConf.name, new RemoteSparqlServer(kbConf.urlSparql));
         }
+
         logger.info("Sparql server created");
         logger.info("time for creating sparql server: " + (System.currentTimeMillis() - time) + "ms");
         logger.info("\n================================================================\n");
     }
 
     void loadPatterns() {
-        if (this.sparqlServer == null) {
+        if (this.sparqlServers == null) {
             logger.info("There is no defined sparql server");
             return;
         } else {
-            this.patterns = new LinkedList<Pattern>();
-            try {
-                logger.info("Loading patterns:");
-                logger.info("----------------\n");
-                long time = System.currentTimeMillis();
-                // read patterns on file and instantiate them
+            this.patternsMap = new HashMap<String, List<Pattern>>();
+            for(KbConfiguration kbConf : this.kbConfs)
+            {
+                
+                List<Pattern> l = new LinkedList<Pattern>();
                 try {
-                    ANTLRInputStream input = new ANTLRInputStream(this.getClass().getClassLoader().getResourceAsStream("../../patterns-musicbrainz.txt"));
-                    patternsDefinitionGrammarLexer lexer = new patternsDefinitionGrammarLexer(input);
-                    CommonTokenStream tokens = new CommonTokenStream(lexer);
-                    patternsDefinitionGrammarParser parser = new patternsDefinitionGrammarParser(tokens);
-                    this.patterns = parser.patterns();
-                } catch (RecognitionException ex) {
-                    logger.error(ex);
-                    throw new PatternsParsingException("RecognitionException: " + ex.getMessage());
-                } catch (IOException ex) {
-                    logger.error(ex);
-                    throw new PatternsParsingException("IOException: " + ex.getMessage());
-                } catch (SyntaxErrorRuntimeException ex) {
-                    logger.error(ex);
-                    throw new PatternsParsingException("Syntax error at " + ex.getMessage());
-                } catch (LexicalErrorRuntimeException ex) {
-                    logger.error(ex);
-                    throw new PatternsParsingException("Syntax error at " + ex.getMessage());
-                } catch (RuntimeException ex) {
-                    logger.error(ex);
-                    throw new PatternsParsingException(ex.getMessage());
-                }
-                // display loaded patterns
-                logger.info("Patterns:\n");
-                for (Pattern pattern : this.patterns) {
-                    logger.info(pattern.toString());
-                }
-                logger.debug("Pattern elements:\n");
-                for (List<PatternElement> pes : this.patternElements.values()) {
-                    for (PatternElement pe : pes) {
-                        logger.debug(pe.toString());
+                    logger.info("Loading patterns:");
+                    logger.info("----------------\n");
+                    long time = System.currentTimeMillis();
+                    // read patterns on file and instantiate them
+                    try {
+                        ANTLRInputStream input = new ANTLRInputStream(this.getClass().getClassLoader().getResourceAsStream("../../patterns-musicbrainz.txt"));
+                        patternsDefinitionGrammarLexer lexer = new patternsDefinitionGrammarLexer(input);
+                        CommonTokenStream tokens = new CommonTokenStream(lexer);
+                        patternsDefinitionGrammarParser parser = new patternsDefinitionGrammarParser(tokens);
+                        l = parser.patterns();
+                    } catch (RecognitionException ex) {
+                        logger.error(ex);
+                        throw new PatternsParsingException("RecognitionException: " + ex.getMessage());
+                    } catch (IOException ex) {
+                        logger.error(ex);
+                        throw new PatternsParsingException("IOException: " + ex.getMessage());
+                    } catch (SyntaxErrorRuntimeException ex) {
+                        logger.error(ex);
+                        throw new PatternsParsingException("Syntax error at " + ex.getMessage());
+                    } catch (LexicalErrorRuntimeException ex) {
+                        logger.error(ex);
+                        throw new PatternsParsingException("Syntax error at " + ex.getMessage());
+                    } catch (RuntimeException ex) {
+                        logger.error(ex);
+                        throw new PatternsParsingException(ex.getMessage());
                     }
-                }
-                logger.info("Pattern loaded");
-                logger.info("time for loading patterns: " + (System.currentTimeMillis() - time) + "ms");
-                logger.info("================================================================");
-                // preprocess patterns
-                logger.info("Preprocessing patterns:");
-                logger.info("----------------------\n");
-                time = System.currentTimeMillis();
-                for (List<PatternElement> pes : this.patternElements.values()) {
-                    for (PatternElement pe : pes) {
-                        pe.preprocess(this.sparqlServer);
+                    // display loaded patterns
+                    logger.info("Patterns:\n");
+                    for (Pattern pattern : l) {
+                        logger.info(pattern.toString());
                     }
+                    logger.debug("Pattern elements:\n");
+                    for (List<PatternElement> pes : this.patternElements.values()) {
+                        for (PatternElement pe : pes) {
+                            logger.debug(pe.toString());
+                        }
+                    }
+                    logger.info("Pattern loaded");
+                    logger.info("time for loading patterns: " + (System.currentTimeMillis() - time) + "ms");
+                    logger.info("================================================================");
+                    // preprocess patterns
+                    logger.info("Preprocessing patterns:");
+                    logger.info("----------------------\n");
+                    time = System.currentTimeMillis();
+                    for (List<PatternElement> pes : this.patternElements.values()) {
+                        for (PatternElement pe : pes) {
+                            pe.preprocess(this.sparqlServers.get(kbConf.name));
+                        }
+                    }
+                    logger.info("\nPattern element matchings:\n");
+                    PatternElement.printPatternElementMatchings();
+                    logger.info("Pattern preprocessed");
+                    logger.info("time for preprocessing patterns: " + (System.currentTimeMillis() - time) + "ms");
+                    logger.info("\n================================================================\n");
+                } catch (PatternsParsingException ex) {
+                    logger.info("An error occured while parsing patterns:\n" + ex.getMessage());
+                    logger.info("Patterns loading aborted");
+                    logger.error(ex);
                 }
-                logger.info("\nPattern element matchings:\n");
-                PatternElement.printPatternElementMatchings();
-                logger.info("Pattern preprocessed");
-                logger.info("time for preprocessing patterns: " + (System.currentTimeMillis() - time) + "ms");
-                logger.info("\n================================================================\n");
-            } catch (PatternsParsingException ex) {
-                logger.info("An error occured while parsing patterns:\n" + ex.getMessage());
-                logger.info("Patterns loading aborted");
-                logger.error(ex);
+                this.patternsMap.put(kbConf.name, l);
             }
         }
     }
 
-    public List<PatternToQueryMapping> getBestMappings(String pivotQueryString, int numMappings) {
+    public List<PatternToQueryMapping> getBestMappings(String pivotQueryString, int numMappings, String kbName) {
 //        PropertyConfigurator.configure(projectPath+"/resources/log4j.properties");
         logger.info("new log file");
-        if (this.sparqlServer == null) {
+        if (this.sparqlServers == null) {
             logger.info("There is no defined sparql server");
-        } else if (this.patterns == null) {
+        } else if (this.patternsMap == null) {
             logger.info("There is no loaded patterns");
         } else {
             try {
@@ -193,11 +193,11 @@ public class Controller {
                 logger.info("\n================================================================\n");
                 logger.info("Matching query elements to knowledge base and mapping pattern elements:");
                 logger.info("----------------------------------------------------------------------\n");
-                matchQueryElements(userQuery);
+                matchQueryElements(userQuery, kbName);
                 logger.info("\n================================================================\n");
                 logger.info("Possible element mappings are:");
                 logger.info("-----------------------------\n");
-                for (Pattern pattern : this.patterns) {
+                for (Pattern pattern : this.patternsMap.get(kbName)) {
                     pattern.printElementMappings();
                 }
                 logger.info("\n================================================================\n");
@@ -219,7 +219,7 @@ public class Controller {
                 });
                 float lowestBestMappingMark = 0;
                 int totalNumMappings = 0;
-                for (Pattern p : patterns) {
+                for (Pattern p : this.patternsMap.get(kbName)) {
                     for (PatternToQueryMapping ptqm : p.getMappingsIterable(userQuery)) {
                         totalNumMappings++;
                         if (ptqm.getRelevanceMark(userQuery) > lowestBestMappingMark) {
@@ -253,13 +253,13 @@ public class Controller {
                             + " - rQueryCov=" + nextBestMapping.getrQueryCov(userQuery)
                             + " - rNumQueried=" + nextBestMapping.getrNumQueried(userQuery) + ")\n";
                     if (printSentences) {
-                        stringToDisplay += " - Sentence: " + nextBestMapping.getSentence(sparqlServer, userQuery) + "\n\n";
+                        stringToDisplay += " - Sentence: " + nextBestMapping.getSentence(this.sparqlServers.get(kbName), userQuery) + "\n\n";
                     }
                     if (printMappings) {
                         stringToDisplay += " - Mapping: " + nextBestMapping.toString() + "\n\n";
                     }
                     if (printSparql) {
-                        stringToDisplay += " - Sparql query:\n" + nextBestMapping.getSparqlQuery(sparqlServer, userQuery) + "\n\n";
+                        stringToDisplay += " - Sparql query:\n" + nextBestMapping.getSparqlQuery(this.sparqlServers.get(kbName), userQuery) + "\n\n";
                     }
                     stringToDisplay += "\n";
                     logger.info(stringToDisplay);
@@ -303,7 +303,11 @@ public class Controller {
         }
     }
 
-    private void matchQueryElements(Query userQuery) {
+    private void matchQueryElements(Query userQuery, String kbName) {
+        
+        SparqlServer sparqlServer = this.sparqlServers.get(kbName);
+        List<Pattern> patterns = this.patternsMap.get(kbName);
+        
         // first clear previous mappings
         for (List<PatternElement> pes : this.patternElements.values()) {
             for (PatternElement pe : pes) {
@@ -312,25 +316,27 @@ public class Controller {
             }
         }
         // matching step
-        userQuery.matchElements(this.sparqlServer);
+        userQuery.matchElements(sparqlServer);
         // mapping
-        for (Pattern p : this.patterns) {
-            p.finalizeMappings(this.sparqlServer);
+        for (Pattern p : patterns) {
+            p.finalizeMappings(sparqlServer);
         }
     }
 
-    public List<Pattern> getPatterns() {
+    /*public List<Pattern> getPatterns() {
         return this.patterns;
-    }
+    }*/
     
-    public String processQuery(String sparqlQuery)
+    public String processQuery(String sparqlQuery, String kbName)
     {
-        logger.info("process Query to "+sparqlURL);
+        
+        SparqlServer sparqlServer = this.sparqlServers.get(kbName);
+        logger.info("process Query : "+kbName);
         logger.info("Query : "+sparqlQuery);
         JSONObject response = new JSONObject();
         ArrayList<JSONObject> queryResults = new ArrayList();
         logger.info("Waiting for sparql server response ... ");
-        Iterable<QuerySolution> sols = this.sparqlServer.select(sparqlQuery);
+        Iterable<QuerySolution> sols = sparqlServer.select(sparqlQuery);
         logger.info("Response received.");
         for(QuerySolution sol : sols)
         {

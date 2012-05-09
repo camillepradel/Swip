@@ -40,24 +40,26 @@ public class PivotToMappingsWS {
 
     }
 
-    @GET
+   /* @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("getPatterns")
     public java.util.List<org.swip.pivotToMappings.model.patterns.Pattern> getPatterns() {
         return Controller.getInstance().getPatterns();
-    }
+    }*/
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("generateBestMappings")
     public String generateBestMappings(
         @QueryParam("pivotQueryString") @DefaultValue("") String pivotQueryString, 
-        @QueryParam("numMappings") @DefaultValue("0") int numMappings) {
+        @QueryParam("numMappings") @DefaultValue("0") int numMappings,
+        @QueryParam("kbName") @DefaultValue("cinema") String kbName)
+        {
         
         JSONObject response = new JSONObject();
         
         if(numMappings > 50) numMappings = 50;  // Limiting the maximum amount of answers
-        List<PatternToQueryMapping> bestMappings = Controller.getInstance().getBestMappings(pivotQueryString, numMappings);
+        List<PatternToQueryMapping> bestMappings = Controller.getInstance().getBestMappings(pivotQueryString, numMappings, kbName);
     
         if(bestMappings != null)
         {
