@@ -1,13 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.swip.nlToPivot;
 
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import java.io.ByteArrayInputStream;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.apache.log4j.Logger;
@@ -16,22 +15,21 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.FileWriter;
 
-/**
- *
- * @author camille
- */
-@WebService(serviceName = "NlToPivotWS")
+@Path("/rest/")
 public class NlToPivotWS {
-
+    
     private static final Logger logger = Logger.getLogger(NlToPivotWS.class);
     static int nbQueryFr = 0;
 
-    /**
-     * Web service operation
-     */
-    @SuppressWarnings("unchecked")
-    @WebMethod(operationName = "translateQuery")
-    public String translateQuery(@WebParam(name = "nlQuery") String nlQuery, @WebParam(name = "lang") String lang) {
+    public NlToPivotWS() {
+
+    }
+
+    @GET
+    @Produces({MediaType.TEXT_PLAIN})
+    @Path("translateQuery")
+    public String translateQuery(@QueryParam("nlQuery") @DefaultValue("") String nlQuery, @QueryParam("lang") @DefaultValue("fr") String lang) {
+        
         logger.info("User nl query: " + nlQuery);
         logger.info("Query language: " + lang);
         String pivotQuery = "";
@@ -130,3 +128,4 @@ public class NlToPivotWS {
         return port.getSuppleSemanticAnnotations(adaptedNlQuery);
     }
 }
+
