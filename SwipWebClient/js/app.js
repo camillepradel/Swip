@@ -61,14 +61,14 @@ $(function()
  * Fills the results tab with data extracted from
  * a JSON string
  **/
-function fillTab()
+function fillTab(results)
 {
 	// For further information, see the JqGrid documentation
 
 	jQuery('#jqGrid').jqGrid
 	({
 		datatype: 'jsonstring',
-		datastr: parsedJson,
+		datastr: results,
 		loadonce: true,
 		height: 'auto',
 		autowidth: true,
@@ -93,8 +93,8 @@ function fillTab()
 	   		var mappingPre = '<span class="title">Mapping Description :</span><br /><br /><span class="mappingSpan"></span>';
             $('#' + subgrid_id).addClass('subgrid');
             $('#' + subgrid_id).append(queryPre + '<br /><hr /><br />' + mappingPre);
-            $('#' + subgrid_id + ' .queryPre').text(parsedJson.content[row_id].sparqlQuery);
-            $('#' + subgrid_id + ' .mappingSpan').text(parsedJson.content[row_id].mappingDescription);
+            $('#' + subgrid_id + ' .queryPre').text(results.content[row_id].sparqlQuery);
+            $('#' + subgrid_id + ' .mappingSpan').text(results.content[row_id].mappingDescription);
         },
         gridComplete: function()
         {
@@ -111,26 +111,19 @@ function fillTab()
 
 
 /**
- * Results pre-processing
- * (String replacements)
- **/
-function preProcessResults(jsonString)
-{
-	jsonString = jsonString.replace(/_selBeg_/g, '<select><option>');
-	jsonString = jsonString.replace(/_selSep_/g, '</option><option>');
-	jsonString = jsonString.replace(/_selEnd_/g, '</option></select>');
-
-	return jsonString;
-}
-
-
-/**
  * Called when results have to be displayed
  **/
-function displayResults()
+function displayResults(results)
 {
+	for(var i = 0; i < results.content.length; i++)
+	{
+		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selBeg_/g, '<select><option>');
+		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selSep_/g, '</option><option>');
+		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selEnd_/g, '</option></select>');
+	}
+
 	$('#results').css('display', 'block');
-	fillTab();
+	fillTab(results);
 }
 
 
@@ -141,9 +134,8 @@ function search(query)
 {
 	if(query != '')
 	{
-		$('#searchButton').attr('disabled', 'disabled');
-		$('#searchLoading').css('display', 'block');
-		nlToPivot(query);
+		toggleSearch(false);
+		nlToPivot(query, 'en');
 	}
 }
 
@@ -153,6 +145,9 @@ function search(query)
  **/
 function selectQuery(id)
 {
+	/*
+	TODO
+
 	var descSentence = '<span class="title">Search :</span><br /><br /><span class="searchSpan"></span>'; 
 	var sparqlQuery = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
 	var sparqlResult = '<span class="title">SPARQL Result :</span><div class="loading" style="display: block"><img src="img/loading_icon.gif" alt="Loading" /></div>'
@@ -160,63 +155,24 @@ function selectQuery(id)
 	$('#query' + id + ' .queryPre').text(parsedJson.content[id].sparqlQuery);
 	$('#query' + id + ' .searchSpan').html(parsedJson.content[id].descriptiveSentence);
 	$('#results').tabs('add', '#query' + id, 'Query #' + id);
-	processQuery(parsedJson.content[id].sparqlQuery, id);
+	processQuery(parsedJson.content[id].sparqlQuery, id);*/
 
 }
 
 
 /**
- * SOAP handlers
- * See soap.js
+ * Enabling or disabling the search feature
  **/
- 
-function nlToPivotSuccHandler(data, status, req) 
+function toggleSearch(b)
 {
-    if (status == 'success')
-        pivotToSparql($(req.responseXML).find('translateQueryResponse').text(), 50);
-}
-
-function pivotToSparqlSuccHandler(data, status, req) 
-{
-    if (status == 'success')
-    {
-    	$('#searchLoading').css('display', 'none');
-
-        $('#logo').animate
-		({
-			'margin-top': 0
-		}, 'slow', function()
-		{
-			$('#searchButton').removeAttr('disabled');
-			var jsonString = $(req.responseXML).find('generateBestMappingsResponse').text();
-			parsedJson = $.parseJSON(preProcessResults(jsonString));
-			displayResults();
-		});
-	}
-}
-
-function processQuerySuccHandler(data, status, req, id)
-{
-	if (status == 'success')
+	if(b)
 	{
-        console.log($(req.responseXML).find('processQueryResponse').text());
-    	console.log(id);
-    }
-}
-
-function nlToPivotErrHandler()
-{
-	$('#searchButton').removeAttr('disabled');
-	console.log('SOAP Error (NlToPivot)');
-}
-
-function pivotToSparqlErrHandler()
-{
-	$('#searchButton').removeAttr('disabled');
-	console.log('SOAP Error (PivotToSparql)');
-}
-
-function processQueryErrHandler()
-{
-	console.log('SOAP Error (SparlQuery)');
+		$('#searchButton').removeAttr('disabled');
+		$('#searchLoading').css('display', 'none');
+	}
+	else
+	{
+		$('#searchButton').attr('disabled', 'disabled');
+		$('#searchLoading').css('display', 'block');
+	}
 }

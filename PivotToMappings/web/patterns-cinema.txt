@@ -1,0 +1,237 @@
+prefixes
+	cine:	"http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#"
+	dc: 	"http://purl.org/dc/elements/1.1/"
+	owl:	"http://www.w3.org/2002/07/owl#"
+	rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+end prefixes
+
+
+/*
+TODO : 	- Remplir description
+		- Y a-t'il un raisonneur ? Important !
+*/
+
+pattern film_info
+	query
+		[ 1_cine:film 	2_cine:aPourRecompense	3_cine:PrixDecerne]recompense:0..1/3
+		[ 1 			]
+
+
+/**
+ * A VOIR AVEC CAMILLE §
+ **/
+
+
+		[ 1_mm:Album	2_dc:creator(3)			3_mm:Artist;	]creator:0..1/3
+		[ 1				4_mm:releaseType(5)		5_mm:Type;		]type:0..1/5
+		[ 1				6_ar:producer(7)		7_mm:Artist;	]producer:0..1/7
+		[ 1				8_ar:composer(9)		9_mm:Artist;	]composer:0..1/9
+		[ 1				10_ar:vocal(11)			11_mm:Artist;	]vocal:0..1/11
+		[ 1				12_mm:releaseStatus(13)	13_mm:Status;	]status:0..1/13
+		[ 1				14_ar:lyricist(15)		15_mm:Artist;	]lyricist:0..1/15
+	end query
+	sentence
+		__1__ _if_status_[whose status is __13__, ]_end_if_status_ _if_type_[released as __5__, ]_end_if_type_ _if_creator_[created by __3__, ]_end_if_creator_ _if_producer_[produced by __7__, ]_end_if_producer_ _if_composer_[composed by __9__, ]_end_if_composer_ _if_vocal_[vocalised by __11__, ]_end_if_vocal_ _if_lyricist_[whose lyricist is __15__]_end_if_lyricist_
+	end sentence
+	mapping conditions
+		3:	"?var	<http://purl.org/dc/elements/1.1/creator>	__3__."
+		7:	"?var	<http://musicbrainz.org/ar/ar-1.0#producer>	__7__."
+		9:	"?var	<http://musicbrainz.org/ar/ar-1.0#composer>	__9__."
+		11:	"?var	<http://musicbrainz.org/ar/ar-1.0#vocal>	__11__."
+		15:	"?var	<http://musicbrainz.org/ar/ar-1.0#lyricist>	__15__."
+	end mapping conditions
+end pattern
+
+
+
+/*
+pattern: artist_member
+TODO: fusionner avec around_artist_person
+-------------------
+
+question 16: Give me all bands that Michael Stipe is a member of.
+?band:member=Michael Stipe
+
+question 11 : Was Quee MacArthur a member of Queen?
+Quee MacArthur:belongs to band=Queen
+
+question 21 : When did Kurt Cobain join Nirvana?
+Kurt Cobain:belongs to band=Nirvana,?joining date
+
+question 28 : Since when is Tom Araya a member of Slayer?
+Tom Arava:belongs to band=Slayer,?joining date
+
+question 7 : Give me the present members of The Cure
+?artiste:belongs to band=The Cure, today
+
+question 29 : Give me all people who were members of The Beatles.
+?artiste:belong to band=The Beatles
+
+question 2 : Which groups was David Bowie a member of?
+?Band: member= David_Bowie.
+David_Bowie: member_of= ?Band.
+David_Bowie: member_of_band= ?Band.
+
+question 30 : Give me the birthdays of all members of The Beatles.
+?artiste:belongs to band=The beetles,?birthday
+
+-question 24 : How many members does the band Trio have?
+?artiste:belongs to band=Trio
+
+-> peu pas pour le not question 25 : Are the members of the Ramones that are not called Ramone?
+
+TODO : verifier que j'ai bien compris comment on met les noeuds blanc dans les patrons
+*/
+
+pattern artist_member
+	query
+		[ 1_mm:Artist	2_ar:memberOfBand(1,5)	-3_blank:Node;	
+		  -3			-4_ar:toArtist			5_mm:Artist;	]band:1..1
+		[ -3			6_mm:beginDate(7)		7_<date>;		]start:0..1/7
+		[ -3			8_mm:endDate(9)			9_<date>;		]stop:0..1/9
+	end query
+	sentence
+		__1__ is or was member of the band __5__ _if_start_[since __7__]_end_if_start_ _if_stop_[until __9__]_end_if_stop_
+	end sentence
+	mapping conditions
+		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+		5:	"__5__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypeGroup>."
+	end mapping conditions
+end pattern
+
+
+
+
+
+
+
+
+/*
+pattern: date_group
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 3 : When was the band Green Day founded?
+Green_Day: foundation= date<?>.
+Green Day:?creation date
+
+question 10 : When did the Sex Pistols break up?
+Sex Pistols:broke up date=?date
+
+- question 14 : How many bands broke up in 2010?
+?band:broke up year=2010
+
+question 23 : Since when does Fugazi exist?
+Fugazi:?creation date
+
+TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
+*/
+
+pattern date_group
+	query
+		[ 1_mm:Artist	2_mm:beginDate(3)	3_<date>;			]begin:0..1/3
+		[ 1		4_mm:endDate(5)		5_<date>;			]end:0..1/5
+	end query
+	sentence
+		__1__ _if_begin_[was formed on/in __3__,]_end_if_begin_ _if_end_[broke up on/in __5__,]_end_if_end_
+	end sentence
+	mapping conditions
+		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypeGroup>."
+	end mapping conditions
+end pattern
+
+
+
+/*
+pattern: date_person
+TODO: fusionner avec around_artist_person
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 26: When was Elvis Presley born?
+Elvis Presley: ?birthday
+
+question 12 :When is the birthday of Tom Waits?
+Tom Waits: ?birthday
+
+question 6 :Which artists have their 50th birthday on May 30, 2011?
+?artist:birthday=May 30
+
+question 13 :Which artists were born on the 29th of December 1960?
+?artist:birthday=29 December 1960
+
+TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
+*/
+
+pattern date_person
+	query
+		[ 1_mm:Artist	2_mm:beginDate(3)	3_<date>;			]birth:0..1/3
+		[ 1				4_mm:endDate(5)		5_<date>;			]death:0..1/5
+	end query
+	sentence
+		__1__ _if_birth_[was born on __3__,]_end_if_birth_ _if_death_[died on __3__,]_end_if_death_
+	end sentence
+	mapping conditions
+		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+	end mapping conditions
+end pattern
+
+
+
+
+
+
+
+
+pattern around_artist_person
+	query
+		[ 1_mm:Artist	  6_ar:memberOfBand(1,9)	 -7_blank:Node;	
+		 -7		 -8_ar:toArtist			  9_mm:Artist;		]band:0..1/9
+		[ 1		 10_ar:isSibling(13)		-11_blank:Node;
+		 -11		-12_ar:toArtist			 13_mm:Artist;		]sibling:0..1/13
+		[ 1		 22_ar:isParent(25)		-23_blank:Node;
+		  -23		-24_ar:toArtist			 25_mm:Artist;		]parent:0..1/25
+		[ 1		 14_ar:marriedTo(17)		-15_blank:Node;
+		 -15		-16_ar:toArtist			 17_mm:Artist;		
+		[-15		 18_mm:beginDate(19)		 19_<date>;		]beginMarriage:0..1/19
+		[-15		 20_mm:endDate(21)		 21_<date>;		]endMarriage:0..1/21		]marriage:0..1/17
+		[ 1		 26_ar:collaboratedWith(29)	-27_blank:Node;
+		 -27		-28_ar:toArtist			 29_mm:Artist;		]collab:0..1/29
+	end query
+	sentence
+		__1__, _if_band_[member of __9__,]_end_if_band_ _if_sibling_[who has for sibling __13__,]_end_if_sibling_ _if_parent_[parent of __25__,]_end_if_parent_ _if_marriage_[married to __17__ _if_beginMarriage_[from __19__,]_end_if_beginMarriage_ _if_endMarriage_[to __21__,]_end_if_endMarriage_,]_end_if_marriage_ _if_collab_[collaborated with __29__,]_end_if_collab_
+	end sentence
+	mapping conditions
+		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+		9:	"__9__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypeGroup>."
+		13:	"__13__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+		25:	"__25__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+		17:	"__17__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+	end mapping conditions
+end pattern
+
+
+
+
+
+
+
+/*
+pattern: around_track
+---------------------
+
+question 15: How long is the Babylon 5 theme?
+Babylon 5 : ?duration
+*/
+
+pattern around_track
+	query
+		[ 1_mm:Track	2_mm:duration(3)	3_<decimal>;	]duration:0..1/3
+		[ 1				4_dc:creator(5)		5_mm:Artist;	]creator:0..1/5
+		[ 6_mm:Album	7_mm:trackList(1)	-8_blank:Node;
+		  -8			-9_blank:Node		1;				]album:0..1/6
+	end query
+	sentence
+		__1__ _if_creator_[created by __5__,]_end_if_creator_ _if_album_[from the album __6__,]_end_if_album_ _if_duration_[is __3__ milliseconds long,]_end_if_duration_
+	end sentence
+end pattern
