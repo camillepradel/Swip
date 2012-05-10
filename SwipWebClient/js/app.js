@@ -135,7 +135,7 @@ function search(query)
 	if(query != '')
 	{
 		toggleSearch(false);
-		nlToPivot(query, 'en');
+		nlToPivot(query, 'fr');
 	}
 }
 
