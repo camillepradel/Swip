@@ -3,5 +3,4 @@
   <endpoint implementation="org.swip.nlToPivot.NlToPivotWS" name="NlToPivotWS" url-pattern="/NlToPivotWS"/>
   <endpoint implementation="org.swip.nlToPivot.NlToPivotWS" name="NlToPivotWS" url-pattern="/NlToPivotWS"/>
   <endpoint implementation="org.swip.nlToPivot.NlToPivotWS" name="NlToPivotWS" url-pattern="/NlToPivotWS"/>
-  <endpoint implementation="org.swip.nlToPivot.NlToPivotWS" name="NlToPivotWS" url-pattern="/NlToPivotWS"/>
 </endpoints>

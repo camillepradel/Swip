@@ -30,8 +30,8 @@ public class NlToPivotWS {
     @Path("translateQuery")
     public String translateQuery(@QueryParam("nlQuery") @DefaultValue("") String nlQuery, @QueryParam("lang") @DefaultValue("fr") String lang) {
         
-        System.out.println("User nl query: " + nlQuery);
-        System.out.println("Query language: " + lang);
+        logger.info("User nl query: " + nlQuery);
+        logger.info("Query language: " + lang);
         String pivotQuery = "";
 
         if (lang.equals("en")) {
@@ -43,11 +43,11 @@ public class NlToPivotWS {
             NlToPivotPreParser pp = new NlToPivotPreParser(nlQuery);
             adaptedQuery = pp.getAdaptedQuery();
 
-            System.out.println("Adapted query: " + adaptedQuery);
+            logger.info("Adapted query: " + adaptedQuery);
 
             // parsing the nl query with a Gate pipeline (using supple)
             String suppleSemanticOutput = getSuppleSemanticAnnotations(adaptedQuery);
-            System.out.println("Supple semantic output:\n" + suppleSemanticOutput);
+            logger.info("Supple semantic output:\n" + suppleSemanticOutput);
 
             // tranlating supple semantic output into the pivot language
             PivotQueryGraph pqg = null;
@@ -78,7 +78,7 @@ public class NlToPivotWS {
             pivotQuery = pivotQuery.trim();
             pivotQuery = pivotQuery.replaceAll("\\s*([:;\\(\\)<>=\\.\\?])\\s*", "$1");
 
-            System.out.println("Generated pivot query: " + pivotQuery);
+            logger.info("Generated pivot query: " + pivotQuery);
         } else if (lang.equals("fr")) {
             try {
                 // setting environment
@@ -91,25 +91,25 @@ public class NlToPivotWS {
                 env[2] = "MALTPARSERHOME=" + bonsaiDir + "/malt-1.3";
 
                 BufferedWriter out = new BufferedWriter(new FileWriter(bonsaiDir + "/query" + nbQueryFr));
-                System.out.println("query" + nbQueryFr);
+                logger.info("query" + nbQueryFr);
                 out.write(nlQuery);
                 out.close();
 
                 String cmd = bonsai32binDir + "/bonsai_malt_parse_rawtext.sh " + bonsaiDir + "/query" + nbQueryFr;
-                System.out.println(cmd);
+                logger.info(cmd);
                 Process proc = Runtime.getRuntime().exec(cmd, env);
                 proc.waitFor();
 
-                cmd = "cat " + bonsaiDir + "/query" + nbQueryFr + ".outmalt | /usr/bin/python " + bonsai32Dir + "/my_src/outmalt_to_pivot.py";
-                System.out.println(cmd);
+                /*cmd = "cat " + bonsaiDir + "/query" + nbQueryFr + ".outmalt | /usr/bin/python " + bonsai32Dir + "/my_src/outmalt_to_pivot.py";
+                logger.info(cmd);
                 proc = Runtime.getRuntime().exec(cmd);
                 proc.waitFor();
                 BufferedReader buf = new BufferedReader(new InputStreamReader(proc.getInputStream()));
                 String line = null;
                 while ((line = buf.readLine()) != null) {
                     pivotQuery += line;
-                    System.out.println(line);
-                }
+                    logger.info(line);
+                }*/
 
                 nbQueryFr++;
 
@@ -119,7 +119,7 @@ public class NlToPivotWS {
         } else {
             pivotQuery = "language not supported";
         }
-        return pivotQuery;
+        return "";//pivotQuery;
     }
 
     private static String getSuppleSemanticAnnotations(java.lang.String adaptedNlQuery) {

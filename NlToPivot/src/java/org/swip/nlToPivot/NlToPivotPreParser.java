@@ -21,7 +21,7 @@ public class NlToPivotPreParser
     
     //private static String tokensPreParser = "/Users/Murloc/Documents/IRIT/svn/swip/NlToPivot/resources/preParser/";
     
-    private static String tokensPreParser = "../../ressources/preParser/";
+    private static String tokensPreParser = "preParser/";
     
     private boolean startMaximum = false;
     private boolean startMinimum = false;
