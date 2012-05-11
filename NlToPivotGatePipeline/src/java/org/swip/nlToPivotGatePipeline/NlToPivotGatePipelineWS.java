@@ -125,6 +125,7 @@ public class NlToPivotGatePipelineWS {
     @WebMethod(operationName = "getQueryWithGatheredNamedEntities")
     public String getQueryWithGatheredNamedEntities(@WebParam(name = "adaptedNlQuery") String adaptedNlQuery) {
         logger.info("adapted query for Gate pipeline: " + adaptedNlQuery);
+        logger.info("GatePipeline with Fr support");
         try {
             CorpusController cont = this.getCorpusControllerGazetteer();
             Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");

@@ -100,7 +100,7 @@ public class NlToPivotWS {
                 Process proc = Runtime.getRuntime().exec(cmd, env);
                 proc.waitFor();
 
-                /*cmd = "cat " + bonsaiDir + "/query" + nbQueryFr + ".outmalt | /usr/bin/python " + bonsai32Dir + "/my_src/outmalt_to_pivot.py";
+                cmd = "cat " + bonsaiDir + "/query" + nbQueryFr + ".outmalt | /usr/bin/python " + bonsai32Dir + "/my_src/outmalt_to_pivot.py";
                 logger.info(cmd);
                 proc = Runtime.getRuntime().exec(cmd);
                 proc.waitFor();
@@ -109,7 +109,7 @@ public class NlToPivotWS {
                 while ((line = buf.readLine()) != null) {
                     pivotQuery += line;
                     logger.info(line);
-                }*/
+                }
 
                 nbQueryFr++;
 
