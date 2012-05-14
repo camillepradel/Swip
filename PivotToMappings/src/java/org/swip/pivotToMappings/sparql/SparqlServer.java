@@ -57,7 +57,32 @@ public abstract class SparqlServer {
         }
         return false;
     }
+    
+    public boolean isDataProperty(List<String> types)
+    {
+        boolean ret = false;
+        for(String type: types)
+        {
+            if(type.endsWith("DatatypeProperty"))
+                ret = true;
+        }
+        return ret;
+    }
 
+    public boolean isNumericDataProperty(String uri)
+    {
+         String query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"+
+                        "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"+
+                        "ASK"+
+                        "WHERE"+
+                          "{ cin:aPourDureeMinute rdfs:range xsd:decimal }";
+         boolean ret = false;
+         
+         ret = ask(query);
+         
+         return ret;
+    }
+    
 //    public boolean isProperty(String resourceUri) {
 //        String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n"
 //                + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"

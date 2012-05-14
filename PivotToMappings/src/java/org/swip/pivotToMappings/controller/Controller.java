@@ -240,7 +240,7 @@ public class Controller {
                 int numQuery = 1;
                 while (!bestMappingsPQ.isEmpty()) {
                     PatternToQueryMapping nextBestMapping = bestMappingsPQ.poll();
-                    
+
                     // Generalization
                     
                     bestMappingsList.add(nextBestMapping);

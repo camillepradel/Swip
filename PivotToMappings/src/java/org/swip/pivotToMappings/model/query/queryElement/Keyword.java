@@ -148,11 +148,17 @@ public class Keyword extends QueryElement {
             boolean isClass = false;
             boolean isIndividual = false;
             boolean isProperty = false;
+            boolean isDataProperty = false;
 
             List<String> types = serv.listTypes(uri);
             if (serv.isClass(types)) {
                 isClass = true;
                 logger.info(" (o) class " + uri);
+            } 
+            else if(serv.isDataProperty(types)) {
+                isDataProperty = true;
+                isProperty = true;
+                logger.info(" (o) data property " + uri +" (numeric : "+serv.isNumericDataProperty(uri)+")");
             } else if (serv.isProperty(types)) {
                 isProperty = true;
                 logger.info(" (o) property " + uri);
