@@ -54,8 +54,8 @@ public class Controller {
         this.sparqlServers = null;
         this.patternsMap = null;
         
-        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "../../patterns-cinema.txt"));
-        this.kbConfs.add(new KbConfiguration("music", "http://localhost:2020/music", "../../patterns-musicbrainz.txt"));
+        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt"));
+        this.kbConfs.add(new KbConfiguration("music", "http://localhost:2020/music", "patterns-musicbrainz.txt"));
     }
 
     public static Controller getInstance() {
