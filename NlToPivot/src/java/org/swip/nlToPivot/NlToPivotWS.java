@@ -123,7 +123,7 @@ public class NlToPivotWS {
                 buf = new BufferedReader(new InputStreamReader(proc.getInputStream()));
                 line = null;
                 while ((line = buf.readLine()) != null) {
-                    pivotQuery += line;
+                    pivotQuery += line + ". ";
                     logger.info(line);
                 }
 
