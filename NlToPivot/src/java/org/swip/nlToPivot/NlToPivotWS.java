@@ -82,7 +82,7 @@ public class NlToPivotWS {
         } else if (lang.equals("fr")) {
             try {
                 // setting environment
-                String bonsaiDir = "/home/camille/bonsai";
+                String bonsaiDir = "/opt/bonsai";
                 String bonsai32Dir = bonsaiDir + "/bonsai_v3.2";
                 String bonsai32binDir = bonsai32Dir + "/bin";
                 String[] env = new String[3];

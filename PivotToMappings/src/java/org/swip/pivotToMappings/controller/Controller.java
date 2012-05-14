@@ -41,8 +41,6 @@ import org.swip.pivotToMappings.sparql.RemoteSparqlServer;
 import org.swip.pivotToMappings.sparql.SparqlServer;
 
 public class Controller {
-
-    // vive les loutres! *2 plus plus pour essayer
     
     private static final Logger logger = Logger.getLogger(Controller.class);
     static Controller staticController = null;
@@ -118,7 +116,7 @@ public class Controller {
                     long time = System.currentTimeMillis();
                     // read patterns on file and instantiate them
                     try {
-                        ANTLRInputStream input = new ANTLRInputStream(this.getClass().getClassLoader().getResourceAsStream("../../patterns-musicbrainz.txt"));
+                        ANTLRInputStream input = new ANTLRInputStream(this.getClass().getClassLoader().getResourceAsStream(kbConf.patternsPath));
                         patternsDefinitionGrammarLexer lexer = new patternsDefinitionGrammarLexer(input);
                         CommonTokenStream tokens = new CommonTokenStream(lexer);
                         patternsDefinitionGrammarParser parser = new patternsDefinitionGrammarParser(tokens);
@@ -179,7 +177,7 @@ public class Controller {
 
     public List<PatternToQueryMapping> getBestMappings(String pivotQueryString, int numMappings, String kbName) {
 //        PropertyConfigurator.configure(projectPath+"/resources/log4j.properties");
-        logger.info("new log file");
+        logger.info("KbName : " + kbName);
         if (this.sparqlServers == null) {
             logger.info("There is no defined sparql server");
         } else if (this.patternsMap == null) {
