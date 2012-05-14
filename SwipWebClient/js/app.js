@@ -90,11 +90,11 @@ function fillTab(results)
 	   	subGridRowExpanded: function(subgrid_id, row_id) 
 	   	{
 	   		var queryPre = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
-	   		var mappingPre = '<span class="title">Mapping Description :</span><br /><br /><span class="mappingSpan"></span>';
+	   		var mappingPre = '<span class="title">Mapping Description :</span><br /><br /><pre class="mappingPre"></pre>';
             $('#' + subgrid_id).addClass('subgrid');
             $('#' + subgrid_id).append(queryPre + '<br /><hr /><br />' + mappingPre);
             $('#' + subgrid_id + ' .queryPre').text(results.content[row_id].sparqlQuery);
-            $('#' + subgrid_id + ' .mappingSpan').text(results.content[row_id].mappingDescription);
+            $('#' + subgrid_id + ' .mappingPre').text(results.content[row_id].mappingDescription);
         },
         gridComplete: function()
         {

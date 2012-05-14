@@ -96,6 +96,13 @@ body
 	font-weight: bold;
 }
 
+#results .subgrid .mappingPre
+{
+	font-size: 0.85em;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
 #results ul.ui-tabs-nav li a
 {
 	padding: 4px 15px 2px 15px;
