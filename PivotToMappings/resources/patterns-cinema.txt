@@ -7,15 +7,13 @@ end prefixes
 
 pattern film_info
 	query
-		[ 1_cine:film 	2_cine:aPourRecompenseFilm(3)	3_cine:PrixDecerne;				]recompense:0..1/3
+		[ 1_cine:Film 	2_cine:aPourRecompenseFilm(3)	3_cine:PrixDecerne;				]recompense:0..1/3
 		[ 1				4_cine:aPourGenre(5)			5_cine:GenreCinematographique;	]genre:0..1/5
 		[ 1 			6_cine:aPourLieuDeTournage(7)	7_cine:Lieu;					]lieu:0..1/7
-		[ 1 			8_cine:aPourActeur(9)			9_cine:Acteur 					]acteur:0..1/9
-		[ 1 			10_cine:aPourRole(11)			11_cine:Role 					]role:0..1/11
+		[ 1 			8_cine:aPourActeur(9)			9_cine:Acteur; 					]acteur:0..1/9
+		[ 1 			10_cine:aPourRole(11)			11_cine:Role; 					]role:0..1/11
 	end query
 	sentence
-		__1__ _if_recompense_[dont la récompense est __3__, ]_end_if_recompense_ _if_genre_[a pour genre __5__, ]_end_if_genre_ _if_lieu_[a pour lieu de tournage __7__]_end_if_lieu_ _if_acteur_[a pour acteur __9__, ]_end_if_acteur_ _if_role_[a pour role __1__, ]_end_if_role
+		__1__ _if_recompense_[dont la récompense est __3__, ]_end_if_recompense_ _if_genre_[a pour genre __5__, ]_end_if_genre_ _if_lieu_[a pour lieu de tournage __7__]_end_if_lieu_ _if_acteur_[a pour acteur __9__, ]_end_if_acteur_ _if_role_[a pour role __1__, ]_end_if_role_
 	end sentence
-	mapping conditions
-	end mapping conditions
 end pattern
