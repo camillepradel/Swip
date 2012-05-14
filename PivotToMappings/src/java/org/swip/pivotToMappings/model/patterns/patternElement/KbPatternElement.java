@@ -106,7 +106,7 @@ public abstract class KbPatternElement extends PatternElement {
     public void preprocess(SparqlServer sparqlServer) throws PatternsParsingException {
         if (qualifying) {
             addPatternElementMatching(getUri(), new PatternElementMatching(this, 1));
-            addPatternElementMatchingAncestorsSparql(getUri(), 1, sparqlServer);
+//            addPatternElementMatchingAncestorsSparql(getUri(), 1, sparqlServer);
             addPatternElementMatchingDescendantsSparql(getUri(), 1, sparqlServer);
         }
     }
