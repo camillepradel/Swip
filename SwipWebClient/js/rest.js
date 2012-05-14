@@ -18,7 +18,7 @@ function nlToPivot(nlQuery, lang)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://swipserver:8080/NlToPivot/NlToPivotWS/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
+        url: 'http://localhost:8080/NlToPivot/NlToPivotWS/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
     }).done(function(data)
     {
         pivotToSparql(data, 50);
@@ -40,7 +40,7 @@ function pivotToSparql(pvQuery, respNum)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinema'
+        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinema'
     }).done(function(data)
     {
         toggleSearch(true);

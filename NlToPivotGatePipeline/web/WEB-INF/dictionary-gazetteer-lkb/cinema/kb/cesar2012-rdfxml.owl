@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY cinema "http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#"
+     xml:base="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cinema="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace">
+    <owl:Ontology rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl">
+        <owl:imports rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#BradPitt -->
+
+    <owl:NamedIndividual rdf:about="&cinema;BradPitt">
+        <cinema:aPourSexe rdf:resource="&cinema;Masculin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#Categorie_Festival_2011 -->
+
+    <owl:NamedIndividual rdf:about="&cinema;Categorie_Festival_2011"/>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#Feminin -->
+
+    <owl:NamedIndividual rdf:about="&cinema;Feminin"/>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#JeanPierreMichael -->
+
+    <owl:NamedIndividual rdf:about="&cinema;JeanPierreMichael">
+        <cinema:aPourSexe rdf:resource="&cinema;Masculin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#Masculin -->
+
+    <owl:NamedIndividual rdf:about="&cinema;Masculin"/>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#BereniceBejo -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#BereniceBejo">
+        <rdfs:label xml:lang="fr">Bérénice Bejo</rdfs:label>
+        <cinema:aPourSexe rdf:resource="&cinema;Feminin"/>
+        <cinema:estActeurDans rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#CarmenMaura -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#CarmenMaura">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">Carmen Maura</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Cesar2012 -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Cesar2012">
+        <rdf:type rdf:resource="&cinema;CesarDuCinema"/>
+        <rdfs:label xml:lang="fr">Cesar 2012</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#ChienTheArtist -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#ChienTheArtist">
+        <rdf:type rdf:resource="&cinema;RoleDeChien"/>
+        <rdfs:label xml:lang="fr">le chien</rdfs:label>
+        <cinema:apparaitDans rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist"/>
+        <cinema:estIncarnePar rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Uggy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#GeorgeValentin -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#GeorgeValentin">
+        <rdf:type rdf:resource="&cinema;RoleDActeur"/>
+        <rdf:type rdf:resource="&cinema;RolePrincipal"/>
+        <rdfs:label xml:lang="fr">George Valentin</rdfs:label>
+        <cinema:estIncarnePar rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Jean_Dujardin"/>
+        <cinema:apparaitDans rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Intouchables -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Intouchables">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">Intouchables</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Jean_Dujardin -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Jean_Dujardin"/>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#LeChatDuRabbinFilm -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#LeChatDuRabbinFilm">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">Le Chat du Rabbin</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#LesFemmesDu6emeEtage -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#LesFemmesDu6emeEtage">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">Les femmes du 6ème etage</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#MichelHazanavicius -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#MichelHazanavicius">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">MichelHazanavicius</rdfs:label>
+        <cinema:aPourSexe rdf:resource="&cinema;Masculin"/>
+        <cinema:aRealise rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#OmarSy -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#OmarSy">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">Omar Sy</rdfs:label>
+        <cinema:aPourSexe rdf:resource="&cinema;Masculin"/>
+        <cinema:estActeurDans rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Intouchables"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#PrixMeilleurActeurCesar2012 -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#PrixMeilleurActeurCesar2012">
+        <rdf:type rdf:resource="&cinema;PrixMeilleurActeur"/>
+        <rdfs:label xml:lang="fr">PrixMeilleurActeurCesar2012</rdfs:label>
+        <cinema:recompenseFilm rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Intouchables"/>
+        <cinema:recompensePersonne rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#OmarSy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#PrixMeilleureActriceCesar2012 -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#PrixMeilleureActriceCesar2012">
+        <rdf:type rdf:resource="&cinema;PrixMeilleureActrice"/>
+        <rdfs:label xml:lang="fr">PrixMeilleureActriceCesar2012</rdfs:label>
+        <cinema:recompensePersonne rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#BereniceBejo"/>
+        <cinema:estDecernePar rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Cesar2012"/>
+        <cinema:recompenseFilm rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">The Artist</rdfs:label>
+        <cinema:concourePourCompetition rdf:resource="&cinema;Categorie_Festival_2011"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Uggy -->
+
+    <owl:NamedIndividual rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Uggy">
+        <rdf:type rdf:resource="&cinema;Chien"/>
+        <rdfs:label xml:lang="fr">Uggy</rdfs:label>
+        <rdfs:comment xml:lang="fr">chien de the artiste</rdfs:comment>
+        <cinema:estActeurDans rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Warner_Bros -->
+
+    <owl:Thing rdf:about="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#Warner_Bros">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="fr">Warner Bros</rdfs:label>
+        <cinema:aProduit rdf:resource="http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#TheArtist"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

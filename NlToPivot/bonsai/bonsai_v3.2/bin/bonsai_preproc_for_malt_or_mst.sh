@@ -72,7 +72,7 @@ then
 NBDIGIT=10
 MINOCC=50000
 
-eval $PREPROCCMD MElt | $BIN/do_brown2conll.pl | $BIN/do_lefff_lemmatisation.py --inputformat=conll --serializedlex $LEFFF | $BIN/do_desinflect.py --inputformat tabulated --token-rank 1 --append --serializedlex $LEFFF | $BIN/do_substitute_tokens.py --inputformat tabulated --token-rank 10 --ldelim '' --rdelim '' --append --no-cap-info $CLUSTERFILE | $BIN/do_format_for_malt_or_mst.pl --parsertype $PARSERTYPE --minocc=$MINOCC --nbdigit=$NBDIGIT 
+eval $PREPROCCMD melt | $BIN/do_brown2conll.pl | $BIN/do_lefff_lemmatisation.py --inputformat=conll --serializedlex $LEFFF | $BIN/do_desinflect.py --inputformat tabulated --token-rank 1 --append --serializedlex $LEFFF | $BIN/do_substitute_tokens.py --inputformat tabulated --token-rank 10 --ldelim '' --rdelim '' --append --no-cap-info $CLUSTERFILE | $BIN/do_format_for_malt_or_mst.pl --parsertype $PARSERTYPE --minocc=$MINOCC --nbdigit=$NBDIGIT 
 
 else
 echo $USAGE
