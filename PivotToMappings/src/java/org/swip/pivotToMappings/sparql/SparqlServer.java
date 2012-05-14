@@ -75,7 +75,7 @@ public abstract class SparqlServer {
                         "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"+
                         "ASK"+
                         "WHERE"+
-                          "{ cin:aPourDureeMinute rdfs:range xsd:decimal }";
+                          "{ <"+uri+"> rdfs:range xsd:decimal }";
          boolean ret = false;
          
          ret = ask(query);
