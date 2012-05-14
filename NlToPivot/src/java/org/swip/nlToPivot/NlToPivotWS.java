@@ -100,14 +100,30 @@ public class NlToPivotWS {
                 Process proc = Runtime.getRuntime().exec(cmd, env);
                 proc.waitFor();
 
-                cmd = "cat " + bonsaiDir + "/query" + nbQueryFr + ".outmalt | /usr/bin/python " + bonsai32Dir + "/my_src/outmalt_to_pivot.py";
+                cmd = "java -jar -Xmx2048m " + bonsaiDir + "/malt-1.3.1/malt.jar -c ftb-all -w " + bonsai32Dir + "/resources/malt -i " + bonsaiDir + "/query" + nbQueryFr + ".inmalt -v debug -m parse -o " + bonsaiDir + "/query" + nbQueryFr + ".outmalt -of " + bonsai32Dir + "/resources/malt/cformat.xml -if " + bonsai32Dir + "/resources/malt/cformat.xml ";
                 logger.info(cmd);
-                proc = Runtime.getRuntime().exec(cmd);
+                proc = Runtime.getRuntime().exec(cmd, env);
                 proc.waitFor();
-                BufferedReader buf = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+                BufferedReader buf = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
                 String line = null;
                 while ((line = buf.readLine()) != null) {
+                    logger.info(line);
+                }
+
+                cmd = "/usr/bin/python " + bonsai32Dir + "/my_src/outmalt_to_pivot.py " + bonsaiDir + "/query" + nbQueryFr + ".outmalt";
+                logger.info(cmd);
+                proc = Runtime.getRuntime().exec(cmd);
+                buf = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
+                line = null;
+                while ((line = buf.readLine()) != null) {
                     pivotQuery += line;
+                    logger.info(line);
+                }
+                proc.waitFor();
+                buf = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+                line = null;
+                while ((line = buf.readLine()) != null) {
+                    pivotQuery += line + ". ";
                     logger.info(line);
                 }
 
@@ -119,13 +135,21 @@ public class NlToPivotWS {
         } else {
             pivotQuery = "language not supported";
         }
-        return "";//pivotQuery;
+        logger.info("returned pivot query:" + pivotQuery);
+        return pivotQuery;
     }
 
     private static String getSuppleSemanticAnnotations(java.lang.String adaptedNlQuery) {
-        org.swip.nltopivotgatepipeline.NlToPivotGatePipeline service = new org.swip.nltopivotgatepipeline.NlToPivotGatePipeline();
-        org.swip.nltopivotgatepipeline.NlToPivotGatePipelineWS port = service.getNlToPivotGatePipelineWSPort();
-        return port.getSuppleSemanticAnnotations(adaptedNlQuery);
+//        org.swip.nltopivotgatepipeline.NlToPivotGatePipeline service = new org.swip.nltopivotgatepipeline.NlToPivotGatePipeline();
+//        org.swip.nltopivotgatepipeline.NlToPivotGatePipelineWS port = service.getNlToPivotGatePipelineWSPort();
+//        return port.getSuppleSemanticAnnotations(adaptedNlQuery);
+        return null;
     }
+
+//    private static String getQueryWithGatheredNamedEntities(java.lang.String adaptedNlQuery) {
+//        org.swip.nltopivotgatepipeline.NlToPivotGatePipeline service = new org.swip.nltopivotgatepipeline.NlToPivotGatePipeline();
+//        org.swip.nltopivotgatepipeline.NlToPivotGatePipelineWS port = service.getNlToPivotGatePipelineWSPort();
+//        return port.getQueryWithGatheredNamedEntities(adaptedNlQuery);
+//    }
 }
 

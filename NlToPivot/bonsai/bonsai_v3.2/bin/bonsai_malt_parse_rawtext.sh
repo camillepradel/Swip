@@ -39,5 +39,5 @@ shift $((OPTIND - 1))
 
 
 cat $1 | $BONSAI/bin/bonsai_preproc_for_malt_or_mst.sh -p malt $PREPROCBOOL > $1.inmalt
-set -x
+#set -x
 java -jar -Xmx2048m $MALT_DIR/malt.jar -c ftb-all -w $MALTFRMODEL_DIR -i $1.inmalt -v debug -m parse -o $1.outmalt -of $MALTFRMODEL_DIR/cformat.xml -if $MALTFRMODEL_DIR/cformat.xml 
