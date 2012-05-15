@@ -343,7 +343,7 @@ public class Controller {
             while(varNames.hasNext())
             {
                 String varName = varNames.next();
-                query.put(varName, "\""+sol.get(varName)+"\"");
+                query.put("res", "" + sol.get(varName) + "");
             }
             queryResults.add(query);
         }

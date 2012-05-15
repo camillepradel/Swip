@@ -124,6 +124,12 @@ body
 	font-weight: bold;
 }
 
+#results div.query span.resultSpan
+{
+	display: block;
+	font-size: 1.1em;
+}
+
 
 /**
  * jQuery UI override

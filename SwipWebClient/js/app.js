@@ -33,14 +33,6 @@ $(function()
 	});
 
 	/**
-	 * Handles the double click on a query
-	 **/
-	$('.jqgrow').live('dblclick', function()
-	{
-		selectQuery($(this).attr('id'));
-	});
-
-	/**
 	 * Tabs management
 	 **/
 	var previousTab = 'tabs-1';
@@ -50,14 +42,6 @@ $(function()
 		add: function(event, ui) 
 		{
 	        $('#results').tabs('select', '#' + ui.panel.id);
-	    },
-	    select: function(event, ui)
-	    {
-	    	if(ui.panel.id != 'tabs-1')
-	    	{
-	    		$('#' + ui.panel.id).css('height', $('#' + previousTab).css('height'));
-	    	}
-	    	previousTab = ui.panel.id;
 	    }
 	});
 	$('#results span.ui-icon-close').live('click', function() 
@@ -75,7 +59,6 @@ $(function()
 function fillTab(results)
 {
 	// For further information, see the JqGrid documentation
-
 	jQuery('#jqGrid').jqGrid
 	({
 		datatype: 'jsonstring',
@@ -117,6 +100,15 @@ function fillTab(results)
 		},
         pager: '#pager',
         rowNum: 20
+	});
+
+	/**
+	 * Handles the double click on a query
+	 **/
+	$('.jqgrow').die();
+	$('.jqgrow').live('dblclick', function()
+	{
+		selectQuery($(this).attr('id'), results);
 	});
 }
 
@@ -170,6 +162,8 @@ function search(query)
 {
 	if(query != '')
 	{
+		$('#results').css('display', 'none');
+		$('#jqGrid').GridUnload();
 		toggleSearch(false);
 		pivotToSparql(query, 50);
 	}
@@ -179,20 +173,46 @@ function search(query)
 /**
  * Called when a query is selected
  **/
-function selectQuery(id)
+function selectQuery(id, results)
 {
-	/*
-	TODO
+	if($('#query' + id).length)
+	{
+		$('#query' + id).html('');
+		$('#results').tabs('select', '#query' + id);
+	}
+	else
+	{
+		$('#results').append('<div id="query' + id + '" class="query">');
+		$('#results').tabs('add', '#query' + id, 'Query #' + id);
+	}
 
 	var descSentence = '<span class="title">Search :</span><br /><br /><span class="searchSpan"></span>'; 
 	var sparqlQuery = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
-	var sparqlResult = '<span class="title">SPARQL Result :</span><div class="loading" style="display: block"><img src="img/loading_icon.gif" alt="Loading" /></div>'
-	$('#results').append('<div id="query' + id + '" class="query">' + descSentence + '<br /><hr /><br />' + sparqlQuery + '<br /><hr /><br />' + sparqlResult + '</div>');
-	$('#query' + id + ' .queryPre').text(parsedJson.content[id].sparqlQuery);
-	$('#query' + id + ' .searchSpan').html(parsedJson.content[id].descriptiveSentence);
-	$('#results').tabs('add', '#query' + id, 'Query #' + id);
-	processQuery(parsedJson.content[id].sparqlQuery, id);*/
+	var sparqlResult = '<span class="title">SPARQL Result :</span><span class="resultSpan"></span><div class="loading" style="display: block"><img src="img/loading_icon_blue.gif" alt="Loading" /><br /></div>'
+	
+	$('#query' + id).html(descSentence + '<br /><br /><hr /><br />' + sparqlResult + '<br /><hr /><br />' + sparqlQuery);
+	$('#query' + id + ' .queryPre').text(results.content[id - 1].sparqlQuery);
+	$('#query' + id + ' .searchSpan').html(results.content[id - 1].descriptiveSentence);
 
+	processQuery(results.content[id - 1].sparqlQuery, id);
+}
+
+
+/**
+ * Called when a query has been processed
+ **/
+function sparqlQueryResult(results, id)
+{
+    $('#query' + id + ' .loading').css('display', 'none');
+
+    var resultString = '<br /><ul>';
+    for(var i = 0; i < results.content.length; i++)
+    {
+    	resultString += '<li>' + results.content[i].res.split('#')[1] + '</li>';
+    }
+    resultString += '</ul>';
+
+    $('#query' + id + ' .resultSpan').html(resultString);
 }
 
 

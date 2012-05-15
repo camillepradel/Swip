@@ -53,8 +53,7 @@ public class PivotToMappingsWS {
     public String generateBestMappings(
         @QueryParam("pivotQueryString") @DefaultValue("") String pivotQueryString, 
         @QueryParam("numMappings") @DefaultValue("0") int numMappings,
-        @QueryParam("kbName") @DefaultValue("cinema") String kbName)
-        {
+        @QueryParam("kbName") @DefaultValue("cinema") String kbName) {
         
         JSONObject response = new JSONObject();
         
@@ -90,11 +89,13 @@ public class PivotToMappingsWS {
         return response.toString();
     }
 
-    /* TODO
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("processQuery")
+    public String processQuery(
+        @QueryParam("query") @DefaultValue("") String query,
+        @QueryParam("kbName") @DefaultValue("cinema") String kbName) {
 
-    @WebMethod(operationName = "processQuery")
-    public String processQuery(@WebParam(name = "pivotQuery") String pivotQuery) {
-       return Controller.getInstance().processQuery(pivotQuery);
+        return Controller.getInstance().processQuery(query, kbName);
     }
-    */
 }

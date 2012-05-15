@@ -68,7 +68,16 @@ function pivotToSparql(pvQuery, respNum)
  * @param query SPARQL query to process
  * @param id Query's ID (concerns the view)
  **/
-/*function processQuery(query, id)
+function processQuery(query, id)
 {
-    TODO
-}*/
+    $.ajax
+    ({
+        type: 'GET',
+        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinema'
+    }).done(function(data)
+    {
+        sparqlQueryResult(data, id);
+    }).fail(function(jqXHR, textStatus) {
+        alert('Ajax error, please try again !');
+    });
+}
