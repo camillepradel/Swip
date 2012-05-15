@@ -8,6 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Iterator;
+import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
@@ -19,9 +21,12 @@ import org.swip.pivotToMappings.model.query.Query;
 import org.swip.pivotToMappings.model.query.queryElement.Keyword;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
 import org.swip.pivotToMappings.sparql.SparqlServer;
+import com.hp.hpl.jena.query.QuerySolution;
 
 // bean! (mais pas les classes utilisees)
 public class PatternToQueryMapping {
+
+    private static final Logger logger = Logger.getLogger(Controller.class);
 
     private Pattern pattern = null;
     private List<ElementMapping> elementMappings = new LinkedList<ElementMapping>();
@@ -444,6 +449,7 @@ public class PatternToQueryMapping {
                 if(kbem.isClass()) {
                     webClientPre = "_selBeg_";
                     webClientPost = "_selSep_CLASS_selEnd_";
+                    this.generalizeClass(sparqlServer, kbem.getBestLabel());
                 } else if(kbem.isInd()) {
                     webClientPre = "_selBeg_";
                     webClientPost = "_selSep_IND_selEnd_";
@@ -488,6 +494,29 @@ public class PatternToQueryMapping {
         
         localSentence += aggregateSentence;
         this.sentence = localSentence;
+    }
+
+    private ArrayList<String> generalizeClass(SparqlServer sparqlServer, String c)
+    {
+        String sparqlQuery = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
+        sparqlQuery += "PREFIX cin:  <http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#> ";
+        sparqlQuery += "SELECT ?classes WHERE { cin:" + c +" rdfs:subClassOf ?classes } LIMIT 5";
+        
+        logger.info("Generalizing " + c + "...");
+
+        Iterable<QuerySolution> sols = sparqlServer.select(sparqlQuery);
+
+        for(QuerySolution sol : sols)
+        {
+            Iterator<String> varNames = sol.varNames();
+            while(varNames.hasNext())
+            {
+                String varName = varNames.next();
+                logger.info(sol.get(varName));
+            }
+        }
+
+        return null;
     }
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {

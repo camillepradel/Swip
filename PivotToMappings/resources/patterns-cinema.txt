@@ -14,6 +14,6 @@ pattern film_info
 		[ 1 			10_cine:aPourRole(11)			11_cine:Role; 					]role:0..1/11
 	end query
 	sentence
-		__1__ _if_recompense_[dont la récompense est __3__, ]_end_if_recompense_ _if_genre_[a pour genre __5__, ]_end_if_genre_ _if_lieu_[a pour lieu de tournage __7__]_end_if_lieu_ _if_acteur_[a pour acteur __9__, ]_end_if_acteur_ _if_role_[a pour role __1__, ]_end_if_role_
+		__1__ _if_recompense_[dont la récompense est __3__, ]_end_if_recompense_ _if_genre_[a pour genre __5__, ]_end_if_genre_ _if_lieu_[a pour lieu de tournage __7__]_end_if_lieu_ _if_acteur_[__8__ __9__, ]_end_if_acteur_ _if_role_[a pour role __1__, ]_end_if_role_
 	end sentence
 end pattern
