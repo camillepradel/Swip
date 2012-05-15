@@ -21,10 +21,12 @@ function nlToPivot(nlQuery, lang)
         url: 'http://swipserver:8080/NlToPivot/NlToPivotWS/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
     }).done(function(data)
     {
-        pivotToSparql(data, 50);
-    }).fail(function(jqXHR, textStatus) {
+        $('#searchField2').val(data);
+        $('#searchField2').focus();
         toggleSearch(true);
+    }).fail(function(jqXHR, textStatus) {
         alert('Ajax error, please try again !');
+        toggleSearch(true);
     });
 }
 

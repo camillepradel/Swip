@@ -4,21 +4,32 @@ $(function()
 	 * Submits the form when the return key
 	 * is pressed in the search field
 	 **/
-	$('#searchField').keydown(function(event)
+	$('#searchField1').keydown(function(event)
 	{
     	if(event.keyCode == 13)
     	{
-	        $('#searchButton').click();
+	        $('#searchButton1').click();
+	    }
+	});
+	$('#searchField2').keydown(function(event)
+	{
+    	if(event.keyCode == 13)
+    	{
+	        $('#searchButton2').click();
 	    }
 	});
 
 	/** 
-	 * Submits the form when the "Search"
-	 * button is clicked in the search field
+	 * Submits the form when the buttons
+	 * are clicked in the search form
 	 **/
-	$('#searchButton').click(function()
+	$('#searchButton1').click(function()
 	{
-		search($('#searchField').val());
+		translateQuery($('#searchField1').val());
+	});
+	$('#searchButton2').click(function()
+	{
+		search($('#searchField2').val());
 	});
 
 	/**
@@ -93,8 +104,8 @@ function fillTab(results)
 	   		var mappingPre = '<span class="title">Mapping Description :</span><br /><br /><pre class="mappingPre"></pre>';
             $('#' + subgrid_id).addClass('subgrid');
             $('#' + subgrid_id).append(queryPre + '<br /><hr /><br />' + mappingPre);
-            $('#' + subgrid_id + ' .queryPre').text(results.content[row_id].sparqlQuery);
-            $('#' + subgrid_id + ' .mappingPre').text(results.content[row_id].mappingDescription);
+            $('#' + subgrid_id + ' .queryPre').text(results.content[row_id - 1].sparqlQuery);
+            $('#' + subgrid_id + ' .mappingPre').text(results.content[row_id - 1].mappingDescription);
         },
         gridComplete: function()
         {
@@ -115,6 +126,21 @@ function fillTab(results)
  **/
 function displayResults(results)
 {
+	// Removing duplicatas
+	var i = 0;
+	while(i < results.content.length)
+	{
+		var j = i + 1;
+		while(j < results.content.length)
+		{
+			if(results.content[i].descriptiveSentence == results.content[j].descriptiveSentence)
+				results.content.splice(j, 1);
+			j++;
+		}
+		i++;
+	}
+
+	// Pre-parsing
 	for(var i = 0; i < results.content.length; i++)
 	{
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selBeg_/g, '<select><option>');
@@ -122,6 +148,7 @@ function displayResults(results)
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selEnd_/g, '</option></select>');
 	}
 
+	// Displaying
 	$('#results').css('display', 'block');
 	fillTab(results);
 }
@@ -130,12 +157,21 @@ function displayResults(results)
 /**
  * Called when the user has validated their input
  **/
-function search(query)
+function translateQuery(query)
 {
 	if(query != '')
 	{
 		toggleSearch(false);
 		nlToPivot(query, 'fr');
+	}
+}
+
+function search(query)
+{
+	if(query != '')
+	{
+		toggleSearch(false);
+		pivotToSparql(query, 50);
 	}
 }
 
@@ -167,12 +203,12 @@ function toggleSearch(b)
 {
 	if(b)
 	{
-		$('#searchButton').removeAttr('disabled');
+		$('.searchButton').removeAttr('disabled');
 		$('#searchLoading').css('display', 'none');
 	}
 	else
 	{
-		$('#searchButton').attr('disabled', 'disabled');
+		$('.searchButton').attr('disabled', 'disabled');
 		$('#searchLoading').css('display', 'block');
 	}
 }

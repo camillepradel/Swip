@@ -32,9 +32,14 @@ body
 	text-align: center;
 }
 
-#searchField
+#form .searchField
 {
-	width : 300px;
+	width: 300px;
+}
+
+#form .searchButton
+{
+	width: 100px;
 }
 
 
