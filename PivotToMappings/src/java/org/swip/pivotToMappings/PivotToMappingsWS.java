@@ -70,7 +70,12 @@ public class PivotToMappingsWS {
                 for(PatternToQueryMapping ptqm : bestMappings)
                 {
                     JSONObject query = new JSONObject();
-                    query.put("descriptiveSentence", ptqm.getSentence());
+                    
+                    String descSent = ptqm.getSentence().trim().replaceAll("\\s+", " ");
+                    if(descSent.charAt(descSent.length() - 1) == ',')
+                        descSent = descSent.substring(0, descSent.length() - 1);
+
+                    query.put("descriptiveSentence", descSent);
                     query.put("mappingDescription", ptqm.getStringDescription());
                     query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
                     query.put("sparqlQuery", ptqm.getSparqlQuery());
