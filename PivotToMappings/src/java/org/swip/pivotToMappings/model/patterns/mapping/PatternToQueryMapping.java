@@ -448,8 +448,11 @@ public class PatternToQueryMapping {
                 KbElementMapping kbem = (KbElementMapping) em;
                 if(kbem.isClass()) {
                     webClientPre = "_selBeg_";
-                    webClientPost = "_selSep_CLASS_selEnd_";
-                    this.generalizeClass(sparqlServer, kbem.getBestLabel());
+                    for(String c : this.generalizeClass(sparqlServer, kbem.getBestLabel()))
+                    {
+                        webClientPost += "_selSep_" + c;
+                    }
+                    webClientPost += "_selEnd_";
                 } else if(kbem.isInd()) {
                     webClientPre = "_selBeg_";
                     webClientPost = "_selSep_IND_selEnd_";
@@ -498,6 +501,8 @@ public class PatternToQueryMapping {
 
     private ArrayList<String> generalizeClass(SparqlServer sparqlServer, String c)
     {
+        ArrayList<String> ret = new ArrayList<String>();
+
         String sparqlQuery = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
         sparqlQuery += "PREFIX cin:  <http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#> ";
         sparqlQuery += "SELECT ?classes WHERE { cin:" + c +" rdfs:subClassOf ?classes } LIMIT 5";
@@ -512,11 +517,11 @@ public class PatternToQueryMapping {
             while(varNames.hasNext())
             {
                 String varName = varNames.next();
-                logger.info(sol.get(varName));
+                ret.add(sol.get(varName).toString().split("#")[1]);
             }
         }
 
-        return null;
+        return ret;
     }
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {

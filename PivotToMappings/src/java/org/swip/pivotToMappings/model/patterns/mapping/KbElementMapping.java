@@ -44,11 +44,13 @@ public class KbElementMapping extends ElementMapping {
 
     @Override
     public String getStringForSentence(SparqlServer sparqlServer) {
-        if (sparqlServer.isClass(this.firstlyMatchedOntResourceUri)) {
+        /*if (sparqlServer.isClass(this.firstlyMatchedOntResourceUri)) {
             return "a " + this.bestLabel;
         } else {
             return this.bestLabel;
-        }
+        }*/
+        
+        return this.bestLabel;
     }
 
     public void changeValues(float trustMark, String bestLabel, KbTypeEnum kbType) {
