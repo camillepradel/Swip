@@ -76,7 +76,7 @@ function fillTab(results)
 	   	colModel:
 	   	[
    			{name: 'id', index: 'id', width: 3, classes: 'id', sortable: false},
-   			{name: 'descriptiveSentence', index: 'descriptiveSentence', width: 82, classes: 'descriptiveSentence'},
+   			{name: 'descriptiveSentence.string', index: 'descriptiveSentence', width: 82, classes: 'descriptiveSentence'},
    			{name: 'relevanceMark',index: 'relevanceMark', width: 15, sorttype: 'number', classes: 'relevanceMark'}
    		],
    		multiselect: false,
@@ -118,7 +118,7 @@ function fillTab(results)
  **/
 function displayResults(results)
 {
-	// Removing duplicatas
+	/*// Removing duplicatas
 	var i = 0;
 	while(i < results.content.length)
 	{
@@ -139,6 +139,22 @@ function displayResults(results)
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selSep_/g, '</option><option>');
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selEnd_/g, '</option></select>');
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.charAt(0).toUpperCase() + results.content[i].descriptiveSentence.slice(1);
+	}
+
+	// Displaying
+	$('#results').css('display', 'block');
+	fillTab(results);*/
+
+	console.log(results);
+
+	var ul;
+	for(var i = 0; i < results.content.length; i++)
+	{
+		for(var j = 0; j < results.content[i].descriptiveSentence.genNb; j++)
+		{
+			ul = '<select><option>' + results.content[i].descriptiveSentence.gen[j].join('</option><option>') + '</option></select>';
+			results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(/_gen_/, ul);
+		}
 	}
 
 	// Displaying
