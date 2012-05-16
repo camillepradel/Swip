@@ -10,6 +10,8 @@ import org.swip.pivotToMappings.sparql.SparqlServer;
 abstract public class Subpattern {
 
     public static int varCount = 0;
+    
+    protected boolean hasNumericDataProperty = false;
 
     public Subpattern() {
     }
@@ -20,6 +22,11 @@ abstract public class Subpattern {
 
     public static void setVarCount(int varCount) {
         Subpattern.varCount = varCount;
+    }
+    
+    public boolean hasNumericDataProperty()
+    {
+        return this.hasNumericDataProperty;
     }
 
     public abstract String toStringWithMapping(PatternToQueryMapping ptqm);

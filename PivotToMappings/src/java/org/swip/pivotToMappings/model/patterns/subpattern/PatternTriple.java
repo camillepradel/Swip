@@ -26,7 +26,7 @@ public class PatternTriple extends Subpattern {
     private ClassPatternElement e1 = null;
     private PropertyPatternElement e2 = null;
     private PatternElement e3 = null;
-
+    
     public PatternTriple() {
     }
 
@@ -84,6 +84,9 @@ public class PatternTriple extends Subpattern {
         for (String typeString : typeStrings) {
             result += "\n" + typeString;
         }
+        System.out.println("TEST GENERATE SPARQL WHERE : \n");
+        System.out.println(result);
+        System.out.println("----------");
         return result + "\n";
     }
 
@@ -105,6 +108,10 @@ public class PatternTriple extends Subpattern {
                             selectElements.add(elementString);
                         }
                     } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
+                        if(sparqlServer.isDataProperty(firstlyMatchedOntResource) && sparqlServer.isNumericDataProperty(firstlyMatchedOntResource)) // numeric data property
+                        {
+                            this.hasNumericDataProperty = true;
+                        }
                         elementString = "<" + firstlyMatchedOntResource + ">";
                     } else { // instance
                         //elementString = "?var" + ++(Subpattern.varCount);
