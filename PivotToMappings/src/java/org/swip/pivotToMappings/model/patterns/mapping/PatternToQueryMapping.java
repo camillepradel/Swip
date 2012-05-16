@@ -530,12 +530,22 @@ public class PatternToQueryMapping {
         Set<String> selectElements = new HashSet<String>();
         String where = "";
         String query = "";
+        boolean dataPropertyNumeric = false;
         Map<PatternElement, String> pivotsNames = new HashMap<PatternElement, String>();
         for (Subpattern sp : this.getPattern().getSubpatterns()) {
             where += sp.generateSparqlWhere(this, sparqlServer, pivotsNames, selectElements);
+            if(!dataPropertyNumeric)
+            {
+                dataPropertyNumeric = sp.hasNumericDataProperty();
+            }
         }
         
         String aggSelectFormat = "";
+        
+        if(dataPropertyNumeric)
+        {
+            aggSelectFormat = "%s";
+        }
         if (userQuery.isCount()) 
         {
             //select = "COUNT(" + select + " AS "+(select.replaceAll("?", "?Nb"))+")";
@@ -591,7 +601,7 @@ public class PatternToQueryMapping {
                 isAgg = true;
             }
         }
-        if(isAgg)
+        if(isAgg && !dataPropertyNumeric)
         {
             query += "GROUPBY "+varsSelect+" \n";
             query += "HAVING "+aggregat+"\n";

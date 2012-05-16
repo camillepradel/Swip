@@ -111,14 +111,14 @@ public class Keyword extends QueryElement {
                 + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "  PREFIX dc:  <http://purl.org/dc/elements/1.1/>"
                 + "  PREFIX pf:  <http://jena.hpl.hp.com/ARQ/property#>"
-                + "SELECT ?subj ?label ?score "
+                + "SELECT ?subj ?label ?score ?str "
                 + "WHERE { "
-                + "       (?label ?score ) pf:textMatch ('" + stringToMatch + "' 0.6) "
-                + "       { ?subj dc:title ?label. } "
+                + "       (?label ?score ) pf:textMatch ('" + stringToMatch.trim() + "~' 0.6) "
+                + "       { ?subj dc:title ?label. BIND(str(?label) AS ?str).} "
                 + "                  UNION "
-                + "       { ?subj rdfs:label ?label. } "
+                + "       { ?subj rdfs:label ?label. BIND(str(?label) AS ?str).} "
                 + "      } ";
-
+ 
         Iterable<QuerySolution> results = serv.select(query);
         for (QuerySolution qs : results) {
             String uri = qs.get("subj").toString();
@@ -134,7 +134,7 @@ public class Keyword extends QueryElement {
             }
 
             if (changeMaps) {
-                String label = qs.get("label").toString();
+                String label = qs.get("str").toString();
                 labelsMap.put(uri, label);
                 scoresMap.put(uri, score);
             }

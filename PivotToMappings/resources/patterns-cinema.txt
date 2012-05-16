@@ -17,3 +17,12 @@ pattern film_info
 		__1__ _if_recompense_[dont la récompense est __3__, ]_end_if_recompense_ _if_genre_[a pour genre __5__, ]_end_if_genre_ _if_lieu_[a pour lieu de tournage __7__]_end_if_lieu_ _if_acteur_[__8__ __9__, ]_end_if_acteur_ _if_role_[a pour role __1__, ]_end_if_role_
 	end sentence
 end pattern
+
+pattern evenement_info
+	query
+		[ 1_cine:Evenement 	2_cine:aPourDureeJour(3)	3_<decimal>;				]duree:0..1/3
+	end query
+	sentence
+		__1__ _if_duree_[__2__ __3__, ]_end_if_duree_
+	end sentence
+end pattern
