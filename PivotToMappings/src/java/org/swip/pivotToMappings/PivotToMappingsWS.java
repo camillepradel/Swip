@@ -69,16 +69,21 @@ public class PivotToMappingsWS {
                 for(PatternToQueryMapping ptqm : bestMappings)
                 {
                     JSONObject query = new JSONObject();
+                    JSONObject descSentJSon = new JSONObject();
+                    ArrayList<ArrayList<JSONObject>> generalizations = new ArrayList<ArrayList<JSONObject>>();
                     
                     String descSent = ptqm.getSentence().trim().replaceAll("\\s+", " ");
                     if(descSent.charAt(descSent.length() - 1) == ',')
                         descSent = descSent.substring(0, descSent.length() - 1);
+                    
+                    descSentJSon.put("genNb", ptqm.getGeneralizations().size());
+                    descSentJSon.put("string", descSent);
+                    descSentJSon.put("gen", ptqm.getGeneralizations());
+                    query.put("descriptiveSentence", descSentJSon);
 
-                    query.put("descriptiveSentence", descSent);
                     query.put("mappingDescription", ptqm.getStringDescription());
                     query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
                     query.put("sparqlQuery", ptqm.getSparqlQuery());
-                    //query.put("validate", 0);
 
                     queryResults.add(query);
                 }

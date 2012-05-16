@@ -41,17 +41,22 @@ public class PatternToQueryMapping {
     private String sparqlQuery = null;
     // string description (result of toString) stored in order to display it in client application
     private String stringDescription = null;
+    
+    private ArrayList< ArrayList<String> > generalizations;
 
     public PatternToQueryMapping() {
+        this.generalizations = new ArrayList< ArrayList<String> >();
     }
 
     public PatternToQueryMapping(Pattern p) {
         this.pattern = p;
+        this.generalizations = new ArrayList< ArrayList<String> >();
     }
 
     public PatternToQueryMapping(Pattern p, List<ElementMapping> ems) {
         this.pattern = p;
         this.elementMappings = ems;
+        this.generalizations = new ArrayList< ArrayList<String> >();
     }
 
     /**
@@ -441,6 +446,11 @@ public class PatternToQueryMapping {
             String queried = qe.isQueried() ? "?" : "";
         
             localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
+            if(em instanceof KbElementMapping) {
+                KbElementMapping kbem = (KbElementMapping) em;
+                if(kbem.isGeneralized())
+                    this.generalizations.add(kbem.getGeneralizations());
+            }
             replacedPatternElements.add(em.patternElement);
             
              if(qe.isAggregate() && !aggregateProcessed.contains(qe))
@@ -472,12 +482,16 @@ public class PatternToQueryMapping {
         else if (userQuery.isSum()) {
             localSentence = "SUM ( " + localSentence + " )";
         }
+
+        System.out.println("PTQM : " + generalizations.toString());
         
         localSentence += aggregateSentence;
         this.sentence = localSentence;
     }
 
-    
+    public ArrayList< ArrayList<String> > getGeneralizations() {
+        return this.generalizations;
+    }
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {
         String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
