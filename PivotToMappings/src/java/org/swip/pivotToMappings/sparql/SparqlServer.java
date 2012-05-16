@@ -121,7 +121,8 @@ public abstract class SparqlServer {
                 + "    {<" + resourceUri + "> dc:title ?label.} \n"
                 + "    UNION \n"
                 + "    {<" + resourceUri + "> rdfs:label ?label.} \n"
-                + "      } ";
+                + "      } \n"
+                + "ORDER BY ?label";
 
         Iterable<QuerySolution> results = select(query);
 
