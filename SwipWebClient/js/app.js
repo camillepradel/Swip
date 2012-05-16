@@ -138,6 +138,7 @@ function displayResults(results)
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selBeg_/g, '<select><option>');
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selSep_/g, '</option><option>');
 		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selEnd_/g, '</option></select>');
+		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.charAt(0).toUpperCase() + results.content[i].descriptiveSentence.slice(1);
 	}
 
 	// Displaying

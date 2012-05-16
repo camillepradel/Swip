@@ -16,6 +16,6 @@ public final class ClassPatternElement extends KbPatternElement {
     @Override
     public String getDefaultStringForSentence(SparqlServer sparqlServer) {
         String label = sparqlServer.getALabel(this.getUri());
-        return (label == null ? "no label found" : "some " + label);
+        return (label == null ? "no label found" : "un(e) " + label);
     }
 }

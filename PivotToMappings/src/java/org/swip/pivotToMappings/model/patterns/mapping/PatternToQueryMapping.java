@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Iterator;
-import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
@@ -25,8 +24,6 @@ import com.hp.hpl.jena.query.QuerySolution;
 
 // bean! (mais pas les classes utilisees)
 public class PatternToQueryMapping {
-
-    private static final Logger logger = Logger.getLogger(Controller.class);
 
     private Pattern pattern = null;
     private List<ElementMapping> elementMappings = new LinkedList<ElementMapping>();
@@ -442,27 +439,8 @@ public class PatternToQueryMapping {
         for (ElementMapping em : this.getElementMappings()) {
             QueryElement qe = em.queryElement;
             String queried = qe.isQueried() ? "?" : "";
-            String webClientPre = "";
-            String webClientPost = "";
-            if(em instanceof KbElementMapping) {
-                KbElementMapping kbem = (KbElementMapping) em;
-                if(kbem.isClass()) {
-                    webClientPre = "_selBeg_";
-                    for(String c : this.generalizeClass(sparqlServer, kbem.getBestLabel()))
-                    {
-                        webClientPost += "_selSep_" + c;
-                    }
-                    webClientPost += "_selEnd_";
-                } else if(kbem.isInd()) {
-                    webClientPre = "_selBeg_";
-                    webClientPost = "_selSep_IND_selEnd_";
-                } else if(kbem.isProp()) {
-                    webClientPre = "_selBeg_";
-                    webClientPost = "_selSep_PROP_selEnd_";
-                }
-            }
-            
-            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + webClientPre + em.getStringForSentence(sparqlServer) + webClientPost + queried);
+        
+            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
             replacedPatternElements.add(em.patternElement);
             
              if(qe.isAggregate() && !aggregateProcessed.contains(qe))
@@ -499,30 +477,7 @@ public class PatternToQueryMapping {
         this.sentence = localSentence;
     }
 
-    private ArrayList<String> generalizeClass(SparqlServer sparqlServer, String c)
-    {
-        ArrayList<String> ret = new ArrayList<String>();
-
-        String sparqlQuery = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
-        sparqlQuery += "PREFIX cin:  <http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#> ";
-        sparqlQuery += "SELECT ?classes WHERE { cin:" + c +" rdfs:subClassOf ?classes } LIMIT 5";
-        
-        logger.info("Generalizing " + c + "...");
-
-        Iterable<QuerySolution> sols = sparqlServer.select(sparqlQuery);
-
-        for(QuerySolution sol : sols)
-        {
-            Iterator<String> varNames = sol.varNames();
-            while(varNames.hasNext())
-            {
-                String varName = varNames.next();
-                ret.add(sol.get(varName).toString().split("#")[1]);
-            }
-        }
-
-        return ret;
-    }
+    
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {
         String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
