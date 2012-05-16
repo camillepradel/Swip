@@ -146,10 +146,13 @@ public class KbElementMapping extends ElementMapping {
 
     private void generateGeneralizedLabels(SparqlServer sparqlServer, Iterable<QuerySolution> sols) {
         String article = "";
-        if(this.kbType == KbTypeEnum.CLASS || this.kbType == KbTypeEnum.IND)
+        if(this.kbType == KbTypeEnum.CLASS)
             article = "un(e) ";
 
         this.generalizations.add("\"" + article + this.getBestLabel() + "\"");
+
+        if(this.kbType == KbTypeEnum.IND)
+            article = "un(e) ";
 
         for(QuerySolution sol : sols) {
             Iterator<String> varNames = sol.varNames();
