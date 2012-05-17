@@ -1,3 +1,7 @@
+// Imports
+// $.getScript('js/rest.js');
+// $.getScript('js/descList.js');
+
 $(function()
 {
 	/** 
@@ -130,11 +134,9 @@ function displayResults(results)
 			j++;
 		}
 		i++;
-	}
+	}*/
 
-	console.log(results);
-
-	var ul;
+	/*var ul;
 	var reg;
 	for(var i = 0; i < results.content.length; i++)
 	{
@@ -144,6 +146,26 @@ function displayResults(results)
 			reg = new RegExp('_gen' + j + '_');
 			results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(reg, ul);
 		}
+	}*/
+
+	var sentences = new DescList();
+	for(var i = 0; i < results.content.length; i++)
+		sentences.add(results.content[i].descriptiveSentence);
+	
+	var duplicates = sentences.checkCover();
+	
+	for(var i = 0; i < results.content.length; i++)
+	{
+		if($.inArray(i, duplicates) < 0)
+			results.content[i].descriptiveSentence.string = sentences.getGeneralizedSentence(i);
+	}
+
+	var i = results.content.length - 1;
+	while(i >= 0)
+	{
+		if($.inArray(i, duplicates) >= 0)
+			results.content.splice(i, 1);
+		i--;
 	}
 
 	// Displaying

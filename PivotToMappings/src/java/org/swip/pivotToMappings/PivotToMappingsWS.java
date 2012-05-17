@@ -5,6 +5,8 @@
 package org.swip.pivotToMappings;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -70,15 +72,15 @@ public class PivotToMappingsWS {
                 {
                     JSONObject query = new JSONObject();
                     JSONObject descSentJSon = new JSONObject();
-                    ArrayList<ArrayList<JSONObject>> generalizations = new ArrayList<ArrayList<JSONObject>>();
+                    JSONObject generalizations = new JSONObject();
                     
                     String descSent = ptqm.getSentence().trim().replaceAll("\\s+", " ");
                     if(descSent.charAt(descSent.length() - 1) == ',')
                         descSent = descSent.substring(0, descSent.length() - 1);
-                    
-                    descSentJSon.put("genNb", ptqm.getGeneralizations().size());
+                    for(Map.Entry<Integer, ArrayList<String>> entry : ptqm.getGeneralizations().entrySet())
+                        generalizations.put(String.valueOf(entry.getKey()), entry.getValue());
                     descSentJSon.put("string", descSent);
-                    descSentJSon.put("gen", ptqm.getGeneralizations());
+                    descSentJSon.put("gen", generalizations);
                     query.put("descriptiveSentence", descSentJSon);
 
                     query.put("mappingDescription", ptqm.getStringDescription());
