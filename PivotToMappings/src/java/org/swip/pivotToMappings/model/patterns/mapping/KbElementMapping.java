@@ -63,50 +63,55 @@ public class KbElementMapping extends ElementMapping {
 
     @Override
     public String getStringForSentence(SparqlServer sparqlServer) {
+        return getStringForSentence(sparqlServer, -1);
+    }
+
+    public String getStringForSentence(SparqlServer sparqlServer, int genId) {
         String ret;
+
+        if(genId == -1)
+            return null;
 
         if(this.kbType  == KbTypeEnum.CLASS) {
             if(this.generalized) {
-                ret = "_gen_";
+                ret = "_gen" + genId + "_";
             } else {
                 this.generateGeneralizedLabels(sparqlServer, this.generalizeClass(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
                 if(this.generalizations.size() <= 0)
                     ret = "un(e) " + this.bestLabel;
                 else {
-                    ret = "_gen_";
+                    ret = "_gen" + genId + "_";
                     this.generalized = true;
                 }
             }
         } else if(this.kbType == KbTypeEnum.IND ) {
             if(this.generalized) {
-                ret = "_gen_";
+                ret = "_gen" + genId + "_";
             } else {
                 this.generateGeneralizedLabels(sparqlServer, this.generalizeInd(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
                 if(this.generalizations.size() <= 0)
                     ret = this.bestLabel;
                 else {
-                    ret = "_gen_";
+                    ret = "_gen" + genId + "_";
                     this.generalized = true;
                 }
             }
 
         } else if(this.kbType == KbTypeEnum.PROP) {
             if(this.generalized) {
-                ret = "_gen_";
+                ret = "_gen" + genId + "_";
             } else {
                 this.generateGeneralizedLabels(sparqlServer, this.generalizeProp(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
                 if(this.generalizations.size() <= 0)
                     ret = this.bestLabel;
                 else {
-                    ret = "_gen_";
+                    ret = "_gen" + genId + "_";
                     this.generalized = true;
                 }
             }
         } else {
             ret = this.bestLabel;
         }
-
-        logger.info("KBEM : " + generalizations.toString());
 
         return ret;
     }

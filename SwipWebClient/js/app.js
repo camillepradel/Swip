@@ -132,28 +132,17 @@ function displayResults(results)
 		i++;
 	}
 
-	// Pre-parsing
-	for(var i = 0; i < results.content.length; i++)
-	{
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selBeg_/g, '<select><option>');
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selSep_/g, '</option><option>');
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selEnd_/g, '</option></select>');
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.charAt(0).toUpperCase() + results.content[i].descriptiveSentence.slice(1);
-	}
-
-	// Displaying
-	$('#results').css('display', 'block');
-	fillTab(results);*/
-
 	console.log(results);
 
 	var ul;
+	var reg;
 	for(var i = 0; i < results.content.length; i++)
 	{
 		for(var j = 0; j < results.content[i].descriptiveSentence.genNb; j++)
 		{
 			ul = '<select><option>' + results.content[i].descriptiveSentence.gen[j].join('</option><option>') + '</option></select>';
-			results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(/_gen_/, ul);
+			reg = new RegExp('_gen' + j + '_');
+			results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(reg, ul);
 		}
 	}
 

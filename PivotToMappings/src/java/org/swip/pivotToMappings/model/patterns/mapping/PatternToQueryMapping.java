@@ -437,6 +437,7 @@ public class PatternToQueryMapping {
         String localSentence = this.getPattern().getSentenceTemplate();
         String aggregateSentence = "";
         ArrayList<QueryElement> aggregateProcessed = new ArrayList<QueryElement>();
+        int genId = 0;
 
         localSentence = this.getPattern().modifySentence(localSentence, this, sparqlServer);
 
@@ -445,11 +446,17 @@ public class PatternToQueryMapping {
             QueryElement qe = em.queryElement;
             String queried = qe.isQueried() ? "?" : "";
         
-            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
             if(em instanceof KbElementMapping) {
                 KbElementMapping kbem = (KbElementMapping) em;
-                if(kbem.isGeneralized())
+                
+                localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + kbem.getStringForSentence(sparqlServer, genId) + queried);
+
+                if(kbem.isGeneralized()) {
                     this.generalizations.add(kbem.getGeneralizations());
+                    genId++;
+                }
+            } else {
+                localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
             }
             replacedPatternElements.add(em.patternElement);
             
