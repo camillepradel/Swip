@@ -122,31 +122,6 @@ function fillTab(results)
  **/
 function displayResults(results)
 {
-	/*// Removing duplicatas
-	var i = 0;
-	while(i < results.content.length)
-	{
-		var j = i + 1;
-		while(j < results.content.length)
-		{
-			if(results.content[i].descriptiveSentence == results.content[j].descriptiveSentence)
-				results.content.splice(j, 1);
-			j++;
-		}
-		i++;
-	}*/
-
-	/*var ul;
-	var reg;
-	for(var i = 0; i < results.content.length; i++)
-	{
-		for(var j = 0; j < results.content[i].descriptiveSentence.genNb; j++)
-		{
-			ul = '<select><option>' + results.content[i].descriptiveSentence.gen[j].join('</option><option>') + '</option></select>';
-			reg = new RegExp('_gen' + j + '_');
-			results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(reg, ul);
-		}
-	}*/
 
 	var sentences = new DescList();
 	for(var i = 0; i < results.content.length; i++)

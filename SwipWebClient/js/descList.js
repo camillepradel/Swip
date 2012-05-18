@@ -31,8 +31,22 @@ function DescList()
 					{
 						for(var k = 0; k < jGen.length; k++)
 						{
-							if($.inArray(jGen[k], iGen) < 0)
+							var ind = $.inArray(jGen[k], iGen)
+							if(ind < 0)
 								iCoversJ = false;
+							else
+							{
+								var genId = jGen[k].substr(4, 1);
+								iGenA = this.descA[i].getGen(genId);
+								jGenA = this.descA[j].getGen(genId);
+
+								for(var l = 0; l < jGenA.length; l++)
+								{
+									if($.inArray(jGenA[l], iGenA) < 0)
+										iCoversJ = false;
+								}
+							}
+
 							k++;
 						}
 					}
