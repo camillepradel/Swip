@@ -197,7 +197,7 @@ public class SubpatternCollection extends Subpattern {
                         selectElements.add(pivotVarName);
                     }
                 } 
-                 if(pivotKbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
+                else if(pivotKbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
                         numerciDataPropertyElements.put(pivotKbElementMapping.getBestLabel(), "loutre");
                         pivotVarName = toInsert;
                 } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
