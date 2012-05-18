@@ -611,6 +611,8 @@ public class PatternToQueryMapping {
             else
                 query += "}\n";
         }
+        else
+            query += "}\n";
         
         this.setSparqlQuery(query);
     }
