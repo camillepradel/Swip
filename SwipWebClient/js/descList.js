@@ -18,14 +18,14 @@ function DescList()
 		{
 			for(var j = 0; j < this.descA.length; j++)
 			{
-				if(i != j && $.inArray(j, ret) < 0)
+				if(i != j && $.inArray(j, ret) < 0 && $.inArray(i, ret) < 0)
 				{
 					var iCoversJ = true;
 
 					iGen = this.descA[i].getGenIds();
 					jGen = this.descA[j].getGenIds();
 
-					if(iGen.length <= jGen.length)
+					if(iGen.length < jGen.length)
 						iCoversJ = false;
 					else
 					{
