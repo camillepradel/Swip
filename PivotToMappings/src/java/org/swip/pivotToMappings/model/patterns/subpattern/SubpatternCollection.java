@@ -1,6 +1,7 @@
 package org.swip.pivotToMappings.model.patterns.subpattern;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -27,8 +28,6 @@ public class SubpatternCollection extends Subpattern {
     }
 
     public SubpatternCollection(Collection<Subpattern> subpatterns, String id, int minOccurrences, int maxOccurrences, PatternElement pivotElement) {
-        super();
-        System.out.println("\n /!\\ NEW SubPattern COllection\n\n");
         this.subpatterns = subpatterns;
         this.id = id;
         this.minOccurrences = minOccurrences;
@@ -171,8 +170,7 @@ public class SubpatternCollection extends Subpattern {
     }
 
     @Override
-    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements) {
-        System.out.println("\n\n /!\\  SubPattern Collection generateSParqlWhere \n\n");
+    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements) {
         // if subpattern collection is optional and pivot element is not mapped
         Collection<ElementMapping> pivotElementMappings = ptqm.getElementMappings(this.pivotElement);
         if (this.minOccurrences == 0 && pivotElementMappings.isEmpty()) {
@@ -193,7 +191,8 @@ public class SubpatternCollection extends Subpattern {
                     }
                 } 
                  if(pivotKbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
-                        super.setHasNumericDataProperty(true);
+                        numerciDataPropertyElements.put(pivotKbElementMapping.getBestLabel(), "loutre");
+                        pivotVarName = "<" + firstlyMatchedOntResource + ">";
                 } else if (pivotKbElementMapping.isProp()) { // property
                     pivotVarName = "<" + firstlyMatchedOntResource + ">";
                 } else { // instance
@@ -223,13 +222,13 @@ public class SubpatternCollection extends Subpattern {
             }
                 elementsStrings.put(this.pivotElement, pivotVarName);
             for (Subpattern sp : this.subpatterns) {
-                result += "\n" + sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements);
+                result += "\n" + sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements);
             }
         }
         // if pivot element was not mapped but minOccurrences>0
         if (result.equals("")) {
             for (Subpattern sp : this.subpatterns) {
-                result += sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements);
+                result += sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements);
             }
         }
 

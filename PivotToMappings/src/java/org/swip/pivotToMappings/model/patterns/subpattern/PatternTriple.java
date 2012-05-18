@@ -1,5 +1,7 @@
 package org.swip.pivotToMappings.model.patterns.subpattern;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -31,8 +33,6 @@ public class PatternTriple extends Subpattern {
     }
 
     public PatternTriple(ClassPatternElement pe1, PropertyPatternElement pe2, PatternElement pe3) {
-        super();
-        System.out.println("\n /!\\ NEW PATTERN TRIPLE \n\n");
         e1 = pe1;
         e2 = pe2;
         e3 = pe3;
@@ -75,15 +75,20 @@ public class PatternTriple extends Subpattern {
     }
 
     @Override
-    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements) {
-        System.out.println("\n\n /!\\  SubPattern Collection generateSParqlWhere \n\n");
+    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements) {
         LinkedList<String> typeStrings = new LinkedList<String>();
-
+        HashMap<PatternElement, String> matchNumerciDataProperty = new HashMap<PatternElement, String>();
+        String sparqlE1 = sparqlForElement(e1, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
+        String sparqlE2 = sparqlForElement(e2, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
+        String sparqlE3 = sparqlForElement(e3, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
         String result = "      "
-                + sparqlForElement(e1, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements) + " "
-                + sparqlForElement(e2, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements) + " "
-                + sparqlForElement(e3, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements) + ".";
-
+                + sparqlE1 + " "
+                + sparqlE2 + " "
+                + sparqlE3 + ".";
+        
+        if(!matchNumerciDataProperty.isEmpty())
+            numerciDataPropertyElements.put(matchNumerciDataProperty.get(e2), sparqlE3);
+        
         for (String typeString : typeStrings) {
             result += "\n" + typeString;
         }
@@ -93,7 +98,7 @@ public class PatternTriple extends Subpattern {
         return result + "\n";
     }
 
-    private String sparqlForElement(PatternElement e, LinkedList<String> typeStrings, PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements) {
+    private String sparqlForElement(PatternElement e, LinkedList<String> typeStrings, PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<PatternElement, String> numerciDataPropertyElements) {
         String elementString = elementsStrings.get(e);
         if (elementString == null) {
             List<ElementMapping> elementMappings = ptqm.getElementMappings(e);
@@ -111,7 +116,8 @@ public class PatternTriple extends Subpattern {
                             selectElements.add(elementString);
                         }
                     } else if(kbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
-                        super.setHasNumericDataProperty(true);
+                        numerciDataPropertyElements.put(e, kbElementMapping.getQueryElement().getStringValue());
+                        elementString = "<" + firstlyMatchedOntResource + ">";
                     }else if (kbElementMapping.isProp()) { // property
                         
                         

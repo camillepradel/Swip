@@ -303,9 +303,14 @@ public class Keyword extends QueryElement {
         String ret = null;
         if(this.aggregat!=null)
         {
-            ret = this.aggregat+"("+this.getVarName()+")"+this.cond;
+            ret = "("+this.aggregat+"("+this.getVarName()+")"+this.cond+")";
         }
         return ret;
+    }
+    
+    public String getCond()
+    {
+        return this.cond;
     }
     
     public boolean isAggregate()

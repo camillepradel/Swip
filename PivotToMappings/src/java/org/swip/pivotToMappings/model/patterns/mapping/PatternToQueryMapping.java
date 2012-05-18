@@ -502,25 +502,21 @@ public class PatternToQueryMapping {
         String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>";
         Set<String> selectElements = new HashSet<String>();
+        HashMap<String, String> numericDataPropertyElements = new HashMap<String, String>();
         String where = "";
         String query = "";
-        boolean dataPropertyNumeric = false;
         Map<PatternElement, String> pivotsNames = new HashMap<PatternElement, String>();
         for (Subpattern sp : this.getPattern().getSubpatterns()) {
-            where += sp.generateSparqlWhere(this, sparqlServer, pivotsNames, selectElements);
-            if(!dataPropertyNumeric)
-            {
-                dataPropertyNumeric = sp.hasNumericDataProperty();
-            }
+            where += sp.generateSparqlWhere(this, sparqlServer, pivotsNames, selectElements, numericDataPropertyElements);
         }
         
         String aggSelectFormat = "";
         
-        if(dataPropertyNumeric)
+        if(!numericDataPropertyElements.isEmpty())
         {
             aggSelectFormat = "%s";
         }
-        if (userQuery.isCount()) 
+        else if (userQuery.isCount()) 
         {
             //select = "COUNT(" + select + " AS "+(select.replaceAll("?", "?Nb"))+")";
             aggSelectFormat = "(COUNT(%s) AS %sNb)";
@@ -556,15 +552,18 @@ public class PatternToQueryMapping {
             select = String.format(aggSelectFormat, "*", "All");
         }
 
+         
+        query  += prefixes+"\n"; 
         if (userQuery.isAsk()) {
             //this.setSparqlQuery();
-            query += prefixes + "\nASK {\n" + where + "}\n";
+            query += "ASK {\n";
         } else {
             //this.setSparqlQuery();
-            query += prefixes + "\nSELECT " + select + "\nWHERE {\n" + where + "}\n";
+            query += "SELECT " + select + "\nWHERE {\n";
         }
-        
+        query += where;
         String aggregat = "";
+        String cond = "";
         boolean isAgg = false;
         for(QueryElement q : userQuery.getQueryElements())
         {
@@ -572,14 +571,36 @@ public class PatternToQueryMapping {
             {
                 Keyword k = (Keyword)q;
                 aggregat += k.getAggregate();
+                cond += numericDataPropertyElements.get(k.getKeywordValue())+k.getCond()+" AND \n";
                 isAgg = true;
+                System.out.println("/!\\ Test ICI !! \n");
+                for(String e : numericDataPropertyElements.keySet())
+                {
+                    String value = numericDataPropertyElements.get(e);
+                    System.out.println("Key : "+e+ " || value : "+value+" || keywordValue : "+k.getKeywordValue()+" \n");
+                }
             }
         }
-        if(isAgg && !dataPropertyNumeric)
+        
+        if(isAgg)
         {
-            query += "GROUPBY "+varsSelect+" \n";
-            query += "HAVING "+aggregat+"\n";
+            if(!numericDataPropertyElements.isEmpty())
+            {
+                cond = cond.substring(0, cond.lastIndexOf("AND"));
+                query += "FILTER ( "+cond+")\n";
+                query += "}\n";
+            }
+            else if(select.compareTo("*") != 0)
+            {
+                //query += "BIND COUNT("+
+                query += "}\n";
+                query += "GROUPBY "+varsSelect+" \n";
+                query += "HAVING "+aggregat+"\n";
+            }
+            else
+                query += "}\n";
         }
+        
         this.setSparqlQuery(query);
     }
 }
