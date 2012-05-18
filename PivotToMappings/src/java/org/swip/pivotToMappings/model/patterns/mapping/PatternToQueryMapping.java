@@ -43,20 +43,24 @@ public class PatternToQueryMapping {
     private String stringDescription = null;
     
     private HashMap<Integer, ArrayList<String> > generalizations;
+    private HashMap<Integer, ArrayList<String> > uris;
 
     public PatternToQueryMapping() {
         this.generalizations = new HashMap<Integer, ArrayList<String>>();
+        this.uris = new HashMap<Integer, ArrayList<String>>();
     }
 
     public PatternToQueryMapping(Pattern p) {
         this.pattern = p;
         this.generalizations = new HashMap<Integer, ArrayList<String>>();
+        this.uris = new HashMap<Integer, ArrayList<String>>();
     }
 
     public PatternToQueryMapping(Pattern p, List<ElementMapping> ems) {
         this.pattern = p;
         this.elementMappings = ems;
         this.generalizations = new HashMap<Integer, ArrayList<String>>();
+        this.uris = new HashMap<Integer, ArrayList<String>>();
     }
 
     /**
@@ -451,7 +455,10 @@ public class PatternToQueryMapping {
                 localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + kbem.getStringForSentence(sparqlServer, em.patternElement.getId()) + queried);
 
                 if(kbem.isGeneralized())
+                {
                     this.generalizations.put(em.patternElement.getId(), kbem.getGeneralizations());
+                    this.uris.put(em.patternElement.getId(), kbem.getUris());
+                }
             } else {
                 localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
             }
@@ -498,6 +505,10 @@ public class PatternToQueryMapping {
         return this.generalizations;
     }
 
+    public HashMap<Integer, ArrayList<String> > getUris() {
+        return this.uris;
+    }
+
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {
         String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>";
@@ -505,6 +516,7 @@ public class PatternToQueryMapping {
         String where = "";
         String query = "";
         boolean dataPropertyNumeric = false;
+
         Map<PatternElement, String> pivotsNames = new HashMap<PatternElement, String>();
         for (Subpattern sp : this.getPattern().getSubpatterns()) {
             where += sp.generateSparqlWhere(this, sparqlServer, pivotsNames, selectElements);

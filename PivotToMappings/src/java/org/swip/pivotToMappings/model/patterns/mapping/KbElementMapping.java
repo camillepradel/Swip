@@ -17,6 +17,7 @@ public class KbElementMapping extends ElementMapping {
     private KbTypeEnum kbType;
     private boolean generalized;
     private ArrayList<String> generalizations;
+    private ArrayList<String> uris;
 
     String firstlyMatchedOntResourceUri = null;
     String bestLabel = null;
@@ -25,6 +26,7 @@ public class KbElementMapping extends ElementMapping {
     public KbElementMapping() {
         this.generalized = false;
         this.generalizations = new ArrayList<String>();
+        this.uris = new ArrayList<String>();
     }
 
     public KbElementMapping(PatternElement pe, QueryElement qe, float trustMark, String firstlyMatchedOntResource, String bestLabel, ElementMapping impliedBy, KbTypeEnum kbType) {
@@ -35,6 +37,7 @@ public class KbElementMapping extends ElementMapping {
 
         this.generalized = false;
         this.generalizations = new ArrayList<String>();
+        this.uris = new ArrayList<String>();
     }
     
     public KbTypeEnum getKbType() {
@@ -59,6 +62,10 @@ public class KbElementMapping extends ElementMapping {
 
     public ArrayList<String> getGeneralizations() {
         return this.generalizations;
+    }
+
+    public ArrayList<String> getUris() {
+        return this.uris;
     }
 
     @Override
@@ -155,6 +162,9 @@ public class KbElementMapping extends ElementMapping {
             article = "un(e) ";
 
         this.generalizations.add("\"" + article + this.getBestLabel() + "\"");
+        
+        if(this.kbType != KbTypeEnum.IND)
+            this.uris.add("\"<" + this.getFirstlyMatchedOntResourceUri() + ">\"");
 
         if(this.kbType == KbTypeEnum.IND)
             article = "un(e) ";
@@ -167,6 +177,10 @@ public class KbElementMapping extends ElementMapping {
 
                 if(labelGen != null) {
                     this.generalizations.add("\"" + article + labelGen + "\"");
+                    this.uris.add("\"<" + sol.get(varName).toString() + ">\"");
+
+                    if(this.kbType == KbTypeEnum.IND && this.uris.size() == 1)
+                        this.uris.add("\"<" + sol.get(varName).toString() + ">\"");
                 }
             }
         }

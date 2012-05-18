@@ -73,6 +73,8 @@ public class PivotToMappingsWS {
                     JSONObject query = new JSONObject();
                     JSONObject descSentJSon = new JSONObject();
                     JSONObject generalizations = new JSONObject();
+                    JSONObject sparqlQuery = new JSONObject();
+                    JSONObject uris = new JSONObject();
                     
                     String descSent = ptqm.getSentence().trim().replaceAll("\\s+", " ");
                     if(descSent.charAt(descSent.length() - 1) == ',')
@@ -83,9 +85,14 @@ public class PivotToMappingsWS {
                     descSentJSon.put("gen", generalizations);
                     query.put("descriptiveSentence", descSentJSon);
 
+                    for(Map.Entry<Integer, ArrayList<String>> entry : ptqm.getUris().entrySet())
+                        uris.put(String.valueOf(entry.getKey()), entry.getValue());
+                    sparqlQuery.put("string", ptqm.getSparqlQuery());
+                    sparqlQuery.put("uris", uris);
+                    query.put("sparqlQuery", sparqlQuery);
+
                     query.put("mappingDescription", ptqm.getStringDescription());
                     query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
-                    query.put("sparqlQuery", ptqm.getSparqlQuery());
 
                     queryResults.add(query);
                 }

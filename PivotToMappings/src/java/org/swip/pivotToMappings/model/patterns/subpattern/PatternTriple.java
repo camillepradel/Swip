@@ -100,10 +100,17 @@ public class PatternTriple extends Subpattern {
                     KbElementMapping kbElementMapping = (KbElementMapping) elementMapping;
                     String varName = kbElementMapping.getQueryElement().getVarName();
                     String firstlyMatchedOntResource = kbElementMapping.getFirstlyMatchedOntResourceUri();
+
+                    String toInsert = "";
+                    if(kbElementMapping.isGeneralized())
+                        toInsert = "_gen" + kbElementMapping.getPatternElement().getId() + "_";
+                    else
+                        toInsert = "<" + kbElementMapping.getFirstlyMatchedOntResourceUri() + ">";
+
                     if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
                         //elementString = "?var" + ++(Subpattern.varCount);
                         elementString = varName;
-                        typeStrings.add("       " + elementString + " rdf:type <" + firstlyMatchedOntResource + ">.");
+                        typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".");
                         if (kbElementMapping.getQueryElement().isQueried()) {
                             selectElements.add(elementString);
                         }
@@ -112,13 +119,13 @@ public class PatternTriple extends Subpattern {
                         {
                             this.hasNumericDataProperty = true;
                         }
-                        elementString = "<" + firstlyMatchedOntResource + ">";
+                        elementString = toInsert;
                     } else { // instance
                         //elementString = "?var" + ++(Subpattern.varCount);
                         elementString = varName;
                         List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
                         for (String type : types) {
-                            typeStrings.add("       " + elementString + " rdf:type <" + type + ">.");
+                            typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".");
                         }
                         String matchedLabel = ((KbElementMapping) ptqm.getElementMappings(e).get(0)).getBestLabel();
                         /*typeStrings.add(

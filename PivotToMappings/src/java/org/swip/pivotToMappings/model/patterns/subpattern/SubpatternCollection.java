@@ -181,19 +181,26 @@ public class SubpatternCollection extends Subpattern {
             if (pivotElementMapping instanceof KbElementMapping) {
                 KbElementMapping pivotKbElementMapping = (KbElementMapping) pivotElementMapping;
                 String firstlyMatchedOntResource = pivotKbElementMapping.getFirstlyMatchedOntResourceUri();
+
+                String toInsert = "";
+                if(pivotKbElementMapping.isGeneralized())
+                    toInsert = "_gen" + pivotKbElementMapping.getPatternElement().getId() + "_";
+                else
+                    toInsert = "<" + pivotKbElementMapping.getFirstlyMatchedOntResourceUri() + ">";
+
                 if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
                     //pivotVarName = "?var" + ++(Subpattern.varCount);
-                    result += "       " + pivotVarName + " rdf:type <" + firstlyMatchedOntResource + ">.\n";
+                    result += "       " + pivotVarName + " rdf:type " + toInsert + ".\n";
                     if (pivotKbElementMapping.getQueryElement().isQueried()) {
                         selectElements.add(pivotVarName);
                     }
                 } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
-                    pivotVarName = "<" + firstlyMatchedOntResource + ">";
+                    pivotVarName = toInsert;
                 } else { // instance
                     //pivotVarName = "?var" + ++(Subpattern.varCount);
                     List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
                     for (String type : types) {
-                        result += "       " + pivotVarName + " rdf:type <" + type + ">.\n";
+                        result += "       " + pivotVarName + " rdf:type " + toInsert + ".\n";
                     }
                     String matchedLabel = ((KbElementMapping) pivotElementMapping).getBestLabel();
                     /*result += "       { " + pivotVarName + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "

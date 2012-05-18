@@ -91,7 +91,7 @@ function fillTab(results)
 	   		var mappingPre = '<span class="title">Mapping Description :</span><br /><br /><pre class="mappingPre"></pre>';
             $('#' + subgrid_id).addClass('subgrid');
             $('#' + subgrid_id).append(queryPre + '<br /><hr /><br />' + mappingPre);
-            $('#' + subgrid_id + ' .queryPre').text(results.content[row_id - 1].sparqlQuery);
+            $('#' + subgrid_id + ' .queryPre').text(generateSparql(row_id - 1, results));
             $('#' + subgrid_id + ' .mappingPre').text(results.content[row_id - 1].mappingDescription);
         },
         gridComplete: function()
@@ -114,6 +114,13 @@ function fillTab(results)
 	{
 		selectQuery($(this).attr('id'), results);
 	});
+
+	$('.descriptiveSentence select').die();
+	$('.descriptiveSentence select').live('change', function()
+	{
+		var reg = $(this).attr('id').match(/gen(\d+)_(\d+)/);
+		updateSparql(parseInt(reg[1]), results);
+	});
 }
 
 
@@ -125,7 +132,7 @@ function displayResults(results)
 
 	var sentences = new DescList();
 	for(var i = 0; i < results.content.length; i++)
-		sentences.add(results.content[i].descriptiveSentence);
+		sentences.add(results.content[i].descriptiveSentence, i + 1);
 	
 	var duplicates = sentences.checkCover();
 	
@@ -141,6 +148,11 @@ function displayResults(results)
 		if($.inArray(i, duplicates) >= 0)
 			results.content.splice(i, 1);
 		i--;
+	}
+
+	for(var i = 0; i < results.content.length; i++)
+	{
+		results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(/_mappingId_/g, i);
 	}
 
 	// Displaying
@@ -189,17 +201,60 @@ function selectQuery(id, results)
 		$('#results').tabs('add', '#query' + id, 'Query #' + id);
 	}
 
-	var descSentence = '<span class="title">Search :</span><br /><br /><span class="searchSpan"></span>'; 
 	var sparqlQuery = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
 	var sparqlResult = '<span class="title">SPARQL Result :</span><span class="resultSpan"></span><div class="loading" style="display: block"><img src="img/loading_icon_blue.gif" alt="Loading" /><br /></div>'
 	
-	$('#query' + id).html(descSentence + '<br /><br /><hr /><br />' + sparqlResult + '<br /><hr /><br />' + sparqlQuery);
-	$('#query' + id + ' .queryPre').text(results.content[id - 1].sparqlQuery);
-	$('#query' + id + ' .searchSpan').html(results.content[id - 1].descriptiveSentence);
+	$('#query' + id).html(sparqlResult + '<br /><hr /><br />' + sparqlQuery);
+	$('#query' + id + ' .queryPre').text(generateSparql(id - 1, results));
 
-	processQuery(results.content[id - 1].sparqlQuery, id);
+	processQuery(generateSparql(id - 1, results), id);
 }
 
+
+function updateSparql(mappingId, results)
+{
+	if($('#query' + (mappingId + 1)).length)
+	{
+		$('#results').tabs('remove', '#query' + mappingId);
+	}
+
+	$('#jqGrid_' + (mappingId + 1) + '.subgrid .queryPre').text(generateSparql(mappingId, results));
+	console.log(generateSparql(mappingId, results));
+	console.log('#jqGrid_' + (mappingId + 1) + '.subgrid .queryPre');
+}
+
+function generateSparql(mappingId, results)
+{
+	var ret = results.content[mappingId].sparqlQuery.string;
+	var genIds = ret.match(/_gen\d+_/g);
+	var selectedFields = [];
+
+	for(var i = 0; i < genIds.length; i++)
+	{
+		var genId = genIds[i].substr(4, 1);
+		var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
+		selectedFields.push(results.content[mappingId].descriptiveSentence.gen[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex]);
+
+		var reg = new RegExp('_gen' + genId + '_');
+		ret = ret.replace(reg, selectedField);
+	}
+
+	var inds = ret.match(/\?\w+ \(<http:\/\/purl\.org\/dc\/elements\/1\.1\/title>\|rdfs:label\) "([\w\s]+)"\./);
+
+	if(inds != null && inds.length > 1)
+	{
+		for(var i = 1; i < inds.length; i++)
+		{
+			if($.inArray(inds[i], selectedFields) < 0)
+			{
+				var reg = new RegExp('\\?\\w+ \\(<http:\\/\\/purl\\.org\\/dc\\/elements\\/1\\.1\\/title>\\|rdfs:label\\) "' + inds[i] + '"\\.');
+				ret = ret.replace(reg, '');
+			}
+		}
+	}
+
+	return ret;
+}
 
 /**
  * Called when a query has been processed

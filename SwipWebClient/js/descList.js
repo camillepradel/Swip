@@ -5,9 +5,9 @@ function DescList()
 {
 	this.descA = [];
 
-	this.add = function(descriptiveSentence)
+	this.add = function(descriptiveSentence, mappingId)
 	{
-		this.descA.push(new Desc(descriptiveSentence));
+		this.descA.push(new Desc(descriptiveSentence, mappingId));
 	}
 
 	this.checkCover = function()
