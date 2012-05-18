@@ -31,6 +31,8 @@ public class PatternTriple extends Subpattern {
     }
 
     public PatternTriple(ClassPatternElement pe1, PropertyPatternElement pe2, PatternElement pe3) {
+        super();
+        System.out.println("\n /!\\ NEW PATTERN TRIPLE \n\n");
         e1 = pe1;
         e2 = pe2;
         e3 = pe3;
@@ -74,6 +76,7 @@ public class PatternTriple extends Subpattern {
 
     @Override
     public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements) {
+        System.out.println("\n\n /!\\  SubPattern Collection generateSParqlWhere \n\n");
         LinkedList<String> typeStrings = new LinkedList<String>();
 
         String result = "      "
@@ -84,9 +87,9 @@ public class PatternTriple extends Subpattern {
         for (String typeString : typeStrings) {
             result += "\n" + typeString;
         }
-        System.out.println("TEST GENERATE SPARQL WHERE : \n");
+        /*System.out.println("TEST GENERATE SPARQL WHERE : \n");
         System.out.println(result);
-        System.out.println("----------");
+        System.out.println("----------");*/
         return result + "\n";
     }
 
@@ -100,18 +103,18 @@ public class PatternTriple extends Subpattern {
                     KbElementMapping kbElementMapping = (KbElementMapping) elementMapping;
                     String varName = kbElementMapping.getQueryElement().getVarName();
                     String firstlyMatchedOntResource = kbElementMapping.getFirstlyMatchedOntResourceUri();
-                    if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
+                    if (kbElementMapping.isClass()) { // class
                         //elementString = "?var" + ++(Subpattern.varCount);
                         elementString = varName;
                         typeStrings.add("       " + elementString + " rdf:type <" + firstlyMatchedOntResource + ">.");
                         if (kbElementMapping.getQueryElement().isQueried()) {
                             selectElements.add(elementString);
                         }
-                    } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
-                        if(sparqlServer.isDataProperty(firstlyMatchedOntResource) && sparqlServer.isNumericDataProperty(firstlyMatchedOntResource)) // numeric data property
-                        {
-                            this.hasNumericDataProperty = true;
-                        }
+                    } else if(kbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
+                        super.setHasNumericDataProperty(true);
+                    }else if (kbElementMapping.isProp()) { // property
+                        
+                        
                         elementString = "<" + firstlyMatchedOntResource + ">";
                     } else { // instance
                         //elementString = "?var" + ++(Subpattern.varCount);

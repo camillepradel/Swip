@@ -148,17 +148,17 @@ public class Keyword extends QueryElement {
             boolean isClass = false;
             boolean isIndividual = false;
             boolean isProperty = false;
-            boolean isDataProperty = false;
+            boolean isNumericDataProperty = false;
 
             List<String> types = serv.listTypes(uri);
             if (serv.isClass(types)) {
                 isClass = true;
                 logger.info(" (o) class " + uri);
             } 
-            else if(serv.isDataProperty(types)) {
-                isDataProperty = true;
+            else if(serv.isDataProperty(types) && serv.isNumericDataProperty(uri)) {
+                isNumericDataProperty = true;
                 isProperty = true;
-                logger.info(" (o) data property " + uri +" (numeric : "+serv.isNumericDataProperty(uri)+")");
+                logger.info(" (o) numeric data property " + uri);
             } else if (serv.isProperty(types)) {
                 isProperty = true;
                 logger.info(" (o) property " + uri);
@@ -192,7 +192,12 @@ public class Keyword extends QueryElement {
             } else if(isClass) {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.CLASS);
             } else if(isProperty) {
-                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.PROP);
+                if(isNumericDataProperty)
+                {
+                    this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.DATAPROPNUM);
+                }
+                else
+                    this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.PROP);
             } else {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.NONE);
                 // if query element matches a property and has not a property role in query,

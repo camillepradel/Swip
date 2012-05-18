@@ -5,5 +5,6 @@ public enum KbTypeEnum {
     CLASS,
     IND,
     PROP,
+    DATAPROPNUM,
     NONE
 }

@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
@@ -26,6 +27,8 @@ public class SubpatternCollection extends Subpattern {
     }
 
     public SubpatternCollection(Collection<Subpattern> subpatterns, String id, int minOccurrences, int maxOccurrences, PatternElement pivotElement) {
+        super();
+        System.out.println("\n /!\\ NEW SubPattern COllection\n\n");
         this.subpatterns = subpatterns;
         this.id = id;
         this.minOccurrences = minOccurrences;
@@ -169,6 +172,7 @@ public class SubpatternCollection extends Subpattern {
 
     @Override
     public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements) {
+        System.out.println("\n\n /!\\  SubPattern Collection generateSParqlWhere \n\n");
         // if subpattern collection is optional and pivot element is not mapped
         Collection<ElementMapping> pivotElementMappings = ptqm.getElementMappings(this.pivotElement);
         if (this.minOccurrences == 0 && pivotElementMappings.isEmpty()) {
@@ -181,13 +185,16 @@ public class SubpatternCollection extends Subpattern {
             if (pivotElementMapping instanceof KbElementMapping) {
                 KbElementMapping pivotKbElementMapping = (KbElementMapping) pivotElementMapping;
                 String firstlyMatchedOntResource = pivotKbElementMapping.getFirstlyMatchedOntResourceUri();
-                if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
+                if (pivotKbElementMapping.isClass()) { // class
                     //pivotVarName = "?var" + ++(Subpattern.varCount);
                     result += "       " + pivotVarName + " rdf:type <" + firstlyMatchedOntResource + ">.\n";
                     if (pivotKbElementMapping.getQueryElement().isQueried()) {
                         selectElements.add(pivotVarName);
                     }
-                } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
+                } 
+                 if(pivotKbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
+                        super.setHasNumericDataProperty(true);
+                } else if (pivotKbElementMapping.isProp()) { // property
                     pivotVarName = "<" + firstlyMatchedOntResource + ">";
                 } else { // instance
                     //pivotVarName = "?var" + ++(Subpattern.varCount);

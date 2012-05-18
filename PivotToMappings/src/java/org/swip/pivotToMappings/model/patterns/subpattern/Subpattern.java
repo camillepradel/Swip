@@ -11,9 +11,10 @@ abstract public class Subpattern {
 
     public static int varCount = 0;
     
-    protected boolean hasNumericDataProperty = false;
+    private boolean hasNumericDataProperty;
 
     public Subpattern() {
+        this.hasNumericDataProperty = false;
     }
 
     public static int getVarCount() {
@@ -26,7 +27,14 @@ abstract public class Subpattern {
     
     public boolean hasNumericDataProperty()
     {
+        System.out.println("\n/!\\ get has numeric data property to : "+this.hasNumericDataProperty+" || "+this+" \n\n");
         return this.hasNumericDataProperty;
+    }
+    
+    protected void setHasNumericDataProperty(boolean bool)
+    {
+        this.hasNumericDataProperty = bool;
+        System.out.println("\n/!\\ set has numeric data property to : "+bool+"  || "+this+" \n\n");
     }
 
     public abstract String toStringWithMapping(PatternToQueryMapping ptqm);
