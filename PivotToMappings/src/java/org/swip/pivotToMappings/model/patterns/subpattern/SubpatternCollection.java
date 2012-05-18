@@ -183,23 +183,30 @@ public class SubpatternCollection extends Subpattern {
             if (pivotElementMapping instanceof KbElementMapping) {
                 KbElementMapping pivotKbElementMapping = (KbElementMapping) pivotElementMapping;
                 String firstlyMatchedOntResource = pivotKbElementMapping.getFirstlyMatchedOntResourceUri();
-                if (pivotKbElementMapping.isClass()) { // class
+
+                String toInsert = "";
+                if(pivotKbElementMapping.isGeneralized())
+                    toInsert = "_gen" + pivotKbElementMapping.getPatternElement().getId() + "_";
+                else
+                    toInsert = "<" + pivotKbElementMapping.getFirstlyMatchedOntResourceUri() + ">";
+
+                if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
                     //pivotVarName = "?var" + ++(Subpattern.varCount);
-                    result += "       " + pivotVarName + " rdf:type <" + firstlyMatchedOntResource + ">.\n";
+                    result += "       " + pivotVarName + " rdf:type " + toInsert + ".\n";
                     if (pivotKbElementMapping.getQueryElement().isQueried()) {
                         selectElements.add(pivotVarName);
                     }
                 } 
                  if(pivotKbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
                         numerciDataPropertyElements.put(pivotKbElementMapping.getBestLabel(), "loutre");
-                        pivotVarName = "<" + firstlyMatchedOntResource + ">";
-                } else if (pivotKbElementMapping.isProp()) { // property
-                    pivotVarName = "<" + firstlyMatchedOntResource + ">";
+                        pivotVarName = toInsert;
+                } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
+                    pivotVarName = toInsert;
                 } else { // instance
                     //pivotVarName = "?var" + ++(Subpattern.varCount);
                     List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
                     for (String type : types) {
-                        result += "       " + pivotVarName + " rdf:type <" + type + ">.\n";
+                        result += "       " + pivotVarName + " rdf:type " + toInsert + ".\n";
                     }
                     String matchedLabel = ((KbElementMapping) pivotElementMapping).getBestLabel();
                     /*result += "       { " + pivotVarName + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "

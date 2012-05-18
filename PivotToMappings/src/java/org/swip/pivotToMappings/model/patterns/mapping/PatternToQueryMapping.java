@@ -43,20 +43,24 @@ public class PatternToQueryMapping {
     private String stringDescription = null;
     
     private HashMap<Integer, ArrayList<String> > generalizations;
+    private HashMap<Integer, ArrayList<String> > uris;
 
     public PatternToQueryMapping() {
         this.generalizations = new HashMap<Integer, ArrayList<String>>();
+        this.uris = new HashMap<Integer, ArrayList<String>>();
     }
 
     public PatternToQueryMapping(Pattern p) {
         this.pattern = p;
         this.generalizations = new HashMap<Integer, ArrayList<String>>();
+        this.uris = new HashMap<Integer, ArrayList<String>>();
     }
 
     public PatternToQueryMapping(Pattern p, List<ElementMapping> ems) {
         this.pattern = p;
         this.elementMappings = ems;
         this.generalizations = new HashMap<Integer, ArrayList<String>>();
+        this.uris = new HashMap<Integer, ArrayList<String>>();
     }
 
     /**
@@ -451,7 +455,10 @@ public class PatternToQueryMapping {
                 localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + kbem.getStringForSentence(sparqlServer, em.patternElement.getId()) + queried);
 
                 if(kbem.isGeneralized())
+                {
                     this.generalizations.put(em.patternElement.getId(), kbem.getGeneralizations());
+                    this.uris.put(em.patternElement.getId(), kbem.getUris());
+                }
             } else {
                 localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
             }
@@ -496,6 +503,10 @@ public class PatternToQueryMapping {
 
     public HashMap<Integer, ArrayList<String> > getGeneralizations() {
         return this.generalizations;
+    }
+
+    public HashMap<Integer, ArrayList<String> > getUris() {
+        return this.uris;
     }
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {

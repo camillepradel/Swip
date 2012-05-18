@@ -1,4 +1,4 @@
-function Desc(descriptiveSentence)
+function Desc(descriptiveSentence, mappingId)
 {
 	this.descriptiveSentence = descriptiveSentence;
 	this.generalizedSentence = this.descriptiveSentence.string;
@@ -24,7 +24,7 @@ function Desc(descriptiveSentence)
 	{
 		var genId = gens[i].substr(4, 1);
 
-		var ul = '<select><option>' + this.descriptiveSentence.gen[genId].join('</option><option>') + '</option></select>';
+		var ul = '<select id="gen_mappingId__' + genId + '"><option>' + this.descriptiveSentence.gen[genId].join('</option><option>') + '</option></select>';
 		var reg = new RegExp('_gen' + genId + '_');
 		this.generalizedSentence = this.generalizedSentence.replace(reg, ul);
 	}
