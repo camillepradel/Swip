@@ -203,9 +203,9 @@ public class PatternToQueryMapping {
         return sentence;
     }
 
-    public String getSentence(SparqlServer server, Query userQuery) {
+    public String getSentence(SparqlServer server, Query userQuery, String lang) {
         if (this.sentence == null) {
-            generateSentence(server, userQuery);
+            generateSentence(server, userQuery, lang);
         }
         return sentence;
     }
@@ -437,7 +437,7 @@ public class PatternToQueryMapping {
         return false;
     }
 
-    private void generateSentence(SparqlServer sparqlServer, Query userQuery) {
+    private void generateSentence(SparqlServer sparqlServer, Query userQuery, String lang) {
         String localSentence = this.getPattern().getSentenceTemplate();
         String aggregateSentence = "";
         ArrayList<QueryElement> aggregateProcessed = new ArrayList<QueryElement>();
@@ -445,10 +445,17 @@ public class PatternToQueryMapping {
         localSentence = this.getPattern().modifySentence(localSentence, this, sparqlServer);
 
         Collection<PatternElement> replacedPatternElements = new LinkedList<PatternElement>();
+        boolean numericDataProperty = false;
+        for(ElementMapping em : this.getElementMappings())
+        {
+            if(em instanceof KbElementMapping && !numericDataProperty) {
+                numericDataProperty = ((KbElementMapping)em).isNumericDataProperty();
+            }
+        }
         for (ElementMapping em : this.getElementMappings()) {
             QueryElement qe = em.queryElement;
             String queried = qe.isQueried() ? "?" : "";
-        
+            
             if(em instanceof KbElementMapping) {
                 KbElementMapping kbem = (KbElementMapping) em;
                 
@@ -465,9 +472,9 @@ public class PatternToQueryMapping {
 
             replacedPatternElements.add(em.patternElement);
             
-             if(qe.isAggregate() && !aggregateProcessed.contains(qe))
+            if(qe.isAggregate() && !aggregateProcessed.contains(qe))
             {
-                aggregateSentence += qe.getStringRepresentation();
+                aggregateSentence += qe.getStringRepresentation(lang, numericDataProperty);
                 aggregateProcessed.add(qe);
             }
         }
@@ -477,22 +484,52 @@ public class PatternToQueryMapping {
             }
         }
         if (userQuery.isCount()) {
-            localSentence = "NUMBER OF ( " + localSentence + " )";
+            String s = "";
+            if(lang.compareTo("en") == 0)
+                s = "The number of ( ";
+            else if(lang.compareTo("fr") == 0)
+                s = "Le nombre de ( ";
+            localSentence = s + localSentence + " )";
         }
         else if (userQuery.isAsk()) {
-            localSentence = "ASK ( " + localSentence + " )";
+             String s = "";
+            if(lang.compareTo("en") == 0)
+                s = "Ask ( ";
+            else if(lang.compareTo("fr") == 0)
+                s = "Demande ( ";
+            localSentence = s + localSentence + " )";
         }
         else if (userQuery.isAvg()) {
-            localSentence = "AVERAGE ( " + localSentence + " )";
+             String s = "";
+            if(lang.compareTo("en") == 0)
+                s = "The average of ( ";
+            else if(lang.compareTo("fr") == 0)
+                s = "La moyenne de ( ";
+            localSentence = s+ localSentence + " )";
         }
         else if (userQuery.isMax()) {
+             String s = "";
+            if(lang.compareTo("en") == 0)
+                s = "The maximum of ( ";
+            else if(lang.compareTo("fr") == 0)
+                s = "Le maximum de ( ";
             localSentence = "MAXIMUM ( " + localSentence + " )";
         }
         else if (userQuery.isMin()) {
-            localSentence = "MINIMUM ( " + localSentence + " )";
+             String s = "";
+            if(lang.compareTo("en") == 0)
+                s = "The minimum of ( ";
+            else if(lang.compareTo("fr") == 0)
+                s = "Le minimum de ( ";
+            localSentence = s + localSentence + " )";
         }
         else if (userQuery.isSum()) {
-            localSentence = "SUM ( " + localSentence + " )";
+             String s = "";
+            if(lang.compareTo("en") == 0)
+                s = "The sum of ( ";
+            else if(lang.compareTo("fr") == 0)
+                s = "La somme de ( ";
+            localSentence = s + localSentence + " )";
         }
 
         System.out.println("PTQM : " + generalizations.toString());

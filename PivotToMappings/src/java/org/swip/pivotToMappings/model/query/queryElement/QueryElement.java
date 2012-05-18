@@ -42,7 +42,7 @@ public abstract class QueryElement {
 
     public abstract void match(SparqlServer server);
 
-    public abstract String getStringRepresentation();
+    public abstract String getStringRepresentation(String lang, boolean isNumericDataProperty);
     
      
     public abstract String getVarName();

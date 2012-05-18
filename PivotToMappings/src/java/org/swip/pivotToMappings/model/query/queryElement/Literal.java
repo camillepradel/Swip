@@ -122,7 +122,7 @@ public class Literal extends QueryElement {
     }
 
     @Override
-    public String getStringRepresentation() {
+    public String getStringRepresentation(String lang, boolean isNumerciDataProperty) {
         //return this.stringType + "<" + this.stringValue + ">";
         return this.stringValue;
     }

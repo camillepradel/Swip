@@ -325,13 +325,29 @@ public class Keyword extends QueryElement {
     }
 
     @Override
-    public String getStringRepresentation() {
+    public String getStringRepresentation(String lang, boolean isNumerciDataProperty) {
         //return (this.queried ? "?" : "") + (this.id > 0 ? "$" + this.id : "") + this.keywordValue;
         String ret = "";
         
         if(this.isAggregate)
         {
-            ret = " which "+this.aggregat+" "+this.keywordValue+" must be "+this.cond+". ";
+            String s1 = "", s2 = "", s3 = "";
+            if(lang.compareTo("en") == 0)
+            {
+                s1 = "wich";
+                s2 = "must be";
+            }
+            else if(lang.compareTo("fr") == 0)
+            {
+                s1 = "dont";
+                s2 = "doit être";
+            }
+            if(!isNumerciDataProperty)
+                s3 = this.aggregat+"("+this.keywordValue+")";
+            else
+                s3 = this.keywordValue;
+            
+            ret = " "+s1+" "+s3+" "+s2+" "+this.cond+". ";
         }
         
         return ret;

@@ -5,10 +5,8 @@
 package org.swip.pivotToMappings;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
@@ -16,24 +14,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import org.json.JSONObject;
 import org.swip.pivotToMappings.controller.Controller;
-import org.swip.pivotToMappings.model.AbstractClass;
-import org.swip.pivotToMappings.model.Class1;
-import org.swip.pivotToMappings.model.Class2;
-import org.swip.pivotToMappings.model.ClassToBeReturned;
-import org.swip.pivotToMappings.model.NestedClassToBeReturned;
-import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
-import org.swip.pivotToMappings.model.patterns.mapping.LiteralElementMapping;
+
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
-import org.swip.pivotToMappings.model.patterns.patternElement.ClassPatternElement;
-import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElement;
-import org.swip.pivotToMappings.model.patterns.patternElement.PropertyPatternElement;
-import org.swip.pivotToMappings.model.patterns.subpattern.PatternTriple;
-import org.swip.pivotToMappings.model.patterns.subpattern.SubpatternCollection;
-import org.swip.pivotToMappings.model.query.queryElement.Keyword;
-import org.swip.pivotToMappings.model.query.queryElement.Literal;
+
 
 @Path("/rest/")
 public class PivotToMappingsWS {

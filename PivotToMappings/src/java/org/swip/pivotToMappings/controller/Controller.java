@@ -47,6 +47,7 @@ public class Controller {
     private final static ArrayList<KbConfiguration>  kbConfs = new ArrayList<KbConfiguration>();
     private HashMap<String, SparqlServer> sparqlServers = null;
     private HashMap<String, List<Pattern>> patternsMap = null;
+    private HashMap<String, String> langs = null;
     private Map<Pattern, List<PatternElement>> patternElements = new HashMap<Pattern, List<PatternElement>>();
     private Map<PatternElement, List<ElementMapping>> elementMappings = new HashMap<PatternElement, List<ElementMapping>>();
 
@@ -54,10 +55,10 @@ public class Controller {
         this.sparqlServers = null;
         this.patternsMap = null;
         
-        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt"));
-        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt"));
-        this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt"));
-        this.kbConfs.add(new KbConfiguration("music", "http://localhost:2020/music", "patterns-musicbrainz.txt"));
+        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
+        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt", "fr"));
+        this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt", "fr"));
+        this.kbConfs.add(new KbConfiguration("music", "http://localhost:2020/music", "patterns-musicbrainz.txt", "en"));
     }
 
     public static Controller getInstance() {
@@ -65,6 +66,7 @@ public class Controller {
             staticController = new Controller();
             staticController.createSparqlServer();
             staticController.loadPatterns();
+            staticController.initLangs();
         }
         return staticController;
     }
@@ -85,6 +87,15 @@ public class Controller {
         this.elementMappings.get(pe).add(em);
     }
 
+    private void initLangs()
+    {
+        this.langs = new HashMap<String, String>();
+        for(KbConfiguration kbConf : this.kbConfs)
+        {
+            this.langs.put(kbConf.name, kbConf.lang);
+        }
+    }
+    
     private void createSparqlServer() {
         logger.info("Creating sparql server:");
         logger.info("----------------------\n");
@@ -253,7 +264,7 @@ public class Controller {
                             + " - rQueryCov=" + nextBestMapping.getrQueryCov(userQuery)
                             + " - rNumQueried=" + nextBestMapping.getrNumQueried(userQuery) + ")\n";
                     if (printSentences) {
-                        stringToDisplay += " - Sentence: " + nextBestMapping.getSentence(this.sparqlServers.get(kbName), userQuery) + "\n\n";
+                        stringToDisplay += " - Sentence: " + nextBestMapping.getSentence(this.sparqlServers.get(kbName), userQuery, this.langs.get(kbName)) + "\n\n";
                     }
                     if (printMappings) {
                         stringToDisplay += " - Mapping: " + nextBestMapping.toString() + "\n\n";
