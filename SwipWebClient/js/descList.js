@@ -18,36 +18,46 @@ function DescList()
 		{
 			for(var j = 0; j < this.descA.length; j++)
 			{
-				if(i != j && $.inArray(j, ret) < 0)
+				if(i != j && $.inArray(j, ret) < 0 && $.inArray(i, ret) < 0)
 				{
 					var iCoversJ = true;
 
 					iGen = this.descA[i].getGenIds();
 					jGen = this.descA[j].getGenIds();
 
-					if(iGen.length <= jGen.length)
+					if(iGen == null && jGen == null)
+					{
+						if(this.descA[i].getGeneralizedSentence() != this.descA[j].getGeneralizedSentence())
+							iCoversJ = false;
+					}
+					else if(iGen == null || jGen == null)
 						iCoversJ = false;
 					else
 					{
-						for(var k = 0; k < jGen.length; k++)
+						if(iGen.length < jGen.length)
+							iCoversJ = false;
+						else
 						{
-							var ind = $.inArray(jGen[k], iGen)
-							if(ind < 0)
-								iCoversJ = false;
-							else
+							for(var k = 0; k < jGen.length; k++)
 							{
-								var genId = jGen[k].substr(4, 1);
-								iGenA = this.descA[i].getGen(genId);
-								jGenA = this.descA[j].getGen(genId);
-
-								for(var l = 0; l < jGenA.length; l++)
+								var ind = $.inArray(jGen[k], iGen)
+								if(ind < 0)
+									iCoversJ = false;
+								else
 								{
-									if($.inArray(jGenA[l], iGenA) < 0)
-										iCoversJ = false;
-								}
-							}
+									var genId = jGen[k].substr(4, 1);
+									iGenA = this.descA[i].getGen(genId);
+									jGenA = this.descA[j].getGen(genId);
 
-							k++;
+									for(var l = 0; l < jGenA.length; l++)
+									{
+										if($.inArray(jGenA[l], iGenA) < 0)
+											iCoversJ = false;
+									}
+								}
+
+								k++;
+							}
 						}
 					}
 

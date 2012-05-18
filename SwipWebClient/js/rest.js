@@ -73,7 +73,7 @@ function processQuery(query, id)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinema'
+        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinema'
     }).done(function(data)
     {
         sparqlQueryResult(data, id);

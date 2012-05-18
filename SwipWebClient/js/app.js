@@ -219,8 +219,6 @@ function updateSparql(mappingId, results)
 	}
 
 	$('#jqGrid_' + (mappingId + 1) + '.subgrid .queryPre').text(generateSparql(mappingId, results));
-	console.log(generateSparql(mappingId, results));
-	console.log('#jqGrid_' + (mappingId + 1) + '.subgrid .queryPre');
 }
 
 function generateSparql(mappingId, results)
