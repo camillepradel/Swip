@@ -14,11 +14,17 @@ public class KbElementMapping extends ElementMapping {
 
     private static final Logger logger = Logger.getLogger(KbElementMapping.class);
 
+    private KbTypeEnum kbType;
+    private boolean generalized;
+    private ArrayList<String> generalizations;
+
     String firstlyMatchedOntResourceUri = null;
     String bestLabel = null;
-    KbTypeEnum kbType;
+    
 
     public KbElementMapping() {
+        this.generalized = false;
+        this.generalizations = new ArrayList<String>();
     }
 
     public KbElementMapping(PatternElement pe, QueryElement qe, float trustMark, String firstlyMatchedOntResource, String bestLabel, ElementMapping impliedBy, KbTypeEnum kbType) {
@@ -26,6 +32,9 @@ public class KbElementMapping extends ElementMapping {
         this.firstlyMatchedOntResourceUri = firstlyMatchedOntResource;
         this.bestLabel = bestLabel;
         this.kbType = kbType;
+
+        this.generalized = false;
+        this.generalizations = new ArrayList<String>();
     }
     
     public KbTypeEnum getKbType() {
@@ -48,28 +57,58 @@ public class KbElementMapping extends ElementMapping {
         this.firstlyMatchedOntResourceUri = firstlyMatchedOntResourceUri;
     }
 
+    public ArrayList<String> getGeneralizations() {
+        return this.generalizations;
+    }
+
     @Override
     public String getStringForSentence(SparqlServer sparqlServer) {
+        return getStringForSentence(sparqlServer, -1);
+    }
+
+    public String getStringForSentence(SparqlServer sparqlServer, int genId) {
         String ret;
 
+        if(genId == -1)
+            return null;
+
         if(this.kbType  == KbTypeEnum.CLASS) {
-            String gen = this.generateGeneralizedLabels(sparqlServer, this.generalizeClass(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
-            if(gen == null)
-                ret = "un(e) " + this.bestLabel;
-            else
-                ret = "_selBeg_un(e) " + this.bestLabel + gen + "_selEnd_";
-        } else if(this.kbType  == KbTypeEnum.IND) {
-            String gen = this.generateGeneralizedLabels(sparqlServer, this.generalizeInd(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
-            if(gen == null)
-                ret = this.bestLabel;
-            else
-                ret = "_selBeg_" + this.bestLabel + gen + "_selEnd_";
-        } else if(this.kbType  == KbTypeEnum.PROP) {
-            String gen = this.generateGeneralizedLabels(sparqlServer, this.generalizeProp(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
-            if(gen == null)
-                ret = this.bestLabel;
-            else
-                ret = "_selBeg_" + this.bestLabel + gen + "_selEnd_";
+            if(this.generalized) {
+                ret = "_gen" + genId + "_";
+            } else {
+                this.generateGeneralizedLabels(sparqlServer, this.generalizeClass(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
+                if(this.generalizations.size() <= 0)
+                    ret = "un(e) " + this.bestLabel;
+                else {
+                    ret = "_gen" + genId + "_";
+                    this.generalized = true;
+                }
+            }
+        } else if(this.kbType == KbTypeEnum.IND ) {
+            if(this.generalized) {
+                ret = "_gen" + genId + "_";
+            } else {
+                this.generateGeneralizedLabels(sparqlServer, this.generalizeInd(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
+                if(this.generalizations.size() <= 0)
+                    ret = this.bestLabel;
+                else {
+                    ret = "_gen" + genId + "_";
+                    this.generalized = true;
+                }
+            }
+
+        } else if(this.kbType == KbTypeEnum.PROP) {
+            if(this.generalized) {
+                ret = "_gen" + genId + "_";
+            } else {
+                this.generateGeneralizedLabels(sparqlServer, this.generalizeProp(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
+                if(this.generalizations.size() <= 0)
+                    ret = this.bestLabel;
+                else {
+                    ret = "_gen" + genId + "_";
+                    this.generalized = true;
+                }
+            }
         } else {
             ret = this.bestLabel;
         }
@@ -110,10 +149,15 @@ public class KbElementMapping extends ElementMapping {
         return sparqlServer.select(sparqlQuery);
     }
 
-    private String generateGeneralizedLabels(SparqlServer sparqlServer, Iterable<QuerySolution> sols) {
-        String ret = null;
-        boolean hasBeenGeneralized = false;
-        ArrayList<String> labels = new ArrayList<String>();
+    private void generateGeneralizedLabels(SparqlServer sparqlServer, Iterable<QuerySolution> sols) {
+        String article = "";
+        if(this.kbType == KbTypeEnum.CLASS)
+            article = "un(e) ";
+
+        this.generalizations.add("\"" + article + this.getBestLabel() + "\"");
+
+        if(this.kbType == KbTypeEnum.IND)
+            article = "un(e) ";
 
         for(QuerySolution sol : sols) {
             Iterator<String> varNames = sol.varNames();
@@ -122,23 +166,14 @@ public class KbElementMapping extends ElementMapping {
                 String labelGen = sparqlServer.getALabel(sol.get(varName).toString());
 
                 if(labelGen != null) {
-                    labels.add(labelGen);
-                    hasBeenGeneralized = true;
+                    this.generalizations.add("\"" + article + labelGen + "\"");
                 }
             }
         }
+    }
 
-        if(hasBeenGeneralized) {
-            String article = "";
-            if(this.kbType == KbTypeEnum.CLASS)
-                article = "un(e) ";
-
-            for(String s : labels) {
-                ret += "_selSep_" + article + s;
-            }
-        }
-
-        return ret;
+    public boolean isGeneralized() {
+        return this.generalized;
     }
 
     public void changeValues(float trustMark, String bestLabel, KbTypeEnum kbType) {

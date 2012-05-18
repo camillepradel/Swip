@@ -5,6 +5,8 @@
 package org.swip.pivotToMappings;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -69,16 +71,21 @@ public class PivotToMappingsWS {
                 for(PatternToQueryMapping ptqm : bestMappings)
                 {
                     JSONObject query = new JSONObject();
+                    JSONObject descSentJSon = new JSONObject();
+                    JSONObject generalizations = new JSONObject();
                     
                     String descSent = ptqm.getSentence().trim().replaceAll("\\s+", " ");
                     if(descSent.charAt(descSent.length() - 1) == ',')
                         descSent = descSent.substring(0, descSent.length() - 1);
+                    for(Map.Entry<Integer, ArrayList<String>> entry : ptqm.getGeneralizations().entrySet())
+                        generalizations.put(String.valueOf(entry.getKey()), entry.getValue());
+                    descSentJSon.put("string", descSent);
+                    descSentJSon.put("gen", generalizations);
+                    query.put("descriptiveSentence", descSentJSon);
 
-                    query.put("descriptiveSentence", descSent);
                     query.put("mappingDescription", ptqm.getStringDescription());
                     query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
                     query.put("sparqlQuery", ptqm.getSparqlQuery());
-                    //query.put("validate", 0);
 
                     queryResults.add(query);
                 }

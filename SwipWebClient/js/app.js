@@ -1,3 +1,7 @@
+// Imports
+// $.getScript('js/rest.js');
+// $.getScript('js/descList.js');
+
 $(function()
 {
 	/** 
@@ -76,7 +80,7 @@ function fillTab(results)
 	   	colModel:
 	   	[
    			{name: 'id', index: 'id', width: 3, classes: 'id', sortable: false},
-   			{name: 'descriptiveSentence', index: 'descriptiveSentence', width: 82, classes: 'descriptiveSentence'},
+   			{name: 'descriptiveSentence.string', index: 'descriptiveSentence', width: 82, classes: 'descriptiveSentence'},
    			{name: 'relevanceMark',index: 'relevanceMark', width: 15, sorttype: 'number', classes: 'relevanceMark'}
    		],
    		multiselect: false,
@@ -118,27 +122,25 @@ function fillTab(results)
  **/
 function displayResults(results)
 {
-	// Removing duplicatas
-	var i = 0;
-	while(i < results.content.length)
-	{
-		var j = i + 1;
-		while(j < results.content.length)
-		{
-			if(results.content[i].descriptiveSentence == results.content[j].descriptiveSentence)
-				results.content.splice(j, 1);
-			j++;
-		}
-		i++;
-	}
 
-	// Pre-parsing
+	var sentences = new DescList();
+	for(var i = 0; i < results.content.length; i++)
+		sentences.add(results.content[i].descriptiveSentence);
+	
+	var duplicates = sentences.checkCover();
+	
 	for(var i = 0; i < results.content.length; i++)
 	{
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selBeg_/g, '<select><option>');
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selSep_/g, '</option><option>');
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.replace(/_selEnd_/g, '</option></select>');
-		results.content[i].descriptiveSentence = results.content[i].descriptiveSentence.charAt(0).toUpperCase() + results.content[i].descriptiveSentence.slice(1);
+		if($.inArray(i, duplicates) < 0)
+			results.content[i].descriptiveSentence.string = sentences.getGeneralizedSentence(i);
+	}
+
+	var i = results.content.length - 1;
+	while(i >= 0)
+	{
+		if($.inArray(i, duplicates) >= 0)
+			results.content.splice(i, 1);
+		i--;
 	}
 
 	// Displaying

@@ -41,17 +41,22 @@ public class PatternToQueryMapping {
     private String sparqlQuery = null;
     // string description (result of toString) stored in order to display it in client application
     private String stringDescription = null;
+    
+    private HashMap<Integer, ArrayList<String> > generalizations;
 
     public PatternToQueryMapping() {
+        this.generalizations = new HashMap<Integer, ArrayList<String>>();
     }
 
     public PatternToQueryMapping(Pattern p) {
         this.pattern = p;
+        this.generalizations = new HashMap<Integer, ArrayList<String>>();
     }
 
     public PatternToQueryMapping(Pattern p, List<ElementMapping> ems) {
         this.pattern = p;
         this.elementMappings = ems;
+        this.generalizations = new HashMap<Integer, ArrayList<String>>();
     }
 
     /**
@@ -440,7 +445,17 @@ public class PatternToQueryMapping {
             QueryElement qe = em.queryElement;
             String queried = qe.isQueried() ? "?" : "";
         
-            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
+            if(em instanceof KbElementMapping) {
+                KbElementMapping kbem = (KbElementMapping) em;
+                
+                localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + kbem.getStringForSentence(sparqlServer, em.patternElement.getId()) + queried);
+
+                if(kbem.isGeneralized())
+                    this.generalizations.put(em.patternElement.getId(), kbem.getGeneralizations());
+            } else {
+                localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
+            }
+
             replacedPatternElements.add(em.patternElement);
             
              if(qe.isAggregate() && !aggregateProcessed.contains(qe))
@@ -472,12 +487,16 @@ public class PatternToQueryMapping {
         else if (userQuery.isSum()) {
             localSentence = "SUM ( " + localSentence + " )";
         }
+
+        System.out.println("PTQM : " + generalizations.toString());
         
         localSentence += aggregateSentence;
         this.sentence = localSentence;
     }
 
-    
+    public HashMap<Integer, ArrayList<String> > getGeneralizations() {
+        return this.generalizations;
+    }
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {
         String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
