@@ -84,8 +84,11 @@ public class KbElementMapping extends ElementMapping {
                 ret = "_gen" + genId + "_";
             } else {
                 this.generateGeneralizedLabels(sparqlServer, this.generalizeClass(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
-                if(this.generalizations.size() <= 0)
+                if(this.generalizations.size() <= 1)
+                {
                     ret = "un(e) " + this.bestLabel;
+                    this.generalizations.clear();
+                }
                 else {
                     ret = "_gen" + genId + "_";
                     this.generalized = true;
@@ -96,8 +99,11 @@ public class KbElementMapping extends ElementMapping {
                 ret = "_gen" + genId + "_";
             } else {
                 this.generateGeneralizedLabels(sparqlServer, this.generalizeInd(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
-                if(this.generalizations.size() <= 0)
+                if(this.generalizations.size() <= 1)
+                {
                     ret = this.bestLabel;
+                    this.generalizations.clear();
+                }
                 else {
                     ret = "_gen" + genId + "_";
                     this.generalized = true;
@@ -109,8 +115,11 @@ public class KbElementMapping extends ElementMapping {
                 ret = "_gen" + genId + "_";
             } else {
                 this.generateGeneralizedLabels(sparqlServer, this.generalizeProp(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
-                if(this.generalizations.size() <= 0)
+                if(this.generalizations.size() <= 1)
+                {
                     ret = this.bestLabel;
+                    this.generalizations.clear();
+                }
                 else {
                     ret = "_gen" + genId + "_";
                     this.generalized = true;

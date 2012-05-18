@@ -20,12 +20,15 @@ function Desc(descriptiveSentence, mappingId)
 
 	var gens = this.getGenIds();
 
-	for(var i = 0; i < gens.length; i++)
+	if(gens != null)
 	{
-		var genId = gens[i].substr(4, 1);
+		for(var i = 0; i < gens.length; i++)
+		{
+			var genId = gens[i].substr(4, 1);
 
-		var ul = '<select id="gen_mappingId__' + genId + '"><option>' + this.descriptiveSentence.gen[genId].join('</option><option>') + '</option></select>';
-		var reg = new RegExp('_gen' + genId + '_');
-		this.generalizedSentence = this.generalizedSentence.replace(reg, ul);
+			var ul = '<select id="gen_mappingId__' + genId + '"><option>' + this.descriptiveSentence.gen[genId].join('</option><option>') + '</option></select>';
+			var reg = new RegExp('_gen' + genId + '_');
+			this.generalizedSentence = this.generalizedSentence.replace(reg, ul);
+		}
 	}
 }
