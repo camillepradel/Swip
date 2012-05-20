@@ -178,6 +178,12 @@ function search(query)
 	if(query != '')
 	{
 		$('#results').css('display', 'none');
+
+		$('[id^="query"]').each(function()
+		{
+			$('#results').tabs('remove', $(this).attr('id'));
+		});
+
 		$('#jqGrid').GridUnload();
 		toggleSearch(false);
 		pivotToSparql(query, 50);
@@ -227,26 +233,29 @@ function generateSparql(mappingId, results)
 	var genIds = ret.match(/_gen\d+_/g);
 	var selectedFields = [];
 
-	for(var i = 0; i < genIds.length; i++)
+	if(genIds != null)
 	{
-		var genId = genIds[i].substr(4, 1);
-		var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
-		selectedFields.push(results.content[mappingId].descriptiveSentence.gen[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex]);
-
-		var reg = new RegExp('_gen' + genId + '_');
-		ret = ret.replace(reg, selectedField);
-	}
-
-	var inds = ret.match(/\?\w+ \(<http:\/\/purl\.org\/dc\/elements\/1\.1\/title>\|rdfs:label\) "([\w\s]+)"\./);
-
-	if(inds != null && inds.length > 1)
-	{
-		for(var i = 1; i < inds.length; i++)
+		for(var i = 0; i < genIds.length; i++)
 		{
-			if($.inArray(inds[i], selectedFields) < 0)
+			var genId = genIds[i].substr(4, 1);
+			var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
+			selectedFields.push(results.content[mappingId].descriptiveSentence.gen[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex]);
+
+			var reg = new RegExp('_gen' + genId + '_');
+			ret = ret.replace(reg, selectedField);
+		}
+
+		var inds = ret.match(/\?\w+ \(<http:\/\/purl\.org\/dc\/elements\/1\.1\/title>\|rdfs:label\) "([\w\s]+)"\./);
+
+		if(inds != null && inds.length > 1)
+		{
+			for(var i = 1; i < inds.length; i++)
 			{
-				var reg = new RegExp('\\?\\w+ \\(<http:\\/\\/purl\\.org\\/dc\\/elements\\/1\\.1\\/title>\\|rdfs:label\\) "' + inds[i] + '"\\.');
-				ret = ret.replace(reg, '');
+				if($.inArray(inds[i], selectedFields) < 0)
+				{
+					var reg = new RegExp('\\?\\w+ \\(<http:\\/\\/purl\\.org\\/dc\\/elements\\/1\\.1\\/title>\\|rdfs:label\\) "' + inds[i] + '"\\.');
+					ret = ret.replace(reg, '');
+				}
 			}
 		}
 	}
