@@ -110,8 +110,12 @@ public abstract class SparqlServer {
                 + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"
                 + "SELECT ?type \n"
                 + "WHERE { \n"
-                + "    <" + resourceUri + "> rdf:type ?type \n"
-                + "      } ";
+                + "     <" + resourceUri + "> rdf:type ?type.\n"
+                + "     FILTER NOT EXISTS{\n"
+                + "         ?subType rdfs:subClassOf ?type.\n"
+                + "         <" + resourceUri + "> rdf:type ?subType.\n"
+                + "     }"
+                + "}";
 
         Iterable<QuerySolution> results = select(query);
         List<String> resultList = new LinkedList<String>();
