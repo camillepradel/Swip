@@ -212,7 +212,7 @@ public class SubpatternCollection extends Subpattern {
                     /*result += "       { " + pivotVarName + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
                             + "UNION "
                             + "{ " + pivotVarName + " rdfs:label \"" + matchedLabel + "\". }\n";*/
-                    result += "       " + pivotVarName + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\". ";
+                    result += "       " + pivotVarName + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\"@fr. ";
                 }
             } else { // literal
                 if (pivotElementMapping.getQueryElement().isQueried()) {

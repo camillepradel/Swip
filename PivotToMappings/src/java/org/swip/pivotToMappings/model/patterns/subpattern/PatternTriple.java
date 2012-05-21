@@ -139,7 +139,7 @@ public class PatternTriple extends Subpattern {
                                 "       { " + elementString + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
                                 + "       UNION "
                                 + "       { " + elementString + " rdfs:label \"" + matchedLabel + "\". } ");*/
-                        typeStrings.add("       " + elementString + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\". ");
+                        typeStrings.add("       " + elementString + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\"@fr. ");
                     }
                 } else { // literal
                     String varName = elementMapping.getQueryElement().getVarName();

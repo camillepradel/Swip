@@ -129,7 +129,6 @@ function fillTab(results)
  **/
 function displayResults(results)
 {
-
 	var sentences = new DescList();
 	for(var i = 0; i < results.content.length; i++)
 		sentences.add(results.content[i].descriptiveSentence, i + 1);
