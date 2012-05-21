@@ -244,7 +244,7 @@ function generateSparql(mappingId, results)
 			ret = ret.replace(reg, selectedField);
 		}
 
-		var inds = ret.match(/\?\w+ \(<http:\/\/purl\.org\/dc\/elements\/1\.1\/title>\|rdfs:label\) "([\w\s]+)"\./);
+		var inds = ret.match(/\?\w+ \(<http:\/\/purl\.org\/dc\/elements\/1\.1\/title>\|rdfs:label\) "([\w\s]+)"@\w{2}\./);
 
 		if(inds != null && inds.length > 1)
 		{
@@ -252,7 +252,7 @@ function generateSparql(mappingId, results)
 			{
 				if($.inArray(inds[i], selectedFields) < 0)
 				{
-					var reg = new RegExp('\\?\\w+ \\(<http:\\/\\/purl\\.org\\/dc\\/elements\\/1\\.1\\/title>\\|rdfs:label\\) "' + inds[i] + '"\\.');
+					var reg = new RegExp('\\?\\w+ \\(<http:\\/\\/purl\\.org\\/dc\\/elements\\/1\\.1\\/title>\\|rdfs:label\\) "' + inds[i] + '"@\\w{2}\\.');
 					ret = ret.replace(reg, '');
 				}
 			}
