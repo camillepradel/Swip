@@ -166,6 +166,9 @@ public class KbElementMapping extends ElementMapping {
     }
 
     private void generateGeneralizedLabels(SparqlServer sparqlServer, Iterable<QuerySolution> sols) {
+        System.out.println("==============================");
+        System.out.println("Generalizing " + this.getFirstlyMatchedOntResourceUri());
+
         String article = "";
         if(this.kbType == KbTypeEnum.CLASS)
         {
@@ -187,6 +190,7 @@ public class KbElementMapping extends ElementMapping {
                 String labelGen = sparqlServer.getALabel(sol.get(varName).toString());
 
                 if(labelGen != null) {
+                    System.out.println("Label found : " + labelGen);
                     this.generalizations.add("\"" + article + labelGen + "\"");
                     this.uris.add("\"<" + sol.get(varName).toString() + ">\"");
 
@@ -195,6 +199,8 @@ public class KbElementMapping extends ElementMapping {
                 }
             }
         }
+
+        System.out.println("==============================");
     }
 
     public boolean isGeneralized() {
