@@ -69,11 +69,11 @@ public class KbElementMapping extends ElementMapping {
     }
 
     @Override
-    public String getStringForSentence(SparqlServer sparqlServer) {
-        return getStringForSentence(sparqlServer, -1);
+    public String getStringForSentence(SparqlServer sparqlServer, String lang) {
+        return getStringForSentence(sparqlServer, -1, lang);
     }
 
-    public String getStringForSentence(SparqlServer sparqlServer, int genId) {
+    public String getStringForSentence(SparqlServer sparqlServer, int genId, String lang) {
         String ret;
 
         if(genId == -1)
@@ -86,7 +86,12 @@ public class KbElementMapping extends ElementMapping {
                 this.generateGeneralizedLabels(sparqlServer, this.generalizeClass(sparqlServer, this.getFirstlyMatchedOntResourceUri()));
                 if(this.generalizations.size() <= 1)
                 {
-                    ret = "un(e) " + this.bestLabel;
+                    String s ="";
+                    if(lang.compareTo("fr") == 0)
+                        s = "un(e)";
+                    else
+                        s = "a";
+                    ret = s+" "+ this.bestLabel;
                     this.generalizations.clear();
                 }
                 else {
@@ -125,7 +130,8 @@ public class KbElementMapping extends ElementMapping {
                     this.generalized = true;
                 }
             }
-        } else {
+        }
+        else {
             ret = this.bestLabel;
         }
 

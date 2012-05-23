@@ -54,7 +54,7 @@ public abstract class ElementMapping {
         this.trustMark = trustMark;
     }
 
-    abstract public String getStringForSentence(SparqlServer sparqlServer);
+    abstract public String getStringForSentence(SparqlServer sparqlServer, String lang);
 
     @Override
     public String toString() {

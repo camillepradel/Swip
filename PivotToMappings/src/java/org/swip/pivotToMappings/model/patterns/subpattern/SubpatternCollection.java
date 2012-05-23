@@ -161,7 +161,7 @@ public class SubpatternCollection extends Subpattern {
                     if (qe.isQueried()) {
                         queried = "?";
                     }
-                    result += s.substring(beginIndex + labelBegin.length(), endIndex).replaceAll("__" + em.getPatternElement().getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
+                    result += s.substring(beginIndex + labelBegin.length(), endIndex).replaceAll("__" + em.getPatternElement().getId() + "__", queried + em.getStringForSentence(sparqlServer, "en") + queried);
                 }
             }
             result += s.substring(endIndex + labelEnd.length());

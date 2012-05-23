@@ -92,6 +92,7 @@ public class PatternTriple extends Subpattern {
         for (String typeString : typeStrings) {
             result += typeString;
         }
+
         return result;
     }
 

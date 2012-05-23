@@ -74,6 +74,11 @@ public class Query {
     public boolean isAsk() {
         return ask;
     }
+    
+    public boolean isSelectAggregate()
+    {
+        return (this.ask || this.avg || this.count || this.max || this.min || this.sum);
+    }
 
     public void setCount(boolean count) {
         this.count = count;
