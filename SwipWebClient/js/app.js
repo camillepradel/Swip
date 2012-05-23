@@ -152,6 +152,10 @@ function displayResults(results)
 	for(var i = 0; i < results.content.length; i++)
 	{
 		results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(/_mappingId_/g, i);
+
+		// Temporary (For testing purpose) !
+		results.content[i].mappingDescription = results.content[i].mappingDescription.replace(/http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/Cinema\.owl#/g, 'cin:');
+		results.content[i].mappingDescription = results.content[i].mappingDescription.replace(/http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/cesar2012\.owl#/g, 'ces:');
 	}
 
 	// Displaying
@@ -258,6 +262,12 @@ function generateSparql(mappingId, results)
 			}
 		}
 	}
+
+	// Temporary ! (For testing purpose)
+	ret = "PREFIX cin: <http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#>\n" + ret;
+	ret = "PREFIX ces: <http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#>\n" + ret;
+	ret = ret.replace(/<http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/Cinema\.owl#(\w+)>/g, 'cin:$1');
+	ret = ret.replace(/<http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/cesar2012\.owl#(\w+)>/g, 'ces:$1');
 
 	return ret;
 }
