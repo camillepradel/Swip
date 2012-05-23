@@ -81,19 +81,19 @@ public class PatternTriple extends Subpattern {
         String sparqlE1 = sparqlForElement(e1, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
         String sparqlE2 = sparqlForElement(e2, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
         String sparqlE3 = sparqlForElement(e3, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
-        String result = "      "
+        String result = "       "
                 + sparqlE1 + " "
                 + sparqlE2 + " "
-                + sparqlE3 + ".";
+                + sparqlE3 + ".\n";
         
         if(!matchNumerciDataProperty.isEmpty())
             numerciDataPropertyElements.put(matchNumerciDataProperty.get(e2), sparqlE3);
         
         for (String typeString : typeStrings) {
-            result += "\n" + typeString;
+            result += typeString;
         }
 
-        return result + "\n";
+        return result;
     }
 
     private String sparqlForElement(PatternElement e, LinkedList<String> typeStrings, PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<PatternElement, String> numerciDataPropertyElements) {
@@ -116,7 +116,7 @@ public class PatternTriple extends Subpattern {
                     if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
                         //elementString = "?var" + ++(Subpattern.varCount);
                         elementString = varName;
-                        typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".");
+                        typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".\n");
                         if (kbElementMapping.getQueryElement().isQueried()) {
                             selectElements.add(elementString);
                         }
@@ -130,14 +130,14 @@ public class PatternTriple extends Subpattern {
                         elementString = varName;
                         List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
                         for (String type : types) {
-                            typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".");
+                            typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".\n");
                         }
                         String matchedLabel = ((KbElementMapping) ptqm.getElementMappings(e).get(0)).getBestLabel();
                         /*typeStrings.add(
                                 "       { " + elementString + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
                                 + "       UNION "
                                 + "       { " + elementString + " rdfs:label \"" + matchedLabel + "\". } ");*/
-                        typeStrings.add("       " + elementString + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\". ");
+                        typeStrings.add("       " + elementString + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\"@fr.\n");
                     }
                 } else { // literal
                     String varName = elementMapping.getQueryElement().getVarName();

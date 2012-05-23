@@ -212,7 +212,7 @@ public class SubpatternCollection extends Subpattern {
                     /*result += "       { " + pivotVarName + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
                             + "UNION "
                             + "{ " + pivotVarName + " rdfs:label \"" + matchedLabel + "\". }\n";*/
-                    result += "       " + pivotVarName + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\". ";
+                    result += "       " + pivotVarName + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\"@fr.\n";
                 }
             } else { // literal
                 if (pivotElementMapping.getQueryElement().isQueried()) {
@@ -229,7 +229,7 @@ public class SubpatternCollection extends Subpattern {
             }
                 elementsStrings.put(this.pivotElement, pivotVarName);
             for (Subpattern sp : this.subpatterns) {
-                result += "\n" + sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements);
+                result += sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements);
             }
         }
         // if pivot element was not mapped but minOccurrences>0
