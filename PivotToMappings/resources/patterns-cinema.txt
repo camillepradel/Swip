@@ -5,6 +5,22 @@ prefixes
 	rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 end prefixes
 
+pattern person_info
+	query
+		[ 1_cine:Person 	2_cine:aPourDateNaissance(3)	3_<date>;				]birthDate:0..1/3
+		[ 1				4_cine:aPourDateMort(5)			5_<date>;	]deathDate:0..1/5
+		[ 1 			6_cine:aPourLieuNaissance(7)	7_cine:Lieu;					]birthPlace:0..1/7
+		[ 1 			8_cine:aPourLieuMort(9)			9_cine:Lieu; 					]deathPlace:0..1/9
+		[ 1 			10_cine:aPourSexe(11)			11_cine:Sexe; 					]sexe:0..1/11
+		[ 1 			12_cine:incarne(13)			13_cine:Role; 					]role:0..10/13
+	end query
+	sentence
+		__1__ _if_birthDate_[est ne le __3__, ]_end_if_birthDate_ _if_deathDate_[est mort le __5__, ]_end_if_deathDate_ _if_birthPlace_[est née en __7__]_end_if_birthPlace_ _if_deathPlace_[est mort en __9__, ]_end_if_deathPlace_ _if_sexe_[est __11__, ]_end_if_sexe_ _if_role_[a jouee le role de _13_, ]_end_if_role_
+	end sentence
+end pattern
+
+
+
 pattern film_info
 	query
 		[ 1_cine:Film 	2_cine:aPourRecompenseFilm(3)	3_cine:PrixDecerne;				]recompense:0..1/3
