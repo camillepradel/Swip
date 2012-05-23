@@ -325,34 +325,81 @@ public class Keyword extends QueryElement {
     }
 
     @Override
-    public String getStringRepresentation(String lang, boolean isNumerciDataProperty) {
+    public String getStringRepresentation(String lang, boolean isNumericDataProperty) {
         //return (this.queried ? "?" : "") + (this.id > 0 ? "$" + this.id : "") + this.keywordValue;
         String ret = "";
         
         if(this.isAggregate)
         {
-            String s1 = "", s2 = "", s3 = "";
+            String s1 = "", s2 = "", s3 = "", count = "", sum ="", min = "", max = "", avg = "";
             if(lang.compareTo("en") == 0)
             {
                 s1 = "wich";
                 s2 = "must be";
+                s3 = "of";
+                count = "the number";
+                sum = "the sum";
+                min = "the minimum";
+                max = "the maximum";
+                avg = "the average";
             }
             else if(lang.compareTo("fr") == 0)
             {
                 s1 = "dont";
                 s2 = "doit être";
+                s3 = "de";
+                count = "le nombre";
+                sum = "la somme";
+                min = "le minimum";
+                max = "le maximum";
+                avg = "la moyenne";
             }
-            if(!isNumerciDataProperty)
-                s3 = this.aggregat+"("+this.keywordValue+")";
-            else
-                s3 = this.keywordValue;
             
-            ret = " "+s1+" "+s3+" "+s2+" "+this.cond+". ";
+            
+            
+            ret += s1+" ";
+            if(this.cond.compareTo("") != 0 && !isNumericDataProperty)
+            {
+                if(this.aggregat.compareTo("COUNT") == 0)
+                {
+                    ret += count+" "+s3+" ";
+                }
+                else if(this.aggregat.compareTo("SUM") == 0)
+                {
+                    ret += sum+" "+s3+" ";
+                }
+                else if(this.aggregat.compareTo("MIN") == 0)
+                {
+                    ret += min+" "+s3+" ";
+                }
+                else if(this.aggregat.compareTo("MAX") == 0)
+                {
+                    ret += max+" "+s3+" ";
+                }
+                else if(this.aggregat.compareTo("AVG") == 0)
+                {
+                    ret += avg+" "+s3+" ";
+                }
+            }
+            ret += this.keywordValue+" "+s2+" ";
+            if(this.cond.compareTo("") != 0 )
+            {
+                ret += this.cond;
+            }
+            else if(this.aggregat.compareTo("MAX") == 0)
+            {
+                ret += max;
+            }
+            else if(this.aggregat.compareTo("MIN") == 0)
+            {
+                ret += min;
+            }
+            
         }
         
         return ret;
     }
-    
+        
      public String getStringValue()
     {
         return this.keywordValue;

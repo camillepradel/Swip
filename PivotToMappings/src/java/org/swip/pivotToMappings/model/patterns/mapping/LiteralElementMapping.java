@@ -16,10 +16,12 @@ public class LiteralElementMapping extends ElementMapping {
     }
 
     @Override
-    public String getStringForSentence(SparqlServer sparqlServer) {
+    public String getStringForSentence(SparqlServer sparqlServer, String lang) {
         if (this.queryElement.isQueried()) {
             return this.patternElement.getDefaultStringForSentence(sparqlServer);
         }
-        return this.queryElement.getStringValue();
+        String s = this.queryElement.getStringValue();
+        System.out.println("String for sentence LEM : "+s);
+        return s;
     }
 }

@@ -13,6 +13,7 @@ import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PropertyPatternElement;
+import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElement;
 import org.swip.pivotToMappings.model.patterns.subpattern.PatternTriple;
 import org.swip.pivotToMappings.model.patterns.subpattern.Subpattern;
 import org.swip.pivotToMappings.model.patterns.subpattern.SubpatternCollection;
@@ -439,6 +440,8 @@ public class PatternToQueryMapping {
 
     private void generateSentence(SparqlServer sparqlServer, Query userQuery, String lang) {
         String localSentence = this.getPattern().getSentenceTemplate();
+        String beginAggregateSentence = "";
+        String queriedElements = "";
         String aggregateSentence = "";
         ArrayList<QueryElement> aggregateProcessed = new ArrayList<QueryElement>();
 
@@ -452,26 +455,86 @@ public class PatternToQueryMapping {
                 numericDataProperty = ((KbElementMapping)em).isNumericDataProperty();
             }
         }
+        if (userQuery.isCount()) {
+            if(lang.compareTo("en") == 0)
+                beginAggregateSentence = "The number of  ";
+            else if(lang.compareTo("fr") == 0)
+                beginAggregateSentence = "Le nombre de  ";
+        }
+        else if (userQuery.isAsk()) {
+            if(lang.compareTo("en") == 0)
+                beginAggregateSentence = "Is there";
+            else if(lang.compareTo("fr") == 0)
+                beginAggregateSentence = "Existe t'il ";
+        }
+        else if (userQuery.isAvg()) {
+            if(lang.compareTo("en") == 0)
+                beginAggregateSentence = "The average of  ";
+            else if(lang.compareTo("fr") == 0)
+                beginAggregateSentence = "La moyenne de  ";
+        }
+        else if (userQuery.isMax()) {
+            if(lang.compareTo("en") == 0)
+                beginAggregateSentence = "The maximum of  ";
+            else if(lang.compareTo("fr") == 0)
+                beginAggregateSentence = "Le maximum de  ";
+        }
+        else if (userQuery.isMin()) {
+            if(lang.compareTo("en") == 0)
+                beginAggregateSentence = "The minimum of  ";
+            else if(lang.compareTo("fr") == 0)
+                beginAggregateSentence = "Le minimum de  ";
+        }
+        else if (userQuery.isSum()) {
+            if(lang.compareTo("en") == 0)
+                beginAggregateSentence = "The sum of  ";
+            else if(lang.compareTo("fr") == 0)
+                beginAggregateSentence = "La somme de  ";
+        } // TODO formuler une jolie phrase  quand on a :    e1:2. AGG. 
+        
         for (ElementMapping em : this.getElementMappings()) {
             QueryElement qe = em.queryElement;
             String queried = qe.isQueried() ? "?" : "";
-            
+            String elementSentence = "";
             if(em instanceof KbElementMapping) {
                 KbElementMapping kbem = (KbElementMapping) em;
-                
-                localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + kbem.getStringForSentence(sparqlServer, em.patternElement.getId()) + queried);
+
+                elementSentence = kbem.getStringForSentence(sparqlServer, em.patternElement.getId(), lang);
 
                 if(kbem.isGeneralized())
                 {
                     this.generalizations.put(em.patternElement.getId(), kbem.getGeneralizations());
                     this.uris.put(em.patternElement.getId(), kbem.getUris());
                 }
+            } else if (em instanceof LiteralElementMapping) {
+                LiteralPatternElement lpe = (LiteralPatternElement)em.getPatternElement();
+                if((lpe.getType().compareTo("decimal")) == 0)
+                {
+                    String s = "an integer";
+                    if(lang.compareTo("fr") == 0)
+                        s = "un entier";
+                    //localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", s);
+                    elementSentence = s;
+                }
+                else
+                {
+                    //localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer, lang) + queried);
+                    elementSentence = em.getStringForSentence(sparqlServer, lang);
+                }
             } else {
-                localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer) + queried);
+                //localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + em.getStringForSentence(sparqlServer, lang) + queried);
+                elementSentence = em.getStringForSentence(sparqlServer, lang);
             }
-
-            replacedPatternElements.add(em.patternElement);
             
+            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + elementSentence + queried);
+            
+            if(qe.isQueried() && userQuery.isSelectAggregate())
+            {
+                queriedElements = "__assoc"+em.getPatternElement().getId()+"__";
+            }
+            
+            replacedPatternElements.add(em.patternElement);
+
             if(qe.isAggregate() && !aggregateProcessed.contains(qe))
             {
                 aggregateSentence += qe.getStringRepresentation(lang, numericDataProperty);
@@ -483,57 +546,18 @@ public class PatternToQueryMapping {
                 localSentence = localSentence.replaceAll("__" + pe.getId() + "__", pe.getDefaultStringForSentence(sparqlServer));
             }
         }
-        if (userQuery.isCount()) {
-            String s = "";
-            if(lang.compareTo("en") == 0)
-                s = "The number of ( ";
-            else if(lang.compareTo("fr") == 0)
-                s = "Le nombre de ( ";
-            localSentence = s + localSentence + " )";
-        }
-        else if (userQuery.isAsk()) {
-             String s = "";
-            if(lang.compareTo("en") == 0)
-                s = "Ask ( ";
-            else if(lang.compareTo("fr") == 0)
-                s = "Demande ( ";
-            localSentence = s + localSentence + " )";
-        }
-        else if (userQuery.isAvg()) {
-             String s = "";
-            if(lang.compareTo("en") == 0)
-                s = "The average of ( ";
-            else if(lang.compareTo("fr") == 0)
-                s = "La moyenne de ( ";
-            localSentence = s+ localSentence + " )";
-        }
-        else if (userQuery.isMax()) {
-             String s = "";
-            if(lang.compareTo("en") == 0)
-                s = "The maximum of ( ";
-            else if(lang.compareTo("fr") == 0)
-                s = "Le maximum de ( ";
-            localSentence = "MAXIMUM ( " + localSentence + " )";
-        }
-        else if (userQuery.isMin()) {
-             String s = "";
-            if(lang.compareTo("en") == 0)
-                s = "The minimum of ( ";
-            else if(lang.compareTo("fr") == 0)
-                s = "Le minimum de ( ";
-            localSentence = s + localSentence + " )";
-        }
-        else if (userQuery.isSum()) {
-             String s = "";
-            if(lang.compareTo("en") == 0)
-                s = "The sum of ( ";
-            else if(lang.compareTo("fr") == 0)
-                s = "La somme de ( ";
-            localSentence = s + localSentence + " )";
-        }
+        
 
         System.out.println("PTQM : " + generalizations.toString());
-        
+        if(beginAggregateSentence.compareTo("")!=0 && queriedElements.compareTo("")!=0)
+        {
+            String s = "";
+            if(lang.compareTo("fr") == 0)
+                s = "tel que";
+            else
+                s = "such as";
+            localSentence = beginAggregateSentence+" "+queriedElements+" "+s+", "+localSentence;
+        }
         localSentence += aggregateSentence;
         this.sentence = localSentence;
     }
@@ -610,46 +634,72 @@ public class PatternToQueryMapping {
             query += "SELECT " + select + "\nWHERE {\n";
         }
         query += where;
-        String aggregat = "";
-        String cond = "";
+        /*String aggregat = "";
+        String aggregatSubject = "";
+        String cond = "";*/
         boolean isAgg = false;
+        String orderBy = "";
+        String filter = "";
+        String groupby = "";
+        String having = "";
         for(QueryElement q : userQuery.getQueryElements())
         {
             if(q.isAggregate())
             {
                 Keyword k = (Keyword)q;
-                aggregat += k.getAggregate();
-                cond += numericDataPropertyElements.get(k.getKeywordValue())+k.getCond()+" AND \n";
+                String aggregat = k.getAggregate();
+                String aggregatSubject = k.getVarName();
+                String cond = numericDataPropertyElements.get(k.getKeywordValue())+k.getCond();
                 isAgg = true;
-                System.out.println("/!\\ Test ICI !! \n");
-                for(String e : numericDataPropertyElements.keySet())
+
+                System.out.println("aggregat : "+aggregat+" || aggregatSubject : "+aggregatSubject+" || cond : "+cond);
+                
+                if(!numericDataPropertyElements.isEmpty())
                 {
-                    String value = numericDataPropertyElements.get(e);
-                    System.out.println("Key : "+e+ " || value : "+value+" || keywordValue : "+k.getKeywordValue()+" \n");
+                    if(cond == null || cond.compareTo(aggregatSubject) == 0)
+                    {
+                        if(orderBy.compareTo("") != 0)
+                            orderBy += " AND ";
+                        orderBy += aggregatSubject;
+                    }
+                    else
+                    {
+                        if(filter.compareTo("") !=0)
+                            filter += " AND ";
+                        filter += cond;
+                    }
+                }
+                else if(select.compareTo("*") != 0 && cond.compareTo("null") != 0)
+                {
+                    if(groupby.compareTo("") != 0)
+                    {
+                        groupby += " AND ";
+                        having += " AND ";
+                    }
+                    groupby += varsSelect;
+                    having += aggregat;
                 }
             }
         }
-        
-        if(isAgg)
+        if(filter.compareTo("") != 0)
         {
-            if(!numericDataPropertyElements.isEmpty())
-            {
-                cond = cond.substring(0, cond.lastIndexOf("AND"));
-                query += "FILTER ( "+cond+")\n";
-                query += "}\n";
-            }
-            else if(select.compareTo("*") != 0)
-            {
-                //query += "BIND COUNT("+
-                query += "}\n";
-                query += "GROUPBY "+varsSelect+" \n";
-                query += "HAVING "+aggregat+"\n";
-            }
-            else
-                query += "}\n";
+            query += "FILTER ("+filter+") \n }";
+        }
+        else if(orderBy.compareTo("") != 0)
+        {
+            query += "}\n";
+            query += "ORDER BY DESC("+orderBy+")\n";
+            query += "LIMIT 1"; // TODO possibilité d'augmenter le 1 par ex : les 10 plus grand ... */
+        }
+        else if(groupby.compareTo("") != 0)
+        {
+            query += "}\n";
+            query += "GROUPBY "+groupby+" \n";
+            query += "HAVING "+having+"\n";
         }
         else
-            query += "}\n";
+            query += "}";
+        
         
         this.setSparqlQuery(query);
     }

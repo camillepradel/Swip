@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-04-25 13:30:47
+// $ANTLR 3.4 /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g 2012-05-22 10:55:19
 package  org.swip.pivotToMappings.model.query.antlr;
 
 import org.antlr.runtime.*;
@@ -399,8 +399,8 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:156:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )* )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:156:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:171:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )* )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:171:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -412,7 +412,7 @@ public class userQueryGrammarLexer extends Lexer {
             }
 
 
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:156:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:171:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | ' ' )*
             loop1:
             do {
                 int alt1=2;
@@ -462,10 +462,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:159:5: ( ( '0' .. '9' )+ )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:159:7: ( '0' .. '9' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:5: ( ( '0' .. '9' )+ )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:7: ( '0' .. '9' )+
             {
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:159:7: ( '0' .. '9' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:7: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -520,7 +520,7 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:178:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -550,13 +550,13 @@ public class userQueryGrammarLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:178:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     {
                     match("//"); 
 
 
 
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:14: (~ ( '\\n' | '\\r' ) )*
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:178:14: (~ ( '\\n' | '\\r' ) )*
                     loop3:
                     do {
                         int alt3=2;
@@ -590,7 +590,7 @@ public class userQueryGrammarLexer extends Lexer {
                     } while (true);
 
 
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:28: ( '\\r' )?
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:178:28: ( '\\r' )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
@@ -599,7 +599,7 @@ public class userQueryGrammarLexer extends Lexer {
                     }
                     switch (alt4) {
                         case 1 :
-                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:163:28: '\\r'
+                            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:178:28: '\\r'
                             {
                             match('\r'); 
 
@@ -616,13 +616,13 @@ public class userQueryGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:164:9: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:179:9: '/*' ( options {greedy=false; } : . )* '*/'
                     {
                     match("/*"); 
 
 
 
-                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:164:14: ( options {greedy=false; } : . )*
+                    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:179:14: ( options {greedy=false; } : . )*
                     loop5:
                     do {
                         int alt5=2;
@@ -647,7 +647,7 @@ public class userQueryGrammarLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:164:42: .
+                    	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:179:42: .
                     	    {
                     	    matchAny(); 
 
@@ -684,10 +684,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:167:5: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:167:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:182:5: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:182:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
             {
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:167:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:182:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
             int cnt7=0;
             loop7:
             do {
@@ -744,12 +744,12 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = LITVALUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:6: ( '[' ( . )* ']' )
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:8: '[' ( . )* ']'
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:189:6: ( '[' ( . )* ']' )
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:189:8: '[' ( . )* ']'
             {
             match('['); 
 
-            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:12: ( . )*
+            // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:189:12: ( . )*
             loop8:
             do {
                 int alt8=2;
@@ -765,7 +765,7 @@ public class userQueryGrammarLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:174:12: .
+            	    // /Users/Murloc/Documents/IRIT/grammaires/userQueryGrammar.g:189:12: .
             	    {
             	    matchAny(); 
 

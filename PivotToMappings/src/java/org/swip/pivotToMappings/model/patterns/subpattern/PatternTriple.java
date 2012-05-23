@@ -92,9 +92,7 @@ public class PatternTriple extends Subpattern {
         for (String typeString : typeStrings) {
             result += "\n" + typeString;
         }
-        /*System.out.println("TEST GENERATE SPARQL WHERE : \n");
-        System.out.println(result);
-        System.out.println("----------");*/
+
         return result + "\n";
     }
 

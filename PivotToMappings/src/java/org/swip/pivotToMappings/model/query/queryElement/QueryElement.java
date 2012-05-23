@@ -48,6 +48,6 @@ public abstract class QueryElement {
     public abstract String getVarName();
     
     public abstract boolean isAggregate();
-    
+        
     public abstract String getStringValue();
 }
