@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.exceptions.PatternsParsingException;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
+import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.query.Query;
 import org.swip.pivotToMappings.sparql.SparqlServer;
@@ -168,6 +169,10 @@ public abstract class PatternElement {
         Collection<ElementMapping> ems = ptqm.getElementMappings(this);
         for (ElementMapping em : ems) {
             result += "\n       -> " + em.getQueryElement() + " - trust mark=" + em.getTrustMark();
+            if(em instanceof KbElementMapping) {
+                KbElementMapping kbem = (KbElementMapping) em;
+                result += "\n              (" + kbem.getFirstlyMatchedOntResourceUri() + ")";
+            }
         }
         return result;
     }
