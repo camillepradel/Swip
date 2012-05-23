@@ -78,4 +78,6 @@ function Desc(descriptiveSentence, mappingId)
 			}
 		}
 	}
+
+	this.generalizedSentence = this.generalizedSentence.replace(/,([\w\s]+)/g, '<span class="removable">,$1</span>');
 }

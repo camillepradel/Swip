@@ -53,6 +53,11 @@ $(function()
 		var index = $('li', $('#results')).index($(this).parent());
 		$('#results').tabs('remove', index);
 	});
+
+	$('span.removable').live('click', function()
+	{
+		$(this).remove();
+	})
 });
 
 

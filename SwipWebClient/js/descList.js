@@ -20,6 +20,7 @@ function DescList()
 			{
 				if(i != j && $.inArray(j, ret) < 0 && $.inArray(i, ret) < 0)
 				{
+					//console.log(i + " couvre " + j + " ?");
 					var iCoversJ = true;
 
 					iGen = this.descA[i].getGenIds();
@@ -28,21 +29,33 @@ function DescList()
 					if(iGen == null && jGen == null)
 					{
 						if(this.descA[i].getGeneralizedSentence() != this.descA[j].getGeneralizedSentence())
+						{
 							iCoversJ = false;
+							//console.log("KO (Null)");
+						}
 					}
 					else if(iGen == null || jGen == null)
+					{
 						iCoversJ = false;
+						//console.log("KO (Null 2)");
+					}
 					else
 					{
 						if(iGen.length < jGen.length)
+						{
 							iCoversJ = false;
+							//console.log("KO (Length)");
+						}
 						else
 						{
 							for(var k = 0; k < jGen.length; k++)
 							{
 								var ind = $.inArray(jGen[k], iGen)
 								if(ind < 0)
+								{
 									iCoversJ = false;
+									//console.log("KO (Gen cover)");
+								}
 								else
 								{
 									var genId = jGen[k].substr(4, 1);
@@ -52,7 +65,10 @@ function DescList()
 									for(var l = 0; l < jGenA.length; l++)
 									{
 										if($.inArray(jGenA[l], iGenA) < 0)
+										{
 											iCoversJ = false;
+											//console.log("KO (List cover)");
+										}
 									}
 								}
 
@@ -68,6 +84,9 @@ function DescList()
 						if($.inArray(j, ret) < 0)
 							ret.push(j);
 					}
+
+					//console.log(iCoversJ);
+					//console.log("========================");
 				}
 			}
 		}
