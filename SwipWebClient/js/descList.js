@@ -61,8 +61,13 @@ function DescList()
 						}
 					}
 
-					if(iCoversJ && $.inArray(j, ret) < 0)
-						ret.push(j);
+					if(iCoversJ)
+					{
+						this.descA[i].addCovered(this.descA[j].getCovered());
+
+						if($.inArray(j, ret) < 0)
+							ret.push(j);
+					}
 				}
 			}
 		}
@@ -72,6 +77,16 @@ function DescList()
 
 	this.getGeneralizedSentence = function(id)
 	{
-		return this.descA[id].getGeneralizedSentence();
+		return this.descA[id].getGeneralizedSentence(this.descA);
+	}
+
+	this.getMaxDescent = function(id)
+	{
+		return this.descA[id].getMaxDescent();
+	}
+
+	this.getCovered = function(id)
+	{
+		return this.descA[id].getCovered();
 	}
 }

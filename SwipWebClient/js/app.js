@@ -131,14 +131,17 @@ function displayResults(results)
 {
 	var sentences = new DescList();
 	for(var i = 0; i < results.content.length; i++)
-		sentences.add(results.content[i].descriptiveSentence, i + 1);
+		sentences.add(results.content[i].descriptiveSentence, i);
 	
 	var duplicates = sentences.checkCover();
 	
 	for(var i = 0; i < results.content.length; i++)
 	{
 		if($.inArray(i, duplicates) < 0)
+		{
 			results.content[i].descriptiveSentence.string = sentences.getGeneralizedSentence(i);
+			results.content[i].relevanceMark = results.content[sentences.getMaxDescent(i)].relevanceMark;
+		}
 	}
 
 	var i = results.content.length - 1;
