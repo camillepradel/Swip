@@ -33,17 +33,19 @@ public class NlToPivotWS {
         logger.info("User nl query: " + nlQuery);
         logger.info("Query language: " + lang);
         String pivotQuery = "";
+        String adaptedQuery = null;
+        
+        boolean precessedQuery = false;
+
+        NlToPivotPreParser pp = new NlToPivotPreParser(nlQuery, lang);
+        adaptedQuery = pp.getAdaptedQuery();
+
+        logger.info("Adapted query: " + adaptedQuery);
 
         if (lang.equals("en")) {
             // identify type of query using the begining of the query,
             // and adapting the query string for an easier parsing
 
-            String adaptedQuery = null;
-
-            NlToPivotPreParser pp = new NlToPivotPreParser(nlQuery);
-            adaptedQuery = pp.getAdaptedQuery();
-
-            logger.info("Adapted query: " + adaptedQuery);
 
             // parsing the nl query with a Gate pipeline (using supple)
             String suppleSemanticOutput = getSuppleSemanticAnnotations(adaptedQuery);
@@ -62,23 +64,8 @@ public class NlToPivotWS {
             }
             pqg.setOptions(pp);
             pivotQuery = pqg.generatePivotQuery(adaptedQuery);
-
-            if (pp.getCount()) {
-                pivotQuery += " COUNT.";
-            } else if (pp.getStartMaximum()) {
-                pivotQuery += " MAX.";
-            } else if (pp.getStartMinimum()) {
-                pivotQuery += " MIN.";
-            } else if (pp.getStartAverage()) {
-                pivotQuery += " AVG.";
-            } else if (pp.getStartSum()) {
-                pivotQuery += " SUM.";
-            }
-
-            pivotQuery = pivotQuery.trim();
-            pivotQuery = pivotQuery.replaceAll("\\s*([:;\\(\\)<>=\\.\\?])\\s*", "$1");
-
-            logger.info("Generated pivot query: " + pivotQuery);
+            precessedQuery = true;
+           
         } else if (lang.equals("fr")) {
             try {
                 // setting environment
@@ -92,7 +79,7 @@ public class NlToPivotWS {
 
                 BufferedWriter out = new BufferedWriter(new FileWriter(bonsaiDir + "/query" + nbQueryFr));
                 logger.info("query" + nbQueryFr);
-                out.write(nlQuery);
+                out.write(adaptedQuery);
                 out.close();
 
                 String cmd = bonsai32binDir + "/bonsai_malt_parse_rawtext.sh " + bonsaiDir + "/query" + nbQueryFr;
@@ -128,13 +115,31 @@ public class NlToPivotWS {
                 }
 
                 nbQueryFr++;
-
+                precessedQuery = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
             pivotQuery = "language not supported";
         }
+        if(precessedQuery)
+        {
+            if (pp.getCount()) {
+                pivotQuery += " COUNT.";
+            } else if (pp.getStartMaximum()) {
+                pivotQuery += " MAX.";
+            } else if (pp.getStartMinimum()) {
+                pivotQuery += " MIN.";
+            } else if (pp.getStartAverage()) {
+                pivotQuery += " AVG.";
+            } else if (pp.getStartSum()) {
+                pivotQuery += " SUM.";
+            }
+            pivotQuery = pivotQuery.trim();
+            pivotQuery = pivotQuery.replaceAll("\\s*([:;\\(\\)<>=\\.\\?])\\s*", "$1");
+        }
+
+
         logger.info("returned pivot query:" + pivotQuery);
         return pivotQuery;
     }

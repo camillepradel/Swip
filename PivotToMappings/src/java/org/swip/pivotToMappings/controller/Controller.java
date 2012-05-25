@@ -56,7 +56,7 @@ public class Controller {
         this.patternsMap = null;
         
         this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
-        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
+        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt", "fr"));
         this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt", "fr"));
         this.kbConfs.add(new KbConfiguration("music", "http://localhost:2020/music", "patterns-musicbrainz.txt", "en"));
     }
