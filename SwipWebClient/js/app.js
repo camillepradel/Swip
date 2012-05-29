@@ -250,7 +250,10 @@ function generateSparql(mappingId, results)
 		{
 			var genId = genIds[i].substr(4, 1);
 			var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
-			selectedFields.push(results.content[mappingId].descriptiveSentence.gen[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex]);
+			var value = results.content[mappingId].descriptiveSentence.gen[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
+			selectedFields.push(value);
+
+			$("span.assoc"+mappingId+"_"+genId).html(value);
 
 			var reg = new RegExp('_gen' + genId + '_');
 			ret = ret.replace(reg, selectedField);

@@ -108,7 +108,7 @@ public class PatternTriple extends Subpattern {
                     String firstlyMatchedOntResource = kbElementMapping.getFirstlyMatchedOntResourceUri();
 
                     String toInsert = "";
-                    if(kbElementMapping.isGeneralized())
+                    if(kbElementMapping.isGeneralized() && !kbElementMapping.isNumericDataProperty())
                         toInsert = "_gen" + kbElementMapping.getPatternElement().getId() + "_";
                     else
                         toInsert = "<" + kbElementMapping.getFirstlyMatchedOntResourceUri() + ">";

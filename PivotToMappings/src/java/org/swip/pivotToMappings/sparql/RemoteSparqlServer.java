@@ -16,7 +16,7 @@ public class RemoteSparqlServer extends SparqlServer {
 
     @Override
     public Iterable<QuerySolution> select(String queryString) {
-//        System.out.println(queryString + "\n\n");
+        //System.out.println(queryString + "\n\n");
         ResultSet results = null;
         QueryExecution qexec = QueryExecutionFactory.sparqlService(service, queryString);
         LinkedList<QuerySolution> resultList = null;

@@ -228,7 +228,7 @@ public class KbElementMapping extends ElementMapping {
     }
     
     public boolean isProp() {
-        return ((this.kbType == KbTypeEnum.PROP || this.kbType == KbTypeEnum.DATAPROPNUM) ? true : false);
+        return ((this.kbType == KbTypeEnum.PROP ) ? true : false);
     }
     
     public boolean isNumericDataProperty(){

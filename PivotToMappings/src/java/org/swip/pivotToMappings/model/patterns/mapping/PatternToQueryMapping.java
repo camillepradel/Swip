@@ -496,6 +496,7 @@ public class PatternToQueryMapping {
             QueryElement qe = em.queryElement;
             String queried = qe.isQueried() ? "?" : "";
             String elementSentence = "";
+            boolean generalized = false;
             if(em instanceof KbElementMapping) {
                 KbElementMapping kbem = (KbElementMapping) em;
 
@@ -505,6 +506,7 @@ public class PatternToQueryMapping {
                 {
                     this.generalizations.put(em.patternElement.getId(), kbem.getGeneralizations());
                     this.uris.put(em.patternElement.getId(), kbem.getUris());
+                    generalized = true;
                 }
             } else if (em instanceof LiteralElementMapping) {
                 LiteralPatternElement lpe = (LiteralPatternElement)em.getPatternElement();
@@ -528,16 +530,19 @@ public class PatternToQueryMapping {
             
             localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + elementSentence + queried);
             
-            if(qe.isQueried() && userQuery.isSelectAggregate())
+            if(qe.isQueried() && userQuery.isSelectAggregate() && queriedElements.compareTo("") == 0)
             {
-                queriedElements = "__assoc"+em.getPatternElement().getId()+"__";
+                if(generalized)
+                    queriedElements = "_assoc"+em.getPatternElement().getId()+"_";
+                else
+                    queriedElements = elementSentence;
             }
             
             replacedPatternElements.add(em.patternElement);
 
             if(qe.isAggregate() && !aggregateProcessed.contains(qe))
             {
-                aggregateSentence += qe.getStringRepresentation(lang, numericDataProperty);
+                aggregateSentence += qe.getStringRepresentation(lang, numericDataProperty, em.getPatternElement().getId(), generalized);
                 aggregateProcessed.add(qe);
             }
         }
@@ -549,6 +554,7 @@ public class PatternToQueryMapping {
         
 
         System.out.println("PTQM : " + generalizations.toString());
+        System.out.println("beginAggregate : " + beginAggregateSentence+ " || queriedElements : "+queriedElements);
         if(beginAggregateSentence.compareTo("")!=0 && queriedElements.compareTo("")!=0)
         {
             String s = "";
@@ -584,11 +590,11 @@ public class PatternToQueryMapping {
         
         String aggSelectFormat = "";
         
-        if(!numericDataPropertyElements.isEmpty())
+        /*if(!numericDataPropertyElements.isEmpty())
         {
             aggSelectFormat = "%s";
         }
-        else if (userQuery.isCount()) 
+        else*/ if (userQuery.isCount()) 
         {
             //select = "COUNT(" + select + " AS "+(select.replaceAll("?", "?Nb"))+")";
             aggSelectFormat = "(COUNT(%s) AS %sNb)";

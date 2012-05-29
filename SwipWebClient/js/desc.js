@@ -75,9 +75,12 @@ function Desc(descriptiveSentence, mappingId)
 				this.generalizedSentence = this.generalizedSentence.replace(reg, ul);
 
 				this.generalizedSentence = this.generalizedSentence.replace('<option>' + bestMapping + '</option>', '<option selected="selected">' + bestMapping + '</option>');
+				
+				reg = new RegExp('_assoc'+genId+'_', "gm");
+				this.generalizedSentence = this.generalizedSentence.replace(reg, '<span class="assoc_mappingId__'+genId+'">'+bestMapping+'</span>');
 			}
 		}
 	}
 
-	this.generalizedSentence = this.generalizedSentence.replace(/,([^,]+)/g, '<span class="removable">,$1</span>');
+	//this.generalizedSentence = this.generalizedSentence.replace(/,([^,]+)/g, '<span class="removable">,$1</span>');
 }

@@ -15,7 +15,7 @@ pattern person_info
 		[ 1 				12_cine:incarne(13)				13_cine:Role; 	]role:0..10/13
 	end query
 	sentence
-		__1__ _if_birthDate_[est né(e) le __3__, ]_end_if_birthDate_ _if_deathDate_[est mort le __5__, ]_end_if_deathDate_ _if_birthPlace_[est née en __7__, ]_end_if_birthPlace_ _if_deathPlace_[est mort en __9__, ]_end_if_deathPlace_ _if_sexe_[est __11__, ]_end_if_sexe_ _if_role_[a jouee le role de _13_, ]_end_if_role_
+		__1__ _if_birthDate_[est né(e) le __3__, ]_end_if_birthDate_ _if_deathDate_[est mort le __5__, ]_end_if_deathDate_ _if_birthPlace_[est née en __7__, ]_end_if_birthPlace_ _if_deathPlace_[est mort en __9__, ]_end_if_deathPlace_ _if_sexe_[est __11__, ]_end_if_sexe_ _if_role_[a jouee le role de __13__, ]_end_if_role_
 	end sentence
 end pattern
 
