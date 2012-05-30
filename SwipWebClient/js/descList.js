@@ -58,8 +58,10 @@ function DescList()
 								}
 								else
 								{
-									var genId = jGen[k].substr(4, 1);
+									var genId = jGen[k].substr(4, jGen[k].length - 5);
 									iGenA = this.descA[i].getGen(genId);
+									//console.log("jSen " + this.descA[j].descriptiveSentence.string);
+									//console.log("genId " + genId);
 									jGenA = this.descA[j].getGen(genId);
 
 									for(var l = 0; l < jGenA.length; l++)

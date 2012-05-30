@@ -1,44 +1,147 @@
 prefixes
-	cine:	"http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#"
+	cinema: "http://ontologies.alwaysdata.net/cinema#"
+	owl: "http://www.w3.org/2002/07/owl#"
+	foaf: "http://xmlns.com/foaf/0.1/"
 	dc: 	"http://purl.org/dc/elements/1.1/"
-	owl:	"http://www.w3.org/2002/07/owl#"
 	rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 end prefixes
 
-pattern person_info
+
+/*
+Dumb generation of pattern around class: cinema:Artiste
+TODO: ajouter aPourNom et aPourPrenom
+*/
+
+pattern dumb_Artiste
 	query
-		[ 1_cine:Personne 	2_cine:aPourDateNaissance(3)	3_<date>;		]birthDate:0..1/3
-		[ 1					4_cine:aPourDateMort(5)			5_<date>;		]deathDate:0..1/5
-		[ 1 				6_cine:aPourLieuNaissance(7)	7_cine:Lieu;	]birthPlace:0..1/7
-		[ 1 				8_cine:aPourLieuMort(9)			9_cine:Lieu; 	]deathPlace:0..1/9
-		[ 1 				10_cine:aPourSexe(11)			11_cine:Sexe; 	]sexe:0..1/11
-		[ 1 				12_cine:incarne(13)				13_cine:Role; 	]role:0..10/13
+		[ 1_cinema:Artiste	2_cinema:estRecompenseA						3_cinema:CesarDuCinema	;]sp1:0..1/3
+		[ 1_cinema:Artiste	6_cinema:contribueArtistiquementAOeuvre		7_cinema:Oeuvre			;]sp3:0..1/7
+		[ 1_cinema:Artiste	8_cinema:acteurDoublePar					9_cinema:Doubleur		;]sp4:0..1/9
+		[ 1_cinema:Artiste	12_cinema:incarne							13_cinema:Role			;]sp6:0..1/13
+		[ 1_cinema:Artiste	16_cinema:aPourRecompensePersonne			17_cinema:PrixArtiste	;]sp8:0..1/17
+		[ 1_cinema:Artiste	18_cinema:estDoubleurDans					19_cinema:FilmLocalise	;]sp9:0..1/19
+		[ 1_cinema:Artiste	20_cinema:estRecompensePour					21_cinema:Film			;]sp10:0..1/21
+		[ 1_cinema:Artiste	26_cinema:aPourSexe							27_cinema:Sexe			;]sp13:0..1/27
+		[ 1_cinema:Artiste	28_cinema:estMembreDeJuryPourCompetition	29_cinema:Competition	;]sp14:0..1/29
+		[ 1_cinema:Artiste	30_cinema:estMembreDuJury					31_cinema:Jury			;]sp15:0..1/31
+		[ 1_cinema:Artiste	32_cinema:aPourLieuNaissance				33_cinema:Lieu			;]sp16:0..1/31
+		[ 1_cinema:Artiste	34_cinema:aPourLieuMort						35_cinema:Lieu			;]sp17:0..1/31
 	end query
 	sentence
-		__1__ _if_birthDate_[est né(e) le __3__, ]_end_if_birthDate_ _if_deathDate_[est mort le __5__, ]_end_if_deathDate_ _if_birthPlace_[est née en __7__, ]_end_if_birthPlace_ _if_deathPlace_[est mort en __9__, ]_end_if_deathPlace_ _if_sexe_[est __11__, ]_end_if_sexe_ _if_role_[a jouee le role de __13__, ]_end_if_role_
+__1__ _if_sp1_[__2__ __3__, ]_end_if_sp1_ _if_sp3_[__6__ __7__, ]_end_if_sp3_ _if_sp4_[__8__ __9__, ]_end_if_sp4_ _if_sp6_[__12__ __13__, ]_end_if_sp6_ _if_sp8_[__16__ __17__, ]_end_if_sp8_ _if_sp9_[__18__ __19__, ]_end_if_sp9_ _if_sp10_[__20__ __21__, ]_end_if_sp10_ _if_sp13_[__26__ __27__, ]_end_if_sp13_ _if_sp14_[__28__ __29__, ]_end_if_sp14_ _if_sp15_[__30__ __31__, ]_end_if_sp15_ _if_sp16_[__32__ __33__, ]_end_if_sp16_ _if_sp17_[__34__ __35__, ]_end_if_sp17_
 	end sentence
 end pattern
 
 
 
-pattern film_info
+/*
+Dumb generation of pattern around class: cinema:ActeurDeComplement
+*/
+
+pattern dumb_ActeurDeComplement
 	query
-		[ 1_cine:Film 	2_cine:aPourRecompenseFilm(3)	3_cine:PrixDecerne;				]recompense:0..1/3
-		[ 1				4_cine:aPourGenre(5)			5_cine:GenreCinematographique;	]genre:0..1/5
-		[ 1 			6_cine:aPourLieuDeTournage(7)	7_cine:Lieu;					]lieu:0..1/7
-		[ 1 			8_cine:aPourActeur(9)			9_cine:Acteur; 					]acteur:0..1/9
-		[ 1 			10_cine:aPourRole(11)			11_cine:Role; 					]role:0..1/11
+		[ 1_cinema:ActeurDeComplement	2_cinema:contribueAuFilm		3_cinema:Film		;]sp1:0..1/3
+		[ 1_cinema:ActeurDeComplement	6_cinema:estLeDoubleurDeActeur	7_cinema:Artiste	;]sp3:0..1/7
+		[ 1_cinema:ActeurDeComplement	12_cinema:estLeDoubleurDeRole	13_cinema:Role		;]sp6:0..1/13
 	end query
 	sentence
-		__1__ _if_recompense_[dont la récompense est __3__, ]_end_if_recompense_ _if_genre_[a pour genre __5__, ]_end_if_genre_ _if_lieu_[a pour lieu de tournage __7__, ]_end_if_lieu_ _if_acteur_[__8__ __9__, ]_end_if_acteur_ _if_role_[a pour role __1__, ]_end_if_role_
+__1__ _if_sp1_[__2__ __3__, ]_end_if_sp1_ _if_sp3_[__6__ __7__, ]_end_if_sp3_ _if_sp6_[__12__ __13__, ]_end_if_sp6_
 	end sentence
 end pattern
 
-pattern evenement_info
+
+
+/*
+Dumb generation of pattern around class: cinema:Competition
+*/
+
+pattern dumb_Competition
 	query
-		[ 1_cine:Evenement 	2_cine:aPourDureeJour(3)	3_<decimal>;				]duree:0..1/3
+		[ 1_cinema:Competition			2_cinema:decerne							3_cinema:PrixDecerne	;]sp1:0..1/3
+		[ 1_cinema:Competition			4_cinema:seDerouleDans						5_cinema:Lieu			;]sp2:0..1/5
+		[ 1_cinema:Competition			8_cinema:aPourJury							9_cinema:Jury			;]sp4:0..1/9
+		[ 11_owl:Thing 					10_cinema:estRecompenseA		 			1_cinema:Competition	;]sp5:0..1/11
+		[ 15_cinema:Jury 				14_cinema:deliberePourCompetition			1_cinema:Competition	;]sp7:0..1/15
+		[ 17_cinema:LongMetrageNomine	16_cinema:concourePourCompetition 			1_cinema:Competition	;]sp8:0..1/17
+		[ 21_cinema:Personne 			20_cinema:estMembreDeJuryPourCompetition 	1_cinema:Competition	;]sp10:0..1/21
 	end query
 	sentence
-		__1__ _if_duree_[__2__ __3__, ]_end_if_duree_
+__1__ _if_sp1_[__2__ __3__, ]_end_if_sp1_ _if_sp2_[__4__ __5__, ]_end_if_sp2_ _if_sp4_[__8__ __9__, ]_end_if_sp4_ _if_sp5_[ ; __11__ __10__ __1__]_end_if_sp5_ _if_sp7_[ ; __15__ __14__ __1__]_end_if_sp7_ _if_sp8_[ ; __17__ __16__ __1__]_end_if_sp8_ _if_sp10_[ ; __21__ __20__ __1__]_end_if_sp10_ 
 	end sentence
 end pattern
+
+
+
+/*
+Dumb generation of pattern around class: cinema:Film
+*/
+
+pattern dumb_Film
+	query
+		[ 1_cinema:Film		2_cinema:estLocalisePour			3_cinema:Lieu							;]sp1:0..1/3
+		[ 1_cinema:Film		4_cinema:estUneLocalisationDe		5_cinema:Film							;]sp2:0..1/5
+		[ 1_cinema:Film		6_cinema:estRecompenseA				7_cinema:Competition					;]sp3:0..1/7
+		[ 1_cinema:Film		8_cinema:concourePourCompetition	9_cinema:Competition					;]sp4:0..1/9
+		[ 1_cinema:Film		10_cinema:contribueAuFilm			11_cinema:Personne						;]sp5:0..1/11
+		[ 1_cinema:Film		18_cinema:aPourRecompenseFilm		19_cinema:PrixOeuvreCinematographique	;]sp9:0..1/19
+		[ 1_cinema:Film		20_cinema:aPourRole					21_cinema:Role							;]sp10:0..1/21
+		[ 51_owl:Thing 		50_cinema:estRecompensePour 		1_cinema:Film							;]sp25:0..1/51
+		[ 1_cinema:Film 	52_cinema:aPourTechnique 			53_cinema:Technique						;]sp26:0..1/53
+	end query
+	sentence
+		__1__ _if_sp1_[__2__ __3__, ]_end_if_sp1_ _if_sp2_[__4__ __5__, ]_end_if_sp2_ _if_sp3_[__6__ __7__, ]_end_if_sp3_ _if_sp4_[__8__ __9__, ]_end_if_sp4_ _if_sp5_[__10__ __11__, ]_end_if_sp5_ _if_sp9_[__18__ __19__, ]_end_if_sp9_ _if_sp10_[__20__ __21__, ]_end_if_sp10_ _if_sp26_[__52__ __53__, ]_end_if_sp26_ _if_sp25_[ ; __51__ __50__ __1__]_end_if_sp25_
+	end sentence
+end pattern
+
+
+
+/*
+Dumb generation of pattern around class: cinema:Jury
+*/
+
+pattern dumb_Jury
+	query
+		[ 1_cinema:Jury		4_cinema:deliberePourCompetition	5_cinema:Competition	;]sp2:0..1/5
+		[ 1_cinema:Jury		6_cinema:aPourMembreDeJury			7_cinema:Personne		;]sp3:0..1/7
+	end query
+	sentence
+__1__ _if_sp2_[__4__ __5__, ]_end_if_sp2_ _if_sp3_[__6__ __7__, ]_end_if_sp3_
+	end sentence
+end pattern
+
+
+
+/*
+Dumb generation of pattern around class: cinema:PrixDecerne
+*/
+
+pattern dumb_PrixDecerne
+	query
+		[ 1_cinema:PrixDecerne	2_cinema:estDecernePar		3_cinema:Competition	;]sp1:0..1/3
+		[ 1_cinema:PrixDecerne	4_cinema:recompenseFilm		5_cinema:Oeuvre			;]sp2:0..1/5
+		[ 1_cinema:PrixDecerne	6_cinema:recompensePersonne	7_cinema:Personne		;]sp3:0..1/7
+	end query
+	sentence
+__1__ _if_sp1_[__2__ __3__, ]_end_if_sp1_ _if_sp2_[__4__ __5__, ]_end_if_sp2_ _if_sp3_[__6__ __7__, ]_end_if_sp3_
+	end sentence
+end pattern
+
+
+
+/*
+Dumb generation of pattern around class: cinema:Role
+*/
+
+pattern dumb_Role
+	query
+		[ 1_cinema:Role	2_cinema:apparaitDans	3_cinema:Film		;]sp1:0..1/3
+		[ 1_cinema:Role	4_cinema:estIncarnePar	5_cinema:Artiste	;]sp2:0..1/5
+		[ 1_cinema:Role	6_cinema:roleDoublePar	7_cinema:Doubleur	;]sp3:0..1/7
+	end query
+	sentence
+__1__ _if_sp1_[__2__ __3__, ]_end_if_sp1_ _if_sp2_[__4__ __5__, ]_end_if_sp2_ _if_sp3_[__6__ __7__, ]_end_if_sp3_
+	end sentence
+end pattern
+
+
+

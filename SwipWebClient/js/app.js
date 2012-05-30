@@ -81,12 +81,12 @@ function fillTab(results)
 			root: 'content',
 			repeatitems: false,
 		},
-	   	colNames: ['Id', 'Desc','Rel'],
+	   	colNames: ['Id', 'Desc', 'Rel'],
 	   	colModel:
 	   	[
    			{name: 'id', index: 'id', width: 3, classes: 'id', sortable: false},
    			{name: 'descriptiveSentence.string', index: 'descriptiveSentence', width: 82, classes: 'descriptiveSentence'},
-   			{name: 'relevanceMark',index: 'relevanceMark', width: 15, sorttype: 'number', classes: 'relevanceMark'}
+   			{name: 'relevanceMark', index: 'relevanceMark', width: 15, classes: 'relevanceMark'}
    		],
    		multiselect: false,
 	   	subGrid: true,
@@ -138,14 +138,14 @@ function displayResults(results)
 	for(var i = 0; i < results.content.length; i++)
 		sentences.add(results.content[i].descriptiveSentence, i);
 	
-	var duplicates = sentences.checkCover();
+	var duplicates = [];//sentences.checkCover();
 	
 	for(var i = 0; i < results.content.length; i++)
 	{
 		if($.inArray(i, duplicates) < 0)
 		{
 			results.content[i].descriptiveSentence.string = sentences.getGeneralizedSentence(i);
-			results.content[i].relevanceMark = results.content[sentences.getMaxDescent(i)].relevanceMark;
+			//results.content[i].relevanceMark = results.content[sentences.getMaxDescent(i)].relevanceMark;
 		}
 	}
 
@@ -248,7 +248,7 @@ function generateSparql(mappingId, results)
 	{
 		for(var i = 0; i < genIds.length; i++)
 		{
-			var genId = genIds[i].substr(4, 1);
+			var genId = genIds[i].substr(4, genIds[i].length - 5);
 			var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
 			var value = results.content[mappingId].descriptiveSentence.gen[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
 			selectedFields.push(value);

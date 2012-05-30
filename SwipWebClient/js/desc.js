@@ -50,7 +50,7 @@ function Desc(descriptiveSentence, mappingId)
 			{
 				var j = 0;
 				var cont = true;
-				var genId = gens[i].substr(4, 1);
+				var genId = gens[i].substr(4, gens[i].length - 5);
 
 				this.covered = this.covered.sort(function(a, b) { return a - b});
 

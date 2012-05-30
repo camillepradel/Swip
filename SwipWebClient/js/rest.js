@@ -42,7 +42,7 @@ function pivotToSparql(pvQuery, respNum)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
+        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
     }).done(function(data)
     {
         toggleSearch(true);
@@ -76,7 +76,7 @@ function processQuery(query, id)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
+        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
     }).done(function(data)
     {
         sparqlQueryResult(data, id);
