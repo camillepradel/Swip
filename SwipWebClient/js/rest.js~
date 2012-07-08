@@ -21,10 +21,12 @@ function nlToPivot(nlQuery, lang)
         url: 'http://swipserver:8080/NlToPivot/NlToPivotWS/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
     }).done(function(data)
     {
-        pivotToSparql(data, 50);
-    }).fail(function(jqXHR, textStatus) {
+        $('#searchField2').val(data);
+        $('#searchField2').focus();
         toggleSearch(true);
+    }).fail(function(jqXHR, textStatus) {
         alert('Ajax error, please try again !');
+        toggleSearch(true);
     });
 }
 
@@ -40,18 +42,21 @@ function pivotToSparql(pvQuery, respNum)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinema'
+        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
     }).done(function(data)
     {
         toggleSearch(true);
 
-        $('#logo').animate
-        ({
-            'margin-top': 0
-        }, 'slow', function()
+        if(!$.isEmptyObject(data))
         {
-            displayResults(data);
-        });
+            $('#logo').animate
+            ({
+                'margin-top': 0
+            }, 'slow', function()
+            {
+                displayResults(data);
+            });
+        }
     }).fail(function(jqXHR, textStatus) {
         toggleSearch(true);
         alert('Ajax error, please try again !');
@@ -66,7 +71,16 @@ function pivotToSparql(pvQuery, respNum)
  * @param query SPARQL query to process
  * @param id Query's ID (concerns the view)
  **/
-/*function processQuery(query, id)
+function processQuery(query, id)
 {
-    TODO
-}*/
+    $.ajax
+    ({
+        type: 'GET',
+        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
+    }).done(function(data)
+    {
+        sparqlQueryResult(data, id);
+    }).fail(function(jqXHR, textStatus) {
+        alert('Ajax error, please try again !');
+    });
+}

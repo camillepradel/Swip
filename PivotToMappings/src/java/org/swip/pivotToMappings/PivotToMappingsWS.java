@@ -8,20 +8,27 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Collections;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.swip.pivotToMappings.controller.Controller;
 
+import org.swip.pivotToMappings.model.patterns.PatternsTextToRdf;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 
 
 @Path("/rest/")
 public class PivotToMappingsWS {
+    
+    private static final Logger logger = Logger.getLogger(PivotToMappingsWS.class);
 
     public PivotToMappingsWS() {
 
@@ -96,5 +103,18 @@ public class PivotToMappingsWS {
         @QueryParam("kbName") @DefaultValue("cinema") String kbName) {
 
         return Controller.getInstance().processQuery(query, kbName);
+    }
+
+    @POST
+    @Produces({MediaType.TEXT_XML})
+//    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("patternsTextToRdf")
+    public String patternsTextToRdf(
+        @FormParam("patterns") @DefaultValue("") String patterns,
+        @FormParam("setName") @DefaultValue("") String setName,
+        @FormParam("authorUri") @DefaultValue("http://camillepradel.com/uris#me") String authorUri)  {
+
+        logger.info(setName);
+        return PatternsTextToRdf.patternsTextToRdf(setName, authorUri, patterns);
     }
 }

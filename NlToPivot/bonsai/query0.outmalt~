@@ -1,0 +1,6 @@
+1	Quels	cln	CL	CLS	s=suj	1011101	2	suj	_	_
+2	sont	être	V	V	m=ind|n=p|p=3|t=pst	1101011	0	root	_	_
+3	les	le	D	DET	n=p|s=def	100	4	det	_	_
+4	acteurs	acteur	N	NC	g=m|n=p|s=c	0010101	2	obj	_	_
+5	Artist	Artist	N	NPP	s=p	_	4	mod	_	_
+

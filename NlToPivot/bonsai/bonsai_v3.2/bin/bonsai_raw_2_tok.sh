@@ -9,10 +9,11 @@
 
 # ----------------------------------------------
 PREBIN=$BONSAI/src
+MYPREBIN=$BONSAI/my_src
 
 #set -x
 
 # input = raw text
 # -- tokenize, get compounds, segment into sentences
-$PREBIN/do_tok.pl | $PREBIN/do_compounds.pl | $PREBIN/do_seg.pl
+$PREBIN/do_tok.pl | $PREBIN/do_compounds.pl | $MYPREBIN/consume_gazetteer.py  | $PREBIN/do_seg.pl
 

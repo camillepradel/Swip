@@ -18,7 +18,7 @@ function nlToPivot(nlQuery, lang)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://swipserver:8080/NlToPivot/NlToPivotWS/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
+        url: 'http://localhost:8080/NlToPivot/NlToPivotWS/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
     }).done(function(data)
     {
         $('#searchField2').val(data);
@@ -42,7 +42,7 @@ function pivotToSparql(pvQuery, respNum)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
+        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
     }).done(function(data)
     {
         toggleSearch(true);
@@ -76,7 +76,7 @@ function processQuery(query, id)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://swipserver:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
+        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
     }).done(function(data)
     {
         sparqlQueryResult(data, id);
