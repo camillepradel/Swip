@@ -1,0 +1,19 @@
+\begin{thebibliography}{}
+
+\bibitem[1 ]{1}
+Find icons.
+\newblock \url{http://findicons.com/icon/58981/fourballs2}.
+
+\bibitem[2 ]{2}
+Putting java to rest.
+\newblock \url{http://java.dzone.com/articles/putting-java-rest}.
+
+\bibitem[3 ]{3}
+Rest with java (jax-rs) using jersey - tutorial.
+\newblock \url{http://www.vogella.de/articles/REST/article.html}.
+
+\bibitem[4 ]{4}
+Sencha documentation.
+\newblock \url{http://docs.sencha.com/ext-js/4-0/#}.
+
+\end{thebibliography}

@@ -3,17 +3,30 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>Translate patterns</title>
+		<link rel="stylesheet" type="text/css" href="css/patternsTextToRdfStyle.css" />
 	</head>
 
 	<body>
 		<h1>Translate query patterns from text to RDF</h1>
 
 		<form method="post" action="http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/patternsTextToRdf">
-			<input type="text" name="setName" size="100"/>
-			<br/>
-			<textarea name="patterns" cols="160" rows="30">copy here query patterns in text format</textarea>
-			<br/>
-			<INPUT type="submit" value="Translate to RDF">
+<table>
+	<tr>
+			<th>Pattern set name:</th><th><input type="text" name="setName" size="100"/></th>
+	</tr>
+	<tr>
+			<th>Targeted ontology URI:</th><th><input type="text" name="ontologyUri" size="100" value="http://ontologies.alwaysdata.net/cinema"/></th>
+	</tr>
+	<tr>
+			<th>Author URI:</th><th><input type="text" name="authorUri" size="100" value="http://camillepradel.com/uris#me"/></th>
+	</tr>
+	<tr>
+			<th>Patterns in text format:</th><th><textarea name="patterns" cols="133" rows="30"></textarea></th>
+	</tr>
+	<tr>
+			<th></th><th><INPUT type="submit" value="Translate to RDF"></th>
+	</tr>
+<table border="0">			
 		</form>
 	</body>
 </html>

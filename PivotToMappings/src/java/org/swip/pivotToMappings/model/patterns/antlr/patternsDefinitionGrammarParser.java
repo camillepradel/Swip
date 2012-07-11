@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/patternsDefinitionGrammar.g 2011-12-16 00:13:48
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/patternsDefinitionGrammar.g 2012-07-10 17:46:43
 
 package org.swip.pivotToMappings.model.patterns.antlr;
 import java.util.HashMap;
@@ -1114,21 +1114,26 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "literalPe"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:236:1: literalPe returns [LiteralPatternElement lpe] : INT UNDERSCORE LOWERTHAN ID GREATERTHAN ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:236:1: literalPe returns [LiteralPatternElement lpe] : INT UNDERSCORE LOWERTHAN qname GREATERTHAN ;
     public final LiteralPatternElement literalPe() throws RecognitionException {
         LiteralPatternElement lpe = null;
 
         Token INT21=null;
-        Token ID22=null;
+        String qname22 = null;
+
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:237:2: ( INT UNDERSCORE LOWERTHAN ID GREATERTHAN )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:237:4: INT UNDERSCORE LOWERTHAN ID GREATERTHAN
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:237:2: ( INT UNDERSCORE LOWERTHAN qname GREATERTHAN )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:237:4: INT UNDERSCORE LOWERTHAN qname GREATERTHAN
             {
             INT21=(Token)match(input,INT,FOLLOW_INT_in_literalPe713); 
             match(input,UNDERSCORE,FOLLOW_UNDERSCORE_in_literalPe715); 
             match(input,LOWERTHAN,FOLLOW_LOWERTHAN_in_literalPe717); 
-            ID22=(Token)match(input,ID,FOLLOW_ID_in_literalPe719); 
+            pushFollow(FOLLOW_qname_in_literalPe719);
+            qname22=qname();
+
+            state._fsp--;
+
             match(input,GREATERTHAN,FOLLOW_GREATERTHAN_in_literalPe721); 
 
             		try {
@@ -1136,7 +1141,7 @@ public class patternsDefinitionGrammarParser extends Parser {
             			if (pes.get(key) != null) {
             				throw new RuntimeException("pattern element " + (INT21!=null?INT21.getText():null) + " refers different resources (literal elements can be used only once)");
             			}
-            			lpe = new LiteralPatternElement(Integer.parseInt(key), (ID22!=null?ID22.getText():null));
+            			lpe = new LiteralPatternElement(Integer.parseInt(key), qname22);
             			pes.put(key, lpe);
             		} catch (LiteralException ex) {
                                    			throw new LiteralRuntimeException(ex.getMessage());
@@ -1312,7 +1317,7 @@ public class patternsDefinitionGrammarParser extends Parser {
     public static final BitSet FOLLOW_INT_in_literalPe713 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_UNDERSCORE_in_literalPe715 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_LOWERTHAN_in_literalPe717 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_ID_in_literalPe719 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_qname_in_literalPe719 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_GREATERTHAN_in_literalPe721 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_MAPCOND_in_mappinconditions738 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_mappingcondition_in_mappinconditions743 = new BitSet(new long[]{0x0000000010000080L});

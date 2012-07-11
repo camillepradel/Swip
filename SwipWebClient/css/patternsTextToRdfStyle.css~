@@ -1,0 +1,25 @@
+/**
+ * General
+ **/
+
+body
+{
+	text-align: center;
+}
+
+table
+{
+	border: 0;
+	text-align: center;
+}
+
+th:first-child
+{
+	text-align: right;
+	vertical-align: top;
+}
+
+th:nth-child(2)
+{
+	text-align: left;
+}

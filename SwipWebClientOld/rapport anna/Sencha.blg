@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: Sencha.aux
+The style file: apalike.bst
+Database file #1: sencha.bib.bib
+Warning--to sort, need author or key in 1
+Warning--to sort, need author or key in 2
+Warning--to sort, need author or key in 3
+Warning--to sort, need author or key in 4
+Warning--empty year in 1
+Warning--empty year in 2
+Warning--empty year in 3
+Warning--empty year in 4
+You've used 4 entries,
+            1935 wiz_defined-function locations,
+            479 strings with 3968 characters,
+and the built_in function-call counts, 805 in all, are:
+= -- 88
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 52
+:= -- 127
+add.period$ -- 8
+call.type$ -- 4
+change.case$ -- 20
+chr.to.int$ -- 4
+cite$ -- 16
+duplicate$ -- 40
+empty$ -- 73
+format.name$ -- 0
+if$ -- 161
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 19
+num.names$ -- 0
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 20
+quote$ -- 0
+skip$ -- 25
+stack$ -- 0
+substring$ -- 52
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 8
+while$ -- 0
+width$ -- 0
+write$ -- 38
+(There were 8 warnings)

@@ -1,0 +1,84 @@
+\documentclass[letterpaper,11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{listings}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\geometry{ hmargin=4cm, vmargin=4cm}
+\makeatletter
+\def\maketitle{%
+	\vspace{5mm}
+  \vbox{\centering \large \textsc{Ministère de l'enseignement supérieur et de la recherche}}
+	\vspace{5mm}
+  \vbox{\centering \large {******}}
+	\vspace{5mm}
+  \vbox{\centering \Large \textsc{\textbf{I}nstitut \textbf{N}ational des \textbf{S}ciences \textbf{A}ppliquées}}
+	\vspace{5mm}
+  \vbox{\centering \large {\textbf{TOULOUSE}}}
+	\vspace{2mm}
+  \vbox{
+  \begin{minipage}{0.2\linewidth}
+%  \center{\includegraphics{img/toulousetech.jpg}}
+  \end{minipage}\hfill
+  \begin{minipage}{0.5\linewidth}
+  \center{\includegraphics{img/sencha.png}}
+  \end{minipage}\hfill
+  \begin{minipage}{0.2\linewidth}
+ % \center{\includegraphics{img/ut.jpg}}
+  \end{minipage}
+  }
+	\vspace{5mm}
+ % \vbox{\centering \large {\textbf{Département de Génie Électrique \& Informatique}}}
+	\vspace{5mm}
+	\vbox{\centering \large {******}}
+	\vspace{10mm}
+	\vbox{\centering \Large {\textbf{\textit{SENCHA TUTORIAL}}}}
+	\vspace{5mm}
+  \vbox{%
+    \setlength{\fboxsep}{14pt}
+    \centering \fbox{%
+    \begin{minipage}{0.6\textwidth}
+      \centering
+      \@title
+    \end{minipage}%
+    }
+%
+  }
+  \vspace{20mm}
+  \vbox{\begin{flushright}\setlength{\rightskip}{2cm} \Large \textbf{\entreprise}\end{flushright}}
+  \vfill
+  \vbox{\begin{flushright} \Large \textbf{\@author}\end{flushright}}
+  \vbox{\Large \textbf{\specialite}}
+  \vbox{\begin{flushright}\Large \textbf{\datesoutenance}\end{flushright}}
+  \clearpage
+%
+}
+\title{Developpement of the Web Interface for SWIP}
+\def\entreprise{IRIT}
+\def\specialite{}
+\def\datesoutenance{September 2011}
+\author{Anna Lanevska 4I}
+
+
+
+\begin{document}
+
+\input{extjs.tex}
+
+\bibliographystyle{apalike}
+\bibliography{sencha.bib}
+
+\end{document}

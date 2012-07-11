@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/patternsDefinitionGrammar.g 2011-12-16 00:13:48
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/patternsDefinitionGrammar.g 2012-07-10 17:46:44
 package  org.swip.pivotToMappings.model.patterns.antlr;
 
 import org.antlr.runtime.*;

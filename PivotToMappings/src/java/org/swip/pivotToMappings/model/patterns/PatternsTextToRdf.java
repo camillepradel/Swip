@@ -57,6 +57,7 @@ public class PatternsTextToRdf {
     static Resource subPatternCollectionClass = null;
     static Resource classPatternElementClass = null;
     static Resource literalPatternElementClass = null;
+    static Resource blankNodePatternElementClass = null;
     static Resource propertyPatternElementClass = null;
     // object properties
     static Property isPatternMadeUpOfProp = null;
@@ -68,6 +69,7 @@ public class PatternsTextToRdf {
     static Property targetsPropertyProp = null;
     static Property targetsLiteralTypeProp = null;
     static Property patternHasAuthorProp = null;
+    static Property targetsOntologyProp = null;
     static Property refersToPatternElementProp = null;
     static Property hasDeterminingElementProp = null;
     // data properties
@@ -77,9 +79,11 @@ public class PatternsTextToRdf {
     static Property isQualifyingProp = null;
     static Property subpatternCollectionhasNameProp = null;
     static Property patternElementHasIdProp = null;
+    static Property hasMappingConditionsProp = null;
+    
     static int tripleCount = 1;
 
-    static public String patternsTextToRdf(String setName, String authorUri, String patternsText) {
+    static public String patternsTextToRdf(String setName, String authorUri, String ontologyUri, String patternsText) {
         List<Pattern> l = new LinkedList<Pattern>();
         try {
             logger.info("Loading patterns:");
@@ -136,7 +140,9 @@ public class PatternsTextToRdf {
             classPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#ClassPatternElement");
             propertyPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#PropertyPatternElement");
             literalPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#LiteralPatternElement");
+            blankNodePatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#BlankNodePatternElement");
             hasSentenceTemplateProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasSentenceTemplate");
+            hasMappingConditionsProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasMappingConditions");
             isPatternMadeUpOfProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isPatternMadeUpOf");
             isMadeUpOfProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isMadeUpOf");
             hasSubjectProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasSubject");
@@ -150,16 +156,21 @@ public class PatternsTextToRdf {
             isQualifyingProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isQualifying");
             subpatternCollectionhasNameProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#subpatternCollectionhasName");
             patternHasAuthorProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#patternHasAuthor");
+            targetsOntologyProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsOntology");
             refersToPatternElementProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#refersToPatternElement");
             hasDeterminingElementProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasDeterminingElement");
             patternElementHasIdProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#patternElementHasId");
             
             Resource authorResource = model.createResource(authorUri);
+            logger.info("authorUri: " + authorUri);
+            Resource ontologyResource = model.createResource(ontologyUri);
+            logger.info("ontologyUri: " + ontologyUri);
             for (Pattern p : l) {
                 logger.info("pattern: " + p.getName());
                 tripleCount = 1;
                 Resource patternResource = model.createResource(uriStart + p.getName(), patternClass);
                 patternResource.addProperty(patternHasAuthorProp, authorResource);
+                patternResource.addProperty(targetsOntologyProp, ontologyResource);
                 patternResource.addLiteral(hasSentenceTemplateProp, model.createLiteral(p.getSentenceTemplate()));
                 for (Subpattern sp : p.getSubpatterns()) {
                     logger.info("  - subpattern: " + ((SubpatternCollection)sp).getId());
@@ -169,8 +180,6 @@ public class PatternsTextToRdf {
             OutputStream os = new ByteArrayOutputStream();
             model.write(os);
             return os.toString();
-
-
 
         } catch (PatternsParsingException ex) {
             logger.info("An error occured while parsing patterns:\n" + ex.getMessage());
@@ -192,8 +201,10 @@ public class PatternsTextToRdf {
             for (Subpattern spIn : spc.getSubpatterns()) {
                 result.addProperty(isMadeUpOfProp, processSubpattern(spIn, pattern));
             }
-            result.addProperty(hasDeterminingElementProp,
+            if (spc.getMinOccurrences() == 0 || spc.getMaxOccurrences()>1) {
+                result.addProperty(hasDeterminingElementProp,
                     model.createResource(generatePatternElementUri(spc.getPivotElement(), pattern)));
+            }            
         } else if (sp instanceof PatternTriple) {
             PatternTriple pt = (PatternTriple)sp;
             result = model.createResource(uriStart + patternName + "_triple" + tripleCount++, patternTripleClass);
@@ -205,40 +216,45 @@ public class PatternsTextToRdf {
     }
     
     private static Resource processPatternElement(PatternElement pe, Pattern pattern) {
-        Resource result = null;
-        if (pe instanceof ClassPatternElement) {
-            ClassPatternElement cpe = (ClassPatternElement)pe;
-            result = model.createResource(generatePatternElementUri(pe, pattern), classPatternElementClass)
-                    .addProperty(targetsClassProp, model.createResource(cpe.getUri()))
-                    .addLiteral(isQualifyingProp, cpe.isQualifying());
-        } else if (pe instanceof PropertyPatternElement) {
-            PropertyPatternElement ppe = (PropertyPatternElement)pe;
-            result = model.createResource(generatePatternElementUri(pe, pattern), propertyPatternElementClass)
-                    .addProperty(targetsPropertyProp, model.createResource(ppe.getUri()))
-                    .addLiteral(isQualifyingProp, ppe.isQualifying());
-            for (Integer referedElement : ppe.getReferedElements()) {
-                result.addProperty(refersToPatternElementProp,
-                        model.createResource(generatePatternElementUri(pattern.getPatternElementById(referedElement), pattern)));
+        Resource result = model.createResource("http://mon.uri.moisie.fr/plop");
+        if (pe instanceof KbPatternElement) {
+            KbPatternElement kbpe = (KbPatternElement) pe;
+            if (kbpe.getUri().equals("BlankNode")) {
+                logger.info("BLANK NODE!!");
+                result = model.createResource(generatePatternElementUri(pe, pattern), blankNodePatternElementClass);
+            } else {
+                if (pe instanceof ClassPatternElement) {
+                    result = model.createResource(generatePatternElementUri(pe, pattern), classPatternElementClass)
+                            .addProperty(targetsClassProp, model.createResource(kbpe.getUri()))
+                            .addLiteral(isQualifyingProp, kbpe.isQualifying());
+                } else if (pe instanceof PropertyPatternElement) {
+                    PropertyPatternElement ppe = (PropertyPatternElement) pe;
+                    result = model.createResource(generatePatternElementUri(pe, pattern), propertyPatternElementClass)
+                            .addProperty(targetsPropertyProp, model.createResource(ppe.getUri()))
+                            .addLiteral(isQualifyingProp, ppe.isQualifying());
+                    for (Integer referedElement : ppe.getReferedElements()) {
+                        result.addProperty(refersToPatternElementProp,
+                                model.createResource(generatePatternElementUri(pattern.getPatternElementById(referedElement), pattern)));
+                    }
+                }
             }
         } else if (pe instanceof LiteralPatternElement) {
             LiteralPatternElement lpe = (LiteralPatternElement)pe;
             result = model.createResource(generatePatternElementUri(pe, pattern), literalPatternElementClass)
                     .addProperty(targetsLiteralTypeProp, model.createResource(lpe.getType()))
                     .addLiteral(isQualifyingProp, lpe.isQualifying());
-        } else {
-            return null;
         }
+        
         result.addLiteral(patternElementHasIdProp, pe.getId());
-//        if (pe.getMappingCondition() != null) {
-//            
-//        }
+        if (pe.getMappingCondition() != null) {
+            result.addLiteral(hasMappingConditionsProp, pe.getMappingCondition());
+        }
         
         return result;
     }
     
     private static String generatePatternElementUri(PatternElement sp, Pattern pattern) {
-        logger.info(pattern.getName());
-        logger.info(sp.getId());
+        logger.info(uriStart + pattern.getName() + "_element" + sp.getId());
         return uriStart + pattern.getName() + "_element" + sp.getId();
     }
 }

@@ -112,9 +112,10 @@ public class PivotToMappingsWS {
     public String patternsTextToRdf(
         @FormParam("patterns") @DefaultValue("") String patterns,
         @FormParam("setName") @DefaultValue("") String setName,
+        @FormParam("ontologyUri") @DefaultValue("http://ontologies.alwaysdata.net/cinema") String ontologyUri,
         @FormParam("authorUri") @DefaultValue("http://camillepradel.com/uris#me") String authorUri)  {
 
         logger.info(setName);
-        return PatternsTextToRdf.patternsTextToRdf(setName, authorUri, patterns);
+        return PatternsTextToRdf.patternsTextToRdf(setName, authorUri, ontologyUri, patterns);
     }
 }
