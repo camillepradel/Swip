@@ -1,0 +1,18 @@
+1	Det	_	PO	PO	OP	2	SS	_	_
+2	innebär	_	V	VV	PS|SM	0	ROOT	_	_
+3	bl.	_	AB	AB	ZA	2	CA	_	_
+4	a.	_	ID	ID	_	3	HD	_	_
+5	att	_	UK	UK	AT	9	UK	_	_
+6	endast	_	AB	AB	ZA	7	CA	_	_
+7	en	_	N	EN	_	8	DT	_	_
+8	skatteskala	_	N	NN	SS	9	SS	_	_
+9	kommer	_	V	KV	PS	2	OO	_	_
+10	att	_	IM	IM	_	11	IM	_	_
+11	finnas	_	V	VV	IV	9	VG	_	_
+12	för	_	PR	PR	_	11	AA	_	_
+13	beräkning	_	N	VN	_	12	PA	_	_
+14	av	_	PR	PR	_	13	ET	_	_
+15	statlig	_	AJ	AJ	_	16	AT	_	_
+16	inkomstskatt	_	N	NN	SS	14	PA	_	_
+17	.	_	P	IP	_	2	IP	_	_
+

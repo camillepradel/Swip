@@ -11,6 +11,7 @@ import gate.util.GateException;
 import gate.util.persistence.PersistenceManager;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -43,18 +44,20 @@ public class NlToPivotGatePipelineWS {
 //        }
 //        return corpusControllerSupple;
 //    }
-
     private CorpusController getCorpusControllerGazetteer() {
         if (corpusControllerGazetteer == null) {
             try {
                 if (corpusControllerSupple == null) {
                     initGate();
                 }
-                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File(this.getClass().getClassLoader().getResource("../NlToPivotGazetteer.gapp").getPath()));
+                logger.info("Loading Gate process pipeline.......");
+//                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File(this.getClass().getClassLoader().getResource("../NlToPivotGazetteerMusicbrainz.gapp").getPath()));
+                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File("/home/swip/gate/NlToPivotGazetteerMusicbrainz.gapp"));
                 logger.info("Process pipeline loaded");
             } catch (Exception ex) {
-                logger.error(ex.getStackTrace());
+                logger.error(ex.getMessage());
             }
+            logger.info("corpusControllerGazetteer: " + corpusControllerGazetteer);
         }
         return corpusControllerGazetteer;
     }
@@ -65,21 +68,23 @@ public class NlToPivotGatePipelineWS {
      */
     private void initGate() throws GateException {
         logger.info("Initialising GATE...");
-        File userGateFile = new File(this.getClass().getClassLoader().getResource("/../user-gate.xml").getPath());
+        File userGateFile = new File(this.getClass().getClassLoader().getResource("../user-gate.xml").getPath());
+//        File userGateFile = new File("../gate/user-gate.xml");
         File gateHomeFile = userGateFile.getParentFile();
+        logger.info("userGateFile: " + userGateFile.getAbsolutePath());
+        logger.info("gateHomeFile: " + gateHomeFile.getAbsolutePath());
         Gate.setGateHome(gateHomeFile);
         Gate.setUserConfigFile(userGateFile);
         Gate.init();
-        logger.debug("default user config file: " + Gate.getDefaultUserConfigFileName());
-        logger.debug("default user session file: " + Gate.getDefaultUserSessionFileName());
-        logger.debug("user config file: " + Gate.getUserConfigFile());
-        logger.debug("user session file: " + Gate.getUserSessionFile());
-        logger.debug("site config file: " + Gate.getSiteConfigFile());
-        logger.debug("plugins home: " + Gate.getPluginsHome());
-        logger.debug("original user config: " + Gate.getOriginalUserConfig());
-        logger.debug("known plugins: " + Gate.getKnownPlugins());
-        logger.debug("built in creole dir: " + Gate.getBuiltinCreoleDir());
-        logger.info("Loading Gate process pipeline...");
+        logger.info("default user config file: " + Gate.getDefaultUserConfigFileName());
+        logger.info("default user session file: " + Gate.getDefaultUserSessionFileName());
+        logger.info("user config file: " + Gate.getUserConfigFile());
+        logger.info("user session file: " + Gate.getUserSessionFile());
+        logger.info("site config file: " + Gate.getSiteConfigFile());
+        logger.info("plugins home: " + Gate.getPluginsHome());
+        logger.info("original user config: " + Gate.getOriginalUserConfig());
+        logger.info("known plugins: " + Gate.getKnownPlugins());
+        logger.info("built in creole dir: " + Gate.getBuiltinCreoleDir());
     }
 
     /**
@@ -118,14 +123,23 @@ public class NlToPivotGatePipelineWS {
 //        }
 //        return "fail to parse adapted nl query";
 //    }
-
     /**
      * Web service operation
      */
     @WebMethod(operationName = "getQueryWithGatheredNamedEntities")
-    public String getQueryWithGatheredNamedEntities(@WebParam(name = "adaptedNlQuery") String adaptedNlQuery) {
-        logger.info("adapted query for Gate pipeline: " + adaptedNlQuery);
-        logger.info("GatePipeline with Fr support");
+    public String getQueryWithGatheredNamedEntities(@WebParam(name = "adaptedNlQuery") String adaptedNlQuery,
+            @WebParam(name = "getClass") boolean getClass) {
+
+        // FIXME: list of phrases appearing as labels of the KB we don't want to consider as named entities
+        //        should be added in /home/camille/gate/dictionary-local-musicbrainz/ignoreList.txt and removed from here
+        //        before next indexation in LKBGazetteer
+        // pb: Which singles did the_Dead Kennedys release?
+        List<String> dirtyStopList = new ArrayList<String>(Arrays.asList(new String[]{"the birthday", "broke up", "all live", "How long",
+                    "the song", "many members", "all members", "the_same_day", "For how long", "the_names", "the_children",
+                    "What is", "the third", "the most", "the lyrics", "rock_album", "the daughter", "Who is", "the single",
+                    "more than once", "Show me", "the same day", "the names", "the children"}));
+
+        logger.info("NL query for Gate pipeline: " + adaptedNlQuery);
         try {
             CorpusController cont = this.getCorpusControllerGazetteer();
             Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
@@ -134,12 +148,19 @@ public class NlToPivotGatePipelineWS {
             cont.setCorpus(corpus);
             cont.execute();
             AnnotationSet annotSet = doc.getAnnotations();
-            AnnotationSet lookupToKeepAnnotSet = annotSet.get("Lookup");
+            AnnotationSet lookupToKeepAnnotSet = annotSet.get("LookupToKeep");
             String resultNLQuery = adaptedNlQuery;
             for (Annotation lookupToKeepAnnot : lookupToKeepAnnotSet) {
                 int start = lookupToKeepAnnot.getStartNode().getOffset().intValue();
                 int end = lookupToKeepAnnot.getEndNode().getOffset().intValue();
-                resultNLQuery = resultNLQuery.substring(0, start) + resultNLQuery.substring(start, end).replaceAll(" ", "_") + resultNLQuery.substring(end);
+                String substring = adaptedNlQuery.substring(start, end);
+                if (!dirtyStopList.contains(substring)) {
+                    String replacingSubstring = substring.replaceAll(" ", "_");
+                    if (getClass) {
+                        replacingSubstring = replacingSubstring + "(" + lookupToKeepAnnot.getFeatures().get("class") + ")";
+                    }
+                    resultNLQuery = resultNLQuery.replaceAll(substring, replacingSubstring);
+                }
             }
             logger.info("adapted query for Gate pipeline with named entities: " + resultNLQuery);
             return resultNLQuery;
@@ -148,7 +169,8 @@ public class NlToPivotGatePipelineWS {
         } catch (ResourceInstantiationException ex) {
             logger.error(ex);
         }
-            logger.info("fail to parse adapted nl query");
+        logger.info("fail to parse adapted nl query");
+        logger.info("\n\n\n");
         return "fail to parse adapted nl query";
     }
 }

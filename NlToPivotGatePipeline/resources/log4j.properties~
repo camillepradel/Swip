@@ -1,0 +1,10 @@
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%c{1} - %p - %m%n
+log4j.appender.console.target=System.out
+
+
+log4j.rootLogger=ERROR, console
+
+log4j.logger.org=DEBUG, console
+log4j.additivity.org=false

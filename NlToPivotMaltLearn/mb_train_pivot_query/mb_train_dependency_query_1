@@ -1,0 +1,7 @@
+1	Which	which	WDT	WDT	_	2	det	_	_	SELECT	NOBJ	2	ign
+2	singles	single	NNS	NNS	_	0	null	_	_	IGN	OBJ	5	e3
+3	did	do	VBD	VBD	_	2	dep	_	_	IGN	NOBJ	2	ign
+4	Slayer	<unknown>	NP	NP	_	3	dep	_	_	IGN	NOBJ	0	e1
+5	release	release	NN	NN	_	4	dep	_	_	IGN	NOBJ	4	e2
+6	?	?	SENT	SENT	_	5	dep	_	_	IGN	NOBJ	5	ign
+

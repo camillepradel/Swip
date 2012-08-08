@@ -1,0 +1,8 @@
+1	How	How	WRB	WRB	_	2	advmod	_	_	COUNT	NOBJ	_	_
+2	many	many	JJ	JJ	_	3	amod	_	_	COUNT	NOBJ	_	_
+3	albums	album	NNS	NNS	_	0	null	_	_	_	OBJ	5	e2
+4	did	do	VBD	VBD	_	3	dep	_	_	_	NOBJ	_	_
+5	Michael_Jackson	<unknown>	NP	NP	_	4	dep	_	_	_	NOBJ	0	e1
+6	record	record	NN	NN	_	5	dep	_	_	_	NOBJ	_	_
+7	?	?	SENT	SENT	_	6	dep	_	_	_	NOBJ	_	_
+

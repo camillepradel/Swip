@@ -18,7 +18,7 @@ function nlToPivot(nlQuery, lang)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://localhost:8080/NlToPivot/NlToPivotWS/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
+        url: 'http://localhost:8080/NlToPivotStanford/resources/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
     }).done(function(data)
     {
         $('#searchField2').val(data);

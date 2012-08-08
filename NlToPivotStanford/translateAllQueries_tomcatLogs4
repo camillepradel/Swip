@@ -1,0 +1,208 @@
+NlToPivotGatePipelineWS - INFO - NL query for Gate pipeline: Which singles did Slayer release?
+NlToPivotGatePipelineWS - INFO - adapted query for Gate pipeline with named entities: Which singles did Slayer release?
+NlToPivotStanfordWS - INFO - 
+NlToPivotStanfordWS - INFO - User nl query: Which singles did Slayer release?
+NlToPivotStanfordWS - INFO - Query language: en
+NlToPivotStanfordWS - INFO - POS tagger: treeTagger
+NlToPivotStanfordWS - INFO - Dependency parser: malt
+TreeTagger - INFO - ------------
+TreeTagger - INFO - + treeTagger
+TreeTagger - INFO - [Which, singles, did, Slayer, release, ?]
+TreeTagger - INFO - treeTagger result:
+TreeTagger - INFO -  - Which	WDT	which
+TreeTagger - INFO -  - singles	NNS	single
+TreeTagger - INFO -  - did	VVD	do
+TreeTagger - INFO -  - Slayer	NP	Slayer
+TreeTagger - INFO -  - release	NN	release
+TreeTagger - INFO -  - ?	SENT	?
+MaltParser - INFO - ------------
+MaltParser - INFO - + MaltParser
+log - INFO -   Transition system    : Projective
+
+log - INFO -   Parser configuration : Stack
+
+log - INFO -   Feature model        : eng-liblinear.xml
+
+log - INFO -   Classifier           : liblinear
+
+log - INFO -   Data Format          : /engmalt.linear-1.7/conllx.xml
+
+MaltParser - INFO - MaltParser result:
+MaltParser - INFO - 0 [I:][O:2]
+MaltParser - INFO - head edge: null
+MaltParser - INFO - 1 [I:2][O:]ID:1 FORM:Which LEMMA:which CPOSTAG:WDT POSTAG:WDT FEATS:_ 
+MaltParser - INFO - head edge: 2->1 DEPREL:det 
+MaltParser - INFO - 2 [I:0][O:1,3]ID:2 FORM:singles LEMMA:single CPOSTAG:NNS POSTAG:NNS FEATS:_ 
+MaltParser - INFO - head edge: 0->2 DEPREL:null 
+MaltParser - INFO - 3 [I:2][O:5]ID:3 FORM:did LEMMA:do CPOSTAG:VVD POSTAG:VVD FEATS:_ 
+MaltParser - INFO - head edge: 2->3 DEPREL:dep 
+MaltParser - INFO - 4 [I:5][O:]ID:4 FORM:Slayer LEMMA:Slayer CPOSTAG:NP POSTAG:NP FEATS:_ 
+MaltParser - INFO - head edge: 5->4 DEPREL:amod 
+MaltParser - INFO - 5 [I:3][O:4,6]ID:5 FORM:release LEMMA:release CPOSTAG:NN POSTAG:NN FEATS:_ 
+MaltParser - INFO - head edge: 3->5 DEPREL:null 
+MaltParser - INFO - 6 [I:5][O:]ID:6 FORM:? LEMMA:? CPOSTAG:SENT POSTAG:SENT FEATS:_ 
+MaltParser - INFO - head edge: 5->6 DEPREL:punct 
+MaltParser - INFO - ----------------------------------
+MaltParser - INFO - + Interpreting dependency graph...
+MaltParser - INFO - browsing 1 [I:2][O:]ID:1 FORM:Which LEMMA:which CPOSTAG:WDT POSTAG:WDT FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 2 [I:0][O:1,3]ID:2 FORM:singles LEMMA:single CPOSTAG:NNS POSTAG:NNS FEATS:_ 
+MaltParser - INFO - added to pivot query
+MaltParser - INFO - browsing 3 [I:2][O:5]ID:3 FORM:did LEMMA:do CPOSTAG:VVD POSTAG:VVD FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 5 [I:3][O:4,6]ID:5 FORM:release LEMMA:release CPOSTAG:NN POSTAG:NN FEATS:_ 
+MaltParser - INFO - added to pivot query
+MaltParser - INFO - browsing 4 [I:5][O:]ID:4 FORM:Slayer LEMMA:Slayer CPOSTAG:NP POSTAG:NP FEATS:_ 
+MaltParser - INFO - added to pivot query
+MaltParser - INFO - browsing 6 [I:5][O:]ID:6 FORM:? LEMMA:? CPOSTAG:SENT POSTAG:SENT FEATS:_ 
+MaltParser - INFO - ignored
+NlToPivotStanfordWS - INFO - Returned pivot query: ?single: release= Slayer.
+NlToPivotStanfordWS - INFO - 
+
+
+
+NlToPivotGatePipelineWS - INFO - NL query for Gate pipeline: Which groups was David Bowie a member of?
+NlToPivotGatePipelineWS - INFO - adapted query for Gate pipeline with named entities: Which groups was David_Bowie a member of?
+NlToPivotStanfordWS - INFO - 
+NlToPivotStanfordWS - INFO - User nl query: Which groups was David_Bowie a member of?
+NlToPivotStanfordWS - INFO - Query language: en
+NlToPivotStanfordWS - INFO - POS tagger: treeTagger
+NlToPivotStanfordWS - INFO - Dependency parser: malt
+TreeTagger - INFO - ------------
+TreeTagger - INFO - + treeTagger
+TreeTagger - INFO - [Which, groups, was, David_Bowie, a, member, of, ?]
+TreeTagger - INFO - treeTagger result:
+TreeTagger - INFO -  - Which	WDT	which
+TreeTagger - INFO -  - groups	NNS	group
+TreeTagger - INFO -  - was	VBD	be
+TreeTagger - INFO -  - David_Bowie	NP	David_Bowie
+TreeTagger - INFO -  - a	DT	a
+TreeTagger - INFO -  - member	NN	member
+TreeTagger - INFO -  - of	IN	of
+TreeTagger - INFO -  - ?	SENT	?
+MaltParser - INFO - ------------
+MaltParser - INFO - + MaltParser
+log - INFO -   Transition system    : Projective
+
+log - INFO -   Parser configuration : Stack
+
+log - INFO -   Feature model        : eng-liblinear.xml
+
+log - INFO -   Classifier           : liblinear
+
+log - INFO -   Data Format          : /engmalt.linear-1.7/conllx.xml
+
+MaltParser - INFO - MaltParser result:
+MaltParser - INFO - 0 [I:][O:3]
+MaltParser - INFO - head edge: null
+MaltParser - INFO - 1 [I:2][O:]ID:1 FORM:Which LEMMA:which CPOSTAG:WDT POSTAG:WDT FEATS:_ 
+MaltParser - INFO - head edge: 2->1 DEPREL:det 
+MaltParser - INFO - 2 [I:3][O:1]ID:2 FORM:groups LEMMA:group CPOSTAG:NNS POSTAG:NNS FEATS:_ 
+MaltParser - INFO - head edge: 3->2 DEPREL:attr 
+MaltParser - INFO - 3 [I:0][O:2,4]ID:3 FORM:was LEMMA:be CPOSTAG:VBD POSTAG:VBD FEATS:_ 
+MaltParser - INFO - head edge: 0->3 DEPREL:null 
+MaltParser - INFO - 4 [I:3][O:6]ID:4 FORM:David_Bowie LEMMA:David_Bowie CPOSTAG:NP POSTAG:NP FEATS:_ 
+MaltParser - INFO - head edge: 3->4 DEPREL:nsubj 
+MaltParser - INFO - 5 [I:6][O:]ID:5 FORM:a LEMMA:a CPOSTAG:DT POSTAG:DT FEATS:_ 
+MaltParser - INFO - head edge: 6->5 DEPREL:det 
+MaltParser - INFO - 6 [I:4][O:5,7]ID:6 FORM:member LEMMA:member CPOSTAG:NN POSTAG:NN FEATS:_ 
+MaltParser - INFO - head edge: 4->6 DEPREL:dep 
+MaltParser - INFO - 7 [I:6][O:8]ID:7 FORM:of LEMMA:of CPOSTAG:IN POSTAG:IN FEATS:_ 
+MaltParser - INFO - head edge: 6->7 DEPREL:prep 
+MaltParser - INFO - 8 [I:7][O:]ID:8 FORM:? LEMMA:? CPOSTAG:SENT POSTAG:SENT FEATS:_ 
+MaltParser - INFO - head edge: 7->8 DEPREL:pobj 
+MaltParser - INFO - ----------------------------------
+MaltParser - INFO - + Interpreting dependency graph...
+MaltParser - INFO - browsing 1 [I:2][O:]ID:1 FORM:Which LEMMA:which CPOSTAG:WDT POSTAG:WDT FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 2 [I:3][O:1]ID:2 FORM:groups LEMMA:group CPOSTAG:NNS POSTAG:NNS FEATS:_ 
+MaltParser - INFO - added to pivot query
+MaltParser - INFO - browsing 3 [I:0][O:2,4]ID:3 FORM:was LEMMA:be CPOSTAG:VBD POSTAG:VBD FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 4 [I:3][O:6]ID:4 FORM:David_Bowie LEMMA:David_Bowie CPOSTAG:NP POSTAG:NP FEATS:_ 
+MaltParser - INFO - token is maybe the type of its head...
+MaltParser - INFO - PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX owl:  <http://www.w3.org/2002/07/owl#>PREFIX pf:   <http://jena.hpl.hp.com/ARQ/property#>PREFIX dc: <http://purl.org/dc/elements/1.1/>ASK{    ?resource rdf:type owl:Class.    ?resource dc:title|rdfs:label ?label.    (?label ?score) pf:textMatch "David_Bowie".    FILTER (?score > 0.6)}
+MaltParser - INFO -     and has been successfully matched to a KB class
+MaltParser - INFO - browsing 6 [I:4][O:5,7]ID:6 FORM:member LEMMA:member CPOSTAG:NN POSTAG:NN FEATS:_ 
+MaltParser - INFO - added to pivot query
+MaltParser - INFO - browsing 5 [I:6][O:]ID:5 FORM:a LEMMA:a CPOSTAG:DT POSTAG:DT FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 7 [I:6][O:8]ID:7 FORM:of LEMMA:of CPOSTAG:IN POSTAG:IN FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 8 [I:7][O:]ID:8 FORM:? LEMMA:? CPOSTAG:SENT POSTAG:SENT FEATS:_ 
+MaltParser - INFO - ignored
+NlToPivotStanfordWS - INFO - Returned pivot query: ?group: member.
+NlToPivotStanfordWS - INFO - 
+
+
+
+NlToPivotGatePipelineWS - INFO - NL query for Gate pipeline: When was the band Dover founded?
+NlToPivotGatePipelineWS - INFO - adapted query for Gate pipeline with named entities: When was the band Dover founded?
+NlToPivotStanfordWS - INFO - 
+NlToPivotStanfordWS - INFO - User nl query: When was the band Dover founded?
+NlToPivotStanfordWS - INFO - Query language: en
+NlToPivotStanfordWS - INFO - POS tagger: treeTagger
+NlToPivotStanfordWS - INFO - Dependency parser: malt
+TreeTagger - INFO - ------------
+TreeTagger - INFO - + treeTagger
+TreeTagger - INFO - [When, was, the, band, Dover, founded, ?]
+TreeTagger - INFO - treeTagger result:
+TreeTagger - INFO -  - When	WRB	when
+TreeTagger - INFO -  - was	VBD	be
+TreeTagger - INFO -  - the	DT	the
+TreeTagger - INFO -  - band	NN	band
+TreeTagger - INFO -  - Dover	NP	Dover
+TreeTagger - INFO -  - founded	VVD	found
+TreeTagger - INFO -  - ?	SENT	?
+MaltParser - INFO - ------------
+MaltParser - INFO - + MaltParser
+log - INFO -   Transition system    : Projective
+
+log - INFO -   Parser configuration : Stack
+
+log - INFO -   Feature model        : eng-liblinear.xml
+
+log - INFO -   Classifier           : liblinear
+
+log - INFO -   Data Format          : /engmalt.linear-1.7/conllx.xml
+
+MaltParser - INFO - MaltParser result:
+MaltParser - INFO - 0 [I:][O:1]
+MaltParser - INFO - head edge: null
+MaltParser - INFO - 1 [I:0][O:2]ID:1 FORM:When LEMMA:when CPOSTAG:WRB POSTAG:WRB FEATS:_ 
+MaltParser - INFO - head edge: 0->1 DEPREL:null 
+MaltParser - INFO - 2 [I:1][O:5]ID:2 FORM:was LEMMA:be CPOSTAG:VBD POSTAG:VBD FEATS:_ 
+MaltParser - INFO - head edge: 1->2 DEPREL:dep 
+MaltParser - INFO - 3 [I:4][O:]ID:3 FORM:the LEMMA:the CPOSTAG:DT POSTAG:DT FEATS:_ 
+MaltParser - INFO - head edge: 4->3 DEPREL:det 
+MaltParser - INFO - 4 [I:5][O:3]ID:4 FORM:band LEMMA:band CPOSTAG:NN POSTAG:NN FEATS:_ 
+MaltParser - INFO - head edge: 5->4 DEPREL:nsubj 
+MaltParser - INFO - 5 [I:2][O:4,6]ID:5 FORM:Dover LEMMA:Dover CPOSTAG:NP POSTAG:NP FEATS:_ 
+MaltParser - INFO - head edge: 2->5 DEPREL:ccomp 
+MaltParser - INFO - 6 [I:5][O:7]ID:6 FORM:founded LEMMA:found CPOSTAG:VVD POSTAG:VVD FEATS:_ 
+MaltParser - INFO - head edge: 5->6 DEPREL:dep 
+MaltParser - INFO - 7 [I:6][O:]ID:7 FORM:? LEMMA:? CPOSTAG:SENT POSTAG:SENT FEATS:_ 
+MaltParser - INFO - head edge: 6->7 DEPREL:null 
+MaltParser - INFO - ----------------------------------
+MaltParser - INFO - + Interpreting dependency graph...
+MaltParser - INFO - browsing 1 [I:0][O:2]ID:1 FORM:When LEMMA:when CPOSTAG:WRB POSTAG:WRB FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 2 [I:1][O:5]ID:2 FORM:was LEMMA:be CPOSTAG:VBD POSTAG:VBD FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 5 [I:2][O:4,6]ID:5 FORM:Dover LEMMA:Dover CPOSTAG:NP POSTAG:NP FEATS:_ 
+MaltParser - INFO - added to pivot query
+MaltParser - INFO - browsing 4 [I:5][O:3]ID:4 FORM:band LEMMA:band CPOSTAG:NN POSTAG:NN FEATS:_ 
+MaltParser - INFO - token is maybe the type of its head...
+MaltParser - INFO - PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX owl:  <http://www.w3.org/2002/07/owl#>PREFIX pf:   <http://jena.hpl.hp.com/ARQ/property#>PREFIX dc: <http://purl.org/dc/elements/1.1/>ASK{    ?resource rdf:type owl:Class.    ?resource dc:title|rdfs:label ?label.    (?label ?score) pf:textMatch "band".    FILTER (?score > 0.6)}
+MaltParser - INFO -     and has been successfully matched to a KB class
+MaltParser - INFO - browsing 3 [I:4][O:]ID:3 FORM:the LEMMA:the CPOSTAG:DT POSTAG:DT FEATS:_ 
+MaltParser - INFO - ignored
+MaltParser - INFO - browsing 6 [I:5][O:7]ID:6 FORM:founded LEMMA:found CPOSTAG:VVD POSTAG:VVD FEATS:_ 
+MaltParser - INFO - added to pivot query
+MaltParser - INFO - browsing 7 [I:6][O:]ID:7 FORM:? LEMMA:? CPOSTAG:SENT POSTAG:SENT FEATS:_ 
+MaltParser - INFO - ignored
+NlToPivotStanfordWS - INFO - Returned pivot query: found: Dover(band)= ?date.
+NlToPivotStanfordWS - INFO - 
+
+
+
