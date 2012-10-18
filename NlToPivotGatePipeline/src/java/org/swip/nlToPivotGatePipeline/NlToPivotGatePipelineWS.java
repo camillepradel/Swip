@@ -26,33 +26,16 @@ import org.apache.log4j.Logger;
 public class NlToPivotGatePipelineWS {
 
     /** The Corpus Pipeline application */
-    static private CorpusController corpusControllerSupple = null;
     static private CorpusController corpusControllerGazetteer = null;
     private static final Logger logger = Logger.getLogger(NlToPivotGatePipelineWS.class);
 
-//    private CorpusController getCorpusControllerSupple() {
-//        if (corpusControllerSupple == null) {
-//            try {
-//                if (corpusControllerGazetteer == null) {
-//                    initGate();
-//                }
-//                corpusControllerSupple = (CorpusController) PersistenceManager.loadObjectFromFile(new File(this.getClass().getClassLoader().getResource("../NlToPivotSupple.gapp").getPath()));
-//                logger.info("Process pipeline loaded");
-//            } catch (Exception ex) {
-//                logger.error(ex.getStackTrace());
-//            }
-//        }
-//        return corpusControllerSupple;
-//    }
     private CorpusController getCorpusControllerGazetteer() {
         if (corpusControllerGazetteer == null) {
             try {
-                if (corpusControllerSupple == null) {
-                    initGate();
-                }
+                initGate();
                 logger.info("Loading Gate process pipeline.......");
 //                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File(this.getClass().getClassLoader().getResource("../NlToPivotGazetteerMusicbrainz.gapp").getPath()));
-                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File("/home/swip/gate/NlToPivotGazetteerMusicbrainz.gapp"));
+                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File("/home/operateur/gate/NlToPivotGazetteerMusicbrainz.gapp"));
                 logger.info("Process pipeline loaded");
             } catch (Exception ex) {
                 logger.error(ex.getMessage());
@@ -86,43 +69,7 @@ public class NlToPivotGatePipelineWS {
         logger.info("known plugins: " + Gate.getKnownPlugins());
         logger.info("built in creole dir: " + Gate.getBuiltinCreoleDir());
     }
-
-    /**
-     * Web service operation
-     */
-//    @WebMethod(operationName = "getSuppleSemanticAnnotations")
-//    public String getSuppleSemanticAnnotations(@WebParam(name = "adaptedNlQuery") String adaptedNlQuery) {
-//        logger.info("adapted query for Gate pipeline: " + adaptedNlQuery);
-//        try {
-//            CorpusController cont = this.getCorpusControllerSupple();
-//            Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
-//            Document doc = (Document) Factory.newDocument(adaptedNlQuery);
-//            ((List<Document>) corpus).add(doc);
-//            cont.setCorpus(corpus);
-//            cont.execute();
-//            AnnotationSet annotSet = doc.getAnnotations();
-//            AnnotationSet semanticsAnnotSet = annotSet.get("semantics");
-//            String suppleSemanticOutput = "";
-//            int numSemanticAnnotation = 0;
-//            for (Annotation semanticAnnot : semanticsAnnotSet) {
-//                suppleSemanticOutput += "semantic annotation " + ++numSemanticAnnotation + "\n";
-//                FeatureMap features = semanticAnnot.getFeatures();
-//                ArrayList<String> qlfFeatures = (ArrayList<String>) features.get("qlf");
-//                for (String qlfFeature : qlfFeatures) {
-//                    if (!qlfFeature.substring(0, 4).equals("name") && !qlfFeature.substring(0, 3).equals("det")) {
-//                        suppleSemanticOutput += qlfFeature + "\n";
-//                    }
-//                }
-//            }
-//            logger.info("supple semantic output:\n" + suppleSemanticOutput);
-//            return suppleSemanticOutput;
-//        } catch (ExecutionException ex) {
-//            logger.error(ex);
-//        } catch (ResourceInstantiationException ex) {
-//            logger.error(ex);
-//        }
-//        return "fail to parse adapted nl query";
-//    }
+    
     /**
      * Web service operation
      */
@@ -137,13 +84,16 @@ public class NlToPivotGatePipelineWS {
         List<String> dirtyStopList = new ArrayList<String>(Arrays.asList(new String[]{"the birthday", "broke up", "all live", "How long",
                     "the song", "many members", "all members", "the_same_day", "For how long", "the_names", "the_children",
                     "What is", "the third", "the most", "the lyrics", "rock_album", "the daughter", "Who is", "the single",
-                    "more than once", "Show me", "the same day", "the names", "the children"}));
+                    "more than once", "Show me", "the same day", "the names", "the children",
+                    "in_July", "all_artists", "the_name", "in_2000", "work_together", "kind_of",
+                    "the_death", "many_pieces", "When_was_That", "all_artists", "in_a_band", //                    "solo_album" ???
+                }));
 
         logger.info("NL query for Gate pipeline: " + adaptedNlQuery);
         try {
             CorpusController cont = this.getCorpusControllerGazetteer();
-            Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
             Document doc = (Document) Factory.newDocument(adaptedNlQuery);
+            Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
             ((List<Document>) corpus).add(doc);
             cont.setCorpus(corpus);
             cont.execute();
