@@ -1,0 +1,542 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+InjectableProviderFactory (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="InjectableProviderFactory (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/InjectableProviderFactory.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/ContextResolverFactory.html" title="class in com.sun.jersey.core.spi.factory"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html" title="class in com.sun.jersey.core.spi.factory"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="InjectableProviderFactory.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.core.spi.factory</FONT>
+<BR>
+Class InjectableProviderFactory</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.core.spi.factory.InjectableProviderFactory</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>InjectableProviderFactory</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></DL>
+</PRE>
+
+<P>
+A factory for managing <A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProvider.html" title="interface in com.sun.jersey.spi.inject"><CODE>InjectableProvider</CODE></A> instances.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_com.sun.jersey.spi.inject.InjectableProviderContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from interface com.sun.jersey.spi.inject.<A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.InjectableScopePair.html" title="class in com.sun.jersey.spi.inject">InjectableProviderContext.InjectableScopePair</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#InjectableProviderFactory()">InjectableProviderFactory</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#add(com.sun.jersey.spi.inject.InjectableProvider)">add</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProvider.html" title="interface in com.sun.jersey.spi.inject">InjectableProvider</A>&nbsp;ip)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#configure(com.sun.jersey.core.spi.component.ProviderServices)">configure</A></B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html" title="class in com.sun.jersey.core.spi.component">ProviderServices</A>&nbsp;providerServices)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#configureProviders(com.sun.jersey.core.spi.component.ProviderServices)">configureProviders</A></B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html" title="class in com.sun.jersey.core.spi.component">ProviderServices</A>&nbsp;providerServices)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;A extends java.lang.annotation.Annotation,C&gt; 
+<BR>
+<A HREF="../../../../../../com/sun/jersey/spi/inject/Injectable.html" title="interface in com.sun.jersey.spi.inject">Injectable</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, com.sun.jersey.core.spi.component.ComponentScope)">getInjectable</A></B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+              <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentContext.html" title="interface in com.sun.jersey.core.spi.component">ComponentContext</A>&nbsp;ic,
+              A&nbsp;a,
+              C&nbsp;c,
+              <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&nbsp;s)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an injectable.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;A extends java.lang.annotation.Annotation,C&gt; 
+<BR>
+<A HREF="../../../../../../com/sun/jersey/spi/inject/Injectable.html" title="interface in com.sun.jersey.spi.inject">Injectable</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)">getInjectable</A></B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+              <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentContext.html" title="interface in com.sun.jersey.core.spi.component">ComponentContext</A>&nbsp;ic,
+              A&nbsp;a,
+              C&nbsp;c,
+              java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&gt;&nbsp;ls)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an injectable.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;A extends java.lang.annotation.Annotation,C&gt; 
+<BR>
+<A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.InjectableScopePair.html" title="class in com.sun.jersey.spi.inject">InjectableProviderContext.InjectableScopePair</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#getInjectableWithScope(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)">getInjectableWithScope</A></B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                       <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentContext.html" title="interface in com.sun.jersey.core.spi.component">ComponentContext</A>&nbsp;ic,
+                       A&nbsp;a,
+                       C&nbsp;c,
+                       java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&gt;&nbsp;ls)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an injectable.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#isAnnotationRegistered(java.lang.Class, java.lang.Class)">isAnnotationRegistered</A></B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                       java.lang.Class&lt;?&gt;&nbsp;cc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check if an annotation and context type is registered for injection.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#isInjectableProviderRegistered(java.lang.Class, java.lang.Class, com.sun.jersey.core.spi.component.ComponentScope)">isInjectableProviderRegistered</A></B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                               java.lang.Class&lt;?&gt;&nbsp;cc,
+                               <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&nbsp;s)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html#update(com.sun.jersey.core.spi.factory.InjectableProviderFactory)">update</A></B>(<A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" title="class in com.sun.jersey.core.spi.factory">InjectableProviderFactory</A>&nbsp;ipf)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="InjectableProviderFactory()"><!-- --></A><H3>
+InjectableProviderFactory</H3>
+<PRE>
+public <B>InjectableProviderFactory</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="update(com.sun.jersey.core.spi.factory.InjectableProviderFactory)"><!-- --></A><H3>
+update</H3>
+<PRE>
+public final void <B>update</B>(<A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" title="class in com.sun.jersey.core.spi.factory">InjectableProviderFactory</A>&nbsp;ipf)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="add(com.sun.jersey.spi.inject.InjectableProvider)"><!-- --></A><H3>
+add</H3>
+<PRE>
+public final void <B>add</B>(<A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProvider.html" title="interface in com.sun.jersey.spi.inject">InjectableProvider</A>&nbsp;ip)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="configure(com.sun.jersey.core.spi.component.ProviderServices)"><!-- --></A><H3>
+configure</H3>
+<PRE>
+public final void <B>configure</B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html" title="class in com.sun.jersey.core.spi.component">ProviderServices</A>&nbsp;providerServices)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="configureProviders(com.sun.jersey.core.spi.component.ProviderServices)"><!-- --></A><H3>
+configureProviders</H3>
+<PRE>
+public final void <B>configureProviders</B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html" title="class in com.sun.jersey.core.spi.component">ProviderServices</A>&nbsp;providerServices)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isAnnotationRegistered(java.lang.Class, java.lang.Class)"><!-- --></A><H3>
+isAnnotationRegistered</H3>
+<PRE>
+public boolean <B>isAnnotationRegistered</B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                                      java.lang.Class&lt;?&gt;&nbsp;cc)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#isAnnotationRegistered(java.lang.Class, java.lang.Class)">InjectableProviderContext</A></CODE></B></DD>
+<DD>Check if an annotation and context type is registered for injection.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#isAnnotationRegistered(java.lang.Class, java.lang.Class)">isAnnotationRegistered</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>ac</CODE> - the annotation class.<DD><CODE>cc</CODE> - the context type.
+<DT><B>Returns:</B><DD>true if registered, otherwise false</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isInjectableProviderRegistered(java.lang.Class, java.lang.Class, com.sun.jersey.core.spi.component.ComponentScope)"><!-- --></A><H3>
+isInjectableProviderRegistered</H3>
+<PRE>
+public boolean <B>isInjectableProviderRegistered</B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                                              java.lang.Class&lt;?&gt;&nbsp;cc,
+                                              <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&nbsp;s)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#isInjectableProviderRegistered(java.lang.Class, java.lang.Class, com.sun.jersey.core.spi.component.ComponentScope)">isInjectableProviderRegistered</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInjectable(java.lang.Class,com.sun.jersey.core.spi.component.ComponentContext,java.lang.annotation.Annotation,java.lang.Object,com.sun.jersey.core.spi.component.ComponentScope)"><!-- --></A><A NAME="getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, com.sun.jersey.core.spi.component.ComponentScope)"><!-- --></A><H3>
+getInjectable</H3>
+<PRE>
+public final &lt;A extends java.lang.annotation.Annotation,C&gt; <A HREF="../../../../../../com/sun/jersey/spi/inject/Injectable.html" title="interface in com.sun.jersey.spi.inject">Injectable</A> <B>getInjectable</B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                                                                                    <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentContext.html" title="interface in com.sun.jersey.core.spi.component">ComponentContext</A>&nbsp;ic,
+                                                                                    A&nbsp;a,
+                                                                                    C&nbsp;c,
+                                                                                    <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&nbsp;s)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, com.sun.jersey.core.spi.component.ComponentScope)">InjectableProviderContext</A></CODE></B></DD>
+<DD>Get an injectable.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, com.sun.jersey.core.spi.component.ComponentScope)">getInjectable</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>A</CODE> - the type of the annotation.<DD><CODE>C</CODE> - the context type. Types of the <CODE>Type</CODE> and 
+        <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model"><CODE>Parameter</CODE></A> are the only types that
+        are supported.<DT><B>Parameters:</B><DD><CODE>ac</CODE> - the annotation class.<DD><CODE>ic</CODE> - the injectable context.<DD><CODE>a</CODE> - the annotation instance.<DD><CODE>c</CODE> - the context type.<DD><CODE>s</CODE> - the scope.
+<DT><B>Returns:</B><DD>the injectable, otherwise null if an injectable could 
+         not be found.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInjectable(java.lang.Class,com.sun.jersey.core.spi.component.ComponentContext,java.lang.annotation.Annotation,java.lang.Object,java.util.List)"><!-- --></A><A NAME="getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)"><!-- --></A><H3>
+getInjectable</H3>
+<PRE>
+public final &lt;A extends java.lang.annotation.Annotation,C&gt; <A HREF="../../../../../../com/sun/jersey/spi/inject/Injectable.html" title="interface in com.sun.jersey.spi.inject">Injectable</A> <B>getInjectable</B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                                                                                    <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentContext.html" title="interface in com.sun.jersey.core.spi.component">ComponentContext</A>&nbsp;ic,
+                                                                                    A&nbsp;a,
+                                                                                    C&nbsp;c,
+                                                                                    java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&gt;&nbsp;ls)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)">InjectableProviderContext</A></CODE></B></DD>
+<DD>Get an injectable.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#getInjectable(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)">getInjectable</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>A</CODE> - the type of the annotation.<DD><CODE>C</CODE> - the context type. Types of the <CODE>Type</CODE> and 
+        <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model"><CODE>Parameter</CODE></A> are the only types that
+        are supported.<DT><B>Parameters:</B><DD><CODE>ac</CODE> - the annotation class.<DD><CODE>ic</CODE> - the injectable context.<DD><CODE>a</CODE> - the annotation instance.<DD><CODE>c</CODE> - the context type.<DD><CODE>ls</CODE> - the list of scope, ordered by preference.
+<DT><B>Returns:</B><DD>the injectable, otherwise null if an injectable could 
+         not be found.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInjectableWithScope(java.lang.Class,com.sun.jersey.core.spi.component.ComponentContext,java.lang.annotation.Annotation,java.lang.Object,java.util.List)"><!-- --></A><A NAME="getInjectableWithScope(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)"><!-- --></A><H3>
+getInjectableWithScope</H3>
+<PRE>
+public &lt;A extends java.lang.annotation.Annotation,C&gt; <A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.InjectableScopePair.html" title="class in com.sun.jersey.spi.inject">InjectableProviderContext.InjectableScopePair</A> <B>getInjectableWithScope</B>(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;&nbsp;ac,
+                                                                                                                          <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentContext.html" title="interface in com.sun.jersey.core.spi.component">ComponentContext</A>&nbsp;ic,
+                                                                                                                          A&nbsp;a,
+                                                                                                                          C&nbsp;c,
+                                                                                                                          java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&gt;&nbsp;ls)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#getInjectableWithScope(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)">InjectableProviderContext</A></CODE></B></DD>
+<DD>Get an injectable.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html#getInjectableWithScope(java.lang.Class, com.sun.jersey.core.spi.component.ComponentContext, A, C, java.util.List)">getInjectableWithScope</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/inject/InjectableProviderContext.html" title="interface in com.sun.jersey.spi.inject">InjectableProviderContext</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>A</CODE> - the type of the annotation.<DD><CODE>C</CODE> - the context type. Types of the <CODE>Type</CODE> and
+        <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model"><CODE>Parameter</CODE></A> are the only types that
+        are supported.<DT><B>Parameters:</B><DD><CODE>ac</CODE> - the annotation class.<DD><CODE>ic</CODE> - the injectable context.<DD><CODE>a</CODE> - the annotation instance.<DD><CODE>c</CODE> - the context type.<DD><CODE>ls</CODE> - the list of scope, ordered by preference.
+<DT><B>Returns:</B><DD>the injectable and scope, otherwise null if an injectable could
+         not be found.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/InjectableProviderFactory.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/ContextResolverFactory.html" title="class in com.sun.jersey.core.spi.factory"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html" title="class in com.sun.jersey.core.spi.factory"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="InjectableProviderFactory.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

@@ -1,0 +1,735 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+JSONConfiguration (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="JSONConfiguration (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JSONConfiguration.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfigurated.html" title="interface in com.sun.jersey.api.json"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/json/JSONConfiguration.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JSONConfiguration.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.json</FONT>
+<BR>
+Class JSONConfiguration</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.json.JSONConfiguration</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>JSONConfiguration</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+An immutable configuration of JSON notation and options. JSONConfiguration could be used
+ for configuring the JSON notation on <A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html" title="class in com.sun.jersey.api.json"><CODE>JSONJAXBContext</CODE></A>
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Jakub.Podlesak@Sun.COM</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.Builder</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedBuilder</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options
+ for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> convention.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedJettisonBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedJettisonBuilder</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options
+ for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED_JETTISON"><CODE>JSONConfiguration.Notation.MAPPED_JETTISON</CODE></A> convention.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.NaturalBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.NaturalBuilder</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options
+ for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> convention.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html" title="enum in com.sun.jersey.api.json">JSONConfiguration.Notation</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enumeration of supported JSON notations.</TD>
+</TR>
+</TABLE>
+&nbsp;<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#DEFAULT">DEFAULT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The default JSONConfiguration uses <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation with root unwrapping option set to true.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#FEATURE_POJO_MAPPING">FEATURE_POJO_MAPPING</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A ResourceConfig feature, which allows you to enable JSON/POJO mapping functionality
+ in Jersey.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.Builder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#badgerFish()">badgerFish</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#BADGERFISH"><CODE>JSONConfiguration.Notation.BADGERFISH</CODE></A> JSON notation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.Builder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#copyBuilder(com.sun.jersey.api.json.JSONConfiguration)">copyBuilder</A></B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;jc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#createJSONConfigurationWithFormatted(com.sun.jersey.api.json.JSONConfiguration, boolean)">createJSONConfigurationWithFormatted</A></B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;c,
+                                     boolean&nbsp;formatted)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A static method for obtaining <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance with humanReadableFormatting
+ set according to formatted parameter.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#createJSONConfigurationWithRootUnwrapping(com.sun.jersey.api.json.JSONConfiguration, boolean)">createJSONConfigurationWithRootUnwrapping</A></B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;c,
+                                          boolean&nbsp;rootUnwrapping)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A static method for obtaining <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance with rootUnwrapping
+ set according to formatted parameter.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Collection&lt;java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#getArrays()">getArrays</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns JSON array names property
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Collection&lt;java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#getAttributeAsElements()">getAttributeAsElements</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns names of attributes, which will be handled as elements
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Collection&lt;java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#getNonStrings()">getNonStrings</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns names of JSON objects, which will be serialized out as non-strings, i.e.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html" title="enum in com.sun.jersey.api.json">JSONConfiguration.Notation</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#getNotation()">getNotation</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns JSON notation selected for this configuration</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Character</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#getNsSeparator()">getNsSeparator</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns XML namespace separator, which is used when constructing JSON identifiers
+ for XML elements/attributes in other than default namespace
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#getXml2JsonNs()">getXml2JsonNs</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a map for XML to JSON namespace mapping
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#isHumanReadableFormatting()">isHumanReadableFormatting</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Says if the output JSON will be formatted with new-line characters
+ and indentation so that it is easy to read for people.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#isRootUnwrapping()">isRootUnwrapping</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Says if the root element will be stripped off
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A>
+ and <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> notations.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#isUsingPrefixesAtNaturalAttributes()">isUsingPrefixesAtNaturalAttributes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Says if the JSON names corresponding to XML attributes should use a '@' prefix.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedBuilder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#mapped()">mapped</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> JSON notation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedJettisonBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedJettisonBuilder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#mappedJettison()">mappedJettison</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED_JETTISON"><CODE>JSONConfiguration.Notation.MAPPED_JETTISON</CODE></A> JSON notation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.NaturalBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.NaturalBuilder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#natural()">natural</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> JSON notation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#toString()">toString</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="FEATURE_POJO_MAPPING"><!-- --></A><H3>
+FEATURE_POJO_MAPPING</H3>
+<PRE>
+public static final java.lang.String <B>FEATURE_POJO_MAPPING</B></PRE>
+<DL>
+<DD>A ResourceConfig feature, which allows you to enable JSON/POJO mapping functionality
+ in Jersey. If set to true, your application will be capable of transforming JSON
+ data to and out of POJOs. This also includes any JAXB beans existing in your
+ application. I.e. all those beans would not be processed via XML, but rather
+ directly marshaled and un-marshaled to and from JSON using the POJO mapping functionality.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONConfiguration.FEATURE_POJO_MAPPING">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="DEFAULT"><!-- --></A><H3>
+DEFAULT</H3>
+<PRE>
+public static final <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A> <B>DEFAULT</B></PRE>
+<DL>
+<DD>The default JSONConfiguration uses <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation with root unwrapping option set to true.
+<P>
+<DL>
+</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="createJSONConfigurationWithFormatted(com.sun.jersey.api.json.JSONConfiguration, boolean)"><!-- --></A><H3>
+createJSONConfigurationWithFormatted</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A> <B>createJSONConfigurationWithFormatted</B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;c,
+                                                                     boolean&nbsp;formatted)
+                                                              throws java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>A static method for obtaining <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance with humanReadableFormatting
+ set according to formatted parameter.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>c</CODE> - original instance of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>, can't be null<DD><CODE>formatted</CODE> - whether the output should be formatted.
+<DT><B>Returns:</B><DD>copy of provided <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> with humanReadableFormatting set to formatted.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - when provided JSONConfiguration is null.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createJSONConfigurationWithRootUnwrapping(com.sun.jersey.api.json.JSONConfiguration, boolean)"><!-- --></A><H3>
+createJSONConfigurationWithRootUnwrapping</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A> <B>createJSONConfigurationWithRootUnwrapping</B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;c,
+                                                                          boolean&nbsp;rootUnwrapping)
+                                                                   throws java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>A static method for obtaining <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance with rootUnwrapping
+ set according to formatted parameter.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>c</CODE> - original instance of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>, can't be null<DD><CODE>rootUnwrapping</CODE> - 
+<DT><B>Returns:</B><DD>copy of provided <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> with humanReadableFormatting set to formatted.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - when provided JSONConfiguration is null.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="natural()"><!-- --></A><H3>
+natural</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.NaturalBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.NaturalBuilder</A> <B>natural</B>()</PRE>
+<DL>
+<DD>A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> JSON notation.
+ After getting the builder, you can set configuration options on it, and finally get an immutable JSONConfiguration
+ instance using the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html#build()"><CODE>JSONConfiguration.Builder.build()</CODE></A> method.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a builder for JSONConfiguration instance</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="mapped()"><!-- --></A><H3>
+mapped</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedBuilder</A> <B>mapped</B>()</PRE>
+<DL>
+<DD>A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> JSON notation.
+ After getting the builder, you can set configuration options on it and finally get an immutable  JSONConfiguration
+ instance the using <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html#build()"><CODE>JSONConfiguration.Builder.build()</CODE></A> method.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a builder for JSONConfiguration instance</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="mappedJettison()"><!-- --></A><H3>
+mappedJettison</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedJettisonBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedJettisonBuilder</A> <B>mappedJettison</B>()</PRE>
+<DL>
+<DD>A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED_JETTISON"><CODE>JSONConfiguration.Notation.MAPPED_JETTISON</CODE></A> JSON notation.
+ After getting the builder, you can set configuration options on it and finally get an immutable  JSONConfiguration
+ instance using the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html#build()"><CODE>JSONConfiguration.Builder.build()</CODE></A> method.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a builder for JSONConfiguration instance</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="badgerFish()"><!-- --></A><H3>
+badgerFish</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.Builder</A> <B>badgerFish</B>()</PRE>
+<DL>
+<DD>A static method for obtaining a builder of <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> instance, which will use <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#BADGERFISH"><CODE>JSONConfiguration.Notation.BADGERFISH</CODE></A> JSON notation.
+ After getting the builder, you can set configuration options on it and finally get an immutable  JSONConfiguration
+ instance using the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html#build()"><CODE>JSONConfiguration.Builder.build()</CODE></A> method.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a builder for JSONConfiguration instance</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="copyBuilder(com.sun.jersey.api.json.JSONConfiguration)"><!-- --></A><H3>
+copyBuilder</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.Builder</A> <B>copyBuilder</B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;jc)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNotation()"><!-- --></A><H3>
+getNotation</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html" title="enum in com.sun.jersey.api.json">JSONConfiguration.Notation</A> <B>getNotation</B>()</PRE>
+<DL>
+<DD>Returns JSON notation selected for this configuration
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>JSON notation</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getArrays()"><!-- --></A><H3>
+getArrays</H3>
+<PRE>
+public java.util.Collection&lt;java.lang.String&gt; <B>getArrays</B>()</PRE>
+<DL>
+<DD>Returns JSON array names property
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>collection of array names<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html#arrays(java.lang.String...)"><CODE>JSONConfiguration.MappedBuilder.arrays(java.lang.String...)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAttributeAsElements()"><!-- --></A><H3>
+getAttributeAsElements</H3>
+<PRE>
+public java.util.Collection&lt;java.lang.String&gt; <B>getAttributeAsElements</B>()</PRE>
+<DL>
+<DD>Returns names of attributes, which will be handled as elements
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>attribute as element names collection<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html#attributeAsElement(java.lang.String...)"><CODE>JSONConfiguration.MappedBuilder.attributeAsElement(java.lang.String...)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getXml2JsonNs()"><!-- --></A><H3>
+getXml2JsonNs</H3>
+<PRE>
+public java.util.Map&lt;java.lang.String,java.lang.String&gt; <B>getXml2JsonNs</B>()</PRE>
+<DL>
+<DD>Returns a map for XML to JSON namespace mapping
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a map for XML to JSON namespace mapping<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html#xml2JsonNs(java.util.Map)"><CODE>JSONConfiguration.MappedBuilder.xml2JsonNs(java.util.Map)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNsSeparator()"><!-- --></A><H3>
+getNsSeparator</H3>
+<PRE>
+public java.lang.Character <B>getNsSeparator</B>()</PRE>
+<DL>
+<DD>Returns XML namespace separator, which is used when constructing JSON identifiers
+ for XML elements/attributes in other than default namespace
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>XML namespace separator character<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html#nsSeparator(java.lang.Character)"><CODE>JSONConfiguration.MappedBuilder.nsSeparator(java.lang.Character)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNonStrings()"><!-- --></A><H3>
+getNonStrings</H3>
+<PRE>
+public java.util.Collection&lt;java.lang.String&gt; <B>getNonStrings</B>()</PRE>
+<DL>
+<DD>Returns names of JSON objects, which will be serialized out as non-strings, i.e. without delimiting their values with double quotes
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> notation only.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>name of non-string JSON objects<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html#nonStrings(java.lang.String...)"><CODE>JSONConfiguration.MappedBuilder.nonStrings(java.lang.String...)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isRootUnwrapping()"><!-- --></A><H3>
+isRootUnwrapping</H3>
+<PRE>
+public boolean <B>isRootUnwrapping</B>()</PRE>
+<DL>
+<DD>Says if the root element will be stripped off
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A>
+ and <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> notations.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true, if root element has to be stripped off<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html#rootUnwrapping(boolean)"><CODE>JSONConfiguration.MappedBuilder.rootUnwrapping(boolean)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isUsingPrefixesAtNaturalAttributes()"><!-- --></A><H3>
+isUsingPrefixesAtNaturalAttributes</H3>
+<PRE>
+public boolean <B>isUsingPrefixesAtNaturalAttributes</B>()</PRE>
+<DL>
+<DD>Says if the JSON names corresponding to XML attributes should use a '@' prefix.
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> notation only.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true, if prefixes are added<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.NaturalBuilder.html#usePrefixesAtNaturalAttributes()"><CODE>JSONConfiguration.NaturalBuilder.usePrefixesAtNaturalAttributes()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isHumanReadableFormatting()"><!-- --></A><H3>
+isHumanReadableFormatting</H3>
+<PRE>
+public boolean <B>isHumanReadableFormatting</B>()</PRE>
+<DL>
+<DD>Says if the output JSON will be formatted with new-line characters
+ and indentation so that it is easy to read for people.
+ This property is valid for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> notation only.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true, if formatting is applied on the output JSON<DT><B>See Also:</B><DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.NaturalBuilder.html#humanReadableFormatting(boolean)"><CODE>JSONConfiguration.NaturalBuilder.humanReadableFormatting(boolean)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toString()"><!-- --></A><H3>
+toString</H3>
+<PRE>
+public java.lang.String <B>toString</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>toString</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JSONConfiguration.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfigurated.html" title="interface in com.sun.jersey.api.json"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/json/JSONConfiguration.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JSONConfiguration.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

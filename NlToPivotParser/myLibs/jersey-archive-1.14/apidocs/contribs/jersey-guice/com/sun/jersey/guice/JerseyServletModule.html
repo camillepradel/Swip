@@ -1,0 +1,584 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+JerseyServletModule (jersey-guice 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="JerseyServletModule (jersey-guice 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JerseyServletModule.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/guice/JerseyServletModule.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JerseyServletModule.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_com.google.inject.servlet.ServletModule">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.guice</FONT>
+<BR>
+Class JerseyServletModule</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true" title="class or interface in com.google.inject">com.google.inject.AbstractModule</A>
+      <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true" title="class or interface in com.google.inject.servlet">com.google.inject.servlet.ServletModule</A>
+          <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.guice.JerseyServletModule</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Module.html?is-external=true" title="class or interface in com.google.inject">Module</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>JerseyServletModule</B><DT>extends <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true" title="class or interface in com.google.inject.servlet">ServletModule</A></DL>
+</PRE>
+
+<P>
+A <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true" title="class or interface in com.google.inject.servlet"><CODE>ServletModule</CODE></A> module that provides JAX-RS and Jersey related
+ bindings.
+ <p>
+ The module has a dependency on <A HREF="../../../../com/sun/jersey/guice/spi/container/servlet/GuiceContainer.html" title="class in com.sun.jersey.guice.spi.container.servlet"><CODE>GuiceContainer</CODE></A>, which is required
+ to be served in the <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#configure()" title="class or interface in com.google.inject.servlet"><CODE>ServletModule.configure()</CODE></A> method.
+ <p>
+ The following bindings are defined:
+ <ul>
+ <li><A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A></li>
+ <li><A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext"><CODE>Providers</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true" title="class or interface in com.sun.jersey.core.util"><CODE>FeaturesAndProperties</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/spi/MessageBodyWorkers.html?is-external=true" title="class or interface in com.sun.jersey.spi"><CODE>MessageBodyWorkers</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/ExceptionMapperContext.html?is-external=true" title="class or interface in com.sun.jersey.spi.container"><CODE>ExceptionMapperContext</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core"><CODE>HttpContext</CODE></A></li>
+ <li><A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/UriInfo.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>UriInfo</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ExtendedUriInfo.html?is-external=true" title="class or interface in com.sun.jersey.api.core"><CODE>ExtendedUriInfo</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpRequestContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core"><CODE>HttpRequestContext</CODE></A></li>
+ <li><A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/HttpHeaders.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>HttpHeaders</CODE></A></li>
+ <li><A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Request.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>Request</CODE></A></li>
+ <li><A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/SecurityContext.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>SecurityContext</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpResponseContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core"><CODE>HttpResponseContext</CODE></A></li>
+ <li><A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core"><CODE>ResourceContext</CODE></A></li>
+ </ul>
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_com.google.inject.servlet.ServletModule"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from class com.google.inject.servlet.<A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true" title="class or interface in com.google.inject.servlet">ServletModule</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.FilterKeyBindingBuilder.html?is-external=true" title="class or interface in com.google.inject.servlet">ServletModule.FilterKeyBindingBuilder</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.ServletKeyBindingBuilder.html?is-external=true" title="class or interface in com.google.inject.servlet">ServletModule.ServletKeyBindingBuilder</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#JerseyServletModule()">JerseyServletModule</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/ExceptionMapperContext.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">ExceptionMapperContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#exceptionMapperContext(com.sun.jersey.spi.container.WebApplication)">exceptionMapperContext</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ExtendedUriInfo.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ExtendedUriInfo</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#extendedUriInfo(com.sun.jersey.spi.container.WebApplication)">extendedUriInfo</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true" title="class or interface in com.sun.jersey.core.util">FeaturesAndProperties</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#featuresAndProperties(com.sun.jersey.spi.container.WebApplication)">featuresAndProperties</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">HttpContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#httpContext(com.sun.jersey.spi.container.WebApplication)">httpContext</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/HttpHeaders.html?is-external=true" title="class or interface in javax.ws.rs.core">HttpHeaders</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#httpHeaders(com.sun.jersey.spi.container.WebApplication)">httpHeaders</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/spi/MessageBodyWorkers.html?is-external=true" title="class or interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#messageBodyWorkers(com.sun.jersey.spi.container.WebApplication)">messageBodyWorkers</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext">Providers</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#providers(com.sun.jersey.spi.container.WebApplication)">providers</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Request.html?is-external=true" title="class or interface in javax.ws.rs.core">Request</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#request(com.sun.jersey.spi.container.WebApplication)">request</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpRequestContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">HttpRequestContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#requestContext(com.sun.jersey.spi.container.WebApplication)">requestContext</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#resourceContext(com.sun.jersey.spi.container.WebApplication)">resourceContext</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpResponseContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">HttpResponseContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#responseContext(com.sun.jersey.spi.container.WebApplication)">responseContext</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/SecurityContext.html?is-external=true" title="class or interface in javax.ws.rs.core">SecurityContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#securityContext(com.sun.jersey.spi.container.WebApplication)">securityContext</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/UriInfo.html?is-external=true" title="class or interface in javax.ws.rs.core">UriInfo</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#uriInfo(com.sun.jersey.spi.container.WebApplication)">uriInfo</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/guice/JerseyServletModule.html#webApp(com.sun.jersey.guice.spi.container.servlet.GuiceContainer)">webApp</A></B>(<A HREF="../../../../com/sun/jersey/guice/spi/container/servlet/GuiceContainer.html" title="class in com.sun.jersey.guice.spi.container.servlet">GuiceContainer</A>&nbsp;guiceContainer)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.google.inject.servlet.ServletModule"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.google.inject.servlet.<A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true" title="class or interface in com.google.inject.servlet">ServletModule</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#configure()" title="class or interface in com.google.inject.servlet">configure</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#configureServlets()" title="class or interface in com.google.inject.servlet">configureServlets</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#filter(java.lang.String, java.lang.String...)" title="class or interface in com.google.inject.servlet">filter</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#filterRegex(java.lang.String, java.lang.String...)" title="class or interface in com.google.inject.servlet">filterRegex</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#getServletContext()" title="class or interface in com.google.inject.servlet">getServletContext</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#serve(java.lang.String, java.lang.String...)" title="class or interface in com.google.inject.servlet">serve</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/servlet/ServletModule.html?is-external=true#serveRegex(java.lang.String, java.lang.String...)" title="class or interface in com.google.inject.servlet">serveRegex</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.google.inject.AbstractModule"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.google.inject.<A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true" title="class or interface in com.google.inject">AbstractModule</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#addError(com.google.inject.spi.Message)" title="class or interface in com.google.inject">addError</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#addError(java.lang.String, java.lang.Object...)" title="class or interface in com.google.inject">addError</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#addError(java.lang.Throwable)" title="class or interface in com.google.inject">addError</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#bind(java.lang.Class)" title="class or interface in com.google.inject">bind</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#bind(com.google.inject.Key)" title="class or interface in com.google.inject">bind</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#bind(com.google.inject.TypeLiteral)" title="class or interface in com.google.inject">bind</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#bindConstant()" title="class or interface in com.google.inject">bindConstant</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#binder()" title="class or interface in com.google.inject">binder</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#bindInterceptor(com.google.inject.matcher.Matcher, com.google.inject.matcher.Matcher, org.aopalliance.intercept.MethodInterceptor...)" title="class or interface in com.google.inject">bindInterceptor</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#bindListener(com.google.inject.matcher.Matcher, com.google.inject.spi.TypeListener)" title="class or interface in com.google.inject">bindListener</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#bindScope(java.lang.Class, com.google.inject.Scope)" title="class or interface in com.google.inject">bindScope</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#configure(com.google.inject.Binder)" title="class or interface in com.google.inject">configure</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#convertToTypes(com.google.inject.matcher.Matcher, com.google.inject.spi.TypeConverter)" title="class or interface in com.google.inject">convertToTypes</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#currentStage()" title="class or interface in com.google.inject">currentStage</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#getMembersInjector(java.lang.Class)" title="class or interface in com.google.inject">getMembersInjector</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#getMembersInjector(com.google.inject.TypeLiteral)" title="class or interface in com.google.inject">getMembersInjector</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#getProvider(java.lang.Class)" title="class or interface in com.google.inject">getProvider</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#getProvider(com.google.inject.Key)" title="class or interface in com.google.inject">getProvider</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#install(com.google.inject.Module)" title="class or interface in com.google.inject">install</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#requestInjection(java.lang.Object)" title="class or interface in com.google.inject">requestInjection</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#requestStaticInjection(java.lang.Class...)" title="class or interface in com.google.inject">requestStaticInjection</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#requireBinding(java.lang.Class)" title="class or interface in com.google.inject">requireBinding</A>, <A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/AbstractModule.html?is-external=true#requireBinding(com.google.inject.Key)" title="class or interface in com.google.inject">requireBinding</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="JerseyServletModule()"><!-- --></A><H3>
+JerseyServletModule</H3>
+<PRE>
+public <B>JerseyServletModule</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="webApp(com.sun.jersey.guice.spi.container.servlet.GuiceContainer)"><!-- --></A><H3>
+webApp</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A> <B>webApp</B>(<A HREF="../../../../com/sun/jersey/guice/spi/container/servlet/GuiceContainer.html" title="class in com.sun.jersey.guice.spi.container.servlet">GuiceContainer</A>&nbsp;guiceContainer)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="providers(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+providers</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext">Providers</A> <B>providers</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="featuresAndProperties(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+featuresAndProperties</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true" title="class or interface in com.sun.jersey.core.util">FeaturesAndProperties</A> <B>featuresAndProperties</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="messageBodyWorkers(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+messageBodyWorkers</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/spi/MessageBodyWorkers.html?is-external=true" title="class or interface in com.sun.jersey.spi">MessageBodyWorkers</A> <B>messageBodyWorkers</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="exceptionMapperContext(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+exceptionMapperContext</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/ExceptionMapperContext.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">ExceptionMapperContext</A> <B>exceptionMapperContext</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="resourceContext(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+resourceContext</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceContext</A> <B>resourceContext</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="httpContext(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+httpContext</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">HttpContext</A> <B>httpContext</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;webApplication)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="uriInfo(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+uriInfo</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/UriInfo.html?is-external=true" title="class or interface in javax.ws.rs.core">UriInfo</A> <B>uriInfo</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="extendedUriInfo(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+extendedUriInfo</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ExtendedUriInfo.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ExtendedUriInfo</A> <B>extendedUriInfo</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="requestContext(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+requestContext</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpRequestContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">HttpRequestContext</A> <B>requestContext</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="httpHeaders(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+httpHeaders</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/HttpHeaders.html?is-external=true" title="class or interface in javax.ws.rs.core">HttpHeaders</A> <B>httpHeaders</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="request(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+request</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Request.html?is-external=true" title="class or interface in javax.ws.rs.core">Request</A> <B>request</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="securityContext(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+securityContext</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/SecurityContext.html?is-external=true" title="class or interface in javax.ws.rs.core">SecurityContext</A> <B>securityContext</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="responseContext(com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+responseContext</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://google-guice.googlecode.com/svn/tags/3.0/javadoc/com/google/inject/Provides.html?is-external=true" title="class or interface in com.google.inject">@Provides</A>
+</FONT>public <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/HttpResponseContext.html?is-external=true" title="class or interface in com.sun.jersey.api.core">HttpResponseContext</A> <B>responseContext</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JerseyServletModule.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/guice/JerseyServletModule.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JerseyServletModule.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_com.google.inject.servlet.ServletModule">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

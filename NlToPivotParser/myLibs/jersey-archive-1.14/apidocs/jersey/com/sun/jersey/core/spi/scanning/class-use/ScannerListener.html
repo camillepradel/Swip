@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+Uses of Interface com.sun.jersey.core.spi.scanning.ScannerListener (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Uses of Interface com.sun.jersey.core.spi.scanning.ScannerListener (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../../index.html?com/sun/jersey/core/spi/scanning//class-useScannerListener.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ScannerListener.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<CENTER>
+<H2>
+<B>Uses of Interface<br>com.sun.jersey.core.spi.scanning.ScannerListener</B></H2>
+</CENTER>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Packages that use <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.spi.scanning"><B>com.sun.jersey.core.spi.scanning</B></A></TD>
+<TD>Provides support for class scanning.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.spi.scanning.uri"><B>com.sun.jersey.core.spi.scanning.uri</B></A></TD>
+<TD>Provides support for package-based class scanning using URIs.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.spi.scanning"><B>com.sun.jersey.spi.scanning</B></A></TD>
+<TD>Provides support for server-side class scanning.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.spi.scanning.servlet"><B>com.sun.jersey.spi.scanning.servlet</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.spi.scanning"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A> in <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/package-summary.html">com.sun.jersey.core.spi.scanning</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/package-summary.html">com.sun.jersey.core.spi.scanning</A> with parameters of type <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>JarFileScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/JarFileScanner.html#scan(java.io.File, java.lang.String, com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(java.io.File&nbsp;f,
+     java.lang.String&nbsp;parent,
+     <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;sl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scan entries in a jar file.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>JarFileScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/JarFileScanner.html#scan(java.io.InputStream, java.lang.String, com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(java.io.InputStream&nbsp;in,
+     java.lang.String&nbsp;parent,
+     <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;sl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scan entries in a jar file.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>FilesScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/FilesScanner.html#scan(com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(<A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;cfl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>Scanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/Scanner.html#scan(com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(<A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;sl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perform a scan and report resources to a scanning listener.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>PackageNamesScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/PackageNamesScanner.html#scan(com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(<A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;cfl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.spi.scanning.uri"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A> in <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/uri/package-summary.html">com.sun.jersey.core.spi.scanning.uri</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/uri/package-summary.html">com.sun.jersey.core.spi.scanning.uri</A> with parameters of type <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>UriSchemeScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/uri/UriSchemeScanner.html#scan(java.net.URI, com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(java.net.URI&nbsp;u,
+     <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;sl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perform a scan and report resources to a scanning listener.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>JarZipSchemeScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/uri/JarZipSchemeScanner.html#scan(java.net.URI, com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(java.net.URI&nbsp;u,
+     <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;cfl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>BundleSchemeScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/uri/BundleSchemeScanner.html#scan(java.net.URI, com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(java.net.URI&nbsp;u,
+     <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;sl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>VfsSchemeScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/uri/VfsSchemeScanner.html#scan(java.net.URI, com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(java.net.URI&nbsp;u,
+     <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;sl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>FileSchemeScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/uri/FileSchemeScanner.html#scan(java.net.URI, com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(java.net.URI&nbsp;u,
+     <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;cfl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.spi.scanning"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A> in <A HREF="../../../../../../../com/sun/jersey/spi/scanning/package-summary.html">com.sun.jersey.spi.scanning</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Classes in <A HREF="../../../../../../../com/sun/jersey/spi/scanning/package-summary.html">com.sun.jersey.spi.scanning</A> that implement <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/scanning/AnnotationScannerListener.html" title="class in com.sun.jersey.spi.scanning">AnnotationScannerListener</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A scanner listener that processes Java class files (resource names
+ ending in ".class") annotated with one or more of a set of declared
+ annotations.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/scanning/PathProviderScannerListener.html" title="class in com.sun.jersey.spi.scanning">PathProviderScannerListener</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An annotation-based scanning listener for classes annotated with
+ <A HREF="../../../../../../../javax/ws/rs/Path.html" title="annotation in javax.ws.rs"><CODE>Path</CODE></A> or <A HREF="../../../../../../../javax/ws/rs/ext/Provider.html" title="annotation in javax.ws.rs.ext"><CODE>Provider</CODE></A>.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.spi.scanning.servlet"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A> in <A HREF="../../../../../../../com/sun/jersey/spi/scanning/servlet/package-summary.html">com.sun.jersey.spi.scanning.servlet</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../com/sun/jersey/spi/scanning/servlet/package-summary.html">com.sun.jersey.spi.scanning.servlet</A> with parameters of type <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>WebAppResourcesScanner.</B><B><A HREF="../../../../../../../com/sun/jersey/spi/scanning/servlet/WebAppResourcesScanner.html#scan(com.sun.jersey.core.spi.scanning.ScannerListener)">scan</A></B>(<A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning">ScannerListener</A>&nbsp;cfl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../com/sun/jersey/core/spi/scanning/ScannerListener.html" title="interface in com.sun.jersey.core.spi.scanning"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../../index.html?com/sun/jersey/core/spi/scanning//class-useScannerListener.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ScannerListener.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

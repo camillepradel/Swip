@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+LoggingFilter (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="LoggingFilter (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/LoggingFilter.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/filter/GZIPContentEncodingFilter.html" title="class in com.sun.jersey.api.container.filter"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/filter/PostReplaceFilter.html" title="class in com.sun.jersey.api.container.filter"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/container/filter/LoggingFilter.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="LoggingFilter.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.container.filter</FONT>
+<BR>
+Class LoggingFilter</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.container.filter.LoggingFilter</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequestFilter.html" title="interface in com.sun.jersey.spi.container">ContainerRequestFilter</A>, <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html" title="interface in com.sun.jersey.spi.container">ContainerResponseFilter</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>LoggingFilter</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequestFilter.html" title="interface in com.sun.jersey.spi.container">ContainerRequestFilter</A>, <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html" title="interface in com.sun.jersey.spi.container">ContainerResponseFilter</A></DL>
+</PRE>
+
+<P>
+A logging filter.
+ <p>
+ The request headers, request entity, response headers and response entity
+ will be logged. By default logging will be output to System.out.
+ <p>
+ When an application is deployed as a Servlet or Filter this Jersey filter can be
+ registered using the following initialization parameters:
+ <blockquote><pre>
+     &lt;init-param&gt;
+         &lt;param-name&gt;com.sun.jersey.spi.container.ContainerRequestFilters&lt;/param-name&gt;
+         &lt;param-value&gt;com.sun.jersey.api.container.filter.LoggingFilter&lt;/param-value&gt;
+     &lt;/init-param&gt
+     &lt;init-param&gt
+         &lt;param-name&gt;com.sun.jersey.spi.container.ContainerResponseFilters&lt;/param-name&gt;
+         &lt;param-value&gt;com.sun.jersey.api.container.filter.LoggingFilter&lt;/param-value&gt;
+     &lt;/init-param&gt;
+ </pre></blockquote>
+ <p>
+ The logging of entities may be disabled by setting the feature
+ <A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html#FEATURE_LOGGING_DISABLE_ENTITY"><CODE>FEATURE_LOGGING_DISABLE_ENTITY</CODE></A> to true. When an application is
+ deployed as a Servlet or Filter this feature can be
+ registered using the following initialization parameter:
+ <blockquote><pre>
+     &lt;init-param&gt;
+         &lt;param-name&gt;com.sun.jersey.config.feature.logging.DisableEntitylogging&lt;/param-name&gt;
+         &lt;param-value&gt;true&lt;/param-value&gt;
+     &lt;/init-param&gt
+ </pre></blockquote>
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../com/sun/jersey/api/container/filter/package-summary.html"><CODE>com.sun.jersey.api.container.filter</CODE></A></DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html#FEATURE_LOGGING_DISABLE_ENTITY">FEATURE_LOGGING_DISABLE_ENTITY</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If true the request and response entities (if present) will not be logged.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html#LoggingFilter()">LoggingFilter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a logging filter logging the request and response to
+ a default JDK logger, named as the fully qualified class name of this
+ class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html#LoggingFilter(java.util.logging.Logger)">LoggingFilter</A></B>(java.util.logging.Logger&nbsp;logger)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a logging filter logging the request and response to
+ a JDK logger.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html#filter(com.sun.jersey.spi.container.ContainerRequest)">filter</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filter the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html#filter(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponse)">filter</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request,
+       <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A>&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filter the response.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="FEATURE_LOGGING_DISABLE_ENTITY"><!-- --></A><H3>
+FEATURE_LOGGING_DISABLE_ENTITY</H3>
+<PRE>
+public static final java.lang.String <B>FEATURE_LOGGING_DISABLE_ENTITY</B></PRE>
+<DL>
+<DD>If true the request and response entities (if present) will not be logged.
+ If false the request and response entities will be logged.
+ <p>
+ The default value is false.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.api.container.filter.LoggingFilter.FEATURE_LOGGING_DISABLE_ENTITY">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="LoggingFilter()"><!-- --></A><H3>
+LoggingFilter</H3>
+<PRE>
+public <B>LoggingFilter</B>()</PRE>
+<DL>
+<DD>Create a logging filter logging the request and response to
+ a default JDK logger, named as the fully qualified class name of this
+ class.
+<P>
+</DL>
+<HR>
+
+<A NAME="LoggingFilter(java.util.logging.Logger)"><!-- --></A><H3>
+LoggingFilter</H3>
+<PRE>
+public <B>LoggingFilter</B>(java.util.logging.Logger&nbsp;logger)</PRE>
+<DL>
+<DD>Create a logging filter logging the request and response to
+ a JDK logger.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>logger</CODE> - the logger to log requests and responses.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="filter(com.sun.jersey.spi.container.ContainerRequest)"><!-- --></A><H3>
+filter</H3>
+<PRE>
+public <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A> <B>filter</B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequestFilter.html#filter(com.sun.jersey.spi.container.ContainerRequest)">ContainerRequestFilter</A></CODE></B></DD>
+<DD>Filter the request.
+ <p>
+ An implementation may modify the state of the request or
+ create a new instance.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequestFilter.html#filter(com.sun.jersey.spi.container.ContainerRequest)">filter</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequestFilter.html" title="interface in com.sun.jersey.spi.container">ContainerRequestFilter</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the request.
+<DT><B>Returns:</B><DD>the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="filter(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponse)"><!-- --></A><H3>
+filter</H3>
+<PRE>
+public <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A> <B>filter</B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request,
+                                <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A>&nbsp;response)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html#filter(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponse)">ContainerResponseFilter</A></CODE></B></DD>
+<DD>Filter the response.
+ <p>
+ An implementation may modify the state of the response or
+ return a new instance.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html#filter(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponse)">filter</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html" title="interface in com.sun.jersey.spi.container">ContainerResponseFilter</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the request.<DD><CODE>response</CODE> - the response.
+<DT><B>Returns:</B><DD>the response.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/LoggingFilter.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/filter/GZIPContentEncodingFilter.html" title="class in com.sun.jersey.api.container.filter"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/filter/PostReplaceFilter.html" title="class in com.sun.jersey.api.container.filter"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/container/filter/LoggingFilter.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="LoggingFilter.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

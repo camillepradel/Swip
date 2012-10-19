@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+com.sun.jersey.api.container.filter (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="com.sun.jersey.api.container.filter (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/filter/servlet/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/container/filter/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<H2>
+Package com.sun.jersey.api.container.filter
+</H2>
+Provides common server-side filters.
+<P>
+<B>See:</B>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_description"><B>Description</B></A>
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/CsrfProtectionFilter.html" title="class in com.sun.jersey.api.container.filter">CsrfProtectionFilter</A></B></TD>
+<TD>Simple server-side request filter that implements CSRF protection as per the
+ <a href="http://www.nsa.gov/ia/_files/support/guidelines_implementation_rest.pdf">Guidelines for Implementation of REST</a>
+ by NSA (section IV.F) and
+ section 4.3 of <a href="http://seclab.stanford.edu/websec/csrf/csrf.pdf">this paper</a>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/GZIPContentEncodingFilter.html" title="class in com.sun.jersey.api.container.filter">GZIPContentEncodingFilter</A></B></TD>
+<TD>A GZIP content encoding filter.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html" title="class in com.sun.jersey.api.container.filter">LoggingFilter</A></B></TD>
+<TD>A logging filter.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/PostReplaceFilter.html" title="class in com.sun.jersey.api.container.filter">PostReplaceFilter</A></B></TD>
+<TD>A filter to support HTTP method replacing of a POST request to a request
+ utilizing another HTTP method for the case where proxies or HTTP
+ servers would otherwise block that HTTP method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/ResourceDebuggingFilterFactory.html" title="class in com.sun.jersey.api.container.filter">ResourceDebuggingFilterFactory</A></B></TD>
+<TD>A <A HREF="../../../../../../com/sun/jersey/spi/container/ResourceFilterFactory.html" title="interface in com.sun.jersey.spi.container"><CODE>ResourceFilterFactory</CODE></A> provides tracking of resource
+ matching.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/RolesAllowedResourceFilterFactory.html" title="class in com.sun.jersey.api.container.filter">RolesAllowedResourceFilterFactory</A></B></TD>
+<TD>A <A HREF="../../../../../../com/sun/jersey/spi/container/ResourceFilterFactory.html" title="interface in com.sun.jersey.spi.container"><CODE>ResourceFilterFactory</CODE></A> supporting the <CODE>RolesAllowed</CODE>,
+ <CODE>PermitAll</CODE> and <CODE>DenyAll</CODE> on resource methods sub-resource methods,
+ and sub-resource locators.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/UriConnegFilter.html" title="class in com.sun.jersey.api.container.filter">UriConnegFilter</A></B></TD>
+<TD>A URI-based content negotiation filter mapping a dot-declared suffix in
+ URI to media type that is the value of the <code>Accept</code> header
+ or a language that is the value of the <code>Accept-Language</code> header.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Enum Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/PostReplaceFilter.ConfigFlag.html" title="enum in com.sun.jersey.api.container.filter">PostReplaceFilter.ConfigFlag</A></B></TD>
+<TD>Enum representing configuration flags that can be set on the filter.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+<A NAME="package_description"><!-- --></A><H2>
+Package com.sun.jersey.api.container.filter Description
+</H2>
+
+<P>
+Provides common server-side filters.
+ <p>
+ There are two types of filter that may be registered with Jersey:
+ <ol>
+ <li>Container filters, which are filters that are registered to filter
+     the request before the request is matched and dispatched to a root
+     resource class, and filters that are registered to filter the response
+     after the response has returned from a resource method.</li>
+ <li>Resource filters, which are filters that are registered to filter
+     requests and responses specific to resource methods, sub-resource methods
+     and sub-resource locators.</li>
+ <p>
+ </ol>
+ A request will be filtered by container filters before the request is filtered
+ by resource filters. A response will be filtered by resource filters before
+ the response is filtered by container filters.
+ <p>
+ Container filters are registered as properties of the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.
+ Container request filters, of the class <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequestFilter.html" title="interface in com.sun.jersey.spi.container"><CODE>ContainerRequestFilter</CODE></A>, are
+ registered using the property  <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_CONTAINER_REQUEST_FILTERS"><CODE>ResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS</CODE></A>.
+ Container response filters, of the class <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html" title="interface in com.sun.jersey.spi.container"><CODE>ContainerResponseFilter</CODE></A>, are
+ registered using the property  <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_CONTAINER_RESPONSE_FILTERS"><CODE>ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS</CODE></A>.
+ <p>
+ For example, to log requests and responses when an application is deployed 
+ as a Servlet or Filter a <A HREF="../../../../../../com/sun/jersey/api/container/filter/LoggingFilter.html" title="class in com.sun.jersey.api.container.filter"><CODE>LoggingFilter</CODE></A> can be registered using
+ the following initialization parameters:
+ <blockquote><pre>
+     &lt;init-param&gt;
+         &lt;param-name&gt;com.sun.jersey.spi.container.ContainerRequestFilters&lt;/param-name&gt;
+         &lt;param-value&gt;com.sun.jersey.api.container.filter.LoggingFilter&lt;/param-value&gt;
+     &lt;/init-param&gt
+     &lt;init-param&gt
+         &lt;param-name&gt;com.sun.jersey.spi.container.ContainerResponseFilters&lt;/param-name&gt;
+         &lt;param-value&gt;com.sun.jersey.api.container.filter.LoggingFilter&lt;/param-value&gt;
+     &lt;/init-param&gt;
+ </pre></blockquote>
+ Note that two or more request or response filters may be registered as a ';' separated list of fully
+ qualified class names.
+ <p>
+ Resource filters are registered using two mechanisms:
+ <ol>
+ <li>As resource filter factories. Resource filter factories, of the class
+     <A HREF="../../../../../../com/sun/jersey/spi/container/ResourceFilterFactory.html" title="interface in com.sun.jersey.spi.container"><CODE>ResourceFilterFactory</CODE></A>, are registered using the
+     property <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_RESOURCE_FILTER_FACTORIES"><CODE>ResourceConfig.PROPERTY_RESOURCE_FILTER_FACTORIES</CODE></A>.</li>
+ <li>As resource filters, of the class
+     <A HREF="../../../../../../com/sun/jersey/spi/container/ResourceFilter.html" title="interface in com.sun.jersey.spi.container"><CODE>ResourceFilter</CODE></A>, declared using the
+     annotation <A HREF="../../../../../../com/sun/jersey/spi/container/ResourceFilters.html" title="annotation in com.sun.jersey.spi.container"><CODE>ResourceFilters</CODE></A>, which may
+     occur on a resource class, resource method, sub-resource method or sub-resource locator.</li>
+ </ol>
+ A request will be filtered by filters produced by resource filter factories before a request is filtered
+ by resource filters declared by annotation. A response will be filtered by resource filters declared by annotation
+ before the response is filtered by filters produced by resource filter factories.
+ <p>
+ For example, to support <CODE>RolesAllowed</CODE> on resource classes when an application
+ is deployed as a Servlet or Filter a
+ <A HREF="../../../../../../com/sun/jersey/api/container/filter/RolesAllowedResourceFilterFactory.html" title="class in com.sun.jersey.api.container.filter"><CODE>RolesAllowedResourceFilterFactory</CODE></A>
+ can be registered using the following initialization parameter:
+ <blockquote><pre>
+     &lt;init-param&gt;
+         &lt;param-name&gt;com.sun.jersey.spi.container.ResourceFilters&lt;/param-name&gt;
+         &lt;param-value&gt;com.sun.jersey.api.container.filter.RolesAllowedResourceFilterFactory&lt;/param-value&gt;
+     &lt;/init-param&gt
+ </pre></blockquote>
+ Note that two or more resource filter factories may be registered as a ';' separated list of fully
+ qualified class names.
+ <p>
+ The use of resource filter factories allow the application of filters to any
+ method of a resource class that conforms to a certain pattern as defined by
+ a resource filter factory implementation. For example, the support for the
+ annotation <A HREF="../../../../../../com/sun/jersey/spi/container/ResourceFilters.html" title="annotation in com.sun.jersey.spi.container"><CODE>ResourceFilters</CODE></A> is implemented
+ as a resource filter factory, that is registered after all user-registered
+ resource filter factories.
+ <p>
+ If an exception is thrown by a request filter (registered using any mechanism)
+ then:
+ <ol>
+ <li>the request processing is terminated;</li>
+ <li>the exception is mapped to a response; and</li>
+ <li>the response is filtered by the response filters.</li>
+ </ol>
+ If an exception is thrown by a response filter (registered using any mechanism)
+ then:
+ <ol>
+ <li>the response processing is terminated;</li>
+ <li>the exception is mapped to a response; and</li>
+ <li>the response is returned to the client.</li>
+ </ol>
+<P>
+
+<P>
+<DL>
+</DL>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/container/filter/servlet/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/container/filter/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

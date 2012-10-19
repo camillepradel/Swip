@@ -1,0 +1,758 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+WebComponent (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="WebComponent (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WebComponent.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.ContextInjectableProvider.html" title="class in com.sun.jersey.spi.container.servlet"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.ContextInjectableProvider.html" title="class in com.sun.jersey.spi.container.servlet"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/spi/container/servlet/WebComponent.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WebComponent.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.spi.container.servlet</FONT>
+<BR>
+Class WebComponent</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.spi.container.servlet.WebComponent</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerListener.html" title="interface in com.sun.jersey.spi.container">ContainerListener</A>, <A HREF="../../../../../../com/sun/jersey/spi/container/ReloadListener.html" title="interface in com.sun.jersey.spi.container">ReloadListener</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>WebComponent</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerListener.html" title="interface in com.sun.jersey.spi.container">ContainerListener</A></DL>
+</PRE>
+
+<P>
+An abstract Web component that may be extended a Servlet and/or
+ Filter implementation, or encapsulated by a Servlet or Filter implementation.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.ContextInjectableProvider.html" title="class in com.sun.jersey.spi.container.servlet">WebComponent.ContextInjectableProvider</A>&lt;<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.ContextInjectableProvider.html" title="type parameter in WebComponent.ContextInjectableProvider">T</A>&gt;</B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A helper class for creating an injectable provider that supports
+ <A HREF="../../../../../../javax/ws/rs/core/Context.html" title="annotation in javax.ws.rs.core"><CODE>Context</CODE></A> with a type and constant value.</TD>
+</TR>
+</TABLE>
+&nbsp;<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#APPLICATION_CONFIG_CLASS">APPLICATION_CONFIG_CLASS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The servlet initialization property whose value is a fully qualified
+ class name of a class that implements <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> or
+ <A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core"><CODE>Application</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#JSP_TEMPLATES_BASE_PATH">JSP_TEMPLATES_BASE_PATH</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The base path in the Web Pages where JSP templates, associated with
+ viewables of resource classes, are located.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#RESOURCE_CONFIG_CLASS">RESOURCE_CONFIG_CLASS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The servlet initialization property whose value is a fully qualified
+ class name of a class that implements <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> or
+ <A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core"><CODE>Application</CODE></A>.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#WebComponent()">WebComponent</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#WebComponent(javax.ws.rs.core.Application)">WebComponent</A></B>(<A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core">Application</A>&nbsp;app)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#configure(com.sun.jersey.spi.container.servlet.WebConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">configure</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc,
+          <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+          <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#create()">create</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance of a <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#createRequest(com.sun.jersey.spi.container.WebApplication, javax.servlet.http.HttpServletRequest, java.net.URI, java.net.URI)">createRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;app,
+              javax.servlet.http.HttpServletRequest&nbsp;request,
+              java.net.URI&nbsp;baseUri,
+              java.net.URI&nbsp;requestUri)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extension point for creating your custom container request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#destroy()">destroy</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Destroy this Web component.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props,
+                         <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the default resource configuration if one is not declared in the
+ web.xml.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#getResourceConfig()">getResourceConfig</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#getWebConfig()">getWebConfig</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the Web configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#init(com.sun.jersey.spi.container.servlet.WebConfig)">init</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;webConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the Web component.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">initiate</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+         <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#load()">load</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Load the Web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#onReload()">onReload</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reload the Web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#service(java.net.URI, java.net.URI, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)">service</A></B>(java.net.URI&nbsp;baseUri,
+        java.net.URI&nbsp;requestUri,
+        javax.servlet.http.HttpServletRequest&nbsp;request,
+        javax.servlet.http.HttpServletResponse&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dispatch client requests to a resource class.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="APPLICATION_CONFIG_CLASS"><!-- --></A><H3>
+APPLICATION_CONFIG_CLASS</H3>
+<PRE>
+public static final java.lang.String <B>APPLICATION_CONFIG_CLASS</B></PRE>
+<DL>
+<DD>The servlet initialization property whose value is a fully qualified
+ class name of a class that implements <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> or
+ <A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core"><CODE>Application</CODE></A>.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.spi.container.servlet.WebComponent.APPLICATION_CONFIG_CLASS">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="RESOURCE_CONFIG_CLASS"><!-- --></A><H3>
+RESOURCE_CONFIG_CLASS</H3>
+<PRE>
+public static final java.lang.String <B>RESOURCE_CONFIG_CLASS</B></PRE>
+<DL>
+<DD>The servlet initialization property whose value is a fully qualified
+ class name of a class that implements <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> or
+ <A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core"><CODE>Application</CODE></A>.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.spi.container.servlet.WebComponent.RESOURCE_CONFIG_CLASS">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSP_TEMPLATES_BASE_PATH"><!-- --></A><H3>
+JSP_TEMPLATES_BASE_PATH</H3>
+<PRE>
+public static final java.lang.String <B>JSP_TEMPLATES_BASE_PATH</B></PRE>
+<DL>
+<DD>The base path in the Web Pages where JSP templates, associated with
+ viewables of resource classes, are located.
+ <p/>
+ If this property is not set then the base path will be the root path
+ of the Web Pages.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.spi.container.servlet.WebComponent.JSP_TEMPLATES_BASE_PATH">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="WebComponent()"><!-- --></A><H3>
+WebComponent</H3>
+<PRE>
+public <B>WebComponent</B>()</PRE>
+<DL>
+</DL>
+<HR>
+
+<A NAME="WebComponent(javax.ws.rs.core.Application)"><!-- --></A><H3>
+WebComponent</H3>
+<PRE>
+public <B>WebComponent</B>(<A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core">Application</A>&nbsp;app)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getWebConfig()"><!-- --></A><H3>
+getWebConfig</H3>
+<PRE>
+public <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A> <B>getWebConfig</B>()</PRE>
+<DL>
+<DD>Get the Web configuration.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the Web configuration.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getResourceConfig()"><!-- --></A><H3>
+getResourceConfig</H3>
+<PRE>
+public <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> <B>getResourceConfig</B>()</PRE>
+<DL>
+<DD>Get the resource configuration.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the resource configuration.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="init(com.sun.jersey.spi.container.servlet.WebConfig)"><!-- --></A><H3>
+init</H3>
+<PRE>
+public void <B>init</B>(<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;webConfig)
+          throws javax.servlet.ServletException</PRE>
+<DL>
+<DD>Initiate the Web component.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>webConfig</CODE> - the Web configuration.
+<DT><B>Throws:</B>
+<DD><CODE>javax.servlet.ServletException</CODE> - in case of any initialization error</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="destroy()"><!-- --></A><H3>
+destroy</H3>
+<PRE>
+public void <B>destroy</B>()</PRE>
+<DL>
+<DD>Destroy this Web component.
+ <p/>
+ This will destroy the Web application created by this this Web component.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="service(java.net.URI, java.net.URI, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)"><!-- --></A><H3>
+service</H3>
+<PRE>
+public int <B>service</B>(java.net.URI&nbsp;baseUri,
+                   java.net.URI&nbsp;requestUri,
+                   javax.servlet.http.HttpServletRequest&nbsp;request,
+                   javax.servlet.http.HttpServletResponse&nbsp;response)
+            throws javax.servlet.ServletException,
+                   java.io.IOException</PRE>
+<DL>
+<DD>Dispatch client requests to a resource class.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>baseUri</CODE> - the base URI of the request.<DD><CODE>requestUri</CODE> - the URI of the request.<DD><CODE>request</CODE> - the <CODE>HttpServletRequest</CODE> object that
+                   contains the request the client made to
+                   the Web component.<DD><CODE>response</CODE> - the <CODE>HttpServletResponse</CODE> object that
+                   contains the response the Web component returns
+                   to the client.
+<DT><B>Returns:</B><DD>the status code of the response.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an input or output error occurs
+                          while the Web component is handling the
+                          HTTP request.
+<DD><CODE>javax.servlet.ServletException</CODE> - if the HTTP request cannot
+                          be handled.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createRequest(com.sun.jersey.spi.container.WebApplication, javax.servlet.http.HttpServletRequest, java.net.URI, java.net.URI)"><!-- --></A><H3>
+createRequest</H3>
+<PRE>
+protected <A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A> <B>createRequest</B>(<A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;app,
+                                         javax.servlet.http.HttpServletRequest&nbsp;request,
+                                         java.net.URI&nbsp;baseUri,
+                                         java.net.URI&nbsp;requestUri)
+                                  throws java.io.IOException</PRE>
+<DL>
+<DD>Extension point for creating your custom container request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>app</CODE> - the web app<DD><CODE>request</CODE> - the current servlet api request<DD><CODE>baseUri</CODE> - the base uri<DD><CODE>requestUri</CODE> - the request uri
+<DT><B>Returns:</B><DD>the request container
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if any error occurs when getting the input stream</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create()"><!-- --></A><H3>
+create</H3>
+<PRE>
+protected <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A> <B>create</B>()</PRE>
+<DL>
+<DD>Create a new instance of a <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A> instance.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="configure(com.sun.jersey.spi.container.servlet.WebConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+configure</H3>
+<PRE>
+protected void <B>configure</B>(<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc,
+                         <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+                         <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD>Configure the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.
+ <p/>
+ The <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> is configured such that the following classes
+ may be injected onto the field of a root resource class or a parameter
+ of a method of root resource class that is annotated with
+ <A HREF="../../../../../../javax/ws/rs/core/Context.html" title="annotation in javax.ws.rs.core"><CODE>Context</CODE></A>: <CODE>HttpServletRequest</CODE>, <CODE>HttpServletResponse</CODE>
+ , <CODE>ServletContext</CODE> and <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet"><CODE>WebConfig</CODE></A>.
+ <p/>
+ Any root resource class in registered in the resource configuration
+ that is an interface is processed as follows.
+ If the class is an interface and there exists a JNDI named object
+ with the fully qualified class name as the JNDI name then that named
+ object is added as a singleton root resource and the class is removed
+ from the set of root resource classes.
+ <p/>
+ An inheriting class may override this method to configure the
+ <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> to provide alternative or additional instances
+ that are resource or provider classes or instances, and may modify the
+ features and properties of the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>. For an inheriting
+ class to extend configuration behaviour the overriding method MUST call
+ <code>super.configure(servletConfig, rc, wa)</code> as the first statement
+ of that method.
+ <p/>
+ This method will be called only once at initiation. Subsequent
+ reloads of the Web application will not result in subsequence calls to
+ this method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>wc</CODE> - the Web configuration<DD><CODE>rc</CODE> - the Resource configuration<DD><CODE>wa</CODE> - the Web application</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+initiate</H3>
+<PRE>
+protected void <B>initiate</B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+                        <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD>Initiate the <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A>.
+ <p/>
+ This method will be called once at initiation and for
+ each reload of the Web application.
+ <p/>
+ An inheriting class may override this method to initiate the
+ Web application with different parameters.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>rc</CODE> - the Resource configuration<DD><CODE>wa</CODE> - the Web application</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="load()"><!-- --></A><H3>
+load</H3>
+<PRE>
+public void <B>load</B>()</PRE>
+<DL>
+<DD>Load the Web application. This will create, configure and initiate
+ the web application.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)"><!-- --></A><H3>
+getDefaultResourceConfig</H3>
+<PRE>
+protected <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> <B>getDefaultResourceConfig</B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props,
+                                                  <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc)
+                                           throws javax.servlet.ServletException</PRE>
+<DL>
+<DD>Get the default resource configuration if one is not declared in the
+ web.xml.
+ <p/>
+ This implementation returns an instance of <A HREF="../../../../../../com/sun/jersey/api/core/servlet/WebAppResourceConfig.html" title="class in com.sun.jersey.api.core.servlet"><CODE>WebAppResourceConfig</CODE></A>
+ that scans in files and directories as declared by the
+ <A HREF="../../../../../../com/sun/jersey/api/core/ClasspathResourceConfig.html#PROPERTY_CLASSPATH"><CODE>ClasspathResourceConfig.PROPERTY_CLASSPATH</CODE></A> if present, otherwise
+ in the "WEB-INF/lib" and "WEB-INF/classes" directories.
+ <p/>
+ An inheriting class may override this method to supply a different
+ default resource configuration implementation.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>props</CODE> - the properties to pass to the resource configuration.<DD><CODE>wc</CODE> - the web configuration.
+<DT><B>Returns:</B><DD>the default resource configuration.
+<DT><B>Throws:</B>
+<DD><CODE>javax.servlet.ServletException</CODE> - in case of any issues with providing \
+                                        the default resource configuration</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="onReload()"><!-- --></A><H3>
+onReload</H3>
+<PRE>
+public void <B>onReload</B>()</PRE>
+<DL>
+<DD>Reload the Web application. This will create and initiate the web
+ application using the same <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> implementation
+ that was used to load the Web application.
+ <p/>
+ This method may be called at runtime, more than once, to reload the
+ Web application. For example, if a <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> implementation
+ is capable of detecting changes to resource classes (addition or removal)
+ or providers then this method may be invoked to reload the web
+ application for such changes to take effect.
+ <p/>
+ If this method is called when there are pending requests then such
+ requests will be processed using the previously loaded web application.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerListener.html#onReload()">onReload</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerListener.html" title="interface in com.sun.jersey.spi.container">ContainerListener</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ReloadListener.html#onReload()">onReload</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/container/ReloadListener.html" title="interface in com.sun.jersey.spi.container">ReloadListener</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WebComponent.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.ContextInjectableProvider.html" title="class in com.sun.jersey.spi.container.servlet"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.ContextInjectableProvider.html" title="class in com.sun.jersey.spi.container.servlet"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/spi/container/servlet/WebComponent.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WebComponent.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

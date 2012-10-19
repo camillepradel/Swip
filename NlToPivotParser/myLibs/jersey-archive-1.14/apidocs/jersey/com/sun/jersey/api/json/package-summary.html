@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+com.sun.jersey.api.json (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="com.sun.jersey.api.json (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/servlet/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/model/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/json/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<H2>
+Package com.sun.jersey.api.json
+</H2>
+Provides support for enabling and configuring JSON.
+<P>
+<B>See:</B>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_description"><B>Description</B></A>
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Interface Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfigurated.html" title="interface in com.sun.jersey.api.json">JSONConfigurated</A></B></TD>
+<TD>An interface declaring a JSON configuration is available.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONMarshaller.html" title="interface in com.sun.jersey.api.json">JSONMarshaller</A></B></TD>
+<TD>A JSON marshaller responsible for serializing Java content trees, defined
+ by JAXB, to JSON data.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONUnmarshaller.html" title="interface in com.sun.jersey.api.json">JSONUnmarshaller</A></B></TD>
+<TD>A JSON unmarshaller responsible for deserializing JSON data to a Java
+ content tree, defined by JAXB.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A></B></TD>
+<TD>An immutable configuration of JSON notation and options.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.Builder</A></B></TD>
+<TD>Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedBuilder</A></B></TD>
+<TD>Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options
+ for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED"><CODE>JSONConfiguration.Notation.MAPPED</CODE></A> convention.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.MappedJettisonBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.MappedJettisonBuilder</A></B></TD>
+<TD>Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options
+ for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#MAPPED_JETTISON"><CODE>JSONConfiguration.Notation.MAPPED_JETTISON</CODE></A> convention.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.NaturalBuilder.html" title="class in com.sun.jersey.api.json">JSONConfiguration.NaturalBuilder</A></B></TD>
+<TD>Builder class for constructing <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> options
+ for the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> convention.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html" title="class in com.sun.jersey.api.json">JSONJAXBContext</A></B></TD>
+<TD>An adaption of <CODE>JAXBContext</CODE> that supports marshalling
+ and unmarshalling of JAXB beans using the JSON format.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONWithPadding.html" title="class in com.sun.jersey.api.json">JSONWithPadding</A></B></TD>
+<TD>An entity supporting JSON with Padding (JSONP).</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Enum Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html" title="enum in com.sun.jersey.api.json">JSONConfiguration.Notation</A></B></TD>
+<TD>Enumeration of supported JSON notations.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.JSONNotation.html" title="enum in com.sun.jersey.api.json">JSONJAXBContext.JSONNotation</A></B></TD>
+<TD><B>Deprecated.</B></TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+<A NAME="package_description"><!-- --></A><H2>
+Package com.sun.jersey.api.json Description
+</H2>
+
+<P>
+Provides support for enabling and configuring JSON.
+ <p>
+ Besides enabling JSON, the API also allows customization of the JSON format 
+ produced and consumed with JAXB beans.
+ Such customization requires that an implementation of 
+ <A HREF="../../../../../javax/ws/rs/ext/ContextResolver.html" title="interface in javax.ws.rs.ext"><CODE>ContextResolver</CODE></A> returns a configured
+ <A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html" title="class in com.sun.jersey.api.json"><CODE>JSONJAXBContext</CODE></A> instance.
+
+ <p>For example, if the following two JAXB beans are defined:
+ <blockquote><pre>
+ <span style="font-weight:bold">&#064;XmlRootElement</span>
+ public class <span style="font-weight:bold">BeanOne</span> {
+   public String name;
+   public int number;
+ }
+
+ <span style="font-weight:bold">&#064;XmlRootElement</span>
+ public class <span style="font-weight:bold">BeanTwo</span> {
+   public List&lt;String&gt; titles;
+ }
+ </pre></blockquote>
+
+ And the following resource class uses the above JAXB beans:
+
+ <blockquote><pre>
+ &#064;Path("beans")
+ public class MyResource {
+
+   &#064;GET &#064;Path("one") &#064;Produces(MediaType.APPLICATION_JSON)
+   public <span style="font-weight:bold">BeanOne</span> getOne() {
+       BeanOne one = new BeanOne();
+       one.name = "Howard";
+       one.number = 3;
+       return one;
+   }
+
+   &#064;GET &#064;Path("two") &#064;Produces(MediaType.APPLICATION_JSON)
+   public <span style="font-weight:bold">BeanTwo</span> getTwo() {
+       BeanTwo two = new BeanTwo();
+       two.titles = new ArrayList<String>(1){{add("Title1");}};
+       return two;
+   }
+ </pre></blockquote>
+
+ <p>
+ Then, for the URI path <code>beans/one</code>, the following JSON will be
+ produced:
+ <blockquote><pre>
+ {"name":"Howard","number":<span style="color:red">"</span>3<span style="color:red">"</span>}
+ </pre></blockquote>
+ However, it might be required that the JSON object named <code>number</code> have
+ a non-String value <code>3</code>.
+ <p>
+ And, for the URI path <code>beans/two</code>, the following JSON will be
+ produced:
+ <blockquote><pre>
+ {"titles":"Title1"}
+ </pre></blockquote>
+ However, it might be required that the JSON object named <code>titles</code>
+ have a JSON array value <code><span style="color:red">[</span>"Title1"<span style="color:red">]</span></code>,
+ since the <code>titles</code> field on the JAXB bean <code>BeanTwo</code>
+ represents an array, thus enabling consuming of such JSON values the same way on
+ the client side no matter how many elements the array contains.
+
+ <p>The <A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html" title="class in com.sun.jersey.api.json"><CODE>JSONJAXBContext</CODE></A> may be configured to enable
+ such required production of JSON as described above in the following manner:
+ <blockquote><pre>
+ <span style="font-weight:bold">&#064;Provider</span>
+ public final class JAXBContextResolver <span style="font-weight:bold">implements ContextResolver&lt;JAXBContext&gt;</span> {
+
+   <span style="font-weight:bold">private final JAXBContext context;</span>
+
+   private final Set&lt;Class&gt; types;
+
+   private final Class[] cTypes = {BeanOne.class, BeanTwo.class};
+
+   public JAXBContextResolver() throws JAXBException {
+       this.context = new <span style="font-weight:bold">JSONJAXBContext</span>(<span style="font-weight:bold">JSONConfiguration.natural().build()</span>, cTypes);
+       this.types = new HashSet(Arrays.asList(cTypes));
+   }
+
+   <span style="font-weight:bold">public JAXBContext getContext(Class&lt;?&gt; objectType)</span> {
+       return (types.contains(objectType)) ? <span style="font-weight:bold">context</span> : null;
+   }
+ }
+ </pre></blockquote>
+
+ Then, the produced JSON would become: <code>{"name":"Howard","number":3}</code>
+ and <code>{"titles":["Title1"]}</code> respectively for the URI paths
+ <code>beans/one</code> and <code>beans/two</code>. Please note, that you do not need
+ to configure this in much detail. Using <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html#NATURAL"><CODE>JSONConfiguration.Notation.NATURAL</CODE></A> notation
+ means that Jersey JSON processor will autamatically take care about numbers, booleans and arrays. This notation
+ will probably become the default one for Jersey in one of the future releases.
+
+ <p>For a complete set of supported properties, see
+ <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Builder.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration.Builder</CODE></A>.
+<P>
+
+<P>
+<DL>
+</DL>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/servlet/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/model/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/json/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

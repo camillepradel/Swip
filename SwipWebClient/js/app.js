@@ -173,14 +173,14 @@ function displayResults(results)
 
 
 /**
- * Called when the user has validated their input
+ * Called when the user has validated his input
  **/
 function translateQuery(query)
 {
 	if(query != '')
 	{
 		toggleSearch(false);
-		nlToPivot(query, 'fr');
+		nlToPivot(query, 'en');
 	}
 }
 

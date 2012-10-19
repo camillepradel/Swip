@@ -1,0 +1,658 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ClientRequest (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ClientRequest (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ClientRequest.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.Builder.html" title="class in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/ClientRequest.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ClientRequest.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.client</FONT>
+<BR>
+Class ClientRequest</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.client.ClientRequest</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public abstract class <B>ClientRequest</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+A client (out-bound) HTTP request.
+ <p>
+ Instances may be created by using the static method <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#create()"><CODE>create()</CODE></A> and
+ methods on <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.Builder.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest.Builder</CODE></A>.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.Builder.html" title="class in com.sun.jersey.api.client">ClientRequest.Builder</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The builder for building a <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest</CODE></A> instance.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#ClientRequest()">ClientRequest</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client">ClientRequest</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#clone()">clone</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clone the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.Builder.html" title="class in com.sun.jersey.api.client">ClientRequest.Builder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#create()">create</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a builder for building a new <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest</CODE></A> instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientRequestAdapter.html" title="interface in com.sun.jersey.api.client">ClientRequestAdapter</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getAdapter()">getAdapter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the client request adapter.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getEntity()">getEntity</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the entity of the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getHeaders()">getHeaders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the HTTP headers of the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getHeaderValue(java.lang.Object)">getHeaderValue</A></B>(java.lang.Object&nbsp;headerValue)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert a header value, represented as a general object, to the 
+ string value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getMetadata()">getMetadata</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getMethod()">getMethod</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the HTTP method of the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;java.util.Map&lt;java.lang.String,java.lang.Object&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getProperties()">getProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the mutable property bag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getPropertyAsFeature(java.lang.String)">getPropertyAsFeature</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a feature that is boolean property of the property bag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getPropertyAsFeature(java.lang.String, boolean)">getPropertyAsFeature</A></B>(java.lang.String&nbsp;name,
+                     boolean&nbsp;defaultValue)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a feature that is boolean property of the property bag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;java.net.URI</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#getURI()">getURI</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the URI of the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#setAdapter(com.sun.jersey.api.client.ClientRequestAdapter)">setAdapter</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientRequestAdapter.html" title="interface in com.sun.jersey.api.client">ClientRequestAdapter</A>&nbsp;adapter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the client request adapter.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#setEntity(java.lang.Object)">setEntity</A></B>(java.lang.Object&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the entity of the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#setMethod(java.lang.String)">setMethod</A></B>(java.lang.String&nbsp;method)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the HTTP method of the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#setProperties(java.util.Map)">setProperties</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets properties (replaces everything previously set).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html#setURI(java.net.URI)">setURI</A></B>(java.net.URI&nbsp;uri)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the URI of the request.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ClientRequest()"><!-- --></A><H3>
+ClientRequest</H3>
+<PRE>
+public <B>ClientRequest</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getProperties()"><!-- --></A><H3>
+getProperties</H3>
+<PRE>
+public abstract java.util.Map&lt;java.lang.String,java.lang.Object&gt; <B>getProperties</B>()</PRE>
+<DL>
+<DD>Get the mutable property bag.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the property bag.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setProperties(java.util.Map)"><!-- --></A><H3>
+setProperties</H3>
+<PRE>
+public abstract void <B>setProperties</B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)</PRE>
+<DL>
+<DD>Sets properties (replaces everything previously set).
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPropertyAsFeature(java.lang.String)"><!-- --></A><H3>
+getPropertyAsFeature</H3>
+<PRE>
+public boolean <B>getPropertyAsFeature</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Get a feature that is boolean property of the property bag.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the name of the feature;
+<DT><B>Returns:</B><DD>true if the feature value is present and is an instance of
+         <code>Boolean</code> and that value is true, otherwise false.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPropertyAsFeature(java.lang.String, boolean)"><!-- --></A><H3>
+getPropertyAsFeature</H3>
+<PRE>
+public boolean <B>getPropertyAsFeature</B>(java.lang.String&nbsp;name,
+                                    boolean&nbsp;defaultValue)</PRE>
+<DL>
+<DD>Get a feature that is boolean property of the property bag.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the name of the feature;<DD><CODE>defaultValue</CODE> - the default boolean value if the property is absent.
+<DT><B>Returns:</B><DD>true if the feature value is present and is an instance of
+         <code>Boolean</code> and that value is true, otherwise the
+         <code>defaultValue</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getURI()"><!-- --></A><H3>
+getURI</H3>
+<PRE>
+public abstract java.net.URI <B>getURI</B>()</PRE>
+<DL>
+<DD>Get the URI of the request. The URI shall contain sufficient
+ components to correctly dispatch a request
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the URI of the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setURI(java.net.URI)"><!-- --></A><H3>
+setURI</H3>
+<PRE>
+public abstract void <B>setURI</B>(java.net.URI&nbsp;uri)</PRE>
+<DL>
+<DD>Set the URI of the request. The URI shall contain sufficient
+ components to correctly dispatch a request
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>uri</CODE> - the URI of the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMethod()"><!-- --></A><H3>
+getMethod</H3>
+<PRE>
+public abstract java.lang.String <B>getMethod</B>()</PRE>
+<DL>
+<DD>Get the HTTP method of the request.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP method.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setMethod(java.lang.String)"><!-- --></A><H3>
+setMethod</H3>
+<PRE>
+public abstract void <B>setMethod</B>(java.lang.String&nbsp;method)</PRE>
+<DL>
+<DD>Set the HTTP method of the request.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntity()"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+public abstract java.lang.Object <B>getEntity</B>()</PRE>
+<DL>
+<DD>Get the entity of the request.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the entity of the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setEntity(java.lang.Object)"><!-- --></A><H3>
+setEntity</H3>
+<PRE>
+public abstract void <B>setEntity</B>(java.lang.Object&nbsp;entity)</PRE>
+<DL>
+<DD>Set the entity of the request.
+ <p>
+ Any Java type instance for a request entity, that is supported by the client
+ configuration of the client, can be passed. If generic information is
+ required then an instance of <A HREF="../../../../../javax/ws/rs/core/GenericEntity.html" title="class in javax.ws.rs.core"><CODE>GenericEntity</CODE></A> may
+ be used.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>entity</CODE> - the entity of the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMetadata()"><!-- --></A><H3>
+getMetadata</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public abstract <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt; <B>getMetadata</B>()</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;
+<P>
+<DD>Get the HTTP headers of the request.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP headers of the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHeaders()"><!-- --></A><H3>
+getHeaders</H3>
+<PRE>
+public abstract <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt; <B>getHeaders</B>()</PRE>
+<DL>
+<DD>Get the HTTP headers of the request.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP headers of the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAdapter()"><!-- --></A><H3>
+getAdapter</H3>
+<PRE>
+public abstract <A HREF="../../../../../com/sun/jersey/api/client/ClientRequestAdapter.html" title="interface in com.sun.jersey.api.client">ClientRequestAdapter</A> <B>getAdapter</B>()</PRE>
+<DL>
+<DD>Get the client request adapter.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the client request adapter.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setAdapter(com.sun.jersey.api.client.ClientRequestAdapter)"><!-- --></A><H3>
+setAdapter</H3>
+<PRE>
+public abstract void <B>setAdapter</B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientRequestAdapter.html" title="interface in com.sun.jersey.api.client">ClientRequestAdapter</A>&nbsp;adapter)</PRE>
+<DL>
+<DD>Set the client request adapter.
+ <p>
+ If an existing adapter is set then usually this adapter wrapped in the
+ new adapter to be set such that the current adaption behaviour is
+ retained and augmented with the new adpation behaviour.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>adapter</CODE> - the client request adapter.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="clone()"><!-- --></A><H3>
+clone</H3>
+<PRE>
+public abstract <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client">ClientRequest</A> <B>clone</B>()</PRE>
+<DL>
+<DD>Clone the request.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>clone</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the cloned request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create()"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static final <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.Builder.html" title="class in com.sun.jersey.api.client">ClientRequest.Builder</A> <B>create</B>()</PRE>
+<DL>
+<DD>Create a builder for building a new <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest</CODE></A> instance.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the builder.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHeaderValue(java.lang.Object)"><!-- --></A><H3>
+getHeaderValue</H3>
+<PRE>
+public static java.lang.String <B>getHeaderValue</B>(java.lang.Object&nbsp;headerValue)</PRE>
+<DL>
+<DD>Convert a header value, represented as a general object, to the 
+ string value.
+ <p>
+ This method defers to <A HREF="../../../../../javax/ws/rs/ext/RuntimeDelegate.html#createHeaderDelegate(java.lang.Class)"><CODE>RuntimeDelegate.createHeaderDelegate(java.lang.Class<T>)</CODE></A> to
+ obtain a <A HREF="../../../../../javax/ws/rs/ext/RuntimeDelegate.HeaderDelegate.html" title="interface in javax.ws.rs.ext"><CODE>RuntimeDelegate.HeaderDelegate</CODE></A> to convert the value to a string. If
+ a <A HREF="../../../../../javax/ws/rs/ext/RuntimeDelegate.HeaderDelegate.html" title="interface in javax.ws.rs.ext"><CODE>RuntimeDelegate.HeaderDelegate</CODE></A> is not found then the <code>toString</code>
+ is utilized.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>headerValue</CODE> - the header value as an object
+<DT><B>Returns:</B><DD>the string value</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ClientRequest.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.Builder.html" title="class in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/ClientRequest.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ClientRequest.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

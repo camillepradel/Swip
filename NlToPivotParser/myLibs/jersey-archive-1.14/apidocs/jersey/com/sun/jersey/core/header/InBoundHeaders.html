@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+InBoundHeaders (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="InBoundHeaders (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/InBoundHeaders.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/core/header/HttpDateFormat.html" title="class in com.sun.jersey.core.header"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/core/header/LanguageTag.html" title="class in com.sun.jersey.core.header"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/core/header/InBoundHeaders.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="InBoundHeaders.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_java.util.AbstractMap">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#methods_inherited_from_class_com.sun.jersey.core.util.StringKeyStringValueIgnoreCaseMultivaluedMap">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;METHOD</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.core.header</FONT>
+<BR>
+Class InBoundHeaders</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by ">java.util.AbstractMap&lt;K,V&gt;
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html" title="class in com.sun.jersey.core.util">com.sun.jersey.core.util.KeyComparatorHashMap</A>&lt;K,V&gt;
+          <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorLinkedHashMap.html" title="class in com.sun.jersey.core.util">com.sun.jersey.core.util.KeyComparatorLinkedHashMap</A>&lt;java.lang.String,java.util.List&lt;V&gt;&gt;
+              <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/core/util/StringKeyIgnoreCaseMultivaluedMap.html" title="class in com.sun.jersey.core.util">com.sun.jersey.core.util.StringKeyIgnoreCaseMultivaluedMap</A>&lt;java.lang.String&gt;
+                  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html" title="class in com.sun.jersey.core.util">com.sun.jersey.core.util.StringKeyStringValueIgnoreCaseMultivaluedMap</A>
+                      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.core.header.InBoundHeaders</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Serializable, java.lang.Cloneable, java.util.Map&lt;java.lang.String,java.util.List&lt;java.lang.String&gt;&gt;, <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>InBoundHeaders</B><DT>extends <A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html" title="class in com.sun.jersey.core.util">StringKeyStringValueIgnoreCaseMultivaluedMap</A></DL>
+</PRE>
+
+<P>
+In-bound HTTP headers.
+ <p>
+ Such HTTP headers will be associated with the in-bound HTTP request on the
+ server-side and the in-bound HTTP response on the client-side.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+<DT><B>See Also:</B><DD><A HREF="../../../../../serialized-form.html#com.sun.jersey.core.header.InBoundHeaders">Serialized Form</A></DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_java.util.AbstractMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from class java.util.AbstractMap</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>java.util.AbstractMap.SimpleEntry&lt;K,V&gt;, java.util.AbstractMap.SimpleImmutableEntry&lt;K,V&gt;</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<A NAME="nested_classes_inherited_from_class_java.util.Map"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from interface java.util.Map</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>java.util.Map.Entry&lt;K,V&gt;</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/header/InBoundHeaders.html#InBoundHeaders()">InBoundHeaders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/header/InBoundHeaders.html#InBoundHeaders(com.sun.jersey.core.header.InBoundHeaders)">InBoundHeaders</A></B>(<A HREF="../../../../../com/sun/jersey/core/header/InBoundHeaders.html" title="class in com.sun.jersey.core.header">InBoundHeaders</A>&nbsp;that)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.util.StringKeyStringValueIgnoreCaseMultivaluedMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.core.util.<A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html" title="class in com.sun.jersey.core.util">StringKeyStringValueIgnoreCaseMultivaluedMap</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html#addObject(java.lang.String, java.lang.Object)">addObject</A>, <A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html#get(java.lang.String, java.lang.Class)">get</A>, <A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html#getFirst(java.lang.String, A)">getFirst</A>, <A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html#getFirst(java.lang.String, java.lang.Class)">getFirst</A>, <A HREF="../../../../../com/sun/jersey/core/util/StringKeyStringValueIgnoreCaseMultivaluedMap.html#putSingleObject(java.lang.String, java.lang.Object)">putSingleObject</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.util.StringKeyIgnoreCaseMultivaluedMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.core.util.<A HREF="../../../../../com/sun/jersey/core/util/StringKeyIgnoreCaseMultivaluedMap.html" title="class in com.sun.jersey.core.util">StringKeyIgnoreCaseMultivaluedMap</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/core/util/StringKeyIgnoreCaseMultivaluedMap.html#add(java.lang.String, V)">add</A>, <A HREF="../../../../../com/sun/jersey/core/util/StringKeyIgnoreCaseMultivaluedMap.html#getFirst(java.lang.String)">getFirst</A>, <A HREF="../../../../../com/sun/jersey/core/util/StringKeyIgnoreCaseMultivaluedMap.html#getList(java.lang.String)">getList</A>, <A HREF="../../../../../com/sun/jersey/core/util/StringKeyIgnoreCaseMultivaluedMap.html#putSingle(java.lang.String, V)">putSingle</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.util.KeyComparatorLinkedHashMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.core.util.<A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorLinkedHashMap.html" title="class in com.sun.jersey.core.util">KeyComparatorLinkedHashMap</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorLinkedHashMap.html#clear()">clear</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorLinkedHashMap.html#containsValue(java.lang.Object)">containsValue</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorLinkedHashMap.html#get(java.lang.Object)">get</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorLinkedHashMap.html#removeEldestEntry(java.util.Map.Entry)">removeEldestEntry</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.util.KeyComparatorHashMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.core.util.<A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html" title="class in com.sun.jersey.core.util">KeyComparatorHashMap</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#clone()">clone</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#containsKey(java.lang.Object)">containsKey</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#entrySet()">entrySet</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#getDEFAULT_INITIAL_CAPACITY()">getDEFAULT_INITIAL_CAPACITY</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#getModCount()">getModCount</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#isEmpty()">isEmpty</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#put(K, V)">put</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#putAll(java.util.Map)">putAll</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#remove(java.lang.Object)">remove</A>, <A HREF="../../../../../com/sun/jersey/core/util/KeyComparatorHashMap.html#size()">size</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.util.AbstractMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.util.AbstractMap</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>equals, hashCode, keySet, toString, values</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>finalize, getClass, notify, notifyAll, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.util.Map"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface java.util.Map</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clear, containsKey, containsValue, entrySet, equals, get, hashCode, isEmpty, keySet, put, putAll, remove, size, values</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="InBoundHeaders()"><!-- --></A><H3>
+InBoundHeaders</H3>
+<PRE>
+public <B>InBoundHeaders</B>()</PRE>
+<DL>
+</DL>
+<HR>
+
+<A NAME="InBoundHeaders(com.sun.jersey.core.header.InBoundHeaders)"><!-- --></A><H3>
+InBoundHeaders</H3>
+<PRE>
+public <B>InBoundHeaders</B>(<A HREF="../../../../../com/sun/jersey/core/header/InBoundHeaders.html" title="class in com.sun.jersey.core.header">InBoundHeaders</A>&nbsp;that)</PRE>
+<DL>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/InBoundHeaders.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/core/header/HttpDateFormat.html" title="class in com.sun.jersey.core.header"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/core/header/LanguageTag.html" title="class in com.sun.jersey.core.header"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/core/header/InBoundHeaders.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="InBoundHeaders.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_java.util.AbstractMap">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#methods_inherited_from_class_com.sun.jersey.core.util.StringKeyStringValueIgnoreCaseMultivaluedMap">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;METHOD</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

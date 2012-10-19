@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+WadlGeneratorConfig (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="WadlGeneratorConfig (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WadlGeneratorConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder.html" title="class in com.sun.jersey.api.wadl.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WadlGeneratorConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.wadl.config</FONT>
+<BR>
+Class WadlGeneratorConfig</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.wadl.config.WadlGeneratorConfig</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public abstract class <B>WadlGeneratorConfig</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+Provides a configured <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A> with all decorations (the default
+ wadl generator decorated by other generators).
+ <p>
+ <strong>Creating a WadlGeneratorConfig</strong><br/>
+ <br/>
+ If you want to create an instance at runtime you can configure the 
+ WadlGenerator class and property names/values. A new instance of the 
+ Generator is created for each generation action.
+ 
+ The first option would look like this:
+ <pre><code>WadlGeneratorConfig config = WadlGeneratorConfig
+          .generator( MyWadlGenerator.class )
+            .prop( "someProperty", "someValue" )
+          .generator( MyWadlGenerator2.class )
+            .prop( "someProperty", "someValue" )
+            .prop( "anotherProperty", "anotherValue" )
+          .build();
+ </code></pre>
+ 
+ <br/>
+ If you want to specify the <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorConfig</CODE></A> in the web.xml you have
+ to subclass it and set the servlet init-param <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_WADL_GENERATOR_CONFIG"><CODE>ResourceConfig.PROPERTY_WADL_GENERATOR_CONFIG</CODE></A>
+ to the name of your subclass. This class might look like this:
+ <pre><code>class MyWadlGeneratorConfig extends WadlGeneratorConfig {
+
+        public List<WadlGeneratorDescription> configure() {
+            return generator( MyWadlGenerator.class )
+                .prop( "foo", propValue )
+              .generator( MyWadlGenerator2.class )
+                .prop( "bar", propValue2 )
+              .descriptions();
+        }
+
+    }
+ </code></pre>
+ 
+ </p>
+ 
+ <p>
+ <strong>Configuring the WadlGenerator</strong><br/>
+ <br/>
+ The <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A> properties will be populated with the provided properties like this:
+ <ul>
+ <li>The types match exactly:<br/>
+  if the WadlGenerator property is of type <code>org.example.Foo</code> and the
+  provided property value is of type <code>org.example.Foo</code></li>
+ <li>Types that provide a constructor for the provided type (mostly java.lang.String)</li>
+ <li>java.io.InputStream: The <CODE>InputStream</CODE> can e.g. represent a file. The stream is loaded from the
+  property value (provided by the <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorDescription.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorDescription</CODE></A>) via 
+  <CODE>ClassLoader.getResourceAsStream(String)</CODE>. It will be closed after <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#init()"><CODE>WadlGenerator.init()</CODE></A> was called.
+ </li>
+ 
+ <li><strong>Deprected, will be removed in future versions:</strong><br/>
+ The WadlGenerator property is of type <CODE>File</CODE> and the provided property value is a <CODE>String</CODE>:<br/>
+  the provided property value can contain the prefix <em>classpath:</em> to denote, that the
+  path to the file is relative to the classpath. In this case, the property value is stripped by 
+  the prefix <em>classpath:</em> and the <CODE>File</CODE> is created via
+  <pre><code>new File( generator.getClass().getResource( strippedFilename ).toURI() )</code></pre>
+  Notice that the filename is loaded from the classpath in this case, e.g. <em>classpath:test.xml</em>
+  refers to a file in the package of the class (<A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorDescription.html#getGeneratorClass()"><CODE>WadlGeneratorDescription.getGeneratorClass()</CODE></A>). The
+  file reference <em>classpath:/test.xml</em> refers to a file that is in the root of the classpath.
+ </li>
+ 
+ </ul>
+ </p>
+ <p>
+ <strong>Existing <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A> implementations:</strong><br/>
+ <br/>
+ <ul>
+  <li><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html" title="class in com.sun.jersey.server.wadl.generators"><CODE>WadlGeneratorApplicationDoc</CODE></A></li>
+  <li><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html" title="class in com.sun.jersey.server.wadl.generators"><CODE>WadlGeneratorGrammarsSupport</CODE></A></li>
+  <li><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html" title="class in com.sun.jersey.server.wadl.generators"><CODE>WadlGeneratorJAXBGrammarGenerator</CODE></A></li>
+  <li><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html" title="class in com.sun.jersey.server.wadl.generators.resourcedoc"><CODE>WadlGeneratorResourceDocSupport</CODE></A></li>
+ </ul>
+ </p>
+ <p>
+ A common example for a <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorConfig</CODE></A> would be this:
+ <pre><code>class MyWadlGeneratorConfig extends WadlGeneratorConfig {
+
+        public List<WadlGeneratorDescription> configure() {
+            return generator( WadlGeneratorApplicationDoc.class ) 
+                .prop( "applicationDocsStream", "application-doc.xml" ) 
+              .generator( WadlGeneratorGrammarsSupport.class ) 
+                .prop( "grammarsStream", "application-grammars.xml" ) 
+              .generator( WadlGeneratorResourceDocSupport.class ) 
+                .prop( "resourceDocStream", "resourcedoc.xml" ) 
+              .descriptions();
+        }
+
+    }
+ </code></pre>
+ </p>
+<P>
+
+<P>
+<DL>
+<DT><B>Version:</B></DT>
+  <DD>$Id: WadlGeneratorConfig.java 5717 2012-06-05 07:51:30Z pavel_bucek $</DD>
+<DT><B>Author:</B></DT>
+  <DD><a href="mailto:martin.grotzke@freiheit.com">Martin Grotzke</a></DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder.html" title="class in com.sun.jersey.api.wadl.config">WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html#WadlGeneratorConfig()">WadlGeneratorConfig</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorDescription.html" title="class in com.sun.jersey.api.wadl.config">WadlGeneratorDescription</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html#configure()">configure</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl">WadlGenerator</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html#createWadlGenerator()">createWadlGenerator</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance of <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A>, based on the <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorDescription.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorDescription</CODE></A>s
+ provided by <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html#configure()"><CODE>configure()</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder.html" title="class in com.sun.jersey.api.wadl.config">WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html#generator(java.lang.Class)">generator</A></B>(java.lang.Class&lt;? extends <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl">WadlGenerator</A>&gt;&nbsp;generatorClass)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start to build an instance of <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorConfig</CODE></A>:</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="WadlGeneratorConfig()"><!-- --></A><H3>
+WadlGeneratorConfig</H3>
+<PRE>
+public <B>WadlGeneratorConfig</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="configure()"><!-- --></A><H3>
+configure</H3>
+<PRE>
+public abstract java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorDescription.html" title="class in com.sun.jersey.api.wadl.config">WadlGeneratorDescription</A>&gt; <B>configure</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createWadlGenerator()"><!-- --></A><H3>
+createWadlGenerator</H3>
+<PRE>
+public <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl">WadlGenerator</A> <B>createWadlGenerator</B>()</PRE>
+<DL>
+<DD>Create a new instance of <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A>, based on the <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorDescription.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorDescription</CODE></A>s
+ provided by <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html#configure()"><CODE>configure()</CODE></A>.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the initialized <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="generator(java.lang.Class)"><!-- --></A><H3>
+generator</H3>
+<PRE>
+public static <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder.html" title="class in com.sun.jersey.api.wadl.config">WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder</A> <B>generator</B>(java.lang.Class&lt;? extends <A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl">WadlGenerator</A>&gt;&nbsp;generatorClass)</PRE>
+<DL>
+<DD>Start to build an instance of <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorConfig</CODE></A>:
+ <pre><code>generator(&lt;class&gt;)
+      .prop(&lt;name&gt;, &lt;value&gt;)
+      .prop(&lt;name&gt;, &lt;value&gt;)
+ .generator(&lt;class&gt;)
+      .prop(&lt;name&gt;, &lt;value&gt;)
+      .prop(&lt;name&gt;, &lt;value&gt;)
+      .build()</code></pre>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>generatorClass</CODE> - the class of the wadl generator to configure
+<DT><B>Returns:</B><DD>an instance of <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder</CODE></A>.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WadlGeneratorConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.WadlGeneratorConfigDescriptionBuilder.html" title="class in com.sun.jersey.api.wadl.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WadlGeneratorConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

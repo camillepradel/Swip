@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+OAuthProvider (oauth-server 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="OAuthProvider (oauth-server 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/OAuthProvider.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthConsumer.html" title="interface in com.sun.jersey.oauth.server.spi"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/oauth/server/spi/OAuthProvider.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="OAuthProvider.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.oauth.server.spi</FONT>
+<BR>
+Interface OAuthProvider</H2>
+<DL>
+<DT><B>All Known Implementing Classes:</B> <DD><A HREF="../../../../../../com/sun/jersey/oauth/server/api/providers/DefaultOAuthProvider.html" title="class in com.sun.jersey.oauth.server.api.providers">DefaultOAuthProvider</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public interface <B>OAuthProvider</B></DL>
+</PRE>
+
+<P>
+Contract for a provider that supports managing OAuth tokens and consumer secrets.
+ To add an <code>OAuthProvider</code> implementation, annotate the implementation
+ class with <code>&amp;#64;Provider</code>.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Martin Matula</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthProvider.html#getAccessToken(java.lang.String)">getAccessToken</A></B>(java.lang.String&nbsp;token)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the access token by the consumer key and token value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthConsumer.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthConsumer</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthProvider.html#getConsumer(java.lang.String)">getConsumer</A></B>(java.lang.String&nbsp;consumerKey)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets consumer corresponding to a given consumer key.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthProvider.html#getRequestToken(java.lang.String)">getRequestToken</A></B>(java.lang.String&nbsp;token)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the request token by the consumer key and token value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthProvider.html#newAccessToken(com.sun.jersey.oauth.server.spi.OAuthToken, java.lang.String)">newAccessToken</A></B>(<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A>&nbsp;requestToken,
+               java.lang.String&nbsp;verifier)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new access token.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthProvider.html#newRequestToken(java.lang.String, java.lang.String, java.util.Map)">newRequestToken</A></B>(java.lang.String&nbsp;consumerKey,
+                java.lang.String&nbsp;callbackUrl,
+                java.util.Map&lt;java.lang.String,java.util.List&lt;java.lang.String&gt;&gt;&nbsp;attributes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new request token for a given consumerKey.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getConsumer(java.lang.String)"><!-- --></A><H3>
+getConsumer</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthConsumer.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthConsumer</A> <B>getConsumer</B>(java.lang.String&nbsp;consumerKey)</PRE>
+<DL>
+<DD>Gets consumer corresponding to a given consumer key.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>consumerKey</CODE> - consumer key
+<DT><B>Returns:</B><DD>corresponding consumer secret or null if no consumer with the given key is known</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="newRequestToken(java.lang.String, java.lang.String, java.util.Map)"><!-- --></A><H3>
+newRequestToken</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A> <B>newRequestToken</B>(java.lang.String&nbsp;consumerKey,
+                           java.lang.String&nbsp;callbackUrl,
+                           java.util.Map&lt;java.lang.String,java.util.List&lt;java.lang.String&gt;&gt;&nbsp;attributes)</PRE>
+<DL>
+<DD>Creates a new request token for a given consumerKey.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>consumerKey</CODE> - consumer key to create a request token for<DD><CODE>callbackUrl</CODE> - callback url for this request token request<DD><CODE>attributes</CODE> - additional service provider-specific parameters
+      (this can be used to indicate what level of access is requested
+      - i.e. readonly, or r/w, etc.)
+<DT><B>Returns:</B><DD>new request token</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRequestToken(java.lang.String)"><!-- --></A><H3>
+getRequestToken</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A> <B>getRequestToken</B>(java.lang.String&nbsp;token)</PRE>
+<DL>
+<DD>Returns the request token by the consumer key and token value.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>token</CODE> - request token value
+<DT><B>Returns:</B><DD>request token or null if no such token corresponding to a given
+ consumer key is found</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="newAccessToken(com.sun.jersey.oauth.server.spi.OAuthToken, java.lang.String)"><!-- --></A><H3>
+newAccessToken</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A> <B>newAccessToken</B>(<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A>&nbsp;requestToken,
+                          java.lang.String&nbsp;verifier)</PRE>
+<DL>
+<DD>Creates a new access token. This method must validate the passed arguments
+ and return null if any of them is invalid.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>requestToken</CODE> - authorized request token<DD><CODE>verifier</CODE> - verifier passed to the callback after authorization
+<DT><B>Returns:</B><DD>new access token or null if the arguments are invalid (e.g. there
+ is no such request token as in the argument, or the verifier does not match)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAccessToken(java.lang.String)"><!-- --></A><H3>
+getAccessToken</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi">OAuthToken</A> <B>getAccessToken</B>(java.lang.String&nbsp;token)</PRE>
+<DL>
+<DD>Returns the access token by the consumer key and token value.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>token</CODE> - access token value
+<DT><B>Returns:</B><DD>access token or null if no such found</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/OAuthProvider.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthConsumer.html" title="interface in com.sun.jersey.oauth.server.spi"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/oauth/server/spi/OAuthToken.html" title="interface in com.sun.jersey.oauth.server.spi"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/oauth/server/spi/OAuthProvider.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="OAuthProvider.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

@@ -1,0 +1,1156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+UriTemplate (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="UriTemplate (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/UriTemplate.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/uri/UriPattern.html" title="class in com.sun.jersey.api.uri"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplateParser.html" title="class in com.sun.jersey.api.uri"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/uri/UriTemplate.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="UriTemplate.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.uri</FONT>
+<BR>
+Class UriTemplate</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.uri.UriTemplate</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>UriTemplate</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+A URI template.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul Sandoz, Martin Matula (martin.matula at oracle.com)</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.Comparator&lt;<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html" title="class in com.sun.jersey.api.uri">UriTemplate</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#COMPARATOR">COMPARATOR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order the templates according according to JAX-RS.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html" title="class in com.sun.jersey.api.uri">UriTemplate</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#EMPTY">EMPTY</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The empty URI template that matches the null or empty URI path</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#UriTemplate(java.lang.String)">UriTemplate</A></B>(java.lang.String&nbsp;template)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new URI template.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected </CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#UriTemplate(com.sun.jersey.api.uri.UriTemplateParser)">UriTemplate</A></B>(<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplateParser.html" title="class in com.sun.jersey.api.uri">UriTemplateParser</A>&nbsp;templateParser)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new URI template.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURI(java.util.Map)">createURI</A></B>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;values)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a URI by substituting any template variables
+ for corresponding template values.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURI(java.lang.String...)">createURI</A></B>(java.lang.String...&nbsp;values)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a URI by substituting any template variables
+ for corresponding template values.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURI(java.lang.String[], int, int)">createURI</A></B>(java.lang.String[]&nbsp;values,
+          int&nbsp;offset,
+          int&nbsp;length)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a URI by substituting any template variables
+ for corresponding template values.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)">createURI</A></B>(java.lang.String&nbsp;scheme,
+          java.lang.String&nbsp;userInfo,
+          java.lang.String&nbsp;host,
+          java.lang.String&nbsp;port,
+          java.lang.String&nbsp;path,
+          java.lang.String&nbsp;query,
+          java.lang.String&nbsp;fragment,
+          java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Object[], boolean)">createURI</A></B>(java.lang.String&nbsp;scheme,
+          java.lang.String&nbsp;userInfo,
+          java.lang.String&nbsp;host,
+          java.lang.String&nbsp;port,
+          java.lang.String&nbsp;path,
+          java.lang.String&nbsp;query,
+          java.lang.String&nbsp;fragment,
+          java.lang.Object[]&nbsp;values,
+          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)">createURI</A></B>(java.lang.String&nbsp;scheme,
+          java.lang.String&nbsp;authority,
+          java.lang.String&nbsp;userInfo,
+          java.lang.String&nbsp;host,
+          java.lang.String&nbsp;port,
+          java.lang.String&nbsp;path,
+          java.lang.String&nbsp;query,
+          java.lang.String&nbsp;fragment,
+          java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Object[], boolean)">createURI</A></B>(java.lang.String&nbsp;scheme,
+          java.lang.String&nbsp;authority,
+          java.lang.String&nbsp;userInfo,
+          java.lang.String&nbsp;host,
+          java.lang.String&nbsp;port,
+          java.lang.String&nbsp;path,
+          java.lang.String&nbsp;query,
+          java.lang.String&nbsp;fragment,
+          java.lang.Object[]&nbsp;values,
+          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../com/sun/jersey/api/uri/UriPattern.html" title="class in com.sun.jersey.api.uri">UriPattern</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createUriPattern(com.sun.jersey.api.uri.UriTemplateParser)">createUriPattern</A></B>(<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplateParser.html" title="class in com.sun.jersey.api.uri">UriTemplateParser</A>&nbsp;templateParser)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create the URI pattern from a URI template parser.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)">createURIWithStringValues</A></B>(java.lang.String&nbsp;scheme,
+                          java.lang.String&nbsp;userInfo,
+                          java.lang.String&nbsp;host,
+                          java.lang.String&nbsp;port,
+                          java.lang.String&nbsp;path,
+                          java.lang.String&nbsp;query,
+                          java.lang.String&nbsp;fragment,
+                          java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+                          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], boolean)">createURIWithStringValues</A></B>(java.lang.String&nbsp;scheme,
+                          java.lang.String&nbsp;userInfo,
+                          java.lang.String&nbsp;host,
+                          java.lang.String&nbsp;port,
+                          java.lang.String&nbsp;path,
+                          java.lang.String&nbsp;query,
+                          java.lang.String&nbsp;fragment,
+                          java.lang.String[]&nbsp;values,
+                          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)">createURIWithStringValues</A></B>(java.lang.String&nbsp;scheme,
+                          java.lang.String&nbsp;authority,
+                          java.lang.String&nbsp;userInfo,
+                          java.lang.String&nbsp;host,
+                          java.lang.String&nbsp;port,
+                          java.lang.String&nbsp;path,
+                          java.lang.String&nbsp;query,
+                          java.lang.String&nbsp;fragment,
+                          java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+                          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], boolean)">createURIWithStringValues</A></B>(java.lang.String&nbsp;scheme,
+                          java.lang.String&nbsp;authority,
+                          java.lang.String&nbsp;userInfo,
+                          java.lang.String&nbsp;host,
+                          java.lang.String&nbsp;port,
+                          java.lang.String&nbsp;path,
+                          java.lang.String&nbsp;query,
+                          java.lang.String&nbsp;fragment,
+                          java.lang.String[]&nbsp;values,
+                          boolean&nbsp;encode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a URI from the component parts each of which may contain
+ template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#endsWithSlash()">endsWithSlash</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#equals(java.lang.Object)">equals</A></B>(java.lang.Object&nbsp;o)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equality is calculated from the String of the regular expression
+ generated from the templates.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#getNumberOfExplicitCharacters()">getNumberOfExplicitCharacters</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the number of characters in the regular expression not resulting
+ from conversion of template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#getNumberOfExplicitRegexes()">getNumberOfExplicitRegexes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the number of explicit regexes declared in template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#getNumberOfTemplateVariables()">getNumberOfTemplateVariables</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the number of template variables.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/uri/UriPattern.html" title="class in com.sun.jersey.api.uri">UriPattern</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#getPattern()">getPattern</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the URI pattern.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#getTemplate()">getTemplate</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the URI template as a String.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#getTemplateVariables()">getTemplateVariables</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the list of template variables for the template.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#hashCode()">hashCode</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hashcode is calculated from String of the regular expression
+ generated from the template.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#isTemplateVariablePresent(java.lang.String)">isTemplateVariablePresent</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascertain if a template variable is a member of this
+ template.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#match(java.lang.CharSequence, java.util.List)">match</A></B>(java.lang.CharSequence&nbsp;uri,
+      java.util.List&lt;java.lang.String&gt;&nbsp;groupValues)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Match a URI against the template.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#match(java.lang.CharSequence, java.util.Map)">match</A></B>(java.lang.CharSequence&nbsp;uri,
+      java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;templateVariableToValue)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Match a URI against the template.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html#toString()">toString</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="COMPARATOR"><!-- --></A><H3>
+COMPARATOR</H3>
+<PRE>
+public static final java.util.Comparator&lt;<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html" title="class in com.sun.jersey.api.uri">UriTemplate</A>&gt; <B>COMPARATOR</B></PRE>
+<DL>
+<DD>Order the templates according according to JAX-RS.
+ <p>
+ Sort the set of matching resource classes using the number of
+ characters in the regular expression not resulting from template
+ variables as the primary key, the number of matching groups
+ as a secondary key, and the number of explicit regular expression
+ declarations as the tertiary key.
+<P>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="EMPTY"><!-- --></A><H3>
+EMPTY</H3>
+<PRE>
+public static final <A HREF="../../../../../com/sun/jersey/api/uri/UriTemplate.html" title="class in com.sun.jersey.api.uri">UriTemplate</A> <B>EMPTY</B></PRE>
+<DL>
+<DD>The empty URI template that matches the null or empty URI path
+<P>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="UriTemplate(java.lang.String)"><!-- --></A><H3>
+UriTemplate</H3>
+<PRE>
+public <B>UriTemplate</B>(java.lang.String&nbsp;template)
+            throws java.util.regex.PatternSyntaxException,
+                   java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Construct a new URI template.
+ <p>
+ The template will be parsed to extract template variables.
+ <p>
+ A specific regular expression will be generated from the template
+ to match URIs according to the template and map template variables to
+ template values.
+ <p>
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>template</CODE> - the template.
+<DT><B>Throws:</B>
+<DD><CODE>java.util.regex.PatternSyntaxException</CODE> - if the specified
+         regular expression could not be generated
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the template is null or
+         an empty string.</DL>
+</DL>
+<HR>
+
+<A NAME="UriTemplate(com.sun.jersey.api.uri.UriTemplateParser)"><!-- --></A><H3>
+UriTemplate</H3>
+<PRE>
+protected <B>UriTemplate</B>(<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplateParser.html" title="class in com.sun.jersey.api.uri">UriTemplateParser</A>&nbsp;templateParser)
+               throws java.util.regex.PatternSyntaxException,
+                      java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Construct a new URI template.
+ <p>
+ The template will be parsed to extract template variables.
+ <p>
+ A specific regular expression will be generated from the template
+ to match URIs according to the template and map template variables to
+ template values.
+ <p>
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>templateParser</CODE> - the parser to parse the template.
+<DT><B>Throws:</B>
+<DD><CODE>java.util.regex.PatternSyntaxException</CODE> - if the specified
+         regular expression could not be generated
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the template is null or
+         an empty string.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="createUriPattern(com.sun.jersey.api.uri.UriTemplateParser)"><!-- --></A><H3>
+createUriPattern</H3>
+<PRE>
+protected <A HREF="../../../../../com/sun/jersey/api/uri/UriPattern.html" title="class in com.sun.jersey.api.uri">UriPattern</A> <B>createUriPattern</B>(<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplateParser.html" title="class in com.sun.jersey.api.uri">UriTemplateParser</A>&nbsp;templateParser)</PRE>
+<DL>
+<DD>Create the URI pattern from a URI template parser.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>templateParser</CODE> - the URI template parser.
+<DT><B>Returns:</B><DD>the URI pattern.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTemplate()"><!-- --></A><H3>
+getTemplate</H3>
+<PRE>
+public final java.lang.String <B>getTemplate</B>()</PRE>
+<DL>
+<DD>Get the URI template as a String.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the URI template.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPattern()"><!-- --></A><H3>
+getPattern</H3>
+<PRE>
+public final <A HREF="../../../../../com/sun/jersey/api/uri/UriPattern.html" title="class in com.sun.jersey.api.uri">UriPattern</A> <B>getPattern</B>()</PRE>
+<DL>
+<DD>Get the URI pattern.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the URI pattern.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="endsWithSlash()"><!-- --></A><H3>
+endsWithSlash</H3>
+<PRE>
+public final boolean <B>endsWithSlash</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true if the template ends in a '/', otherwise false.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTemplateVariables()"><!-- --></A><H3>
+getTemplateVariables</H3>
+<PRE>
+public final java.util.List&lt;java.lang.String&gt; <B>getTemplateVariables</B>()</PRE>
+<DL>
+<DD>Get the list of template variables for the template.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the list of template variables.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isTemplateVariablePresent(java.lang.String)"><!-- --></A><H3>
+isTemplateVariablePresent</H3>
+<PRE>
+public final boolean <B>isTemplateVariablePresent</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Ascertain if a template variable is a member of this
+ template.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - name The template variable.
+<DT><B>Returns:</B><DD>true if the template variable is a member of the template, otherwise
+ false.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNumberOfExplicitRegexes()"><!-- --></A><H3>
+getNumberOfExplicitRegexes</H3>
+<PRE>
+public final int <B>getNumberOfExplicitRegexes</B>()</PRE>
+<DL>
+<DD>Get the number of explicit regexes declared in template variables.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the number of explicit regexes.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNumberOfExplicitCharacters()"><!-- --></A><H3>
+getNumberOfExplicitCharacters</H3>
+<PRE>
+public final int <B>getNumberOfExplicitCharacters</B>()</PRE>
+<DL>
+<DD>Get the number of characters in the regular expression not resulting
+ from conversion of template variables.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the number of explicit characters</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNumberOfTemplateVariables()"><!-- --></A><H3>
+getNumberOfTemplateVariables</H3>
+<PRE>
+public final int <B>getNumberOfTemplateVariables</B>()</PRE>
+<DL>
+<DD>Get the number of template variables.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the number of template variables.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="match(java.lang.CharSequence, java.util.Map)"><!-- --></A><H3>
+match</H3>
+<PRE>
+public final boolean <B>match</B>(java.lang.CharSequence&nbsp;uri,
+                           java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;templateVariableToValue)
+                    throws java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Match a URI against the template.
+ <p>
+ If the URI matches against the pattern then the template variable to value
+ map will be filled with template variables as keys and template values as
+ values.
+ <p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>uri</CODE> - the uri to match against the template.<DD><CODE>templateVariableToValue</CODE> - the map where to put template variables (as keys)
+        and template values (as values). The map is cleared before any
+        entries are put.
+<DT><B>Returns:</B><DD>true if the URI matches the template, otherwise false.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the uri or
+         templateVariableToValue is null.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="match(java.lang.CharSequence, java.util.List)"><!-- --></A><H3>
+match</H3>
+<PRE>
+public final boolean <B>match</B>(java.lang.CharSequence&nbsp;uri,
+                           java.util.List&lt;java.lang.String&gt;&nbsp;groupValues)
+                    throws java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Match a URI against the template.
+ <p>
+ If the URI matches against the pattern then the template variable to value
+ map will be filled with template variables as keys and template values as
+ values.
+ <p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>uri</CODE> - the uri to match against the template.<DD><CODE>groupValues</CODE> - the list to store the values of a pattern's
+        capturing groups if matching is successful. The values are stored
+        in the same order as the pattern's capturing groups.
+<DT><B>Returns:</B><DD>true if the URI matches the template, otherwise false.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the uri or
+         templateVariableToValue is null.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURI(java.util.Map)"><!-- --></A><H3>
+createURI</H3>
+<PRE>
+public final java.lang.String <B>createURI</B>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;values)</PRE>
+<DL>
+<DD>Create a URI by substituting any template variables
+ for corresponding template values.
+ <p>
+ A URI template variable without a value will be substituted by the
+ empty string.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>values</CODE> - the map of template variables to template values.
+<DT><B>Returns:</B><DD>the URI.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURI(java.lang.String...)"><!-- --></A><H3>
+createURI</H3>
+<PRE>
+public final java.lang.String <B>createURI</B>(java.lang.String...&nbsp;values)</PRE>
+<DL>
+<DD>Create a URI by substituting any template variables
+ for corresponding template values.
+ <p>
+ A URI template varibale without a value will be substituted by the
+ empty string.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>values</CODE> - the array of template values. The values will be
+        substituted in order of occurence of unique template variables.
+<DT><B>Returns:</B><DD>the URI.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURI(java.lang.String[], int, int)"><!-- --></A><H3>
+createURI</H3>
+<PRE>
+public final java.lang.String <B>createURI</B>(java.lang.String[]&nbsp;values,
+                                        int&nbsp;offset,
+                                        int&nbsp;length)</PRE>
+<DL>
+<DD>Create a URI by substituting any template variables
+ for corresponding template values.
+ <p>
+ A URI template variable without a value will be substituted by the
+ empty string.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>values</CODE> - the array of template values. The values will be
+        substituted in order of occurence of unique template variables.<DD><CODE>offset</CODE> - the offset into the array<DD><CODE>length</CODE> - the length of the array
+<DT><B>Returns:</B><DD>the URI.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toString()"><!-- --></A><H3>
+toString</H3>
+<PRE>
+public final java.lang.String <B>toString</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>toString</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="hashCode()"><!-- --></A><H3>
+hashCode</H3>
+<PRE>
+public final int <B>hashCode</B>()</PRE>
+<DL>
+<DD>Hashcode is calculated from String of the regular expression
+ generated from the template.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>hashCode</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the hash code.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="equals(java.lang.Object)"><!-- --></A><H3>
+equals</H3>
+<PRE>
+public final boolean <B>equals</B>(java.lang.Object&nbsp;o)</PRE>
+<DL>
+<DD>Equality is calculated from the String of the regular expression
+ generated from the templates.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>equals</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>o</CODE> - the reference object with which to compare.
+<DT><B>Returns:</B><DD>true if equals, otherwise false.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)"><!-- --></A><H3>
+createURI</H3>
+<PRE>
+public static final java.lang.String <B>createURI</B>(java.lang.String&nbsp;scheme,
+                                               java.lang.String&nbsp;userInfo,
+                                               java.lang.String&nbsp;host,
+                                               java.lang.String&nbsp;port,
+                                               java.lang.String&nbsp;path,
+                                               java.lang.String&nbsp;query,
+                                               java.lang.String&nbsp;fragment,
+                                               java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+ <p>
+ A template values is an Object instance MUST support the toString()
+ method to convert the template value to a String instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the template variable to value map<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)"><!-- --></A><H3>
+createURI</H3>
+<PRE>
+public static final java.lang.String <B>createURI</B>(java.lang.String&nbsp;scheme,
+                                               java.lang.String&nbsp;authority,
+                                               java.lang.String&nbsp;userInfo,
+                                               java.lang.String&nbsp;host,
+                                               java.lang.String&nbsp;port,
+                                               java.lang.String&nbsp;path,
+                                               java.lang.String&nbsp;query,
+                                               java.lang.String&nbsp;fragment,
+                                               java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+ <p>
+ A template values is an Object instance MUST support the toString()
+ method to convert the template value to a String instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>authority</CODE> - the URI authority component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the template variable to value map<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)"><!-- --></A><H3>
+createURIWithStringValues</H3>
+<PRE>
+public static final java.lang.String <B>createURIWithStringValues</B>(java.lang.String&nbsp;scheme,
+                                                               java.lang.String&nbsp;userInfo,
+                                                               java.lang.String&nbsp;host,
+                                                               java.lang.String&nbsp;port,
+                                                               java.lang.String&nbsp;path,
+                                                               java.lang.String&nbsp;query,
+                                                               java.lang.String&nbsp;fragment,
+                                                               java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+                                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+ <p>
+ A template value is an Object instance that MUST support the toString()
+ method to convert the template value to a String instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the template variable to value map<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, boolean)"><!-- --></A><H3>
+createURIWithStringValues</H3>
+<PRE>
+public static final java.lang.String <B>createURIWithStringValues</B>(java.lang.String&nbsp;scheme,
+                                                               java.lang.String&nbsp;authority,
+                                                               java.lang.String&nbsp;userInfo,
+                                                               java.lang.String&nbsp;host,
+                                                               java.lang.String&nbsp;port,
+                                                               java.lang.String&nbsp;path,
+                                                               java.lang.String&nbsp;query,
+                                                               java.lang.String&nbsp;fragment,
+                                                               java.util.Map&lt;java.lang.String,? extends java.lang.Object&gt;&nbsp;values,
+                                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+ <p>
+ A template value is an Object instance that MUST support the toString()
+ method to convert the template value to a String instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>authority</CODE> - the URI authority info component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the template variable to value map<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Object[], boolean)"><!-- --></A><H3>
+createURI</H3>
+<PRE>
+public static final java.lang.String <B>createURI</B>(java.lang.String&nbsp;scheme,
+                                               java.lang.String&nbsp;userInfo,
+                                               java.lang.String&nbsp;host,
+                                               java.lang.String&nbsp;port,
+                                               java.lang.String&nbsp;path,
+                                               java.lang.String&nbsp;query,
+                                               java.lang.String&nbsp;fragment,
+                                               java.lang.Object[]&nbsp;values,
+                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+ <p>
+ The template values are an array of Object and each Object instance
+ MUST support the toString() method to convert the template value to
+ a String instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the array of template values<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Object[], boolean)"><!-- --></A><H3>
+createURI</H3>
+<PRE>
+public static final java.lang.String <B>createURI</B>(java.lang.String&nbsp;scheme,
+                                               java.lang.String&nbsp;authority,
+                                               java.lang.String&nbsp;userInfo,
+                                               java.lang.String&nbsp;host,
+                                               java.lang.String&nbsp;port,
+                                               java.lang.String&nbsp;path,
+                                               java.lang.String&nbsp;query,
+                                               java.lang.String&nbsp;fragment,
+                                               java.lang.Object[]&nbsp;values,
+                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+ <p>
+ The template values are an array of Object and each Object instance
+ MUST support the toString() method to convert the template value to
+ a String instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>authority</CODE> - the URI authority component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the array of template values<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], boolean)"><!-- --></A><H3>
+createURIWithStringValues</H3>
+<PRE>
+public static final java.lang.String <B>createURIWithStringValues</B>(java.lang.String&nbsp;scheme,
+                                                               java.lang.String&nbsp;userInfo,
+                                                               java.lang.String&nbsp;host,
+                                                               java.lang.String&nbsp;port,
+                                                               java.lang.String&nbsp;path,
+                                                               java.lang.String&nbsp;query,
+                                                               java.lang.String&nbsp;fragment,
+                                                               java.lang.String[]&nbsp;values,
+                                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the array of template values<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createURIWithStringValues(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], boolean)"><!-- --></A><H3>
+createURIWithStringValues</H3>
+<PRE>
+public static final java.lang.String <B>createURIWithStringValues</B>(java.lang.String&nbsp;scheme,
+                                                               java.lang.String&nbsp;authority,
+                                                               java.lang.String&nbsp;userInfo,
+                                                               java.lang.String&nbsp;host,
+                                                               java.lang.String&nbsp;port,
+                                                               java.lang.String&nbsp;path,
+                                                               java.lang.String&nbsp;query,
+                                                               java.lang.String&nbsp;fragment,
+                                                               java.lang.String[]&nbsp;values,
+                                                               boolean&nbsp;encode)</PRE>
+<DL>
+<DD>Construct a URI from the component parts each of which may contain
+ template variables.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>scheme</CODE> - the URI scheme component<DD><CODE>authority</CODE> - the URI authority component<DD><CODE>userInfo</CODE> - the URI user info component<DD><CODE>host</CODE> - the URI host component<DD><CODE>port</CODE> - the URI port component<DD><CODE>path</CODE> - the URI path component<DD><CODE>query</CODE> - the URI query componnet<DD><CODE>fragment</CODE> - the URI fragment component<DD><CODE>values</CODE> - the array of template values<DD><CODE>encode</CODE> - if true encode a template value according to the correspond
+        component type of the associated template variable, otherwise
+        contextually encode the template value
+<DT><B>Returns:</B><DD>a URI</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/UriTemplate.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/uri/UriPattern.html" title="class in com.sun.jersey.api.uri"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/uri/UriTemplateParser.html" title="class in com.sun.jersey.api.uri"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/uri/UriTemplate.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="UriTemplate.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

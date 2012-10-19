@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+FormDataParam (jersey-multipart 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="FormDataParam (jersey-multipart 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/FormDataParam.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/FormDataParam.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FormDataParam.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#annotation_type_required_element_summary">REQUIRED</A>&nbsp;|&nbsp;OPTIONAL</FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#annotation_type_element_detail">ELEMENT</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.multipart</FONT>
+<BR>
+Annotation Type FormDataParam</H2>
+<HR>
+<DL>
+<DT><PRE><FONT SIZE="-1">@Target(value={PARAMETER,METHOD,FIELD})
+@Retention(value=RUNTIME)
+<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/ParamQualifier.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">@ParamQualifier</A>
+</FONT>public @interface <B>FormDataParam</B></DL>
+</PRE>
+
+<P>
+Binds the named body part(s) of a "multipart/form-data" request
+ entity body to a resource method parameter.
+ <p>
+ The <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/FormParam.html?is-external=true" title="class or interface in javax.ws.rs"><CODE>FormParam</CODE></A> annotation in conjunction with the media type
+ "application/x-www-form-urlencoded" is inefficient for sending and
+ consuming large quantities of binary data or text containing non-ASCII
+ characters.
+ <p>
+ This annotation in conjunction with the media type "multipart/form-data"
+ should be used for submitting and consuming forms that contain files,
+ non-ASCII data, and binary data.
+ <p>
+ The type <code>T</code> of the annotated parameter must be one of the
+ following:
+ <ol>
+ <li><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A>. The value of the parameter will be the
+     first named body part, otherwise null if such a named body part is not
+     present.
+ <li>A <code>List</code> or <code>Collection</code> of <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A>.
+     The value of the
+     parameter will one or more named body parts with the same name, otherwise
+     null if such a named body part is not present.
+ <li><A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A>. The value of the parameter will be
+     the content disposition of the first named body part, otherwise null if
+     such a named body part is not present.
+ <li>A <code>List</code> or <code>Collection</code> of <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A>.
+     The value of
+     the parameter will one or more content dispositions of the named body parts
+     with the same name, otherwise null if such a named body part is not
+     present.
+ <li>A type for which a message body reader is available given the media type
+     of the first named body part. The value of the parameter will be the
+     result of reading using the message body reader given the type <code>T</code>,
+     the media type of the named part, and the bytes of the named body part as
+     input.
+     <p>
+     If there is no named part present and there is a default value present as
+     declared by <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/DefaultValue.html?is-external=true" title="class or interface in javax.ws.rs"><CODE>DefaultValue</CODE></A> then the media type will be set to
+     "text/plain". The value of the parameter will be the result of reading
+     using the message body reader given the type <code>T</code>, the media type
+     "text/plain", and the UTF-8 encoded bytes of the default value as input.
+     <p>
+     If there is no message body reader available and the type <code>T</code> conforms
+     to a type specified by <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/FormParam.html?is-external=true" title="class or interface in javax.ws.rs"><CODE>FormParam</CODE></A> then processing is performed
+     as specified by <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/FormParam.html?is-external=true" title="class or interface in javax.ws.rs"><CODE>FormParam</CODE></A>, where the values of the form parameter
+     are <code>String</code> instances produced by reading the bytes of the named body
+     parts utilizing a message body reader for the <code>String</code> type and the
+     media type "text/plain".
+     <p>
+     If there is no named part present then processing is performed as
+     specified by <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/FormParam.html?is-external=true" title="class or interface in javax.ws.rs"><CODE>FormParam</CODE></A>.</li>
+ </ol>
+ <p>
+ For example, the use of this annotation allows one to support the
+ following:
+ <blockquote><pre>
+     &#064;POST
+     &#064;Consumes(MediaType.MULTIPART_FORM_DATA_TYPE)
+     public String postForm(
+             &#064;DefaultValue("true") &#064;FormDataParam("enabled") boolean enabled,
+             &#064;FormDataParam("data") FileData bean,
+             &#064;FormDataParam("file") InputStream file,
+             &#064;FormDataParam("file") FormDataContentDisposition fileDisposition) {
+         ...
+     }
+ </pre></blockquote>
+ Where the server consumes a "multipart/form-data" request entity body that
+ contains one optional named body part "enabled" and two required named
+ body parts "data" and "file".
+ <p>
+ The optional part "enabled" is processed
+ as a <code>boolean</code> value, if the part is absent then the
+ value will be <code>true</code>.
+ <p>
+ The part "data" is processed as a JAXB bean and contains some meta-data
+ about the following part.
+ <p>
+ The part "file" is a file that is uploaded, this is processed as an
+ <code>InputStream</code>. Additional informaiton about the file from the
+ "Content-Disposition" header can be accessed by the parameter
+ <code>fileDisposition</code>.
+ 
+ <p>
+ Note that, whilst the annotation target permits use on fields and methods,
+ this annotation is only required to be supported on resource method
+ parameters.
+<P>
+
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataMultiPart</CODE></A>, 
+<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A>, 
+<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A>, 
+<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/DefaultValue.html?is-external=true" title="class or interface in javax.ws.rs"><CODE>DefaultValue</CODE></A>, 
+<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/FormParam.html?is-external=true" title="class or interface in javax.ws.rs"><CODE>FormParam</CODE></A></DL>
+<HR>
+
+<P>
+<!-- =========== ANNOTATION TYPE REQUIRED MEMBER SUMMARY =========== -->
+
+<A NAME="annotation_type_required_element_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Required Element Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataParam.html#value()">value</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defines the control name of a "multipart/form-data" body part whose
+ content will be used to initialize the value of the annotated method
+ argument.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ ANNOTATION TYPE MEMBER DETAIL =========== -->
+
+<A NAME="annotation_type_element_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Element Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="value()"><!-- --></A><H3>
+value</H3>
+<PRE>
+public abstract java.lang.String <B>value</B></PRE>
+<DL>
+<DD>Defines the control name of a "multipart/form-data" body part whose
+ content will be used to initialize the value of the annotated method
+ argument.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the control name of a "multipart/form-data" body part.</DL>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/FormDataParam.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/FormDataParam.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FormDataParam.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#annotation_type_required_element_summary">REQUIRED</A>&nbsp;|&nbsp;OPTIONAL</FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#annotation_type_element_detail">ELEMENT</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

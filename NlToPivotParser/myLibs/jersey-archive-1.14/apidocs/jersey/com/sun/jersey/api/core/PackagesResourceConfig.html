@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+PackagesResourceConfig (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="PackagesResourceConfig (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/PackagesResourceConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/InjectParam.html" title="annotation in com.sun.jersey.api.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ParentRef.html" title="annotation in com.sun.jersey.api.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/core/PackagesResourceConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="PackagesResourceConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#methods_inherited_from_class_com.sun.jersey.api.core.ScanningResourceConfig">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;METHOD</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.core</FONT>
+<BR>
+Class PackagesResourceConfig</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core">javax.ws.rs.core.Application</A>
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">com.sun.jersey.api.core.ResourceConfig</A>
+          <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core">com.sun.jersey.api.core.DefaultResourceConfig</A>
+              <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html" title="class in com.sun.jersey.api.core">com.sun.jersey.api.core.ScanningResourceConfig</A>
+                  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.core.PackagesResourceConfig</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A>, <A HREF="../../../../../com/sun/jersey/spi/container/ReloadListener.html" title="interface in com.sun.jersey.spi.container">ReloadListener</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>PackagesResourceConfig</B><DT>extends <A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html" title="class in com.sun.jersey.api.core">ScanningResourceConfig</A></DL>
+</PRE>
+
+<P>
+A mutable implementation of <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>DefaultResourceConfig</CODE></A> that dynamically 
+ searches for root resource and provider classes in a given a set of
+ declared package and in all (if any) sub-packages of those declared packages.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/PackagesResourceConfig.html#PROPERTY_PACKAGES">PROPERTY_PACKAGES</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The property value MUST be an instance String or String[].</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.api.core.ResourceConfig"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.api.core.<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#COMMON_DELIMITERS">COMMON_DELIMITERS</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_CANONICALIZE_URI_PATH">FEATURE_CANONICALIZE_URI_PATH</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_DISABLE_WADL">FEATURE_DISABLE_WADL</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_IMPLICIT_VIEWABLES">FEATURE_IMPLICIT_VIEWABLES</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_MATCH_MATRIX_PARAMS">FEATURE_MATCH_MATRIX_PARAMS</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_NORMALIZE_URI">FEATURE_NORMALIZE_URI</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_REDIRECT">FEATURE_REDIRECT</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_TRACE">FEATURE_TRACE</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_TRACE_PER_REQUEST">FEATURE_TRACE_PER_REQUEST</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_CONTAINER_NOTIFIER">PROPERTY_CONTAINER_NOTIFIER</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_CONTAINER_REQUEST_FILTERS">PROPERTY_CONTAINER_REQUEST_FILTERS</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_CONTAINER_RESPONSE_FILTERS">PROPERTY_CONTAINER_RESPONSE_FILTERS</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_DEFAULT_RESOURCE_COMPONENT_PROVIDER_FACTORY_CLASS">PROPERTY_DEFAULT_RESOURCE_COMPONENT_PROVIDER_FACTORY_CLASS</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_LANGUAGE_MAPPINGS">PROPERTY_LANGUAGE_MAPPINGS</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_MEDIA_TYPE_MAPPINGS">PROPERTY_MEDIA_TYPE_MAPPINGS</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_RESOURCE_FILTER_FACTORIES">PROPERTY_RESOURCE_FILTER_FACTORIES</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_WADL_GENERATOR_CONFIG">PROPERTY_WADL_GENERATOR_CONFIG</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.core.util.FeaturesAndProperties"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface com.sun.jersey.core.util.<A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_DISABLE_XML_SECURITY">FEATURE_DISABLE_XML_SECURITY</A>, <A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_FORMATTED">FEATURE_FORMATTED</A>, <A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_PRE_1_4_PROVIDER_PRECEDENCE">FEATURE_PRE_1_4_PROVIDER_PRECEDENCE</A>, <A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_XMLROOTELEMENT_PROCESSING">FEATURE_XMLROOTELEMENT_PROCESSING</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/PackagesResourceConfig.html#PackagesResourceConfig(java.util.Map)">PackagesResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search for root resource classes declaring the packages as a
+ property of <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/PackagesResourceConfig.html#PackagesResourceConfig(java.lang.String...)">PackagesResourceConfig</A></B>(java.lang.String...&nbsp;packages)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search for root resource classes declaring the packages as an 
+ array of package names.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.core.ScanningResourceConfig"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.api.core.<A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html" title="class in com.sun.jersey.api.core">ScanningResourceConfig</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html#init(com.sun.jersey.core.spi.scanning.Scanner)">init</A>, <A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html#onReload()">onReload</A>, <A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html#reload()">reload</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.core.DefaultResourceConfig"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.api.core.<A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core">DefaultResourceConfig</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getClasses()">getClasses</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getExplicitRootResources()">getExplicitRootResources</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getFeature(java.lang.String)">getFeature</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getFeatures()">getFeatures</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getLanguageMappings()">getLanguageMappings</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getMediaTypeMappings()">getMediaTypeMappings</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getProperties()">getProperties</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getProperty(java.lang.String)">getProperty</A>, <A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getSingletons()">getSingletons</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.core.ResourceConfig"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.api.core.<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#add(javax.ws.rs.core.Application)">add</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#clone()">clone</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getContainerRequestFilters()">getContainerRequestFilters</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getContainerResponseFilters()">getContainerResponseFilters</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getElements(java.lang.String[])">getElements</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getElements(java.lang.String[], java.lang.String)">getElements</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getProviderClasses()">getProviderClasses</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getProviderSingletons()">getProviderSingletons</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getResourceFilterFactories()">getResourceFilterFactories</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getRootResourceClasses()">getRootResourceClasses</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getRootResourceSingletons()">getRootResourceSingletons</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#isProviderClass(java.lang.Class)">isProviderClass</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#isRootResourceClass(java.lang.Class)">isRootResourceClass</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#setPropertiesAndFeatures(java.util.Map)">setPropertiesAndFeatures</A>, <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#validate()">validate</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="PROPERTY_PACKAGES"><!-- --></A><H3>
+PROPERTY_PACKAGES</H3>
+<PRE>
+public static final java.lang.String <B>PROPERTY_PACKAGES</B></PRE>
+<DL>
+<DD>The property value MUST be an instance String or String[]. Each String
+ instance represents one or more package names that MUST be separated by
+ ';', ',' or ' ' (space).
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.core.PackagesResourceConfig.PROPERTY_PACKAGES">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="PackagesResourceConfig(java.lang.String...)"><!-- --></A><H3>
+PackagesResourceConfig</H3>
+<PRE>
+public <B>PackagesResourceConfig</B>(java.lang.String...&nbsp;packages)</PRE>
+<DL>
+<DD>Search for root resource classes declaring the packages as an 
+ array of package names.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>packages</CODE> - the array package names.</DL>
+</DL>
+<HR>
+
+<A NAME="PackagesResourceConfig(java.util.Map)"><!-- --></A><H3>
+PackagesResourceConfig</H3>
+<PRE>
+public <B>PackagesResourceConfig</B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props)</PRE>
+<DL>
+<DD>Search for root resource classes declaring the packages as a
+ property of <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>props</CODE> - the property bag that contains the property 
+        <A HREF="../../../../../com/sun/jersey/api/core/PackagesResourceConfig.html#PROPERTY_PACKAGES"><CODE>PROPERTY_PACKAGES</CODE></A>.</DL>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/PackagesResourceConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/InjectParam.html" title="annotation in com.sun.jersey.api.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ParentRef.html" title="annotation in com.sun.jersey.api.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/core/PackagesResourceConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="PackagesResourceConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#methods_inherited_from_class_com.sun.jersey.api.core.ScanningResourceConfig">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;METHOD</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

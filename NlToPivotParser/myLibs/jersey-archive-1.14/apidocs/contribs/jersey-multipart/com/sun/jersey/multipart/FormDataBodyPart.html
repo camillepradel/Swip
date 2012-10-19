@@ -1,0 +1,741 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+FormDataBodyPart (jersey-multipart 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="FormDataBodyPart (jersey-multipart 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/FormDataBodyPart.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/Boundary.html" title="class in com.sun.jersey.multipart"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/FormDataBodyPart.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FormDataBodyPart.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.multipart.BodyPart">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.multipart</FONT>
+<BR>
+Class FormDataBodyPart</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">com.sun.jersey.multipart.BodyPart</A>
+      <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.multipart.FormDataBodyPart</B>
+</PRE>
+<DL>
+<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../com/sun/jersey/multipart/file/FileDataBodyPart.html" title="class in com.sun.jersey.multipart.file">FileDataBodyPart</A>, <A HREF="../../../../com/sun/jersey/multipart/file/StreamDataBodyPart.html" title="class in com.sun.jersey.multipart.file">StreamDataBodyPart</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>FormDataBodyPart</B><DT>extends <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></DL>
+</PRE>
+
+<P>
+<p>Subclass of <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> with specialized support for media type
+ <code>multipart/form-data</code>.  See
+ <a href="http://www.ietf.org/rfc/rfc2388.txt">RFC 2388</a>
+ for the formal definition of this media type.</p>
+
+ <p>For a server side application wishing to process an incoming
+ <code>multipart/form-data</code> message, the following features
+ are provided:</p>
+ <ul>
+ <li>Property accessor to retrieve the control name.</li>
+ <li>Property accessor to retrieve the field value for a simple
+     String field.</li>
+ <li>Convenience accessor to retrieve the field value after conversion
+     through an appropriate <code>MessageBodyReader</code>.</li>
+ </ul>
+
+ <p>For a client side application wishing to construct an outgoing
+ <code>multipart/form-data</code> message, the following features
+ are provided:</p>
+ <ul>
+ <li>Convenience constructors for named fields with either
+     simple string values, or arbitrary entities and media types.</li>
+ <li>Property accessor to set the control name.</li>
+ <li>Property accessor to set the field value for a simple
+     String field.</li>
+ <li>Convenience accessor to set the media type and value of a
+     "file" field.</li>
+ </ul>
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Craig.McClanahan@Sun.COM, Paul.Sandoz@Sun.Com, imran@smartitengineering.com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.multipart.BodyPart"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.multipart.<A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#cd">cd</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart()">FormDataBodyPart</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate an unnamed new <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with a
+ <code>mediaType</code> of <code>text/plain</code>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart(boolean)">FormDataBodyPart</A></B>(boolean&nbsp;fileNameFix)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate an unnamed new <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with <code>mediaType</code> of <code>text/plain</code>
+ and setting the flag for applying the fix for erroneous file name value if content disposition header of
+ messages coming from MS Internet Explorer (see <a href="http://java.net/jira/browse/JERSEY-759">JERSEY-759</a>).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart(com.sun.jersey.core.header.FormDataContentDisposition, java.lang.Object, javax.ws.rs.core.MediaType)">FormDataBodyPart</A></B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A>&nbsp;fdcd,
+                 java.lang.Object&nbsp;entity,
+                 <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart(com.sun.jersey.core.header.FormDataContentDisposition, java.lang.String)">FormDataBodyPart</A></B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A>&nbsp;fdcd,
+                 java.lang.String&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart(javax.ws.rs.core.MediaType)">FormDataBodyPart</A></B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate an unnamed <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart(java.lang.Object, javax.ws.rs.core.MediaType)">FormDataBodyPart</A></B>(java.lang.Object&nbsp;entity,
+                 <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate an unnamed <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart(java.lang.String, java.lang.Object, javax.ws.rs.core.MediaType)">FormDataBodyPart</A></B>(java.lang.String&nbsp;name,
+                 java.lang.Object&nbsp;entity,
+                 <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#FormDataBodyPart(java.lang.String, java.lang.String)">FormDataBodyPart</A></B>(java.lang.String&nbsp;name,
+                 java.lang.String&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with a
+ media type of <code>text/plain</code> and String value.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#getContentDisposition()">getContentDisposition</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Override the behaviour on <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> to ensure that
+ only instances of <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A> can be obtained.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#getFormDataContentDisposition()">getFormDataContentDisposition</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the form data content disposition.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#getName()">getName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the control name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#getValue()">getValue</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the field value for this body part.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#getValueAs(java.lang.Class)">getValueAs</A></B>(java.lang.Class&lt;T&gt;&nbsp;clazz)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the field value after appropriate conversion to the requested
+ type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#isSimple()">isSimple</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#setContentDisposition(com.sun.jersey.core.header.ContentDisposition)">setContentDisposition</A></B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A>&nbsp;cd)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Override the behaviour on <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> to ensure that
+ only instances of <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A> can be set.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#setFormDataContentDisposition(com.sun.jersey.core.header.FormDataContentDisposition)">setFormDataContentDisposition</A></B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A>&nbsp;cd)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the form data content disposition.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#setName(java.lang.String)">setName</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the control name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#setValue(javax.ws.rs.core.MediaType, java.lang.Object)">setValue</A></B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         java.lang.Object&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the field media type and value for this body part.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html#setValue(java.lang.String)">setValue</A></B>(java.lang.String&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the field value for this body part.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.multipart.BodyPart"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.multipart.<A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#cleanup()">cleanup</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#contentDisposition(com.sun.jersey.core.header.ContentDisposition)">contentDisposition</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#entity(java.lang.Object)">entity</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getEntity()">getEntity</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getEntityAs(java.lang.Class)">getEntityAs</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getHeaders()">getHeaders</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getMediaType()">getMediaType</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getParameterizedHeaders()">getParameterizedHeaders</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getParent()">getParent</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getProviders()">getProviders</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setEntity(java.lang.Object)">setEntity</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setMediaType(javax.ws.rs.core.MediaType)">setMediaType</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setParent(com.sun.jersey.multipart.MultiPart)">setParent</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setProviders(javax.ws.rs.ext.Providers)">setProviders</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#type(javax.ws.rs.core.MediaType)">type</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="FormDataBodyPart()"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>()</PRE>
+<DL>
+<DD>Instantiate an unnamed new <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with a
+ <code>mediaType</code> of <code>text/plain</code>.
+<P>
+</DL>
+<HR>
+
+<A NAME="FormDataBodyPart(boolean)"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>(boolean&nbsp;fileNameFix)</PRE>
+<DL>
+<DD>Instantiate an unnamed new <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with <code>mediaType</code> of <code>text/plain</code>
+ and setting the flag for applying the fix for erroneous file name value if content disposition header of
+ messages coming from MS Internet Explorer (see <a href="http://java.net/jira/browse/JERSEY-759">JERSEY-759</a>).
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>fileNameFix</CODE> - If set to <code>true</code>, header parser will not treat backslash as an escape character
+                    when retrieving the value of <code>filename</code> parameter of
+                    <code>Content-Disposition</code> header.</DL>
+</DL>
+<HR>
+
+<A NAME="FormDataBodyPart(javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD>Instantiate an unnamed <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>mediaType</CODE> - The <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this body part</DL>
+</DL>
+<HR>
+
+<A NAME="FormDataBodyPart(java.lang.Object, javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>(java.lang.Object&nbsp;entity,
+                        <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD>Instantiate an unnamed <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>entity</CODE> - The entity for this body part<DD><CODE>mediaType</CODE> - The <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this body part</DL>
+</DL>
+<HR>
+
+<A NAME="FormDataBodyPart(java.lang.String, java.lang.String)"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>(java.lang.String&nbsp;name,
+                        java.lang.String&nbsp;value)</PRE>
+<DL>
+<DD>Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with a
+ media type of <code>text/plain</code> and String value.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the control name for this body part<DD><CODE>value</CODE> - the value for this body part</DL>
+</DL>
+<HR>
+
+<A NAME="FormDataBodyPart(java.lang.String, java.lang.Object, javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>(java.lang.String&nbsp;name,
+                        java.lang.Object&nbsp;entity,
+                        <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD>Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the control name for this body part<DD><CODE>entity</CODE> - the entity for this body part<DD><CODE>mediaType</CODE> - the <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this body part</DL>
+</DL>
+<HR>
+
+<A NAME="FormDataBodyPart(com.sun.jersey.core.header.FormDataContentDisposition, java.lang.String)"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A>&nbsp;fdcd,
+                        java.lang.String&nbsp;value)</PRE>
+<DL>
+<DD>Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>fdcd</CODE> - the content disposition header for this body part.<DD><CODE>value</CODE> - the value for this body part</DL>
+</DL>
+<HR>
+
+<A NAME="FormDataBodyPart(com.sun.jersey.core.header.FormDataContentDisposition, java.lang.Object, javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+FormDataBodyPart</H3>
+<PRE>
+public <B>FormDataBodyPart</B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A>&nbsp;fdcd,
+                        java.lang.Object&nbsp;entity,
+                        <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD>Instantiate a named <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> with the
+ specified characteristics.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>fdcd</CODE> - the content disposition header for this body part.<DD><CODE>entity</CODE> - The entity for this body part<DD><CODE>mediaType</CODE> - The <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this body part</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getFormDataContentDisposition()"><!-- --></A><H3>
+getFormDataContentDisposition</H3>
+<PRE>
+public <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A> <B>getFormDataContentDisposition</B>()</PRE>
+<DL>
+<DD>Get the form data content disposition.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the form data content disposition.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFormDataContentDisposition(com.sun.jersey.core.header.FormDataContentDisposition)"><!-- --></A><H3>
+setFormDataContentDisposition</H3>
+<PRE>
+public void <B>setFormDataContentDisposition</B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">FormDataContentDisposition</A>&nbsp;cd)</PRE>
+<DL>
+<DD>Set the form data content disposition.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cd</CODE> - the form data content disposition.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getContentDisposition()"><!-- --></A><H3>
+getContentDisposition</H3>
+<PRE>
+public <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A> <B>getContentDisposition</B>()</PRE>
+<DL>
+<DD>Override the behaviour on <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> to ensure that
+ only instances of <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A> can be obtained.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getContentDisposition()">getContentDisposition</A></CODE> in class <CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the content disposition.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the content disposition header
+         cannot be parsed.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setContentDisposition(com.sun.jersey.core.header.ContentDisposition)"><!-- --></A><H3>
+setContentDisposition</H3>
+<PRE>
+public void <B>setContentDisposition</B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A>&nbsp;cd)</PRE>
+<DL>
+<DD>Override the behaviour on <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> to ensure that
+ only instances of <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A> can be set.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setContentDisposition(com.sun.jersey.core.header.ContentDisposition)">setContentDisposition</A></CODE> in class <CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cd</CODE> - the content disposition which must be an instance
+        of <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A>.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the content disposition is not an
+         instance of <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/FormDataContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header"><CODE>FormDataContentDisposition</CODE></A>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getName()"><!-- --></A><H3>
+getName</H3>
+<PRE>
+public java.lang.String <B>getName</B>()</PRE>
+<DL>
+<DD>Get the control name.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the control name.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setName(java.lang.String)"><!-- --></A><H3>
+setName</H3>
+<PRE>
+public void <B>setName</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Set the control name.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the control name.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getValue()"><!-- --></A><H3>
+getValue</H3>
+<PRE>
+public java.lang.String <B>getValue</B>()</PRE>
+<DL>
+<DD>Get the field value for this body part.  This should be called
+ only on body parts representing simple field values.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the simple field value.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called on a body part with a
+         media type other than <code>text/plain</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getValueAs(java.lang.Class)"><!-- --></A><H3>
+getValueAs</H3>
+<PRE>
+public &lt;T&gt; T <B>getValueAs</B>(java.lang.Class&lt;T&gt;&nbsp;clazz)</PRE>
+<DL>
+<DD>Get the field value after appropriate conversion to the requested
+ type.  This is useful only when the containing <A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataMultiPart</CODE></A>
+ instance has been received, which causes the <code>providers</code>
+ property to have been set.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the field value.<DT><B>Parameters:</B><DD><CODE>clazz</CODE> - Desired class into which the field value should be converted
+<DT><B>Returns:</B><DD>the field value
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if no <code>MessageBodyReader</code> can
+         be found to perform the requested conversion
+<DD><CODE>java.lang.IllegalStateException</CODE> - if this method is called when the
+         <code>providers</code> property has not been set or when the
+         entity instance is not the unconverted content of the body part
+         entity</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setValue(java.lang.String)"><!-- --></A><H3>
+setValue</H3>
+<PRE>
+public void <B>setValue</B>(java.lang.String&nbsp;value)</PRE>
+<DL>
+<DD>Set the field value for this body part.  This should be called
+ only on body parts representing simple field values.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>value</CODE> - the field value
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called on a body part with a
+         media type other than <code>text/plain</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setValue(javax.ws.rs.core.MediaType, java.lang.Object)"><!-- --></A><H3>
+setValue</H3>
+<PRE>
+public void <B>setValue</B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+                     java.lang.Object&nbsp;value)</PRE>
+<DL>
+<DD>Set the field media type and value for this body part.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mediaType</CODE> - the media type for this field value<DD><CODE>value</CODE> - the field value as a Java object</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isSimple()"><!-- --></A><H3>
+isSimple</H3>
+<PRE>
+public boolean <B>isSimple</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true if this body part represents a simple, string-based,
+         field value, otherwise false.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/FormDataBodyPart.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/Boundary.html" title="class in com.sun.jersey.multipart"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/FormDataBodyPart.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FormDataBodyPart.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.multipart.BodyPart">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

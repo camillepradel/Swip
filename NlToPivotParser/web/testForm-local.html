@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>NlToPivotParser web service - local</title>
+        <link rel="stylesheet" type="text/css" href="testFormStyle.css" />
+    </head>
+
+    <body>
+        <h1>NlToPivotParser web service</h1>
+
+        <h3>Translate NL query to dependency tree and pivot query (result in JSON)</h3>
+
+        <form method="get" action="http://localhost:8080/NlToPivotParser/resources/rest/nlToDependenciesAndPivot">
+            <table>
+                <tr>
+                    <th>NL query:</th><th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <th>
+                        <select name="lang" size="1">
+                            <option value="en" selected="selected">English</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>POS tagger:</th>
+                    <th>
+                        <select name="pos" size="1">
+                            <option value="treeTagger" selected="selected">TreeTagger</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dependency parser:</th>
+                    <th>
+                        <select name="dep" size="1">
+                            <option value="malt" selected="selected">Malt</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Translate"/></th>
+                </tr>
+            </table>			
+        </form>
+
+        <h3>Translate NL query to pivot query</h3>
+
+        <form method="get" action="http://localhost:8080/NlToPivotParser/resources/rest/nlToPivot">
+            <table>
+                <tr>
+                    <th>NL query:</th>
+                    <th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <th>
+                        <select name="lang" size="1">
+                            <option value="en" selected="selected">English</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>POS tagger:</th>
+                    <th><select name="pos" size="1">
+                            <option value="treeTagger" selected="selected">TreeTagger</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dependency parser:</th>
+                    <th>
+                        <select name="dep" size="1">
+                            <option value="malt" selected="selected">Malt</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Translate"/></th>
+                </tr>
+            </table>			
+        </form>
+
+
+        <h3>Translate NL query to dependency tree</h3>
+
+        <form method="get" action="http://localhost:8080/NlToPivotParser/resources/rest/nlToDependencies">
+            <table>
+                <tr>
+                    <th>NL query:</th>
+                    <th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <th>
+                        <select name="lang" size="1">
+                            <option value="en" selected="selected">English</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>POS tagger:</th>
+                    <th>
+                        <select name="pos" size="1">
+                            <option value="treeTagger" selected="selected">TreeTagger</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dependency parser:</th>
+                    <th>
+                        <select name="dep" size="1">
+                            <option value="malt" selected="selected">Malt</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Translate"/></th>
+                </tr>
+            </table>			
+        </form>
+
+
+        <h3>Translate NL query to dependency tree in JSON - does not work! infinite JSON!</h3>
+
+        <form method="get" action="http://localhost:8080/NlToPivotParser/resources/rest/nlToDependenciesJson">
+            <table>
+                <tr>
+                    <th>NL query:</th><th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <th>
+                        <select name="lang" size="1">
+                            <option value="en" selected="selected">English</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>POS tagger:</th>
+                    <th>
+                        <select name="pos" size="1">
+                            <option value="treeTagger" selected="selected">TreeTagger</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dependency parser:</th>
+                    <th>
+                        <select name="dep" size="1">
+                            <option value="malt" selected="selected">Malt</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Translate"/></th>
+                </tr>
+            </table>			
+        </form>
+
+
+        <h3>dependenciesToPivot - same sproblem!</h3>
+
+        <form method="get" action="http://localhost:8080/NlToPivotParser/resources/rest/dependenciesToPivot">
+            <table>
+                <tr>
+                    <th>Parsing result (JSON):</th><th>
+                        <textarea rows="5" cols="65">need to first fix the problem of JSON</textarea> 
+                    </th>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <th>
+                        <select name="lang" size="1">
+                            <option value="en" selected="selected">English</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>POS tagger:</th>
+                    <th>
+                        <select name="pos" size="1">
+                            <option value="treeTagger" selected="selected">TreeTagger</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dependency parser:</th>
+                    <th>
+                        <select name="dep" size="1">
+                            <option value="malt" selected="selected">Malt</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Translate"/></th>
+                </tr>
+            </table>			
+        </form>
+
+
+        <h2>Exemple queries:</h2>
+        <ul>
+            <li>Which members of the Beatles are dead?</li>
+            <li>When was Elvis Presley born?</li>
+            <li>Who composed the Star Wars soundtrack?</li>
+            <li>How many artists are called John Williams?</li>
+            <li>Who collaborated on Tocotronic vs. Console?</li>
+            <li>List all members of The Notwist.</li>
+            <li>Give me all songs by Petula Clark.</li>
+            <li>Give me all Kraftwerk albums!</li>
+            <li>Was Keith Richards a member of The Rolling Stones?</li>
+            <li>How many bands are called Nirvana?</li>
+            <li>Who produced the album In Utero?</li>
+            <li>When is the birthday of Tom Waits?</li>
+            <li>Which artists died on the same day as Michael Jackson?</li>
+            <li>Give me all bands that Michael Stipe is a member of.</li>
+            <li>How many albums did Michael Jackson record?</li>
+            <li>Until when was Tina Turner married to Ike Turner?</li>
+        </ul> 
+
+    </body>
+</html>

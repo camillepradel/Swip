@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+com.sun.jersey.spi.container.servlet (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="com.sun.jersey.spi.container.servlet (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/dispatch/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/spi/container/servlet/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<H2>
+Package com.sun.jersey.spi.container.servlet
+</H2>
+Provides support for servlet-based and filter-based Web applications.
+<P>
+<B>See:</B>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_description"><B>Description</B></A>
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Interface Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A></B></TD>
+<TD>The Web configuration for accessing initialization parameters of a Web
+ component and the <CODE>ServletContext</CODE>.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html" title="class in com.sun.jersey.spi.container.servlet">ServletContainer</A></B></TD>
+<TD>A <CODE>Servlet</CODE> or <CODE>Filter</CODE> for deploying root resource classes.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.ContextInjectableProvider.html" title="class in com.sun.jersey.spi.container.servlet">ServletContainer.ContextInjectableProvider&lt;T&gt;</A></B></TD>
+<TD>A helper class for creating an injectable provider that supports
+ <A HREF="../../../../../../javax/ws/rs/core/Context.html" title="annotation in javax.ws.rs.core"><CODE>Context</CODE></A> with a type and constant value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html" title="class in com.sun.jersey.spi.container.servlet">WebComponent</A></B></TD>
+<TD>An abstract Web component that may be extended a Servlet and/or
+ Filter implementation, or encapsulated by a Servlet or Filter implementation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.ContextInjectableProvider.html" title="class in com.sun.jersey.spi.container.servlet">WebComponent.ContextInjectableProvider&lt;T&gt;</A></B></TD>
+<TD>A helper class for creating an injectable provider that supports
+ <A HREF="../../../../../../javax/ws/rs/core/Context.html" title="annotation in javax.ws.rs.core"><CODE>Context</CODE></A> with a type and constant value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebFilterConfig.html" title="class in com.sun.jersey.spi.container.servlet">WebFilterConfig</A></B></TD>
+<TD>A filter based web config.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebServletConfig.html" title="class in com.sun.jersey.spi.container.servlet">WebServletConfig</A></B></TD>
+<TD>A servlet based web config.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Enum Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.ConfigType.html" title="enum in com.sun.jersey.spi.container.servlet">WebConfig.ConfigType</A></B></TD>
+<TD>The web configuration type.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Annotation Types Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/PerSession.html" title="annotation in com.sun.jersey.spi.container.servlet">PerSession</A></B></TD>
+<TD>Used to annotate resource classes that require a new instance
+ for each HTTP servlet session.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+<A NAME="package_description"><!-- --></A><H2>
+Package com.sun.jersey.spi.container.servlet Description
+</H2>
+
+<P>
+Provides support for servlet-based and filter-based Web applications.
+ <p>
+ Web application support is enabled by referencing the servlet
+ <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html" title="class in com.sun.jersey.spi.container.servlet"><CODE>ServletContainer</CODE></A> in the
+ web.xml.
+ <p>
+ For example, the following will deploy Jersey and automatically
+ register any root resource or provider classes present in the directory
+ "/WEB-INF/classes" or jar files present in the directory "/WEB-INF/lib":
+ <blockquote><pre>
+   &lt;web-app&gt;
+     &lt;servlet&gt;
+       &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+       &lt;servlet-class&gt;com.sun.jersey.spi.container.servlet.ServletContainer&lt;/servlet-class&gt;
+     &lt;/servlet&gt;
+     &lt;servlet-mapping&gt;
+       &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+       &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+     &lt;/servlet-mapping&gt;
+   &lt;/web-app&gt;
+ </blockquote></pre>
+ <p>
+ A deployment approach, that is more portable with respect to maven and 
+ application servers, is to declare the package names where root resource and provider
+ classes reside. For example, the following will deploy Jersey and
+ automatically register any root resource or provider classes present
+ in the package "managed", or any sub-packages.
+ <blockquote><pre>
+   &lt;web-app&gt;
+     &lt;servlet&gt;
+       &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+       &lt;servlet-class&gt;com.sun.jersey.spi.container.servlet.ServletContainer&lt;/servlet-class&gt;
+       &lt;init-param&gt;
+           &lt;param-name&gt;com.sun.jersey.config.property.packages&lt;/param-name&gt;
+           &lt;param-value&gt;managed&lt;/param-value&gt;
+       &lt;/init-param>
+     &lt;/servlet&gt;
+     &lt;servlet-mapping&gt;
+       &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+       &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+     &lt;/servlet-mapping&gt;
+   &lt;/web-app&gt;
+ </blockquote></pre>
+ The deployment approach that is portable accross JAX-RS implementations is to
+ register an implementation of <A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core"><CODE>Application</CODE></A>. For
+ example given an implementation as follows:
+ <blockquote><pre>
+   package com.foo;
+
+   import ...
+ 
+   public class MyApplicaton extends Application {
+       public Set&lt;Class&lt;?&gt;&gt; getClasses() {
+           Set&lt;Class&lt;?&gt;&gt; s = new HashSet&lt;Class&lt;?&gt;&gt;();
+           s.add(HelloWorldResource.class);
+           return s;
+       }
+   }
+ </blockquote></pre>
+ then that implementation can be registered as follows:
+ <blockquote><pre>
+   &lt;web-app&gt;
+     &lt;servlet&gt;
+       &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+       &lt;servlet-class&gt;com.sun.jersey.spi.container.servlet.ServletContainer&lt;/servlet-class&gt;
+       &lt;init-param&gt;
+           &lt;param-name&gt;javax.ws.rs.Application&lt;/param-name&gt;
+           &lt;param-value&gt;com.foo.MyApplication&lt;/param-value&gt;
+       &lt;/init-param>
+     &lt;/servlet&gt;
+     &lt;servlet-mapping&gt;
+       &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+       &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+     &lt;/servlet-mapping&gt;
+   &lt;/web-app&gt;
+ </blockquote></pre>
+ It is possible to combine package-based registration and 
+ <A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core"><CODE>Application</CODE></A>
+ registered by extending <A HREF="../../../../../../com/sun/jersey/api/core/PackagesResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>PackagesResourceConfig</CODE></A>
+ and registering the extended class, for example:
+ <blockquote><pre>
+   public class MyApplication extends PackagesResourceConfig {
+       public MyApplication() {
+           super("org.foo.rest;org.bar.rest");
+       }
+   }
+ </blockquote></pre>
+ The above examples apply to Servlet-based configurations but they equally
+ applicable to Filter-based configurations. For example, the following
+ presents the same package-based configuration as above but utilizing a filter:
+ <blockquote><pre>
+   &lt;web-app&gt;
+     &lt;filter&gt;
+       &lt;filter-name&gt;Jersey Web Application&lt;/filter-name&gt;
+       &lt;filter-class&gt;com.sun.jersey.spi.container.servlet.ServletContainer&lt;/filter-class&gt;
+       &lt;init-param&gt;
+           &lt;param-name&gt;com.sun.jersey.config.property.packages&lt;/param-name&gt;
+           &lt;param-value&gt;managed&lt;/param-value&gt;
+       &lt;/init-param>
+     &lt;/filter&gt;
+     &lt;filter-mapping&gt;
+       &lt;filter-name&gt;Jersey Web Application&lt;/filter-name&gt;
+       &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+     &lt;/filter-mapping&gt;
+   &lt;/web-app&gt;
+ </blockquote></pre>
+<P>
+
+<P>
+<DL>
+</DL>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/dispatch/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/spi/container/servlet/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

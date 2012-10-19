@@ -1,0 +1,729 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+BodyPart (jersey-multipart 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="BodyPart (jersey-multipart 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/BodyPart.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/BodyPartEntity.html" title="class in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/BodyPart.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="BodyPart.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.multipart</FONT>
+<BR>
+Class BodyPart</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.multipart.BodyPart</B>
+</PRE>
+<DL>
+<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart">FormDataBodyPart</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>BodyPart</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+<p>A mutable model representing a body part nested inside a MIME MultiPart
+ entity.</p>
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#cd">cd</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#BodyPart()">BodyPart</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> with a <code>mediaType</code> of
+ <code>text/plain</code>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#BodyPart(javax.ws.rs.core.MediaType)">BodyPart</A></B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> with the specified characteristics.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#BodyPart(java.lang.Object, javax.ws.rs.core.MediaType)">BodyPart</A></B>(java.lang.Object&nbsp;entity,
+         <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> with the specified characteristics.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#cleanup()">cleanup</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perform any necessary cleanup at the end of processing this
+ <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#contentDisposition(com.sun.jersey.core.header.ContentDisposition)">contentDisposition</A></B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A>&nbsp;cd)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#entity(java.lang.Object)">entity</A></B>(java.lang.Object&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> after
+ additional configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getContentDisposition()">getContentDisposition</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the content disposition.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getEntity()">getEntity</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the entity object to be unmarshalled from a request, or to be
+ marshalled on a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getEntityAs(java.lang.Class)">getEntityAs</A></B>(java.lang.Class&lt;T&gt;&nbsp;clazz)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the entity after appropriate conversion to the requested
+ type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MultivaluedMap.html?is-external=true" title="class or interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getHeaders()">getHeaders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return a mutable map of HTTP header value(s) for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>,
+ keyed by the header name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MultivaluedMap.html?is-external=true" title="class or interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ParameterizedHeader.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ParameterizedHeader</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getParameterizedHeaders()">getParameterizedHeaders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return an immutable map of parameterized HTTP header value(s) for this
+ <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>, keyed by header name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getParent()">getParent</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the parent <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A> (if any) for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext">Providers</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getProviders()">getProviders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the configured <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext"><CODE>Providers</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setContentDisposition(com.sun.jersey.core.header.ContentDisposition)">setContentDisposition</A></B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A>&nbsp;cd)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the content disposition.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setEntity(java.lang.Object)">setEntity</A></B>(java.lang.Object&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the entity object to be unmarshalled from a request, or to be
+ marshalled on a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setMediaType(javax.ws.rs.core.MediaType)">setMediaType</A></B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setParent(com.sun.jersey.multipart.MultiPart)">setParent</A></B>(<A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the parent <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A> (if any) for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setProviders(javax.ws.rs.ext.Providers)">setProviders</A></B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext">Providers</A>&nbsp;providers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the configured <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext"><CODE>Providers</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> after
+ additional configuration.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="cd"><!-- --></A><H3>
+cd</H3>
+<PRE>
+protected <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A> <B>cd</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="BodyPart()"><!-- --></A><H3>
+BodyPart</H3>
+<PRE>
+public <B>BodyPart</B>()</PRE>
+<DL>
+<DD><p>Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> with a <code>mediaType</code> of
+ <code>text/plain</code>.</p>
+<P>
+</DL>
+<HR>
+
+<A NAME="BodyPart(javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+BodyPart</H3>
+<PRE>
+public <B>BodyPart</B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><p>Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> with the specified characteristics.</p>
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>mediaType</CODE> - The <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this body part</DL>
+</DL>
+<HR>
+
+<A NAME="BodyPart(java.lang.Object, javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+BodyPart</H3>
+<PRE>
+public <B>BodyPart</B>(java.lang.Object&nbsp;entity,
+                <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><p>Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> with the specified characteristics.</p>
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>entity</CODE> - The entity for this body part<DD><CODE>mediaType</CODE> - The <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this body part</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getEntity()"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+public java.lang.Object <B>getEntity</B>()</PRE>
+<DL>
+<DD><p>Return the entity object to be unmarshalled from a request, or to be
+ marshalled on a response.</p>
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if this method is called on a
+  <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A> instance; access the underlying <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>s instead</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setEntity(java.lang.Object)"><!-- --></A><H3>
+setEntity</H3>
+<PRE>
+public void <B>setEntity</B>(java.lang.Object&nbsp;entity)</PRE>
+<DL>
+<DD><p>Set the entity object to be unmarshalled from a request, or to be
+ marshalled on a response.</p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>entity</CODE> - The new entity object
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if this method is called on a
+  <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A> instance; access the underlying <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>s instead</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHeaders()"><!-- --></A><H3>
+getHeaders</H3>
+<PRE>
+public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MultivaluedMap.html?is-external=true" title="class or interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt; <B>getHeaders</B>()</PRE>
+<DL>
+<DD><p>Return a mutable map of HTTP header value(s) for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>,
+ keyed by the header name.  Key comparisons in the returned map must be
+ case-insensitive.</p>
+
+ <p>Note that, per the MIME specifications, only headers that match
+ <code>Content-*</code> should be included on a <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</p>
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getParameterizedHeaders()"><!-- --></A><H3>
+getParameterizedHeaders</H3>
+<PRE>
+public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MultivaluedMap.html?is-external=true" title="class or interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ParameterizedHeader.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ParameterizedHeader</A>&gt; <B>getParameterizedHeaders</B>()
+                                                                             throws java.text.ParseException</PRE>
+<DL>
+<DD><p>Return an immutable map of parameterized HTTP header value(s) for this
+ <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>, keyed by header name.  Key comparisons in the
+ returned map must be case-insensitive.  If you wish to modify the
+ headers map for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>, modify the map returned by
+ <code>getHeaders()</code> instead.</p>
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.text.ParseException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getContentDisposition()"><!-- --></A><H3>
+getContentDisposition</H3>
+<PRE>
+public <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A> <B>getContentDisposition</B>()</PRE>
+<DL>
+<DD>Get the content disposition.
+ <p>
+ The "Content-Disposition" header, if present, will be parsed.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the content disposition, will be null if not present.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the content disposition header
+         cannot be parsed.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setContentDisposition(com.sun.jersey.core.header.ContentDisposition)"><!-- --></A><H3>
+setContentDisposition</H3>
+<PRE>
+public void <B>setContentDisposition</B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A>&nbsp;cd)</PRE>
+<DL>
+<DD>Set the content disposition.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cd</CODE> - the content disposition.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMediaType()"><!-- --></A><H3>
+getMediaType</H3>
+<PRE>
+public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A> <B>getMediaType</B>()</PRE>
+<DL>
+<DD><p>Return the <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.  If never
+ set, the default <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> MUST be <code>text/plain</code>.</p>
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setMediaType(javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+setMediaType</H3>
+<PRE>
+public void <B>setMediaType</B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><p>Set the <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mediaType</CODE> - The new <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core"><CODE>MediaType</CODE></A>
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the <code>mediaType</code> is null.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getParent()"><!-- --></A><H3>
+getParent</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A> <B>getParent</B>()</PRE>
+<DL>
+<DD><p>Return the parent <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A> (if any) for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setParent(com.sun.jersey.multipart.MultiPart)"><!-- --></A><H3>
+setParent</H3>
+<PRE>
+public void <B>setParent</B>(<A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A>&nbsp;parent)</PRE>
+<DL>
+<DD><p>Set the parent <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A> (if any) for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>parent</CODE> - The new parent</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProviders()"><!-- --></A><H3>
+getProviders</H3>
+<PRE>
+public <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext">Providers</A> <B>getProviders</B>()</PRE>
+<DL>
+<DD><p>Return the configured <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext"><CODE>Providers</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</p>
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setProviders(javax.ws.rs.ext.Providers)"><!-- --></A><H3>
+setProviders</H3>
+<PRE>
+public void <B>setProviders</B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext">Providers</A>&nbsp;providers)</PRE>
+<DL>
+<DD><p>Set the configured <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext"><CODE>Providers</CODE></A> for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>providers</CODE> - The new <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Providers.html?is-external=true" title="class or interface in javax.ws.rs.ext"><CODE>Providers</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="cleanup()"><!-- --></A><H3>
+cleanup</H3>
+<PRE>
+public void <B>cleanup</B>()</PRE>
+<DL>
+<DD><p>Perform any necessary cleanup at the end of processing this
+ <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A>.</p>
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="entity(java.lang.Object)"><!-- --></A><H3>
+entity</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A> <B>entity</B>(java.lang.Object&nbsp;entity)</PRE>
+<DL>
+<DD><p>Builder pattern method to return this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> after
+ additional configuration.</p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>entity</CODE> - Entity to set for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntityAs(java.lang.Class)"><!-- --></A><H3>
+getEntityAs</H3>
+<PRE>
+public &lt;T&gt; T <B>getEntityAs</B>(java.lang.Class&lt;T&gt;&nbsp;clazz)</PRE>
+<DL>
+<DD><p>Return the entity after appropriate conversion to the requested
+ type.  This is useful only when the containing <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A>
+ instance has been received, which causes the <code>providers</code> property
+ to have been set.</p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>clazz</CODE> - Desired class into which the entity should be converted
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if no <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/MessageBodyReader.html?is-external=true" title="class or interface in javax.ws.rs.ext"><CODE>MessageBodyReader</CODE></A> can
+  be found to perform the requested conversion
+<DD><CODE>java.lang.IllegalStateException</CODE> - if this method is called when the
+  <code>providers</code> property has not been set or when the
+  entity instance is not the unconverted content of the body part entity</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="type(javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+type</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A> <B>type</B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;type)</PRE>
+<DL>
+<DD><p>Builder pattern method to return this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A> after
+ additional configuration.</p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - Media type to set for this <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart"><CODE>BodyPart</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="contentDisposition(com.sun.jersey.core.header.ContentDisposition)"><!-- --></A><H3>
+contentDisposition</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A> <B>contentDisposition</B>(<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/header/ContentDisposition.html?is-external=true" title="class or interface in com.sun.jersey.core.header">ContentDisposition</A>&nbsp;cd)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/BodyPart.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/BodyPartEntity.html" title="class in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/BodyPart.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="BodyPart.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

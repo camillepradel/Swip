@@ -1,0 +1,1316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+Client (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Client (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Client.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/Client.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Client.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.client</FONT>
+<BR>
+Class Client</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html" title="class in com.sun.jersey.api.client.filter">com.sun.jersey.api.client.filter.Filterable</A>
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.client.Client</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>Client</B><DT>extends <A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html" title="class in com.sun.jersey.api.client.filter">Filterable</A><DT>implements <A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A></DL>
+</PRE>
+
+<P>
+The main class for creating <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client"><CODE>WebResource</CODE></A> instances and configuring
+ the properties of connections and requests.
+ <p>
+ <A HREF="../../../../../com/sun/jersey/api/client/filter/ClientFilter.html" title="class in com.sun.jersey.api.client.filter"><CODE>ClientFilter</CODE></A> instances may be added to the client for filtering
+ requests and responses, including those of <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client"><CODE>WebResource</CODE></A> instances
+ created from the client.
+ <p>
+ A client may be configured by passing a <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config"><CODE>ClientConfig</CODE></A> instance to
+ the appropriate constructor.
+ <p>
+ Methods to create instances of <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client"><CODE>WebResource</CODE></A> are thread-safe. Methods
+ that modify configuration and or filters are not guaranteed to be
+ thread-safe.
+ <p>
+ The creation of a <code>Client</code> instance is an expensive operation and
+ the instance may make use of and retain many resources. It is therefore
+ recommended that a <code>Client</code> instance is reused for the creation of
+ <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client"><CODE>WebResource</CODE></A> instances that require the same configuration settings.
+ <p>
+ A client may integrate with an IoC framework by passing a
+ <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc"><CODE>IoCComponentProviderFactory</CODE></A> instance to the appropriate constructor.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#Client()">Client</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new client instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#Client(com.sun.jersey.api.client.ClientHandler)">Client</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A>&nbsp;root)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new client instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#Client(com.sun.jersey.api.client.ClientHandler, com.sun.jersey.api.client.config.ClientConfig)">Client</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A>&nbsp;root,
+       <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;config)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new client instance with a client configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#Client(com.sun.jersey.api.client.ClientHandler, com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">Client</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A>&nbsp;root,
+       <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;config,
+       <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance with a client configuration and a
+ component provider.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client">AsyncWebResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncResource(java.lang.String)">asyncResource</A></B>(java.lang.String&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an asynchronous Web resource from the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client">AsyncWebResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncResource(java.net.URI)">asyncResource</A></B>(java.net.URI&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an asynchronous Web resource from the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncView(java.lang.String, java.lang.Class)">asyncView</A></B>(java.lang.String&nbsp;u,
+          java.lang.Class&lt;T&gt;&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncView(java.lang.String, T)">asyncView</A></B>(java.lang.String&nbsp;u,
+          T&nbsp;t)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncView(java.net.URI, java.lang.Class)">asyncView</A></B>(java.net.URI&nbsp;uri,
+          java.lang.Class&lt;T&gt;&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncView(java.net.URI, T)">asyncView</A></B>(java.net.URI&nbsp;uri,
+          T&nbsp;t)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html" title="class in com.sun.jersey.api.client">AsyncViewResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncViewResource(java.lang.String)">asyncViewResource</A></B>(java.lang.String&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html" title="class in com.sun.jersey.api.client">AsyncViewResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#asyncViewResource(java.net.URI)">asyncViewResource</A></B>(java.net.URI&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#create()">create</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a default client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#create(com.sun.jersey.api.client.config.ClientConfig)">create</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a default client with client configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#create(com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc,
+       <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a default client with client configuration and component provider.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#destroy()">destroy</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Destroy the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#finalize()">finalize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defer to <A HREF="../../../../../com/sun/jersey/api/client/Client.html#destroy()"><CODE>destroy()</CODE></A></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.ExecutorService</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#getExecutorService()">getExecutorService</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the <CODE>ExecutorService</CODE> for sending asynchronous
+ HTTP requests when no underlying asynchronous HTTP implementation is
+ utilized.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#getMessageBodyWorkers()">getMessageBodyWorkers</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the <A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi"><CODE>MessageBodyWorkers</CODE></A> utilized by the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.String,java.lang.Object&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#getProperties()">getProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the mutable property bag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#getProviders()">getProviders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the <A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext"><CODE>Providers</CODE></A> utilized by the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../com/sun/jersey/client/proxy/ViewProxy.html" title="interface in com.sun.jersey.client.proxy">ViewProxy</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#getViewProxy(java.lang.Class)">getViewProxy</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#handle(com.sun.jersey.api.client.ClientRequest)">handle</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client">ClientRequest</A>&nbsp;request)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handle a HTTP request as a <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest</CODE></A> and return the HTTP
+ response as a <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#inject(java.lang.Object)">inject</A></B>(java.lang.Object&nbsp;o)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inject client-side bindings on an instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client">WebResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#resource(java.lang.String)">resource</A></B>(java.lang.String&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a Web resource from the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client">WebResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#resource(java.net.URI)">resource</A></B>(java.net.URI&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a Web resource from the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#setChunkedEncodingSize(java.lang.Integer)">setChunkedEncodingSize</A></B>(java.lang.Integer&nbsp;chunkSize)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the client to send request entities using chunked encoding
+ with a particular chunk size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#setConnectTimeout(java.lang.Integer)">setConnectTimeout</A></B>(java.lang.Integer&nbsp;interval)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the connect timeout interval, in milliseconds.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#setExecutorService(java.util.concurrent.ExecutorService)">setExecutorService</A></B>(java.util.concurrent.ExecutorService&nbsp;es)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the <CODE>ExecutorService</CODE> for sending asynchronous
+ HTTP requests when no underlying asynchronous HTTP implementation is
+ utilized.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#setFollowRedirects(java.lang.Boolean)">setFollowRedirects</A></B>(java.lang.Boolean&nbsp;redirect)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set if redirection should be performed or not.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#setReadTimeout(java.lang.Integer)">setReadTimeout</A></B>(java.lang.Integer&nbsp;interval)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the read timeout interval, in milliseconds.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#view(java.lang.Class, com.sun.jersey.api.client.ClientResponse)">view</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+     <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#view(java.lang.String, java.lang.Class)">view</A></B>(java.lang.String&nbsp;u,
+     java.lang.Class&lt;T&gt;&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#view(java.lang.String, T)">view</A></B>(java.lang.String&nbsp;u,
+     T&nbsp;t)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#view(T, com.sun.jersey.api.client.ClientResponse)">view</A></B>(T&nbsp;t,
+     <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#view(java.net.URI, java.lang.Class)">view</A></B>(java.net.URI&nbsp;uri,
+     java.lang.Class&lt;T&gt;&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#view(java.net.URI, T)">view</A></B>(java.net.URI&nbsp;uri,
+     T&nbsp;t)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html" title="class in com.sun.jersey.api.client">ViewResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#viewResource(java.lang.String)">viewResource</A></B>(java.lang.String&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html" title="class in com.sun.jersey.api.client">ViewResource</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html#viewResource(java.net.URI)">viewResource</A></B>(java.net.URI&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.client.filter.Filterable"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.api.client.filter.<A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html" title="class in com.sun.jersey.api.client.filter">Filterable</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html#addFilter(com.sun.jersey.api.client.filter.ClientFilter)">addFilter</A>, <A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html#getHeadHandler()">getHeadHandler</A>, <A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html#isFilterPreset(com.sun.jersey.api.client.filter.ClientFilter)">isFilterPreset</A>, <A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html#removeAllFilters()">removeAllFilters</A>, <A HREF="../../../../../com/sun/jersey/api/client/filter/Filterable.html#removeFilter(com.sun.jersey.api.client.filter.ClientFilter)">removeFilter</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="Client()"><!-- --></A><H3>
+Client</H3>
+<PRE>
+public <B>Client</B>()</PRE>
+<DL>
+<DD>Create a new client instance.
+<P>
+</DL>
+<HR>
+
+<A NAME="Client(com.sun.jersey.api.client.ClientHandler)"><!-- --></A><H3>
+Client</H3>
+<PRE>
+public <B>Client</B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A>&nbsp;root)</PRE>
+<DL>
+<DD>Create a new client instance.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>root</CODE> - the root client handler for dispatching a request and
+        returning a response.</DL>
+</DL>
+<HR>
+
+<A NAME="Client(com.sun.jersey.api.client.ClientHandler, com.sun.jersey.api.client.config.ClientConfig)"><!-- --></A><H3>
+Client</H3>
+<PRE>
+public <B>Client</B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A>&nbsp;root,
+              <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;config)</PRE>
+<DL>
+<DD>Create a new client instance with a client configuration.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>root</CODE> - the root client handler for dispatching a request and
+        returning a response.<DD><CODE>config</CODE> - the client configuration.</DL>
+</DL>
+<HR>
+
+<A NAME="Client(com.sun.jersey.api.client.ClientHandler, com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+Client</H3>
+<PRE>
+public <B>Client</B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A>&nbsp;root,
+              <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;config,
+              <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</PRE>
+<DL>
+<DD>Create a new instance with a client configuration and a
+ component provider.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>root</CODE> - the root client handler for dispatching a request and
+        returning a response.<DD><CODE>config</CODE> - the client configuration.<DD><CODE>provider</CODE> - the IoC component provider factory.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="destroy()"><!-- --></A><H3>
+destroy</H3>
+<PRE>
+public void <B>destroy</B>()</PRE>
+<DL>
+<DD>Destroy the client. Any system resources associated with the client
+ will be cleaned up.
+ <p>
+ This method must be called when there are not responses pending otherwise
+ undefined behavior will occur.
+ <p>
+ The client must not be reused after this method is called otherwise
+ undefined behavior will occur.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="finalize()"><!-- --></A><H3>
+finalize</H3>
+<PRE>
+protected void <B>finalize</B>()
+                 throws java.lang.Throwable</PRE>
+<DL>
+<DD>Defer to <A HREF="../../../../../com/sun/jersey/api/client/Client.html#destroy()"><CODE>destroy()</CODE></A>
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>finalize</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.Throwable</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProviders()"><!-- --></A><H3>
+getProviders</H3>
+<PRE>
+public <A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A> <B>getProviders</B>()</PRE>
+<DL>
+<DD>Get the <A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext"><CODE>Providers</CODE></A> utilized by the client.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the <A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext"><CODE>Providers</CODE></A> utilized by the client.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageBodyWorkers()"><!-- --></A><H3>
+getMessageBodyWorkers</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A> <B>getMessageBodyWorkers</B>()</PRE>
+<DL>
+<DD>Get the <A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi"><CODE>MessageBodyWorkers</CODE></A> utilized by the client.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the <A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi"><CODE>MessageBodyWorkers</CODE></A> utilized by the client.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="resource(java.lang.String)"><!-- --></A><H3>
+resource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client">WebResource</A> <B>resource</B>(java.lang.String&nbsp;u)</PRE>
+<DL>
+<DD>Create a Web resource from the client.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>u</CODE> - the URI of the resource.
+<DT><B>Returns:</B><DD>the Web resource.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="resource(java.net.URI)"><!-- --></A><H3>
+resource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client">WebResource</A> <B>resource</B>(java.net.URI&nbsp;u)</PRE>
+<DL>
+<DD>Create a Web resource from the client.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>u</CODE> - the URI of the resource.
+<DT><B>Returns:</B><DD>the Web resource.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncResource(java.lang.String)"><!-- --></A><H3>
+asyncResource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client">AsyncWebResource</A> <B>asyncResource</B>(java.lang.String&nbsp;u)</PRE>
+<DL>
+<DD>Create an asynchronous Web resource from the client.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>u</CODE> - the URI of the resource.
+<DT><B>Returns:</B><DD>the Web resource.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncResource(java.net.URI)"><!-- --></A><H3>
+asyncResource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client">AsyncWebResource</A> <B>asyncResource</B>(java.net.URI&nbsp;u)</PRE>
+<DL>
+<DD>Create an asynchronous Web resource from the client.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>u</CODE> - the URI of the resource.
+<DT><B>Returns:</B><DD>the Web resource.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="viewResource(java.lang.String)"><!-- --></A><H3>
+viewResource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html" title="class in com.sun.jersey.api.client">ViewResource</A> <B>viewResource</B>(java.lang.String&nbsp;u)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="viewResource(java.net.URI)"><!-- --></A><H3>
+viewResource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html" title="class in com.sun.jersey.api.client">ViewResource</A> <B>viewResource</B>(java.net.URI&nbsp;u)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncViewResource(java.lang.String)"><!-- --></A><H3>
+asyncViewResource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html" title="class in com.sun.jersey.api.client">AsyncViewResource</A> <B>asyncViewResource</B>(java.lang.String&nbsp;u)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncViewResource(java.net.URI)"><!-- --></A><H3>
+asyncViewResource</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html" title="class in com.sun.jersey.api.client">AsyncViewResource</A> <B>asyncViewResource</B>(java.net.URI&nbsp;u)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="view(java.lang.String, java.lang.Class)"><!-- --></A><H3>
+view</H3>
+<PRE>
+public &lt;T&gt; T <B>view</B>(java.lang.String&nbsp;u,
+                  java.lang.Class&lt;T&gt;&nbsp;type)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="view(java.net.URI, java.lang.Class)"><!-- --></A><H3>
+view</H3>
+<PRE>
+public &lt;T&gt; T <B>view</B>(java.net.URI&nbsp;uri,
+                  java.lang.Class&lt;T&gt;&nbsp;type)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="view(java.lang.String,java.lang.Object)"><!-- --></A><A NAME="view(java.lang.String, T)"><!-- --></A><H3>
+view</H3>
+<PRE>
+public &lt;T&gt; T <B>view</B>(java.lang.String&nbsp;u,
+                  T&nbsp;t)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="view(java.net.URI,java.lang.Object)"><!-- --></A><A NAME="view(java.net.URI, T)"><!-- --></A><H3>
+view</H3>
+<PRE>
+public &lt;T&gt; T <B>view</B>(java.net.URI&nbsp;uri,
+                  T&nbsp;t)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncView(java.lang.String, java.lang.Class)"><!-- --></A><H3>
+asyncView</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>asyncView</B>(java.lang.String&nbsp;u,
+                                                    java.lang.Class&lt;T&gt;&nbsp;type)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncView(java.net.URI, java.lang.Class)"><!-- --></A><H3>
+asyncView</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>asyncView</B>(java.net.URI&nbsp;uri,
+                                                    java.lang.Class&lt;T&gt;&nbsp;type)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncView(java.lang.String,java.lang.Object)"><!-- --></A><A NAME="asyncView(java.lang.String, T)"><!-- --></A><H3>
+asyncView</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>asyncView</B>(java.lang.String&nbsp;u,
+                                                    T&nbsp;t)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="asyncView(java.net.URI,java.lang.Object)"><!-- --></A><A NAME="asyncView(java.net.URI, T)"><!-- --></A><H3>
+asyncView</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>asyncView</B>(java.net.URI&nbsp;uri,
+                                                    T&nbsp;t)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="view(java.lang.Class, com.sun.jersey.api.client.ClientResponse)"><!-- --></A><H3>
+view</H3>
+<PRE>
+public &lt;T&gt; T <B>view</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                  <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&nbsp;response)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="view(java.lang.Object,com.sun.jersey.api.client.ClientResponse)"><!-- --></A><A NAME="view(T, com.sun.jersey.api.client.ClientResponse)"><!-- --></A><H3>
+view</H3>
+<PRE>
+public &lt;T&gt; T <B>view</B>(T&nbsp;t,
+                  <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&nbsp;response)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getViewProxy(java.lang.Class)"><!-- --></A><H3>
+getViewProxy</H3>
+<PRE>
+public &lt;T&gt; <A HREF="../../../../../com/sun/jersey/client/proxy/ViewProxy.html" title="interface in com.sun.jersey.client.proxy">ViewProxy</A>&lt;T&gt; <B>getViewProxy</B>(java.lang.Class&lt;T&gt;&nbsp;c)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setExecutorService(java.util.concurrent.ExecutorService)"><!-- --></A><H3>
+setExecutorService</H3>
+<PRE>
+public void <B>setExecutorService</B>(java.util.concurrent.ExecutorService&nbsp;es)</PRE>
+<DL>
+<DD>Set the <CODE>ExecutorService</CODE> for sending asynchronous
+ HTTP requests when no underlying asynchronous HTTP implementation is
+ utilized.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>es</CODE> - the <CODE>ExecutorService</CODE>.<DT><B>Since:</B></DT>
+  <DD>1.4</DD>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExecutorService()"><!-- --></A><H3>
+getExecutorService</H3>
+<PRE>
+public java.util.concurrent.ExecutorService <B>getExecutorService</B>()</PRE>
+<DL>
+<DD>Get the <CODE>ExecutorService</CODE> for sending asynchronous
+ HTTP requests when no underlying asynchronous HTTP implementation is
+ utilized.
+ <p>
+ By default the implementation returned
+ from <CODE>Executors.newCachedThreadPool()</CODE> is utilized.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the <CODE>ExecutorService</CODE>.<DT><B>Since:</B></DT>
+  <DD>1.4</DD>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProperties()"><!-- --></A><H3>
+getProperties</H3>
+<PRE>
+public java.util.Map&lt;java.lang.String,java.lang.Object&gt; <B>getProperties</B>()</PRE>
+<DL>
+<DD>Get the mutable property bag.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the property bag.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFollowRedirects(java.lang.Boolean)"><!-- --></A><H3>
+setFollowRedirects</H3>
+<PRE>
+public void <B>setFollowRedirects</B>(java.lang.Boolean&nbsp;redirect)</PRE>
+<DL>
+<DD>Set if redirection should be performed or not.
+
+ This method is the functional equivalent to setting the property
+ <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_FOLLOW_REDIRECTS"><CODE>ClientConfig.PROPERTY_FOLLOW_REDIRECTS</CODE></A> on the property bag
+ returned from <A HREF="../../../../../com/sun/jersey/api/client/Client.html#getProperties()"><CODE>getProperties()</CODE></A>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>redirect</CODE> - if true then the client will automatically redirect
+        to the URI declared in 3xx responses.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setReadTimeout(java.lang.Integer)"><!-- --></A><H3>
+setReadTimeout</H3>
+<PRE>
+public void <B>setReadTimeout</B>(java.lang.Integer&nbsp;interval)</PRE>
+<DL>
+<DD>Set the read timeout interval, in milliseconds.
+
+ This method is the functional equivalent to setting the property
+ <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_READ_TIMEOUT"><CODE>ClientConfig.PROPERTY_READ_TIMEOUT</CODE></A> on the property bag
+ returned from <A HREF="../../../../../com/sun/jersey/api/client/Client.html#getProperties()"><CODE>getProperties()</CODE></A>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>interval</CODE> - the read timeout interval. If null or 0 then
+ an interval of infinity is declared.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setConnectTimeout(java.lang.Integer)"><!-- --></A><H3>
+setConnectTimeout</H3>
+<PRE>
+public void <B>setConnectTimeout</B>(java.lang.Integer&nbsp;interval)</PRE>
+<DL>
+<DD>Set the connect timeout interval, in milliseconds.
+
+ This method is the functional equivalent to setting the property
+ <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_CONNECT_TIMEOUT"><CODE>ClientConfig.PROPERTY_CONNECT_TIMEOUT</CODE></A> on the property bag
+ returned from <A HREF="../../../../../com/sun/jersey/api/client/Client.html#getProperties()"><CODE>getProperties()</CODE></A>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>interval</CODE> - the connect timeout interval. If null or 0 then
+ an interval of infinity is declared.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setChunkedEncodingSize(java.lang.Integer)"><!-- --></A><H3>
+setChunkedEncodingSize</H3>
+<PRE>
+public void <B>setChunkedEncodingSize</B>(java.lang.Integer&nbsp;chunkSize)</PRE>
+<DL>
+<DD>Set the client to send request entities using chunked encoding
+ with a particular chunk size.
+
+ This method is the functional equivalent to setting the property
+ <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_CHUNKED_ENCODING_SIZE"><CODE>ClientConfig.PROPERTY_CHUNKED_ENCODING_SIZE</CODE></A> on the property bag
+ returned from <A HREF="../../../../../com/sun/jersey/api/client/Client.html#getProperties()"><CODE>getProperties()</CODE></A>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>chunkSize</CODE> - the chunked encoding size. If &lt= 0 then the default
+        size will be used. If null then chunked encoding will not be
+        utilized.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="handle(com.sun.jersey.api.client.ClientRequest)"><!-- --></A><H3>
+handle</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A> <B>handle</B>(<A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client">ClientRequest</A>&nbsp;request)
+                      throws <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html#handle(com.sun.jersey.api.client.ClientRequest)">ClientHandler</A></CODE></B></DD>
+<DD>Handle a HTTP request as a <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest</CODE></A> and return the HTTP
+ response as a <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html#handle(com.sun.jersey.api.client.ClientRequest)">handle</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the HTTP request.
+<DT><B>Returns:</B><DD>the HTTP response.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client
+ handler fails to process the request or response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="inject(java.lang.Object)"><!-- --></A><H3>
+inject</H3>
+<PRE>
+public void <B>inject</B>(java.lang.Object&nbsp;o)</PRE>
+<DL>
+<DD>Inject client-side bindings on an instance.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>o</CODE> - the instance to inject on.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create()"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A> <B>create</B>()</PRE>
+<DL>
+<DD>Create a default client.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a default client.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(com.sun.jersey.api.client.config.ClientConfig)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A> <B>create</B>(<A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc)</PRE>
+<DL>
+<DD>Create a default client with client configuration.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cc</CODE> - the client configuration.
+<DT><B>Returns:</B><DD>a default client.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A> <B>create</B>(<A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc,
+                            <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</PRE>
+<DL>
+<DD>Create a default client with client configuration and component provider.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cc</CODE> - the client configuration.<DD><CODE>provider</CODE> - the IoC component provider factory.
+<DT><B>Returns:</B><DD>a default client.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Client.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/Client.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Client.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

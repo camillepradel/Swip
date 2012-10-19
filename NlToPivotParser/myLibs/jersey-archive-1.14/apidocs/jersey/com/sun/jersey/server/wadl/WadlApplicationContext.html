@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+WadlApplicationContext (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="WadlApplicationContext (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WadlApplicationContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.ExternalGrammar.html" title="class in com.sun.jersey.server.wadl"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/server/wadl/WadlBuilder.html" title="class in com.sun.jersey.server.wadl"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/server/wadl/WadlApplicationContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WadlApplicationContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.server.wadl</FONT>
+<BR>
+Interface WadlApplicationContext</H2>
+<HR>
+<DL>
+<DT><PRE>public interface <B>WadlApplicationContext</B></DL>
+</PRE>
+
+<P>
+A context to obtain WADL-based information.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.html" title="class in com.sun.jersey.server.wadl">ApplicationDescription</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlApplicationContext.html#getApplication(javax.ws.rs.core.UriInfo)">getApplication</A></B>(<A HREF="../../../../../javax/ws/rs/core/UriInfo.html" title="interface in javax.ws.rs.core">UriInfo</A>&nbsp;ui)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a new instance of a <A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.html" title="class in com.sun.jersey.server.wadl"><CODE>ApplicationDescription</CODE></A> corresponding to all
+ the root resource classes, and configure the base URI.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Application</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlApplicationContext.html#getApplication(javax.ws.rs.core.UriInfo, com.sun.jersey.api.model.AbstractResource, java.lang.String)">getApplication</A></B>(<A HREF="../../../../../javax/ws/rs/core/UriInfo.html" title="interface in javax.ws.rs.core">UriInfo</A>&nbsp;info,
+               <A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a new instance of <CODE>Application</CODE> for a particular resource</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.bind.JAXBContext</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlApplicationContext.html#getJAXBContext()">getJAXBContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the default JAXB context associated with the <A HREF="../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A>
+ for the Web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlApplicationContext.html#isWadlGenerationEnabled()">isWadlGenerationEnabled</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get WADL generation status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlApplicationContext.html#setWadlGenerationEnabled(boolean)">setWadlGenerationEnabled</A></B>(boolean&nbsp;wadlGenerationEnabled)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enable/disable WADL generation.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getApplication(javax.ws.rs.core.UriInfo)"><!-- --></A><H3>
+getApplication</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.html" title="class in com.sun.jersey.server.wadl">ApplicationDescription</A> <B>getApplication</B>(<A HREF="../../../../../javax/ws/rs/core/UriInfo.html" title="interface in javax.ws.rs.core">UriInfo</A>&nbsp;ui)</PRE>
+<DL>
+<DD>Get a new instance of a <A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.html" title="class in com.sun.jersey.server.wadl"><CODE>ApplicationDescription</CODE></A> corresponding to all
+ the root resource classes, and configure the base URI.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>ui</CODE> - the URI information from which the base URI is set on the
+        WADL application.
+<DT><B>Returns:</B><DD>the application description, the contents may be modified.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getApplication(javax.ws.rs.core.UriInfo, com.sun.jersey.api.model.AbstractResource, java.lang.String)"><!-- --></A><H3>
+getApplication</H3>
+<PRE>
+com.sun.research.ws.wadl.Application <B>getApplication</B>(<A HREF="../../../../../javax/ws/rs/core/UriInfo.html" title="interface in javax.ws.rs.core">UriInfo</A>&nbsp;info,
+                                                    <A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+                                                    java.lang.String&nbsp;path)</PRE>
+<DL>
+<DD>Get a new instance of <CODE>Application</CODE> for a particular resource
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>info</CODE> - the URI information from which the base URI is set on the
+        WADL application.<DD><CODE>resource</CODE> - the resource to build the Application for<DD><CODE>path</CODE> - the path to this resource
+<DT><B>Returns:</B><DD>the application for this resource</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getJAXBContext()"><!-- --></A><H3>
+getJAXBContext</H3>
+<PRE>
+javax.xml.bind.JAXBContext <B>getJAXBContext</B>()</PRE>
+<DL>
+<DD>Get the default JAXB context associated with the <A HREF="../../../../../com/sun/jersey/server/wadl/WadlGenerator.html" title="interface in com.sun.jersey.server.wadl"><CODE>WadlGenerator</CODE></A>
+ for the Web application.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the default JAXB context.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setWadlGenerationEnabled(boolean)"><!-- --></A><H3>
+setWadlGenerationEnabled</H3>
+<PRE>
+void <B>setWadlGenerationEnabled</B>(boolean&nbsp;wadlGenerationEnabled)</PRE>
+<DL>
+<DD>Enable/disable WADL generation.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>wadlGenerationEnabled</CODE> - if wadlGenerationEnabled is true and
+ <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_DISABLE_WADL"><CODE>ResourceConfig.FEATURE_DISABLE_WADL</CODE></A>
+ is false, WADL generation is enabled. In all other cases is disabled.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isWadlGenerationEnabled()"><!-- --></A><H3>
+isWadlGenerationEnabled</H3>
+<PRE>
+boolean <B>isWadlGenerationEnabled</B>()</PRE>
+<DL>
+<DD>Get WADL generation status.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true when WADL generation is enabled. Does not take
+ <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#FEATURE_DISABLE_WADL"><CODE>ResourceConfig.FEATURE_DISABLE_WADL</CODE></A></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WadlApplicationContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.ExternalGrammar.html" title="class in com.sun.jersey.server.wadl"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/server/wadl/WadlBuilder.html" title="class in com.sun.jersey.server.wadl"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/server/wadl/WadlApplicationContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WadlApplicationContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

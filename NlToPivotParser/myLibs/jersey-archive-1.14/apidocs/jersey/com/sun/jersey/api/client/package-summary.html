@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+com.sun.jersey.api.client (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="com.sun.jersey.api.client (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/async/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<H2>
+Package com.sun.jersey.api.client
+</H2>
+Provides support for client-side communication with HTTP-based
+ RESTful Web services.
+<P>
+<B>See:</B>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_description"><B>Description</B></A>
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Interface Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></B></TD>
+<TD>An asynchronous uniform interface for invoking HTTP requests.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncViewUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncViewUniformInterface</A></B></TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ClientHandler.html" title="interface in com.sun.jersey.api.client">ClientHandler</A></B></TD>
+<TD>A client handler that handles a HTTP request and returns the HTTP response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequestAdapter.html" title="interface in com.sun.jersey.api.client">ClientRequestAdapter</A></B></TD>
+<TD>Adapter for the client request to adapt the output stream to write the
+ entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html" title="interface in com.sun.jersey.api.client">RequestBuilder&lt;T extends RequestBuilder&gt;</A></B></TD>
+<TD>An interface for building requests.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/RequestWriter.RequestEntityWriter.html" title="interface in com.sun.jersey.api.client">RequestWriter.RequestEntityWriter</A></B></TD>
+<TD>A writer for writing a request entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/RequestWriter.RequestEntityWriterListener.html" title="interface in com.sun.jersey.api.client">RequestWriter.RequestEntityWriterListener</A></B></TD>
+<TD>A lister for listening to events when writing a request entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/UniformInterface.html" title="interface in com.sun.jersey.api.client">UniformInterface</A></B></TD>
+<TD>A uniform interface for invoking HTTP requests.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ViewUniformInterface.html" title="interface in com.sun.jersey.api.client">ViewUniformInterface</A></B></TD>
+<TD>&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/AbstractClientRequestAdapter.html" title="class in com.sun.jersey.api.client">AbstractClientRequestAdapter</A></B></TD>
+<TD>Abstract implementation of ClientRequestAdapter that helps to adapt an 
+ existing ClientRequestAdapter instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html" title="class in com.sun.jersey.api.client">AsyncViewResource</A></B></TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client">AsyncWebResource</A></B></TD>
+<TD>An encapsulation of an asynchronous Web resource capable of building requests
+ to send to the Web resource and processing responses returned from the Web
+ resource.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A></B></TD>
+<TD>The main class for creating <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client"><CODE>WebResource</CODE></A> instances and configuring
+ the properties of connections and requests.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client">ClientRequest</A></B></TD>
+<TD>A client (out-bound) HTTP request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.Builder.html" title="class in com.sun.jersey.api.client">ClientRequest.Builder</A></B></TD>
+<TD>The builder for building a <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest</CODE></A> instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A></B></TD>
+<TD>A client (in-bound) HTTP response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/CommittingOutputStream.html" title="class in com.sun.jersey.api.client">CommittingOutputStream</A></B></TD>
+<TD>A commiting output stream that commits before
+ the first byte is written to the adapted <CODE>OutputStream</CODE>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType&lt;T&gt;</A></B></TD>
+<TD>Represents a generic type <code>T</code>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="class in com.sun.jersey.api.client">PartialRequestBuilder&lt;T extends RequestBuilder&gt;</A></B></TD>
+<TD>A partial implementation of <A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html" title="interface in com.sun.jersey.api.client"><CODE>RequestBuilder</CODE></A> that implements
+ the methods on <A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html" title="interface in com.sun.jersey.api.client"><CODE>RequestBuilder</CODE></A> but leaves undefined the build 
+ methods for constructing the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/RequestWriter.html" title="class in com.sun.jersey.api.client">RequestWriter</A></B></TD>
+<TD>A request writer for writing header values and a request entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/TerminatingClientHandler.html" title="class in com.sun.jersey.api.client">TerminatingClientHandler</A></B></TD>
+<TD>A terminating client handler that is invoked to produce an HTTP request
+ to send to a resource and process the HTTP response received from the resource.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html" title="class in com.sun.jersey.api.client">ViewResource</A></B></TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client">WebResource</A></B></TD>
+<TD>An encapsulation of a Web resource capable of building requests
+ to send to the Web resource and processing responses returned from the Web
+ resource.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/WebResourceLinkHeaders.html" title="class in com.sun.jersey.api.client">WebResourceLinkHeaders</A></B></TD>
+<TD>&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Enum Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.Status.html" title="enum in com.sun.jersey.api.client">ClientResponse.Status</A></B></TD>
+<TD>Status codes defined by HTTP, see
+ <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10">HTTP/1.1 documentation</a>.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Exception Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></B></TD>
+<TD>A runtime exception thrown by a client handler that signals a
+ failure to process the HTTP request or HTTP response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></B></TD>
+<TD>A runtime exception thrown by a method on the <A HREF="../../../../../com/sun/jersey/api/client/UniformInterface.html" title="interface in com.sun.jersey.api.client"><CODE>UniformInterface</CODE></A> or
+ <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A> when the status code of the HTTP response indicates
+ a response that is not expected.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+<A NAME="package_description"><!-- --></A><H2>
+Package com.sun.jersey.api.client Description
+</H2>
+
+<P>
+Provides support for client-side communication with HTTP-based
+ RESTful Web services.
+ <p>
+ The client API is high-level API that reuses many aspects of the JAX-RS
+ API. It is designed to be quick, easy to use and is especially useful
+ and productive when developing tests for Web services.
+ <p>
+ The client API can be used as follows to make simple GET and POST requests
+ to a Web resource:
+ <blockquote><pre>
+     Client c = Client.create();
+     WebResource r = c.resource("http://host/base");
+     String s = r.get(String.class);
+     s = r.post(String.class, s);
+ </pre></blockquote>
+ <p>
+ A key concept of REST is the uniform interface and this is encapsulated in
+ the <A HREF="../../../../../com/sun/jersey/api/client/WebResource.html" title="class in com.sun.jersey.api.client"><CODE>WebResource</CODE></A> class, which implements 
+ <A HREF="../../../../../com/sun/jersey/api/client/UniformInterface.html" title="interface in com.sun.jersey.api.client"><CODE>UniformInterface</CODE></A>.
+ A request is built up and when the corresponding HTTP method on the
+ <A HREF="../../../../../com/sun/jersey/api/client/UniformInterface.html" title="interface in com.sun.jersey.api.client"><CODE>UniformInterface</CODE></A> is invoked the request
+ is sent to the Web resource and the returned response is processed. This enables
+ efficient production of requests as follows:
+ <blockquote><pre>
+     WebResource r = ...
+     String s = r.accept("application/xml").get(String.class);
+     s = r.accept("application/xml").type("application/xml").post(String.class, s);
+ </pre></blockquote>
+ In the above example a GET request occurs stating that the
+ "application/xml" is acceptable. After that a POST request occurs stating
+ the same acceptable media type and that the content type of the request entity is
+ "application/xml".
+ <p>
+ The Java types that may be used for request and response entities are not 
+ restricted to <code>String</code>. The client API reuses the same infrastrucure 
+ as JAX-RS server-side. Thus the same types that can be used on the server-side
+ can also be used on the client-side, such as JAXB-based types. Further more
+ the supported Java types can be extended by implementing 
+ <A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext"><CODE>MessageBodyReader</CODE></A> and
+ <A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext"><CODE>MessageBodyWriter</CODE></A>. For registration of such support
+ for new Java types see
+ <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html" title="interface in com.sun.jersey.api.client.config"><CODE>ClientConfig</CODE></A>.
+ <p>
+ A type of <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A> declared
+ for the response entity may be used to obtain the status, headers and
+ response entity.
+ <p>
+ If any type, other than <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>,
+ is declared and the response status is greater than or equal to 300 then a
+ <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client"><CODE>UniformInterfaceException</CODE></A> exception
+ will be thrown, from which the 
+ <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A> instance can be
+ accessed.
+ <p>
+ In the following cases it is necessary to close the response, when response
+ processing has completed, to ensure that underlying resources are
+ correctly released.
+ <p>
+ If a response entity is declared of the type
+ <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>
+ or of a type that is assignable to <CODE>Closeable</CODE>
+ (such as <CODE>InputStream</CODE>) then the response must be either: 
+ 1) closed by invoking the method
+ <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#close()"><CODE>ClientResponse.close()</CODE></A> or
+ <CODE>Closeable.close()</CODE>; or 2) all bytes of response entity must be
+ read.
+ <p>
+ If a <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client"><CODE>UniformInterfaceException</CODE></A> is
+ thrown then by default the response entity is automatically buffered and
+ the underlying resources are correctly released. See the following property
+ for more details:
+ <A HREF="../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION"><CODE>ClientConfig.PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION</CODE></A>.
+<P>
+
+<P>
+<DL>
+</DL>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/async/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

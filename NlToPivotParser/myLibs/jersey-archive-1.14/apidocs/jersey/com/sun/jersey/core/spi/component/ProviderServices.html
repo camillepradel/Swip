@@ -1,0 +1,530 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ProviderServices (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ProviderServices (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ProviderServices.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.Destroyable.html" title="interface in com.sun.jersey.core.spi.component"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderClass.html" title="class in com.sun.jersey.core.spi.component"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/spi/component/ProviderServices.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ProviderServices.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.core.spi.component</FONT>
+<BR>
+Class ProviderServices</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.core.spi.component.ProviderServices</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>ProviderServices</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+Combines access to provider instances given a set of provider classes,
+ a set of provider instances and providers registered in META-INF/services.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderClass.html" title="class in com.sun.jersey.core.spi.component">ProviderServices.ProviderClass</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;interface</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderListener.html" title="interface in com.sun.jersey.core.spi.component">ProviderServices.ProviderListener</A>&lt;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderListener.html" title="type parameter in ProviderServices.ProviderListener">T</A>&gt;</B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#ProviderServices(java.lang.Class, com.sun.jersey.core.spi.component.ProviderFactory, java.util.Set, java.util.Set)">ProviderServices</A></B>(java.lang.Class&lt;? extends <A HREF="../../../../../../com/sun/jersey/spi/inject/ConstrainedToType.html" title="class in com.sun.jersey.spi.inject">ConstrainedToType</A>&gt;&nbsp;constraintToType,
+                 <A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.html" title="class in com.sun.jersey.core.spi.component">ProviderFactory</A>&nbsp;componentProviderFactory,
+                 java.util.Set&lt;java.lang.Class&lt;?&gt;&gt;&nbsp;providers,
+                 java.util.Set&lt;?&gt;&nbsp;providerInstances)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create the provider services.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#ProviderServices(com.sun.jersey.core.spi.component.ProviderFactory, java.util.Set, java.util.Set)">ProviderServices</A></B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.html" title="class in com.sun.jersey.core.spi.component">ProviderFactory</A>&nbsp;componentProviderFactory,
+                 java.util.Set&lt;java.lang.Class&lt;?&gt;&gt;&nbsp;providers,
+                 java.util.Set&lt;?&gt;&nbsp;providerInstances)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create the provider services.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.html" title="class in com.sun.jersey.core.spi.component">ProviderFactory</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getComponentProviderFactory()">getComponentProviderFactory</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.List&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getInstances(java.lang.Class, java.lang.Class[])">getInstances</A></B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+             java.lang.Class&lt;? extends T&gt;[]&nbsp;classes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.List&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getInstances(java.lang.Class, java.lang.String[])">getInstances</A></B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+             java.lang.String[]&nbsp;classNames)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.Set&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getProviders(java.lang.Class)">getProviders</A></B>(java.lang.Class&lt;T&gt;&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; void</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getProviders(java.lang.Class, com.sun.jersey.core.spi.component.ProviderServices.ProviderListener)">getProviders</A></B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+             <A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderListener.html" title="interface in com.sun.jersey.core.spi.component">ProviderServices.ProviderListener</A>&nbsp;listener)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.Set&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getProvidersAndServices(java.lang.Class)">getProvidersAndServices</A></B>(java.lang.Class&lt;T&gt;&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; void</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getProvidersAndServices(java.lang.Class, com.sun.jersey.core.spi.component.ProviderServices.ProviderListener)">getProvidersAndServices</A></B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+                        <A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderListener.html" title="interface in com.sun.jersey.core.spi.component">ProviderServices.ProviderListener</A>&nbsp;listener)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.Set&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#getServices(java.lang.Class)">getServices</A></B>(java.lang.Class&lt;T&gt;&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html#update(java.util.Set, java.util.Set, com.sun.jersey.core.spi.factory.InjectableProviderFactory)">update</A></B>(java.util.Set&lt;java.lang.Class&lt;?&gt;&gt;&nbsp;providers,
+       java.util.Set&lt;?&gt;&nbsp;providerInstances,
+       <A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" title="class in com.sun.jersey.core.spi.factory">InjectableProviderFactory</A>&nbsp;ipf)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ProviderServices(com.sun.jersey.core.spi.component.ProviderFactory, java.util.Set, java.util.Set)"><!-- --></A><H3>
+ProviderServices</H3>
+<PRE>
+public <B>ProviderServices</B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.html" title="class in com.sun.jersey.core.spi.component">ProviderFactory</A>&nbsp;componentProviderFactory,
+                        java.util.Set&lt;java.lang.Class&lt;?&gt;&gt;&nbsp;providers,
+                        java.util.Set&lt;?&gt;&nbsp;providerInstances)</PRE>
+<DL>
+<DD>Create the provider services.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>componentProviderFactory</CODE> - <DD><CODE>providers</CODE> - <DD><CODE>providerInstances</CODE> - </DL>
+</DL>
+<HR>
+
+<A NAME="ProviderServices(java.lang.Class, com.sun.jersey.core.spi.component.ProviderFactory, java.util.Set, java.util.Set)"><!-- --></A><H3>
+ProviderServices</H3>
+<PRE>
+public <B>ProviderServices</B>(java.lang.Class&lt;? extends <A HREF="../../../../../../com/sun/jersey/spi/inject/ConstrainedToType.html" title="class in com.sun.jersey.spi.inject">ConstrainedToType</A>&gt;&nbsp;constraintToType,
+                        <A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.html" title="class in com.sun.jersey.core.spi.component">ProviderFactory</A>&nbsp;componentProviderFactory,
+                        java.util.Set&lt;java.lang.Class&lt;?&gt;&gt;&nbsp;providers,
+                        java.util.Set&lt;?&gt;&nbsp;providerInstances)</PRE>
+<DL>
+<DD>Create the provider services.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>constraintToType</CODE> - <DD><CODE>componentProviderFactory</CODE> - <DD><CODE>providers</CODE> - <DD><CODE>providerInstances</CODE> - </DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="update(java.util.Set, java.util.Set, com.sun.jersey.core.spi.factory.InjectableProviderFactory)"><!-- --></A><H3>
+update</H3>
+<PRE>
+public void <B>update</B>(java.util.Set&lt;java.lang.Class&lt;?&gt;&gt;&nbsp;providers,
+                   java.util.Set&lt;?&gt;&nbsp;providerInstances,
+                   <A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" title="class in com.sun.jersey.core.spi.factory">InjectableProviderFactory</A>&nbsp;ipf)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getComponentProviderFactory()"><!-- --></A><H3>
+getComponentProviderFactory</H3>
+<PRE>
+public <A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.html" title="class in com.sun.jersey.core.spi.component">ProviderFactory</A> <B>getComponentProviderFactory</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProviders(java.lang.Class)"><!-- --></A><H3>
+getProviders</H3>
+<PRE>
+public &lt;T&gt; java.util.Set&lt;T&gt; <B>getProviders</B>(java.lang.Class&lt;T&gt;&nbsp;provider)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getServices(java.lang.Class)"><!-- --></A><H3>
+getServices</H3>
+<PRE>
+public &lt;T&gt; java.util.Set&lt;T&gt; <B>getServices</B>(java.lang.Class&lt;T&gt;&nbsp;provider)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProvidersAndServices(java.lang.Class)"><!-- --></A><H3>
+getProvidersAndServices</H3>
+<PRE>
+public &lt;T&gt; java.util.Set&lt;T&gt; <B>getProvidersAndServices</B>(java.lang.Class&lt;T&gt;&nbsp;provider)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProviders(java.lang.Class, com.sun.jersey.core.spi.component.ProviderServices.ProviderListener)"><!-- --></A><H3>
+getProviders</H3>
+<PRE>
+public &lt;T&gt; void <B>getProviders</B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+                             <A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderListener.html" title="interface in com.sun.jersey.core.spi.component">ProviderServices.ProviderListener</A>&nbsp;listener)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProvidersAndServices(java.lang.Class, com.sun.jersey.core.spi.component.ProviderServices.ProviderListener)"><!-- --></A><H3>
+getProvidersAndServices</H3>
+<PRE>
+public &lt;T&gt; void <B>getProvidersAndServices</B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+                                        <A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderListener.html" title="interface in com.sun.jersey.core.spi.component">ProviderServices.ProviderListener</A>&nbsp;listener)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInstances(java.lang.Class, java.lang.String[])"><!-- --></A><H3>
+getInstances</H3>
+<PRE>
+public &lt;T&gt; java.util.List&lt;T&gt; <B>getInstances</B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+                                          java.lang.String[]&nbsp;classNames)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInstances(java.lang.Class, java.lang.Class[])"><!-- --></A><H3>
+getInstances</H3>
+<PRE>
+public &lt;T&gt; java.util.List&lt;T&gt; <B>getInstances</B>(java.lang.Class&lt;T&gt;&nbsp;provider,
+                                          java.lang.Class&lt;? extends T&gt;[]&nbsp;classes)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ProviderServices.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderFactory.Destroyable.html" title="interface in com.sun.jersey.core.spi.component"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.ProviderClass.html" title="class in com.sun.jersey.core.spi.component"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/spi/component/ProviderServices.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ProviderServices.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

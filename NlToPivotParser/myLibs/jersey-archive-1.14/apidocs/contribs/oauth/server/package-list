@@ -1,0 +1,4 @@
+com.sun.jersey.oauth.server.api
+com.sun.jersey.oauth.server.api.providers
+com.sun.jersey.oauth.server.api.resources
+com.sun.jersey.oauth.server.spi

@@ -7,8 +7,6 @@ package org.swip.nlToPivotParser;
 import java.io.IOException;
 import java.text.BreakIterator;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import org.annolab.tt4j.TokenHandler;
 import org.annolab.tt4j.TreeTaggerException;
@@ -22,7 +20,10 @@ import org.apache.log4j.Logger;
 public class TreeTagger {
 
     private static final Logger logger = Logger.getLogger(TreeTagger.class);
+    // on mirail server
     final String treeTaggerDir = "/home/operateur/treeTagger";
+    // on my computer
+//    final String treeTaggerDir = "/mnt/data/treeTagger";
     TreeTaggerWrapper tt = null;
     List<String> tokens = null;
 

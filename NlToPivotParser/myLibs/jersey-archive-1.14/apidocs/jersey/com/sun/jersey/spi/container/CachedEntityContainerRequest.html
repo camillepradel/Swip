@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+CachedEntityContainerRequest (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="CachedEntityContainerRequest (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/CachedEntityContainerRequest.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerResponse.html" title="class in com.sun.jersey.spi.container"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/ContainerListener.html" title="interface in com.sun.jersey.spi.container"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/spi/container/CachedEntityContainerRequest.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="CachedEntityContainerRequest.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.spi.container.AdaptingContainerRequest">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.spi.container</FONT>
+<BR>
+Class CachedEntityContainerRequest</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">com.sun.jersey.spi.container.ContainerRequest</A>
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html" title="class in com.sun.jersey.spi.container">com.sun.jersey.spi.container.AdaptingContainerRequest</A>
+          <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.spi.container.CachedEntityContainerRequest</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html" title="interface in com.sun.jersey.api.core">HttpRequestContext</A>, <A HREF="../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html" title="interface in javax.ws.rs.core">HttpHeaders</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html" title="interface in javax.ws.rs.core">Request</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html" title="interface in javax.ws.rs.core">SecurityContext</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>CachedEntityContainerRequest</B><DT>extends <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html" title="class in com.sun.jersey.spi.container">AdaptingContainerRequest</A></DL>
+</PRE>
+
+<P>
+A cached entity in-bound HTTP request that caches the entity instance
+ obtained from the adapted container request.
+ <p>
+ A filter may utilize this class if it requires an entity of a specific type
+ and that same type will also be utilized by a resource method.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.spi.container.AdaptingContainerRequest"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.spi.container.<A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html" title="class in com.sun.jersey.spi.container">AdaptingContainerRequest</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#acr">acr</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.spi.container.ContainerRequest"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.spi.container.<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#VARY_HEADER">VARY_HEADER</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_javax.ws.rs.core.HttpHeaders"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface javax.ws.rs.core.<A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html" title="interface in javax.ws.rs.core">HttpHeaders</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT">ACCEPT</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT_CHARSET">ACCEPT_CHARSET</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT_ENCODING">ACCEPT_ENCODING</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT_LANGUAGE">ACCEPT_LANGUAGE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#AUTHORIZATION">AUTHORIZATION</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CACHE_CONTROL">CACHE_CONTROL</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_ENCODING">CONTENT_ENCODING</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_LANGUAGE">CONTENT_LANGUAGE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_LENGTH">CONTENT_LENGTH</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_LOCATION">CONTENT_LOCATION</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_TYPE">CONTENT_TYPE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#COOKIE">COOKIE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#DATE">DATE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ETAG">ETAG</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#EXPIRES">EXPIRES</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#HOST">HOST</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_MATCH">IF_MATCH</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_MODIFIED_SINCE">IF_MODIFIED_SINCE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_NONE_MATCH">IF_NONE_MATCH</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_UNMODIFIED_SINCE">IF_UNMODIFIED_SINCE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#LAST_MODIFIED">LAST_MODIFIED</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#LOCATION">LOCATION</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#SET_COOKIE">SET_COOKIE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#USER_AGENT">USER_AGENT</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#VARY">VARY</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#WWW_AUTHENTICATE">WWW_AUTHENTICATE</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_javax.ws.rs.core.SecurityContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface javax.ws.rs.core.<A HREF="../../../../../javax/ws/rs/core/SecurityContext.html" title="interface in javax.ws.rs.core">SecurityContext</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#BASIC_AUTH">BASIC_AUTH</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#CLIENT_CERT_AUTH">CLIENT_CERT_AUTH</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#DIGEST_AUTH">DIGEST_AUTH</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#FORM_AUTH">FORM_AUTH</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/CachedEntityContainerRequest.html#CachedEntityContainerRequest(com.sun.jersey.spi.container.ContainerRequest)">CachedEntityContainerRequest</A></B>(<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;acr)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/CachedEntityContainerRequest.html#getEntity(java.lang.Class)">getEntity</A></B>(java.lang.Class&lt;T&gt;&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the entity or a cached instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/CachedEntityContainerRequest.html#getEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getEntity</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+          java.lang.reflect.Type&nbsp;genericType,
+          java.lang.annotation.Annotation[]&nbsp;as)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the entity or a cached instance.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.spi.container.AdaptingContainerRequest"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.spi.container.<A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html" title="class in com.sun.jersey.spi.container">AdaptingContainerRequest</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#evaluatePreconditions()">evaluatePreconditions</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#evaluatePreconditions(java.util.Date)">evaluatePreconditions</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#evaluatePreconditions(java.util.Date, javax.ws.rs.core.EntityTag)">evaluatePreconditions</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#evaluatePreconditions(javax.ws.rs.core.EntityTag)">evaluatePreconditions</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAbsolutePath()">getAbsolutePath</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAbsolutePathBuilder()">getAbsolutePathBuilder</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableLanguages()">getAcceptableLanguages</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableMediaTypes()">getAcceptableMediaTypes</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableMediaTypes(java.util.List)">getAcceptableMediaTypes</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAuthenticationScheme()">getAuthenticationScheme</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getBaseUri()">getBaseUri</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getBaseUriBuilder()">getBaseUriBuilder</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getCookieNameValueMap()">getCookieNameValueMap</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getCookies()">getCookies</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getEntityInputStream()">getEntityInputStream</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getFormParameters()">getFormParameters</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getHeaderValue(java.lang.String)">getHeaderValue</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getLanguage()">getLanguage</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getMediaType()">getMediaType</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getMessageBodyWorkers()">getMessageBodyWorkers</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getMethod()">getMethod</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getPath()">getPath</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getPath(boolean)">getPath</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getPathSegments()">getPathSegments</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getPathSegments(boolean)">getPathSegments</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getProperties()">getProperties</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getQueryParameters()">getQueryParameters</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getQueryParameters(boolean)">getQueryParameters</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getRequestHeader(java.lang.String)">getRequestHeader</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getRequestHeaders()">getRequestHeaders</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getRequestUri()">getRequestUri</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getRequestUriBuilder()">getRequestUriBuilder</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getSecurityContext()">getSecurityContext</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getUserPrincipal()">getUserPrincipal</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#isSecure()">isSecure</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#isTracingEnabled()">isTracingEnabled</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#isUserInRole(java.lang.String)">isUserInRole</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#selectVariant(java.util.List)">selectVariant</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#setEntityInputStream(java.io.InputStream)">setEntityInputStream</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#setHeaders(com.sun.jersey.core.header.InBoundHeaders)">setHeaders</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#setMethod(java.lang.String)">setMethod</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#setSecurityContext(javax.ws.rs.core.SecurityContext)">setSecurityContext</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#setUris(java.net.URI, java.net.URI)">setUris</A>, <A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#trace(java.lang.String)">trace</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.spi.container.ContainerRequest"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.spi.container.<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#setEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, T)">setEntity</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="CachedEntityContainerRequest(com.sun.jersey.spi.container.ContainerRequest)"><!-- --></A><H3>
+CachedEntityContainerRequest</H3>
+<PRE>
+public <B>CachedEntityContainerRequest</B>(<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;acr)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getEntity(java.lang.Class)"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+public &lt;T&gt; T <B>getEntity</B>(java.lang.Class&lt;T&gt;&nbsp;type)
+            throws java.lang.ClassCastException</PRE>
+<DL>
+<DD>Get the entity or a cached instance.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getEntity(java.lang.Class)">getEntity</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html" title="interface in com.sun.jersey.api.core">HttpRequestContext</A></CODE><DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getEntity(java.lang.Class)">getEntity</A></CODE> in class <CODE><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html" title="class in com.sun.jersey.spi.container">AdaptingContainerRequest</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the type of entity
+<DT><B>Returns:</B><DD>If called for the first time obtain the entity from the adapting
+         container request and cache the instance. If called for second or
+         subsequent time return the cached instance.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.ClassCastException</CODE> - if the cached entity cannot be cast to the
+         type requested.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+public &lt;T&gt; T <B>getEntity</B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                       java.lang.reflect.Type&nbsp;genericType,
+                       java.lang.annotation.Annotation[]&nbsp;as)
+            throws java.lang.ClassCastException</PRE>
+<DL>
+<DD>Get the entity or a cached instance.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getEntity</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html" title="interface in com.sun.jersey.api.core">HttpRequestContext</A></CODE><DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getEntity</A></CODE> in class <CODE><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html" title="class in com.sun.jersey.spi.container">AdaptingContainerRequest</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the type of entity<DD><CODE>genericType</CODE> - type the generic type of entity, it is the responsibility
+        of the callee to ensure that the type and generic type are
+        consistent otherwise the behaviour of this method is undefined.<DD><CODE>as</CODE> - the annotations associated with the type
+<DT><B>Returns:</B><DD>If called for the first time obtain the entity from the adapting
+         container request and cache the instance. If called for second or
+         subsequent time return the cached instance.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.ClassCastException</CODE> - if the cached entity cannot be cast to the
+         type requested.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/CachedEntityContainerRequest.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerResponse.html" title="class in com.sun.jersey.spi.container"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/ContainerListener.html" title="interface in com.sun.jersey.spi.container"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/spi/container/CachedEntityContainerRequest.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="CachedEntityContainerRequest.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.spi.container.AdaptingContainerRequest">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

@@ -1,0 +1,578 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ApacheHttpClientState (Jersey Apache HTTP Client 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ApacheHttpClientState (Jersey Apache HTTP Client 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ApacheHttpClientState.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html" title="interface in com.sun.jersey.client.apache.config"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/client/apache/config/DefaultApacheHttpClientConfig.html" title="class in com.sun.jersey.client.apache.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/client/apache/config/ApacheHttpClientState.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ApacheHttpClientState.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.client.apache.config</FONT>
+<BR>
+Class ApacheHttpClientState</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.client.apache.config.ApacheHttpClientState</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>ApacheHttpClientState</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+An encapsulation of the Apache <CODE>HttpState</CODE> that provides easier
+ functionality for setting up credentials and proxy credentials.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>jorgeluisw@mac.com, Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#ApacheHttpClientState()">ApacheHttpClientState</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance with a default instance of an Apache HTTP state.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#ApacheHttpClientState(org.apache.commons.httpclient.HttpState)">ApacheHttpClientState</A></B>(org.apache.commons.httpclient.HttpState&nbsp;state)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new state instance with an Apacahe HTTP state instance.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#clearCredentials()">clearCredentials</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears all credentials.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#clearProxyCredentials()">clearProxyCredentials</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears all proxy credentials.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;org.apache.commons.httpclient.HttpState</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#getHttpState()">getHttpState</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the HTTP state.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#setCredentials(java.lang.String, java.lang.String, int, java.lang.String)">setCredentials</A></B>(java.lang.String&nbsp;realm,
+               java.lang.String&nbsp;host,
+               int&nbsp;port,
+               java.lang.String&nbsp;usernamepassword)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the credentials for the given authentication scope.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#setCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String)">setCredentials</A></B>(java.lang.String&nbsp;realm,
+               java.lang.String&nbsp;host,
+               int&nbsp;port,
+               java.lang.String&nbsp;username,
+               java.lang.String&nbsp;password)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the credentials for the given authentication scope.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#setCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">setCredentials</A></B>(java.lang.String&nbsp;realm,
+               java.lang.String&nbsp;host,
+               int&nbsp;port,
+               java.lang.String&nbsp;username,
+               java.lang.String&nbsp;password,
+               java.lang.String&nbsp;domain,
+               java.lang.String&nbsp;thisHost)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the credentials for the given authentication scope.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#setProxyCredentials(java.lang.String, java.lang.String, int, java.lang.String)">setProxyCredentials</A></B>(java.lang.String&nbsp;realm,
+                    java.lang.String&nbsp;host,
+                    int&nbsp;port,
+                    java.lang.String&nbsp;usernamepassword)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the proxy credentials for the given authentication scope.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#setProxyCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String)">setProxyCredentials</A></B>(java.lang.String&nbsp;realm,
+                    java.lang.String&nbsp;host,
+                    int&nbsp;port,
+                    java.lang.String&nbsp;username,
+                    java.lang.String&nbsp;password)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the proxy credentials for the given authentication scope.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html#setProxyCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">setProxyCredentials</A></B>(java.lang.String&nbsp;realm,
+                    java.lang.String&nbsp;host,
+                    int&nbsp;port,
+                    java.lang.String&nbsp;username,
+                    java.lang.String&nbsp;password,
+                    java.lang.String&nbsp;domain,
+                    java.lang.String&nbsp;thisHost)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the proxy credentials for the given authentication scope.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ApacheHttpClientState()"><!-- --></A><H3>
+ApacheHttpClientState</H3>
+<PRE>
+public <B>ApacheHttpClientState</B>()</PRE>
+<DL>
+<DD>Create a new instance with a default instance of an Apache HTTP state.
+<P>
+</DL>
+<HR>
+
+<A NAME="ApacheHttpClientState(org.apache.commons.httpclient.HttpState)"><!-- --></A><H3>
+ApacheHttpClientState</H3>
+<PRE>
+public <B>ApacheHttpClientState</B>(org.apache.commons.httpclient.HttpState&nbsp;state)</PRE>
+<DL>
+<DD>Create a new state instance with an Apacahe HTTP state instance.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>state</CODE> - the Apache HTTP state.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="setCredentials(java.lang.String, java.lang.String, int, java.lang.String)"><!-- --></A><H3>
+setCredentials</H3>
+<PRE>
+public void <B>setCredentials</B>(java.lang.String&nbsp;realm,
+                           java.lang.String&nbsp;host,
+                           int&nbsp;port,
+                           java.lang.String&nbsp;usernamepassword)</PRE>
+<DL>
+<DD>Sets the credentials for the given authentication scope.  Any
+ previous credentials for the given scope will be overwritten.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>realm</CODE> - The authentication realm.  The null realm
+ signifies default credentials for the given host, which should
+ be used when no credentials have been explicitly supplied for
+ the challenging realm.<DD><CODE>host</CODE> - The host the realm belongs to. The null host
+ signifies default credentials which should be used when no
+ credentials have been explicitly supplied for the challenging
+ host.<DD><CODE>port</CODE> - The port the realm belongs to. A negitive port
+ signifies the credentials are applicaple to any port when no
+ credentials have been explicitly supplied for the challenging
+ port.<DD><CODE>usernamepassword</CODE> - The username:password formed string.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String)"><!-- --></A><H3>
+setCredentials</H3>
+<PRE>
+public void <B>setCredentials</B>(java.lang.String&nbsp;realm,
+                           java.lang.String&nbsp;host,
+                           int&nbsp;port,
+                           java.lang.String&nbsp;username,
+                           java.lang.String&nbsp;password)</PRE>
+<DL>
+<DD>Sets the credentials for the given authentication scope.  Any
+ previous credentials for the given scope will be overwritten.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>realm</CODE> - The authentication realm.  The null realm
+ signifies default credentials for the given host, which should
+ be used when no credentials have been explicitly supplied for
+ the challenging realm.<DD><CODE>host</CODE> - The host the realm belongs to. The null host
+ signifies default credentials which should be used when no
+ credentials have been explicitly supplied for the challenging
+ host.<DD><CODE>port</CODE> - The port the realm belongs to. A negitive port
+ signifies the credentials are applicaple to any port when no
+ credentials have been explicitly supplied for the challenging
+ port.<DD><CODE>username</CODE> - The username<DD><CODE>password</CODE> - The password</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"><!-- --></A><H3>
+setCredentials</H3>
+<PRE>
+public void <B>setCredentials</B>(java.lang.String&nbsp;realm,
+                           java.lang.String&nbsp;host,
+                           int&nbsp;port,
+                           java.lang.String&nbsp;username,
+                           java.lang.String&nbsp;password,
+                           java.lang.String&nbsp;domain,
+                           java.lang.String&nbsp;thisHost)</PRE>
+<DL>
+<DD>Sets the credentials for the given authentication scope.  Any
+ previous credentials for the given scope will be overwritten.
+
+ This method should be used when setting credentials for the
+ NTLM authentication scheme.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>realm</CODE> - The authentication realm.  The null realm
+ signifies default credentials for the given host, which should
+ be used when no credentials have been explicitly supplied for
+ the challenging realm.<DD><CODE>host</CODE> - The host the realm belongs to. The null host
+ signifies default credentials which should be used when no
+ credentials have been explicitly supplied for the challenging
+ host.<DD><CODE>port</CODE> - The port the realm belongs to. A negitive port
+ signifies the credentials are applicaple to any port when no
+ credentials have been explicitly supplied for the challenging
+ port.<DD><CODE>username</CODE> - The username, this should not include the
+ domain to authenticate with. For example: "user" is correct
+ wheareas "DOMAIN\\user" is not.<DD><CODE>password</CODE> - The password<DD><CODE>thisHost</CODE> - The host the authentication requiest is originating
+ from. Essentially, the computer name for this machine.<DD><CODE>domain</CODE> - The domain to authentice with.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setProxyCredentials(java.lang.String, java.lang.String, int, java.lang.String)"><!-- --></A><H3>
+setProxyCredentials</H3>
+<PRE>
+public void <B>setProxyCredentials</B>(java.lang.String&nbsp;realm,
+                                java.lang.String&nbsp;host,
+                                int&nbsp;port,
+                                java.lang.String&nbsp;usernamepassword)</PRE>
+<DL>
+<DD>Sets the proxy credentials for the given authentication scope.
+ Any previous credentials for the given scope will be
+ overwritten.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>realm</CODE> - The authentication realm.  The null realm
+ signifies default credentials for the given host, which should
+ be used when no credentials have been explicitly supplied for
+ the challenging realm.<DD><CODE>host</CODE> - The host the realm belongs to. The null host
+ signifies default credentials which should be used when no
+ credentials have been explicitly supplied for the challenging
+ host.<DD><CODE>port</CODE> - The port the realm belongs to. A negitive port
+ signifies the credentials are applicaple to any port when no
+ credentials have been explicitly supplied for the challenging
+ port.<DD><CODE>usernamepassword</CODE> - The username:password formed string.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setProxyCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String)"><!-- --></A><H3>
+setProxyCredentials</H3>
+<PRE>
+public void <B>setProxyCredentials</B>(java.lang.String&nbsp;realm,
+                                java.lang.String&nbsp;host,
+                                int&nbsp;port,
+                                java.lang.String&nbsp;username,
+                                java.lang.String&nbsp;password)</PRE>
+<DL>
+<DD>Sets the proxy credentials for the given authentication scope.
+ Any previous credentials for the given scope will be
+ overwritten.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>realm</CODE> - The authentication realm.  The null realm
+ signifies default credentials for the given host, which should
+ be used when no credentials have been explicitly supplied for
+ the challenging realm.<DD><CODE>host</CODE> - The host the realm belongs to. The null host
+ signifies default credentials which should be used when no
+ credentials have been explicitly supplied for the challenging
+ host.<DD><CODE>port</CODE> - The port the realm belongs to. A negitive port
+ signifies the credentials are applicaple to any port when no
+ credentials have been explicitly supplied for the challenging
+ port.<DD><CODE>username</CODE> - The username<DD><CODE>password</CODE> - The password</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setProxyCredentials(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"><!-- --></A><H3>
+setProxyCredentials</H3>
+<PRE>
+public void <B>setProxyCredentials</B>(java.lang.String&nbsp;realm,
+                                java.lang.String&nbsp;host,
+                                int&nbsp;port,
+                                java.lang.String&nbsp;username,
+                                java.lang.String&nbsp;password,
+                                java.lang.String&nbsp;domain,
+                                java.lang.String&nbsp;thisHost)</PRE>
+<DL>
+<DD>Sets the proxy credentials for the given authentication scope.
+ Any previous credentials for the given scope will be
+ overwritten.
+
+ This method should be used when setting credentials for the
+ NTLM authentication scheme.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>realm</CODE> - The authentication realm.  The null realm
+ signifies default credentials for the given host, which should
+ be used when no credentials have been explicitly supplied for
+ the challenging realm.<DD><CODE>host</CODE> - The host the realm belongs to. The null host
+ signifies default credentials which should be used when no
+ credentials have been explicitly supplied for the challenging
+ host.<DD><CODE>port</CODE> - The port the realm belongs to. A negitive port
+ signifies the credentials are applicaple to any port when no
+ credentials have been explicitly supplied for the challenging
+ port.<DD><CODE>username</CODE> - The username, this should not include the
+ domain to authenticate with. For example: "user" is correct
+ wheareas "DOMAIN\\user" is not.<DD><CODE>password</CODE> - The password<DD><CODE>thisHost</CODE> - The host the authentication requiest is originating
+ from. Essentially, the computer name for this machine.<DD><CODE>domain</CODE> - The domain to authentice with.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="clearCredentials()"><!-- --></A><H3>
+clearCredentials</H3>
+<PRE>
+public void <B>clearCredentials</B>()</PRE>
+<DL>
+<DD>Clears all credentials.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="clearProxyCredentials()"><!-- --></A><H3>
+clearProxyCredentials</H3>
+<PRE>
+public void <B>clearProxyCredentials</B>()</PRE>
+<DL>
+<DD>Clears all proxy credentials.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHttpState()"><!-- --></A><H3>
+getHttpState</H3>
+<PRE>
+public org.apache.commons.httpclient.HttpState <B>getHttpState</B>()</PRE>
+<DL>
+<DD>Get the HTTP state.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP state.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ApacheHttpClientState.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html" title="interface in com.sun.jersey.client.apache.config"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/client/apache/config/DefaultApacheHttpClientConfig.html" title="class in com.sun.jersey.client.apache.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/client/apache/config/ApacheHttpClientState.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ApacheHttpClientState.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

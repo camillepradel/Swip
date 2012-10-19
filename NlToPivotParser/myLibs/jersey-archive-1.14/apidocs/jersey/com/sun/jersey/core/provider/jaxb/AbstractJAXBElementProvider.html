@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+AbstractJAXBElementProvider (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="AbstractJAXBElementProvider (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AbstractJAXBElementProvider.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html" title="class in com.sun.jersey.core.provider.jaxb"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AbstractJAXBElementProvider.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.core.provider.jaxb</FONT>
+<BR>
+Class AbstractJAXBElementProvider</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html" title="class in com.sun.jersey.core.provider">com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider</A>&lt;T&gt;
+      <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html" title="class in com.sun.jersey.core.provider.jaxb">com.sun.jersey.core.provider.jaxb.AbstractJAXBProvider</A>&lt;javax.xml.bind.JAXBElement&lt;?&gt;&gt;
+          <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.core.provider.jaxb.AbstractJAXBElementProvider</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&lt;javax.xml.bind.JAXBElement&lt;?&gt;&gt;, <A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&lt;javax.xml.bind.JAXBElement&lt;?&gt;&gt;</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public abstract class <B>AbstractJAXBElementProvider</B><DT>extends <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html" title="class in com.sun.jersey.core.provider.jaxb">AbstractJAXBProvider</A>&lt;javax.xml.bind.JAXBElement&lt;?&gt;&gt;</DL>
+</PRE>
+
+<P>
+An abstract provider for <CODE>JAXBElement</CODE>.
+ <p>
+ Implementing classes may extend this class to provide specific marshalling
+ and unmarshalling behaviour.
+ <p>
+ When unmarshalling a <CODE>UnmarshalException</CODE> will result in a
+ <A HREF="../../../../../../javax/ws/rs/WebApplicationException.html" title="class in javax.ws.rs"><CODE>WebApplicationException</CODE></A> being thrown with a status of 400
+ (Client error), and a <CODE>JAXBException</CODE> will result in a
+ <A HREF="../../../../../../javax/ws/rs/WebApplicationException.html" title="class in javax.ws.rs"><CODE>WebApplicationException</CODE></A> being thrown with a status of 500
+ (Internal Server error).
+ <p>
+ When marshalling a <CODE>JAXBException</CODE> will result in a
+ <A HREF="../../../../../../javax/ws/rs/WebApplicationException.html" title="class in javax.ws.rs"><CODE>WebApplicationException</CODE></A> being thrown with a status of 500
+ (Internal Server error).
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.core.provider.<A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html" title="class in com.sun.jersey.core.provider">AbstractMessageReaderWriterProvider</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#UTF8">UTF8</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#AbstractJAXBElementProvider(javax.ws.rs.ext.Providers)">AbstractJAXBElementProvider</A></B>(<A HREF="../../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#AbstractJAXBElementProvider(javax.ws.rs.ext.Providers, javax.ws.rs.core.MediaType)">AbstractJAXBElementProvider</A></B>(<A HREF="../../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps,
+                            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#isReadable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isReadable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+           java.lang.reflect.Type&nbsp;genericType,
+           java.lang.annotation.Annotation[]&nbsp;annotations,
+           <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascertain if the MessageBodyReader can produce an instance of a
+ particular type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#isWriteable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isWriteable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+            java.lang.reflect.Type&nbsp;genericType,
+            java.lang.annotation.Annotation[]&nbsp;annotations,
+            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascertain if the MessageBodyWriter supports a particular type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;javax.xml.bind.JAXBElement&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#readFrom(java.lang.Class, javax.ws.rs.core.MediaType, javax.xml.bind.Unmarshaller, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+         <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         javax.xml.bind.Unmarshaller&nbsp;u,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.bind.JAXBElement&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#readFrom(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;javax.xml.bind.JAXBElement&lt;?&gt;&gt;&nbsp;type,
+         java.lang.reflect.Type&nbsp;genericType,
+         java.lang.annotation.Annotation[]&nbsp;annotations,
+         <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         <A HREF="../../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;&nbsp;httpHeaders,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read a type from the <CODE>InputStream</CODE>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#writeTo(javax.xml.bind.JAXBElement, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.OutputStream)">writeTo</A></B>(javax.xml.bind.JAXBElement&lt;?&gt;&nbsp;t,
+        java.lang.Class&lt;?&gt;&nbsp;type,
+        java.lang.reflect.Type&nbsp;genericType,
+        java.lang.annotation.Annotation[]&nbsp;annotations,
+        <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        <A HREF="../../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;&nbsp;httpHeaders,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write a type to an HTTP response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#writeTo(javax.xml.bind.JAXBElement, javax.ws.rs.core.MediaType, java.nio.charset.Charset, javax.xml.bind.Marshaller, java.io.OutputStream)">writeTo</A></B>(javax.xml.bind.JAXBElement&lt;?&gt;&nbsp;t,
+        <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        java.nio.charset.Charset&nbsp;c,
+        javax.xml.bind.Marshaller&nbsp;m,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.provider.jaxb.AbstractJAXBProvider"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.core.provider.jaxb.<A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html" title="class in com.sun.jersey.core.provider.jaxb">AbstractJAXBProvider</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#getMarshaller(java.lang.Class, javax.ws.rs.core.MediaType)">getMarshaller</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#getSAXSource(javax.xml.parsers.SAXParserFactory, java.io.InputStream)">getSAXSource</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#getStoredJAXBContext(java.lang.Class)">getStoredJAXBContext</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#getUnmarshaller(java.lang.Class, javax.ws.rs.core.MediaType)">getUnmarshaller</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#isFormattedOutput()">isFormattedOutput</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#isSupported(javax.ws.rs.core.MediaType)">isSupported</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#isXmlRootElementProcessing()">isXmlRootElementProcessing</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#setConfiguration(com.sun.jersey.core.util.FeaturesAndProperties)">setConfiguration</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#setHeader(javax.xml.bind.Marshaller, java.lang.annotation.Annotation[])">setHeader</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.core.provider.<A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html" title="class in com.sun.jersey.core.provider">AbstractMessageReaderWriterProvider</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#getCharset(javax.ws.rs.core.MediaType)">getCharset</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#getSize(T, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getSize</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#readFromAsString(java.io.InputStream, javax.ws.rs.core.MediaType)">readFromAsString</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#writeTo(java.io.InputStream, java.io.OutputStream)">writeTo</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#writeTo(java.io.Reader, java.io.Writer)">writeTo</A>, <A HREF="../../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#writeToAsString(java.lang.String, java.io.OutputStream, javax.ws.rs.core.MediaType)">writeToAsString</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="AbstractJAXBElementProvider(javax.ws.rs.ext.Providers)"><!-- --></A><H3>
+AbstractJAXBElementProvider</H3>
+<PRE>
+public <B>AbstractJAXBElementProvider</B>(<A HREF="../../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps)</PRE>
+<DL>
+</DL>
+<HR>
+
+<A NAME="AbstractJAXBElementProvider(javax.ws.rs.ext.Providers, javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+AbstractJAXBElementProvider</H3>
+<PRE>
+public <B>AbstractJAXBElementProvider</B>(<A HREF="../../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps,
+                                   <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="isReadable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+isReadable</H3>
+<PRE>
+public boolean <B>isReadable</B>(java.lang.Class&lt;?&gt;&nbsp;type,
+                          java.lang.reflect.Type&nbsp;genericType,
+                          java.lang.annotation.Annotation[]&nbsp;annotations,
+                          <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html#isReadable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">MessageBodyReader</A></CODE></B></DD>
+<DD>Ascertain if the MessageBodyReader can produce an instance of a
+ particular type. The type parameter gives the
+ class of the object that should be produced, the genericType parameter
+ gives the java.lang.reflect.Type of the object that should be produced.
+ E.g. if the object to be produced is List<String>, the type parameter
+ will be java.util.List and the genericType parameter will be
+ java.lang.reflect.ParameterizedType.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the class of object to be produced.<DD><CODE>genericType</CODE> - the type of object to be produced. E.g. if the 
+ message body is to be converted into a method parameter, this will be
+ the formal type of the method parameter as returned by 
+ <code>Method.getGenericParameterTypes</code>.<DD><CODE>annotations</CODE> - an array of the annotations on the declaration of the
+ artifact that will be initialized with the produced instance. E.g. if the 
+ message body is to be converted into a method parameter, this will be
+ the annotations on that parameter returned by 
+ <code>Method.getParameterAnnotations</code>.<DD><CODE>mediaType</CODE> - the media type of the HTTP entity, if one is not
+ specified in the request then <code>application/octet-stream</code> is
+ used.
+<DT><B>Returns:</B><DD>true if the type is supported, otherwise false.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isWriteable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+isWriteable</H3>
+<PRE>
+public boolean <B>isWriteable</B>(java.lang.Class&lt;?&gt;&nbsp;type,
+                           java.lang.reflect.Type&nbsp;genericType,
+                           java.lang.annotation.Annotation[]&nbsp;annotations,
+                           <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html#isWriteable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">MessageBodyWriter</A></CODE></B></DD>
+<DD>Ascertain if the MessageBodyWriter supports a particular type.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the class of object that is to be written.<DD><CODE>genericType</CODE> - the type of object to be written, obtained either
+ by reflection of a resource method return type or via inspection
+ of the returned instance. <A HREF="../../../../../../javax/ws/rs/core/GenericEntity.html" title="class in javax.ws.rs.core"><CODE>GenericEntity</CODE></A>
+ provides a way to specify this information at runtime.<DD><CODE>annotations</CODE> - an array of the annotations on the resource
+ method that returns the object.<DD><CODE>mediaType</CODE> - the media type of the HTTP entity.
+<DT><B>Returns:</B><DD>true if the type is supported, otherwise false.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="readFrom(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.InputStream)"><!-- --></A><H3>
+readFrom</H3>
+<PRE>
+public final javax.xml.bind.JAXBElement&lt;?&gt; <B>readFrom</B>(java.lang.Class&lt;javax.xml.bind.JAXBElement&lt;?&gt;&gt;&nbsp;type,
+                                                    java.lang.reflect.Type&nbsp;genericType,
+                                                    java.lang.annotation.Annotation[]&nbsp;annotations,
+                                                    <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+                                                    <A HREF="../../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;&nbsp;httpHeaders,
+                                                    java.io.InputStream&nbsp;entityStream)
+                                             throws java.io.IOException</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html#readFrom(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.InputStream)">MessageBodyReader</A></CODE></B></DD>
+<DD>Read a type from the <CODE>InputStream</CODE>.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the type that is to be read from the entity stream.<DD><CODE>genericType</CODE> - the type of object to be produced. E.g. if the 
+ message body is to be converted into a method parameter, this will be
+ the formal type of the method parameter as returned by 
+ <code>Method.getGenericParameterTypes</code>.<DD><CODE>annotations</CODE> - an array of the annotations on the declaration of the
+ artifact that will be initialized with the produced instance. E.g. if the 
+ message body is to be converted into a method parameter, this will be
+ the annotations on that parameter returned by 
+ <code>Method.getParameterAnnotations</code>.<DD><CODE>mediaType</CODE> - the media type of the HTTP entity.<DD><CODE>httpHeaders</CODE> - the read-only HTTP headers associated with HTTP entity.<DD><CODE>entityStream</CODE> - the <CODE>InputStream</CODE> of the HTTP entity. The
+ caller is responsible for ensuring that the input stream ends when the
+ entity has been consumed. The implementation should not close the input stream.
+<DT><B>Returns:</B><DD>the type that was read from the stream.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an IO error arises</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="readFrom(java.lang.Class, javax.ws.rs.core.MediaType, javax.xml.bind.Unmarshaller, java.io.InputStream)"><!-- --></A><H3>
+readFrom</H3>
+<PRE>
+protected abstract javax.xml.bind.JAXBElement&lt;?&gt; <B>readFrom</B>(java.lang.Class&lt;?&gt;&nbsp;type,
+                                                          <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+                                                          javax.xml.bind.Unmarshaller&nbsp;u,
+                                                          java.io.InputStream&nbsp;entityStream)
+                                                   throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="writeTo(javax.xml.bind.JAXBElement, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.OutputStream)"><!-- --></A><H3>
+writeTo</H3>
+<PRE>
+public final void <B>writeTo</B>(javax.xml.bind.JAXBElement&lt;?&gt;&nbsp;t,
+                          java.lang.Class&lt;?&gt;&nbsp;type,
+                          java.lang.reflect.Type&nbsp;genericType,
+                          java.lang.annotation.Annotation[]&nbsp;annotations,
+                          <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+                          <A HREF="../../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;&nbsp;httpHeaders,
+                          java.io.OutputStream&nbsp;entityStream)
+                   throws java.io.IOException</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html#writeTo(T, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.OutputStream)">MessageBodyWriter</A></CODE></B></DD>
+<DD>Write a type to an HTTP response. The response header map is mutable
+ but any changes must be made before writing to the output stream since
+ the headers will be flushed prior to writing the response body.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>t</CODE> - the instance to write.<DD><CODE>type</CODE> - the class of object that is to be written.<DD><CODE>genericType</CODE> - the type of object to be written, obtained either
+ by reflection of a resource method return type or by inspection
+ of the returned instance. <A HREF="../../../../../../javax/ws/rs/core/GenericEntity.html" title="class in javax.ws.rs.core"><CODE>GenericEntity</CODE></A>
+ provides a way to specify this information at runtime.<DD><CODE>annotations</CODE> - an array of the annotations on the resource
+ method that returns the object.<DD><CODE>mediaType</CODE> - the media type of the HTTP entity.<DD><CODE>httpHeaders</CODE> - a mutable map of the HTTP response headers.<DD><CODE>entityStream</CODE> - the <CODE>OutputStream</CODE> for the HTTP entity. The 
+ implementation should not close the output stream.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an IO error arises</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="writeTo(javax.xml.bind.JAXBElement, javax.ws.rs.core.MediaType, java.nio.charset.Charset, javax.xml.bind.Marshaller, java.io.OutputStream)"><!-- --></A><H3>
+writeTo</H3>
+<PRE>
+protected abstract void <B>writeTo</B>(javax.xml.bind.JAXBElement&lt;?&gt;&nbsp;t,
+                                <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+                                java.nio.charset.Charset&nbsp;c,
+                                javax.xml.bind.Marshaller&nbsp;m,
+                                java.io.OutputStream&nbsp;entityStream)
+                         throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AbstractJAXBElementProvider.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html" title="class in com.sun.jersey.core.provider.jaxb"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AbstractJAXBElementProvider.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

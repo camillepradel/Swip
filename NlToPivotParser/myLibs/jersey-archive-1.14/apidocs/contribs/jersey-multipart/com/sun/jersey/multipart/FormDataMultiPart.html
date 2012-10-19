@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+FormDataMultiPart (jersey-multipart 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="FormDataMultiPart (jersey-multipart 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/FormDataMultiPart.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataParam.html" title="annotation in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/FormDataMultiPart.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FormDataMultiPart.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.multipart.BodyPart">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.multipart</FONT>
+<BR>
+Class FormDataMultiPart</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">com.sun.jersey.multipart.BodyPart</A>
+      <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">com.sun.jersey.multipart.MultiPart</A>
+          <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.multipart.FormDataMultiPart</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Closeable</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>FormDataMultiPart</B><DT>extends <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A></DL>
+</PRE>
+
+<P>
+<p>Subclass of <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart"><CODE>MultiPart</CODE></A> with specialized support for media type
+ <code>multipart/form-data</code>.  See
+ <a href="http://www.ietf.org/rfc/rfc2388.txt">RFC 2388</a>
+ for the formal definition of this media type.</p>
+
+ <p>For a server side application wishing to process an incoming
+ <code>multipart/form-data</code> message, the following features
+ are provided:</p>
+ <ul>
+ <li>Incoming entities will be of type <A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataMultiPart</CODE></A>,
+     enabling access to the specialized methods.</li>
+ <li>Incoming body parts will be of type <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A>,
+     enabling access to its specialized methods.</li>
+ <li>Convenience method to return the <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A> for a
+     specified control name.</li>
+ <li>Convenience method to return a <code>Map</code> of <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataBodyPart</CODE></A>s
+     for all fields, keyed by field name.</li>
+ </ul>
+
+ <p>For a client side application wishing to construct an outgoing
+ <code>multipart/form-data</code> message, the following features
+ are provided:</p>
+ <ul>
+ <li>Media type of the <A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataMultiPart</CODE></A> instance will automatically
+     set to <code>multipart/form-data</code>.</li>
+ <li>Builder pattern method to add simple field values as body parts of
+     type <code>text/plain</code>.</li>
+ <li>Builder pattern method to add named "file" field values with arbitrary
+     media types.</li>
+ </ul>
+
+ <p><strong>FIXME</strong> - Consider supporting the use case of a nested
+ <code>multipart/mixed</code> body part to contain multiple uploaded files.</p>
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.multipart.BodyPart"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.multipart.<A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#cd">cd</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html#FormDataMultiPart()">FormDataMultiPart</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataMultiPart</CODE></A> instance with
+ default characteristics.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart">FormDataMultiPart</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html#field(java.lang.String, java.lang.Object, javax.ws.rs.core.MediaType)">field</A></B>(java.lang.String&nbsp;name,
+      java.lang.Object&nbsp;entity,
+      <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to add a named field with an arbitrary
+ media type and entity, and return this instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart">FormDataMultiPart</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html#field(java.lang.String, java.lang.String)">field</A></B>(java.lang.String&nbsp;name,
+      java.lang.String&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to add a named field with a text value,
+ and return this instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart">FormDataBodyPart</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html#getField(java.lang.String)">getField</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a form data body part given a control name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.String,java.util.List&lt;<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart">FormDataBodyPart</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html#getFields()">getFields</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a map of form data body parts where the key is the control name
+ and the value is a list of one or more form data body parts.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart">FormDataBodyPart</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html#getFields(java.lang.String)">getFields</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a list of one or more form data body parts given a control name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html#setMediaType(javax.ws.rs.core.MediaType)">setMediaType</A></B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disable changing the media type to anything other than
+ <code>multipart/form-data</code>.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.multipart.MultiPart"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.multipart.<A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#bodyPart(com.sun.jersey.multipart.BodyPart)">bodyPart</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#bodyPart(java.lang.Object, javax.ws.rs.core.MediaType)">bodyPart</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#cleanup()">cleanup</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#close()">close</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#entity(java.lang.Object)">entity</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#getBodyParts()">getBodyParts</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#getEntity()">getEntity</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#setEntity(java.lang.Object)">setEntity</A>, <A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#type(javax.ws.rs.core.MediaType)">type</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.multipart.BodyPart"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.multipart.<A HREF="../../../../com/sun/jersey/multipart/BodyPart.html" title="class in com.sun.jersey.multipart">BodyPart</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#contentDisposition(com.sun.jersey.core.header.ContentDisposition)">contentDisposition</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getContentDisposition()">getContentDisposition</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getEntityAs(java.lang.Class)">getEntityAs</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getHeaders()">getHeaders</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getMediaType()">getMediaType</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getParameterizedHeaders()">getParameterizedHeaders</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getParent()">getParent</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#getProviders()">getProviders</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setContentDisposition(com.sun.jersey.core.header.ContentDisposition)">setContentDisposition</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setParent(com.sun.jersey.multipart.MultiPart)">setParent</A>, <A HREF="../../../../com/sun/jersey/multipart/BodyPart.html#setProviders(javax.ws.rs.ext.Providers)">setProviders</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="FormDataMultiPart()"><!-- --></A><H3>
+FormDataMultiPart</H3>
+<PRE>
+public <B>FormDataMultiPart</B>()</PRE>
+<DL>
+<DD>Instantiate a new <A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart"><CODE>FormDataMultiPart</CODE></A> instance with
+ default characteristics.
+<P>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="field(java.lang.String, java.lang.String)"><!-- --></A><H3>
+field</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart">FormDataMultiPart</A> <B>field</B>(java.lang.String&nbsp;name,
+                               java.lang.String&nbsp;value)</PRE>
+<DL>
+<DD>Builder pattern method to add a named field with a text value,
+ and return this instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the control name<DD><CODE>value</CODE> - the text value
+<DT><B>Returns:</B><DD>this instance.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="field(java.lang.String, java.lang.Object, javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+field</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/multipart/FormDataMultiPart.html" title="class in com.sun.jersey.multipart">FormDataMultiPart</A> <B>field</B>(java.lang.String&nbsp;name,
+                               java.lang.Object&nbsp;entity,
+                               <A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD>Builder pattern method to add a named field with an arbitrary
+ media type and entity, and return this instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the control name.<DD><CODE>entity</CODE> - entity value for the new field<DD><CODE>mediaType</CODE> - media type for the new field
+<DT><B>Returns:</B><DD>this instance.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getField(java.lang.String)"><!-- --></A><H3>
+getField</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart">FormDataBodyPart</A> <B>getField</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Get a form data body part given a control name.
+ <p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the control name.
+<DT><B>Returns:</B><DD>the form data body part, otherwise null if no part
+         is present with the given control name. If more that one
+         part is present with the same control name, then the first
+         part that occurs is returned.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFields(java.lang.String)"><!-- --></A><H3>
+getFields</H3>
+<PRE>
+public java.util.List&lt;<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart">FormDataBodyPart</A>&gt; <B>getFields</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Get a list of one or more form data body parts given a control name.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the control name.
+<DT><B>Returns:</B><DD>the list of form data body parts, otherwise null if no parts
+         are present with the given control name.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFields()"><!-- --></A><H3>
+getFields</H3>
+<PRE>
+public java.util.Map&lt;java.lang.String,java.util.List&lt;<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart">FormDataBodyPart</A>&gt;&gt; <B>getFields</B>()</PRE>
+<DL>
+<DD>Get a map of form data body parts where the key is the control name
+ and the value is a list of one or more form data body parts.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>return the map of form data body parts.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setMediaType(javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+setMediaType</H3>
+<PRE>
+public void <B>setMediaType</B>(<A HREF="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/MediaType.html?is-external=true" title="class or interface in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD>Disable changing the media type to anything other than
+ <code>multipart/form-data</code>.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../../com/sun/jersey/multipart/MultiPart.html#setMediaType(javax.ws.rs.core.MediaType)">setMediaType</A></CODE> in class <CODE><A HREF="../../../../com/sun/jersey/multipart/MultiPart.html" title="class in com.sun.jersey.multipart">MultiPart</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mediaType</CODE> - The proposed media type
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if the proposed media type is not
+  <code>multipart/form-data</code></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/FormDataMultiPart.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataBodyPart.html" title="class in com.sun.jersey.multipart"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/multipart/FormDataParam.html" title="annotation in com.sun.jersey.multipart"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/multipart/FormDataMultiPart.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FormDataMultiPart.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.multipart.BodyPart">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

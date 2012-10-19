@@ -1,0 +1,503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ClientConfig (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ClientConfig (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ClientConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/client/config/DefaultClientConfig.html" title="class in com.sun.jersey.api.client.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/client/config/ClientConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ClientConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.client.config</FONT>
+<BR>
+Interface ClientConfig</H2>
+<DL>
+<DT><B>All Superinterfaces:</B> <DD><A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A></DD>
+</DL>
+<DL>
+<DT><B>All Known Implementing Classes:</B> <DD><A HREF="../../../../../../com/sun/jersey/api/client/config/DefaultClientConfig.html" title="class in com.sun.jersey.api.client.config">DefaultClientConfig</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public interface <B>ClientConfig</B><DT>extends <A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A></DL>
+</PRE>
+
+<P>
+The client configuration that declares common property names,
+ features, properties, provider classes and singleton instances that
+ may be used by a <A HREF="../../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client"><CODE>Client</CODE></A> instance.
+ <p>
+ An instance of this interface may be passed to the <A HREF="../../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client"><CODE>Client</CODE></A> when
+ the client is created as follows:
+ <p>
+ <blockquote><pre>
+     ClientConfig cc = ...
+     Client c = Client.create(cc);
+ </pre></blockquote>
+ The client configuration may be used to register provider classes such
+ as those, for example, that support JAXB with JSON as follows:
+ <blockquote><pre>
+     ClientConfig cc = new DefaultClientConfig();
+     cc.getClasses().add(com.sun.jersey.impl.provider.entity.JSONRootElementProvider.class);
+     Client c = Client.create(cc);
+ </pre></blockquote>
+ Alternatively an implementation of ClientConfig could perform such
+ registration.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION">PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A value of "true" declares that the client will
+ automatically buffer the response entity (if any) and close resources
+ when a UniformInterfaceException is thrown.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_CHUNKED_ENCODING_SIZE">PROPERTY_CHUNKED_ENCODING_SIZE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chunked encoding property.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_CONNECT_TIMEOUT">PROPERTY_CONNECT_TIMEOUT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connect timeout interval property, in milliseconds.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_FOLLOW_REDIRECTS">PROPERTY_FOLLOW_REDIRECTS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Redirection property.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_READ_TIMEOUT">PROPERTY_READ_TIMEOUT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read timeout interval property, in milliseconds.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#PROPERTY_THREADPOOL_SIZE">PROPERTY_THREADPOOL_SIZE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Threadpool size property.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.core.util.FeaturesAndProperties"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface com.sun.jersey.core.util.<A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_DISABLE_XML_SECURITY">FEATURE_DISABLE_XML_SECURITY</A>, <A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_FORMATTED">FEATURE_FORMATTED</A>, <A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_PRE_1_4_PROVIDER_PRECEDENCE">FEATURE_PRE_1_4_PROVIDER_PRECEDENCE</A>, <A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#FEATURE_XMLROOTELEMENT_PROCESSING">FEATURE_XMLROOTELEMENT_PROCESSING</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Set&lt;java.lang.Class&lt;?&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#getClasses()">getClasses</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the set of provider classes to be instantiated in the scope
+ of the Client</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#getPropertyAsFeature(java.lang.String)">getPropertyAsFeature</A></B>(java.lang.String&nbsp;featureName)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a feature that is boolean property of the property bag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Set&lt;java.lang.Object&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/client/config/ClientConfig.html#getSingletons()">getSingletons</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the singleton provider instances to be utilized by the client.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.util.FeaturesAndProperties"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.core.util.<A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#getFeature(java.lang.String)">getFeature</A>, <A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#getFeatures()">getFeatures</A>, <A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#getProperties()">getProperties</A>, <A HREF="../../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html#getProperty(java.lang.String)">getProperty</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="PROPERTY_FOLLOW_REDIRECTS"><!-- --></A><H3>
+PROPERTY_FOLLOW_REDIRECTS</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_FOLLOW_REDIRECTS</B></PRE>
+<DL>
+<DD>Redirection property. A value of "true" declares that the client will 
+ automatically redirect to the URI declared in 3xx responses.
+ 
+ The value MUST be an instance of <CODE>Boolean</CODE>.
+ If the property is absent then the default value is "true".
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.api.client.config.ClientConfig.PROPERTY_FOLLOW_REDIRECTS">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_READ_TIMEOUT"><!-- --></A><H3>
+PROPERTY_READ_TIMEOUT</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_READ_TIMEOUT</B></PRE>
+<DL>
+<DD>Read timeout interval property, in milliseconds.
+ 
+ The value MUST be an instance of <CODE>Integer</CODE>.
+ 
+ If the property is absent then the default value is an interval of
+ infinity. A value of zero 0 is equivalent to an interval of
+ infinity
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.api.client.config.ClientConfig.PROPERTY_READ_TIMEOUT">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_CONNECT_TIMEOUT"><!-- --></A><H3>
+PROPERTY_CONNECT_TIMEOUT</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_CONNECT_TIMEOUT</B></PRE>
+<DL>
+<DD>Connect timeout interval property, in milliseconds.
+ 
+ The value MUST be an instance of <CODE>Integer</CODE>.
+ 
+ If the property is absent then the default value is an interval of
+ infinity. A value of  0 is equivalent to an interval of
+ infinity
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.api.client.config.ClientConfig.PROPERTY_CONNECT_TIMEOUT">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_CHUNKED_ENCODING_SIZE"><!-- --></A><H3>
+PROPERTY_CHUNKED_ENCODING_SIZE</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_CHUNKED_ENCODING_SIZE</B></PRE>
+<DL>
+<DD>Chunked encoding property.
+ 
+ The value MUST be an instance of <CODE>Integer</CODE>.
+ 
+ If the property is absent then chunked encoding will not be used.
+ A value &lt = 0 declares that chunked encoding will be used with 
+ the default chunk size. A value &gt 0 declares that chunked encoding
+ will be used with the value as the declared chunk size.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.api.client.config.ClientConfig.PROPERTY_CHUNKED_ENCODING_SIZE">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION"><!-- --></A><H3>
+PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION</B></PRE>
+<DL>
+<DD>A value of "true" declares that the client will
+ automatically buffer the response entity (if any) and close resources
+ when a UniformInterfaceException is thrown.
+
+ The value MUST be an instance of <CODE>Boolean</CODE>.
+ If the property is absent then the default value is "true".
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.api.client.config.ClientConfig.PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_THREADPOOL_SIZE"><!-- --></A><H3>
+PROPERTY_THREADPOOL_SIZE</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_THREADPOOL_SIZE</B></PRE>
+<DL>
+<DD>Threadpool size property.
+
+ The value MUST be an instance of <CODE>Integer</CODE>.
+
+ If the property is absent then threadpool used for async requests will
+ be initialized as default cached threadpool, which creates new thread
+ for every new request, see <CODE>Executors</CODE>. When
+ value bigger than zero is provided, cached threadpool limited to that
+ number of threads will be utilized.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.api.client.config.ClientConfig.PROPERTY_THREADPOOL_SIZE">Constant Field Values</A></DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getClasses()"><!-- --></A><H3>
+getClasses</H3>
+<PRE>
+java.util.Set&lt;java.lang.Class&lt;?&gt;&gt; <B>getClasses</B>()</PRE>
+<DL>
+<DD>Get the set of provider classes to be instantiated in the scope
+ of the Client
+ <p>
+ A provider class is a Java class with a <A HREF="../../../../../../javax/ws/rs/ext/Provider.html" title="annotation in javax.ws.rs.ext"><CODE>Provider</CODE></A> 
+ annotation declared on the class that implements a specific service 
+ interface.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the mutable set of provider classes. After initialization of
+         the client modification of this value will have no effect.
+         The returned value shall never be null.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSingletons()"><!-- --></A><H3>
+getSingletons</H3>
+<PRE>
+java.util.Set&lt;java.lang.Object&gt; <B>getSingletons</B>()</PRE>
+<DL>
+<DD>Get the singleton provider instances to be utilized by the client.
+ <p>
+ When the client is initialized the set of provider instances
+ will be combined and take precedence over the instances of provider
+ classes.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the mutable set of provider instances. After initialization of
+         the client modification of this value will have no effect.
+         The returned value shall never be null.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPropertyAsFeature(java.lang.String)"><!-- --></A><H3>
+getPropertyAsFeature</H3>
+<PRE>
+boolean <B>getPropertyAsFeature</B>(java.lang.String&nbsp;featureName)</PRE>
+<DL>
+<DD>Get a feature that is boolean property of the property bag.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>featureName</CODE> - the name of the feature;
+<DT><B>Returns:</B><DD>true if the feature value is present and is an instance of
+         <code>Boolean</code> and that value is true, otherwise false.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ClientConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/api/client/config/DefaultClientConfig.html" title="class in com.sun.jersey.api.client.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/client/config/ClientConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ClientConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

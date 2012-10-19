@@ -1,0 +1,1032 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+JSONJAXBContext (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="JSONJAXBContext (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JSONJAXBContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html" title="enum in com.sun.jersey.api.json"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.JSONNotation.html" title="enum in com.sun.jersey.api.json"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/json/JSONJAXBContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JSONJAXBContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.json</FONT>
+<BR>
+Class JSONJAXBContext</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by ">javax.xml.bind.JAXBContext
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.json.JSONJAXBContext</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../com/sun/jersey/api/json/JSONConfigurated.html" title="interface in com.sun.jersey.api.json">JSONConfigurated</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public final class <B>JSONJAXBContext</B><DT>extends javax.xml.bind.JAXBContext<DT>implements <A HREF="../../../../../com/sun/jersey/api/json/JSONConfigurated.html" title="interface in com.sun.jersey.api.json">JSONConfigurated</A></DL>
+</PRE>
+
+<P>
+An adaption of <CODE>JAXBContext</CODE> that supports marshalling
+ and unmarshalling of JAXB beans using the JSON format.
+ <p>
+ The JSON format may be configured by using a <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> object 
+ as a constructor parameter of this class.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.JSONNotation.html" title="enum in com.sun.jersey.api.json">JSONJAXBContext.JSONNotation</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSON_ARRAYS">JSON_ARRAYS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSON_ATTRS_AS_ELEMS">JSON_ATTRS_AS_ELEMS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSON_ENABLED">JSON_ENABLED</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSON_NON_STRINGS">JSON_NON_STRINGS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSON_NOTATION">JSON_NOTATION</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSON_ROOT_UNWRAPPING">JSON_ROOT_UNWRAPPING</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSON_XML2JSON_NS">JSON_XML2JSON_NS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#NAMESPACE">NAMESPACE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_javax.xml.bind.JAXBContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class javax.xml.bind.JAXBContext</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>JAXB_CONTEXT_FACTORY</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(java.lang.Class...)">JSONJAXBContext</A></B>(java.lang.Class...&nbsp;classesToBeBound)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a new instance with default <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(java.lang.Class[], java.util.Map)">JSONJAXBContext</A></B>(java.lang.Class[]&nbsp;classesToBeBound,
+                java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a new instance with a custom set of properties.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.Class...)">JSONJAXBContext</A></B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                java.lang.Class...&nbsp;classesToBeBound)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a new instance with given <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.Class[], java.util.Map)">JSONJAXBContext</A></B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                java.lang.Class[]&nbsp;classesToBeBound,
+                java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a new instance with a custom set of properties.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.String)">JSONJAXBContext</A></B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                java.lang.String&nbsp;contextPath)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance of using context class loader of the thread
+ with given <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.String, java.lang.ClassLoader, java.util.Map)">JSONJAXBContext</A></B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                java.lang.String&nbsp;contextPath,
+                java.lang.ClassLoader&nbsp;classLoader,
+                java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance using a specified class loader,
+ set of properties and <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> .</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(java.lang.String)">JSONJAXBContext</A></B>(java.lang.String&nbsp;contextPath)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance of using context class loader of the thread
+ with default <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(java.lang.String, java.lang.ClassLoader)">JSONJAXBContext</A></B>(java.lang.String&nbsp;contextPath,
+                java.lang.ClassLoader&nbsp;classLoader)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance using a specified class loader with
+ default  <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#JSONJAXBContext(java.lang.String, java.lang.ClassLoader, java.util.Map)">JSONJAXBContext</A></B>(java.lang.String&nbsp;contextPath,
+                java.lang.ClassLoader&nbsp;classLoader,
+                java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance using a specified class loader and 
+ a custom set of properties.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONMarshaller.html" title="interface in com.sun.jersey.api.json">JSONMarshaller</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#createJSONMarshaller()">createJSONMarshaller</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a JSON marshaller.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONUnmarshaller.html" title="interface in com.sun.jersey.api.json">JSONUnmarshaller</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#createJSONUnmarshaller()">createJSONUnmarshaller</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a JSON unmarshaller.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.bind.Marshaller</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#createMarshaller()">createMarshaller</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overrides underlaying createMarshaller method and returns
+ a marshaller which is capable of JSON serialization.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.bind.Unmarshaller</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#createUnmarshaller()">createUnmarshaller</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overrides underlaying createUnmarshaller method and returns
+ an unmarshaller which is capable of JSON deserialization.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.bind.Validator</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#createValidator()">createValidator</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simply delegates to underlying JAXBContext implementation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#getJSONConfiguration()">getJSONConfiguration</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the JSON configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONMarshaller.html" title="interface in com.sun.jersey.api.json">JSONMarshaller</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#getJSONMarshaller(javax.xml.bind.Marshaller, javax.xml.bind.JAXBContext)">getJSONMarshaller</A></B>(javax.xml.bind.Marshaller&nbsp;marshaller,
+                  javax.xml.bind.JAXBContext&nbsp;jaxbContext)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a <A HREF="../../../../../com/sun/jersey/api/json/JSONMarshaller.html" title="interface in com.sun.jersey.api.json"><CODE>JSONMarshaller</CODE></A> from a <CODE>Marshaller</CODE>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONUnmarshaller.html" title="interface in com.sun.jersey.api.json">JSONUnmarshaller</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#getJSONUnmarshaller(javax.xml.bind.Unmarshaller, javax.xml.bind.JAXBContext)">getJSONUnmarshaller</A></B>(javax.xml.bind.Unmarshaller&nbsp;unmarshaller,
+                    javax.xml.bind.JAXBContext&nbsp;jaxbContext)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a <A HREF="../../../../../com/sun/jersey/api/json/JSONUnmarshaller.html" title="interface in com.sun.jersey.api.json"><CODE>JSONUnmarshaller</CODE></A> from a <CODE>Unmarshaller</CODE>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.bind.JAXBContext</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.html#getOriginalJaxbContext()">getOriginalJaxbContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the underlying <CODE>JAXBContext</CODE>.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_javax.xml.bind.JAXBContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class javax.xml.bind.JAXBContext</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>createBinder, createBinder, createJAXBIntrospector, generateSchema, newInstance, newInstance, newInstance, newInstance, newInstance</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="NAMESPACE"><!-- --></A><H3>
+NAMESPACE</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>NAMESPACE</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>A namespace for JSONJAXBContext related properties names.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.NAMESPACE">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSON_NOTATION"><!-- --></A><H3>
+JSON_NOTATION</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>JSON_NOTATION</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>JSON notation property is now deprecated. See <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+ <p>
+ The type of this property is enum type <A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.JSONNotation.html" title="enum in com.sun.jersey.api.json"><CODE>JSONJAXBContext.JSONNotation</CODE></A>.
+ <p>
+ The value may be one of the following that are the currently supported JSON
+ notations: <code>JSONNotation.MAPPED</code>,
+ <code>JSONNotation.MAPPED_JETTISON</code> and <code>JSONNotation.BADGERFISH</code>
+ <p>
+ The default value is <code>JSONNotation.MAPPED</code>.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.JSON_NOTATION">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSON_ENABLED"><!-- --></A><H3>
+JSON_ENABLED</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>JSON_ENABLED</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>JSON enabled property is now deprecated. See <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+ <p>
+ The type of this property is <CODE>Boolean</CODE>
+ <p>
+ If set to true, JSON will be serialized/deserialized instead of XML
+ <p>
+ The default value is false.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.JSON_ENABLED">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSON_ROOT_UNWRAPPING"><!-- --></A><H3>
+JSON_ROOT_UNWRAPPING</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>JSON_ROOT_UNWRAPPING</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>XML root element unwrapping property is now deprecated. See <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+ <p>
+ The type of this property is <CODE>Boolean</CODE>
+ <p>
+ If set to true, JSON code corresponding to the XML root element will be stripped out
+ for <code>JSONNotation.MAPPED</code> (default) notation.
+ <p>
+ The default value is false.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.JSON_ROOT_UNWRAPPING">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSON_ARRAYS"><!-- --></A><H3>
+JSON_ARRAYS</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>JSON_ARRAYS</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>JSON arrays property is now deprecated. See <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+ This property is valid for the <code>JSONNotation.MAPPED</code> notation only.
+ <p>
+ The type of this property is <code>java.util.Collection&lt;String&gt;</code>.
+ <p>
+ The value is a collection of string values that are
+ object names.
+ The value of an object name in the JSON document that exists in the collection
+ of object names will be declared as an array, even if only one
+ element is present.
+ <p>
+ For example, consider that the property value is not set and the
+ JSON document is <code>{ ..., "arr1":"single element", ... }</code>.
+ If the property value is set to contain <code>"arr1"</code> then
+ the JSON document would be <code>{ ..., "arr1":["single element"], ... }</code>.
+ <p>
+ The default value is an empty collection.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.JSON_ARRAYS">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSON_NON_STRINGS"><!-- --></A><H3>
+JSON_NON_STRINGS</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>JSON_NON_STRINGS</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>JSON non-string values property is now deprecated. See <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+ This property is valid for the <code>JSONNotation.MAPPED</code> notation only.
+ <p>
+ The type of this property is <code>Collection&lt;String&gt;</code>.
+ <p>
+ The value is collection of string values that are
+ object names.
+ The value of an object name in the JSON document that exists in the collection
+ of object names will be declared as non-string value, which is not surrounded 
+ by double quotes.
+ <p>
+ For example, consider that the property value is not set and the
+ JSON document is <code>{ ..., "anumber":"12", ... }</code>.
+ If the property value is set to contain <code>"anumber"</code>
+ then the JSON document would be <code>{ ..., "anumber":12, ... }</code>.
+ <p>
+ The default value is an empty collection.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.JSON_NON_STRINGS">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSON_ATTRS_AS_ELEMS"><!-- --></A><H3>
+JSON_ATTRS_AS_ELEMS</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>JSON_ATTRS_AS_ELEMS</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>JSON attributes as elements property is now deprecated. See <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+ This property is valid for the <code>JSONNotation.MAPPED</code> notation only.
+ <p>
+ The type of this property is <code>Collection&lt;String&gt;</code>.
+ <p>
+ The value is a collection of string values that are
+ object names that correspond to XML attribute information items.
+ The value of an object name in the JSON document that exists in the collection
+ of object names will be declared as an element as not as an attribute if
+ the object corresponds to an XML attribute information item.
+ <p>
+ For example, consider that the property value is not set and the
+ JSON document is <code>{ ..., "@number":"12", ... }</code>.
+ If the property value is set contain <code>"number"</code>
+ then the JSON document would be <code>{ ..., "number":"12", ... }</code>.
+ <p>
+ The default value is an empty collection.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.JSON_ATTRS_AS_ELEMS">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="JSON_XML2JSON_NS"><!-- --></A><H3>
+JSON_XML2JSON_NS</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public static final java.lang.String <B>JSON_XML2JSON_NS</B></PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<DD>XML to JSON namespace mapping property is now deprecated. See <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+ This property is valid for the MAPPED_JETTISON notation only.
+ <p>
+ <p>
+ The type of this property is <code>Map&lt;String,String&gt;</code>.
+ <p>
+ The value is a map with zero or more
+ key/value pairs, where the key is an XML namespace and the value
+ is the prefix to use as the replacement for the XML namespace.
+ <p>
+ The default value is a map with zero key/value pairs.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.api.json.JSONJAXBContext.JSON_XML2JSON_NS">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="JSONJAXBContext(java.lang.Class...)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(java.lang.Class...&nbsp;classesToBeBound)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Constructs a new instance with default <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>classesToBeBound</CODE> - list of java classes to be recognized by the 
+        new JSONJAXBContext. Can be empty, in which case a JSONJAXBContext
+        that only knows about spec-defined classes will be returned.
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.Class...)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                       java.lang.Class...&nbsp;classesToBeBound)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Constructs a new instance with given <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>config</CODE> - <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>, can not be null<DD><CODE>classesToBeBound</CODE> - list of java classes to be recognized by the
+        new JSONJAXBContext. Can be empty, in which case a JSONJAXBContext
+        that only knows about spec-defined classes will be returned.
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(java.lang.Class[], java.util.Map)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(java.lang.Class[]&nbsp;classesToBeBound,
+                       java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Constructs a new instance with a custom set of properties. 
+ The default <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> is used if no (now deprecated)
+ JSON related properties are specified
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>classesToBeBound</CODE> - list of java classes to be recognized by the 
+        new JSONJAXBContext. Can be empty, in which case a JSONJAXBContext
+        that only knows about spec-defined classes will be returned.<DD><CODE>properties</CODE> - the custom set of properties. If it contains(now deprecated) JSON related properties,
+                  then a non-default <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> is used reflecting the JSON properties
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.Class[], java.util.Map)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                       java.lang.Class[]&nbsp;classesToBeBound,
+                       java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Constructs a new instance with a custom set of properties.
+ If no (now deprecated) JSON related properties are specified,
+ the <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html#DEFAULT"><CODE>JSONConfiguration.DEFAULT</CODE></A> is used as <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>config</CODE> - <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>, can not be null<DD><CODE>classesToBeBound</CODE> - list of java classes to be recognized by the
+        new JSONJAXBContext. Can be empty, in which case a JSONJAXBContext
+        that only knows about spec-defined classes will be returned.<DD><CODE>properties</CODE> - the custom set of properties.
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(java.lang.String)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(java.lang.String&nbsp;contextPath)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Construct a new instance of using context class loader of the thread
+ with default <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>contextPath</CODE> - list of java package names that contain schema
+        derived class and/or java to schema (JAXB-annotated) mapped
+        classes
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.String)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                       java.lang.String&nbsp;contextPath)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Construct a new instance of using context class loader of the thread
+ with given <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>config</CODE> - <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>, can not be null<DD><CODE>contextPath</CODE> - list of java package names that contain schema
+        derived class and/or java to schema (JAXB-annotated) mapped
+        classes
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(java.lang.String, java.lang.ClassLoader)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(java.lang.String&nbsp;contextPath,
+                       java.lang.ClassLoader&nbsp;classLoader)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Construct a new instance using a specified class loader with
+ default  <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>contextPath</CODE> - list of java package names that contain schema
+        derived class and/or java to schema (JAXB-annotated) mapped
+        classes<DD><CODE>classLoader</CODE> - 
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(java.lang.String, java.lang.ClassLoader, java.util.Map)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(java.lang.String&nbsp;contextPath,
+                       java.lang.ClassLoader&nbsp;classLoader,
+                       java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Construct a new instance using a specified class loader and 
+ a custom set of properties. <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> is set to default,
+ if user does not specify any (now deprecated) JSON related properties
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>contextPath</CODE> - list of java package names that contain schema
+        derived class and/or java to schema (JAXB-annotated) mapped
+        classes<DD><CODE>classLoader</CODE> - <DD><CODE>properties</CODE> - the custom set of properties.
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+<HR>
+
+<A NAME="JSONJAXBContext(com.sun.jersey.api.json.JSONConfiguration, java.lang.String, java.lang.ClassLoader, java.util.Map)"><!-- --></A><H3>
+JSONJAXBContext</H3>
+<PRE>
+public <B>JSONJAXBContext</B>(<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A>&nbsp;config,
+                       java.lang.String&nbsp;contextPath,
+                       java.lang.ClassLoader&nbsp;classLoader,
+                       java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;properties)
+                throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Construct a new instance using a specified class loader,
+ set of properties and <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A> .
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>config</CODE> - <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json"><CODE>JSONConfiguration</CODE></A>, can not be null<DD><CODE>contextPath</CODE> - list of java package names that contain schema
+        derived class and/or java to schema (JAXB-annotated) mapped
+        classes<DD><CODE>classLoader</CODE> - <DD><CODE>properties</CODE> - the custom set of properties.
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if an error was encountered while creating the
+         underlying JAXBContext.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getJSONMarshaller(javax.xml.bind.Marshaller, javax.xml.bind.JAXBContext)"><!-- --></A><H3>
+getJSONMarshaller</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONMarshaller.html" title="interface in com.sun.jersey.api.json">JSONMarshaller</A> <B>getJSONMarshaller</B>(javax.xml.bind.Marshaller&nbsp;marshaller,
+                                               javax.xml.bind.JAXBContext&nbsp;jaxbContext)</PRE>
+<DL>
+<DD>Get a <A HREF="../../../../../com/sun/jersey/api/json/JSONMarshaller.html" title="interface in com.sun.jersey.api.json"><CODE>JSONMarshaller</CODE></A> from a <CODE>Marshaller</CODE>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>marshaller</CODE> - the JAXB marshaller.
+<DT><B>Returns:</B><DD>the JSON marshaller.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getJSONUnmarshaller(javax.xml.bind.Unmarshaller, javax.xml.bind.JAXBContext)"><!-- --></A><H3>
+getJSONUnmarshaller</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/api/json/JSONUnmarshaller.html" title="interface in com.sun.jersey.api.json">JSONUnmarshaller</A> <B>getJSONUnmarshaller</B>(javax.xml.bind.Unmarshaller&nbsp;unmarshaller,
+                                                   javax.xml.bind.JAXBContext&nbsp;jaxbContext)</PRE>
+<DL>
+<DD>Get a <A HREF="../../../../../com/sun/jersey/api/json/JSONUnmarshaller.html" title="interface in com.sun.jersey.api.json"><CODE>JSONUnmarshaller</CODE></A> from a <CODE>Unmarshaller</CODE>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>unmarshaller</CODE> - the JAXB unmarshaller.
+<DT><B>Returns:</B><DD>the JSON unmarshaller.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getJSONConfiguration()"><!-- --></A><H3>
+getJSONConfiguration</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.html" title="class in com.sun.jersey.api.json">JSONConfiguration</A> <B>getJSONConfiguration</B>()</PRE>
+<DL>
+<DD>Get the JSON configuration.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/json/JSONConfigurated.html#getJSONConfiguration()">getJSONConfiguration</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/json/JSONConfigurated.html" title="interface in com.sun.jersey.api.json">JSONConfigurated</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the JSON configuration.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createJSONUnmarshaller()"><!-- --></A><H3>
+createJSONUnmarshaller</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/json/JSONUnmarshaller.html" title="interface in com.sun.jersey.api.json">JSONUnmarshaller</A> <B>createJSONUnmarshaller</B>()
+                                        throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Create a JSON unmarshaller.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the JSON unmarshaller
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if there is an error creating the unmarshaller.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createJSONMarshaller()"><!-- --></A><H3>
+createJSONMarshaller</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/json/JSONMarshaller.html" title="interface in com.sun.jersey.api.json">JSONMarshaller</A> <B>createJSONMarshaller</B>()
+                                    throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Create a JSON marshaller.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the JSON marshaller.
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE> - if there is an error creating the marshaller.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createUnmarshaller()"><!-- --></A><H3>
+createUnmarshaller</H3>
+<PRE>
+public javax.xml.bind.Unmarshaller <B>createUnmarshaller</B>()
+                                               throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Overrides underlaying createUnmarshaller method and returns
+ an unmarshaller which is capable of JSON deserialization.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>createUnmarshaller</CODE> in class <CODE>javax.xml.bind.JAXBContext</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>unmarshaller instance with JSON capabilities
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createMarshaller()"><!-- --></A><H3>
+createMarshaller</H3>
+<PRE>
+public javax.xml.bind.Marshaller <B>createMarshaller</B>()
+                                           throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Overrides underlaying createMarshaller method and returns
+ a marshaller which is capable of JSON serialization.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>createMarshaller</CODE> in class <CODE>javax.xml.bind.JAXBContext</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>marshaller instance with JSON capabilities
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createValidator()"><!-- --></A><H3>
+createValidator</H3>
+<PRE>
+public javax.xml.bind.Validator <B>createValidator</B>()
+                                         throws javax.xml.bind.JAXBException</PRE>
+<DL>
+<DD>Simply delegates to underlying JAXBContext implementation.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>createValidator</CODE> in class <CODE>javax.xml.bind.JAXBContext</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>what underlying JAXBContext returns
+<DT><B>Throws:</B>
+<DD><CODE>javax.xml.bind.JAXBException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getOriginalJaxbContext()"><!-- --></A><H3>
+getOriginalJaxbContext</H3>
+<PRE>
+public javax.xml.bind.JAXBContext <B>getOriginalJaxbContext</B>()</PRE>
+<DL>
+<DD>Returns the underlying <CODE>JAXBContext</CODE>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>underlying <CODE>JAXBContext</CODE>.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JSONJAXBContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONConfiguration.Notation.html" title="enum in com.sun.jersey.api.json"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/json/JSONJAXBContext.JSONNotation.html" title="enum in com.sun.jersey.api.json"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/json/JSONJAXBContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JSONJAXBContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

@@ -1,0 +1,863 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+SimpleServerFactory (jersey-simple-server 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="SimpleServerFactory (jersey-simple-server 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../com/sun/jersey/simple/container/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SimpleServerFactory.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/simple/container/SimpleServerFactory.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SimpleServerFactory.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.simple.container</FONT>
+<BR>
+Class SimpleServerFactory</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.simple.container.SimpleServerFactory</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public final class <B>SimpleServerFactory</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+Factory for creating and starting Simple server containers. This returns
+ a handle to the started server as <CODE>Closeable</CODE> instances, which allows
+ the server to be stopped by invoking the <CODE>Closeable.close()</CODE> method.
+ <p>
+ To start the server in HTTPS mode an <CODE>SSLContext</CODE> can be provided.
+ This will be used to decrypt and encrypt information sent over the 
+ connected TCP socket channel.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String)">create</A></B>(java.lang.String&nbsp;address)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String, org.simpleframework.http.core.Container)">create</A></B>(java.lang.String&nbsp;address,
+       org.simpleframework.http.core.Container&nbsp;container)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.lang.String&nbsp;address,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.lang.String&nbsp;address,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String, javax.net.ssl.SSLContext)">create</A></B>(java.lang.String&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String, javax.net.ssl.SSLContext, org.simpleframework.http.core.Container)">create</A></B>(java.lang.String&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context,
+       org.simpleframework.http.core.Container&nbsp;container)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.lang.String&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.lang.String, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.lang.String&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI)">create</A></B>(java.net.URI&nbsp;address)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching 
+ the classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI, org.simpleframework.http.core.Container)">create</A></B>(java.net.URI&nbsp;address,
+       org.simpleframework.http.core.Container&nbsp;container)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.net.URI&nbsp;address,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.net.URI&nbsp;address,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI, javax.net.ssl.SSLContext)">create</A></B>(java.net.URI&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching 
+ the classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI, javax.net.ssl.SSLContext, org.simpleframework.http.core.Container)">create</A></B>(java.net.URI&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context,
+       org.simpleframework.http.core.Container&nbsp;container)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.net.URI&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.io.Closeable</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/simple/container/SimpleServerFactory.html#create(java.net.URI, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.net.URI&nbsp;address,
+       javax.net.ssl.SSLContext&nbsp;context,
+       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="create(java.lang.String)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.
+ <p>
+ This implementation defers to the 
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class)</CODE></A> method for creating
+ an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be 
+        used. The URI path, query and fragment components are ignored.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.lang.String, javax.net.ssl.SSLContext)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.
+ <p>
+ This implementation defers to the 
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class)</CODE></A> method for creating
+ an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be 
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching 
+ the classes referenced in the java classpath.
+ <p>
+ This implementation defers to the 
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class)</CODE></A> method for creating
+ an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be 
+        used. The URI path, query and fragment components are ignored.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI, javax.net.ssl.SSLContext)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching 
+ the classes referenced in the java classpath.
+ <p>
+ This implementation defers to the 
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class)</CODE></A> method for creating
+ an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be 
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.lang.String, com.sun.jersey.api.core.ResourceConfig)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig)</CODE></A> method
+ for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>config</CODE> - the resource configuration.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.lang.String, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig)</CODE></A> method
+ for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI, com.sun.jersey.api.core.ResourceConfig)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig)</CODE></A> method
+ for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>config</CODE> - the resource configuration.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig)</CODE></A> method
+ for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections<DD><CODE>config</CODE> - the resource configuration.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.lang.String, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+                                       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig, IoCComponentProviderFactory)</CODE></A> 
+ method for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>config</CODE> - the resource configuration.<DD><CODE>factory</CODE> - the IoC component provider factory the web application
+        delegates to for obtaining instances of resource and provider
+        classes. May be null if the web application is responsible for
+        instantiating resource and provider classes.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.lang.String, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+                                       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig, IoCComponentProviderFactory)</CODE></A> 
+ method for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections<DD><CODE>config</CODE> - the resource configuration.<DD><CODE>factory</CODE> - the IoC component provider factory the web application
+        delegates to for obtaining instances of resource and provider
+        classes. May be null if the web application is responsible for
+        instantiating resource and provider classes.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+                                       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig, IoCComponentProviderFactory)</CODE></A> 
+ method for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>config</CODE> - the resource configuration.<DD><CODE>factory</CODE> - the IoC component provider factory the web application
+        delegates to for obtaining instances of resource and provider
+        classes. May be null if the web application is responsible for
+        instantiating resource and provider classes.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI, javax.net.ssl.SSLContext, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context,
+                                       <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config,
+                                       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.
+ <p>
+ This implementation defers to the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/container/ContainerFactory.html?is-external=true#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)" title="class or interface in com.sun.jersey.api.container"><CODE>ContainerFactory.createContainer(Class, ResourceConfig, IoCComponentProviderFactory)</CODE></A> method
+ for creating an Container that manages the root resources.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections<DD><CODE>config</CODE> - the resource configuration.<DD><CODE>factory</CODE> - the IoC component provider factory the web application
+        delegates to for obtaining instances of resource and provider
+        classes. May be null if the web application is responsible for
+        instantiating resource and provider classes.
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.lang.String, org.simpleframework.http.core.Container)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address,
+                                       org.simpleframework.http.core.Container&nbsp;container)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be 
+        used. The URI path, query and fragment components are ignored.<DD><CODE>container</CODE> - the container that handles all HTTP requests
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.lang.String, javax.net.ssl.SSLContext, org.simpleframework.http.core.Container)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.lang.String&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context,
+                                       org.simpleframework.http.core.Container&nbsp;container)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be 
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections<DD><CODE>container</CODE> - the container that handles all HTTP requests
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI, org.simpleframework.http.core.Container)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address,
+                                       org.simpleframework.http.core.Container&nbsp;container)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "http". The URI user information and host
+        are ignored If the URI port is not present then port 80 will be 
+        used. The URI path, query and fragment components are ignored.<DD><CODE>container</CODE> - the container that handles all HTTP requests
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(java.net.URI, javax.net.ssl.SSLContext, org.simpleframework.http.core.Container)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static java.io.Closeable <B>create</B>(java.net.URI&nbsp;address,
+                                       javax.net.ssl.SSLContext&nbsp;context,
+                                       org.simpleframework.http.core.Container&nbsp;container)
+                                throws java.io.IOException,
+                                       java.lang.IllegalArgumentException</PRE>
+<DL>
+<DD>Create a <CODE>Closeable</CODE> that registers an <CODE>Container</CODE> that 
+ in turn manages all root resource and provder classes found by searching the 
+ classes referenced in the java classpath.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>address</CODE> - the URI to create the http server. The URI scheme must be
+        equal to "https". The URI user information and host
+        are ignored If the URI port is not present then port 143 will be 
+        used. The URI path, query and fragment components are ignored.<DD><CODE>context</CODE> - this is the SSL context used for SSL connections<DD><CODE>container</CODE> - the container that handles all HTTP requests
+<DT><B>Returns:</B><DD>the closeable connection, with the endpoint started
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an error occurs creating the container.
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if <code>address</code> is null</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../com/sun/jersey/simple/container/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SimpleServerFactory.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/simple/container/SimpleServerFactory.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SimpleServerFactory.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

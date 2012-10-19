@@ -1,0 +1,1122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+JResponse (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="JResponse (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JResponse.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/api/ConflictException.html" title="class in com.sun.jersey.api"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/api/JResponse.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JResponse.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api</FONT>
+<BR>
+Class JResponse&lt;E&gt;</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.JResponse&lt;E&gt;</B>
+</PRE>
+<DL>
+<DT><DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>JResponse&lt;E&gt;</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+Defines the contract between a returned instance and the runtime when
+ an application needs to provide metadata to the runtime.
+ <p>
+ JResponse is a type safe alternative to <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A> that preserves the
+ type information of response entity thus it is not necessary to utilize
+ <A HREF="../../../../javax/ws/rs/core/GenericEntity.html" title="class in javax.ws.rs.core"><CODE>GenericEntity</CODE></A>. It provides equivalent functionality to
+ <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A>.
+ <p>
+ JResponse may be extended in combination with <A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.AJResponseBuilder</CODE></A>
+ specialization when building responses.
+ <p>
+ Several methods have parameters of type URI, <A HREF="../../../../javax/ws/rs/core/UriBuilder.html" title="class in javax.ws.rs.core"><CODE>UriBuilder</CODE></A> provides
+ convenient methods to create such values as does
+ <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/net/URI.html#create(java.lang.String)">URI.create()</a>.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+<DT><B>See Also:</B><DD><A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A>, 
+<A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A></DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.AJResponseBuilder</A>&lt;<A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="type parameter in JResponse.AJResponseBuilder">E</A>,<A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="type parameter in JResponse.AJResponseBuilder">B</A> extends <A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.AJResponseBuilder</A>&gt;</B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An abstract response builder that may be utilized to extend
+ response building and the construction of <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api"><CODE>JResponse</CODE></A>
+ instances.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;<A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="type parameter in JResponse.JResponseBuilder">E</A>&gt;</B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A class used to build <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api"><CODE>JResponse</CODE></A> instances that contain metadata 
+ instead of or in addition to an entity.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#JResponse(int, com.sun.jersey.core.header.OutBoundHeaders, E)">JResponse</A></B>(int&nbsp;status,
+          <A HREF="../../../../com/sun/jersey/core/header/OutBoundHeaders.html" title="class in com.sun.jersey.core.header">OutBoundHeaders</A>&nbsp;headers,
+          <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct given a status, entity and metadata.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected </CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#JResponse(com.sun.jersey.api.JResponse.AJResponseBuilder)">JResponse</A></B>(<A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.AJResponseBuilder</A>&lt;<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>,?&gt;&nbsp;b)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct from a <A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.AJResponseBuilder</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#JResponse(com.sun.jersey.api.JResponse)">JResponse</A></B>(<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api">JResponse</A>&lt;<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>&gt;&nbsp;that)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a shallow copy.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#JResponse(javax.ws.rs.core.Response.StatusType, com.sun.jersey.core.header.OutBoundHeaders, E)">JResponse</A></B>(<A HREF="../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;statusType,
+          <A HREF="../../../../com/sun/jersey/core/header/OutBoundHeaders.html" title="class in com.sun.jersey.core.header">OutBoundHeaders</A>&nbsp;headers,
+          <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct given a status type, entity and metadata.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#created(java.net.URI)">created</A></B>(java.net.URI&nbsp;location)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a created resource, set the
+ location header using the supplied value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#fromResponse(com.sun.jersey.api.JResponse)">fromResponse</A></B>(<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api">JResponse</A>&lt;E&gt;&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> by performing a shallow copy of an
+ existing <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api"><CODE>JResponse</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#fromResponse(javax.ws.rs.core.Response)">fromResponse</A></B>(<A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core">Response</A>&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> by performing a shallow copy of an
+ existing <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#getEntity()">getEntity</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the response entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/core/header/OutBoundHeaders.html" title="class in com.sun.jersey.core.header">OutBoundHeaders</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#getMetadata()">getMetadata</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get metadata associated with the response as a map.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#getStatus()">getStatus</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the status code associated with the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#getStatusType()">getStatusType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the status type associated with the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.reflect.Type</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#getType()">getType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the type of the entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#noContent()">noContent</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for an empty response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#notAcceptable(java.util.List)">notAcceptable</A></B>(java.util.List&lt;<A HREF="../../../../javax/ws/rs/core/Variant.html" title="class in javax.ws.rs.core">Variant</A>&gt;&nbsp;variants)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a not acceptable response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#notModified()">notModified</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with a not-modified status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#notModified(javax.ws.rs.core.EntityTag)">notModified</A></B>(<A HREF="../../../../javax/ws/rs/core/EntityTag.html" title="class in javax.ws.rs.core">EntityTag</A>&nbsp;tag)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with a not-modified status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#notModified(java.lang.String)">notModified</A></B>(java.lang.String&nbsp;tag)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with a not-modified status
+ and a strong entity tag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#ok()">ok</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with an OK status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#ok(E)">ok</A></B>(E&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#ok(E, javax.ws.rs.core.MediaType)">ok</A></B>(E&nbsp;entity,
+   <A HREF="../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#ok(E, java.lang.String)">ok</A></B>(E&nbsp;entity,
+   java.lang.String&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#ok(E, javax.ws.rs.core.Variant)">ok</A></B>(E&nbsp;entity,
+   <A HREF="../../../../javax/ws/rs/core/Variant.html" title="class in javax.ws.rs.core">Variant</A>&nbsp;variant)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#seeOther(java.net.URI)">seeOther</A></B>(java.net.URI&nbsp;location)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a redirection.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#serverError()">serverError</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with an server error status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#status(int)">status</A></B>(int&nbsp;status)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with the supplied status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#status(javax.ws.rs.core.Response.Status)">status</A></B>(<A HREF="../../../../javax/ws/rs/core/Response.Status.html" title="enum in javax.ws.rs.core">Response.Status</A>&nbsp;status)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with the supplied status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#status(javax.ws.rs.core.Response.StatusType)">status</A></B>(<A HREF="../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;status)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with the supplied status.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#temporaryRedirect(java.net.URI)">temporaryRedirect</A></B>(java.net.URI&nbsp;location)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a temporary redirection.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/api/JResponseAsResponse.html" title="class in com.sun.jersey.api">JResponseAsResponse</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#toResponse()">toResponse</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert to a <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A> compatible instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../com/sun/jersey/api/JResponseAsResponse.html" title="class in com.sun.jersey.api">JResponseAsResponse</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/sun/jersey/api/JResponse.html#toResponse(java.lang.reflect.Type)">toResponse</A></B>(java.lang.reflect.Type&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert to a <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A> compatible instance.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="JResponse(javax.ws.rs.core.Response.StatusType,com.sun.jersey.core.header.OutBoundHeaders,java.lang.Object)"><!-- --></A><A NAME="JResponse(javax.ws.rs.core.Response.StatusType, com.sun.jersey.core.header.OutBoundHeaders, E)"><!-- --></A><H3>
+JResponse</H3>
+<PRE>
+public <B>JResponse</B>(<A HREF="../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;statusType,
+                 <A HREF="../../../../com/sun/jersey/core/header/OutBoundHeaders.html" title="class in com.sun.jersey.core.header">OutBoundHeaders</A>&nbsp;headers,
+                 <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>&nbsp;entity)</PRE>
+<DL>
+<DD>Construct given a status type, entity and metadata.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>statusType</CODE> - the status type<DD><CODE>headers</CODE> - the metadata, it is the callers responsibility to copy
+        the metadata if necessary.<DD><CODE>entity</CODE> - the entity</DL>
+</DL>
+<HR>
+
+<A NAME="JResponse(int,com.sun.jersey.core.header.OutBoundHeaders,java.lang.Object)"><!-- --></A><A NAME="JResponse(int, com.sun.jersey.core.header.OutBoundHeaders, E)"><!-- --></A><H3>
+JResponse</H3>
+<PRE>
+public <B>JResponse</B>(int&nbsp;status,
+                 <A HREF="../../../../com/sun/jersey/core/header/OutBoundHeaders.html" title="class in com.sun.jersey.core.header">OutBoundHeaders</A>&nbsp;headers,
+                 <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>&nbsp;entity)</PRE>
+<DL>
+<DD>Construct given a status, entity and metadata.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>status</CODE> - the status<DD><CODE>headers</CODE> - the metadata, it is the callers responsibility to copy
+        the metadata if necessary.<DD><CODE>entity</CODE> - the entity</DL>
+</DL>
+<HR>
+
+<A NAME="JResponse(com.sun.jersey.api.JResponse)"><!-- --></A><H3>
+JResponse</H3>
+<PRE>
+public <B>JResponse</B>(<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api">JResponse</A>&lt;<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>&gt;&nbsp;that)</PRE>
+<DL>
+<DD>Construct a shallow copy. The metadata map will be copied but not the
+ key/value references.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>that</CODE> - the JResponse to copy from.</DL>
+</DL>
+<HR>
+
+<A NAME="JResponse(com.sun.jersey.api.JResponse.AJResponseBuilder)"><!-- --></A><H3>
+JResponse</H3>
+<PRE>
+protected <B>JResponse</B>(<A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.AJResponseBuilder</A>&lt;<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A>,?&gt;&nbsp;b)</PRE>
+<DL>
+<DD>Construct from a <A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.AJResponseBuilder</CODE></A>.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>b</CODE> - the builder.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="toResponse()"><!-- --></A><H3>
+toResponse</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/api/JResponseAsResponse.html" title="class in com.sun.jersey.api">JResponseAsResponse</A> <B>toResponse</B>()</PRE>
+<DL>
+<DD>Convert to a <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A> compatible instance.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A> compatible instance.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toResponse(java.lang.reflect.Type)"><!-- --></A><H3>
+toResponse</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/api/JResponseAsResponse.html" title="class in com.sun.jersey.api">JResponseAsResponse</A> <B>toResponse</B>(java.lang.reflect.Type&nbsp;type)</PRE>
+<DL>
+<DD>Convert to a <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A> compatible instance.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the entity type
+<DT><B>Returns:</B><DD>the <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A> compatible instance.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getStatusType()"><!-- --></A><H3>
+getStatusType</H3>
+<PRE>
+public <A HREF="../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A> <B>getStatusType</B>()</PRE>
+<DL>
+<DD>Get the status type associated with the response.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the response status type.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getStatus()"><!-- --></A><H3>
+getStatus</H3>
+<PRE>
+public int <B>getStatus</B>()</PRE>
+<DL>
+<DD>Get the status code associated with the response.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the response status code.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMetadata()"><!-- --></A><H3>
+getMetadata</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/core/header/OutBoundHeaders.html" title="class in com.sun.jersey.core.header">OutBoundHeaders</A> <B>getMetadata</B>()</PRE>
+<DL>
+<DD>Get metadata associated with the response as a map. The returned map
+ may be subsequently modified by the JAX-RS runtime. Values will be
+ serialized using a <A HREF="../../../../javax/ws/rs/ext/RuntimeDelegate.HeaderDelegate.html" title="interface in javax.ws.rs.ext"><CODE>RuntimeDelegate.HeaderDelegate</CODE></A>
+ if one is available via
+ <A HREF="../../../../javax/ws/rs/ext/RuntimeDelegate.html#createHeaderDelegate(java.lang.Class)"><CODE>RuntimeDelegate.createHeaderDelegate(java.lang.Class)</CODE></A>
+ for the class of the value or using the values <code>toString</code> method if a
+ header delegate is not available.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>response metadata as a map</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntity()"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+public <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="type parameter in JResponse">E</A> <B>getEntity</B>()</PRE>
+<DL>
+<DD>Get the response entity. The response will be serialized using a
+ MessageBodyWriter for the class and type the entity <code>E</code>.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the response entity.<DT><B>See Also:</B><DD><A HREF="../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext"><CODE>MessageBodyWriter</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getType()"><!-- --></A><H3>
+getType</H3>
+<PRE>
+public java.lang.reflect.Type <B>getType</B>()</PRE>
+<DL>
+<DD>Get the type of the entity.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the type of the entity.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fromResponse(javax.ws.rs.core.Response)"><!-- --></A><H3>
+fromResponse</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>fromResponse</B>(<A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core">Response</A>&nbsp;response)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> by performing a shallow copy of an
+ existing <A HREF="../../../../javax/ws/rs/core/Response.html" title="class in javax.ws.rs.core"><CODE>Response</CODE></A>. The returned builder has its own metadata map but
+ entries are simply references to the keys and values contained in the
+ supplied Response metadata map.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>response</CODE> - a Response from which the status code, entity and metadata
+ will be copied
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fromResponse(com.sun.jersey.api.JResponse)"><!-- --></A><H3>
+fromResponse</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>fromResponse</B>(<A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api">JResponse</A>&lt;E&gt;&nbsp;response)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> by performing a shallow copy of an
+ existing <A HREF="../../../../com/sun/jersey/api/JResponse.html" title="class in com.sun.jersey.api"><CODE>JResponse</CODE></A>. The returned builder has its own metadata map but
+ entries are simply references to the keys and values contained in the
+ supplied Response metadata map.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>response</CODE> - a JResponse from which the status code, entity and metadata
+ will be copied
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="status(javax.ws.rs.core.Response.StatusType)"><!-- --></A><H3>
+status</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>status</B>(<A HREF="../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;status)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with the supplied status.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>status</CODE> - the response status
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if status is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="status(javax.ws.rs.core.Response.Status)"><!-- --></A><H3>
+status</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>status</B>(<A HREF="../../../../javax/ws/rs/core/Response.Status.html" title="enum in javax.ws.rs.core">Response.Status</A>&nbsp;status)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with the supplied status.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>status</CODE> - the response status
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if status is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="status(int)"><!-- --></A><H3>
+status</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>status</B>(int&nbsp;status)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with the supplied status.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>status</CODE> - the response status
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if status is less than 100 or greater
+ than 599.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="ok()"><!-- --></A><H3>
+ok</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>ok</B>()</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with an OK status.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="ok(java.lang.Object)"><!-- --></A><A NAME="ok(E)"><!-- --></A><H3>
+ok</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>ok</B>(E&nbsp;entity)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>entity</CODE> - the representation entity data
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="ok(java.lang.Object,javax.ws.rs.core.MediaType)"><!-- --></A><A NAME="ok(E, javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+ok</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>ok</B>(E&nbsp;entity,
+                                                   <A HREF="../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>entity</CODE> - the representation entity data<DD><CODE>type</CODE> - the media type of the entity
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="ok(java.lang.Object,java.lang.String)"><!-- --></A><A NAME="ok(E, java.lang.String)"><!-- --></A><H3>
+ok</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>ok</B>(E&nbsp;entity,
+                                                   java.lang.String&nbsp;type)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>entity</CODE> - the representation entity data<DD><CODE>type</CODE> - the media type of the entity
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="ok(java.lang.Object,javax.ws.rs.core.Variant)"><!-- --></A><A NAME="ok(E, javax.ws.rs.core.Variant)"><!-- --></A><H3>
+ok</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>ok</B>(E&nbsp;entity,
+                                                   <A HREF="../../../../javax/ws/rs/core/Variant.html" title="class in javax.ws.rs.core">Variant</A>&nbsp;variant)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>entity</CODE> - the representation entity data<DD><CODE>variant</CODE> - representation metadata
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="serverError()"><!-- --></A><H3>
+serverError</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>serverError</B>()</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with an server error status.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="created(java.net.URI)"><!-- --></A><H3>
+created</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>created</B>(java.net.URI&nbsp;location)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a created resource, set the
+ location header using the supplied value.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>location</CODE> - the URI of the new resource. If a relative URI is
+ supplied it will be converted into an absolute URI by resolving it
+ relative to the request URI (see <CODE>UriInfo#getRequestUri</CODE>).
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if location is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="noContent()"><!-- --></A><H3>
+noContent</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>noContent</B>()</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for an empty response.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="notModified()"><!-- --></A><H3>
+notModified</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>notModified</B>()</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with a not-modified status.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="notModified(javax.ws.rs.core.EntityTag)"><!-- --></A><H3>
+notModified</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>notModified</B>(<A HREF="../../../../javax/ws/rs/core/EntityTag.html" title="class in javax.ws.rs.core">EntityTag</A>&nbsp;tag)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with a not-modified status.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>tag</CODE> - a tag for the unmodified entity
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if tag is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="notModified(java.lang.String)"><!-- --></A><H3>
+notModified</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>notModified</B>(java.lang.String&nbsp;tag)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> with a not-modified status
+ and a strong entity tag. This is a shortcut
+ for <code>notModified(new EntityTag(<i>value</i>))</code>.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>tag</CODE> - the string content of a strong entity tag. The JAX-RS
+ runtime will quote the supplied value when creating the header.
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if tag is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="seeOther(java.net.URI)"><!-- --></A><H3>
+seeOther</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>seeOther</B>(java.net.URI&nbsp;location)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a redirection. Used in the
+ redirect-after-POST (aka POST/redirect/GET) pattern.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>location</CODE> - the redirection URI. If a relative URI is
+ supplied it will be converted into an absolute URI by resolving it
+ relative to the base URI of the application (see
+ <CODE>UriInfo#getBaseUri</CODE>).
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if location is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="temporaryRedirect(java.net.URI)"><!-- --></A><H3>
+temporaryRedirect</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>temporaryRedirect</B>(java.net.URI&nbsp;location)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a temporary redirection.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>location</CODE> - the redirection URI. If a relative URI is
+ supplied it will be converted into an absolute URI by resolving it
+ relative to the base URI of the application (see
+ <CODE>UriInfo#getBaseUri</CODE>).
+<DT><B>Returns:</B><DD>a new JResponseBuilder
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if location is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="notAcceptable(java.util.List)"><!-- --></A><H3>
+notAcceptable</H3>
+<PRE>
+public static &lt;E&gt; <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt; <B>notAcceptable</B>(java.util.List&lt;<A HREF="../../../../javax/ws/rs/core/Variant.html" title="class in javax.ws.rs.core">Variant</A>&gt;&nbsp;variants)</PRE>
+<DL>
+<DD>Create a new <A HREF="../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> for a not acceptable response.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>E</CODE> - The entity type<DT><B>Parameters:</B><DD><CODE>variants</CODE> - list of variants that were available, a null value is
+ equivalent to an empty list.
+<DT><B>Returns:</B><DD>a new JResponseBuilder</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JResponse.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/sun/jersey/api/ConflictException.html" title="class in com.sun.jersey.api"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="class in com.sun.jersey.api"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/sun/jersey/api/JResponse.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JResponse.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

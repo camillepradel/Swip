@@ -1,0 +1,569 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+MessageBodyFactory (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="MessageBodyFactory (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/MessageBodyFactory.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" title="class in com.sun.jersey.core.spi.factory"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/ResponseBuilderHeaders.html" title="class in com.sun.jersey.core.spi.factory"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/spi/factory/MessageBodyFactory.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="MessageBodyFactory.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.core.spi.factory</FONT>
+<BR>
+Class MessageBodyFactory</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.core.spi.factory.MessageBodyFactory</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>MessageBodyFactory</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></DL>
+</PRE>
+
+<P>
+A factory for managing <A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext"><CODE>MessageBodyReader</CODE></A> and <A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext"><CODE>MessageBodyWriter</CODE></A>
+ instances.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#MessageBodyFactory(com.sun.jersey.core.spi.component.ProviderServices, boolean)">MessageBodyFactory</A></B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html" title="class in com.sun.jersey.core.spi.component">ProviderServices</A>&nbsp;providerServices,
+                   boolean&nbsp;deprecatedProviderPrecedence)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyReader(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyReader</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                     java.lang.reflect.Type&nbsp;t,
+                     java.lang.annotation.Annotation[]&nbsp;as,
+                     <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a message body reader that matches a set of criteria.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyWriter(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyWriter</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                     java.lang.reflect.Type&nbsp;t,
+                     java.lang.annotation.Annotation[]&nbsp;as,
+                     <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a message body writer that matches a set of criteria.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)">getMessageBodyWriterMediaType</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                              java.lang.reflect.Type&nbsp;t,
+                              java.lang.annotation.Annotation[]&nbsp;as,
+                              java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;acceptableMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the most acceptable media type supported for a Java type given a set
+ of acceptable media types.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyWriterMediaTypes(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getMessageBodyWriterMediaTypes</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                               java.lang.reflect.Type&nbsp;t,
+                               java.lang.annotation.Annotation[]&nbsp;as)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the list of media types supported for a Java type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getReaders(javax.ws.rs.core.MediaType)">getReaders</A></B>(<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the map of media type to list of message body writers that are
+ compatible with a media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getWriters(javax.ws.rs.core.MediaType)">getWriters</A></B>(<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the map of media type to list of message body writers that are
+ compatible with a media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#init()">init</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#readersToString(java.util.Map)">readersToString</A></B>(java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;&nbsp;readers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert a map media type to list of message body readers to a string.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#writersToString(java.util.Map)">writersToString</A></B>(java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;&nbsp;writers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert a map media type to list of message body writers to a string.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="MessageBodyFactory(com.sun.jersey.core.spi.component.ProviderServices, boolean)"><!-- --></A><H3>
+MessageBodyFactory</H3>
+<PRE>
+public <B>MessageBodyFactory</B>(<A HREF="../../../../../../com/sun/jersey/core/spi/component/ProviderServices.html" title="class in com.sun.jersey.core.spi.component">ProviderServices</A>&nbsp;providerServices,
+                          boolean&nbsp;deprecatedProviderPrecedence)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="init()"><!-- --></A><H3>
+init</H3>
+<PRE>
+public void <B>init</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getReaders(javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+getReaders</H3>
+<PRE>
+public java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt; <B>getReaders</B>(<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getReaders(javax.ws.rs.core.MediaType)">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Get the map of media type to list of message body writers that are
+ compatible with a media type.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getReaders(javax.ws.rs.core.MediaType)">getReaders</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mediaType</CODE> - the compatible media type.
+<DT><B>Returns:</B><DD>the map of media type to list of message body writers.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getWriters(javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+getWriters</H3>
+<PRE>
+public java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt; <B>getWriters</B>(<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getWriters(javax.ws.rs.core.MediaType)">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Get the map of media type to list of message body writers that are
+ compatible with a media type.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getWriters(javax.ws.rs.core.MediaType)">getWriters</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mediaType</CODE> - the compatible media type.
+<DT><B>Returns:</B><DD>the map of media type to list of message body writers.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="readersToString(java.util.Map)"><!-- --></A><H3>
+readersToString</H3>
+<PRE>
+public java.lang.String <B>readersToString</B>(java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;&nbsp;readers)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#readersToString(java.util.Map)">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Convert a map media type to list of message body readers to a string.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#readersToString(java.util.Map)">readersToString</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>readers</CODE> - the map media type to list of message body readers
+<DT><B>Returns:</B><DD>the string representation.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="writersToString(java.util.Map)"><!-- --></A><H3>
+writersToString</H3>
+<PRE>
+public java.lang.String <B>writersToString</B>(java.util.Map&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;&nbsp;writers)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#writersToString(java.util.Map)">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Convert a map media type to list of message body writers to a string.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#writersToString(java.util.Map)">writersToString</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>writers</CODE> - the map media type to list of message body readers
+<DT><B>Returns:</B><DD>the string representation.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageBodyReader(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+getMessageBodyReader</H3>
+<PRE>
+public &lt;T&gt; <A HREF="../../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&lt;T&gt; <B>getMessageBodyReader</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                                                     java.lang.reflect.Type&nbsp;t,
+                                                     java.lang.annotation.Annotation[]&nbsp;as,
+                                                     <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyReader(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Get a message body reader that matches a set of criteria.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyReader(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyReader</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of object to be read.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the class of object to be read.<DD><CODE>t</CODE> - the type of object to be produced. E.g. if the 
+ message body is to be converted into a method parameter, this will be
+ the formal type of the method parameter as returned by 
+ <code>Class.getGenericParameterTypes</code>.<DD><CODE>as</CODE> - an array of the annotations on the declaration of the
+ artifact that will be initialized with the produced instance. E.g. if the 
+ message body is to be converted into a method parameter, this will be
+ the annotations on that parameter returned by 
+ <code>Class.getParameterAnnotations</code>.<DD><CODE>mediaType</CODE> - the media type of the data that will be read, this will
+ be compared to the values of <A HREF="../../../../../../javax/ws/rs/Consumes.html" title="annotation in javax.ws.rs"><CODE>Consumes</CODE></A> for
+ each candidate reader and only matching readers will be queried.
+<DT><B>Returns:</B><DD>a MessageBodyReader that matches the supplied criteria or null
+ if none is found.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageBodyWriter(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)"><!-- --></A><H3>
+getMessageBodyWriter</H3>
+<PRE>
+public &lt;T&gt; <A HREF="../../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&lt;T&gt; <B>getMessageBodyWriter</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                                                     java.lang.reflect.Type&nbsp;t,
+                                                     java.lang.annotation.Annotation[]&nbsp;as,
+                                                     <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriter(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Get a message body writer that matches a set of criteria.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriter(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyWriter</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the object that is to be written.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the class of object that is to be written.<DD><CODE>t</CODE> - the type of object to be written. E.g. if the 
+ message body is to be produced from a field, this will be
+ the declared type of the field as returned by 
+ <code>Field.getGenericType</code>.<DD><CODE>as</CODE> - an array of the annotations on the declaration of the
+ artifact that will be written. E.g. if the 
+ message body is to be produced from a field, this will be
+ the annotations on that field returned by 
+ <code>Field.getDeclaredAnnotations</code>.<DD><CODE>mediaType</CODE> - the media type of the data that will be written, this will
+ be compared to the values of <A HREF="../../../../../../javax/ws/rs/Produces.html" title="annotation in javax.ws.rs"><CODE>Produces</CODE></A> for
+ each candidate writer and only matching writers will be queried.
+<DT><B>Returns:</B><DD>a MessageBodyReader that matches the supplied criteria or null
+ if none is found.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageBodyWriterMediaTypes(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])"><!-- --></A><H3>
+getMessageBodyWriterMediaTypes</H3>
+<PRE>
+public &lt;T&gt; java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt; <B>getMessageBodyWriterMediaTypes</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                                                                    java.lang.reflect.Type&nbsp;t,
+                                                                    java.lang.annotation.Annotation[]&nbsp;as)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriterMediaTypes(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Get the list of media types supported for a Java type.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriterMediaTypes(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getMessageBodyWriterMediaTypes</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of object that is to be written.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the class of object that is to be written.<DD><CODE>t</CODE> - the type of object to be written. E.g. if the 
+ message body is to be produced from a field, this will be
+ the declared type of the field as returned by 
+ <code>Field.getGenericType</code>.<DD><CODE>as</CODE> - an array of the annotations on the declaration of the
+ artifact that will be written. E.g. if the 
+ message body is to be produced from a field, this will be
+ the annotations on that field returned by 
+ <code>Field.getDeclaredAnnotations</code>.
+<DT><B>Returns:</B><DD>the list of supported media types, the list is ordered as
+ follows: a/b &lt a/* &lt \*\/*</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)"><!-- --></A><H3>
+getMessageBodyWriterMediaType</H3>
+<PRE>
+public &lt;T&gt; <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> <B>getMessageBodyWriterMediaType</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                                                   java.lang.reflect.Type&nbsp;t,
+                                                   java.lang.annotation.Annotation[]&nbsp;as,
+                                                   java.util.List&lt;<A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;acceptableMediaTypes)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)">MessageBodyWorkers</A></CODE></B></DD>
+<DD>Get the most acceptable media type supported for a Java type given a set
+ of acceptable media types.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)">getMessageBodyWriterMediaType</A></CODE> in interface <CODE><A HREF="../../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of object that is to be written.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the class of object that is to be written.<DD><CODE>t</CODE> - the type of object to be written. E.g. if the
+ message body is to be produced from a field, this will be
+ the declared type of the field as returned by
+ <code>Field.getGenericType</code>.<DD><CODE>as</CODE> - an array of the annotations on the declaration of the
+ artifact that will be written. E.g. if the
+ message body is to be produced from a field, this will be
+ the annotations on that field returned by
+ <code>Field.getDeclaredAnnotations</code>.<DD><CODE>acceptableMediaTypes</CODE> - the list of acceptable media types, sorted
+        according to the quality with the media type of highest quality
+        occurring first first.
+<DT><B>Returns:</B><DD>the best media types</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/MessageBodyFactory.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/InjectableProviderFactory.html" title="class in com.sun.jersey.core.spi.factory"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/core/spi/factory/ResponseBuilderHeaders.html" title="class in com.sun.jersey.core.spi.factory"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/core/spi/factory/MessageBodyFactory.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="MessageBodyFactory.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

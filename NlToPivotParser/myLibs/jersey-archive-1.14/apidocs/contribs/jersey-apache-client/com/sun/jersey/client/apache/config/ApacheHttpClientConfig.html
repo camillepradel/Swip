@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ApacheHttpClientConfig (Jersey Apache HTTP Client 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ApacheHttpClientConfig (Jersey Apache HTTP Client 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ApacheHttpClientConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html" title="class in com.sun.jersey.client.apache.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ApacheHttpClientConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.client.apache.config</FONT>
+<BR>
+Interface ApacheHttpClientConfig</H2>
+<DL>
+<DT><B>All Superinterfaces:</B> <DD><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A>, <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true" title="class or interface in com.sun.jersey.core.util">FeaturesAndProperties</A></DD>
+</DL>
+<DL>
+<DT><B>All Known Implementing Classes:</B> <DD><A HREF="../../../../../../com/sun/jersey/client/apache/config/DefaultApacheHttpClientConfig.html" title="class in com.sun.jersey.client.apache.config">DefaultApacheHttpClientConfig</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public interface <B>ApacheHttpClientConfig</B><DT>extends <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A></DL>
+</PRE>
+
+<P>
+Configuration options specific to the Client API that utilizes
+ <A HREF="../../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache"><CODE>ApacheHttpClient</CODE></A> or <A HREF="../../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache"><CODE>ApacheHttpClientHandler</CODE></A>.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>jorgeluisw@mac.com, Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_CREDENTIALS_PROVIDER">PROPERTY_CREDENTIALS_PROVIDER</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The credential provider that should be used to retrieve
+ credentials from a user.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_HANDLE_COOKIES">PROPERTY_HANDLE_COOKIES</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A value of "true" indicates the client should handle cookies
+ automatically using HttpClient's default cookie policy.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_HTTP_STATE">PROPERTY_HTTP_STATE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The <A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html" title="class in com.sun.jersey.client.apache.config"><CODE>ApacheHttpClientState</CODE></A> of the current client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_INTERACTIVE">PROPERTY_INTERACTIVE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A value of "true" indicates that the client should
+ interactively prompt for credentials should it receive a 401
+ response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_PREEMPTIVE_AUTHENTICATION">PROPERTY_PREEMPTIVE_AUTHENTICATION</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A value of "true" indicates that a client should send an
+ authentication request even before the server gives a 401
+ response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_PROXY_URI">PROPERTY_PROXY_URI</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A value of a URI to configure the proxy host and proxy port to proxy
+ HTTP requests and responses.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.api.client.config.ClientConfig"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface com.sun.jersey.api.client.config.<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION" title="class or interface in com.sun.jersey.api.client.config">PROPERTY_BUFFER_RESPONSE_ENTITY_ON_EXCEPTION</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_CHUNKED_ENCODING_SIZE" title="class or interface in com.sun.jersey.api.client.config">PROPERTY_CHUNKED_ENCODING_SIZE</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_CONNECT_TIMEOUT" title="class or interface in com.sun.jersey.api.client.config">PROPERTY_CONNECT_TIMEOUT</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_FOLLOW_REDIRECTS" title="class or interface in com.sun.jersey.api.client.config">PROPERTY_FOLLOW_REDIRECTS</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_READ_TIMEOUT" title="class or interface in com.sun.jersey.api.client.config">PROPERTY_READ_TIMEOUT</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_THREADPOOL_SIZE" title="class or interface in com.sun.jersey.api.client.config">PROPERTY_THREADPOOL_SIZE</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.core.util.FeaturesAndProperties"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface com.sun.jersey.core.util.<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true" title="class or interface in com.sun.jersey.core.util">FeaturesAndProperties</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#FEATURE_DISABLE_XML_SECURITY" title="class or interface in com.sun.jersey.core.util">FEATURE_DISABLE_XML_SECURITY</A>, <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#FEATURE_FORMATTED" title="class or interface in com.sun.jersey.core.util">FEATURE_FORMATTED</A>, <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#FEATURE_PRE_1_4_PROVIDER_PRECEDENCE" title="class or interface in com.sun.jersey.core.util">FEATURE_PRE_1_4_PROVIDER_PRECEDENCE</A>, <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#FEATURE_XMLROOTELEMENT_PROCESSING" title="class or interface in com.sun.jersey.core.util">FEATURE_XMLROOTELEMENT_PROCESSING</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html" title="class in com.sun.jersey.client.apache.config">ApacheHttpClientState</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#getState()">getState</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the HTTP state.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.client.config.ClientConfig"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.api.client.config.<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#getClasses()" title="class or interface in com.sun.jersey.api.client.config">getClasses</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#getPropertyAsFeature(java.lang.String)" title="class or interface in com.sun.jersey.api.client.config">getPropertyAsFeature</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#getSingletons()" title="class or interface in com.sun.jersey.api.client.config">getSingletons</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.core.util.FeaturesAndProperties"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.core.util.<A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true" title="class or interface in com.sun.jersey.core.util">FeaturesAndProperties</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#getFeature(java.lang.String)" title="class or interface in com.sun.jersey.core.util">getFeature</A>, <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#getFeatures()" title="class or interface in com.sun.jersey.core.util">getFeatures</A>, <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#getProperties()" title="class or interface in com.sun.jersey.core.util">getProperties</A>, <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/util/FeaturesAndProperties.html?is-external=true#getProperty(java.lang.String)" title="class or interface in com.sun.jersey.core.util">getProperty</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="PROPERTY_INTERACTIVE"><!-- --></A><H3>
+PROPERTY_INTERACTIVE</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_INTERACTIVE</B></PRE>
+<DL>
+<DD>A value of "true" indicates that the client should
+ interactively prompt for credentials should it receive a 401
+ response.
+
+ The value MUST be an instance of <CODE>Boolean</CODE>.
+ If the property is absent the default value is "false"
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.client.apache.config.ApacheHttpClientConfig.PROPERTY_INTERACTIVE">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_HANDLE_COOKIES"><!-- --></A><H3>
+PROPERTY_HANDLE_COOKIES</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_HANDLE_COOKIES</B></PRE>
+<DL>
+<DD>A value of "true" indicates the client should handle cookies
+ automatically using HttpClient's default cookie policy. A value
+ of "false" will cause the client to ignore all cookies.
+
+ The value MUST be an instance of <CODE>Boolean</CODE>.
+ If the property is absent the default value is "false"
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.client.apache.config.ApacheHttpClientConfig.PROPERTY_HANDLE_COOKIES">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_CREDENTIALS_PROVIDER"><!-- --></A><H3>
+PROPERTY_CREDENTIALS_PROVIDER</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_CREDENTIALS_PROVIDER</B></PRE>
+<DL>
+<DD>The credential provider that should be used to retrieve
+ credentials from a user. The provider will be used only if
+ <A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_INTERACTIVE"><CODE>PROPERTY_INTERACTIVE</CODE></A> is set to true.
+
+ The value MUST be an instance of <CODE>CredentialsProvider</CODE>.  If
+ the property is absent a default provider will be used.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.client.apache.config.ApacheHttpClientConfig.PROPERTY_CREDENTIALS_PROVIDER">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_PREEMPTIVE_AUTHENTICATION"><!-- --></A><H3>
+PROPERTY_PREEMPTIVE_AUTHENTICATION</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_PREEMPTIVE_AUTHENTICATION</B></PRE>
+<DL>
+<DD>A value of "true" indicates that a client should send an
+ authentication request even before the server gives a 401
+ response.
+
+ This property may only be set when constructing a <A HREF="../../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache"><CODE>ApacheHttpClient</CODE></A>
+ instance.
+
+ If the value of this property is set to "true" default
+ credientials must be set for the target or proxy.
+
+ The value MUST be an instance of <CODE>Boolean</CODE>.
+ If the property is absent the default value is "false"
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.client.apache.config.ApacheHttpClientConfig.PROPERTY_PREEMPTIVE_AUTHENTICATION">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_PROXY_URI"><!-- --></A><H3>
+PROPERTY_PROXY_URI</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_PROXY_URI</B></PRE>
+<DL>
+<DD>A value of a URI to configure the proxy host and proxy port to proxy
+ HTTP requests and responses. If the port component of the URI is absent
+ then a default port of 8080 be selected.
+
+ The value MUST be an instance of <CODE>String</CODE> or <CODE>URI</CODE>.
+ If the property absent then no proxy will be utilized.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.client.apache.config.ApacheHttpClientConfig.PROPERTY_PROXY_URI">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="PROPERTY_HTTP_STATE"><!-- --></A><H3>
+PROPERTY_HTTP_STATE</H3>
+<PRE>
+static final java.lang.String <B>PROPERTY_HTTP_STATE</B></PRE>
+<DL>
+<DD>The <A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html" title="class in com.sun.jersey.client.apache.config"><CODE>ApacheHttpClientState</CODE></A> of the current client. 
+ This is used to maintain authentication credentials.
+
+ The value MUST be an instance of <A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html" title="class in com.sun.jersey.client.apache.config"><CODE>ApacheHttpClientState</CODE></A>.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../constant-values.html#com.sun.jersey.client.apache.config.ApacheHttpClientConfig.PROPERTY_HTTP_STATE">Constant Field Values</A></DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getState()"><!-- --></A><H3>
+getState</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html" title="class in com.sun.jersey.client.apache.config">ApacheHttpClientState</A> <B>getState</B>()</PRE>
+<DL>
+<DD>Get the HTTP state. Credentials may be set on the HTTP state.
+ <p>
+ If no state exists then an instance is created and added
+ as the property <A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_HTTP_STATE"><CODE>PROPERTY_HTTP_STATE</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP state.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ApacheHttpClientConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientState.html" title="class in com.sun.jersey.client.apache.config"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ApacheHttpClientConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

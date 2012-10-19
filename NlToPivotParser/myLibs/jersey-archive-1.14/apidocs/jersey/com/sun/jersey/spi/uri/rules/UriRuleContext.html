@@ -1,0 +1,502 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+UriRuleContext (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="UriRuleContext (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/UriRuleContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRule.html" title="interface in com.sun.jersey.spi.uri.rules"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRules.html" title="interface in com.sun.jersey.spi.uri.rules"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/spi/uri/rules/UriRuleContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="UriRuleContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.spi.uri.rules</FONT>
+<BR>
+Interface UriRuleContext</H2>
+<DL>
+<DT><B>All Superinterfaces:</B> <DD><A HREF="../../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core">HttpContext</A>, <A HREF="../../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A>, <A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriMatchResultContext.html" title="interface in com.sun.jersey.spi.uri.rules">UriMatchResultContext</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public interface <B>UriRuleContext</B><DT>extends <A HREF="../../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core">HttpContext</A>, <A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriMatchResultContext.html" title="interface in com.sun.jersey.spi.uri.rules">UriMatchResultContext</A></DL>
+</PRE>
+
+<P>
+The context for processing URI rules.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#getContainerRequest()">getContainerRequest</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the container request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#getContainerResponse()">getContainerResponse</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the container response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#getResource(java.lang.Class)">getResource</A></B>(java.lang.Class&nbsp;resourceClass)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the resource instance from a resource class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRules.html" title="interface in com.sun.jersey.spi.uri.rules">UriRules</A>&lt;<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRule.html" title="interface in com.sun.jersey.spi.uri.rules">UriRule</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#getRules(java.lang.Class)">getRules</A></B>(java.lang.Class&nbsp;resourceClass)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the rules for a resource class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#pushContainerResponseFilters(java.util.List)">pushContainerResponseFilters</A></B>(java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html" title="interface in com.sun.jersey.spi.container">ContainerResponseFilter</A>&gt;&nbsp;filters)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push a list of container response filters to apply after the
+ container response has been produced.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#pushMatch(com.sun.jersey.api.uri.UriTemplate, java.util.List)">pushMatch</A></B>(<A HREF="../../../../../../com/sun/jersey/api/uri/UriTemplate.html" title="class in com.sun.jersey.api.uri">UriTemplate</A>&nbsp;template,
+          java.util.List&lt;java.lang.String&gt;&nbsp;names)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push a match.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#pushMethod(com.sun.jersey.api.model.AbstractResourceMethod)">pushMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push the matching resource method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#pushResource(java.lang.Object)">pushResource</A></B>(java.lang.Object&nbsp;resource)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push a matching resource.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#pushRightHandPathLength(int)">pushRightHandPathLength</A></B>(int&nbsp;rhpathlen)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push the right hand path length to calculate the entry for
+ the list of matching (ancestor) URI paths.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#setContainerRequest(com.sun.jersey.spi.container.ContainerRequest)">setContainerRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the container request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRuleContext.html#setContainerResponse(com.sun.jersey.spi.container.ContainerResponse)">setContainerResponse</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A>&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the container response.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.core.HttpContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.api.core.<A HREF="../../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core">HttpContext</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/api/core/HttpContext.html#getProperties()">getProperties</A>, <A HREF="../../../../../../com/sun/jersey/api/core/HttpContext.html#getRequest()">getRequest</A>, <A HREF="../../../../../../com/sun/jersey/api/core/HttpContext.html#getResponse()">getResponse</A>, <A HREF="../../../../../../com/sun/jersey/api/core/HttpContext.html#getUriInfo()">getUriInfo</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.spi.uri.rules.UriMatchResultContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.spi.uri.rules.<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriMatchResultContext.html" title="interface in com.sun.jersey.spi.uri.rules">UriMatchResultContext</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriMatchResultContext.html#getMatchResult()">getMatchResult</A>, <A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriMatchResultContext.html#setMatchResult(java.util.regex.MatchResult)">setMatchResult</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.core.Traceable"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.api.core.<A HREF="../../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../com/sun/jersey/api/core/Traceable.html#isTracingEnabled()">isTracingEnabled</A>, <A HREF="../../../../../../com/sun/jersey/api/core/Traceable.html#trace(java.lang.String)">trace</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getContainerRequest()"><!-- --></A><H3>
+getContainerRequest</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A> <B>getContainerRequest</B>()</PRE>
+<DL>
+<DD>Get the container request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the container request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setContainerRequest(com.sun.jersey.spi.container.ContainerRequest)"><!-- --></A><H3>
+setContainerRequest</H3>
+<PRE>
+void <B>setContainerRequest</B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request)</PRE>
+<DL>
+<DD>Set the container request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the container request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getContainerResponse()"><!-- --></A><H3>
+getContainerResponse</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A> <B>getContainerResponse</B>()</PRE>
+<DL>
+<DD>Get the container response.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the container response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setContainerResponse(com.sun.jersey.spi.container.ContainerResponse)"><!-- --></A><H3>
+setContainerResponse</H3>
+<PRE>
+void <B>setContainerResponse</B>(<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A>&nbsp;response)</PRE>
+<DL>
+<DD>Set the container response.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>response</CODE> - the container response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="pushContainerResponseFilters(java.util.List)"><!-- --></A><H3>
+pushContainerResponseFilters</H3>
+<PRE>
+void <B>pushContainerResponseFilters</B>(java.util.List&lt;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerResponseFilter.html" title="interface in com.sun.jersey.spi.container">ContainerResponseFilter</A>&gt;&nbsp;filters)</PRE>
+<DL>
+<DD>Push a list of container response filters to apply after the
+ container response has been produced.
+ <p>
+ The list of response filters is processed in reverse order of last
+ to first.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>filters</CODE> - the list container response filters</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getResource(java.lang.Class)"><!-- --></A><H3>
+getResource</H3>
+<PRE>
+java.lang.Object <B>getResource</B>(java.lang.Class&nbsp;resourceClass)</PRE>
+<DL>
+<DD>Get the resource instance from a resource class.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>resourceClass</CODE> - the resource class
+<DT><B>Returns:</B><DD>the resource instance</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRules(java.lang.Class)"><!-- --></A><H3>
+getRules</H3>
+<PRE>
+<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRules.html" title="interface in com.sun.jersey.spi.uri.rules">UriRules</A>&lt;<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRule.html" title="interface in com.sun.jersey.spi.uri.rules">UriRule</A>&gt; <B>getRules</B>(java.lang.Class&nbsp;resourceClass)</PRE>
+<DL>
+<DD>Get the rules for a resource class.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>resourceClass</CODE> - the resource class that has rules
+<DT><B>Returns:</B><DD>the rules</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="pushMatch(com.sun.jersey.api.uri.UriTemplate, java.util.List)"><!-- --></A><H3>
+pushMatch</H3>
+<PRE>
+void <B>pushMatch</B>(<A HREF="../../../../../../com/sun/jersey/api/uri/UriTemplate.html" title="class in com.sun.jersey.api.uri">UriTemplate</A>&nbsp;template,
+               java.util.List&lt;java.lang.String&gt;&nbsp;names)</PRE>
+<DL>
+<DD>Push a match.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>template</CODE> - the matching URI template.<DD><CODE>names</CODE> - the parameter names associated with the capturing group
+         values.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="pushResource(java.lang.Object)"><!-- --></A><H3>
+pushResource</H3>
+<PRE>
+void <B>pushResource</B>(java.lang.Object&nbsp;resource)</PRE>
+<DL>
+<DD>Push a matching resource.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>resource</CODE> - the matching resource</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="pushMethod(com.sun.jersey.api.model.AbstractResourceMethod)"><!-- --></A><H3>
+pushMethod</H3>
+<PRE>
+void <B>pushMethod</B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</PRE>
+<DL>
+<DD>Push the matching resource method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>arm</CODE> - the matching resource method.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="pushRightHandPathLength(int)"><!-- --></A><H3>
+pushRightHandPathLength</H3>
+<PRE>
+void <B>pushRightHandPathLength</B>(int&nbsp;rhpathlen)</PRE>
+<DL>
+<DD>Push the right hand path length to calculate the entry for
+ the list of matching (ancestor) URI paths.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>rhpathlen</CODE> - the right hand length</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/UriRuleContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRule.html" title="interface in com.sun.jersey.spi.uri.rules"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/uri/rules/UriRules.html" title="interface in com.sun.jersey.spi.uri.rules"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/spi/uri/rules/UriRuleContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="UriRuleContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

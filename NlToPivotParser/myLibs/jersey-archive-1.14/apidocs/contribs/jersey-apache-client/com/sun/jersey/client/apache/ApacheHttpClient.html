@@ -1,0 +1,458 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ApacheHttpClient (Jersey Apache HTTP Client 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ApacheHttpClient (Jersey Apache HTTP Client 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ApacheHttpClient.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/client/apache/ApacheHttpClient.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ApacheHttpClient.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.client.apache</FONT>
+<BR>
+Class ApacheHttpClient</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/filter/Filterable.html?is-external=true" title="class or interface in com.sun.jersey.api.client.filter">com.sun.jersey.api.client.filter.Filterable</A>
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true" title="class or interface in com.sun.jersey.api.client">com.sun.jersey.api.client.Client</A>
+          <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.client.apache.ApacheHttpClient</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/ClientHandler.html?is-external=true" title="class or interface in com.sun.jersey.api.client">ClientHandler</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>ApacheHttpClient</B><DT>extends <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true" title="class or interface in com.sun.jersey.api.client">Client</A></DL>
+</PRE>
+
+<P>
+A <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true" title="class or interface in com.sun.jersey.api.client"><CODE>Client</CODE></A> that utilizes the Apache HTTP client to send and receive
+ HTTP request and responses.
+ <p>
+ If an <A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache"><CODE>ApacheHttpClientHandler</CODE></A> is not explicitly passed as a
+ constructor or method parameter then by default an instance is created with
+ an <CODE>HttpClient</CODE> constructed with a <CODE>MultiThreadedHttpConnectionManager</CODE>
+ instance.
+ <p>
+ The following properties are only supported at construction of this class:
+ <A HREF="../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_PREEMPTIVE_AUTHENTICATION"><CODE>ApacheHttpClientConfig.PROPERTY_PREEMPTIVE_AUTHENTICATION</CODE></A> and
+ <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_CONNECT_TIMEOUT" title="class or interface in com.sun.jersey.api.client.config"><CODE>ClientConfig.PROPERTY_CONNECT_TIMEOUT</CODE></A>.
+ <p>
+ By default a request entity is buffered and repeatable such that
+ authorization may be performed automatically in response to a 401 response.
+ <p>
+ If the property <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true#PROPERTY_CHUNKED_ENCODING_SIZE" title="class or interface in com.sun.jersey.api.client.config"><CODE>ClientConfig.PROPERTY_CHUNKED_ENCODING_SIZE</CODE></A> size
+ is set to a value greater than 0 then chunked encoding will be enabled
+ and the request entity (if present) will not be buffered and is not
+ repeatable. For authorization to work in such scenarios the property
+ <A HREF="../../../../../com/sun/jersey/client/apache/config/ApacheHttpClientConfig.html#PROPERTY_PREEMPTIVE_AUTHENTICATION"><CODE>ApacheHttpClientConfig.PROPERTY_PREEMPTIVE_AUTHENTICATION</CODE></A> must
+ be set to true.
+ <p>
+ If a response entity is obtained that is an instance of
+ <CODE>Closeable</CODE>
+ then the instance MUST be closed after processing the entity to release
+ connection-based resources.
+ <p>
+ If a <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/ClientResponse.html?is-external=true" title="class or interface in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A> is obtained and an
+ entity is not read from the response then
+ <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/ClientResponse.html?is-external=true#close()" title="class or interface in com.sun.jersey.api.client"><CODE>ClientResponse.close()</CODE></A> MUST be called 
+ after processing the response to release connection-based resources.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>jorgeluisw@mac.com, Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#ApacheHttpClient()">ApacheHttpClient</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new client instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#ApacheHttpClient(com.sun.jersey.client.apache.ApacheHttpClientHandler)">ApacheHttpClient</A></B>(<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A>&nbsp;root)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new client instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#ApacheHttpClient(com.sun.jersey.client.apache.ApacheHttpClientHandler, com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">ApacheHttpClient</A></B>(<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A>&nbsp;root,
+                 <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;config,
+                 <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>the config parameter is no longer utilized and instead
+             the config obtained from the <A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html#getConfig()"><CODE>ApacheHttpClientHandler.getConfig()</CODE></A>
+             is utilized instead.</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#ApacheHttpClient(com.sun.jersey.client.apache.ApacheHttpClientHandler, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">ApacheHttpClient</A></B>(<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A>&nbsp;root,
+                 <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance with a client configuration and a
+ component provider.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache">ApacheHttpClient</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#create()">create</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a default client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache">ApacheHttpClient</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#create(com.sun.jersey.api.client.config.ClientConfig)">create</A></B>(<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a default client with client configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache">ApacheHttpClient</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#create(com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc,
+       <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a default client with client configuration and component provider.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html#getClientHandler()">getClientHandler</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the Apache HTTP client handler.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.client.Client"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.api.client.<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true" title="class or interface in com.sun.jersey.api.client">Client</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncResource(java.lang.String)" title="class or interface in com.sun.jersey.api.client">asyncResource</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncResource(java.net.URI)" title="class or interface in com.sun.jersey.api.client">asyncResource</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncView(java.lang.String, java.lang.Class)" title="class or interface in com.sun.jersey.api.client">asyncView</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncView(java.lang.String, T)" title="class or interface in com.sun.jersey.api.client">asyncView</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncView(java.net.URI, java.lang.Class)" title="class or interface in com.sun.jersey.api.client">asyncView</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncView(java.net.URI, T)" title="class or interface in com.sun.jersey.api.client">asyncView</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncViewResource(java.lang.String)" title="class or interface in com.sun.jersey.api.client">asyncViewResource</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#asyncViewResource(java.net.URI)" title="class or interface in com.sun.jersey.api.client">asyncViewResource</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#destroy()" title="class or interface in com.sun.jersey.api.client">destroy</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#finalize()" title="class or interface in com.sun.jersey.api.client">finalize</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#getExecutorService()" title="class or interface in com.sun.jersey.api.client">getExecutorService</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#getMessageBodyWorkers()" title="class or interface in com.sun.jersey.api.client">getMessageBodyWorkers</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#getProperties()" title="class or interface in com.sun.jersey.api.client">getProperties</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#getProviders()" title="class or interface in com.sun.jersey.api.client">getProviders</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#getViewProxy(java.lang.Class)" title="class or interface in com.sun.jersey.api.client">getViewProxy</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#handle(com.sun.jersey.api.client.ClientRequest)" title="class or interface in com.sun.jersey.api.client">handle</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#inject(java.lang.Object)" title="class or interface in com.sun.jersey.api.client">inject</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#resource(java.lang.String)" title="class or interface in com.sun.jersey.api.client">resource</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#resource(java.net.URI)" title="class or interface in com.sun.jersey.api.client">resource</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#setChunkedEncodingSize(java.lang.Integer)" title="class or interface in com.sun.jersey.api.client">setChunkedEncodingSize</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#setConnectTimeout(java.lang.Integer)" title="class or interface in com.sun.jersey.api.client">setConnectTimeout</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#setExecutorService(java.util.concurrent.ExecutorService)" title="class or interface in com.sun.jersey.api.client">setExecutorService</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#setFollowRedirects(java.lang.Boolean)" title="class or interface in com.sun.jersey.api.client">setFollowRedirects</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#setReadTimeout(java.lang.Integer)" title="class or interface in com.sun.jersey.api.client">setReadTimeout</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#view(java.lang.Class, com.sun.jersey.api.client.ClientResponse)" title="class or interface in com.sun.jersey.api.client">view</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#view(java.lang.String, java.lang.Class)" title="class or interface in com.sun.jersey.api.client">view</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#view(java.lang.String, T)" title="class or interface in com.sun.jersey.api.client">view</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#view(T, com.sun.jersey.api.client.ClientResponse)" title="class or interface in com.sun.jersey.api.client">view</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#view(java.net.URI, java.lang.Class)" title="class or interface in com.sun.jersey.api.client">view</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#view(java.net.URI, T)" title="class or interface in com.sun.jersey.api.client">view</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#viewResource(java.lang.String)" title="class or interface in com.sun.jersey.api.client">viewResource</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/Client.html?is-external=true#viewResource(java.net.URI)" title="class or interface in com.sun.jersey.api.client">viewResource</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.client.filter.Filterable"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.api.client.filter.<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/filter/Filterable.html?is-external=true" title="class or interface in com.sun.jersey.api.client.filter">Filterable</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/filter/Filterable.html?is-external=true#addFilter(com.sun.jersey.api.client.filter.ClientFilter)" title="class or interface in com.sun.jersey.api.client.filter">addFilter</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/filter/Filterable.html?is-external=true#getHeadHandler()" title="class or interface in com.sun.jersey.api.client.filter">getHeadHandler</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/filter/Filterable.html?is-external=true#isFilterPreset(com.sun.jersey.api.client.filter.ClientFilter)" title="class or interface in com.sun.jersey.api.client.filter">isFilterPreset</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/filter/Filterable.html?is-external=true#removeAllFilters()" title="class or interface in com.sun.jersey.api.client.filter">removeAllFilters</A>, <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/filter/Filterable.html?is-external=true#removeFilter(com.sun.jersey.api.client.filter.ClientFilter)" title="class or interface in com.sun.jersey.api.client.filter">removeFilter</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ApacheHttpClient()"><!-- --></A><H3>
+ApacheHttpClient</H3>
+<PRE>
+public <B>ApacheHttpClient</B>()</PRE>
+<DL>
+<DD>Create a new client instance.
+<P>
+</DL>
+<HR>
+
+<A NAME="ApacheHttpClient(com.sun.jersey.client.apache.ApacheHttpClientHandler)"><!-- --></A><H3>
+ApacheHttpClient</H3>
+<PRE>
+public <B>ApacheHttpClient</B>(<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A>&nbsp;root)</PRE>
+<DL>
+<DD>Create a new client instance.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>root</CODE> - the root client handler for dispatching a request and
+        returning a response.</DL>
+</DL>
+<HR>
+
+<A NAME="ApacheHttpClient(com.sun.jersey.client.apache.ApacheHttpClientHandler, com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+ApacheHttpClient</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public <B>ApacheHttpClient</B>(<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A>&nbsp;root,
+                                   <A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;config,
+                                   <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I>the config parameter is no longer utilized and instead
+             the config obtained from the <A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html#getConfig()"><CODE>ApacheHttpClientHandler.getConfig()</CODE></A>
+             is utilized instead.</I>
+<P>
+<DD>Create a new instance with a client configuration and a
+ component provider.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>root</CODE> - the root client handler for dispatching a request and
+        returning a response.<DD><CODE>config</CODE> - the client configuration.<DD><CODE>provider</CODE> - the IoC component provider factory.</DL>
+</DL>
+<HR>
+
+<A NAME="ApacheHttpClient(com.sun.jersey.client.apache.ApacheHttpClientHandler, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+ApacheHttpClient</H3>
+<PRE>
+public <B>ApacheHttpClient</B>(<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A>&nbsp;root,
+                        <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</PRE>
+<DL>
+<DD>Create a new instance with a client configuration and a
+ component provider.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>root</CODE> - the root client handler for dispatching a request and
+        returning a response.<DD><CODE>provider</CODE> - the IoC component provider factory.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getClientHandler()"><!-- --></A><H3>
+getClientHandler</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache">ApacheHttpClientHandler</A> <B>getClientHandler</B>()</PRE>
+<DL>
+<DD>Get the Apache HTTP client handler.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the Apache HTTP client handler.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create()"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache">ApacheHttpClient</A> <B>create</B>()</PRE>
+<DL>
+<DD>Create a default client.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a default client.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(com.sun.jersey.api.client.config.ClientConfig)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache">ApacheHttpClient</A> <B>create</B>(<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc)</PRE>
+<DL>
+<DD>Create a default client with client configuration.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cc</CODE> - the client configuration.
+<DT><B>Returns:</B><DD>a default client.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create(com.sun.jersey.api.client.config.ClientConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static <A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClient.html" title="class in com.sun.jersey.client.apache">ApacheHttpClient</A> <B>create</B>(<A HREF="https://jersey.java.net/jersey-client//apidocs/com/sun/jersey/api/client/config/ClientConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.client.config">ClientConfig</A>&nbsp;cc,
+                                      <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</PRE>
+<DL>
+<DD>Create a default client with client configuration and component provider.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cc</CODE> - the client configuration.<DD><CODE>provider</CODE> - the IoC component provider factory.
+<DT><B>Returns:</B><DD>a default client.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ApacheHttpClient.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/client/apache/ApacheHttpClientHandler.html" title="class in com.sun.jersey.client.apache"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/client/apache/ApacheHttpClient.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ApacheHttpClient.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

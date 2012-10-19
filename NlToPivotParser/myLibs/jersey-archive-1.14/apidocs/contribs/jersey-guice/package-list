@@ -1,0 +1,3 @@
+com.sun.jersey.guice
+com.sun.jersey.guice.spi.container
+com.sun.jersey.guice.spi.container.servlet

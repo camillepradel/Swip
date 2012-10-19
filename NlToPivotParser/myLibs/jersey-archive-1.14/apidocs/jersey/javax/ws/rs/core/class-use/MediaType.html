@@ -1,0 +1,2382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+Uses of Class javax.ws.rs.core.MediaType (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Uses of Class javax.ws.rs.core.MediaType (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?javax/ws/rs/core//class-useMediaType.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="MediaType.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<CENTER>
+<H2>
+<B>Uses of Class<br>javax.ws.rs.core.MediaType</B></H2>
+</CENTER>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Packages that use <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api"><B>com.sun.jersey.api</B></A></TD>
+<TD>Provides support for responses and exceptions.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.client"><B>com.sun.jersey.api.client</B></A></TD>
+<TD>Provides support for client-side communication with HTTP-based
+ RESTful Web services.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.container.filter"><B>com.sun.jersey.api.container.filter</B></A></TD>
+<TD>Provides common server-side filters.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.core"><B>com.sun.jersey.api.core</B></A></TD>
+<TD>Provides support for configuration.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.model"><B>com.sun.jersey.api.model</B></A></TD>
+<TD>Provides an abstract model of a resource class.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.header"><B>com.sun.jersey.core.header</B></A></TD>
+<TD>Provides support for HTTP headers.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.header.reader"><B>com.sun.jersey.core.header.reader</B></A></TD>
+<TD>Provides support for reading HTTP headers.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.provider"><B>com.sun.jersey.core.provider</B></A></TD>
+<TD>Provides support for provider-related classes.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.provider.jaxb"><B>com.sun.jersey.core.provider.jaxb</B></A></TD>
+<TD>Provides support for JAXB-related message body readers and writers.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.spi.factory"><B>com.sun.jersey.core.spi.factory</B></A></TD>
+<TD>Provides support for factories of particular component types.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.core.util"><B>com.sun.jersey.core.util</B></A></TD>
+<TD>Provides support for collection-based classes.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.server.wadl"><B>com.sun.jersey.server.wadl</B></A></TD>
+<TD>Provides support for WADL configuration and generation.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.server.wadl.generators"><B>com.sun.jersey.server.wadl.generators</B></A></TD>
+<TD>Provides support for JAXB WADL generation.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.server.wadl.generators.resourcedoc"><B>com.sun.jersey.server.wadl.generators.resourcedoc</B></A></TD>
+<TD>Provides support for JAXB WADL generation for resource classes.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.spi"><B>com.sun.jersey.spi</B></A></TD>
+<TD>Provides support for service providers.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.spi.container"><B>com.sun.jersey.spi.container</B></A></TD>
+<TD>Provides support for containers and the web application that manages
+ resource classes.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#javax.ws.rs.core"><B>javax.ws.rs.core</B></A></TD>
+<TD>Low-level interfaces and annotations used to create RESTful service
+ resources.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#javax.ws.rs.ext"><B>javax.ws.rs.ext</B></A></TD>
+<TD>APIs that provide extensions to the types supported by the JAX-RS API.&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/api/package-summary.html">com.sun.jersey.api</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/api/package-summary.html">com.sun.jersey.api</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;E&gt; <A HREF="../../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api">JResponse.JResponseBuilder</A>&lt;E&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>JResponse.</B><B><A HREF="../../../../../com/sun/jersey/api/JResponse.html#ok(E, javax.ws.rs.core.MediaType)">ok</A></B>(E&nbsp;entity,
+   <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <A HREF="../../../../../com/sun/jersey/api/JResponse.JResponseBuilder.html" title="class in com.sun.jersey.api"><CODE>JResponse.JResponseBuilder</CODE></A> that contains a representation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html" title="type parameter in JResponse.AJResponseBuilder">B</A></CODE></FONT></TD>
+<TD><CODE><B>JResponse.AJResponseBuilder.</B><B><A HREF="../../../../../com/sun/jersey/api/JResponse.AJResponseBuilder.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the response media type.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.client"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/api/client/package-summary.html">com.sun.jersey.api.client</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/api/client/package-summary.html">com.sun.jersey.api.client</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>RequestWriter.RequestEntityWriter.</B><B><A HREF="../../../../../com/sun/jersey/api/client/RequestWriter.RequestEntityWriter.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>ClientResponse.</B><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getType()">getType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the media type of the response.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/api/client/package-summary.html">com.sun.jersey.api.client</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncViewResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>AsyncViewResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html#accept(javax.ws.rs.core.MediaType...)">accept</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;types)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/WebResource.Builder.html" title="class in com.sun.jersey.api.client">WebResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>WebResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/WebResource.html#accept(javax.ws.rs.core.MediaType...)">accept</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;types)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="type parameter in PartialRequestBuilder">T</A></CODE></FONT></TD>
+<TD><CODE><B>PartialRequestBuilder.</B><B><A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#accept(javax.ws.rs.core.MediaType...)">accept</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;types)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html" title="type parameter in RequestBuilder">T</A></CODE></FONT></TD>
+<TD><CODE><B>RequestBuilder.</B><B><A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html#accept(javax.ws.rs.core.MediaType...)">accept</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;types)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add acceptable media types.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ViewResource.Builder.html" title="class in com.sun.jersey.api.client">ViewResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>ViewResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html#accept(javax.ws.rs.core.MediaType...)">accept</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;types)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncWebResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>AsyncWebResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html#accept(javax.ws.rs.core.MediaType...)">accept</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;types)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncViewResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>AsyncViewResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html#entity(java.lang.Object, javax.ws.rs.core.MediaType)">entity</A></B>(java.lang.Object&nbsp;entity,
+       <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/WebResource.Builder.html" title="class in com.sun.jersey.api.client">WebResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>WebResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/WebResource.html#entity(java.lang.Object, javax.ws.rs.core.MediaType)">entity</A></B>(java.lang.Object&nbsp;entity,
+       <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="type parameter in PartialRequestBuilder">T</A></CODE></FONT></TD>
+<TD><CODE><B>PartialRequestBuilder.</B><B><A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#entity(java.lang.Object, javax.ws.rs.core.MediaType)">entity</A></B>(java.lang.Object&nbsp;entity,
+       <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html" title="type parameter in RequestBuilder">T</A></CODE></FONT></TD>
+<TD><CODE><B>RequestBuilder.</B><B><A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html#entity(java.lang.Object, javax.ws.rs.core.MediaType)">entity</A></B>(java.lang.Object&nbsp;entity,
+       <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the request entity with its media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ViewResource.Builder.html" title="class in com.sun.jersey.api.client">ViewResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>ViewResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html#entity(java.lang.Object, javax.ws.rs.core.MediaType)">entity</A></B>(java.lang.Object&nbsp;entity,
+       <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncWebResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>AsyncWebResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html#entity(java.lang.Object, javax.ws.rs.core.MediaType)">entity</A></B>(java.lang.Object&nbsp;entity,
+       <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncViewResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>AsyncViewResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncViewResource.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/WebResource.Builder.html" title="class in com.sun.jersey.api.client">WebResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>WebResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/WebResource.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="type parameter in PartialRequestBuilder">T</A></CODE></FONT></TD>
+<TD><CODE><B>PartialRequestBuilder.</B><B><A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html" title="type parameter in RequestBuilder">T</A></CODE></FONT></TD>
+<TD><CODE><B>RequestBuilder.</B><B><A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ViewResource.Builder.html" title="class in com.sun.jersey.api.client">ViewResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>ViewResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/ViewResource.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncWebResource.Builder</A></CODE></FONT></TD>
+<TD><CODE><B>AsyncWebResource.</B><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.container.filter"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/api/container/filter/package-summary.html">com.sun.jersey.api.container.filter</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructor parameters in <A HREF="../../../../../com/sun/jersey/api/container/filter/package-summary.html">com.sun.jersey.api.container.filter</A> with type arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/container/filter/UriConnegFilter.html#UriConnegFilter(java.util.Map)">UriConnegFilter</A></B>(java.util.Map&lt;java.lang.String,<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaExtentions)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a filter with suffix to media type mappings.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/container/filter/UriConnegFilter.html#UriConnegFilter(java.util.Map, java.util.Map)">UriConnegFilter</A></B>(java.util.Map&lt;java.lang.String,<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaExtentions,
+                java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;languageExtentions)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a filter with suffix to media type mappings and suffix to
+ langauge mappings.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.core"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>HttpRequestContext.</B><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>will stay in Jersey 1.x, use <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)"><CODE>Request.selectVariant(java.util.List)</CODE></A>
+             as an alternative.</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>HttpResponseContext.</B><B><A HREF="../../../../../com/sun/jersey/api/core/HttpResponseContext.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the media type of the response entity.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>HttpRequestContext.</B><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getAcceptableMediaTypes(java.util.List)">getAcceptableMediaTypes</A></B>(java.util.List&lt;<A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html" title="class in com.sun.jersey.core.header">QualitySourceMediaType</A>&gt;&nbsp;priorityMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>will stay in Jersey 1.x, use <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)"><CODE>Request.selectVariant(java.util.List)</CODE></A>
+             as an alternative.</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.String,<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>ResourceConfig.</B><B><A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html#getMediaTypeMappings()">getMediaTypeMappings</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a map of file extension to media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.String,<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>DefaultResourceConfig.</B><B><A HREF="../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html#getMediaTypeMappings()">getMediaTypeMappings</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Method parameters in <A HREF="../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A> with type arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>HttpRequestContext.</B><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>will stay in Jersey 1.x, use <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)"><CODE>Request.selectVariant(java.util.List)</CODE></A>
+             as an alternative.</I></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.model"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/api/model/package-summary.html">com.sun.jersey.api.model</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/api/model/package-summary.html">com.sun.jersey.api.model</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>AbstractResourceMethod.</B><B><A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html#getSupportedInputTypes()">getSupportedInputTypes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>AbstractResourceMethod.</B><B><A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html#getSupportedOutputTypes()">getSupportedOutputTypes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.header"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Subclasses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/header/AcceptableMediaType.html" title="class in com.sun.jersey.core.header">AcceptableMediaType</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An acceptable media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html" title="class in com.sun.jersey.core.header">QualitySourceMediaType</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An quality source media type.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Fields in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A> declared as <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#FAST_INFOSET">FAST_INFOSET</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#GENERAL_MEDIA_TYPE">GENERAL_MEDIA_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The general media type corresponding to \*\/*.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>LinkHeader.LinkHeaderBuilder.</B><B><A HREF="../../../../../com/sun/jersey/core/header/LinkHeader.LinkHeaderBuilder.html#type">type</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#WADL">WADL</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Fields in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A> with type parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#GENERAL_MEDIA_TYPE_LIST">GENERAL_MEDIA_TYPE_LIST</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A singleton list containing the general media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#GENERAL_QUALITY_SOURCE_MEDIA_TYPE_LIST">GENERAL_QUALITY_SOURCE_MEDIA_TYPE_LIST</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A singleton list containing the general media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.Comparator&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#MEDIA_TYPE_COMPARATOR">MEDIA_TYPE_COMPARATOR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comparator for media types.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.Comparator&lt;java.util.List&lt;? extends <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#MEDIA_TYPE_LIST_COMPARATOR">MEDIA_TYPE_LIST_COMPARATOR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comparator for lists of media types.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>LinkHeader.</B><B><A HREF="../../../../../com/sun/jersey/core/header/LinkHeader.html#getType()">getType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#getTypeWildCart(javax.ws.rs.core.MediaType)">getTypeWildCart</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns MediaType with wildcard in subtype.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#mostSpecific(javax.ws.rs.core.MediaType, javax.ws.rs.core.MediaType)">mostSpecific</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m1,
+             <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m2)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the most specific media type from a pair of media types.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#createMediaTypes(javax.ws.rs.Consumes)">createMediaTypes</A></B>(<A HREF="../../../../../javax/ws/rs/Consumes.html" title="annotation in javax.ws.rs">Consumes</A>&nbsp;mime)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a list of media type from the <A HREF="../../../../../javax/ws/rs/Consumes.html" title="annotation in javax.ws.rs"><CODE>Consumes</CODE></A> annotation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#createMediaTypes(javax.ws.rs.Produces)">createMediaTypes</A></B>(<A HREF="../../../../../javax/ws/rs/Produces.html" title="annotation in javax.ws.rs">Produces</A>&nbsp;mime)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a list of media type from the Produces annotation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#createMediaTypes(java.lang.String[])">createMediaTypes</A></B>(java.lang.String[]&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a list of media type from an array of media types.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#createQualitySourceMediaTypes(javax.ws.rs.Produces)">createQualitySourceMediaTypes</A></B>(<A HREF="../../../../../javax/ws/rs/Produces.html" title="annotation in javax.ws.rs">Produces</A>&nbsp;mime)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a list of quality source media type from the Produces annotation.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B>QualitySourceMediaType.</B><B><A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html#getQualitySource(javax.ws.rs.core.MediaType)">getQualitySource</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#getTypeWildCart(javax.ws.rs.core.MediaType)">getTypeWildCart</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns MediaType with wildcard in subtype.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#mostSpecific(javax.ws.rs.core.MediaType, javax.ws.rs.core.MediaType)">mostSpecific</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m1,
+             <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m2)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the most specific media type from a pair of media types.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/core/header/LinkHeader.LinkHeaderBuilder.html" title="type parameter in LinkHeader.LinkHeaderBuilder">T</A></CODE></FONT></TD>
+<TD><CODE><B>LinkHeader.LinkHeaderBuilder.</B><B><A HREF="../../../../../com/sun/jersey/core/header/LinkHeader.LinkHeaderBuilder.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#typeEquals(javax.ws.rs.core.MediaType, javax.ws.rs.core.MediaType)">typeEquals</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m1,
+           <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m2)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Method parameters in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A> with type arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#intersects(java.util.List, java.util.List)">intersects</A></B>(java.util.List&lt;? extends <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;ml1,
+           java.util.List&lt;? extends <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;ml2)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>MediaTypes.</B><B><A HREF="../../../../../com/sun/jersey/core/header/MediaTypes.html#intersects(java.util.List, java.util.List)">intersects</A></B>(java.util.List&lt;? extends <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;ml1,
+           java.util.List&lt;? extends <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;ml2)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../com/sun/jersey/core/header/package-summary.html">com.sun.jersey.core.header</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html#QualitySourceMediaType(javax.ws.rs.core.MediaType)">QualitySourceMediaType</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.header.reader"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/core/header/reader/package-summary.html">com.sun.jersey.core.header.reader</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/header/reader/package-summary.html">com.sun.jersey.core.header.reader</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>HttpHeaderReader.</B><B><A HREF="../../../../../com/sun/jersey/core/header/reader/HttpHeaderReader.html#readMediaTypes(java.util.List, java.lang.String)">readMediaTypes</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;l,
+               java.lang.String&nbsp;header)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Method parameters in <A HREF="../../../../../com/sun/jersey/core/header/reader/package-summary.html">com.sun.jersey.core.header.reader</A> with type arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>HttpHeaderReader.</B><B><A HREF="../../../../../com/sun/jersey/core/header/reader/HttpHeaderReader.html#readMediaTypes(java.util.List, java.lang.String)">readMediaTypes</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;l,
+               java.lang.String&nbsp;header)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.provider"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/core/provider/package-summary.html">com.sun.jersey.core.provider</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/provider/package-summary.html">com.sun.jersey.core.provider</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.nio.charset.Charset</CODE></FONT></TD>
+<TD><CODE><B>AbstractMessageReaderWriterProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#getCharset(javax.ws.rs.core.MediaType)">getCharset</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the character set from a media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B>AbstractMessageReaderWriterProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#getSize(T, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getSize</A></B>(<A HREF="../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html" title="type parameter in AbstractMessageReaderWriterProvider">T</A>&nbsp;t,
+        java.lang.Class&lt;?&gt;&nbsp;type,
+        java.lang.reflect.Type&nbsp;genericType,
+        java.lang.annotation.Annotation[]&nbsp;annotations,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>AbstractMessageReaderWriterProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#readFromAsString(java.io.InputStream, javax.ws.rs.core.MediaType)">readFromAsString</A></B>(java.io.InputStream&nbsp;in,
+                 <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read the bytes of an input stream and convert to a string.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractMessageReaderWriterProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/AbstractMessageReaderWriterProvider.html#writeToAsString(java.lang.String, java.io.OutputStream, javax.ws.rs.core.MediaType)">writeToAsString</A></B>(java.lang.String&nbsp;s,
+                java.io.OutputStream&nbsp;out,
+                <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert a string to bytes and write those bytes to an output stream.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.provider.jaxb"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/core/provider/jaxb/package-summary.html">com.sun.jersey.core.provider.jaxb</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/provider/jaxb/package-summary.html">com.sun.jersey.core.provider.jaxb</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;javax.xml.bind.Marshaller</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#getMarshaller(java.lang.Class, javax.ws.rs.core.MediaType)">getMarshaller</A></B>(java.lang.Class&nbsp;type,
+              <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;javax.xml.bind.Unmarshaller</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#getUnmarshaller(java.lang.Class, javax.ws.rs.core.MediaType)">getUnmarshaller</A></B>(java.lang.Class&nbsp;type,
+                <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;javax.xml.stream.XMLStreamReader</CODE></FONT></TD>
+<TD><CODE><B>AbstractListElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractListElementProvider.html#getXMLStreamReader(java.lang.Class, javax.ws.rs.core.MediaType, javax.xml.bind.Unmarshaller, java.io.InputStream)">getXMLStreamReader</A></B>(java.lang.Class&lt;?&gt;&nbsp;elementType,
+                   <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+                   javax.xml.bind.Unmarshaller&nbsp;unmarshaller,
+                   java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the XMLStreamReader for unmarshalling.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AbstractListElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractListElementProvider.html#isReadable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isReadable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+           java.lang.reflect.Type&nbsp;genericType,
+           java.lang.annotation.Annotation[]&nbsp;annotations,
+           <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AbstractRootElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractRootElementProvider.html#isReadable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isReadable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+           java.lang.reflect.Type&nbsp;genericType,
+           java.lang.annotation.Annotation[]&nbsp;annotations,
+           <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#isReadable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isReadable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+           java.lang.reflect.Type&nbsp;genericType,
+           java.lang.annotation.Annotation[]&nbsp;annotations,
+           <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#isSupported(javax.ws.rs.core.MediaType)">isSupported</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AbstractListElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractListElementProvider.html#isWriteable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isWriteable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+            java.lang.reflect.Type&nbsp;genericType,
+            java.lang.annotation.Annotation[]&nbsp;annotations,
+            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AbstractRootElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractRootElementProvider.html#isWriteable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isWriteable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+            java.lang.reflect.Type&nbsp;genericType,
+            java.lang.annotation.Annotation[]&nbsp;annotations,
+            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#isWriteable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isWriteable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+            java.lang.reflect.Type&nbsp;genericType,
+            java.lang.annotation.Annotation[]&nbsp;annotations,
+            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;javax.xml.bind.JAXBElement&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#readFrom(java.lang.Class, javax.ws.rs.core.MediaType, javax.xml.bind.Unmarshaller, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+         <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         javax.xml.bind.Unmarshaller&nbsp;u,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.bind.JAXBElement&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#readFrom(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;javax.xml.bind.JAXBElement&lt;?&gt;&gt;&nbsp;type,
+         java.lang.reflect.Type&nbsp;genericType,
+         java.lang.annotation.Annotation[]&nbsp;annotations,
+         <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;&nbsp;httpHeaders,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B>AbstractRootElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractRootElementProvider.html#readFrom(java.lang.Class, javax.ws.rs.core.MediaType, javax.xml.bind.Unmarshaller, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;java.lang.Object&gt;&nbsp;type,
+         <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         javax.xml.bind.Unmarshaller&nbsp;u,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unmarshal a JAXB type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B>AbstractListElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractListElementProvider.html#readFrom(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;java.lang.Object&gt;&nbsp;type,
+         java.lang.reflect.Type&nbsp;genericType,
+         java.lang.annotation.Annotation[]&nbsp;annotations,
+         <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;&nbsp;httpHeaders,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B>AbstractRootElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractRootElementProvider.html#readFrom(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;java.lang.Object&gt;&nbsp;type,
+         java.lang.reflect.Type&nbsp;genericType,
+         java.lang.annotation.Annotation[]&nbsp;annotations,
+         <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;&nbsp;httpHeaders,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractListElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractListElementProvider.html#writeList(java.lang.Class, java.util.Collection, javax.ws.rs.core.MediaType, java.nio.charset.Charset, javax.xml.bind.Marshaller, java.io.OutputStream)">writeList</A></B>(java.lang.Class&lt;?&gt;&nbsp;elementType,
+          java.util.Collection&lt;?&gt;&nbsp;t,
+          <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+          java.nio.charset.Charset&nbsp;c,
+          javax.xml.bind.Marshaller&nbsp;m,
+          java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write a collection of JAXB objects as child elements of the root element.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#writeTo(javax.xml.bind.JAXBElement, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.OutputStream)">writeTo</A></B>(javax.xml.bind.JAXBElement&lt;?&gt;&nbsp;t,
+        java.lang.Class&lt;?&gt;&nbsp;type,
+        java.lang.reflect.Type&nbsp;genericType,
+        java.lang.annotation.Annotation[]&nbsp;annotations,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;&nbsp;httpHeaders,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractJAXBElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#writeTo(javax.xml.bind.JAXBElement, javax.ws.rs.core.MediaType, java.nio.charset.Charset, javax.xml.bind.Marshaller, java.io.OutputStream)">writeTo</A></B>(javax.xml.bind.JAXBElement&lt;?&gt;&nbsp;t,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        java.nio.charset.Charset&nbsp;c,
+        javax.xml.bind.Marshaller&nbsp;m,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractListElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractListElementProvider.html#writeTo(java.lang.Object, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.OutputStream)">writeTo</A></B>(java.lang.Object&nbsp;t,
+        java.lang.Class&lt;?&gt;&nbsp;type,
+        java.lang.reflect.Type&nbsp;genericType,
+        java.lang.annotation.Annotation[]&nbsp;annotations,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;&nbsp;httpHeaders,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractRootElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractRootElementProvider.html#writeTo(java.lang.Object, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.OutputStream)">writeTo</A></B>(java.lang.Object&nbsp;t,
+        java.lang.Class&lt;?&gt;&nbsp;type,
+        java.lang.reflect.Type&nbsp;genericType,
+        java.lang.annotation.Annotation[]&nbsp;annotations,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;&nbsp;httpHeaders,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractRootElementProvider.</B><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractRootElementProvider.html#writeTo(java.lang.Object, javax.ws.rs.core.MediaType, java.nio.charset.Charset, javax.xml.bind.Marshaller, java.io.OutputStream)">writeTo</A></B>(java.lang.Object&nbsp;t,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        java.nio.charset.Charset&nbsp;c,
+        javax.xml.bind.Marshaller&nbsp;m,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marshal an instance of a JAXB type.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../com/sun/jersey/core/provider/jaxb/package-summary.html">com.sun.jersey.core.provider.jaxb</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBElementProvider.html#AbstractJAXBElementProvider(javax.ws.rs.ext.Providers, javax.ws.rs.core.MediaType)">AbstractJAXBElementProvider</A></B>(<A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractJAXBProvider.html#AbstractJAXBProvider(javax.ws.rs.ext.Providers, javax.ws.rs.core.MediaType)">AbstractJAXBProvider</A></B>(<A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps,
+                     <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractListElementProvider.html#AbstractListElementProvider(javax.ws.rs.ext.Providers, javax.ws.rs.core.MediaType)">AbstractListElementProvider</A></B>(<A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/core/provider/jaxb/AbstractRootElementProvider.html#AbstractRootElementProvider(javax.ws.rs.ext.Providers, javax.ws.rs.core.MediaType)">AbstractRootElementProvider</A></B>(<A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A>&nbsp;ps,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.spi.factory"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/core/spi/factory/package-summary.html">com.sun.jersey.core.spi.factory</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/spi/factory/package-summary.html">com.sun.jersey.core.spi.factory</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)">getMessageBodyWriterMediaType</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                              java.lang.reflect.Type&nbsp;t,
+                              java.lang.annotation.Annotation[]&nbsp;as,
+                              java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;acceptableMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/spi/factory/package-summary.html">com.sun.jersey.core.spi.factory</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyWriterMediaTypes(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getMessageBodyWriterMediaTypes</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                               java.lang.reflect.Type&nbsp;t,
+                               java.lang.annotation.Annotation[]&nbsp;as)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getReaders(javax.ws.rs.core.MediaType)">getReaders</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getWriters(javax.ws.rs.core.MediaType)">getWriters</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/spi/factory/package-summary.html">com.sun.jersey.core.spi.factory</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyReader(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyReader</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                     java.lang.reflect.Type&nbsp;t,
+                     java.lang.annotation.Annotation[]&nbsp;as,
+                     <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyWriter(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyWriter</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                     java.lang.reflect.Type&nbsp;t,
+                     java.lang.annotation.Annotation[]&nbsp;as,
+                     <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getReaders(javax.ws.rs.core.MediaType)">getReaders</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getWriters(javax.ws.rs.core.MediaType)">getWriters</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/Variant.VariantListBuilder.html" title="class in javax.ws.rs.core">Variant.VariantListBuilder</A></CODE></FONT></TD>
+<TD><CODE><B>VariantListBuilderImpl.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/VariantListBuilderImpl.html#mediaTypes(javax.ws.rs.core.MediaType...)">mediaTypes</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/ContextResolver.html" title="interface in javax.ws.rs.ext">ContextResolver</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>ContextResolverFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/ContextResolverFactory.html#resolve(java.lang.reflect.Type, javax.ws.rs.core.MediaType)">resolve</A></B>(java.lang.reflect.Type&nbsp;t,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/Response.ResponseBuilder.html" title="class in javax.ws.rs.core">Response.ResponseBuilder</A></CODE></FONT></TD>
+<TD><CODE><B>ResponseBuilderImpl.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/ResponseBuilderImpl.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Method parameters in <A HREF="../../../../../com/sun/jersey/core/spi/factory/package-summary.html">com.sun.jersey.core.spi.factory</A> with type arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)">getMessageBodyWriterMediaType</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                              java.lang.reflect.Type&nbsp;t,
+                              java.lang.annotation.Annotation[]&nbsp;as,
+                              java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;acceptableMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#readersToString(java.util.Map)">readersToString</A></B>(java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;&nbsp;readers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyFactory.</B><B><A HREF="../../../../../com/sun/jersey/core/spi/factory/MessageBodyFactory.html#writersToString(java.util.Map)">writersToString</A></B>(java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;&nbsp;writers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.core.util"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/core/util/package-summary.html">com.sun.jersey.core.util</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/core/util/package-summary.html">com.sun.jersey.core.util</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.nio.charset.Charset</CODE></FONT></TD>
+<TD><CODE><B>ReaderWriter.</B><B><A HREF="../../../../../com/sun/jersey/core/util/ReaderWriter.html#getCharset(javax.ws.rs.core.MediaType)">getCharset</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the character set from a media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>ReaderWriter.</B><B><A HREF="../../../../../com/sun/jersey/core/util/ReaderWriter.html#readFromAsString(java.io.InputStream, javax.ws.rs.core.MediaType)">readFromAsString</A></B>(java.io.InputStream&nbsp;in,
+                 <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read the bytes of an input stream and convert to a string.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ReaderWriter.</B><B><A HREF="../../../../../com/sun/jersey/core/util/ReaderWriter.html#writeToAsString(java.lang.String, java.io.OutputStream, javax.ws.rs.core.MediaType)">writeToAsString</A></B>(java.lang.String&nbsp;s,
+                java.io.OutputStream&nbsp;out,
+                <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert a string to bytes and write those bytes to an output stream.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.server.wadl"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/server/wadl/package-summary.html">com.sun.jersey.server.wadl</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/server/wadl/package-summary.html">com.sun.jersey.server.wadl</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>ApplicationDescription.ExternalGrammar.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.ExternalGrammar.html#getType()">getType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/server/wadl/package-summary.html">com.sun.jersey.server.wadl</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGenerator.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createResponseRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createResponseRepresentation</A></B>(<A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                             <A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                             <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../com/sun/jersey/server/wadl/package-summary.html">com.sun.jersey.server.wadl</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/server/wadl/ApplicationDescription.ExternalGrammar.html#ApplicationDescription.ExternalGrammar(javax.ws.rs.core.MediaType, byte[])">ApplicationDescription.ExternalGrammar</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type,
+                                       byte[]&nbsp;content)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.server.wadl.generators"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/server/wadl/generators/package-summary.html">com.sun.jersey.server.wadl.generators</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/server/wadl/generators/package-summary.html">com.sun.jersey.server.wadl.generators</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorApplicationDoc.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorGrammarsSupport.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+                            <A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorJAXBGrammarGenerator.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+                            <A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.server.wadl.generators.resourcedoc"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/package-summary.html">com.sun.jersey.server.wadl.generators.resourcedoc</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/package-summary.html">com.sun.jersey.server.wadl.generators.resourcedoc</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorResourceDocSupport.</B><B><A HREF="../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.spi"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/spi/package-summary.html">com.sun.jersey.spi</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/spi/package-summary.html">com.sun.jersey.spi</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)">getMessageBodyWriterMediaType</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                              java.lang.reflect.Type&nbsp;genericType,
+                              java.lang.annotation.Annotation[]&nbsp;annotations,
+                              java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;acceptableMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the most acceptable media type supported for a Java type given a set
+ of acceptable media types.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/spi/package-summary.html">com.sun.jersey.spi</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriterMediaTypes(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getMessageBodyWriterMediaTypes</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                               java.lang.reflect.Type&nbsp;genericType,
+                               java.lang.annotation.Annotation[]&nbsp;annotations)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the list of media types supported for a Java type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getReaders(javax.ws.rs.core.MediaType)">getReaders</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the map of media type to list of message body writers that are
+ compatible with a media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getWriters(javax.ws.rs.core.MediaType)">getWriters</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the map of media type to list of message body writers that are
+ compatible with a media type.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/spi/package-summary.html">com.sun.jersey.spi</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyReader(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyReader</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                     java.lang.reflect.Type&nbsp;genericType,
+                     java.lang.annotation.Annotation[]&nbsp;annotations,
+                     <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a message body reader that matches a set of criteria.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriter(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyWriter</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                     java.lang.reflect.Type&nbsp;genericType,
+                     java.lang.annotation.Annotation[]&nbsp;annotations,
+                     <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a message body writer that matches a set of criteria.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getReaders(javax.ws.rs.core.MediaType)">getReaders</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the map of media type to list of message body writers that are
+ compatible with a media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getWriters(javax.ws.rs.core.MediaType)">getWriters</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the map of media type to list of message body writers that are
+ compatible with a media type.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Method parameters in <A HREF="../../../../../com/sun/jersey/spi/package-summary.html">com.sun.jersey.spi</A> with type arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#getMessageBodyWriterMediaType(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], java.util.List)">getMessageBodyWriterMediaType</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                              java.lang.reflect.Type&nbsp;genericType,
+                              java.lang.annotation.Annotation[]&nbsp;annotations,
+                              java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;acceptableMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the most acceptable media type supported for a Java type given a set
+ of acceptable media types.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#readersToString(java.util.Map)">readersToString</A></B>(java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&gt;&gt;&nbsp;readers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert a map media type to list of message body readers to a string.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWorkers.</B><B><A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html#writersToString(java.util.Map)">writersToString</A></B>(java.util.Map&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>,java.util.List&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&gt;&gt;&nbsp;writers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert a map media type to list of message body writers to a string.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.spi.container"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../com/sun/jersey/spi/container/package-summary.html">com.sun.jersey.spi.container</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/spi/container/package-summary.html">com.sun.jersey.spi.container</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>ContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>AdaptingContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>ContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>AdaptingContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>ContainerResponse.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/ContainerResponse.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>AdaptingContainerResponse.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerResponse.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/spi/container/package-summary.html">com.sun.jersey.spi.container</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>ContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#getAcceptableMediaTypes()">getAcceptableMediaTypes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>AdaptingContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableMediaTypes()">getAcceptableMediaTypes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>ContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#getAcceptableMediaTypes(java.util.List)">getAcceptableMediaTypes</A></B>(java.util.List&lt;<A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html" title="class in com.sun.jersey.core.header">QualitySourceMediaType</A>&gt;&nbsp;priorityMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>AdaptingContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableMediaTypes(java.util.List)">getAcceptableMediaTypes</A></B>(java.util.List&lt;<A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html" title="class in com.sun.jersey.core.header">QualitySourceMediaType</A>&gt;&nbsp;priorityMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../com/sun/jersey/spi/container/package-summary.html">com.sun.jersey.spi.container</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; void</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>ContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#setEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, T)">setEntity</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+          java.lang.reflect.Type&nbsp;genericType,
+          java.lang.annotation.Annotation[]&nbsp;annotations,
+          <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+          <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;&nbsp;httpHeaders,
+          T&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the request entity.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Method parameters in <A HREF="../../../../../com/sun/jersey/spi/container/package-summary.html">com.sun.jersey.spi.container</A> with type arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>ContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>AdaptingContainerRequest.</B><B><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="javax.ws.rs.core"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../javax/ws/rs/core/package-summary.html">javax.ws.rs.core</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Fields in <A HREF="../../../../../javax/ws/rs/core/package-summary.html">javax.ws.rs.core</A> declared as <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#APPLICATION_ATOM_XML_TYPE">APPLICATION_ATOM_XML_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"application/atom+xml"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#APPLICATION_FORM_URLENCODED_TYPE">APPLICATION_FORM_URLENCODED_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"application/x-www-form-urlencoded"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#APPLICATION_JSON_TYPE">APPLICATION_JSON_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"application/json"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#APPLICATION_OCTET_STREAM_TYPE">APPLICATION_OCTET_STREAM_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"application/octet-stream"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#APPLICATION_SVG_XML_TYPE">APPLICATION_SVG_XML_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"application/svg+xml"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#APPLICATION_XHTML_XML_TYPE">APPLICATION_XHTML_XML_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"application/xhtml+xml"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#APPLICATION_XML_TYPE">APPLICATION_XML_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"application/xml"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#MULTIPART_FORM_DATA_TYPE">MULTIPART_FORM_DATA_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"multipart/form-data"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#TEXT_HTML_TYPE">TEXT_HTML_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text/html"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#TEXT_PLAIN_TYPE">TEXT_PLAIN_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text/plain"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#TEXT_XML_TYPE">TEXT_XML_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text/xml"</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#WILDCARD_TYPE">WILDCARD_TYPE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"*&#47;*"</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../javax/ws/rs/core/package-summary.html">javax.ws.rs.core</A> that return <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>Variant.</B><B><A HREF="../../../../../javax/ws/rs/core/Variant.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the media type of the variant</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>HttpHeaders.</B><B><A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getMediaType()">getMediaType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the media type of the request entity</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#valueOf(java.lang.String)">valueOf</A></B>(java.lang.String&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new instance of MediaType by parsing the supplied string.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../javax/ws/rs/core/package-summary.html">javax.ws.rs.core</A> that return types with arguments of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>HttpHeaders.</B><B><A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getAcceptableMediaTypes()">getAcceptableMediaTypes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a list of media types that are acceptable for the response.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../javax/ws/rs/core/package-summary.html">javax.ws.rs.core</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>MediaType.</B><B><A HREF="../../../../../javax/ws/rs/core/MediaType.html#isCompatible(javax.ws.rs.core.MediaType)">isCompatible</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;other)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check if this media type is compatible with another media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/Variant.VariantListBuilder.html" title="class in javax.ws.rs.core">Variant.VariantListBuilder</A></CODE></FONT></TD>
+<TD><CODE><B>Variant.</B><B><A HREF="../../../../../javax/ws/rs/core/Variant.html#mediaTypes(javax.ws.rs.core.MediaType...)">mediaTypes</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <A HREF="../../../../../javax/ws/rs/core/Variant.VariantListBuilder.html" title="class in javax.ws.rs.core"><CODE>Variant.VariantListBuilder</CODE></A> initialized with a set of supported
+ media types.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;<A HREF="../../../../../javax/ws/rs/core/Variant.VariantListBuilder.html" title="class in javax.ws.rs.core">Variant.VariantListBuilder</A></CODE></FONT></TD>
+<TD><CODE><B>Variant.VariantListBuilder.</B><B><A HREF="../../../../../javax/ws/rs/core/Variant.VariantListBuilder.html#mediaTypes(javax.ws.rs.core.MediaType...)">mediaTypes</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>...&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the media type[s] for this variant.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../javax/ws/rs/core/Response.ResponseBuilder.html" title="class in javax.ws.rs.core">Response.ResponseBuilder</A></CODE></FONT></TD>
+<TD><CODE><B>Response.</B><B><A HREF="../../../../../javax/ws/rs/core/Response.html#ok(java.lang.Object, javax.ws.rs.core.MediaType)">ok</A></B>(java.lang.Object&nbsp;entity,
+   <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new ResponseBuilder that contains a representation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;<A HREF="../../../../../javax/ws/rs/core/Response.ResponseBuilder.html" title="class in javax.ws.rs.core">Response.ResponseBuilder</A></CODE></FONT></TD>
+<TD><CODE><B>Response.ResponseBuilder.</B><B><A HREF="../../../../../javax/ws/rs/core/Response.ResponseBuilder.html#type(javax.ws.rs.core.MediaType)">type</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the response media type on the ResponseBuilder.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../javax/ws/rs/core/package-summary.html">javax.ws.rs.core</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../javax/ws/rs/core/Variant.html#Variant(javax.ws.rs.core.MediaType, java.util.Locale, java.lang.String)">Variant</A></B>(<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        java.util.Locale&nbsp;language,
+        java.lang.String&nbsp;encoding)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance of Variant</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="javax.ws.rs.ext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> in <A HREF="../../../../../javax/ws/rs/ext/package-summary.html">javax.ws.rs.ext</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../javax/ws/rs/ext/package-summary.html">javax.ws.rs.ext</A> with parameters of type <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/ContextResolver.html" title="interface in javax.ws.rs.ext">ContextResolver</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>Providers.</B><B><A HREF="../../../../../javax/ws/rs/ext/Providers.html#getContextResolver(java.lang.Class, javax.ws.rs.core.MediaType)">getContextResolver</A></B>(java.lang.Class&lt;T&gt;&nbsp;contextType,
+                   <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a context resolver for a particular type of context and media type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="interface in javax.ws.rs.ext">MessageBodyReader</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>Providers.</B><B><A HREF="../../../../../javax/ws/rs/ext/Providers.html#getMessageBodyReader(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyReader</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                     java.lang.reflect.Type&nbsp;genericType,
+                     java.lang.annotation.Annotation[]&nbsp;annotations,
+                     <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a message body reader that matches a set of criteria.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; <A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="interface in javax.ws.rs.ext">MessageBodyWriter</A>&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>Providers.</B><B><A HREF="../../../../../javax/ws/rs/ext/Providers.html#getMessageBodyWriter(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getMessageBodyWriter</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                     java.lang.reflect.Type&nbsp;genericType,
+                     java.lang.annotation.Annotation[]&nbsp;annotations,
+                     <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a message body writer that matches a set of criteria.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWriter.</B><B><A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html#getSize(T, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">getSize</A></B>(<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="type parameter in MessageBodyWriter">T</A>&nbsp;t,
+        java.lang.Class&lt;?&gt;&nbsp;type,
+        java.lang.reflect.Type&nbsp;genericType,
+        java.lang.annotation.Annotation[]&nbsp;annotations,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Called before <code>writeTo</code> to ascertain the length in bytes of 
+ the serialized form of <code>t</code>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyReader.</B><B><A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html#isReadable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isReadable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+           java.lang.reflect.Type&nbsp;genericType,
+           java.lang.annotation.Annotation[]&nbsp;annotations,
+           <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascertain if the MessageBodyReader can produce an instance of a
+ particular type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWriter.</B><B><A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html#isWriteable(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType)">isWriteable</A></B>(java.lang.Class&lt;?&gt;&nbsp;type,
+            java.lang.reflect.Type&nbsp;genericType,
+            java.lang.annotation.Annotation[]&nbsp;annotations,
+            <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ascertain if the MessageBodyWriter supports a particular type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="type parameter in MessageBodyReader">T</A></CODE></FONT></TD>
+<TD><CODE><B>MessageBodyReader.</B><B><A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html#readFrom(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.InputStream)">readFrom</A></B>(java.lang.Class&lt;<A HREF="../../../../../javax/ws/rs/ext/MessageBodyReader.html" title="type parameter in MessageBodyReader">T</A>&gt;&nbsp;type,
+         java.lang.reflect.Type&nbsp;genericType,
+         java.lang.annotation.Annotation[]&nbsp;annotations,
+         <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+         <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;&nbsp;httpHeaders,
+         java.io.InputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read a type from the <CODE>InputStream</CODE>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>MessageBodyWriter.</B><B><A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html#writeTo(T, java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[], javax.ws.rs.core.MediaType, javax.ws.rs.core.MultivaluedMap, java.io.OutputStream)">writeTo</A></B>(<A HREF="../../../../../javax/ws/rs/ext/MessageBodyWriter.html" title="type parameter in MessageBodyWriter">T</A>&nbsp;t,
+        java.lang.Class&lt;?&gt;&nbsp;type,
+        java.lang.reflect.Type&nbsp;genericType,
+        java.lang.annotation.Annotation[]&nbsp;annotations,
+        <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType,
+        <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.Object&gt;&nbsp;httpHeaders,
+        java.io.OutputStream&nbsp;entityStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write a type to an HTTP response.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?javax/ws/rs/core//class-useMediaType.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="MediaType.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

@@ -1,0 +1,992 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ClientResponse (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ClientResponse (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ClientResponse.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientRequestAdapter.html" title="interface in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.Status.html" title="enum in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/ClientResponse.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ClientResponse.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.client</FONT>
+<BR>
+Class ClientResponse</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.client.ClientResponse</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>ClientResponse</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+A client (in-bound) HTTP response.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.Status.html" title="enum in com.sun.jersey.api.client">ClientResponse.Status</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status codes defined by HTTP, see
+ <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10">HTTP/1.1 documentation</a>.</TD>
+</TR>
+</TABLE>
+&nbsp;<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../javax/ws/rs/ext/RuntimeDelegate.HeaderDelegate.html" title="interface in javax.ws.rs.ext">RuntimeDelegate.HeaderDelegate</A>&lt;java.util.Date&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#dateDelegate">dateDelegate</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../javax/ws/rs/ext/RuntimeDelegate.HeaderDelegate.html" title="interface in javax.ws.rs.ext">RuntimeDelegate.HeaderDelegate</A>&lt;<A HREF="../../../../../javax/ws/rs/core/EntityTag.html" title="class in javax.ws.rs.core">EntityTag</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#entityTagDelegate">entityTagDelegate</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#ClientResponse(int, com.sun.jersey.core.header.InBoundHeaders, java.io.InputStream, com.sun.jersey.spi.MessageBodyWorkers)">ClientResponse</A></B>(int&nbsp;status,
+               <A HREF="../../../../../com/sun/jersey/core/header/InBoundHeaders.html" title="class in com.sun.jersey.core.header">InBoundHeaders</A>&nbsp;headers,
+               java.io.InputStream&nbsp;entity,
+               <A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A>&nbsp;workers)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#bufferEntity()">bufferEntity</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer the entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#close()">close</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Close the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Set&lt;java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getAllow()">getAllow</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the allowed HTTP methods from the Allow HTTP header.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getClient()">getClient</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the client.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.Status.html" title="enum in com.sun.jersey.api.client">ClientResponse.Status</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getClientResponseStatus()">getClientResponseStatus</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the status code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/NewCookie.html" title="class in javax.ws.rs.core">NewCookie</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getCookies()">getCookies</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the list of cookies.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getEntity(java.lang.Class)">getEntity</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the entity of the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getEntity(com.sun.jersey.api.client.GenericType)">getEntity</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the entity of the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.io.InputStream</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getEntityInputStream()">getEntityInputStream</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the input stream of the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/EntityTag.html" title="class in javax.ws.rs.core">EntityTag</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getEntityTag()">getEntityTag</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the entity tag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getHeaders()">getHeaders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the HTTP headers of the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getLanguage()">getLanguage</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the language.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Date</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getLastModified()">getLastModified</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the last modified date.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getLength()">getLength</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get Content-Length.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/WebResourceLinkHeaders.html" title="class in com.sun.jersey.api.client">WebResourceLinkHeaders</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getLinks()">getLinks</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.net.URI</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getLocation()">getLocation</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the location.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getMetadata()">getMetadata</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I></I>&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.String,java.lang.Object&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getProperties()">getProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the map of response properties.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Date</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getResponseDate()">getResponseDate</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get response date (server side).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/Response.Status.html" title="enum in javax.ws.rs.core">Response.Status</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getResponseStatus()">getResponseStatus</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>use <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getClientResponseStatus()"><CODE>getClientResponseStatus()</CODE></A></I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getStatus()">getStatus</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the status code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getType()">getType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the media type of the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#hasEntity()">hasEntity</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if there is an entity available.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setEntityInputStream(java.io.InputStream)">setEntityInputStream</A></B>(java.io.InputStream&nbsp;entity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the input stream of the response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setResponseStatus(javax.ws.rs.core.Response.StatusType)">setResponseStatus</A></B>(<A HREF="../../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;status)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>see <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setStatus(javax.ws.rs.core.Response.StatusType)"><CODE>setStatus(javax.ws.rs.core.Response.StatusType)</CODE></A></I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setStatus(int)">setStatus</A></B>(int&nbsp;status)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the status code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setStatus(javax.ws.rs.core.Response.StatusType)">setStatus</A></B>(<A HREF="../../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;status)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the status code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#toString()">toString</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="entityTagDelegate"><!-- --></A><H3>
+entityTagDelegate</H3>
+<PRE>
+protected static final <A HREF="../../../../../javax/ws/rs/ext/RuntimeDelegate.HeaderDelegate.html" title="interface in javax.ws.rs.ext">RuntimeDelegate.HeaderDelegate</A>&lt;<A HREF="../../../../../javax/ws/rs/core/EntityTag.html" title="class in javax.ws.rs.core">EntityTag</A>&gt; <B>entityTagDelegate</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="dateDelegate"><!-- --></A><H3>
+dateDelegate</H3>
+<PRE>
+protected static final <A HREF="../../../../../javax/ws/rs/ext/RuntimeDelegate.HeaderDelegate.html" title="interface in javax.ws.rs.ext">RuntimeDelegate.HeaderDelegate</A>&lt;java.util.Date&gt; <B>dateDelegate</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ClientResponse(int, com.sun.jersey.core.header.InBoundHeaders, java.io.InputStream, com.sun.jersey.spi.MessageBodyWorkers)"><!-- --></A><H3>
+ClientResponse</H3>
+<PRE>
+public <B>ClientResponse</B>(int&nbsp;status,
+                      <A HREF="../../../../../com/sun/jersey/core/header/InBoundHeaders.html" title="class in com.sun.jersey.core.header">InBoundHeaders</A>&nbsp;headers,
+                      java.io.InputStream&nbsp;entity,
+                      <A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A>&nbsp;workers)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getClient()"><!-- --></A><H3>
+getClient</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client">Client</A> <B>getClient</B>()</PRE>
+<DL>
+<DD>Get the client.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the client.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProperties()"><!-- --></A><H3>
+getProperties</H3>
+<PRE>
+public java.util.Map&lt;java.lang.String,java.lang.Object&gt; <B>getProperties</B>()</PRE>
+<DL>
+<DD>Get the map of response properties.
+ <p>
+ A response property is an application-defined property that may be
+ added by the user, a filter, or the handler that is managing the
+ connection.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the map of response properties.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getStatus()"><!-- --></A><H3>
+getStatus</H3>
+<PRE>
+public int <B>getStatus</B>()</PRE>
+<DL>
+<DD>Get the status code.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the status code.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setStatus(int)"><!-- --></A><H3>
+setStatus</H3>
+<PRE>
+public void <B>setStatus</B>(int&nbsp;status)</PRE>
+<DL>
+<DD>Set the status code.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>status</CODE> - the status code.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setStatus(javax.ws.rs.core.Response.StatusType)"><!-- --></A><H3>
+setStatus</H3>
+<PRE>
+public void <B>setStatus</B>(<A HREF="../../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;status)</PRE>
+<DL>
+<DD>Set the status code.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>status</CODE> - the status code.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getClientResponseStatus()"><!-- --></A><H3>
+getClientResponseStatus</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.Status.html" title="enum in com.sun.jersey.api.client">ClientResponse.Status</A> <B>getClientResponseStatus</B>()</PRE>
+<DL>
+<DD>Get the status code.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the status code, or null if the underlying status code was set
+         using the method <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setStatus(int)"><CODE>setStatus(int)</CODE></A> and there is no
+         mapping between the integer value and the Response.Status
+         enumeration value.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getResponseStatus()"><!-- --></A><H3>
+getResponseStatus</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public <A HREF="../../../../../javax/ws/rs/core/Response.Status.html" title="enum in javax.ws.rs.core">Response.Status</A> <B>getResponseStatus</B>()</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I>use <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#getClientResponseStatus()"><CODE>getClientResponseStatus()</CODE></A></I>
+<P>
+<DD>Get the status code.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the status code, or null if the underlying status code was set
+         using the method <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setStatus(int)"><CODE>setStatus(int)</CODE></A> and there is no
+         mapping between the integer value and the Response.Status
+         enumeration value.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setResponseStatus(javax.ws.rs.core.Response.StatusType)"><!-- --></A><H3>
+setResponseStatus</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public void <B>setResponseStatus</B>(<A HREF="../../../../../javax/ws/rs/core/Response.StatusType.html" title="interface in javax.ws.rs.core">Response.StatusType</A>&nbsp;status)</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I>see <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html#setStatus(javax.ws.rs.core.Response.StatusType)"><CODE>setStatus(javax.ws.rs.core.Response.StatusType)</CODE></A></I>
+<P>
+<DD>Set the status code.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>status</CODE> - the status code.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMetadata()"><!-- --></A><H3>
+getMetadata</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt; <B>getMetadata</B>()</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I></I>
+<P>
+<DD>Get the HTTP headers of the response.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP headers of the response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHeaders()"><!-- --></A><H3>
+getHeaders</H3>
+<PRE>
+public <A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt; <B>getHeaders</B>()</PRE>
+<DL>
+<DD>Get the HTTP headers of the response.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP headers of the response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="hasEntity()"><!-- --></A><H3>
+hasEntity</H3>
+<PRE>
+public boolean <B>hasEntity</B>()</PRE>
+<DL>
+<DD>Checks if there is an entity available.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true if there is an entity present in the response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntityInputStream()"><!-- --></A><H3>
+getEntityInputStream</H3>
+<PRE>
+public java.io.InputStream <B>getEntityInputStream</B>()</PRE>
+<DL>
+<DD>Get the input stream of the response.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the input stream of the response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setEntityInputStream(java.io.InputStream)"><!-- --></A><H3>
+setEntityInputStream</H3>
+<PRE>
+public void <B>setEntityInputStream</B>(java.io.InputStream&nbsp;entity)</PRE>
+<DL>
+<DD>Set the input stream of the response.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>entity</CODE> - the input stream of the response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntity(java.lang.Class)"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+public &lt;T&gt; T <B>getEntity</B>(java.lang.Class&lt;T&gt;&nbsp;c)
+            throws <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A>,
+                   <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD>Get the entity of the response.
+ <p>
+ If the entity is not an instance of Closeable then the entity
+ input stream is closed.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the entity.
+<DT><B>Returns:</B><DD>an instance of the type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if there is an error processing the response.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the response status is 204 (No Content).</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntity(com.sun.jersey.api.client.GenericType)"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+public &lt;T&gt; T <B>getEntity</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
+            throws <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A>,
+                   <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD>Get the entity of the response.
+ <p>
+ If the entity is not an instance of Closeable then this response
+ is closed (you cannot read it more than once, any subsequent
+ call will produce <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client"><CODE>ClientHandlerException</CODE></A>).
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the entity.
+<DT><B>Returns:</B><DD>an instance of the type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if there is an error processing the response.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the response status is 204 (No Content).</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="bufferEntity()"><!-- --></A><H3>
+bufferEntity</H3>
+<PRE>
+public void <B>bufferEntity</B>()
+                  throws <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
+<DL>
+<DD>Buffer the entity.
+ <p>
+ All the bytes of the original entity input stream will be read
+ and stored in memory. The original entity input stream will
+ then be closed.
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if there is an error processing the response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="close()"><!-- --></A><H3>
+close</H3>
+<PRE>
+public void <B>close</B>()
+           throws <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
+<DL>
+<DD>Close the response.
+ <p>
+ The entity input stream is closed.
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if there is an error closing the response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getType()"><!-- --></A><H3>
+getType</H3>
+<PRE>
+public <A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> <B>getType</B>()</PRE>
+<DL>
+<DD>Get the media type of the response.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the media type.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLocation()"><!-- --></A><H3>
+getLocation</H3>
+<PRE>
+public java.net.URI <B>getLocation</B>()</PRE>
+<DL>
+<DD>Get the location.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the location, otherwise <code>null</code> if not present.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntityTag()"><!-- --></A><H3>
+getEntityTag</H3>
+<PRE>
+public <A HREF="../../../../../javax/ws/rs/core/EntityTag.html" title="class in javax.ws.rs.core">EntityTag</A> <B>getEntityTag</B>()</PRE>
+<DL>
+<DD>Get the entity tag.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the entity tag, otherwise <code>null</code> if not present.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLastModified()"><!-- --></A><H3>
+getLastModified</H3>
+<PRE>
+public java.util.Date <B>getLastModified</B>()</PRE>
+<DL>
+<DD>Get the last modified date.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the last modified date, otherwise <code>null</code> if not present.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getResponseDate()"><!-- --></A><H3>
+getResponseDate</H3>
+<PRE>
+public java.util.Date <B>getResponseDate</B>()</PRE>
+<DL>
+<DD>Get response date (server side).
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the server side response date, otherwise <code>null</code> if not present.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLanguage()"><!-- --></A><H3>
+getLanguage</H3>
+<PRE>
+public java.lang.String <B>getLanguage</B>()</PRE>
+<DL>
+<DD>Get the language.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the language, otherwise <code>null</code> if not present.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLength()"><!-- --></A><H3>
+getLength</H3>
+<PRE>
+public int <B>getLength</B>()</PRE>
+<DL>
+<DD>Get Content-Length.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>Content-Length as integer if present and valid number. In other
+ cases returns -1.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCookies()"><!-- --></A><H3>
+getCookies</H3>
+<PRE>
+public java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/NewCookie.html" title="class in javax.ws.rs.core">NewCookie</A>&gt; <B>getCookies</B>()</PRE>
+<DL>
+<DD>Get the list of cookies.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the cookies.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAllow()"><!-- --></A><H3>
+getAllow</H3>
+<PRE>
+public java.util.Set&lt;java.lang.String&gt; <B>getAllow</B>()</PRE>
+<DL>
+<DD>Get the allowed HTTP methods from the Allow HTTP header.
+ <p>
+ Note that the Allow HTTP header will be returned from an OPTIONS
+ request.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the allowed HTTP methods, all methods will returned as
+         upper case strings.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLinks()"><!-- --></A><H3>
+getLinks</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/api/client/WebResourceLinkHeaders.html" title="class in com.sun.jersey.api.client">WebResourceLinkHeaders</A> <B>getLinks</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toString()"><!-- --></A><H3>
+toString</H3>
+<PRE>
+public java.lang.String <B>toString</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>toString</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ClientResponse.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientRequestAdapter.html" title="interface in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.Status.html" title="enum in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/ClientResponse.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ClientResponse.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

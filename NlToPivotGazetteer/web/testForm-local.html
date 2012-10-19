@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Gazetteer web service - local</title>
+        <link rel="stylesheet" type="text/css" href="testFormStyle.css" />
+    </head>
+
+    <body>
+        <h1>Gazetteer web service</h1>
+
+        <h3>Find and gather named entities</h3>
+
+        <form method="get" action="http://localhost:8080/NlToPivotGazetteer/resources/rest/gatherNamedEntities">
+            <table>
+                <tr>
+                    <th>Text:</th><th><input type="text" name="text" size="50"  value="Was Keith Richards a member of The Rolling Stones?"/></th>
+                </tr>
+                <tr>
+                    <th>Specify class:</th>
+                    <th>
+                        <select name="tagWithClass" size="1">
+                            <option value="true">Yes</option>
+                            <option value="false" selected="selected">No</option>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th><th><INPUT type="submit" value="Process"></th>	</tr>
+            </table>		
+        </form>
+
+
+        <h2>Example queries:</h2>
+        <ul>
+            <li>Which members of the Beatles are dead?</li>
+            <li>When was Elvis Presley born?</li>
+            <li>Who composed the Star Wars soundtrack?</li>
+            <li>How many artists are called John Williams?</li>
+            <li>Who collaborated on Tocotronic vs. Console?</li>
+            <li>List all members of The Notwist.</li>
+            <li>Give me all songs by Petula Clark.</li>
+            <li>Give me all Kraftwerk albums!</li>
+            <li>Was Keith Richards a member of The Rolling Stones?</li>
+            <li>How many bands are called Nirvana?</li>
+            <li>Who produced the album In Utero?</li>
+            <li>When is the birthday of Tom Waits?</li>
+            <li>Which artists died on the same day as Michael Jackson?</li>
+            <li>Give me all bands that Michael Stipe is a member of.</li>
+            <li>How many albums did Michael Jackson record?</li>
+            <li>Until when was Tina Turner married to Ike Turner?</li>
+        </ul> 
+
+    </body>
+</html>

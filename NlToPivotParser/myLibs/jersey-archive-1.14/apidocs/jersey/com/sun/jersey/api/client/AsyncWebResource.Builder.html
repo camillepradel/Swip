@@ -1,0 +1,1738 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+AsyncWebResource.Builder (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="AsyncWebResource.Builder (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AsyncWebResource.Builder.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/AsyncWebResource.Builder.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AsyncWebResource.Builder.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.api.client.PartialRequestBuilder">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.client</FONT>
+<BR>
+Class AsyncWebResource.Builder</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="class in com.sun.jersey.api.client">com.sun.jersey.api.client.PartialRequestBuilder</A>&lt;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncWebResource.Builder</A>&gt;
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.api.client.AsyncWebResource.Builder</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A>, <A HREF="../../../../../com/sun/jersey/api/client/RequestBuilder.html" title="interface in com.sun.jersey.api.client">RequestBuilder</A>&lt;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncWebResource.Builder</A>&gt;</DD>
+</DL>
+<DL>
+<DT><B>Enclosing class:</B><DD><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client">AsyncWebResource</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>AsyncWebResource.Builder</B><DT>extends <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="class in com.sun.jersey.api.client">PartialRequestBuilder</A>&lt;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html" title="class in com.sun.jersey.api.client">AsyncWebResource.Builder</A>&gt;<DT>implements <A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></DL>
+</PRE>
+
+<P>
+The builder for building a <A HREF="../../../../../com/sun/jersey/api/client/ClientRequest.html" title="class in com.sun.jersey.api.client"><CODE>ClientRequest</CODE></A> instance and 
+ handling the request using the <A HREF="../../../../../com/sun/jersey/api/client/UniformInterface.html" title="interface in com.sun.jersey.api.client"><CODE>UniformInterface</CODE></A>. The methods
+ of the <A HREF="../../../../../com/sun/jersey/api/client/UniformInterface.html" title="interface in com.sun.jersey.api.client"><CODE>UniformInterface</CODE></A> are the build methods of the builder.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.api.client.PartialRequestBuilder"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.api.client.<A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="class in com.sun.jersey.api.client">PartialRequestBuilder</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#entity">entity</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#metadata">metadata</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete()">delete</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method with no request entity or response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete(java.lang.Class)">delete</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method with no request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete(java.lang.Class, java.lang.Object)">delete</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+       java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete(com.sun.jersey.api.client.GenericType)">delete</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete(com.sun.jersey.api.client.GenericType, java.lang.Object)">delete</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+       java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete(com.sun.jersey.api.client.async.ITypeListener)">delete</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">delete</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+       java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#delete(java.lang.Object)">delete</A></B>(java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE method with a request entity but no response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#get(java.lang.Class)">get</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the GET method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#get(com.sun.jersey.api.client.GenericType)">get</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the GET method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#get(com.sun.jersey.api.client.async.ITypeListener)">get</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the GET method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#head()">head</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the HEAD method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#head(com.sun.jersey.api.client.async.ITypeListener)">head</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&gt;&nbsp;l)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the HEAD method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String)">method</A></B>(java.lang.String&nbsp;method)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with no request entity or response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String, java.lang.Class)">method</A></B>(java.lang.String&nbsp;method,
+       java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with no request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String, java.lang.Class, java.lang.Object)">method</A></B>(java.lang.String&nbsp;method,
+       java.lang.Class&lt;T&gt;&nbsp;c,
+       java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String, com.sun.jersey.api.client.GenericType)">method</A></B>(java.lang.String&nbsp;method,
+       <A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with no request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String, com.sun.jersey.api.client.GenericType, java.lang.Object)">method</A></B>(java.lang.String&nbsp;method,
+       <A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+       java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener)">method</A></B>(java.lang.String&nbsp;method,
+       <A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with no request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">method</A></B>(java.lang.String&nbsp;method,
+       <A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+       java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#method(java.lang.String, java.lang.Object)">method</A></B>(java.lang.String&nbsp;method,
+       java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke a HTTP method with a request entity but no response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#options(java.lang.Class)">options</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the OPTIONS method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#options(com.sun.jersey.api.client.GenericType)">options</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the OPTIONS method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#options(com.sun.jersey.api.client.async.ITypeListener)">options</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the OPTIONS method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post()">post</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method with no request entity or response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post(java.lang.Class)">post</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method with no request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post(java.lang.Class, java.lang.Object)">post</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+     java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post(com.sun.jersey.api.client.GenericType)">post</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post(com.sun.jersey.api.client.GenericType, java.lang.Object)">post</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+     java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post(com.sun.jersey.api.client.async.ITypeListener)">post</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">post</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+     java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#post(java.lang.Object)">post</A></B>(java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST method with a request entity but no response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put()">put</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method with no request entity or response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put(java.lang.Class)">put</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method with no request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put(java.lang.Class, java.lang.Object)">put</A></B>(java.lang.Class&lt;T&gt;&nbsp;c,
+    java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put(com.sun.jersey.api.client.GenericType)">put</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put(com.sun.jersey.api.client.GenericType, java.lang.Object)">put</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+    java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method with a request entity that returns a response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put(com.sun.jersey.api.client.async.ITypeListener)">put</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; java.util.concurrent.Future&lt;T&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">put</A></B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+    java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.concurrent.Future&lt;?&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.Builder.html#put(java.lang.Object)">put</A></B>(java.lang.Object&nbsp;requestEntity)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT method with a request entity but no response.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.client.PartialRequestBuilder"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.api.client.<A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html" title="class in com.sun.jersey.api.client">PartialRequestBuilder</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#accept(javax.ws.rs.core.MediaType...)">accept</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#accept(java.lang.String...)">accept</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#acceptLanguage(java.util.Locale...)">acceptLanguage</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#acceptLanguage(java.lang.String...)">acceptLanguage</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#cookie(javax.ws.rs.core.Cookie)">cookie</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#entity(java.lang.Object)">entity</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#entity(java.lang.Object, javax.ws.rs.core.MediaType)">entity</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#entity(java.lang.Object, java.lang.String)">entity</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#header(java.lang.String, java.lang.Object)">header</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#type(javax.ws.rs.core.MediaType)">type</A>, <A HREF="../../../../../com/sun/jersey/api/client/PartialRequestBuilder.html#type(java.lang.String)">type</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="head()"><!-- --></A><H3>
+head</H3>
+<PRE>
+public java.util.concurrent.Future&lt;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&gt; <B>head</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#head()">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the HEAD method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#head()">head</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the HTTP response.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="head(com.sun.jersey.api.client.async.ITypeListener)"><!-- --></A><H3>
+head</H3>
+<PRE>
+public java.util.concurrent.Future&lt;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&gt; <B>head</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A>&gt;&nbsp;l)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#head(com.sun.jersey.api.client.async.ITypeListener)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the HEAD method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#head(com.sun.jersey.api.client.async.ITypeListener)">head</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="options(java.lang.Class)"><!-- --></A><H3>
+options</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>options</B>(java.lang.Class&lt;T&gt;&nbsp;c)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#options(java.lang.Class)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the OPTIONS method.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#options(java.lang.Class)">options</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="options(com.sun.jersey.api.client.GenericType)"><!-- --></A><H3>
+options</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>options</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#options(com.sun.jersey.api.client.GenericType)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the OPTIONS method.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#options(com.sun.jersey.api.client.GenericType)">options</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="options(com.sun.jersey.api.client.async.ITypeListener)"><!-- --></A><H3>
+options</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>options</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#options(com.sun.jersey.api.client.async.ITypeListener)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the OPTIONS method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#options(com.sun.jersey.api.client.async.ITypeListener)">options</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="get(java.lang.Class)"><!-- --></A><H3>
+get</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>get</B>(java.lang.Class&lt;T&gt;&nbsp;c)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#get(java.lang.Class)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the GET method.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#get(java.lang.Class)">get</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="get(com.sun.jersey.api.client.GenericType)"><!-- --></A><H3>
+get</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>get</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#get(com.sun.jersey.api.client.GenericType)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the GET method.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#get(com.sun.jersey.api.client.GenericType)">get</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="get(com.sun.jersey.api.client.async.ITypeListener)"><!-- --></A><H3>
+get</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>get</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#get(com.sun.jersey.api.client.async.ITypeListener)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the GET method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#get(com.sun.jersey.api.client.async.ITypeListener)">get</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put()"><!-- --></A><H3>
+put</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>put</B>()
+                                   throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put()">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method with no request entity or response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put()">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(java.lang.Object)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>put</B>(java.lang.Object&nbsp;requestEntity)
+                                   throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method with a request entity but no response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(java.lang.Object)">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(java.lang.Class)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>put</B>(java.lang.Class&lt;T&gt;&nbsp;c)
+                                   throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(java.lang.Class)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method with no request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(java.lang.Class)">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(com.sun.jersey.api.client.GenericType)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>put</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
+                                   throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.GenericType)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.GenericType)">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(com.sun.jersey.api.client.async.ITypeListener)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>put</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.async.ITypeListener)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.async.ITypeListener)">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(java.lang.Class, java.lang.Object)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>put</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                                              java.lang.Object&nbsp;requestEntity)
+                                   throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(java.lang.Class, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(java.lang.Class, java.lang.Object)">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(com.sun.jersey.api.client.GenericType, java.lang.Object)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>put</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+                                              java.lang.Object&nbsp;requestEntity)
+                                   throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.GenericType, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.GenericType, java.lang.Object)">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>put</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+                                              java.lang.Object&nbsp;requestEntity)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the PUT method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#put(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">put</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post()"><!-- --></A><H3>
+post</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>post</B>()
+                                    throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post()">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method with no request entity or response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post()">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post(java.lang.Object)"><!-- --></A><H3>
+post</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>post</B>(java.lang.Object&nbsp;requestEntity)
+                                    throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method with a request entity but no response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(java.lang.Object)">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post(java.lang.Class)"><!-- --></A><H3>
+post</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>post</B>(java.lang.Class&lt;T&gt;&nbsp;c)
+                                    throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(java.lang.Class)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method with no request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(java.lang.Class)">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post(com.sun.jersey.api.client.GenericType)"><!-- --></A><H3>
+post</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>post</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
+                                    throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.GenericType)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.GenericType)">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post(com.sun.jersey.api.client.async.ITypeListener)"><!-- --></A><H3>
+post</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>post</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.async.ITypeListener)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.async.ITypeListener)">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post(java.lang.Class, java.lang.Object)"><!-- --></A><H3>
+post</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>post</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                                               java.lang.Object&nbsp;requestEntity)
+                                    throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(java.lang.Class, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(java.lang.Class, java.lang.Object)">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post(com.sun.jersey.api.client.GenericType, java.lang.Object)"><!-- --></A><H3>
+post</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>post</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+                                               java.lang.Object&nbsp;requestEntity)
+                                    throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.GenericType, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.GenericType, java.lang.Object)">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="post(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)"><!-- --></A><H3>
+post</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>post</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+                                               java.lang.Object&nbsp;requestEntity)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the POST method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#post(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">post</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete()"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>delete</B>()
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete()">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method with no request entity or response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete()">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete(java.lang.Object)"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>delete</B>(java.lang.Object&nbsp;requestEntity)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method with a request entity but no response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(java.lang.Object)">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete(java.lang.Class)"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>delete</B>(java.lang.Class&lt;T&gt;&nbsp;c)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(java.lang.Class)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method with no request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(java.lang.Class)">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete(com.sun.jersey.api.client.GenericType)"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>delete</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.GenericType)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.GenericType)">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete(com.sun.jersey.api.client.async.ITypeListener)"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>delete</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.async.ITypeListener)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.async.ITypeListener)">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete(java.lang.Class, java.lang.Object)"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>delete</B>(java.lang.Class&lt;T&gt;&nbsp;c,
+                                                 java.lang.Object&nbsp;requestEntity)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(java.lang.Class, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(java.lang.Class, java.lang.Object)">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>c</CODE> - the type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete(com.sun.jersey.api.client.GenericType, java.lang.Object)"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>delete</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+                                                 java.lang.Object&nbsp;requestEntity)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.GenericType, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.GenericType, java.lang.Object)">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>gt</CODE> - the generic type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="delete(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)"><!-- --></A><H3>
+delete</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>delete</B>(<A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+                                                 java.lang.Object&nbsp;requestEntity)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke the DELETE method.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#delete(com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">delete</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>method</B>(java.lang.String&nbsp;method)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with no request entity or response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String, java.lang.Object)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public java.util.concurrent.Future&lt;?&gt; <B>method</B>(java.lang.String&nbsp;method,
+                                             java.lang.Object&nbsp;requestEntity)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with a request entity but no response.
+ <p>
+ If the status of the HTTP response is less than 300 and a representation
+ is present then that representation is ignored.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, java.lang.Object)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a void future.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String, java.lang.Class)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>method</B>(java.lang.String&nbsp;method,
+                                                 java.lang.Class&lt;T&gt;&nbsp;c)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, java.lang.Class)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with no request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, java.lang.Class)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>c</CODE> - the type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String, com.sun.jersey.api.client.GenericType)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>method</B>(java.lang.String&nbsp;method,
+                                                 <A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.GenericType)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with no request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.GenericType)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>gt</CODE> - the generic type of the returned response.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>method</B>(java.lang.String&nbsp;method,
+                                                 <A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with no request entity that returns a response.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String, java.lang.Class, java.lang.Object)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>method</B>(java.lang.String&nbsp;method,
+                                                 java.lang.Class&lt;T&gt;&nbsp;c,
+                                                 java.lang.Object&nbsp;requestEntity)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, java.lang.Class, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>c</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, java.lang.Class, java.lang.Object)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>c</CODE> - the type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type <code>c</code>.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String, com.sun.jersey.api.client.GenericType, java.lang.Object)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>method</B>(java.lang.String&nbsp;method,
+                                                 <A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
+                                                 java.lang.Object&nbsp;requestEntity)
+                                      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.GenericType, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with a request entity that returns a response.
+ <p>
+ The <CODE>Future.get()</CODE> method will throw a UniformInterfaceException
+ if the status of the HTTP response is greater than or equal to 300 and
+ <code>gt</code> is not the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.GenericType, java.lang.Object)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>gt</CODE> - the generic type of the returned response.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>an instance of type represented by the generic type.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)"><!-- --></A><H3>
+method</H3>
+<PRE>
+public &lt;T&gt; java.util.concurrent.Future&lt;T&gt; <B>method</B>(java.lang.String&nbsp;method,
+                                                 <A HREF="../../../../../com/sun/jersey/api/client/async/ITypeListener.html" title="interface in com.sun.jersey.api.client.async">ITypeListener</A>&lt;T&gt;&nbsp;l,
+                                                 java.lang.Object&nbsp;requestEntity)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">AsyncUniformInterface</A></CODE></B></DD>
+<DD>Invoke a HTTP method with a request entity that returns a response.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html#method(java.lang.String, com.sun.jersey.api.client.async.ITypeListener, java.lang.Object)">method</A></CODE> in interface <CODE><A HREF="../../../../../com/sun/jersey/api/client/AsyncUniformInterface.html" title="interface in com.sun.jersey.api.client">AsyncUniformInterface</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the response.<DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>l</CODE> - the listener to receive asynchronous callbacks.<DD><CODE>requestEntity</CODE> - the request entity.
+<DT><B>Returns:</B><DD>a future that may be used to wait until the future completes and
+         obtain the client response state, or cancel the request.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AsyncWebResource.Builder.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/AsyncWebResource.html" title="class in com.sun.jersey.api.client"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/client/Client.html" title="class in com.sun.jersey.api.client"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/client/AsyncWebResource.Builder.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AsyncWebResource.Builder.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.sun.jersey.api.client.PartialRequestBuilder">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

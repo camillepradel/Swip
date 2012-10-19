@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+SpringServlet (jersey-spring 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="SpringServlet (jersey-spring 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SpringServlet.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../../index.html?com/sun/jersey/spi/spring/container/servlet/SpringServlet.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SpringServlet.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_com.sun.jersey.spi.container.servlet.ServletContainer">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.spi.spring.container.servlet</FONT>
+<BR>
+Class SpringServlet</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../../resources/inherit.gif" ALT="extended by ">javax.servlet.GenericServlet
+      <IMG SRC="../../../../../../../resources/inherit.gif" ALT="extended by ">javax.servlet.http.HttpServlet
+          <IMG SRC="../../../../../../../resources/inherit.gif" ALT="extended by "><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">com.sun.jersey.spi.container.servlet.ServletContainer</A>
+              <IMG SRC="../../../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.spi.spring.container.servlet.SpringServlet</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Serializable, javax.servlet.Filter, javax.servlet.Servlet, javax.servlet.ServletConfig</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>SpringServlet</B><DT>extends <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">ServletContainer</A></DL>
+</PRE>
+
+<P>
+A servlet or filter for deploying root resource classes with Spring
+ integration.
+ <p>
+ This class extends <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet"><CODE>ServletContainer</CODE></A> and initiates the
+ <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A> with a Spring-based <A HREF="https://jersey.java.net/jersey-core//apidocs/com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html?is-external=true" title="class or interface in com.sun.jersey.core.spi.component.ioc"><CODE>IoCComponentProviderFactory</CODE></A>,
+ <A HREF="../../../../../../../com/sun/jersey/spi/spring/container/SpringComponentProviderFactory.html" title="class in com.sun.jersey.spi.spring.container"><CODE>SpringComponentProviderFactory</CODE></A>, such that instances of resource and
+ provider classes declared and managed by Spring can be obtained.
+ <p>
+ Classes of Spring beans declared using XML-based configuration or
+ auto-wire-based confguration will be automatically registered if such
+ classes are root resource classes or provider classes. It is not necessary
+ to provide initialization parameters for declaring classes in the web.xml
+ unless a mixture of Spring-managed and Jersey-managed classes is required.
+ <p>
+ The servlet supports configuration of child applicationContexts, 
+ see <A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#CONTEXT_CONFIG_LOCATION"><CODE>CONTEXT_CONFIG_LOCATION</CODE></A>.
+ <p>
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD><a href="mailto:martin.grotzke@freiheit.com">Martin Grotzke</a>, Paul.Sandoz@Sun.Com, recht@java.net</DD>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../../serialized-form.html#com.sun.jersey.spi.spring.container.servlet.SpringServlet">Serialized Form</A></DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_com.sun.jersey.spi.container.servlet.ServletContainer"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from class com.sun.jersey.spi.container.servlet.<A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">ServletContainer</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.ContextInjectableProvider.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">ServletContainer.ContextInjectableProvider</A>&lt;<A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.ContextInjectableProvider.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">T</A>&gt;</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#CONTEXT_CONFIG_LOCATION">CONTEXT_CONFIG_LOCATION</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The context configuration location initialization parameter for declaring
+ that a child context should be used for bean definitions.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.sun.jersey.spi.container.servlet.ServletContainer"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.sun.jersey.spi.container.servlet.<A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">ServletContainer</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#APPLICATION_CONFIG_CLASS" title="class or interface in com.sun.jersey.spi.container.servlet">APPLICATION_CONFIG_CLASS</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#FEATURE_FILTER_FORWARD_ON_404" title="class or interface in com.sun.jersey.spi.container.servlet">FEATURE_FILTER_FORWARD_ON_404</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#GLASSFISH_DEFAULT_ERROR_PAGE_RESPONSE" title="class or interface in com.sun.jersey.spi.container.servlet">GLASSFISH_DEFAULT_ERROR_PAGE_RESPONSE</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#JSP_TEMPLATES_BASE_PATH" title="class or interface in com.sun.jersey.spi.container.servlet">JSP_TEMPLATES_BASE_PATH</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#PROPERTY_FILTER_CONTEXT_PATH" title="class or interface in com.sun.jersey.spi.container.servlet">PROPERTY_FILTER_CONTEXT_PATH</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#PROPERTY_WEB_PAGE_CONTENT_REGEX" title="class or interface in com.sun.jersey.spi.container.servlet">PROPERTY_WEB_PAGE_CONTENT_REGEX</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#RESOURCE_CONFIG_CLASS" title="class or interface in com.sun.jersey.spi.container.servlet">RESOURCE_CONFIG_CLASS</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#SpringServlet()">SpringServlet</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.springframework.context.ConfigurableApplicationContext</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#getChildContext(java.lang.String)">getChildContext</A></B>(java.lang.String&nbsp;contextConfigLocation)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the child application context.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.springframework.context.ConfigurableApplicationContext</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#getContext()">getContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the application context.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.springframework.context.ConfigurableApplicationContext</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#getDefaultContext()">getDefaultContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the default application context.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props,
+                         <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/WebConfig.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;webConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">initiate</A></B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+         <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.spi.container.servlet.ServletContainer"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.sun.jersey.spi.container.servlet.<A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">ServletContainer</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#configure(javax.servlet.FilterConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)" title="class or interface in com.sun.jersey.spi.container.servlet">configure</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#configure(javax.servlet.ServletConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)" title="class or interface in com.sun.jersey.spi.container.servlet">configure</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#configure(com.sun.jersey.spi.container.servlet.WebConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)" title="class or interface in com.sun.jersey.spi.container.servlet">configure</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#create()" title="class or interface in com.sun.jersey.spi.container.servlet">create</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#destroy()" title="class or interface in com.sun.jersey.spi.container.servlet">destroy</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.FilterChain)" title="class or interface in com.sun.jersey.spi.container.servlet">doFilter</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)" title="class or interface in com.sun.jersey.spi.container.servlet">doFilter</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#getDefaultResourceConfig(java.util.Map, javax.servlet.ServletConfig)" title="class or interface in com.sun.jersey.spi.container.servlet">getDefaultResourceConfig</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#getServletContext()" title="class or interface in com.sun.jersey.spi.container.servlet">getServletContext</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#getStaticContentPattern()" title="class or interface in com.sun.jersey.spi.container.servlet">getStaticContentPattern</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#getWebConfig()" title="class or interface in com.sun.jersey.spi.container.servlet">getWebConfig</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#init()" title="class or interface in com.sun.jersey.spi.container.servlet">init</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#init(javax.servlet.FilterConfig)" title="class or interface in com.sun.jersey.spi.container.servlet">init</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#init(com.sun.jersey.spi.container.servlet.WebConfig)" title="class or interface in com.sun.jersey.spi.container.servlet">init</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#load()" title="class or interface in com.sun.jersey.spi.container.servlet">load</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#reload()" title="class or interface in com.sun.jersey.spi.container.servlet">reload</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#service(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)" title="class or interface in com.sun.jersey.spi.container.servlet">service</A>, <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#service(java.net.URI, java.net.URI, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)" title="class or interface in com.sun.jersey.spi.container.servlet">service</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_javax.servlet.http.HttpServlet"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class javax.servlet.http.HttpServlet</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>doDelete, doGet, doHead, doOptions, doPost, doPut, doTrace, getLastModified, service</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_javax.servlet.GenericServlet"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class javax.servlet.GenericServlet</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>getInitParameter, getInitParameterNames, getServletConfig, getServletInfo, getServletName, init, log, log</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="CONTEXT_CONFIG_LOCATION"><!-- --></A><H3>
+CONTEXT_CONFIG_LOCATION</H3>
+<PRE>
+public static final java.lang.String <B>CONTEXT_CONFIG_LOCATION</B></PRE>
+<DL>
+<DD>The context configuration location initialization parameter for declaring
+ that a child context should be used for bean definitions. This feature
+ can be used when configuration multiple Jersey/Spring servlets that
+ contain different SPring-managed resources.
+ <p>
+ The parameter name is the String "contextConfigLocation".
+ <p>
+ A parameter value is a reference to one more spring configuration files
+ separated by commas, semicolons or whitespace.
+
+ distinct locations separated by commas, semicolons or whitespace
+ <p>
+ If this parameter is absent then the default application context
+ configuration is utilized.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../../../constant-values.html#com.sun.jersey.spi.spring.container.servlet.SpringServlet.CONTEXT_CONFIG_LOCATION">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="SpringServlet()"><!-- --></A><H3>
+SpringServlet</H3>
+<PRE>
+public <B>SpringServlet</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)"><!-- --></A><H3>
+getDefaultResourceConfig</H3>
+<PRE>
+protected <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A> <B>getDefaultResourceConfig</B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props,
+                                                  <A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/WebConfig.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;webConfig)
+                                           throws javax.servlet.ServletException</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)" title="class or interface in com.sun.jersey.spi.container.servlet">getDefaultResourceConfig</A></CODE> in class <CODE><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">ServletContainer</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>javax.servlet.ServletException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)"><!-- --></A><H3>
+initiate</H3>
+<PRE>
+protected void <B>initiate</B>(<A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/api/core/ResourceConfig.html?is-external=true" title="class or interface in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+                        <A HREF="https://jersey.java.net/jersey-server//apidocs/com/sun/jersey/spi/container/WebApplication.html?is-external=true" title="class or interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true#initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)" title="class or interface in com.sun.jersey.spi.container.servlet">initiate</A></CODE> in class <CODE><A HREF="https://jersey.java.net/jersey-servlet//apidocs/com/sun/jersey/spi/container/servlet/ServletContainer.html?is-external=true" title="class or interface in com.sun.jersey.spi.container.servlet">ServletContainer</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getContext()"><!-- --></A><H3>
+getContext</H3>
+<PRE>
+protected org.springframework.context.ConfigurableApplicationContext <B>getContext</B>()</PRE>
+<DL>
+<DD>Get the application context.
+ <p>
+ If the initialization parameter <A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#CONTEXT_CONFIG_LOCATION"><CODE>CONTEXT_CONFIG_LOCATION</CODE></A>
+ is present then this method will invoke <A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#getChildContext(java.lang.String)"><CODE>getChildContext(java.lang.String)</CODE></A>
+ otherwise this method will invoke <A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#getDefaultContext()"><CODE>getDefaultContext()</CODE></A>.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the application context.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDefaultContext()"><!-- --></A><H3>
+getDefaultContext</H3>
+<PRE>
+protected org.springframework.context.ConfigurableApplicationContext <B>getDefaultContext</B>()</PRE>
+<DL>
+<DD>Get the default application context.
+ <p>
+ The default application context will be looked up from the servlet
+ context using <CODE>WebApplicationContextUtils.getRequiredWebApplicationContext(javax.servlet.ServletContext)</CODE>.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the default application context.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getChildContext(java.lang.String)"><!-- --></A><H3>
+getChildContext</H3>
+<PRE>
+protected org.springframework.context.ConfigurableApplicationContext <B>getChildContext</B>(java.lang.String&nbsp;contextConfigLocation)</PRE>
+<DL>
+<DD>Get the child application context.
+ <p>
+ The child application context is created as a child of the default
+ application context obtained from <A HREF="../../../../../../../com/sun/jersey/spi/spring/container/servlet/SpringServlet.html#getDefaultContext()"><CODE>getDefaultContext()</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>contextConfigLocation</CODE> - the location of the child application
+        context.
+<DT><B>Returns:</B><DD>the child application context.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SpringServlet.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../../index.html?com/sun/jersey/spi/spring/container/servlet/SpringServlet.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SpringServlet.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_com.sun.jersey.spi.container.servlet.ServletContainer">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

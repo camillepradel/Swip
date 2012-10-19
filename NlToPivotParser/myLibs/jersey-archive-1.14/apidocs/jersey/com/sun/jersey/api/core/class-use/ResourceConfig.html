@@ -1,0 +1,733 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+Uses of Class com.sun.jersey.api.core.ResourceConfig (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Uses of Class com.sun.jersey.api.core.ResourceConfig (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/core//class-useResourceConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ResourceConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<CENTER>
+<H2>
+<B>Uses of Class<br>com.sun.jersey.api.core.ResourceConfig</B></H2>
+</CENTER>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Packages that use <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.container"><B>com.sun.jersey.api.container</B></A></TD>
+<TD>Provides support for creating HTTP-based containers.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.container.filter"><B>com.sun.jersey.api.container.filter</B></A></TD>
+<TD>Provides common server-side filters.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.container.grizzly"><B>com.sun.jersey.api.container.grizzly</B></A></TD>
+<TD>Provides support for creating Grizzly-based HTTP containers.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.container.httpserver"><B>com.sun.jersey.api.container.httpserver</B></A></TD>
+<TD>Provides support for creating a Light weight HTTP server HTTP container.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.core"><B>com.sun.jersey.api.core</B></A></TD>
+<TD>Provides support for configuration.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.core.servlet"><B>com.sun.jersey.api.core.servlet</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.wadl.config"><B>com.sun.jersey.api.wadl.config</B></A></TD>
+<TD>Provides support for configuring WADL generation.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.spi.container"><B>com.sun.jersey.spi.container</B></A></TD>
+<TD>Provides support for containers and the web application that manages
+ resource classes.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.spi.container.servlet"><B>com.sun.jersey.spi.container.servlet</B></A></TD>
+<TD>Provides support for servlet-based and filter-based Web applications.&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.container"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/container/package-summary.html">com.sun.jersey.api.container</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/container/package-summary.html">com.sun.jersey.api.container</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;A&gt; A</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>ContainerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/ContainerFactory.html#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig)">createContainer</A></B>(java.lang.Class&lt;A&gt;&nbsp;type,
+                <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a container according to the class requested.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;A&gt; A</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B>ContainerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/ContainerFactory.html#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">createContainer</A></B>(java.lang.Class&lt;A&gt;&nbsp;type,
+                <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig,
+                <A HREF="../../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a container according to the class requested.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.container.filter"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/container/filter/package-summary.html">com.sun.jersey.api.container.filter</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../com/sun/jersey/api/container/filter/package-summary.html">com.sun.jersey.api.container.filter</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/container/filter/PostReplaceFilter.html#PostReplaceFilter(com.sun.jersey.api.core.ResourceConfig)">PostReplaceFilter</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes this filter with <A HREF="../../../../../../com/sun/jersey/api/container/filter/PostReplaceFilter.html#PROPERTY_POST_REPLACE_FILTER_CONFIG"><CODE>PostReplaceFilter.PROPERTY_POST_REPLACE_FILTER_CONFIG</CODE></A> property value from the application resource config.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.container.grizzly"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/container/grizzly/package-summary.html">com.sun.jersey.api.container.grizzly</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/container/grizzly/package-summary.html">com.sun.jersey.api.container.grizzly</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.grizzly.http.SelectorThread</CODE></FONT></TD>
+<TD><CODE><B>GrizzlyServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/grizzly/GrizzlyServerFactory.html#create(java.lang.String, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.lang.String&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>SelectorThread</CODE> that registers an <CODE>Adapter</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.grizzly.http.SelectorThread</CODE></FONT></TD>
+<TD><CODE><B>GrizzlyServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/grizzly/GrizzlyServerFactory.html#create(java.lang.String, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.lang.String&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+       <A HREF="../../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>SelectorThread</CODE> that registers an <CODE>Adapter</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.grizzly.http.SelectorThread</CODE></FONT></TD>
+<TD><CODE><B>GrizzlyServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/grizzly/GrizzlyServerFactory.html#create(java.net.URI, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.net.URI&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>SelectorThread</CODE> that registers an <CODE>Adapter</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.grizzly.http.SelectorThread</CODE></FONT></TD>
+<TD><CODE><B>GrizzlyServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/grizzly/GrizzlyServerFactory.html#create(java.net.URI, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.net.URI&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+       <A HREF="../../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>SelectorThread</CODE> that registers an <CODE>Adapter</CODE> that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.container.httpserver"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/container/httpserver/package-summary.html">com.sun.jersey.api.container.httpserver</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/container/httpserver/package-summary.html">com.sun.jersey.api.container.httpserver</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.net.httpserver.HttpServer</CODE></FONT></TD>
+<TD><CODE><B>HttpServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/httpserver/HttpServerFactory.html#create(java.lang.String, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.lang.String&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>HttpServer</CODE> that registers a HttpHandler that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.net.httpserver.HttpServer</CODE></FONT></TD>
+<TD><CODE><B>HttpServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/httpserver/HttpServerFactory.html#create(java.lang.String, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.lang.String&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+       <A HREF="../../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>HttpServer</CODE> that registers a HttpHandler that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.net.httpserver.HttpServer</CODE></FONT></TD>
+<TD><CODE><B>HttpServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/httpserver/HttpServerFactory.html#create(java.net.URI, com.sun.jersey.api.core.ResourceConfig)">create</A></B>(java.net.URI&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>HttpServer</CODE> that registers a HttpHandler that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;com.sun.net.httpserver.HttpServer</CODE></FONT></TD>
+<TD><CODE><B>HttpServerFactory.</B><B><A HREF="../../../../../../com/sun/jersey/api/container/httpserver/HttpServerFactory.html#create(java.net.URI, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">create</A></B>(java.net.URI&nbsp;u,
+       <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+       <A HREF="../../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;factory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a <CODE>HttpServer</CODE> that registers a HttpHandler that
+ in turn manages all root resource and provder classes declared by the
+ resource configuration.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.core"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Subclasses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/core/ApplicationAdapter.html" title="class in com.sun.jersey.api.core">ApplicationAdapter</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An extension of <A HREF="../../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>DefaultResourceConfig</CODE></A> that adapts an instance
+ of <A HREF="../../../../../../javax/ws/rs/core/Application.html" title="class in javax.ws.rs.core"><CODE>Application</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/core/ClassNamesResourceConfig.html" title="class in com.sun.jersey.api.core">ClassNamesResourceConfig</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A mutable implementation of <A HREF="../../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>DefaultResourceConfig</CODE></A> that explicitly
+ declares for root resource and provider classes.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/core/ClasspathResourceConfig.html" title="class in com.sun.jersey.api.core">ClasspathResourceConfig</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A mutable implementation of <A HREF="../../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>DefaultResourceConfig</CODE></A> that dynamically 
+ searches for root resource and provider classes in the files and directories
+ declared by the property <A HREF="../../../../../../com/sun/jersey/api/core/ClasspathResourceConfig.html#PROPERTY_CLASSPATH"><CODE>ClasspathResourceConfig.PROPERTY_CLASSPATH</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core">DefaultResourceConfig</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A mutable implementation of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> that declares
+ default values for features.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/core/PackagesResourceConfig.html" title="class in com.sun.jersey.api.core">PackagesResourceConfig</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A mutable implementation of <A HREF="../../../../../../com/sun/jersey/api/core/DefaultResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>DefaultResourceConfig</CODE></A> that dynamically 
+ searches for root resource and provider classes in a given a set of
+ declared package and in all (if any) sub-packages of those declared packages.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html" title="class in com.sun.jersey.api.core">ScanningResourceConfig</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A resource configuration that performs scanning to find root resource
+ and provider classes.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A> that return <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>ResourceConfig.</B><B><A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html#clone()">clone</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clone this resource configuration.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/core/package-summary.html">com.sun.jersey.api.core</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ResourceConfigurator.</B><B><A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfigurator.html#configure(com.sun.jersey.api.core.ResourceConfig)">configure</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;config)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure the resource configuration.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.core.servlet"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/core/servlet/package-summary.html">com.sun.jersey.api.core.servlet</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Subclasses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/core/servlet/package-summary.html">com.sun.jersey.api.core.servlet</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/core/servlet/WebAppResourceConfig.html" title="class in com.sun.jersey.api.core.servlet">WebAppResourceConfig</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A mutable implementation of <CODE>DefaultResourceConfig</CODE> that dynamically 
+ searches for root resource and provider classes in the Web application 
+ resource paths declared by the property
+ <A HREF="../../../../../../com/sun/jersey/api/core/ClasspathResourceConfig.html#PROPERTY_CLASSPATH"><CODE>ClasspathResourceConfig.PROPERTY_CLASSPATH</CODE></A>.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.wadl.config"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/api/wadl/config/package-summary.html">com.sun.jersey.api.wadl.config</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/wadl/config/package-summary.html">com.sun.jersey.api.wadl.config</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" title="class in com.sun.jersey.api.wadl.config">WadlGeneratorConfig</A></CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorConfigLoader.</B><B><A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfigLoader.html#loadWadlGeneratorsFromConfig(com.sun.jersey.api.core.ResourceConfig)">loadWadlGeneratorsFromConfig</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Load the <A HREF="../../../../../../com/sun/jersey/api/wadl/config/WadlGeneratorConfig.html" title="class in com.sun.jersey.api.wadl.config"><CODE>WadlGeneratorConfig</CODE></A> from the provided <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> using the
+ property <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html#PROPERTY_WADL_GENERATOR_CONFIG"><CODE>PROPERTY_WADL_GENERATOR_CONFIG</CODE></A>.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.spi.container"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/spi/container/package-summary.html">com.sun.jersey.spi.container</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/spi/container/package-summary.html">com.sun.jersey.spi.container</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerProvider.html" title="type parameter in ContainerProvider">T</A></CODE></FONT></TD>
+<TD><CODE><B>ContainerProvider.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/ContainerProvider.html#createContainer(java.lang.Class, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">createContainer</A></B>(java.lang.Class&lt;<A HREF="../../../../../../com/sun/jersey/spi/container/ContainerProvider.html" title="type parameter in ContainerProvider">T</A>&gt;&nbsp;type,
+                <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig,
+                <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;application)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an container of type T.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>WebApplication.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html#initiate(com.sun.jersey.api.core.ResourceConfig)">initiate</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the Web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>WebApplication.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html#initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">initiate</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig,
+         <A HREF="../../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the Web application.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.spi.container.servlet"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A> in <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/package-summary.html">com.sun.jersey.spi.container.servlet</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/package-summary.html">com.sun.jersey.spi.container.servlet</A> that return <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>WebConfig.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html#getDefaultResourceConfig(java.util.Map)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the default <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>WebServletConfig.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebServletConfig.html#getDefaultResourceConfig(java.util.Map)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>WebFilterConfig.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebFilterConfig.html#getDefaultResourceConfig(java.util.Map)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>ServletContainer.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html#getDefaultResourceConfig(java.util.Map, javax.servlet.ServletConfig)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props,
+                         javax.servlet.ServletConfig&nbsp;servletConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>methods should implement <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html#getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)"><CODE>ServletContainer.getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)</CODE></A>.</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>WebComponent.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props,
+                         <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the default resource configuration if one is not declared in the
+ web.xml.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>ServletContainer.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html#getDefaultResourceConfig(java.util.Map, com.sun.jersey.spi.container.servlet.WebConfig)">getDefaultResourceConfig</A></B>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;props,
+                         <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the default resource configuration if one is not declared in the
+ web.xml.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></CODE></FONT></TD>
+<TD><CODE><B>WebComponent.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#getResourceConfig()">getResourceConfig</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the resource configuration.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/spi/container/servlet/package-summary.html">com.sun.jersey.spi.container.servlet</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ServletContainer.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html#configure(javax.servlet.FilterConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">configure</A></B>(javax.servlet.FilterConfig&nbsp;fc,
+          <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+          <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> for a Filter.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ServletContainer.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html#configure(javax.servlet.ServletConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">configure</A></B>(javax.servlet.ServletConfig&nbsp;sc,
+          <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+          <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> for a Servlet.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>WebComponent.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#configure(com.sun.jersey.spi.container.servlet.WebConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">configure</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc,
+          <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+          <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ServletContainer.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html#configure(com.sun.jersey.spi.container.servlet.WebConfig, com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">configure</A></B>(<A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebConfig.html" title="interface in com.sun.jersey.spi.container.servlet">WebConfig</A>&nbsp;wc,
+          <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+          <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure the <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>WebComponent.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/WebComponent.html#initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">initiate</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+         <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ServletContainer.</B><B><A HREF="../../../../../../com/sun/jersey/spi/container/servlet/ServletContainer.html#initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.spi.container.WebApplication)">initiate</A></B>(<A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;rc,
+         <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A>&nbsp;wa)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the <A HREF="../../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container"><CODE>WebApplication</CODE></A>.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/core//class-useResourceConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ResourceConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

@@ -1,0 +1,694 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+WebApplication (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="WebApplication (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WebApplication.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/SubjectSecurityContext.html" title="interface in com.sun.jersey.spi.container"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/WebApplicationFactory.html" title="class in com.sun.jersey.spi.container"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/spi/container/WebApplication.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WebApplication.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.spi.container</FONT>
+<BR>
+Interface WebApplication</H2>
+<DL>
+<DT><B>All Superinterfaces:</B> <DD><A HREF="../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public interface <B>WebApplication</B><DT>extends <A HREF="../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A></DL>
+</PRE>
+
+<P>
+A Web application that manages a set of resource classes.
+ <p>
+ The web application will dispatch HTTP requests to the matching resource
+ method on the matching resource class.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#clone()">clone</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clone the WebApplication instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#destroy()">destroy</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Destroy the Web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/spi/monitoring/DispatchingListener.html" title="interface in com.sun.jersey.spi.monitoring">DispatchingListener</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getDispatchingListener()">getDispatchingListener</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an instance of <A HREF="../../../../../com/sun/jersey/spi/monitoring/DispatchingListener.html" title="interface in com.sun.jersey.spi.monitoring"><CODE>DispatchingListener</CODE></A> that should be
+ used to monitor request processing.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/ExceptionMapperContext.html" title="interface in com.sun.jersey.spi.container">ExceptionMapperContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getExceptionMapperContext()">getExceptionMapperContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the exception mapper context that can be used to map exceptions
+ to responses.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getFeaturesAndProperties()">getFeaturesAndProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the features and properties.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getMessageBodyWorkers()">getMessageBodyWorkers</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the message body workers that can be used for getting
+ message body readers and writers.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getProviders()">getProviders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the providers.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/spi/monitoring/RequestListener.html" title="interface in com.sun.jersey.spi.monitoring">RequestListener</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getRequestListener()">getRequestListener</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an instance of <A HREF="../../../../../com/sun/jersey/spi/monitoring/RequestListener.html" title="interface in com.sun.jersey.spi.monitoring"><CODE>RequestListener</CODE></A> that should be
+ used to monitor request processing.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ResourceContext.html" title="interface in com.sun.jersey.api.core">ResourceContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getResourceContext()">getResourceContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the ResourceContext</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/spi/monitoring/ResponseListener.html" title="interface in com.sun.jersey.spi.monitoring">ResponseListener</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getResponseListener()">getResponseListener</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an instance of <A HREF="../../../../../com/sun/jersey/spi/monitoring/ResponseListener.html" title="interface in com.sun.jersey.spi.monitoring"><CODE>ResponseListener</CODE></A> that should be
+ used to monitor request processing.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.jersey.server.impl.inject.ServerInjectableProviderFactory</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getServerInjectableProviderFactory()">getServerInjectableProviderFactory</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the server injectable provider factory.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core">HttpContext</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#getThreadLocalHttpContext()">getThreadLocalHttpContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an instance of <A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core"><CODE>HttpContext</CODE></A> that is a proxy to
+ a thread local instance of <A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core"><CODE>HttpContext</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#handleRequest(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponse)">handleRequest</A></B>(<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request,
+              <A HREF="../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A>&nbsp;response)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handle an HTTP request by dispatching the request to the appropriate
+ matching Web resource that produces the response or otherwise producing
+ the appropriate HTTP error response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#handleRequest(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponseWriter)">handleRequest</A></B>(<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request,
+              <A HREF="../../../../../com/sun/jersey/spi/container/ContainerResponseWriter.html" title="interface in com.sun.jersey.spi.container">ContainerResponseWriter</A>&nbsp;responseWriter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handle an HTTP request by dispatching the request to the appropriate
+ matching Web resource that produces the response or otherwise producing
+ the appropriate HTTP error response.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#initiate(com.sun.jersey.api.core.ResourceConfig)">initiate</A></B>(<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the Web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)">initiate</A></B>(<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig,
+         <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the Web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html#isInitiated()">isInitiated</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.core.Traceable"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.api.core.<A HREF="../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/core/Traceable.html#isTracingEnabled()">isTracingEnabled</A>, <A HREF="../../../../../com/sun/jersey/api/core/Traceable.html#trace(java.lang.String)">trace</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="isInitiated()"><!-- --></A><H3>
+isInitiated</H3>
+<PRE>
+boolean <B>isInitiated</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true if th web application is initiated, otherwise false.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="initiate(com.sun.jersey.api.core.ResourceConfig)"><!-- --></A><H3>
+initiate</H3>
+<PRE>
+void <B>initiate</B>(<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig)
+              throws java.lang.IllegalArgumentException,
+                     <A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></PRE>
+<DL>
+<DD>Initiate the Web application.
+ <p>
+ This method can only be called once. Further calls will result in an
+ exception.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>resourceConfig</CODE> - the resource configuration containing the set
+        of Web resources to be managed by the Web application.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if resourceConfig is null.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></CODE> - if a second or further call to the method
+         is invoked.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="initiate(com.sun.jersey.api.core.ResourceConfig, com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory)"><!-- --></A><H3>
+initiate</H3>
+<PRE>
+void <B>initiate</B>(<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core">ResourceConfig</A>&nbsp;resourceConfig,
+              <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc">IoCComponentProviderFactory</A>&nbsp;provider)
+              throws java.lang.IllegalArgumentException,
+                     <A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></PRE>
+<DL>
+<DD>Initiate the Web application.
+ <p>
+ This method can only be called once. Further calls will result in an
+ exception.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>resourceConfig</CODE> - the resource configuration containing the set
+        of Web resources to be managed by the Web application.<DD><CODE>provider</CODE> - the IoC component provider factory to use, if null the default
+        component provider factory will be used.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if resourceConfig is null.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></CODE> - if a second or further call to the method
+         is invoked.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="clone()"><!-- --></A><H3>
+clone</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/spi/container/WebApplication.html" title="interface in com.sun.jersey.spi.container">WebApplication</A> <B>clone</B>()</PRE>
+<DL>
+<DD>Clone the WebApplication instance.
+ <p>
+ A new WebApplication instance will be created that is initiated with
+ the <A HREF="../../../../../com/sun/jersey/api/core/ResourceConfig.html" title="class in com.sun.jersey.api.core"><CODE>ResourceConfig</CODE></A> and <A HREF="../../../../../com/sun/jersey/core/spi/component/ioc/IoCComponentProviderFactory.html" title="interface in com.sun.jersey.core.spi.component.ioc"><CODE>IoCComponentProviderFactory</CODE></A> instances
+ that were used to initiate this WebApplication instance.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the cloned instance.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFeaturesAndProperties()"><!-- --></A><H3>
+getFeaturesAndProperties</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/core/util/FeaturesAndProperties.html" title="interface in com.sun.jersey.core.util">FeaturesAndProperties</A> <B>getFeaturesAndProperties</B>()</PRE>
+<DL>
+<DD>Get the features and properties.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the features and properties.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProviders()"><!-- --></A><H3>
+getProviders</H3>
+<PRE>
+<A HREF="../../../../../javax/ws/rs/ext/Providers.html" title="interface in javax.ws.rs.ext">Providers</A> <B>getProviders</B>()</PRE>
+<DL>
+<DD>Get the providers.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the providers.<DT><B>Since:</B></DT>
+  <DD>1.3</DD>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getResourceContext()"><!-- --></A><H3>
+getResourceContext</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/api/core/ResourceContext.html" title="interface in com.sun.jersey.api.core">ResourceContext</A> <B>getResourceContext</B>()</PRE>
+<DL>
+<DD>Get the ResourceContext
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>ResourceContext<DT><B>Since:</B></DT>
+  <DD>1.13</DD>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageBodyWorkers()"><!-- --></A><H3>
+getMessageBodyWorkers</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/spi/MessageBodyWorkers.html" title="interface in com.sun.jersey.spi">MessageBodyWorkers</A> <B>getMessageBodyWorkers</B>()</PRE>
+<DL>
+<DD>Get the message body workers that can be used for getting
+ message body readers and writers.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the message body workers. The return value is
+         undefined before the web application is initialized.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExceptionMapperContext()"><!-- --></A><H3>
+getExceptionMapperContext</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/spi/container/ExceptionMapperContext.html" title="interface in com.sun.jersey.spi.container">ExceptionMapperContext</A> <B>getExceptionMapperContext</B>()</PRE>
+<DL>
+<DD>Get the exception mapper context that can be used to map exceptions
+ to responses.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the exception mapper context.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getThreadLocalHttpContext()"><!-- --></A><H3>
+getThreadLocalHttpContext</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core">HttpContext</A> <B>getThreadLocalHttpContext</B>()</PRE>
+<DL>
+<DD>Get an instance of <A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core"><CODE>HttpContext</CODE></A> that is a proxy to
+ a thread local instance of <A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core"><CODE>HttpContext</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the thread local instance of HttpContext.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getServerInjectableProviderFactory()"><!-- --></A><H3>
+getServerInjectableProviderFactory</H3>
+<PRE>
+com.sun.jersey.server.impl.inject.ServerInjectableProviderFactory <B>getServerInjectableProviderFactory</B>()</PRE>
+<DL>
+<DD>Get the server injectable provider factory.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the server injectable provider factory</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRequestListener()"><!-- --></A><H3>
+getRequestListener</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/spi/monitoring/RequestListener.html" title="interface in com.sun.jersey.spi.monitoring">RequestListener</A> <B>getRequestListener</B>()</PRE>
+<DL>
+<DD>Get an instance of <A HREF="../../../../../com/sun/jersey/spi/monitoring/RequestListener.html" title="interface in com.sun.jersey.spi.monitoring"><CODE>RequestListener</CODE></A> that should be
+ used to monitor request processing.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the actual request listener</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDispatchingListener()"><!-- --></A><H3>
+getDispatchingListener</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/spi/monitoring/DispatchingListener.html" title="interface in com.sun.jersey.spi.monitoring">DispatchingListener</A> <B>getDispatchingListener</B>()</PRE>
+<DL>
+<DD>Get an instance of <A HREF="../../../../../com/sun/jersey/spi/monitoring/DispatchingListener.html" title="interface in com.sun.jersey.spi.monitoring"><CODE>DispatchingListener</CODE></A> that should be
+ used to monitor request processing.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the actual dispatching listener</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getResponseListener()"><!-- --></A><H3>
+getResponseListener</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/spi/monitoring/ResponseListener.html" title="interface in com.sun.jersey.spi.monitoring">ResponseListener</A> <B>getResponseListener</B>()</PRE>
+<DL>
+<DD>Get an instance of <A HREF="../../../../../com/sun/jersey/spi/monitoring/ResponseListener.html" title="interface in com.sun.jersey.spi.monitoring"><CODE>ResponseListener</CODE></A> that should be
+ used to monitor request processing.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the actual response listener</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="handleRequest(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponseWriter)"><!-- --></A><H3>
+handleRequest</H3>
+<PRE>
+void <B>handleRequest</B>(<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request,
+                   <A HREF="../../../../../com/sun/jersey/spi/container/ContainerResponseWriter.html" title="interface in com.sun.jersey.spi.container">ContainerResponseWriter</A>&nbsp;responseWriter)
+                   throws java.io.IOException</PRE>
+<DL>
+<DD>Handle an HTTP request by dispatching the request to the appropriate
+ matching Web resource that produces the response or otherwise producing
+ the appropriate HTTP error response.
+ <p>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the HTTP container request.<DD><CODE>responseWriter</CODE> - the HTTP container response writer.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if there is an IO error handling the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="handleRequest(com.sun.jersey.spi.container.ContainerRequest, com.sun.jersey.spi.container.ContainerResponse)"><!-- --></A><H3>
+handleRequest</H3>
+<PRE>
+void <B>handleRequest</B>(<A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A>&nbsp;request,
+                   <A HREF="../../../../../com/sun/jersey/spi/container/ContainerResponse.html" title="class in com.sun.jersey.spi.container">ContainerResponse</A>&nbsp;response)
+                   throws java.io.IOException</PRE>
+<DL>
+<DD>Handle an HTTP request by dispatching the request to the appropriate
+ matching Web resource that produces the response or otherwise producing
+ the appropriate HTTP error response.
+ <p>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the HTTP container request.<DD><CODE>response</CODE> - the HTTP container response.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if there is an IO error handling the request.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="destroy()"><!-- --></A><H3>
+destroy</H3>
+<PRE>
+void <B>destroy</B>()</PRE>
+<DL>
+<DD>Destroy the Web application.
+ <p>
+ This method MUST only be called only once. Calls to <code>handlerRequest</code>
+ MUST not occur while and after this method has been called.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WebApplication.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/SubjectSecurityContext.html" title="interface in com.sun.jersey.spi.container"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/spi/container/WebApplicationFactory.html" title="class in com.sun.jersey.spi.container"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/spi/container/WebApplication.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="WebApplication.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

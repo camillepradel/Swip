@@ -1,0 +1,1459 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+OAuthParameters (oauth-signature 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="OAuthParameters (oauth-signature 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../com/sun/jersey/oauth/signature/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/OAuthParameters.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/InvalidSecretException.html" title="class in com.sun.jersey.oauth.signature"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthRequest.html" title="interface in com.sun.jersey.oauth.signature"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/oauth/signature/OAuthParameters.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="OAuthParameters.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_java.util.AbstractMap">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.oauth.signature</FONT>
+<BR>
+Class OAuthParameters</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by ">java.util.AbstractMap&lt;K,V&gt;
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by ">java.util.HashMap&lt;java.lang.String,java.lang.String&gt;
+          <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.sun.jersey.oauth.signature.OAuthParameters</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Serializable, java.lang.Cloneable, java.util.Map&lt;java.lang.String,java.lang.String&gt;</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>OAuthParameters</B><DT>extends java.util.HashMap&lt;java.lang.String,java.lang.String&gt;</DL>
+</PRE>
+
+<P>
+A data structure class that represents OAuth protocol parameters.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Hubert A. Le Van Gong <hubert.levangong at Sun.COM>, Paul C. Bryan <pbryan@sun.com></DD>
+<DT><B>See Also:</B><DD><A HREF="../../../../../serialized-form.html#com.sun.jersey.oauth.signature.OAuthParameters">Serialized Form</A></DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_java.util.AbstractMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from class java.util.AbstractMap</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>java.util.AbstractMap.SimpleEntry&lt;K,V&gt;, java.util.AbstractMap.SimpleImmutableEntry&lt;K,V&gt;</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#AUTHORIZATION_HEADER">AUTHORIZATION_HEADER</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of HTTP authorization header.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#CALLBACK">CALLBACK</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the callback URL.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#CALLBACK_CONFIRMED">CALLBACK_CONFIRMED</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the token secret.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#CONSUMER_KEY">CONSUMER_KEY</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the consumer key.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#NONCE">NONCE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the nonce.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#REALM">REALM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the protection realm.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#SCHEME">SCHEME</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OAuth scheme in Authorization header.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#SIGNATURE">SIGNATURE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the signature.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#SIGNATURE_METHOD">SIGNATURE_METHOD</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the signature method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#TIMESTAMP">TIMESTAMP</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the timestamp.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#TOKEN">TOKEN</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the access/request token.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#TOKEN_SECRET">TOKEN_SECRET</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the token secret.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#VERIFIER">VERIFIER</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the verifier code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#VERSION">VERSION</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of parameter containing the protocol version.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#OAuthParameters()">OAuthParameters</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#callback(java.lang.String)">callback</A></B>(java.lang.String&nbsp;callback)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ callback URL.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#consumerKey(java.lang.String)">consumerKey</A></B>(java.lang.String&nbsp;consumerKey)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ consumer key.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getCallback()">getCallback</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the callback URL.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getConsumerKey()">getConsumerKey</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the consumer key.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getNonce()">getNonce</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the nonce, a value that should be unique for a given
+ timestamp.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getRealm()">getRealm</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the protection realm for the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getSignature()">getSignature</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the signature for the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getSignatureMethod()">getSignatureMethod</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the signature method used to sign the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getTimestamp()">getTimestamp</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the timestamp, a value expected to be a positive integer,
+ typically containing the number of seconds since January 1, 1970
+ 00:00:00 GMT (epoch).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getToken()">getToken</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the request or access token.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getVerifier()">getVerifier</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the verifier code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#getVersion()">getVersion</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the protocol version.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#nonce()">nonce</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ nonce to a randomly-generated UUID.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#nonce(java.lang.String)">nonce</A></B>(java.lang.String&nbsp;nonce)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ nonce.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#put(java.lang.String, java.lang.String)">put</A></B>(java.lang.String&nbsp;key,
+    java.lang.String&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#readRequest(com.sun.jersey.oauth.signature.OAuthRequest)">readRequest</A></B>(<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthRequest.html" title="interface in com.sun.jersey.oauth.signature">OAuthRequest</A>&nbsp;request)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reads a request for OAuth parameters, and populates this object.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#realm(java.lang.String)">realm</A></B>(java.lang.String&nbsp;realm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ protection realm.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setCallback(java.lang.String)">setCallback</A></B>(java.lang.String&nbsp;callback)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the callback URL.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setConsumerKey(java.lang.String)">setConsumerKey</A></B>(java.lang.String&nbsp;consumerKey)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the consumer key.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setNonce()">setNonce</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the nonce to contain a randomly-generated UUID.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setNonce(java.lang.String)">setNonce</A></B>(java.lang.String&nbsp;nonce)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the nonce, a value that should be unique for a given timestamp.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setRealm(java.lang.String)">setRealm</A></B>(java.lang.String&nbsp;realm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the protection realm for the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setSignature(java.lang.String)">setSignature</A></B>(java.lang.String&nbsp;signature)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the signature for the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setSignatureMethod(java.lang.String)">setSignatureMethod</A></B>(java.lang.String&nbsp;signatureMethod)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the signature method used to sign the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setTimestamp()">setTimestamp</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the timestamp to the current time as number of seconds since epoch.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setTimestamp(java.lang.String)">setTimestamp</A></B>(java.lang.String&nbsp;timestamp)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the timestamp.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setToken(java.lang.String)">setToken</A></B>(java.lang.String&nbsp;token)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the request or access token.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setVerifier(java.lang.String)">setVerifier</A></B>(java.lang.String&nbsp;verifier)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the verifier code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setVersion()">setVersion</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the protocol version to the default value of 1.0.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#setVersion(java.lang.String)">setVersion</A></B>(java.lang.String&nbsp;version)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the protocol version.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#signature(java.lang.String)">signature</A></B>(java.lang.String&nbsp;signature)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ signature.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#signatureMethod(java.lang.String)">signatureMethod</A></B>(java.lang.String&nbsp;signatureMethod)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ signature method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#timestamp()">timestamp</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ timestamp to the current time.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#timestamp(java.lang.String)">timestamp</A></B>(java.lang.String&nbsp;timestamp)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ timestamp.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#token(java.lang.String)">token</A></B>(java.lang.String&nbsp;token)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ token.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#verifier(java.lang.String)">verifier</A></B>(java.lang.String&nbsp;verifier)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ verifier code.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#version()">version</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ version to the default value of 1.0.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#version(java.lang.String)">version</A></B>(java.lang.String&nbsp;version)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ version.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html#writeRequest(com.sun.jersey.oauth.signature.OAuthRequest)">writeRequest</A></B>(<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthRequest.html" title="interface in com.sun.jersey.oauth.signature">OAuthRequest</A>&nbsp;request)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writes the OAuth parameters to a request, as an Authorization header.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.util.HashMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.util.HashMap</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clear, clone, containsKey, containsValue, entrySet, get, isEmpty, keySet, putAll, remove, size, values</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.util.AbstractMap"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.util.AbstractMap</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>equals, hashCode, toString</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>finalize, getClass, notify, notifyAll, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.util.Map"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface java.util.Map</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>equals, hashCode</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="AUTHORIZATION_HEADER"><!-- --></A><H3>
+AUTHORIZATION_HEADER</H3>
+<PRE>
+public static final java.lang.String <B>AUTHORIZATION_HEADER</B></PRE>
+<DL>
+<DD>Name of HTTP authorization header.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.AUTHORIZATION_HEADER">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="SCHEME"><!-- --></A><H3>
+SCHEME</H3>
+<PRE>
+public static final java.lang.String <B>SCHEME</B></PRE>
+<DL>
+<DD>OAuth scheme in Authorization header.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.SCHEME">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="REALM"><!-- --></A><H3>
+REALM</H3>
+<PRE>
+public static final java.lang.String <B>REALM</B></PRE>
+<DL>
+<DD>Name of parameter containing the protection realm.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.REALM">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CONSUMER_KEY"><!-- --></A><H3>
+CONSUMER_KEY</H3>
+<PRE>
+public static final java.lang.String <B>CONSUMER_KEY</B></PRE>
+<DL>
+<DD>Name of parameter containing the consumer key.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.CONSUMER_KEY">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="TOKEN"><!-- --></A><H3>
+TOKEN</H3>
+<PRE>
+public static final java.lang.String <B>TOKEN</B></PRE>
+<DL>
+<DD>Name of parameter containing the access/request token.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.TOKEN">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="SIGNATURE_METHOD"><!-- --></A><H3>
+SIGNATURE_METHOD</H3>
+<PRE>
+public static final java.lang.String <B>SIGNATURE_METHOD</B></PRE>
+<DL>
+<DD>Name of parameter containing the signature method.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.SIGNATURE_METHOD">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="SIGNATURE"><!-- --></A><H3>
+SIGNATURE</H3>
+<PRE>
+public static final java.lang.String <B>SIGNATURE</B></PRE>
+<DL>
+<DD>Name of parameter containing the signature.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.SIGNATURE">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="TIMESTAMP"><!-- --></A><H3>
+TIMESTAMP</H3>
+<PRE>
+public static final java.lang.String <B>TIMESTAMP</B></PRE>
+<DL>
+<DD>Name of parameter containing the timestamp.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.TIMESTAMP">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="NONCE"><!-- --></A><H3>
+NONCE</H3>
+<PRE>
+public static final java.lang.String <B>NONCE</B></PRE>
+<DL>
+<DD>Name of parameter containing the nonce.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.NONCE">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="VERSION"><!-- --></A><H3>
+VERSION</H3>
+<PRE>
+public static final java.lang.String <B>VERSION</B></PRE>
+<DL>
+<DD>Name of parameter containing the protocol version.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.VERSION">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="VERIFIER"><!-- --></A><H3>
+VERIFIER</H3>
+<PRE>
+public static final java.lang.String <B>VERIFIER</B></PRE>
+<DL>
+<DD>Name of parameter containing the verifier code.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.VERIFIER">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CALLBACK"><!-- --></A><H3>
+CALLBACK</H3>
+<PRE>
+public static final java.lang.String <B>CALLBACK</B></PRE>
+<DL>
+<DD>Name of parameter containing the callback URL.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.CALLBACK">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="TOKEN_SECRET"><!-- --></A><H3>
+TOKEN_SECRET</H3>
+<PRE>
+public static final java.lang.String <B>TOKEN_SECRET</B></PRE>
+<DL>
+<DD>Name of parameter containing the token secret.
+ This parameter is never used in requests. It is part of a response to the request token and access token requests.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.TOKEN_SECRET">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CALLBACK_CONFIRMED"><!-- --></A><H3>
+CALLBACK_CONFIRMED</H3>
+<PRE>
+public static final java.lang.String <B>CALLBACK_CONFIRMED</B></PRE>
+<DL>
+<DD>Name of parameter containing the token secret.
+ This parameter is never used in requests. It is part of a response to the request token requests.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.sun.jersey.oauth.signature.OAuthParameters.CALLBACK_CONFIRMED">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="OAuthParameters()"><!-- --></A><H3>
+OAuthParameters</H3>
+<PRE>
+public <B>OAuthParameters</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getRealm()"><!-- --></A><H3>
+getRealm</H3>
+<PRE>
+public java.lang.String <B>getRealm</B>()</PRE>
+<DL>
+<DD>Returns the protection realm for the request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setRealm(java.lang.String)"><!-- --></A><H3>
+setRealm</H3>
+<PRE>
+public void <B>setRealm</B>(java.lang.String&nbsp;realm)</PRE>
+<DL>
+<DD>Sets the protection realm for the request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="realm(java.lang.String)"><!-- --></A><H3>
+realm</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>realm</B>(java.lang.String&nbsp;realm)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ protection realm.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>realm</CODE> - the protection realm for the request.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getConsumerKey()"><!-- --></A><H3>
+getConsumerKey</H3>
+<PRE>
+public java.lang.String <B>getConsumerKey</B>()</PRE>
+<DL>
+<DD>Returns the consumer key.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setConsumerKey(java.lang.String)"><!-- --></A><H3>
+setConsumerKey</H3>
+<PRE>
+public void <B>setConsumerKey</B>(java.lang.String&nbsp;consumerKey)</PRE>
+<DL>
+<DD>Sets the consumer key.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="consumerKey(java.lang.String)"><!-- --></A><H3>
+consumerKey</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>consumerKey</B>(java.lang.String&nbsp;consumerKey)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ consumer key.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>consumerKey</CODE> - the consumer key.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getToken()"><!-- --></A><H3>
+getToken</H3>
+<PRE>
+public java.lang.String <B>getToken</B>()</PRE>
+<DL>
+<DD>Returns the request or access token.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="put(java.lang.String, java.lang.String)"><!-- --></A><H3>
+put</H3>
+<PRE>
+public java.lang.String <B>put</B>(java.lang.String&nbsp;key,
+                            java.lang.String&nbsp;value)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>put</CODE> in interface <CODE>java.util.Map&lt;java.lang.String,java.lang.String&gt;</CODE><DT><B>Overrides:</B><DD><CODE>put</CODE> in class <CODE>java.util.HashMap&lt;java.lang.String,java.lang.String&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setToken(java.lang.String)"><!-- --></A><H3>
+setToken</H3>
+<PRE>
+public void <B>setToken</B>(java.lang.String&nbsp;token)</PRE>
+<DL>
+<DD>Sets the request or access token.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="token(java.lang.String)"><!-- --></A><H3>
+token</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>token</B>(java.lang.String&nbsp;token)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ token.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>token</CODE> - the access or request token.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignatureMethod()"><!-- --></A><H3>
+getSignatureMethod</H3>
+<PRE>
+public java.lang.String <B>getSignatureMethod</B>()</PRE>
+<DL>
+<DD>Returns the signature method used to sign the request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSignatureMethod(java.lang.String)"><!-- --></A><H3>
+setSignatureMethod</H3>
+<PRE>
+public void <B>setSignatureMethod</B>(java.lang.String&nbsp;signatureMethod)</PRE>
+<DL>
+<DD>Sets the signature method used to sign the request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="signatureMethod(java.lang.String)"><!-- --></A><H3>
+signatureMethod</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>signatureMethod</B>(java.lang.String&nbsp;signatureMethod)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ signature method.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signatureMethod</CODE> - the signature method used to sign the request.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignature()"><!-- --></A><H3>
+getSignature</H3>
+<PRE>
+public java.lang.String <B>getSignature</B>()</PRE>
+<DL>
+<DD>Returns the signature for the request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSignature(java.lang.String)"><!-- --></A><H3>
+setSignature</H3>
+<PRE>
+public void <B>setSignature</B>(java.lang.String&nbsp;signature)</PRE>
+<DL>
+<DD>Sets the signature for the request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="signature(java.lang.String)"><!-- --></A><H3>
+signature</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>signature</B>(java.lang.String&nbsp;signature)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ signature.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signature</CODE> - the signature for the request.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTimestamp()"><!-- --></A><H3>
+getTimestamp</H3>
+<PRE>
+public java.lang.String <B>getTimestamp</B>()</PRE>
+<DL>
+<DD>Returns the timestamp, a value expected to be a positive integer,
+ typically containing the number of seconds since January 1, 1970
+ 00:00:00 GMT (epoch).
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTimestamp(java.lang.String)"><!-- --></A><H3>
+setTimestamp</H3>
+<PRE>
+public void <B>setTimestamp</B>(java.lang.String&nbsp;timestamp)</PRE>
+<DL>
+<DD>Sets the timestamp. Its value is not validated, but should be a
+ positive integer, typically containing the number of seconds since
+ January 1, 1970 00:00:00 GMT (epoch).
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="timestamp(java.lang.String)"><!-- --></A><H3>
+timestamp</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>timestamp</B>(java.lang.String&nbsp;timestamp)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ timestamp.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>timestamp</CODE> - positive integer, typically number of seconds since epoch.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTimestamp()"><!-- --></A><H3>
+setTimestamp</H3>
+<PRE>
+public void <B>setTimestamp</B>()</PRE>
+<DL>
+<DD>Sets the timestamp to the current time as number of seconds since epoch.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="timestamp()"><!-- --></A><H3>
+timestamp</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>timestamp</B>()</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ timestamp to the current time.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNonce()"><!-- --></A><H3>
+getNonce</H3>
+<PRE>
+public java.lang.String <B>getNonce</B>()</PRE>
+<DL>
+<DD>Returns the nonce, a value that should be unique for a given
+ timestamp.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setNonce(java.lang.String)"><!-- --></A><H3>
+setNonce</H3>
+<PRE>
+public void <B>setNonce</B>(java.lang.String&nbsp;nonce)</PRE>
+<DL>
+<DD>Sets the nonce, a value that should be unique for a given timestamp.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="nonce(java.lang.String)"><!-- --></A><H3>
+nonce</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>nonce</B>(java.lang.String&nbsp;nonce)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ nonce.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>nonce</CODE> - a value that should be unique for a given timestamp.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setNonce()"><!-- --></A><H3>
+setNonce</H3>
+<PRE>
+public void <B>setNonce</B>()</PRE>
+<DL>
+<DD>Sets the nonce to contain a randomly-generated UUID.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="nonce()"><!-- --></A><H3>
+nonce</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>nonce</B>()</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ nonce to a randomly-generated UUID.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getVersion()"><!-- --></A><H3>
+getVersion</H3>
+<PRE>
+public java.lang.String <B>getVersion</B>()</PRE>
+<DL>
+<DD>Returns the protocol version.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setVersion(java.lang.String)"><!-- --></A><H3>
+setVersion</H3>
+<PRE>
+public void <B>setVersion</B>(java.lang.String&nbsp;version)</PRE>
+<DL>
+<DD>Sets the protocol version.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="version(java.lang.String)"><!-- --></A><H3>
+version</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>version</B>(java.lang.String&nbsp;version)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ version.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>version</CODE> - the protocol version.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setVersion()"><!-- --></A><H3>
+setVersion</H3>
+<PRE>
+public void <B>setVersion</B>()</PRE>
+<DL>
+<DD>Sets the protocol version to the default value of 1.0.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="version()"><!-- --></A><H3>
+version</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>version</B>()</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ version to the default value of 1.0.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getVerifier()"><!-- --></A><H3>
+getVerifier</H3>
+<PRE>
+public java.lang.String <B>getVerifier</B>()</PRE>
+<DL>
+<DD>Returns the verifier code.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setVerifier(java.lang.String)"><!-- --></A><H3>
+setVerifier</H3>
+<PRE>
+public void <B>setVerifier</B>(java.lang.String&nbsp;verifier)</PRE>
+<DL>
+<DD>Sets the verifier code.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="verifier(java.lang.String)"><!-- --></A><H3>
+verifier</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>verifier</B>(java.lang.String&nbsp;verifier)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ verifier code.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>verifier</CODE> - the verifier code.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCallback()"><!-- --></A><H3>
+getCallback</H3>
+<PRE>
+public java.lang.String <B>getCallback</B>()</PRE>
+<DL>
+<DD>Returns the callback URL.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setCallback(java.lang.String)"><!-- --></A><H3>
+setCallback</H3>
+<PRE>
+public void <B>setCallback</B>(java.lang.String&nbsp;callback)</PRE>
+<DL>
+<DD>Sets the callback URL.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="callback(java.lang.String)"><!-- --></A><H3>
+callback</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>callback</B>(java.lang.String&nbsp;callback)</PRE>
+<DL>
+<DD>Builder pattern method to return <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature"><CODE>OAuthParameters</CODE></A> after setting
+ callback URL.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>callback</CODE> - the callback URL.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="readRequest(com.sun.jersey.oauth.signature.OAuthRequest)"><!-- --></A><H3>
+readRequest</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>readRequest</B>(<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthRequest.html" title="interface in com.sun.jersey.oauth.signature">OAuthRequest</A>&nbsp;request)</PRE>
+<DL>
+<DD>Reads a request for OAuth parameters, and populates this object.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the request to read OAuth parameters from.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="writeRequest(com.sun.jersey.oauth.signature.OAuthRequest)"><!-- --></A><H3>
+writeRequest</H3>
+<PRE>
+public <A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthParameters.html" title="class in com.sun.jersey.oauth.signature">OAuthParameters</A> <B>writeRequest</B>(<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthRequest.html" title="interface in com.sun.jersey.oauth.signature">OAuthRequest</A>&nbsp;request)</PRE>
+<DL>
+<DD>Writes the OAuth parameters to a request, as an Authorization header.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>request</CODE> - the request to write OAuth parameters to.
+<DT><B>Returns:</B><DD>this parameters object.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../com/sun/jersey/oauth/signature/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/OAuthParameters.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/InvalidSecretException.html" title="class in com.sun.jersey.oauth.signature"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/oauth/signature/OAuthRequest.html" title="interface in com.sun.jersey.oauth.signature"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/oauth/signature/OAuthParameters.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="OAuthParameters.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_java.util.AbstractMap">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

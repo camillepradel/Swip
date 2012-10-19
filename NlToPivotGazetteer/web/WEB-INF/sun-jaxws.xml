@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="org.swip.nlToPivotGatePipeline.NlToPivotGatePipelineWS" name="NlToPivotGatePipelineWS" url-pattern="/NlToPivotGatePipelineWS"/>
+  <!--<endpoint implementation="org.swip.nlToPivotGatePipeline.NlToPivotGatePipelineWS" name="NlToPivotGatePipelineWS" url-pattern="/NlToPivotGatePipelineWS"/>
+  <endpoint implementation="org.swip.nlToPivotGatePipeline.NlToPivotGatePipelineWS" name="NlToPivotGatePipelineWS" url-pattern="/NlToPivotGatePipelineWS"/>-->
+</endpoints>

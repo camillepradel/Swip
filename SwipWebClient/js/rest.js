@@ -18,12 +18,27 @@ function nlToPivot(nlQuery, lang)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://localhost:8080/NlToPivotStanford/resources/rest/translateQuery?nlQuery=' + encodeURIComponent(nlQuery) + '&lang=' + encodeURIComponent(lang)
+        dataType: "text",
+        url: 'http://192.168.250.91/NlToPivotGazetteer/resources/rest/gatherNamedEntities',
+        data: {text: nlQuery, tagWithClass:false},
     }).done(function(data)
     {
-        $('#searchField2').val(data);
-        $('#searchField2').focus();
-        toggleSearch(true);
+        $.ajax
+        ({
+            type: 'GET',
+            dataType: "json",
+            url: 'http://192.168.250.91/NlToPivotParser/resources/rest/nlToDependenciesAndPivot',
+            data: {nlQuery: data, 'lang': lang, pos:'treeTagger', dep:'malt'},
+        }).done(function(data2)
+        {   
+            $('#searchField2').val(data2['pivotQuery']);
+            $('#searchField2').focus();
+            toggleSearch(true);
+        }).fail(function(jqXHR, textStatus) {
+            alert('Ajax error, please try again !');
+            toggleSearch(true);
+        });
+
     }).fail(function(jqXHR, textStatus) {
         alert('Ajax error, please try again !');
         toggleSearch(true);

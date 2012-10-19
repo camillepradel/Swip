@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.swip.nlToPivotParser;
 
 import java.util.ArrayList;
@@ -19,10 +15,6 @@ import org.maltparser.core.syntaxgraph.node.Root;
 import org.maltparser.core.syntaxgraph.node.Token;
 import org.swip.utils.sparql.RemoteSparqlServer;
 
-/**
- *
- * @author camille
- */
 public class MaltParser {
 
     private static final Logger logger = Logger.getLogger(MaltParser.class);
@@ -65,10 +57,15 @@ public class MaltParser {
         }
 
         if (lang.equals("en")) {
+            // on mirail server
             service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
-            //            service.initializeParserModel("-c engmalt.poly-1.7 -m parse -w . -lfi parser.log");
+            // on my computer
+//            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
         } else if (lang.equals("fr")) {
+            // on mirail server
             service.initializeParserModel("-c fremalt-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+            // on my computer
+//            service.initializeParserModel("-c fremalt-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
         } else {
             // Todo: rise exception
         }
@@ -241,6 +238,7 @@ public class MaltParser {
                             + "    ?resource rdf:type owl:Class."
                             + "    ?resource dc:title|rdfs:label ?label."
                             + "    (?label ?score) pf:textMatch \"" + tokenLemma + "\"."
+                            // valeur du score à revoir (nouvelle version de larq)
                             + "    FILTER (?score > 0.6)"
                             + "}";
                     logger.info(query);

@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+ResourceContext (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ResourceContext (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ResourceContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfigurator.html" title="interface in com.sun.jersey.api.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html" title="class in com.sun.jersey.api.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/core/ResourceContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ResourceContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.core</FONT>
+<BR>
+Interface ResourceContext</H2>
+<HR>
+<DL>
+<DT><PRE>public interface <B>ResourceContext</B></DL>
+</PRE>
+
+<P>
+The resource context provides access to instances of resource classes.
+ <p>
+ This interface can be injected using the <A HREF="../../../../../javax/ws/rs/core/Context.html" title="annotation in javax.ws.rs.core"><CODE>Context</CODE></A> annotation.
+ <p>
+ The resource context can be utilized when instances of managed resource
+ classes are to be returned by sub-resource locator methods. Such instances
+ will be injected and managed within the declared scope just like instances
+ of root resource classes.
+ <p>
+ The resource context can be utilized when matching of URIs are
+ required, for example when validating URIs sent in a request entity.
+ Note that application functionality may be affected as the matching
+ process will result in the construction or sharing of previously constructed
+ resource classes that are in scope of the HTTP request, and the invocation of
+ matching sub-resource locator methods. No resource methods wll be invoked.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD><a href="mailto:martin.grotzke@freiheit.com">Martin Grotzke</a>, Paul.Sandoz@Sun.Com</DD>
+</DL>
+<HR>
+
+<P>
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/ResourceContext.html#getResource(java.lang.Class)">getResource</A></B>(java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides an instance of the given resource class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/ResourceContext.html#matchResource(java.net.URI)">matchResource</A></B>(java.net.URI&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Match a URI to a resource instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/ResourceContext.html#matchResource(java.net.URI, java.lang.Class)">matchResource</A></B>(java.net.URI&nbsp;u,
+              java.lang.Class&lt;T&gt;&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Match a URI to a resource instance.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ExtendedUriInfo.html" title="interface in com.sun.jersey.api.core">ExtendedUriInfo</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/ResourceContext.html#matchUriInfo(java.net.URI)">matchUriInfo</A></B>(java.net.URI&nbsp;u)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Match a URI to URI information.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="matchUriInfo(java.net.URI)"><!-- --></A><H3>
+matchUriInfo</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/api/core/ExtendedUriInfo.html" title="interface in com.sun.jersey.api.core">ExtendedUriInfo</A> <B>matchUriInfo</B>(java.net.URI&nbsp;u)
+                             throws <A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></PRE>
+<DL>
+<DD>Match a URI to URI information.
+ <p>
+ If the URI is relative then the base URI of the application will be
+ used to resolve the relative URI to an absolute URI.
+ If the URI is absolute then it must be relative to the base URI of the
+ application.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>u</CODE> - the URI.
+<DT><B>Returns:</B><DD>the URI information, otherwise null if the URI cannot be matched.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></CODE> - if there is an error when matching.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="matchResource(java.net.URI)"><!-- --></A><H3>
+matchResource</H3>
+<PRE>
+java.lang.Object <B>matchResource</B>(java.net.URI&nbsp;u)
+                               throws <A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></PRE>
+<DL>
+<DD>Match a URI to a resource instance.
+ <p>
+ If the URI is relative then the base URI of the application will be
+ used to resolve the relative URI to an absolute URI.
+ If the URI is absolute then it must be relative to the base URI of the
+ application.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>u</CODE> - the URI.
+<DT><B>Returns:</B><DD>the resource instance, otherwise null if the URI cannot be
+         matched.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></CODE> - if there is an error when matching.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="matchResource(java.net.URI, java.lang.Class)"><!-- --></A><H3>
+matchResource</H3>
+<PRE>
+&lt;T&gt; T <B>matchResource</B>(java.net.URI&nbsp;u,
+                    java.lang.Class&lt;T&gt;&nbsp;c)
+                throws <A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A>,
+                       java.lang.ClassCastException</PRE>
+<DL>
+<DD>Match a URI to a resource instance.
+ <p>
+ If the URI is relative then the base URI of the application will be
+ used to resolve the relative URI to an absolute URI.
+ If the URI is absolute then it must be relative to the base URI of the
+ application.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the resource.<DT><B>Parameters:</B><DD><CODE>u</CODE> - the URI.<DD><CODE>c</CODE> - the resource class.
+<DT><B>Returns:</B><DD>the resource instance, otherwise null if the URI cannot be
+         matched.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></CODE> - if there is an error when matching.
+<DD><CODE>java.lang.ClassCastException</CODE> - if the resource instance cannot be cast to
+         <code>c</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getResource(java.lang.Class)"><!-- --></A><H3>
+getResource</H3>
+<PRE>
+&lt;T&gt; T <B>getResource</B>(java.lang.Class&lt;T&gt;&nbsp;c)
+              throws <A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></PRE>
+<DL>
+<DD>Provides an instance of the given resource class.
+<P>
+<DD><DL>
+<DT><B>Type Parameters:</B><DD><CODE>T</CODE> - the type of the resource class<DT><B>Parameters:</B><DD><CODE>c</CODE> - the resource class
+<DT><B>Returns:</B><DD>an instance if it could be resolved, otherwise null.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/container/ContainerException.html" title="class in com.sun.jersey.api.container">ContainerException</A></CODE> - if the resource
+         class cannot be found.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ResourceContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ResourceConfigurator.html" title="interface in com.sun.jersey.api.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/ScanningResourceConfig.html" title="class in com.sun.jersey.api.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/core/ResourceContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ResourceContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

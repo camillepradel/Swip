@@ -1,0 +1,842 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+HttpRequestContext (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="HttpRequestContext (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HttpRequestContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/HttpResponseContext.html" title="interface in com.sun.jersey.api.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/core/HttpRequestContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HttpRequestContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.sun.jersey.api.core</FONT>
+<BR>
+Interface HttpRequestContext</H2>
+<DL>
+<DT><B>All Superinterfaces:</B> <DD><A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html" title="interface in javax.ws.rs.core">HttpHeaders</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html" title="interface in javax.ws.rs.core">Request</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html" title="interface in javax.ws.rs.core">SecurityContext</A>, <A HREF="../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A></DD>
+</DL>
+<DL>
+<DT><B>All Known Implementing Classes:</B> <DD><A HREF="../../../../../com/sun/jersey/spi/container/AdaptingContainerRequest.html" title="class in com.sun.jersey.spi.container">AdaptingContainerRequest</A>, <A HREF="../../../../../com/sun/jersey/spi/container/CachedEntityContainerRequest.html" title="class in com.sun.jersey.spi.container">CachedEntityContainerRequest</A>, <A HREF="../../../../../com/sun/jersey/spi/container/ContainerRequest.html" title="class in com.sun.jersey.spi.container">ContainerRequest</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public interface <B>HttpRequestContext</B><DT>extends <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html" title="interface in javax.ws.rs.core">HttpHeaders</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html" title="interface in javax.ws.rs.core">Request</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html" title="interface in javax.ws.rs.core">SecurityContext</A>, <A HREF="../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A></DL>
+</PRE>
+
+<P>
+An abstraction of a HTTP request.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_javax.ws.rs.core.HttpHeaders"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface javax.ws.rs.core.<A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html" title="interface in javax.ws.rs.core">HttpHeaders</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT">ACCEPT</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT_CHARSET">ACCEPT_CHARSET</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT_ENCODING">ACCEPT_ENCODING</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ACCEPT_LANGUAGE">ACCEPT_LANGUAGE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#AUTHORIZATION">AUTHORIZATION</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CACHE_CONTROL">CACHE_CONTROL</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_ENCODING">CONTENT_ENCODING</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_LANGUAGE">CONTENT_LANGUAGE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_LENGTH">CONTENT_LENGTH</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_LOCATION">CONTENT_LOCATION</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#CONTENT_TYPE">CONTENT_TYPE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#COOKIE">COOKIE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#DATE">DATE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#ETAG">ETAG</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#EXPIRES">EXPIRES</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#HOST">HOST</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_MATCH">IF_MATCH</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_MODIFIED_SINCE">IF_MODIFIED_SINCE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_NONE_MATCH">IF_NONE_MATCH</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#IF_UNMODIFIED_SINCE">IF_UNMODIFIED_SINCE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#LAST_MODIFIED">LAST_MODIFIED</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#LOCATION">LOCATION</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#SET_COOKIE">SET_COOKIE</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#USER_AGENT">USER_AGENT</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#VARY">VARY</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#WWW_AUTHENTICATE">WWW_AUTHENTICATE</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_javax.ws.rs.core.SecurityContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface javax.ws.rs.core.<A HREF="../../../../../javax/ws/rs/core/SecurityContext.html" title="interface in javax.ws.rs.core">SecurityContext</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#BASIC_AUTH">BASIC_AUTH</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#CLIENT_CERT_AUTH">CLIENT_CERT_AUTH</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#DIGEST_AUTH">DIGEST_AUTH</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#FORM_AUTH">FORM_AUTH</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.net.URI</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getAbsolutePath()">getAbsolutePath</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the absolute path of the request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/UriBuilder.html" title="class in javax.ws.rs.core">UriBuilder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getAbsolutePathBuilder()">getAbsolutePathBuilder</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the absolute path of the request in the form of a UriBuilder.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getAcceptableMediaType(java.util.List)">getAcceptableMediaType</A></B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>will stay in Jersey 1.x, use <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)"><CODE>Request.selectVariant(java.util.List)</CODE></A>
+             as an alternative.</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getAcceptableMediaTypes(java.util.List)">getAcceptableMediaTypes</A></B>(java.util.List&lt;<A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html" title="class in com.sun.jersey.core.header">QualitySourceMediaType</A>&gt;&nbsp;priorityMediaTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>will stay in Jersey 1.x, use <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)"><CODE>Request.selectVariant(java.util.List)</CODE></A>
+             as an alternative.</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.net.URI</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getBaseUri()">getBaseUri</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the base URI of the application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/UriBuilder.html" title="class in javax.ws.rs.core">UriBuilder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getBaseUriBuilder()">getBaseUriBuilder</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the base URI of the application in the form of a UriBuilder.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getCookieNameValueMap()">getCookieNameValueMap</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the cookie name value map.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getEntity(java.lang.Class)">getEntity</A></B>(java.lang.Class&lt;T&gt;&nbsp;type)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the request entity, returns null if the request does not
+ contain an entity body.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])">getEntity</A></B>(java.lang.Class&lt;T&gt;&nbsp;type,
+          java.lang.reflect.Type&nbsp;genericType,
+          java.lang.annotation.Annotation[]&nbsp;as)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the request entity, returns null if the request does not
+ contain an entity body.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/sun/jersey/api/representation/Form.html" title="class in com.sun.jersey.api.representation">Form</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getFormParameters()">getFormParameters</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the form parameters of the request entity.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getHeaderValue(java.lang.String)">getHeaderValue</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a HTTP header value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getPath()">getPath</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the path of the current request relative to the base URI as
+ a string.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getPath(boolean)">getPath</A></B>(boolean&nbsp;decode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the path of the current request relative to the base URI as
+ a string.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core">PathSegment</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getPathSegments()">getPathSegments</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the path of the current request relative to the base URI as a 
+ list of <A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core">PathSegment</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getPathSegments(boolean)">getPathSegments</A></B>(boolean&nbsp;decode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the path of the current request relative to the base URI as a 
+ list of <A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getQueryParameters()">getQueryParameters</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the URI query parameters of the current request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getQueryParameters(boolean)">getQueryParameters</A></B>(boolean&nbsp;decode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the URI query parameters of the current request.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.net.URI</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getRequestUri()">getRequestUri</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the absolute request URI.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../javax/ws/rs/core/UriBuilder.html" title="class in javax.ws.rs.core">UriBuilder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/sun/jersey/api/core/HttpRequestContext.html#getRequestUriBuilder()">getRequestUriBuilder</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the absolute request URI in the form of a UriBuilder.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_javax.ws.rs.core.HttpHeaders"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface javax.ws.rs.core.<A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html" title="interface in javax.ws.rs.core">HttpHeaders</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getAcceptableLanguages()">getAcceptableLanguages</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getAcceptableMediaTypes()">getAcceptableMediaTypes</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getCookies()">getCookies</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getLanguage()">getLanguage</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getMediaType()">getMediaType</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getRequestHeader(java.lang.String)">getRequestHeader</A>, <A HREF="../../../../../javax/ws/rs/core/HttpHeaders.html#getRequestHeaders()">getRequestHeaders</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_javax.ws.rs.core.Request"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface javax.ws.rs.core.<A HREF="../../../../../javax/ws/rs/core/Request.html" title="interface in javax.ws.rs.core">Request</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../javax/ws/rs/core/Request.html#evaluatePreconditions()">evaluatePreconditions</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html#evaluatePreconditions(java.util.Date)">evaluatePreconditions</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html#evaluatePreconditions(java.util.Date, javax.ws.rs.core.EntityTag)">evaluatePreconditions</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html#evaluatePreconditions(javax.ws.rs.core.EntityTag)">evaluatePreconditions</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html#getMethod()">getMethod</A>, <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)">selectVariant</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_javax.ws.rs.core.SecurityContext"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface javax.ws.rs.core.<A HREF="../../../../../javax/ws/rs/core/SecurityContext.html" title="interface in javax.ws.rs.core">SecurityContext</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#getAuthenticationScheme()">getAuthenticationScheme</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#getUserPrincipal()">getUserPrincipal</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#isSecure()">isSecure</A>, <A HREF="../../../../../javax/ws/rs/core/SecurityContext.html#isUserInRole(java.lang.String)">isUserInRole</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.sun.jersey.api.core.Traceable"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface com.sun.jersey.api.core.<A HREF="../../../../../com/sun/jersey/api/core/Traceable.html" title="interface in com.sun.jersey.api.core">Traceable</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../com/sun/jersey/api/core/Traceable.html#isTracingEnabled()">isTracingEnabled</A>, <A HREF="../../../../../com/sun/jersey/api/core/Traceable.html#trace(java.lang.String)">trace</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getBaseUri()"><!-- --></A><H3>
+getBaseUri</H3>
+<PRE>
+java.net.URI <B>getBaseUri</B>()</PRE>
+<DL>
+<DD>Get the base URI of the application. URIs of root resource classes
+ are all relative to this base URI.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the base URI of the application</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBaseUriBuilder()"><!-- --></A><H3>
+getBaseUriBuilder</H3>
+<PRE>
+<A HREF="../../../../../javax/ws/rs/core/UriBuilder.html" title="class in javax.ws.rs.core">UriBuilder</A> <B>getBaseUriBuilder</B>()</PRE>
+<DL>
+<DD>Get the base URI of the application in the form of a UriBuilder.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a UriBuilder initialized with the base URI of the application.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRequestUri()"><!-- --></A><H3>
+getRequestUri</H3>
+<PRE>
+java.net.URI <B>getRequestUri</B>()</PRE>
+<DL>
+<DD>Get the absolute request URI. This includes query parameters and
+ any supplied fragment.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the absolute request URI
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRequestUriBuilder()"><!-- --></A><H3>
+getRequestUriBuilder</H3>
+<PRE>
+<A HREF="../../../../../javax/ws/rs/core/UriBuilder.html" title="class in javax.ws.rs.core">UriBuilder</A> <B>getRequestUriBuilder</B>()</PRE>
+<DL>
+<DD>Get the absolute request URI in the form of a UriBuilder.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a UriBuilder initialized with the absolute request URI
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAbsolutePath()"><!-- --></A><H3>
+getAbsolutePath</H3>
+<PRE>
+java.net.URI <B>getAbsolutePath</B>()</PRE>
+<DL>
+<DD>Get the absolute path of the request. This includes everything preceding
+ the path (host, port etc) but excludes query parameters and fragment.
+ This is a shortcut for
+ <code>uriInfo.getBase().resolve(uriInfo.getPath()).</code>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the absolute path of the request
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAbsolutePathBuilder()"><!-- --></A><H3>
+getAbsolutePathBuilder</H3>
+<PRE>
+<A HREF="../../../../../javax/ws/rs/core/UriBuilder.html" title="class in javax.ws.rs.core">UriBuilder</A> <B>getAbsolutePathBuilder</B>()</PRE>
+<DL>
+<DD>Get the absolute path of the request in the form of a UriBuilder.
+ This includes everything preceding the path (host, port etc) but excludes
+ query parameters and fragment.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a UriBuilder initialized with the absolute path of the request
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPath()"><!-- --></A><H3>
+getPath</H3>
+<PRE>
+java.lang.String <B>getPath</B>()</PRE>
+<DL>
+<DD>Get the path of the current request relative to the base URI as
+ a string. All sequences of escaped octets are decoded, equivalent to
+ <code>getPath(true)</code>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the relative URI path
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPath(boolean)"><!-- --></A><H3>
+getPath</H3>
+<PRE>
+java.lang.String <B>getPath</B>(boolean&nbsp;decode)</PRE>
+<DL>
+<DD>Get the path of the current request relative to the base URI as
+ a string.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>decode</CODE> - controls whether sequences of escaped octets are decoded
+ (true) or not (false).
+<DT><B>Returns:</B><DD>the relative URI path
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPathSegments()"><!-- --></A><H3>
+getPathSegments</H3>
+<PRE>
+java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core">PathSegment</A>&gt; <B>getPathSegments</B>()</PRE>
+<DL>
+<DD>Get the path of the current request relative to the base URI as a 
+ list of <A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>. This method is useful when the
+ path needs to be parsed, particularly when matrix parameters may be
+ present in the path. All sequences of escaped octets in path segments
+ and matrix parameter names and values are decoded,
+ equivalent to <code>getPathSegments(true)</code>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>an unmodifiable list of <A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>. The matrix parameter
+ map of each path segment is also unmodifiable.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request<DT><B>See Also:</B><DD><A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>, 
+<a href="http://www.w3.org/DesignIssues/MatrixURIs.html">Matrix URIs</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPathSegments(boolean)"><!-- --></A><H3>
+getPathSegments</H3>
+<PRE>
+java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core">PathSegment</A>&gt; <B>getPathSegments</B>(boolean&nbsp;decode)</PRE>
+<DL>
+<DD>Get the path of the current request relative to the base URI as a 
+ list of <A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>. This method is useful when the
+ path needs to be parsed, particularly when matrix parameters may be
+ present in the path.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>decode</CODE> - controls whether sequences of escaped octets in path segments
+ and matrix parameter names and values are decoded (true) or not (false).
+<DT><B>Returns:</B><DD>an unmodifiable list of <A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>. The matrix parameter
+ map of each path segment is also unmodifiable.
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request<DT><B>See Also:</B><DD><A HREF="../../../../../javax/ws/rs/core/PathSegment.html" title="interface in javax.ws.rs.core"><CODE>PathSegment</CODE></A>, 
+<a href="http://www.w3.org/DesignIssues/MatrixURIs.html">Matrix URIs</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getQueryParameters()"><!-- --></A><H3>
+getQueryParameters</H3>
+<PRE>
+<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt; <B>getQueryParameters</B>()</PRE>
+<DL>
+<DD>Get the URI query parameters of the current request.
+ All sequences of escaped octets in parameter names and values are decoded,
+ equivalent to <code>getQueryParameters(true)</code>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>an unmodifiable map of query parameter names and values
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getQueryParameters(boolean)"><!-- --></A><H3>
+getQueryParameters</H3>
+<PRE>
+<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt; <B>getQueryParameters</B>(boolean&nbsp;decode)</PRE>
+<DL>
+<DD>Get the URI query parameters of the current request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>decode</CODE> - controls whether sequences of escaped octets in parameter
+ names and values are decoded (true) or not (false).
+<DT><B>Returns:</B><DD>an unmodifiable map of query parameter names and values
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalStateException</CODE> - if called outside the scope of a request</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHeaderValue(java.lang.String)"><!-- --></A><H3>
+getHeaderValue</H3>
+<PRE>
+java.lang.String <B>getHeaderValue</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Get a HTTP header value.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the HTTP header
+<DT><B>Returns:</B><DD>the HTTP header value. If the HTTP header is not present then
+ null is returned. If the HTTP header is present but has no value then
+ the empty string is returned. If the HTTP header is present more than
+ once then the values of joined together and separated by a ',' character.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAcceptableMediaType(java.util.List)"><!-- --></A><H3>
+getAcceptableMediaType</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT><A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A> <B>getAcceptableMediaType</B>(java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt;&nbsp;mediaTypes)</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I>will stay in Jersey 1.x, use <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)"><CODE>Request.selectVariant(java.util.List)</CODE></A>
+             as an alternative.</I>
+<P>
+<DD>Select the first media type, from a list of media types, that is most
+ acceptable according to the requested acceptable media types.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mediaTypes</CODE> - the list of media types
+<DT><B>Returns:</B><DD>the most acceptable media type, or null if no media type
+         was found to be acceptable.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAcceptableMediaTypes(java.util.List)"><!-- --></A><H3>
+getAcceptableMediaTypes</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>java.util.List&lt;<A HREF="../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&gt; <B>getAcceptableMediaTypes</B>(java.util.List&lt;<A HREF="../../../../../com/sun/jersey/core/header/QualitySourceMediaType.html" title="class in com.sun.jersey.core.header">QualitySourceMediaType</A>&gt;&nbsp;priorityMediaTypes)</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I>will stay in Jersey 1.x, use <A HREF="../../../../../javax/ws/rs/core/Request.html#selectVariant(java.util.List)"><CODE>Request.selectVariant(java.util.List)</CODE></A>
+             as an alternative.</I>
+<P>
+<DD>Get a list of media types that are acceptable for the response.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>priorityMediaTypes</CODE> - the list of media types that take priority,
+        ordered according to the quality source parameter, "qs" as the
+        primary key.
+<DT><B>Returns:</B><DD>a list of requested response media types sorted according
+         to highest relative quality value, which is product of the
+         quality parameter, q, of an acceptable media type, and the 
+         quality source parameter, qs, of matching media type.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCookieNameValueMap()"><!-- --></A><H3>
+getCookieNameValueMap</H3>
+<PRE>
+<A HREF="../../../../../javax/ws/rs/core/MultivaluedMap.html" title="interface in javax.ws.rs.core">MultivaluedMap</A>&lt;java.lang.String,java.lang.String&gt; <B>getCookieNameValueMap</B>()</PRE>
+<DL>
+<DD>Get the cookie name value map.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the cookie name value map.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntity(java.lang.Class)"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+&lt;T&gt; T <B>getEntity</B>(java.lang.Class&lt;T&gt;&nbsp;type)
+            throws <A HREF="../../../../../javax/ws/rs/WebApplicationException.html" title="class in javax.ws.rs">WebApplicationException</A></PRE>
+<DL>
+<DD>Get the request entity, returns null if the request does not
+ contain an entity body.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the type of entity
+<DT><B>Returns:</B><DD>the request entity or null
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../javax/ws/rs/WebApplicationException.html" title="class in javax.ws.rs">WebApplicationException</A></CODE> - if the content of the request
+ cannot be mapped to an entity of the requested type</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEntity(java.lang.Class, java.lang.reflect.Type, java.lang.annotation.Annotation[])"><!-- --></A><H3>
+getEntity</H3>
+<PRE>
+&lt;T&gt; T <B>getEntity</B>(java.lang.Class&lt;T&gt;&nbsp;type,
+                java.lang.reflect.Type&nbsp;genericType,
+                java.lang.annotation.Annotation[]&nbsp;as)
+            throws <A HREF="../../../../../javax/ws/rs/WebApplicationException.html" title="class in javax.ws.rs">WebApplicationException</A></PRE>
+<DL>
+<DD>Get the request entity, returns null if the request does not
+ contain an entity body.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - the type of entity<DD><CODE>genericType</CODE> - type the generic type of entity, it is the responsibility
+        of the callee to ensure that the type and generic type are
+        consistent otherwise the behaviour of this method is undefined.<DD><CODE>as</CODE> - the annotations associated with the type
+<DT><B>Returns:</B><DD>the request entity or null
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../javax/ws/rs/WebApplicationException.html" title="class in javax.ws.rs">WebApplicationException</A></CODE> - if the content of the request
+ cannot be mapped to an entity of the requested type</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFormParameters()"><!-- --></A><H3>
+getFormParameters</H3>
+<PRE>
+<A HREF="../../../../../com/sun/jersey/api/representation/Form.html" title="class in com.sun.jersey.api.representation">Form</A> <B>getFormParameters</B>()</PRE>
+<DL>
+<DD>Get the form parameters of the request entity.
+ <p>
+ This method will ensure that the request entity is buffered
+ such that it may be consumed by the application.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the form parameters, if there is a request entity and the
+ content type is "application/x-www-form-urlencoded", otherwise an
+ instance containing no parameters will be returned.</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HttpRequestContext.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/HttpContext.html" title="interface in com.sun.jersey.api.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/sun/jersey/api/core/HttpResponseContext.html" title="interface in com.sun.jersey.api.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/sun/jersey/api/core/HttpRequestContext.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HttpRequestContext.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>

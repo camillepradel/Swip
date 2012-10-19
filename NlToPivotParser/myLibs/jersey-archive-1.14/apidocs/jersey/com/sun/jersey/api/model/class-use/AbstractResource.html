@@ -1,0 +1,803 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+Uses of Class com.sun.jersey.api.model.AbstractResource (jersey-bundle 1.14 API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Uses of Class com.sun.jersey.api.model.AbstractResource (jersey-bundle 1.14 API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/model//class-useAbstractResource.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AbstractResource.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<CENTER>
+<H2>
+<B>Uses of Class<br>com.sun.jersey.api.model.AbstractResource</B></H2>
+</CENTER>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Packages that use <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.api.model"><B>com.sun.jersey.api.model</B></A></TD>
+<TD>Provides an abstract model of a resource class.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.server.spi.component"><B>com.sun.jersey.server.spi.component</B></A></TD>
+<TD>Provides support for components that are resource classes.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.server.wadl"><B>com.sun.jersey.server.wadl</B></A></TD>
+<TD>Provides support for WADL configuration and generation.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.server.wadl.generators"><B>com.sun.jersey.server.wadl.generators</B></A></TD>
+<TD>Provides support for JAXB WADL generation.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#com.sun.jersey.server.wadl.generators.resourcedoc"><B>com.sun.jersey.server.wadl.generators.resourcedoc</B></A></TD>
+<TD>Provides support for JAXB WADL generation for resource classes.&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.api.model"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A> in <A HREF="../../../../../../com/sun/jersey/api/model/package-summary.html">com.sun.jersey.api.model</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/model/package-summary.html">com.sun.jersey.api.model</A> that return <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></CODE></FONT></TD>
+<TD><CODE><B>AbstractResourceMethod.</B><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html#getDeclaringResource()">getDeclaringResource</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></CODE></FONT></TD>
+<TD><CODE><B>AbstractMethod.</B><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html#getResource()">getResource</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/model/package-summary.html">com.sun.jersey.api.model</A> that return types with arguments of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Set&lt;<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>AbstractResourceModelContext.</B><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceModelContext.html#getAbstractRootResources()">getAbstractRootResources</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/api/model/package-summary.html">com.sun.jersey.api.model</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractModelVisitor.</B><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractModelVisitor.html#visitAbstractResource(com.sun.jersey.api.model.AbstractResource)">visitAbstractResource</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../com/sun/jersey/api/model/package-summary.html">com.sun.jersey.api.model</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractImplicitViewMethod.html#AbstractImplicitViewMethod(com.sun.jersey.api.model.AbstractResource)">AbstractImplicitViewMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html#AbstractMethod(com.sun.jersey.api.model.AbstractResource, java.lang.reflect.Method, java.lang.annotation.Annotation[])">AbstractMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+               java.lang.reflect.Method&nbsp;method,
+               java.lang.annotation.Annotation[]&nbsp;annotations)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html#AbstractResource(java.lang.String, com.sun.jersey.api.model.AbstractResource)">AbstractResource</A></B>(java.lang.String&nbsp;path,
+                 <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance from an existing AbstractResource but
+ defining a new path.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html#AbstractResourceMethod(com.sun.jersey.api.model.AbstractResource, java.lang.reflect.Method, java.lang.Class, java.lang.reflect.Type, java.lang.String, java.lang.annotation.Annotation[])">AbstractResourceMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+                       java.lang.reflect.Method&nbsp;method,
+                       java.lang.Class&nbsp;returnType,
+                       java.lang.reflect.Type&nbsp;genericReturnType,
+                       java.lang.String&nbsp;httpMethod,
+                       java.lang.annotation.Annotation[]&nbsp;annotations)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractSetterMethod.html#AbstractSetterMethod(com.sun.jersey.api.model.AbstractResource, java.lang.reflect.Method, java.lang.annotation.Annotation[])">AbstractSetterMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+                     java.lang.reflect.Method&nbsp;method,
+                     java.lang.annotation.Annotation[]&nbsp;annotations)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractSubResourceLocator.html#AbstractSubResourceLocator(com.sun.jersey.api.model.AbstractResource, java.lang.reflect.Method, com.sun.jersey.api.model.PathValue, java.lang.annotation.Annotation[])">AbstractSubResourceLocator</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+                           java.lang.reflect.Method&nbsp;method,
+                           <A HREF="../../../../../../com/sun/jersey/api/model/PathValue.html" title="class in com.sun.jersey.api.model">PathValue</A>&nbsp;uriPath,
+                           java.lang.annotation.Annotation[]&nbsp;annotations)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new instance of AbstractSubResourceLocator</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/api/model/AbstractSubResourceMethod.html#AbstractSubResourceMethod(com.sun.jersey.api.model.AbstractResource, java.lang.reflect.Method, java.lang.Class, java.lang.reflect.Type, com.sun.jersey.api.model.PathValue, java.lang.String, java.lang.annotation.Annotation[])">AbstractSubResourceMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+                          java.lang.reflect.Method&nbsp;method,
+                          java.lang.Class&nbsp;returnType,
+                          java.lang.reflect.Type&nbsp;genericReturnType,
+                          <A HREF="../../../../../../com/sun/jersey/api/model/PathValue.html" title="class in com.sun.jersey.api.model">PathValue</A>&nbsp;uriPath,
+                          java.lang.String&nbsp;httpMethod,
+                          java.lang.annotation.Annotation[]&nbsp;annotations)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.server.spi.component"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A> in <A HREF="../../../../../../com/sun/jersey/server/spi/component/package-summary.html">com.sun.jersey.server.spi.component</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/server/spi/component/package-summary.html">com.sun.jersey.server.spi.component</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ResourceComponentProvider.</B><B><A HREF="../../../../../../com/sun/jersey/server/spi/component/ResourceComponentProvider.html#init(com.sun.jersey.api.model.AbstractResource)">init</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;abstractResource)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initiate the component provider with the resource model.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../com/sun/jersey/server/spi/component/package-summary.html">com.sun.jersey.server.spi.component</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/server/spi/component/ResourceComponentConstructor.html#ResourceComponentConstructor(com.sun.jersey.server.impl.inject.ServerInjectableProviderContext, com.sun.jersey.core.spi.component.ComponentScope, com.sun.jersey.api.model.AbstractResource)">ResourceComponentConstructor</A></B>(com.sun.jersey.server.impl.inject.ServerInjectableProviderContext&nbsp;sipc,
+                             <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&nbsp;scope,
+                             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/server/spi/component/ResourceComponentDestructor.html#ResourceComponentDestructor(com.sun.jersey.api.model.AbstractResource)">ResourceComponentDestructor</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../com/sun/jersey/server/spi/component/ResourceComponentInjector.html#ResourceComponentInjector(com.sun.jersey.server.impl.inject.ServerInjectableProviderContext, com.sun.jersey.core.spi.component.ComponentScope, com.sun.jersey.api.model.AbstractResource)">ResourceComponentInjector</A></B>(com.sun.jersey.server.impl.inject.ServerInjectableProviderContext&nbsp;ipc,
+                          <A HREF="../../../../../../com/sun/jersey/core/spi/component/ComponentScope.html" title="enum in com.sun.jersey.core.spi.component">ComponentScope</A>&nbsp;s,
+                          <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new resource component injector.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.server.wadl"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A> in <A HREF="../../../../../../com/sun/jersey/server/wadl/package-summary.html">com.sun.jersey.server.wadl</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/server/wadl/package-summary.html">com.sun.jersey.server.wadl</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Method</CODE></FONT></TD>
+<TD><CODE><B>WadlGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#createMethod(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Method</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createMethod(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Param</CODE></FONT></TD>
+<TD><CODE><B>WadlGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#createParam(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractMethod, com.sun.jersey.api.model.Parameter)">createParam</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html" title="class in com.sun.jersey.api.model">AbstractMethod</A>&nbsp;m,
+            <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model">Parameter</A>&nbsp;p)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Param</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createParam(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractMethod, com.sun.jersey.api.model.Parameter)">createParam</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html" title="class in com.sun.jersey.api.model">AbstractMethod</A>&nbsp;m,
+            <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model">Parameter</A>&nbsp;p)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Request</CODE></FONT></TD>
+<TD><CODE><B>WadlGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#createRequest(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+              <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Request</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createRequest(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+              <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Resource</CODE></FONT></TD>
+<TD><CODE><B>WadlGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#createResource(com.sun.jersey.api.model.AbstractResource, java.lang.String)">createResource</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Resource</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createResource(com.sun.jersey.api.model.AbstractResource, java.lang.String)">createResource</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createResponseRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createResponseRepresentation</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                             <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;com.sun.research.ws.wadl.Response&gt;</CODE></FONT></TD>
+<TD><CODE><B>WadlGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGenerator.html#createResponses(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createResponses</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;com.sun.research.ws.wadl.Response&gt;</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorImpl.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlGeneratorImpl.html#createResponses(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createResponses</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Application</CODE></FONT></TD>
+<TD><CODE><B>WadlBuilder.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlBuilder.html#generate(com.sun.jersey.server.wadl.ApplicationDescription, com.sun.jersey.api.model.AbstractResource)">generate</A></B>(<A HREF="../../../../../../com/sun/jersey/server/wadl/ApplicationDescription.html" title="class in com.sun.jersey.server.wadl">ApplicationDescription</A>&nbsp;description,
+         <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generate WADL for a resource.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Application</CODE></FONT></TD>
+<TD><CODE><B>WadlBuilder.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlBuilder.html#generate(com.sun.jersey.server.wadl.ApplicationDescription, com.sun.jersey.api.model.AbstractResource, java.lang.String)">generate</A></B>(<A HREF="../../../../../../com/sun/jersey/server/wadl/ApplicationDescription.html" title="class in com.sun.jersey.server.wadl">ApplicationDescription</A>&nbsp;description,
+         <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+         java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generate WADL for a virtual subresource resulting from sub resource
+ methods.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Application</CODE></FONT></TD>
+<TD><CODE><B>WadlApplicationContext.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlApplicationContext.html#getApplication(javax.ws.rs.core.UriInfo, com.sun.jersey.api.model.AbstractResource, java.lang.String)">getApplication</A></B>(<A HREF="../../../../../../javax/ws/rs/core/UriInfo.html" title="interface in javax.ws.rs.core">UriInfo</A>&nbsp;info,
+               <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;resource,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a new instance of <CODE>Application</CODE> for a particular resource</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Method parameters in <A HREF="../../../../../../com/sun/jersey/server/wadl/package-summary.html">com.sun.jersey.server.wadl</A> with type arguments of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../com/sun/jersey/server/wadl/ApplicationDescription.html" title="class in com.sun.jersey.server.wadl">ApplicationDescription</A></CODE></FONT></TD>
+<TD><CODE><B>WadlBuilder.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/WadlBuilder.html#generate(java.util.Set)">generate</A></B>(java.util.Set&lt;<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&gt;&nbsp;resources)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generate WADL for a set of resources.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.server.wadl.generators"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A> in <A HREF="../../../../../../com/sun/jersey/server/wadl/generators/package-summary.html">com.sun.jersey.server.wadl.generators</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/server/wadl/generators/package-summary.html">com.sun.jersey.server.wadl.generators</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Method</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorApplicationDoc.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html#createMethod(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Method</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorGrammarsSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html#createMethod(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Method</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorJAXBGrammarGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html#createMethod(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Param</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorApplicationDoc.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html#createParam(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractMethod, com.sun.jersey.api.model.Parameter)">createParam</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html" title="class in com.sun.jersey.api.model">AbstractMethod</A>&nbsp;m,
+            <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model">Parameter</A>&nbsp;p)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Param</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorGrammarsSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html#createParam(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractMethod, com.sun.jersey.api.model.Parameter)">createParam</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html" title="class in com.sun.jersey.api.model">AbstractMethod</A>&nbsp;am,
+            <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model">Parameter</A>&nbsp;p)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Param</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorJAXBGrammarGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html#createParam(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractMethod, com.sun.jersey.api.model.Parameter)">createParam</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html" title="class in com.sun.jersey.api.model">AbstractMethod</A>&nbsp;am,
+            <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model">Parameter</A>&nbsp;p)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Request</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorApplicationDoc.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html#createRequest(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+              <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Request</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorGrammarsSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html#createRequest(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+              <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Request</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorJAXBGrammarGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html#createRequest(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+              <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorApplicationDoc.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorGrammarsSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+                            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm,
+                            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorJAXBGrammarGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+                            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm,
+                            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mt)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Resource</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorApplicationDoc.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html#createResource(com.sun.jersey.api.model.AbstractResource, java.lang.String)">createResource</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Resource</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorGrammarsSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html#createResource(com.sun.jersey.api.model.AbstractResource, java.lang.String)">createResource</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Resource</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorJAXBGrammarGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html#createResource(com.sun.jersey.api.model.AbstractResource, java.lang.String)">createResource</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;com.sun.research.ws.wadl.Response&gt;</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorApplicationDoc.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorApplicationDoc.html#createResponses(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createResponses</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;com.sun.research.ws.wadl.Response&gt;</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorGrammarsSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorGrammarsSupport.html#createResponses(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createResponses</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+                <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;com.sun.research.ws.wadl.Response&gt;</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorJAXBGrammarGenerator.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/WadlGeneratorJAXBGrammarGenerator.html#createResponses(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createResponses</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;ar,
+                <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;arm)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="com.sun.jersey.server.wadl.generators.resourcedoc"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A> in <A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/package-summary.html">com.sun.jersey.server.wadl.generators.resourcedoc</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/package-summary.html">com.sun.jersey.server.wadl.generators.resourcedoc</A> with parameters of type <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Method</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorResourceDocSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html#createMethod(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createMethod</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+             <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Param</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorResourceDocSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html#createParam(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractMethod, com.sun.jersey.api.model.Parameter)">createParam</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractMethod.html" title="class in com.sun.jersey.api.model">AbstractMethod</A>&nbsp;m,
+            <A HREF="../../../../../../com/sun/jersey/api/model/Parameter.html" title="class in com.sun.jersey.api.model">Parameter</A>&nbsp;p)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Request</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorResourceDocSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html#createRequest(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createRequest</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+              <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Representation</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorResourceDocSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html#createRequestRepresentation(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod, javax.ws.rs.core.MediaType)">createRequestRepresentation</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                            <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m,
+                            <A HREF="../../../../../../javax/ws/rs/core/MediaType.html" title="class in javax.ws.rs.core">MediaType</A>&nbsp;mediaType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.research.ws.wadl.Resource</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorResourceDocSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html#createResource(com.sun.jersey.api.model.AbstractResource, java.lang.String)">createResource</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+               java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;com.sun.research.ws.wadl.Response&gt;</CODE></FONT></TD>
+<TD><CODE><B>WadlGeneratorResourceDocSupport.</B><B><A HREF="../../../../../../com/sun/jersey/server/wadl/generators/resourcedoc/WadlGeneratorResourceDocSupport.html#createResponses(com.sun.jersey.api.model.AbstractResource, com.sun.jersey.api.model.AbstractResourceMethod)">createResponses</A></B>(<A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model">AbstractResource</A>&nbsp;r,
+                <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResourceMethod.html" title="class in com.sun.jersey.api.model">AbstractResourceMethod</A>&nbsp;m)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../com/sun/jersey/api/model/AbstractResource.html" title="class in com.sun.jersey.api.model"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?com/sun/jersey/api/model//class-useAbstractResource.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AbstractResource.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright &#169; 2012 <a href="http://www.oracle.com/">Oracle Corporation</a>. All Rights Reserved.
+</BODY>
+</HTML>
