@@ -1,8 +1,0 @@
-1	How	How	WRB	WRB	_	2	advmod	_	_	COUNT	NOBJ	_	_
-2	many	many	JJ	JJ	_	4	amod	_	_	COUNT	NOBJ	_	_
-3	bands	band	NNS	NNS	_	4	nn	_	_	_	OBJ	0	e1
-4	broke_up	<unknown>	NN	NN	_	0	null	_	_	_	NOBJ	3	e2
-5	in	in	IN	IN	_	4	prep	_	_	_	NOBJ	_	_
-6	2010	@card@	CD	CD	_	5	pobj	_	_	_	NOBJ	4	e3
-7	?	?	SENT	SENT	_	4	dep	_	_	_	NOBJ	_	_
-

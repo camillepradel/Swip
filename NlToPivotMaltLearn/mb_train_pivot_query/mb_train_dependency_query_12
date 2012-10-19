@@ -1,7 +1,0 @@
-1	When	when	WRB	WRB	_	2	advmod	_	_	SELECT	OBJ	3	e3
-2	is	be	VBZ	VBZ	_	0	null	_	_	_	NOBJ	_	_
-3	the_birthday	<unknown>	NN	NN	_	2	nsubj	_	_	_	NOBJ	5	e2
-4	of	of	IN	IN	_	3	prep	_	_	_	NOBJ	_	_
-5	Tom_Waits	<unknown>	NP	NP	_	4	pobj	_	_	_	NOBJ	0	e1
-6	?	?	SENT	SENT	_	2	dep	_	_	_	NOBJ	_	_
-

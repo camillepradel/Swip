@@ -1,9 +1,0 @@
-1	Are	be	VBP	VBP	_	0	null	_	_
-2	there	there	RB	RB	_	1	advmod	_	_
-3	any	any	DT	DT	_	5	det	_	_
-4	live	live	JJ	JJ	_	5	amod	_	_
-5	albums	album	NNS	NNS	_	1	dobj	_	_
-6	by	by	IN	IN	_	5	prep	_	_
-7	the_Beatles	<unknown>	NNS	NNS	_	6	pobj	_	_
-8	?	?	SENT	SENT	_	1	dep	_	_
-
