@@ -12,7 +12,7 @@ import org.swip.pivotToMappings.model.patterns.patternElement.KbPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElementMatching;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 import org.swip.pivotToMappings.stemmer.SnowballStemmer;
 import org.swip.pivotToMappings.stemmer.englishStemmer;
 

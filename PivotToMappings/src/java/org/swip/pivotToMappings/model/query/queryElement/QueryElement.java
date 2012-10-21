@@ -2,7 +2,7 @@ package org.swip.pivotToMappings.model.query.queryElement;
 
 import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.exceptions.QueryElementException;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 public abstract class QueryElement {
     

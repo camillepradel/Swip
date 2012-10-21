@@ -1,6 +1,5 @@
 package org.swip.pivotToMappings.model.patterns.subpattern;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,7 +17,7 @@ import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElem
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PropertyPatternElement;
 import org.swip.pivotToMappings.model.query.queryElement.Literal;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 /**
  * class representing a subpattern (triple e1, e2, e3)

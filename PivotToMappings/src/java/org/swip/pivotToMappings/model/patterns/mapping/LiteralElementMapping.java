@@ -1,9 +1,8 @@
 package org.swip.pivotToMappings.model.patterns.mapping;
 
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
-import org.swip.pivotToMappings.model.query.queryElement.Literal;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 
 public class LiteralElementMapping extends ElementMapping {

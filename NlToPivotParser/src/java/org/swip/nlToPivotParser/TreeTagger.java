@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.swip.nlToPivotParser;
 
 import java.io.IOException;
@@ -13,17 +9,13 @@ import org.annolab.tt4j.TreeTaggerException;
 import org.annolab.tt4j.TreeTaggerWrapper;
 import org.apache.log4j.Logger;
 
-/**
- *
- * @author camille
- */
 public class TreeTagger {
 
     private static final Logger logger = Logger.getLogger(TreeTagger.class);
     // on mirail server
-    final String treeTaggerDir = "/home/operateur/treeTagger";
+//    final String treeTaggerDir = "/home/operateur/treeTagger";
     // on my computer
-//    final String treeTaggerDir = "/mnt/data/treeTagger";
+    final String treeTaggerDir = "/mnt/data/treeTagger";
     TreeTaggerWrapper tt = null;
     List<String> tokens = null;
 

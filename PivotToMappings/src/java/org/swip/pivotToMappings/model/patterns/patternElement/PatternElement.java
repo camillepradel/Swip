@@ -11,7 +11,7 @@ import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.query.Query;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 import org.swip.pivotToMappings.utils.CombinationGenerator;
 
 /**

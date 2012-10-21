@@ -9,7 +9,7 @@ import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.patterns.subpattern.Subpattern;
 import org.swip.pivotToMappings.model.patterns.subpattern.SubpatternCollection;
 import org.swip.pivotToMappings.model.query.Query;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 /**
  * class representing a query pattern

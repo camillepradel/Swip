@@ -2,9 +2,7 @@ package org.swip.pivotToMappings.controller;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -28,17 +26,13 @@ import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.antlr.patternsDefinitionGrammarLexer;
 import org.swip.pivotToMappings.model.patterns.antlr.patternsDefinitionGrammarParser;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
-import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.query.Query;
 import org.swip.pivotToMappings.model.query.antlr.userQueryGrammarLexer;
 import org.swip.pivotToMappings.model.query.antlr.userQueryGrammarParser;
-import org.swip.pivotToMappings.model.query.queryElement.Keyword;
-import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
-import org.swip.pivotToMappings.sparql.LocalSparqlServer;
-import org.swip.pivotToMappings.sparql.RemoteSparqlServer;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.RemoteSparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 public class Controller {
     

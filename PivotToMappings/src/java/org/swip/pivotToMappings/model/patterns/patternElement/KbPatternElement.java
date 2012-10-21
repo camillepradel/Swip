@@ -1,16 +1,13 @@
 package org.swip.pivotToMappings.model.patterns.patternElement;
 
 import com.hp.hpl.jena.query.QuerySolution;
-import java.util.LinkedList;
-import java.util.List;
-import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.exceptions.PatternsParsingException;
 import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 public abstract class KbPatternElement extends PatternElement {
 

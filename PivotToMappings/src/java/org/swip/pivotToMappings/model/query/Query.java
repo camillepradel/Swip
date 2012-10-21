@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Set;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
 import org.swip.pivotToMappings.model.query.subquery.Subquery;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 /**
  * class representing a user query

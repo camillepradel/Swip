@@ -2,7 +2,7 @@ package org.swip.pivotToMappings.model.patterns.patternElement;
 
 import java.util.LinkedList;
 import java.util.List;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 public final class PropertyPatternElement extends KbPatternElement {
 

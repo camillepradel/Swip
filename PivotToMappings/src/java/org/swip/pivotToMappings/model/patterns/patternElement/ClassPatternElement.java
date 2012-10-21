@@ -1,6 +1,6 @@
 package org.swip.pivotToMappings.model.patterns.patternElement;
 
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 
 public final class ClassPatternElement extends KbPatternElement {

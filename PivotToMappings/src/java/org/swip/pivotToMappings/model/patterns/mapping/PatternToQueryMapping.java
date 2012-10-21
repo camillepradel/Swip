@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Iterator;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
@@ -20,8 +19,7 @@ import org.swip.pivotToMappings.model.patterns.subpattern.SubpatternCollection;
 import org.swip.pivotToMappings.model.query.Query;
 import org.swip.pivotToMappings.model.query.queryElement.Keyword;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
-import org.swip.pivotToMappings.sparql.SparqlServer;
-import com.hp.hpl.jena.query.QuerySolution;
+import org.swip.utils.sparql.SparqlServer;
 
 // bean! (mais pas les classes utilisees)
 public class PatternToQueryMapping {

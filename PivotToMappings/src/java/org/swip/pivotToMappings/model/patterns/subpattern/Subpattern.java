@@ -6,7 +6,7 @@ import java.util.Set;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 abstract public class Subpattern {
 

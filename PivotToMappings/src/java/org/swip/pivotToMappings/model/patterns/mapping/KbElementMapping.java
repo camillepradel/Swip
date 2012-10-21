@@ -5,9 +5,9 @@ import java.util.Iterator;
 import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
-import org.swip.pivotToMappings.sparql.SparqlServer;
 import com.hp.hpl.jena.query.QuerySolution;
 import org.apache.log4j.Logger;
+import org.swip.utils.sparql.SparqlServer;
 
 
 public class KbElementMapping extends ElementMapping {

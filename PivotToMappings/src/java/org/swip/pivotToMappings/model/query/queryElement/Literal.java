@@ -9,8 +9,7 @@ import org.swip.pivotToMappings.exceptions.LiteralRuntimeException;
 import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElementMatching;
-import org.swip.pivotToMappings.model.patterns.subpattern.Subpattern;
-import org.swip.pivotToMappings.sparql.SparqlServer;
+import org.swip.utils.sparql.SparqlServer;
 
 public class Literal extends QueryElement {
 
