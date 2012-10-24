@@ -1,0 +1,9 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?Name ?Person ?Cls 
+FROM <http://www.ontotext.com/disable-sameAs>
+WHERE {
+	?Person a ?Cls ; rdfs:label ?Name .           
+    FILTER (lang(?Name) = "en") 
+	FILTER (?Cls = <http://dbpedia.org/ontology/Actor>)
+}

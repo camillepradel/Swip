@@ -44,7 +44,7 @@ public class PivotToMappingsWS {
     @Produces({MediaType.APPLICATION_JSON})
     @Path("generateBestMappings")
     public String generateBestMappings(
-        @QueryParam("pivotQueryString") @DefaultValue("") String pivotQueryString, 
+        @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString, 
         @QueryParam("numMappings") @DefaultValue("0") int numMappings,
         @QueryParam("kbName") @DefaultValue("cinema") String kbName) {
         
@@ -94,19 +94,18 @@ public class PivotToMappingsWS {
         return response.toString();
     }
 
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    @Path("processQuery")
-    public String processQuery(
-        @QueryParam("query") @DefaultValue("") String query,
-        @QueryParam("kbName") @DefaultValue("cinema") String kbName) {
-
-        return Controller.getInstance().processQuery(query, kbName);
-    }
+//    @GET
+//    @Produces({MediaType.APPLICATION_JSON})
+//    @Path("processQuery")
+//    public String processQuery(
+//        @QueryParam("query") @DefaultValue("") String query,
+//        @QueryParam("kbName") @DefaultValue("cinema") String kbName) {
+//
+//        return Controller.getInstance().processQuery(query, kbName);
+//    }
 
     @POST
     @Produces({MediaType.TEXT_XML})
-//    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("patternsTextToRdf")
     public String patternsTextToRdf(
         @FormParam("patterns") @DefaultValue("") String patterns,

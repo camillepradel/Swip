@@ -46,7 +46,7 @@ function nlToPivot(nlQuery, lang)
 }
 
 /**
- * Gets best mappigns for a pivot query
+ * Gets best mappings for a pivot query
  * Provides two handlers (pivotToSparqlSuccHandler & 
  * pivotToSparqlErrHandler)
  * @param pvQuery Query in pivot
@@ -57,7 +57,7 @@ function pivotToSparql(pvQuery, respNum)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQueryString=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
+        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQuery=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
     }).done(function(data)
     {
         toggleSearch(true);

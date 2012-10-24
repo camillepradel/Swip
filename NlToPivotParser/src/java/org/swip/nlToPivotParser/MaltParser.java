@@ -1,8 +1,8 @@
 package org.swip.nlToPivotParser;
 
-import org.swip.exchange.parser.MyDependencyNode;
-import org.swip.exchange.parser.MyEdge;
-import org.swip.exchange.parser.DependencyTree;
+import org.swip.exchange.MyDependencyNode;
+import org.swip.exchange.MyEdge;
+import org.swip.exchange.DependencyTree;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,7 +18,6 @@ import org.maltparser.core.syntaxgraph.edge.Edge;
 import org.maltparser.core.syntaxgraph.node.DependencyNode;
 import org.maltparser.core.syntaxgraph.node.Root;
 import org.maltparser.core.syntaxgraph.node.Token;
-import org.swip.utils.sparql.RemoteSparqlServer;
 
 public class MaltParser {
 
@@ -39,9 +38,7 @@ public class MaltParser {
     List<String> ignoredRoots = new ArrayList<String>(Arrays.asList(new String[]{"?"}));
     final List<String> ignoredPostags = new ArrayList<String>(Arrays.asList(new String[]{"DET", "WRB", "WDT", "IN", "IN/that", "WP", "PP", "PP$", "DT", "SENT", "RB", "RBR", "JJR", "VHP", "VHZ"}));
     final List<String> ignoredLemmas = new ArrayList<String>(Arrays.asList(new String[]{"do", "be", "show", "give", "list", "call", "all", "many"}));
-    // sparql server
-    RemoteSparqlServer sparqlServer = new RemoteSparqlServer("http://swipserver:8080/joseki/musicbrainz");
-
+    
     public MaltParser() {
         try {
             service = new MaltParserService();

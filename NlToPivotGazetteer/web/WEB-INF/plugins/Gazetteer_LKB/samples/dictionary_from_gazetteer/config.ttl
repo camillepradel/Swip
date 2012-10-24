@@ -1,0 +1,22 @@
+# Gazetteer_LKB dictionary configuration file.
+@prefix lkbg: <http://www.ontotext.com/lkb_gazetteer#>.
+
+# The gazetteer-specific options follow.
+lkbg:DictionaryConfiguration 
+
+   # Whether the gazeetteer will be sensitive to case.
+   # Possible values: caseinsensitive, casesensitive, casesensitiveAllUpper
+   lkbg:caseSensitivity "caseinsensitive" ;
+   
+   # Whether the gazetteer will cache the dictionary after loading it from the data source.   
+   # Put "enabled" to enable the cache, any other values will disable it.
+   lkbg:caching "enabled" ;
+   
+   # The cache will be automatically reloaded on initialization if the configuration have been    
+   # modified since the last initialization. However, changes in the underlying datastore 
+   # can't be detected and the cache will not be automatically reloaded in that case. 
+   # Thus, if you expect changes in your datastore, disable the cache, or make use
+   # of the modifications API.
+   
+   #A list of labels to be ignored, one per line.
+   lkbg:ignoreList "ignoreList.txt" .

@@ -63,8 +63,6 @@ public class NlToPivotGazetteerWS {
         Gate.setGateHome(gateHomeFile);
         Gate.setUserConfigFile(userGateFile);
         Gate.init();
-        logger.info("default user config file: " + Gate.getDefaultUserConfigFileName());
-        logger.info("default user session file: " + Gate.getDefaultUserSessionFileName());
         logger.info("user config file: " + Gate.getUserConfigFile());
         logger.info("user session file: " + Gate.getUserSessionFile());
         logger.info("site config file: " + Gate.getSiteConfigFile());

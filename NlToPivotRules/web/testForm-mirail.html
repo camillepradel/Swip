@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>NlToPivotRules web service - mirail</title>
+        <link rel="stylesheet" type="text/css" href="testFormStyle.css" />
+    </head>
+
+    <body>
+        <h1>NlToPivotRules web service - mirail</h1>
+
+
+        <h3>Translate dependency tree into pivot query</h3>
+
+        <form method="POST" action="http://192.168.250.91/NlToPivotRules/resources/rest/dependenciesToPivotFromForm">
+            <table>
+                <tr>
+                    <th>Parsing result (JSON):</th><th>
+                        <textarea name="dependencyTree" rows="15" cols="65">{"sentenceHeadId":3,"dependencyNodes":[{"form":"Was","lemma":"be","postag":"VBD","headEdge":{"headNodeId":3,"dependentNodeId":0,"deprel":"cop"},"leftDependentEdges":[],"rightDependentEdges":[]},{"form":"Keith_Richards","lemma":"Keith_Richards","postag":"RB","headEdge":{"headNodeId":3,"dependentNodeId":1,"deprel":"advmod"},"leftDependentEdges":[],"rightDependentEdges":[]},{"form":"a","lemma":"a","postag":"DT","headEdge":{"headNodeId":3,"dependentNodeId":2,"deprel":"det"},"leftDependentEdges":[],"rightDependentEdges":[]},{"form":"member","lemma":"member","postag":"NN","headEdge":{"headNodeId":-1,"dependentNodeId":3,"deprel":"null"},"leftDependentEdges":[{"headNodeId":3,"dependentNodeId":0,"deprel":"cop"},{"headNodeId":3,"dependentNodeId":1,"deprel":"advmod"},{"headNodeId":3,"dependentNodeId":2,"deprel":"det"}],"rightDependentEdges":[{"headNodeId":3,"dependentNodeId":4,"deprel":"prep"},{"headNodeId":3,"dependentNodeId":6,"deprel":"punct"}]},{"form":"of","lemma":"of","postag":"IN","headEdge":{"headNodeId":3,"dependentNodeId":4,"deprel":"prep"},"leftDependentEdges":[],"rightDependentEdges":[{"headNodeId":4,"dependentNodeId":5,"deprel":"pobj"}]},{"form":"The_Rolling_Stones","lemma":"The_Rolling_Stones","postag":"NP","headEdge":{"headNodeId":4,"dependentNodeId":5,"deprel":"pobj"},"leftDependentEdges":[],"rightDependentEdges":[]},{"form":"?","lemma":"?","postag":"SENT","headEdge":{"headNodeId":3,"dependentNodeId":6,"deprel":"punct"},"leftDependentEdges":[],"rightDependentEdges":[]}]}</textarea> 
+                    </th>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <th>
+                        <select name="lang" size="1">
+                            <option value="en" selected="selected">English</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>POS tagger:</th>
+                    <th>
+                        <select name="pos" size="1">
+                            <option value="treeTagger" selected="selected">TreeTagger</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dependency parser:</th>
+                    <th>
+                        <select name="dep" size="1">
+                            <option value="malt" selected="selected">Malt</option>
+                            <option value="stanfordParser">Stanford Parser</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Translate"/></th>
+                </tr>
+            </table>			
+        </form>
+
+
+        <h2>Exemple queries:</h2>
+        <ul>
+            <li>Which members of the Beatles are dead?</li>
+            <li>When was Elvis Presley born?</li>
+            <li>Who composed the Star Wars soundtrack?</li>
+            <li>How many artists are called John Williams?</li>
+            <li>Who collaborated on Tocotronic vs. Console?</li>
+            <li>List all members of The Notwist.</li>
+            <li>Give me all songs by Petula Clark.</li>
+            <li>Give me all Kraftwerk albums!</li>
+            <li>Was Keith Richards a member of The Rolling Stones?</li>
+            <li>How many bands are called Nirvana?</li>
+            <li>Who produced the album In Utero?</li>
+            <li>When is the birthday of Tom Waits?</li>
+            <li>Which artists died on the same day as Michael Jackson?</li>
+            <li>Give me all bands that Michael Stipe is a member of.</li>
+            <li>How many albums did Michael Jackson record?</li>
+            <li>Until when was Tina Turner married to Ike Turner?</li>
+        </ul> 
+
+    </body>
+</html>

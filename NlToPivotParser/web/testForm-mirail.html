@@ -7,140 +7,15 @@
     </head>
 
     <body>
-        <h1>NlToPivotParser web service</h1>
-
-        <h3>Translate NL query to dependency tree and pivot query (result in JSON)</h3>
-
-        <form method="get" action="http://192.168.250.91/NlToPivotParser/resources/rest/nlToDependenciesAndPivot">
-            <table>
-                <tr>
-                    <th>NL query:</th><th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
-                </tr>
-                <tr>
-                    <th>Language:</th>
-                    <th>
-                        <select name="lang" size="1">
-                            <option value="en" selected="selected">English</option>
-                            <option value="fr">French</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th>POS tagger:</th>
-                    <th>
-                        <select name="pos" size="1">
-                            <option value="treeTagger" selected="selected">TreeTagger</option>
-                            <option value="stanfordParser">Stanford Parser</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th>Dependency parser:</th>
-                    <th>
-                        <select name="dep" size="1">
-                            <option value="malt" selected="selected">Malt</option>
-                            <option value="stanfordParser">Stanford Parser</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th><input type="submit" value="Translate"/></th>
-                </tr>
-            </table>			
-        </form>
-
-        <h3>Translate NL query to pivot query</h3>
-
-        <form method="get" action="http://192.168.250.91/NlToPivotParser/resources/rest/nlToPivot">
-            <table>
-                <tr>
-                    <th>NL query:</th>
-                    <th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
-                </tr>
-                <tr>
-                    <th>Language:</th>
-                    <th>
-                        <select name="lang" size="1">
-                            <option value="en" selected="selected">English</option>
-                            <option value="fr">French</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th>POS tagger:</th>
-                    <th><select name="pos" size="1">
-                            <option value="treeTagger" selected="selected">TreeTagger</option>
-                            <option value="stanfordParser">Stanford Parser</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th>Dependency parser:</th>
-                    <th>
-                        <select name="dep" size="1">
-                            <option value="malt" selected="selected">Malt</option>
-                            <option value="stanfordParser">Stanford Parser</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th><input type="submit" value="Translate"/></th>
-                </tr>
-            </table>			
-        </form>
+        <h1>NlToPivotParser web service - mirail</h1>
 
 
-        <h3>Translate NL query to dependency tree</h3>
-
-        <form method="get" action="http://192.168.250.91/NlToPivotParser/resources/rest/nlToDependencies">
-            <table>
-                <tr>
-                    <th>NL query:</th>
-                    <th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
-                </tr>
-                <tr>
-                    <th>Language:</th>
-                    <th>
-                        <select name="lang" size="1">
-                            <option value="en" selected="selected">English</option>
-                            <option value="fr">French</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th>POS tagger:</th>
-                    <th>
-                        <select name="pos" size="1">
-                            <option value="treeTagger" selected="selected">TreeTagger</option>
-                            <option value="stanfordParser">Stanford Parser</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th>Dependency parser:</th>
-                    <th>
-                        <select name="dep" size="1">
-                            <option value="malt" selected="selected">Malt</option>
-                            <option value="stanfordParser">Stanford Parser</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th><input type="submit" value="Translate"/></th>
-                </tr>
-            </table>			
-        </form>
-
-
-        <h3>Translate NL query to dependency tree in JSON - does not work! infinite JSON!</h3>
+        <h3>Translate Gazetteed NL query to dependency tree (JSON)</h3>
 
         <form method="get" action="http://192.168.250.91/NlToPivotParser/resources/rest/nlToDependenciesJson">
             <table>
                 <tr>
-                    <th>NL query:</th><th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
+                    <th>Gazetteed NL query:</th><th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
                 </tr>
                 <tr>
                     <th>Language:</th>
@@ -176,15 +51,13 @@
             </table>			
         </form>
 
+        <h3>Translate Gazetteed NL query to dependency tree (toString)</h3>
 
-        <h3>dependenciesToPivot - same sproblem!</h3>
-
-        <form method="get" action="http://192.168.250.91/NlToPivotParser/resources/rest/dependenciesToPivot">
+        <form method="get" action="http://192.168.250.91/NlToPivotParser/resources/rest/nlToDependencies">
             <table>
                 <tr>
-                    <th>Parsing result (JSON):</th><th>
-                        <textarea rows="5" cols="65">need to first fix the problem of JSON</textarea> 
-                    </th>
+                    <th>Gazetteed NL query:</th>
+                    <th><input type="text" name="nlQuery" size="50"  value="Was Keith_Richards a member of The_Rolling_Stones?"/></th>
                 </tr>
                 <tr>
                     <th>Language:</th>

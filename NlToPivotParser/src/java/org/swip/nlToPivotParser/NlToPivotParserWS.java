@@ -1,6 +1,6 @@
 package org.swip.nlToPivotParser;
 
-import org.swip.exchange.parser.DependencyTree;
+import org.swip.exchange.DependencyTree;
 import java.io.IOException;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;

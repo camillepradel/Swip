@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>NlToPivotParser web service - local</title>
+        <title>NlToPivotRules web service - local</title>
         <link rel="stylesheet" type="text/css" href="testFormStyle.css" />
     </head>
 
     <body>
-        <h1>NlToPivotRules web service</h1>
+        <h1>NlToPivotRules web service - local</h1>
 
 
         <h3>Translate dependency tree into pivot query</h3>
 
-        <form method="get" action="http://localhost:8080/NlToPivotRules/resources/rest/dependenciesToPivot">
+        <form method="POST" action="http://localhost:8080/NlToPivotRules/resources/rest/dependenciesToPivotFromForm">
             <table>
                 <tr>
                     <th>Parsing result (JSON):</th><th>
