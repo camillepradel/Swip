@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" ?>
 <dataset id="musicbrainz-test">
 
 <question id="1" answertype="resource" aggregation="true">
@@ -174,7 +174,7 @@ WHERE {
 ]]></query>
 </question>
 
-<question id="8" answertype="boolean" aggregation="false">
+<question id="8"  answertype="boolean" aggregation="false">
 <string><![CDATA[
 Is Bugs a track on the album Vitalogy?
 ]]></string>
@@ -1133,3 +1133,4 @@ ORDER BY DESC(COUNT(?record)) LIMIT 1
 </question>
 
 </dataset>
+
