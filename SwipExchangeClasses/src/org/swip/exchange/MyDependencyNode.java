@@ -10,8 +10,8 @@ public class MyDependencyNode {
     String lemma = null;
     String postag = null;
     MyEdge headEdge = null;
-    MyEdge[] leftDependentEdges = null;
-    MyEdge[] rightDependentEdges = null;
+    MyEdge[] leftDependentEdges = new MyEdge[0];
+    MyEdge[] rightDependentEdges = new MyEdge[0];
 
     public MyDependencyNode() {
     }
@@ -25,13 +25,13 @@ public class MyDependencyNode {
         JSONArray array = jo.getJSONArray("leftDependentEdges");
         int length = array.length();
         this.leftDependentEdges = new MyEdge[length];
-        for (int i=0; i<length; i++) {
+        for (int i = 0; i < length; i++) {
             this.leftDependentEdges[i] = new MyEdge(array.getString(i));
         }
         array = jo.getJSONArray("rightDependentEdges");
         length = array.length();
         this.rightDependentEdges = new MyEdge[length];
-        for (int i=0; i<length; i++) {
+        for (int i = 0; i < length; i++) {
             this.rightDependentEdges[i] = new MyEdge(array.getString(i));
         }
     }
@@ -40,6 +40,8 @@ public class MyDependencyNode {
         this.form = form;
         this.lemma = lemma;
         this.postag = postag;
+        this.leftDependentEdges = new MyEdge[0];
+        this.rightDependentEdges = new MyEdge[0];
     }
 
     public MyEdge[] getLeftDependentEdges() {
@@ -95,12 +97,20 @@ public class MyDependencyNode {
         String result = "MyDependencyNode:\n\t\t\t- form=" + form + ", lemma=" + lemma + ", postag=" + postag;
         result += "\n\t\t\t- headEdge: " + headEdge;
         result += "\n\t\t\t- leftDependentEdges: ";
-        for (MyEdge e : this.leftDependentEdges) {
-            result += "\n\t\t\t\t- " + e;
+        if (this.leftDependentEdges == null) {
+            result += "NULL!!";
+        } else {
+            for (MyEdge e : this.leftDependentEdges) {
+                result += "\n\t\t\t\t- " + e;
+            }
         }
         result += "\n\t\t\t- rightDependentEdges: ";
-        for (MyEdge e : this.rightDependentEdges) {
-            result += "\n\t\t\t\t- " + e;
+        if (this.leftDependentEdges == null) {
+            result += "NULL!!";
+        } else {
+            for (MyEdge e : this.rightDependentEdges) {
+                result += "\n\t\t\t\t- " + e;
+            }
         }
         return result;
     }

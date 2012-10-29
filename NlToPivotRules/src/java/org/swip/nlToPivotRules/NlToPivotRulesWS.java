@@ -12,7 +12,6 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 import org.swip.exchange.DependencyTree;
@@ -40,32 +39,15 @@ public class NlToPivotRulesWS {
     // sparql server
     //RemoteSparqlServer sparqlServer = new RemoteSparqlServer("http://swipserver:8080/joseki/musicbrainz");
 
-    // must be PUT because of parameters size
+    // must be POST because of parameters size
     @POST
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.TEXT_PLAIN})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Path("dependenciesToPivotFromForm")
-    public String dependenciesToPivotFromForm(@FormParam("dependencyTree") @DefaultValue("") DependencyTree dependencyTree,
+    @Path("dependenciesToPivot")
+    public String dependenciesToPivot(@FormParam("dependencyTree") @DefaultValue("") DependencyTree dependencyTree,
             @FormParam("lang") String lang,
             @FormParam("pos") @DefaultValue("treeTagger") String posTagger,
             @FormParam("dep") @DefaultValue("malt") String depParser) throws ParseException {
-
-        return dependenciesToPivot(dependencyTree, lang, posTagger, depParser);
-    }
-    
-    @POST
-    @Produces({MediaType.APPLICATION_JSON})
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("dependenciesToPivotFromApp")
-    public String dependenciesToPivotFromApp(@QueryParam("dependencyTree") @DefaultValue("") DependencyTree dependencyTree,
-            @QueryParam("lang") String lang,
-            @QueryParam("pos") @DefaultValue("treeTagger") String posTagger,
-            @QueryParam("dep") @DefaultValue("malt") String depParser) throws ParseException {
-
-        return dependenciesToPivot(dependencyTree, lang, posTagger, depParser);
-    }
-    
-    private String dependenciesToPivot(DependencyTree dependencyTree, String lang, String posTagger, String depParser) throws ParseException {
 
         logger.info("received dependency tree: " + dependencyTree);
         logger.info("Query language: " + lang);

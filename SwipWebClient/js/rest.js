@@ -15,20 +15,20 @@
  **/
 function nlToPivot(nlQuery, lang)
 {
-    $.ajax
-    ({
-        type: 'GET',
-        dataType: "text",
-        url: 'http://192.168.250.91/NlToPivotGazetteer/resources/rest/gatherNamedEntities',
-        data: {text: nlQuery, tagWithClass:false},
-    }).done(function(data)
-    {
+    // $.ajax
+    // ({
+    //     type: 'GET',
+    //     dataType: "text",
+    //     url: 'http://192.168.250.91/NlToPivotGazetteer/resources/rest/gatherNamedEntities',
+    //     data: {text: nlQuery, tagWithClass:false},
+    // }).done(function(data)
+    // {
         $.ajax
         ({
             type: 'GET',
             dataType: "json",
-            url: 'http://192.168.250.91/NlToPivotParser/resources/rest/nlToDependenciesAndPivot',
-            data: {nlQuery: data, 'lang': lang, pos:'treeTagger', dep:'malt'},
+            url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivot',
+            data: {nlQuery: nlQuery, kb:'musicbrainz', lang: lang, pos:'treeTagger', dep:'malt'},
         }).done(function(data2)
         {   
             $('#searchField2').val(data2['pivotQuery']);
@@ -39,10 +39,10 @@ function nlToPivot(nlQuery, lang)
             toggleSearch(true);
         });
 
-    }).fail(function(jqXHR, textStatus) {
-        alert('Ajax error, please try again !');
-        toggleSearch(true);
-    });
+    // }).fail(function(jqXHR, textStatus) {
+    //     alert('Ajax error, please try again !');
+    //     toggleSearch(true);
+    // });
 }
 
 /**

@@ -1,0 +1,21 @@
+TODO: enlever la partie traduction de l'arbre de dépendances vers la requête pivot de ce projet et le mettre dans un projet à part.
+Mais pour ça, il faut être capable de sérialiser l'arbre de dépendance en JSON, et pour l'instant ça ne marche pas car il y a des cycles (ce qui créé un JSON "infini")
+
+for TreeTagger:
+copy treeTagger directory on the server
+specify the path of this directory in TreeTagger.java
+
+for Malt:
+specify the appropriate sparql service url in MaltParser.java
+specify path of learned models in MaltParser.java. For instance:
+"""
+if (lang.equals("en")) {
+            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+            //            service.initializeParserModel("-c engmalt.poly-1.7 -m parse -w . -lfi parser.log");
+        } else if (lang.equals("fr")) {
+            service.initializeParserModel("-c fremalt-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+        } else...
+"""
+
+for Stanford:
+not used for now

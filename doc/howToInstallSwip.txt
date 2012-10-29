@@ -1,0 +1,5 @@
+-install JDK -> howToInstallJdk.txt
+-install Fuseki -> howToInstallFuseki.txt
+-install Tomcat -> howToInstallTomcat.txt
+
+

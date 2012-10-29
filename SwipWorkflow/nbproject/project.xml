@@ -75,6 +75,14 @@
                     <file>${file.reference.SwipWorkflow-resources}</file>
                     <path-in-war>WEB-INF/classes</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.javamelody-1.41.0.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.jrobin-1.5.9.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>

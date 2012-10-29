@@ -1,0 +1,129 @@
+requires:
+ - jdk -> howToInstallJdk.txt
+ - subversion
+ - maven
+
+cookbook inspired from http://code.google.com/p/onki-light/wiki/InstallFusekiLARQ
+
+If you have previously used Maven, you may want to clear your Maven repository before building Fuseki to get rid of
+any old package versions:
+> rm -rf ~/.m2
+
+Check out the Jena source
+> svn co https://svn.apache.org/repos/asf/jena/trunk/ Jena
+
+Adding LARQ dependency
+You will need to add a LARQ dependency to the Jena/jena-fuseki/pom.xml file. Edit the file and add this block after
+the other dependencies:
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-larq</artifactId>
+      <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+Newer versions of LARQ may be available by the time you read this. Check out this directory listing
+(https://repository.apache.org/content/groups/snapshots/org/apache/jena/jena-larq/).
+
+Build fuseki using Maven
+> cd ~/Jena/jena-fuseki
+> mvn clean package
+
+untar built distribution file
+> cd
+> tar -xvzf Jena/jena-fuseki/target/jena-fuseki-0.2.5-SNAPSHOT-distribution.tar.gz
+
+dowload and install jena
+> cd
+> wget http://www.apache.org/dist/jena/binaries/apache-jena-2.7.3.tar.gz
+> tar -xzvf apache-jena-2.7.3.tar.gz
+> export JENAROOT=/home/operateur/apache-jena-2.7.3
+> PATH=$JENAROOT/bin:$PATH
+
+download graph data
+> mkdir ~/data
+> mkdir ~/data/cinema
+> mkdir ~/data/cinema/rdfdata
+> cd ~/data/cinema/rdfdata
+> wget http://tampon.alwaysdata.net/Cinema.owl
+> wget http://tampon.alwaysdata.net/cesar2012-rdf.xml
+> wget http://tampon.alwaysdata.net/cannes2011-rdf.xml
+> mkdir data/musicbrainz
+> mkdir data/musicbrainz/rdfdata
+> cd /home/operateur/data/musicbrainz/rdfdata/
+> wget http://greententacle.techfak.uni-bielefeld.de/~cunger/qald2/musicbrainz.tar.gz
+> tar -xvzf musicbrainz.tar.gz 
+
+build TDB indexes
+> cd ~/data/cinema/
+> mkdir tdbdata
+> tdbloader --loc=tdbdata/ rdfdata/*
+> cd ~/data/musicbrainz/
+> mkdir tdbdata
+> tdbloader --loc=tdbdata/ rdfdata/*
+
+LARQ indexes are built automatically when Fuseki is launched (the directory specified in the config file as containing the index must not exist).
+otherwise, it can be done manually:
+!!! looks like the good way to do it, but doesn't work
+> mkdir ~/data/cinema/larqdata
+> cd ~/jena-fuseki-0.2.5-SNAPSHOT/
+> java -cp fuseki-server.jar larq.larqbuilder --larq=~/data/cinema/larqdata --desc=config.ttl
+download ARQ
+
+edit ~/jena-fuseki-0.2.5-SNAPSHOT/config.ttl such as it looks like that:
+"""
+@prefix :        <#> .
+@prefix fuseki:  <http://jena.apache.org/fuseki#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tdb:     <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+
+[] rdf:type fuseki:Server ;
+   fuseki:services (
+     <#serviceCinema>
+     <#serviceMusicbrainz>
+   ) .
+
+[] ja:loadClass "com.hp.hpl.jena.tdb.TDB" .
+tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb:GraphTDB    rdfs:subClassOf  ja:Model .
+
+<#serviceCinema> rdf:type fuseki:Service ;
+    fuseki:name                        "cinema" ;
+    fuseki:serviceQuery                "sparql" ;
+    fuseki:serviceQuery                "query" ;
+    fuseki:serviceUpdate               "update" ;
+    fuseki:serviceUpload               "upload" ;
+    fuseki:serviceReadWriteGraphStore  "data" ;
+    fuseki:serviceReadGraphStore       "get" ;
+    fuseki:serviceReadGraphStore       "" ;
+    fuseki:dataset                     <#cinemaDataset> ;
+    .
+
+<#cinemaDataset> rdf:type      tdb:DatasetTDB ;
+    tdb:location "/home/operateur/data/cinema/tdbdata" ;
+    ja:textIndex "/home/operateur/data/cinema/larqdata" .
+
+<#serviceMusicbrainz> rdf:type fuseki:Service ;
+    fuseki:name                        "musicbrainz" ;
+    fuseki:serviceQuery                "sparql" ;
+    fuseki:serviceQuery                "query" ;
+    fuseki:serviceUpdate               "update" ;
+    fuseki:serviceUpload               "upload" ;
+    fuseki:serviceReadWriteGraphStore  "data" ;
+    fuseki:serviceReadGraphStore       "get" ;
+    fuseki:serviceReadGraphStore       "" ;
+    fuseki:dataset                     <#musicbrainzDataset> ;
+    .
+
+<#musicbrainzDataset> rdf:type      tdb:DatasetTDB ;
+    tdb:location "/home/operateur/data/musicbrainz/tdbdata" ;
+    ja:textIndex "/home/operateur/data/musicbrainz/larqdata" .
+"""
+
+TODO: add a reasonner
+
+run server
+> cd ~/jena-fuseki-0.2.5-SNAPSHOT/
+> chmod +x fuseki-server s-*
+> ./fuseki-server --port=8080 --config=config.ttl
+

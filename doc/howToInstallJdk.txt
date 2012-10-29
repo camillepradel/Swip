@@ -1,0 +1,14 @@
+solution 1:
+
+dowload last version of the JDK from http://www.oracle.com/technetwork/java/javase/downloads/index.html
+> su - root
+> cd /opt/
+> tar -xvzf /home/operateur/Downloads/jdk-7u7-linux-x64.tar.gz 
+add to ~/.basrc:
+	export PATH=$PATH:/opt/jdk1.7.0_07/bin:/opt/jdk1.7.0_07/db/bin:/opt/jdk1.7.0_07/jre/bin
+
+solution 2:
+
+> su - root
+> apt-get install default-jre
+> Ctrl-D

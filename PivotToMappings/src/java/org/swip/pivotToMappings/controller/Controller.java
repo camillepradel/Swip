@@ -38,7 +38,7 @@ public class Controller {
     
     private static final Logger logger = Logger.getLogger(Controller.class);
     static Controller staticController = null;
-    private final static ArrayList<KbConfiguration>  kbConfs = new ArrayList<KbConfiguration>();
+    private final ArrayList<KbConfiguration>  kbConfs = new ArrayList<KbConfiguration>();
     private HashMap<String, SparqlServer> sparqlServers = null;
     private HashMap<String, List<Pattern>> patternsMap = null;
     private HashMap<String, String> langs = null;
@@ -52,7 +52,7 @@ public class Controller {
         this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
         this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt", "fr"));
         this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt", "fr"));
-        this.kbConfs.add(new KbConfiguration("music", "http://localhost:2020/music", "patterns-musicbrainz.txt", "en"));
+        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://192.168.250.91:8080/musicbrainz/sparql", "patterns-musicbrainz.txt", "en"));
     }
 
     public static Controller getInstance() {

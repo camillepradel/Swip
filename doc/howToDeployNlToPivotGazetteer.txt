@@ -1,0 +1,13 @@
+copy Gate files on the server. for instance:
+home
+└── operateur
+    └── gate
+        ├── dictionary-local-musicbrainz
+        │   └── ... indexes of musicbrinz ...
+        ├── dictionary-local-musicbrainz-tracks
+        │   └── ... indexes of musicbrainz tracks ...
+        ├── japeAfterGazetteer1.jape
+        ├── japeAfterGazetteer2.jape
+        └── NlToPivotGazetteerMusicbrainz.gapp
+
+specify the path of these files in NlToPivotGazetteerWS.java

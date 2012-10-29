@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.swip.pivotToMappings;
 
 import java.util.ArrayList;
@@ -46,11 +42,10 @@ public class PivotToMappingsWS {
     public String generateBestMappings(
         @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString, 
         @QueryParam("numMappings") @DefaultValue("0") int numMappings,
-        @QueryParam("kbName") @DefaultValue("cinema") String kbName) {
+        @QueryParam("kbName") @DefaultValue("musicbrainz") String kbName) {
         
         JSONObject response = new JSONObject();
         
-        if(numMappings > 50) numMappings = 50;  // Limiting the maximum amount of answers
         List<PatternToQueryMapping> bestMappings = Controller.getInstance().getBestMappings(pivotQueryString, numMappings, kbName);
     
         if(bestMappings != null)

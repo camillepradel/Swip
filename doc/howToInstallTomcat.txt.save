@@ -1,0 +1,70 @@
+requires:
+ - jdk -> howToInstallJdk.txt
+
+> cd
+> wget http://apache.websitebeheerjd.nl/tomcat/tomcat-7/v7.0.32/bin/apache-tomcat-7.0.32.tar.gz
+> tar -xvzf apache-tomcat-7.0.32.tar.gz
+> cd apache-tomcat-7.0.32/
+
+edit users in /path/to/tomcat/conf/tomcat-users.xml such as it looks like this (choose your own password):
+'''
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="tomcat"/>
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <user username="tomcat" password="PASSWORD" roles="tomcat"/>
+  <user username="admin" password="PASSWORD" roles="manager-gui,manager-script"/>
+</tomcat-users>
+'''
+
+tomcat defaut listening port is 8080, but this port is already used by fuseki.
+we want to use port 80, which is the defaut http port, in order to simplify the acces for web users (they won't have to specify the port in the url).
+edit defaut port in /path/to/tomcat/conf/server.xml:
+   change '...<Connector port="8080" protocol="HTTP/1.1"...'
+       to '...<Connector port="80" protocol="HTTP/1.1"...'
+
+however port 80 is a "privileged port", which means it can't be bound by non-root users
+we have to use one of the solution proposed (for Debian distribution) in: http://www.debian-administration.org/articles/386
+!! pas réussi pour l'instant! serveur lancé en root!
+
+Increase the max-file-size and max-request-size of the manager application
+! fonctionne pas pour l'instant, mais on peut tj utiliser sftp au lieu du manager
+
+edit ~/apache-tomcat-7.0.32/webapps/manager/WEB-INF/web.xml
+   change
+<max-file-size>52428800</max-file-size>
+<max-request-size>52428800</max-request-size>
+   to
+<max-file-size>104857600</max-file-size>
+<max-request-size>1048576<max-request-size>104857600</max-request-size>
+00</max-request-size>
+
+edit ~/apache-tomcat-7.0.32/conf/server.xml
+   change
+<Connector port="80" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"/>
+   to
+<Connector port="80" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443" 
+           maxPostSize="104857600"/>
+
+increase java heap space
+create file ../bin/setenv.sh
+write inside:
+'''
+#!/bin/sh
+
+export JAVA_OPTS="-server -Xms1024m -Xmx1024m"
+'''
+
+
+start tomcat server
+(> su - root)
+> cd /home/operateur/apache-tomcat-7.0.32/
+> ./bin/startup.sh 
+
+to stop the server
+> ./bin/shutdown.sh

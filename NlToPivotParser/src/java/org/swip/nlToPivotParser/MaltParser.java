@@ -62,14 +62,14 @@ public class MaltParser {
 
         if (lang.equals("en")) {
             // on mirail server
-//            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
             // on my computer
-            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
+//            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
         } else if (lang.equals("fr")) {
             // on mirail server
-//            service.initializeParserModel("-c fremalt-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+            service.initializeParserModel("-c fremalt-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
             // on my computer
-            service.initializeParserModel("-c fremalt-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
+//            service.initializeParserModel("-c fremalt-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
         } else {
             // Todo: rise exception
         }

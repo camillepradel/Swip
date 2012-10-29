@@ -3,17 +3,20 @@ package org.swip.workflow;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.core.util.MultivaluedMapImpl;
-import java.util.HashMap;
-import java.util.Map;
+import com.sun.jersey.api.representation.Form;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.text.ParseException;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
+import javax.xml.bind.JAXBException;
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.swip.exchange.DependencyTree;
 import org.swip.exchange.NlToPivotResult;
 
@@ -21,8 +24,9 @@ import org.swip.exchange.NlToPivotResult;
 public class WorkflowWS {
 
     private static final Logger logger = Logger.getLogger(WorkflowWS.class);
-    private final static String serverIP = "http://localhost:8080/";
-//    private final static serverIP = "http://swip.univ-tlse2.fr/";
+//    private final static String serverIP = "http://localhost:8080/";
+//    private final static String serverIP = "http://192.168.250.91/";
+    private final static String serverIP = "http://localhost/";
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -32,7 +36,7 @@ public class WorkflowWS {
             @QueryParam("kb") @DefaultValue("") String kb,
             @QueryParam("lang") @DefaultValue("fr") String lang,
             @QueryParam("pos") @DefaultValue("treeTagger") String posTagger,
-            @QueryParam("dep") @DefaultValue("malt") String depParser) {
+            @QueryParam("dep") @DefaultValue("malt") String depParser) throws ParseException, UniformInterfaceException, JAXBException, IOException {
 
         logger.info("User nl query: " + nlQuery);
         logger.info("Target knowledge base: " + kb);
@@ -41,17 +45,32 @@ public class WorkflowWS {
         logger.info("Dependency parser: " + depParser);
 
         NlToPivotResult result = new NlToPivotResult();
-        
-        String gazetteedQuery = "Was Keith_Richards a member of The_Rolling_Stones?";
-//        String gazetteedQuery = new NlToPivotGazetteerWS_JerseyClient().gatherNamedEntities(nlQuery, "false");
+
+        String gazetteedQuery = new NlToPivotGazetteerWS_JerseyClient().gatherNamedEntities(nlQuery, "false");
         result.setGazetteedQuery(gazetteedQuery);
-        
+        logger.info("Gazetteed query: " + gazetteedQuery);
+
         DependencyTree dependencyTree = new NlToPivotParserWS_JerseyClient().nlToDependenciesJson(lang, gazetteedQuery, depParser, posTagger);
         result.setDependencyTree(dependencyTree);
+        logger.info("Dependency tree: " + dependencyTree);
         
-        String pivotQuery = new NlToPivotRulesWS_JerseyClient().dependenciesToPivotFromApp(dependencyTree);
+        // marshal dependencyTree into JSON
+        ObjectMapper mapper = new ObjectMapper();
+        Writer strWriter = new StringWriter();
+        mapper.writeValue(strWriter, dependencyTree);
+        String dependencyTreeJSON = strWriter.toString();
+
+        Form f = new Form();
+        f.add("dependencyTree", dependencyTreeJSON);
+        f.add("lang", "en");
+        f.add("pos", "treeTagger");
+        f.add("dep", "malt");
+
+        WebResource resource = Client.create().resource(serverIP + "NlToPivotRules/resources/rest/dependenciesToPivot");
+        String pivotQuery = resource.type(MediaType.APPLICATION_FORM_URLENCODED_TYPE).post(String.class, f);
         result.setPivotQuery(pivotQuery);
-        
+        logger.info("pivot query: " + pivotQuery);
+
         return result;
     }
 
@@ -119,34 +138,4 @@ public class WorkflowWS {
         }
     }
 
-    static class NlToPivotRulesWS_JerseyClient {
-
-        private WebResource webResource;
-        private Client client;
-        private static final String BASE_URI = serverIP + "NlToPivotRules/resources";
-
-        public NlToPivotRulesWS_JerseyClient() {
-            com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
-            client = Client.create(config);
-            webResource = client.resource(BASE_URI).path("rest");
-        }
-
-        public String dependenciesToPivotFromApp(DependencyTree dependencyTree) throws UniformInterfaceException {
-//            Map<String, Object> params = new HashMap<String, Object>();
-            MultivaluedMap params = new MultivaluedMapImpl();
-
-            params.put("dependencyTree", dependencyTree);
-            
-            return webResource.path("dependenciesToPivotFromApp").type(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(String.class, params);
-        }
-
-        public String dependenciesToPivotFromForm() throws UniformInterfaceException {
-            return webResource.path("dependenciesToPivotFromForm").type(javax.ws.rs.core.MediaType.APPLICATION_FORM_URLENCODED).post(String.class);
-        }
-
-        public void close() {
-            client.destroy();
-        }
-    }
-    
 }

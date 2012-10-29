@@ -13,9 +13,9 @@ public class TreeTagger {
 
     private static final Logger logger = Logger.getLogger(TreeTagger.class);
     // on mirail server
-//    final String treeTaggerDir = "/home/operateur/treeTagger";
+    final String treeTaggerDir = "/home/operateur/treeTagger";
     // on my computer
-    final String treeTaggerDir = "/mnt/data/treeTagger";
+//    final String treeTaggerDir = "/mnt/data/treeTagger";
     TreeTaggerWrapper tt = null;
     List<String> tokens = null;
 

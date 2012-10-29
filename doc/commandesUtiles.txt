@@ -1,0 +1,15 @@
+se connecter en root: su - root
+revenir au shell précédant: exit ou Ctrl-D
+
+connaitre ip: ifconfig
+
+afficher la hiérarchie des fichiers dans un dossier: tree nom_du_dossier
+si on veux que les sous-dossiers (ignorer les fichiers): tree -d nom_du_dossier
+
+infos mémoire vive: free -m
+infos disque dur: df -h
+
+taille d'un fichier: du -sh nom_du_fichier
+taille d'un dossier: du -sh nom_du_dossier
+
+ouvrir un port: iptables -I INPUT -p tcp --dport 8080 -j ACCEPT

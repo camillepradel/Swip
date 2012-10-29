@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.swip.pivotToMappings.controller;
 
-/**
- *
- * @author Murloc
- */
 public class KbConfiguration
 {
     String name;
