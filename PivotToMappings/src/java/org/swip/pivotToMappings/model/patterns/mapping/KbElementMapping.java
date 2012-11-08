@@ -232,7 +232,7 @@ public class KbElementMapping extends ElementMapping {
     }
     
     public boolean isNumericDataProperty(){
-        return (this.kbType == KbTypeEnum.DATAPROPNUM);
+        return (this.kbType == KbTypeEnum.NUMDATAPROP);
     }
 
     @Override

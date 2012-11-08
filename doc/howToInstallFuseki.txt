@@ -23,6 +23,38 @@ the other dependencies:
 Newer versions of LARQ may be available by the time you read this. Check out this directory listing
 (https://repository.apache.org/content/groups/snapshots/org/apache/jena/jena-larq/).
 
+Adding Pellet reasoner to class path (only if you want to use Pellet)
+download and unzip Pellet archive such as pellet-2.3.0 folder is in ~/Jena/jena-fuseki/
+> mvn install:install-file -Dfile=pellet-2.3.0/lib/aterm-java-1.6.jar -DgroupId=org.mindswap -DartifactId=aterm -Dversion=2.3.0 -Dpackaging=jar
+> ...
+> mvn install:install-file -Dfile=pellet-2.3.0/lib/pellet-core.jar -DgroupId=org.mindswap -DartifactId=pellet-core -Dversion=2.3.0 -Dpackaging=jar
+> ...
+>  mvn install:install-file -Dfile=pellet-2.3.0/lib/pellet-jena.jar -DgroupId=org.mindswap -DartifactId=pellet-jena -Dversion=2.3.0 -Dpackaging=jar
+> ...
+> mvn install:install-file -Dfile=pellet-2.3.0/lib/servlet.jar -DgroupId=org.mindswap -DartifactId=servlet -Dversion=2.3.0 -Dpackaging=jar
+> mvn install:install-file -Dfile=pellet-2.3.0/lib/jgrapht/jgrapht-jdk1.5.jar -DgroupId=org.jgrapht -DartifactId=jgrapht -Dversion=2.3.0 -Dpackaging=jar
+
+Edit Jena/jena-fuseki/pom.xml and add the coresponding dependencies:
+'''
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-core</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+...
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>servlet</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>jgrapht</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+'''
+
+
 Build fuseki using Maven
 > cd ~/Jena/jena-fuseki
 > mvn clean package
@@ -50,7 +82,9 @@ download graph data
 > mkdir data/musicbrainz/rdfdata
 > cd /home/operateur/data/musicbrainz/rdfdata/
 > wget http://greententacle.techfak.uni-bielefeld.de/~cunger/qald2/musicbrainz.tar.gz
-> tar -xvzf musicbrainz.tar.gz 
+> tar -xvzf musicbrainz.tar.gz
+add also musicontology serialized in the RDF/XML format (save as with Protege)
+add more... ?? (rdf, rdfs, dc, foaf, time...)
 
 build TDB indexes
 > cd ~/data/cinema/
@@ -79,7 +113,7 @@ edit ~/jena-fuseki-0.2.5-SNAPSHOT/config.ttl such as it looks like that:
 
 [] rdf:type fuseki:Server ;
    fuseki:services (
-     <#serviceCinema>
+#     <#serviceCinema>
      <#serviceMusicbrainz>
    ) .
 
@@ -87,21 +121,31 @@ edit ~/jena-fuseki-0.2.5-SNAPSHOT/config.ttl such as it looks like that:
 tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
 tdb:GraphTDB    rdfs:subClassOf  ja:Model .
 
-<#serviceCinema> rdf:type fuseki:Service ;
-    fuseki:name                        "cinema" ;
-    fuseki:serviceQuery                "sparql" ;
-    fuseki:serviceQuery                "query" ;
-    fuseki:serviceUpdate               "update" ;
-    fuseki:serviceUpload               "upload" ;
-    fuseki:serviceReadWriteGraphStore  "data" ;
-    fuseki:serviceReadGraphStore       "get" ;
-    fuseki:serviceReadGraphStore       "" ;
-    fuseki:dataset                     <#cinemaDataset> ;
-    .
+#<#serviceCinema> a fuseki:Service ;
+#    fuseki:name                        "cinema" ;
+#    fuseki:serviceQuery                "sparql" ;
+#    fuseki:serviceQuery                "query" ;
+#    fuseki:serviceUpdate               "update" ;
+#    fuseki:serviceUpload               "upload" ;
+#    fuseki:serviceReadWriteGraphStore  "data" ;
+#    fuseki:serviceReadGraphStore       "get" ;
+#    fuseki:dataset                     <#cinemaDataset> ;
+#    .
 
-<#cinemaDataset> rdf:type      tdb:DatasetTDB ;
-    tdb:location "/home/operateur/data/cinema/tdbdata" ;
-    ja:textIndex "/home/operateur/data/cinema/larqdata" .
+#<#cinemaDataset>
+#    a ja:RDFDataset ;
+#    ja:defaultGraph [
+#        a ja:InfModel;
+#        ja:reasoner [
+#            ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
+#        ];
+#        ja:baseModel [
+#            a tdb:GraphTDB;
+#            tdb:location "/home/operateur/data/cinema/tdbdata";
+#        ];
+#    ];
+#    ja:textIndex "/home/operateur/data/cinema/larqdata"
+#    .
 
 <#serviceMusicbrainz> rdf:type fuseki:Service ;
     fuseki:name                        "musicbrainz" ;
@@ -115,12 +159,29 @@ tdb:GraphTDB    rdfs:subClassOf  ja:Model .
     fuseki:dataset                     <#musicbrainzDataset> ;
     .
 
-<#musicbrainzDataset> rdf:type      tdb:DatasetTDB ;
-    tdb:location "/home/operateur/data/musicbrainz/tdbdata" ;
-    ja:textIndex "/home/operateur/data/musicbrainz/larqdata" .
+<#musicbrainzDataset>
+    a ja:RDFDataset ;
+    ja:defaultGraph [
+        a ja:InfModel;
+        ja:reasoner [
+            #ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
+            ja:reasonerURL <http://jena.hpl.hp.com/2003/RDFSExptRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLFBRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLMiniFBRuleReasoner>;
+        ];
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/home/operateur/data/musicbrainz/tdbdata";
+        ];
+    ];
+    ja:textIndex "/home/operateur/data/musicbrainz/larqdata"
+    .
 """
 
-TODO: add a reasonner
+editing ~/jena-fuseki-0.2.5-SNAPSHOT/fuseki-server, you can modify parameters of java virtual machine (such as -Xmx):
+"""
+JVM_ARGS=${JVM_ARGS:--Xmx1200M}
+"""
 
 run server
 > cd ~/jena-fuseki-0.2.5-SNAPSHOT/

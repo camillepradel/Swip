@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
@@ -23,6 +24,8 @@ import org.swip.utils.sparql.SparqlServer;
 
 // bean! (mais pas les classes utilisees)
 public class PatternToQueryMapping {
+    
+    private static Logger logger = Logger.getLogger(PatternToQueryMapping.class);
 
     private Pattern pattern = null;
     private List<ElementMapping> elementMappings = new LinkedList<ElementMapping>();
@@ -443,7 +446,9 @@ public class PatternToQueryMapping {
         String aggregateSentence = "";
         ArrayList<QueryElement> aggregateProcessed = new ArrayList<QueryElement>();
 
+        logger.info("initial local sentence: " + localSentence);
         localSentence = this.getPattern().modifySentence(localSentence, this, sparqlServer);
+        logger.info("modified sentence: " + localSentence);
 
         Collection<PatternElement> replacedPatternElements = new LinkedList<PatternElement>();
         boolean numericDataProperty = false;
@@ -576,7 +581,9 @@ public class PatternToQueryMapping {
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {
         String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>";
+                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+                + "PREFIX dc: <http://purl.org/dc/elements/1.1/>"
+                + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>";
         Set<String> selectElements = new HashSet<String>();
         HashMap<String, String> numericDataPropertyElements = new HashMap<String, String>();
         String where = "";
@@ -635,7 +642,7 @@ public class PatternToQueryMapping {
             query += "ASK {\n";
         } else {
             //this.setSparqlQuery();
-            query += "SELECT " + select + "\nWHERE {\n";
+            query += "SELECT DISTINCT " + select + "\nWHERE {\n";
         }
         query += where;
         /*String aggregat = "";

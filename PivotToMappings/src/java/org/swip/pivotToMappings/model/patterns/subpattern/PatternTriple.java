@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.Pattern;
@@ -23,11 +24,13 @@ import org.swip.utils.sparql.SparqlServer;
  * class representing a subpattern (triple e1, e2, e3)
  */
 public class PatternTriple extends Subpattern {
+    
+    private static Logger logger = Logger.getLogger(PatternTriple.class);
 
     private ClassPatternElement e1 = null;
     private PropertyPatternElement e2 = null;
     private PatternElement e3 = null;
-    
+
     public PatternTriple() {
     }
 
@@ -84,10 +87,11 @@ public class PatternTriple extends Subpattern {
                 + sparqlE1 + " "
                 + sparqlE2 + " "
                 + sparqlE3 + ".\n";
-        
-        if(!matchNumerciDataProperty.isEmpty())
+
+        if (!matchNumerciDataProperty.isEmpty()) {
             numerciDataPropertyElements.put(matchNumerciDataProperty.get(e2), sparqlE3);
-        
+        }
+
         for (String typeString : typeStrings) {
             result += typeString;
         }
@@ -107,19 +111,23 @@ public class PatternTriple extends Subpattern {
                     String firstlyMatchedOntResource = kbElementMapping.getFirstlyMatchedOntResourceUri();
 
                     String toInsert = "";
-                    if(kbElementMapping.isGeneralized() && !kbElementMapping.isNumericDataProperty())
+                    if (kbElementMapping.isGeneralized() && !kbElementMapping.isNumericDataProperty()) {
                         toInsert = "_gen" + kbElementMapping.getPatternElement().getId() + "_";
-                    else
+                    } else {
                         toInsert = "<" + kbElementMapping.getFirstlyMatchedOntResourceUri() + ">";
+                    }
 
                     if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
                         //elementString = "?var" + ++(Subpattern.varCount);
                         elementString = varName;
-                        typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".\n");
+                        String typeDeclaration = "       " + elementString + " rdf:type " + toInsert + ".\n";
+                        if (!typeStrings.contains(typeDeclaration)) {
+                            typeStrings.add(typeDeclaration);
+                        }
                         if (kbElementMapping.getQueryElement().isQueried()) {
                             selectElements.add(elementString);
                         }
-                    } else if(kbElementMapping.getKbType() == KbTypeEnum.DATAPROPNUM) {
+                    } else if (kbElementMapping.getKbType() == KbTypeEnum.NUMDATAPROP) {
                         numerciDataPropertyElements.put(e, kbElementMapping.getQueryElement().getStringValue());
                         elementString = toInsert;
                     } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
@@ -129,20 +137,20 @@ public class PatternTriple extends Subpattern {
                         elementString = varName;
                         List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
                         for (String type : types) {
-                            typeStrings.add("       " + elementString + " rdf:type " + toInsert + ".\n");
+                            String typeDeclaration = "       " + elementString + " rdf:type " + toInsert + ".\n";
+                            if (!typeStrings.contains(typeDeclaration)) {
+                                typeStrings.add(typeDeclaration);
+                            }
                         }
                         String matchedLabel = ((KbElementMapping) ptqm.getElementMappings(e).get(0)).getBestLabel();
-                        /*typeStrings.add(
-                                "       { " + elementString + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
-                                + "       UNION "
-                                + "       { " + elementString + " rdfs:label \"" + matchedLabel + "\". } ");*/
-                        typeStrings.add("       " + elementString + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\"@fr.\n");
+                        // FIXME: solve language tag problem
+                        typeStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + matchedLabel + "\".\n");
                     }
                 } else { // literal
                     String varName = elementMapping.getQueryElement().getVarName();
                     if (elementMapping.getQueryElement().isQueried()) {
                         //elementString = "?literal" + ++(Subpattern.varCount);
-                         elementString = varName;
+                        elementString = varName;
                         // TODO: eventuellemnt contraindre le type du literal avec FILTER (datatype...
                         selectElements.add(elementString);
                     } else {

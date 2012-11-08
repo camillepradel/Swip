@@ -47,7 +47,8 @@ public class LiteralPatternElement extends PatternElement {
 
     @Override
     public void preprocess(SparqlServer sparqlServer) throws PatternsParsingException {
-        addPatternElementMatching(Literal.getUriFromType(type), new PatternElementMatching(this, 1));
+//        addPatternElementMatching(Literal.getUriFromType(type), new PatternElementMatching(this, 1));
+        addPatternElementMatching(type, new PatternElementMatching(this, 1));
     }
 
     public void addLiteralMapping(QueryElement qe, float trustMark, ElementMapping impliedBy) {

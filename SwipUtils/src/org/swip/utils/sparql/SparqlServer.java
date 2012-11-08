@@ -114,6 +114,7 @@ public abstract class SparqlServer {
                 + "     FILTER NOT EXISTS{\n"
                 + "         ?subType rdfs:subClassOf ?type.\n"
                 + "         <" + resourceUri + "> rdf:type ?subType.\n"
+                + "         FILTER (!sameTerm(?type,?subType))\n"
                 + "     }"
                 + "}";
 
@@ -160,6 +161,23 @@ public abstract class SparqlServer {
 
         for (QuerySolution qs : results) {
             resultList.add(qs.get("range").toString());
+        }
+
+        return resultList;
+    }
+
+    public List<String> listInverses(String resourceUri) {
+        String query = "  PREFIX owl: <http://www.w3.org/2002/07/owl#> \n"
+                + "SELECT ?inverse \n"
+                + "WHERE { \n"
+                + "    <" + resourceUri + "> owl:inverseOf ?inverse \n"
+                + "}";
+
+        Iterable<QuerySolution> results = select(query);
+        List<String> resultList = new LinkedList<String>();
+
+        for (QuerySolution qs : results) {
+            resultList.add(qs.get("inverse").toString());
         }
 
         return resultList;

@@ -155,7 +155,7 @@ public class Pattern {
         return sentence;
     }
 
-    public Iterable<PatternToQueryMapping> getMappingsIterable(final Query q) {
+    public Iterable<PatternToQueryMapping> getMappingsIterable() {
         return new Iterable<PatternToQueryMapping>() {
 
             @Override

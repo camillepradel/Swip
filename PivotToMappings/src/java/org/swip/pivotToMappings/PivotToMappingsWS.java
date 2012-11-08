@@ -1,5 +1,6 @@
 package org.swip.pivotToMappings;
 
+import com.sun.jersey.api.json.JSONWithPadding;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Collections;
@@ -19,74 +20,84 @@ import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.patterns.PatternsTextToRdf;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 
-
 @Path("/rest/")
 public class PivotToMappingsWS {
-    
+
     private static final Logger logger = Logger.getLogger(PivotToMappingsWS.class);
 
     public PivotToMappingsWS() {
-
     }
 
-   /* @GET
+    /* @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("getPatterns")
     public java.util.List<org.swip.pivotToMappings.model.patterns.Pattern> getPatterns() {
-        return Controller.getInstance().getPatterns();
+    return Controller.getInstance().getPatterns();
     }*/
-
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("generateBestMappings")
     public String generateBestMappings(
-        @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString, 
-        @QueryParam("numMappings") @DefaultValue("0") int numMappings,
-        @QueryParam("kbName") @DefaultValue("musicbrainz") String kbName) {
-        
+            @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString,
+            @QueryParam("numMappings") @DefaultValue("50") int numMappings,
+            @QueryParam("kb") @DefaultValue("musicbrainz") String kbName) {
+
         JSONObject response = new JSONObject();
-        
+
         List<PatternToQueryMapping> bestMappings = Controller.getInstance().getBestMappings(pivotQueryString, numMappings, kbName);
-    
-        if(bestMappings != null)
-        {
+
+        if (bestMappings != null) {
             Collections.reverse(bestMappings);
-                
-                ArrayList<JSONObject> queryResults = new ArrayList();
-                
-                for(PatternToQueryMapping ptqm : bestMappings)
-                {
-                    JSONObject query = new JSONObject();
-                    JSONObject descSentJSon = new JSONObject();
-                    JSONObject generalizations = new JSONObject();
-                    JSONObject sparqlQuery = new JSONObject();
-                    JSONObject uris = new JSONObject();
-                    
-                    String descSent = ptqm.getSentence().trim().replaceAll("\\s+", " ");
-                    if(descSent.charAt(descSent.length() - 1) == ',')
-                        descSent = descSent.substring(0, descSent.length() - 1);
-                    for(Map.Entry<Integer, ArrayList<String>> entry : ptqm.getGeneralizations().entrySet())
-                        generalizations.put(String.valueOf(entry.getKey()), entry.getValue());
-                    descSentJSon.put("string", descSent);
-                    descSentJSon.put("gen", generalizations);
-                    query.put("descriptiveSentence", descSentJSon);
 
-                    for(Map.Entry<Integer, ArrayList<String>> entry : ptqm.getUris().entrySet())
-                        uris.put(String.valueOf(entry.getKey()), entry.getValue());
-                    sparqlQuery.put("string", ptqm.getSparqlQuery());
-                    sparqlQuery.put("uris", uris);
-                    query.put("sparqlQuery", sparqlQuery);
+            ArrayList<JSONObject> queryResults = new ArrayList();
 
-                    query.put("mappingDescription", ptqm.getStringDescription());
-                    query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
+            for (PatternToQueryMapping ptqm : bestMappings) {
+                JSONObject query = new JSONObject();
+                JSONObject descSentJSon = new JSONObject();
+                JSONObject generalizations = new JSONObject();
+                JSONObject sparqlQuery = new JSONObject();
+                JSONObject uris = new JSONObject();
 
-                    queryResults.add(query);
+                String descSent = ptqm.getSentence().trim().replaceAll("\\s+", " ");
+                if (descSent.charAt(descSent.length() - 1) == ',') {
+                    descSent = descSent.substring(0, descSent.length() - 1);
                 }
-                
-                response.put("content", queryResults);
+                for (Map.Entry<Integer, ArrayList<String>> entry : ptqm.getGeneralizations().entrySet()) {
+                    generalizations.put(String.valueOf(entry.getKey()), entry.getValue());
+                }
+                descSentJSon.put("string", descSent);
+                descSentJSon.put("gen", generalizations);
+                query.put("descriptiveSentence", descSentJSon);
+
+                for (Map.Entry<Integer, ArrayList<String>> entry : ptqm.getUris().entrySet()) {
+                    uris.put(String.valueOf(entry.getKey()), entry.getValue());
+                }
+                sparqlQuery.put("string", ptqm.getSparqlQuery());
+                sparqlQuery.put("uris", uris);
+                query.put("sparqlQuery", sparqlQuery);
+
+                query.put("mappingDescription", ptqm.getStringDescription());
+                query.put("relevanceMark", String.valueOf(ptqm.getRelevanceMark()));
+
+                queryResults.add(query);
+            }
+
+            response.put("content", queryResults);
         }
-        
+
         return response.toString();
+    }
+
+    @GET
+    @Produces({"application/x-javascript", MediaType.APPLICATION_JSON})
+    @Path("generateBestMappingsJSONP")
+    public JSONWithPadding generateBestMappingsJSONP(
+            @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString,
+            @QueryParam("numMappings") @DefaultValue("50") int numMappings,
+            @QueryParam("kb") @DefaultValue("musicbrainz") String kbName,
+            @QueryParam("callback") @DefaultValue("fn") String callback) {
+
+        return new JSONWithPadding(generateBestMappings(pivotQueryString, numMappings, kbName), callback);
     }
 
 //    @GET
@@ -98,15 +109,14 @@ public class PivotToMappingsWS {
 //
 //        return Controller.getInstance().processQuery(query, kbName);
 //    }
-
     @POST
     @Produces({MediaType.TEXT_XML})
     @Path("patternsTextToRdf")
     public String patternsTextToRdf(
-        @FormParam("patterns") @DefaultValue("") String patterns,
-        @FormParam("setName") @DefaultValue("") String setName,
-        @FormParam("ontologyUri") @DefaultValue("http://ontologies.alwaysdata.net/cinema") String ontologyUri,
-        @FormParam("authorUri") @DefaultValue("http://camillepradel.com/uris#me") String authorUri)  {
+            @FormParam("patterns") @DefaultValue("") String patterns,
+            @FormParam("setName") @DefaultValue("") String setName,
+            @FormParam("ontologyUri") @DefaultValue("http://ontologies.alwaysdata.net/cinema") String ontologyUri,
+            @FormParam("authorUri") @DefaultValue("http://camillepradel.com/uris#me") String authorUri) {
 
         logger.info(setName);
         return PatternsTextToRdf.patternsTextToRdf(setName, authorUri, ontologyUri, patterns);

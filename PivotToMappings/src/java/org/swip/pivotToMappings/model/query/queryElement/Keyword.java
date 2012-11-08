@@ -18,13 +18,12 @@ import org.swip.pivotToMappings.stemmer.englishStemmer;
 
 public class Keyword extends QueryElement {
 
+    private static final Logger logger = Logger.getLogger(Keyword.class);
     int id = 0;
     String keywordValue = null;
-     String aggregat = "";
+    String aggregat = "";
     String cond = "";
     boolean isAggregate = false;
-    
-    private static final Logger logger = Logger.getLogger(QueryElement.class);
 
     public Keyword() {
         super();
@@ -36,27 +35,25 @@ public class Keyword extends QueryElement {
         this.id = id;
         this.keywordValue = keywordValue;
     }
-    
+
     /*public Keyword(boolean queried, int id, String keywordValue, String aggregat) {
-        super();
-        if(aggregat != null)
-        {
-            super.queried = queried;
-            this.id = id;
-            this.keywordValue = keywordValue;
-            this.aggregat = aggregat;
-            this.isAggregate = true;
-        }
-        else
-        {
-            super.queried = queried;
-            this.id = id;
-            this.keywordValue = keywordValue;
-        }
-        
+    super();
+    if(aggregat != null)
+    {
+    super.queried = queried;
+    this.id = id;
+    this.keywordValue = keywordValue;
+    this.aggregat = aggregat;
+    this.isAggregate = true;
+    }
+    else
+    {
+    super.queried = queried;
+    this.id = id;
+    this.keywordValue = keywordValue;
+    }
+    
     }*/
-
-
     public int getId() {
         return id;
     }
@@ -69,57 +66,77 @@ public class Keyword extends QueryElement {
         return keywordValue;
     }
 
-    public String getVarName()
-    {
-        return "?"+(this.keywordValue.replaceAll(" ", "_"));
+    public String getVarName() {
+        return "?" + (this.keywordValue.replaceAll(" ", "_"));
     }
 
     public void setKeywordValue(String keywordValue) {
         this.keywordValue = keywordValue;
     }
-    
-    public void setCond(String agg, String cond)
-    {
+
+    public void setCond(String agg, String cond) {
         this.isAggregate = true;
         this.aggregat = agg;
         this.cond = cond;
     }
 
-
+    @Override
     public void match(SparqlServer serv) {
-        logger.info(this.keywordValue + " matches with: ");
         long time = System.currentTimeMillis();
 
         HashMap<String, String> labelsMap = new HashMap<String, String>();
         HashMap<String, Float> scoresMap = new HashMap<String, Float>();
 
-        StringTokenizer st2 = new StringTokenizer(this.keywordValue, " \t\n\r\f-_");
-        String stringToMatch = "";
-        while (st2.hasMoreTokens()) {
-            // remove plural form if any (done manually because Lucene score doesn't handle this)
-            // FIXME: is it possible to configure it in Lucene?
-            String nextToken = st2.nextToken();
-            if (nextToken.endsWith("ies")) {
-                nextToken = nextToken.substring(0, nextToken.length()-3) + "y";
-            } else if (nextToken.endsWith("s")) {
-                nextToken = nextToken.substring(0, nextToken.length()-1);
-            }
-            stringToMatch += nextToken + " ";
-        }
+        String stringToMatch = this.getKeywordValue().replace("_", " ");
+//        StringTokenizer st2 = new StringTokenizer(this.keywordValue, " \t\n\r\f-_");
+//        String stringToMatch = "";
+//        while (st2.hasMoreTokens()) {
+//            // remove plural form if any (done manually because Lucene score doesn't handle this)
+//            // FIXME: is it possible to configure it in Lucene?
+//            String nextToken = st2.nextToken();
+//            if (nextToken.endsWith("ies")) {
+//                nextToken = nextToken.substring(0, nextToken.length() - 3) + "y";
+//            } else if (nextToken.endsWith("s")) {
+//                nextToken = nextToken.substring(0, nextToken.length() - 1);
+//            }
+//            stringToMatch += nextToken + " ";
+//        }
 
         String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
                 + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                + "  PREFIX dc:  <http://purl.org/dc/elements/1.1/>"
-                + "  PREFIX pf:  <http://jena.hpl.hp.com/ARQ/property#>"
-                + "SELECT ?subj ?label ?score ?str "
+                + "  PREFIX dc:  <http://purl.org/dc/elements/1.1/> "
+                + "  PREFIX foaf: <http://xmlns.com/foaf/0.1/> "
+                + "  PREFIX pf:  <http://jena.hpl.hp.com/ARQ/property#> "
+                + "SELECT ?subj ?label ?score "
                 + "WHERE { "
-                + "       (?label ?score ) pf:textMatch ('" + stringToMatch.trim() + "~' 0.6) "
-                + "       { ?subj dc:title ?label. BIND(str(?label) AS ?str).} "
-                + "                  UNION "
-                + "       { ?subj rdfs:label ?label. BIND(str(?label) AS ?str).} "
-                + "      } ";
- 
+                + "       (?label ?score ) pf:textMatch ('" + stringToMatch.trim() + "' 0.6 20). "
+                + "       ?subj (dc:title|rdfs:label|foaf:name) ?label. "
+                + "} ";
+
         Iterable<QuerySolution> results = serv.select(query);
+
+        // first add some important matchings
+        // TODO: a more generic approach: favour matchings to ontology's entities over other KB entitites
+        if (this.keywordValue.equalsIgnoreCase("person")) {
+            String uri = "http://xmlns.com/foaf/0.1/Person";
+            labelsMap.put(uri, "person");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("album")) {
+            String uri = "http://purl.org/ontology/mo/album"; // *type property considered harmful
+            labelsMap.put(uri, "album");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("produce")) {
+            String uri = "http://purl.org/ontology/mo/producer";
+            labelsMap.put(uri, "producer");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("single")) {
+            String uri = "http://purl.org/ontology/mo/single";
+            labelsMap.put(uri, "producer");
+            scoresMap.put(uri, 20.0f);
+        }
+
+
+
         for (QuerySolution qs : results) {
             String uri = qs.get("subj").toString();
 
@@ -134,14 +151,15 @@ public class Keyword extends QueryElement {
             }
 
             if (changeMaps) {
-                String label = qs.get("str").toString();
+                String label = qs.get("label").toString();
                 labelsMap.put(uri, label);
                 scoresMap.put(uri, score);
             }
         }
 
+        logger.info(this.keywordValue + " matches with " + labelsMap.size() + " resources:");
         PriorityQueue<Match> matches = new PriorityQueue<Match>();
-        for (String uri : labelsMap.keySet()) {            
+        for (String uri : labelsMap.keySet()) {
 
             float bestTrustMark = scoresMap.get(uri);
             String bestLabel = labelsMap.get(uri);
@@ -149,22 +167,18 @@ public class Keyword extends QueryElement {
             boolean isIndividual = false;
             boolean isProperty = false;
             boolean isNumericDataProperty = false;
-            boolean isDataProp = false;
+            boolean isDataProperty = false;
 
             List<String> types = serv.listTypes(uri);
             if (serv.isClass(types)) {
                 isClass = true;
                 logger.info(" (o) class " + uri);
-            } 
-            else if(serv.isDataProperty(types)) {
-                if(serv.isNumericDataProperty(uri))
-                {
+            } else if (serv.isDataProperty(types)) {
+                if (serv.isNumericDataProperty(uri)) {
                     isNumericDataProperty = true;
                     logger.info(" (o) numeric data property " + uri);
-                }
-                else
-                {
-                    isDataProp = true;
+                } else {
+                    isDataProperty = true;
                     logger.info(" (o) data property " + uri);
                 }
                 //isProperty = true;
@@ -173,24 +187,25 @@ public class Keyword extends QueryElement {
                 logger.info(" (o) property " + uri);
             } else {
                 isIndividual = true;
-                logger.info(" (o) individual " + uri + "(type: ");
+                String typeString = "";
                 for (String type : types) {
-                    logger.info(type + ", ");
+                    typeString += type + ", ";
                 }
-                logger.info(")");
+                logger.info(" (o) individual " + uri);
                 if (this.queried) {
                     bestTrustMark *= trustMarkDiminutionWhenQueriedInstance;
-                    logger.info(" (queried instance)");
+                    logger.info("     (queried instance)");
                 } else {
                     bestTrustMark *= trustMarkDiminutionWhenInstance;
                 }
+                logger.info("  --  type: " + (typeString.length() > 1 ? typeString.substring(0, typeString.length() - 2) : "NOT FOUND"));
             }
             if (((isClass || isIndividual) && (roles.contains(QeRole.E2Q3)))
                     || ((isProperty) && (roles.contains(QeRole.E1Q1) || roles.contains(QeRole.E1Q23) || roles.contains(QeRole.E3Q3)))) {
                 bestTrustMark *= trustMarkDiminutionWhenIncompatible;
                 logger.info(" (incompatible type)");
             }
-            
+
             logger.info("  --  matched label: " + bestLabel);
             logger.info("  --  trust mark = " + bestTrustMark);
 
@@ -198,12 +213,20 @@ public class Keyword extends QueryElement {
                 for (String type : types) {
                     this.addMatch(type, bestTrustMark, uri, bestLabel, true, matches, KbTypeEnum.IND);
                 }
-            } else if(isClass) {
+            } else if (isClass) {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.CLASS);
-            } else if(isNumericDataProperty) {
-                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.DATAPROPNUM);
-            } else if(isProperty) {
+            } else if (isDataProperty) {
+                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.DATAPROP);
+            } else if (isNumericDataProperty) {
+                this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.NUMDATAPROP);
+            } else if (isProperty) {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.PROP);
+                List<String> inverses = serv.listInverses(uri);
+                if (inverses.size() > 0) {
+                    String firstInverse = inverses.get(0);
+                    logger.info("  --> also matching inverse property: " + firstInverse);
+                    this.addMatch(firstInverse, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.PROP);
+                }
             } else {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.NONE);
                 // if query element matches a property and has not a property role in query,
@@ -224,7 +247,7 @@ public class Keyword extends QueryElement {
         map(matches, serv);
 
         long time2 = System.currentTimeMillis();
-       logger.info("time: " + (double) (time2 - time) / 1000. + "s to match keyword " + this.keywordValue + "\n");
+        logger.info("time: " + (double) (time2 - time) / 1000. + "s to match keyword " + this.keywordValue + "\n");
     }
 
     void addMatch(String resourceUri, float trustMark, String firstlyMatched, String label, boolean checkMappingCondition, PriorityQueue<Match> matches, KbTypeEnum kbType) {
@@ -299,47 +322,39 @@ public class Keyword extends QueryElement {
         stemmer.stem();
         return stemmer.getCurrent();
     }
-    
-    
+
     /*
      * return null if is not an aggregate
      */
-    public String getAggregate()
-    {
+    public String getAggregate() {
         String ret = null;
-        if(this.aggregat!=null)
-        {
-            ret = "("+this.aggregat+"("+this.getVarName()+")"+this.cond+")";
+        if (this.aggregat != null) {
+            ret = "(" + this.aggregat + "(" + this.getVarName() + ")" + this.cond + ")";
         }
         return ret;
     }
-    
-    public String getCond()
-    {
+
+    public String getCond() {
         return this.cond;
     }
-    
-    public boolean isAggregate()
-    {
+
+    public boolean isAggregate() {
         return this.isAggregate;
     }
-    
 
     @Override
     public String toString() {
-        return "Keyword{\"" + keywordValue + "\" - queried=" + queried + " - id=" + id + " - varName = "+this.getVarName()+" - cond = "+this.aggregat+"("+this.getVarName()+")"+this.cond+"}";
+        return "Keyword{\"" + keywordValue + "\" - queried=" + queried + " - id=" + id + " - varName = " + this.getVarName() + " - cond = " + this.aggregat + "(" + this.getVarName() + ")" + this.cond + "}";
     }
 
     @Override
     public String getStringRepresentation(String lang, boolean isNumericDataProperty, int id, boolean generalized) {
         //return (this.queried ? "?" : "") + (this.id > 0 ? "$" + this.id : "") + this.keywordValue;
         String ret = "";
-        
-        if(this.isAggregate)
-        {
-            String s1 = "", s2 = "", s3 = "", count = "", sum ="", min = "", max = "", avg = "";
-            if(lang.compareTo("en") == 0)
-            {
+
+        if (this.isAggregate) {
+            String s1 = "", s2 = "", s3 = "", count = "", sum = "", min = "", max = "", avg = "";
+            if (lang.compareTo("en") == 0) {
                 s1 = "wich";
                 s2 = "must be";
                 s3 = "of";
@@ -348,9 +363,7 @@ public class Keyword extends QueryElement {
                 min = "the minimum";
                 max = "the maximum";
                 avg = "the average";
-            }
-            else if(lang.compareTo("fr") == 0)
-            {
+            } else if (lang.compareTo("fr") == 0) {
                 s1 = "dont";
                 s2 = "doit être";
                 s3 = "de";
@@ -360,59 +373,44 @@ public class Keyword extends QueryElement {
                 max = "le maximum";
                 avg = "la moyenne";
             }
-            
-            
-            
-            ret += s1+" ";
-            if(this.cond.compareTo("") != 0 && !isNumericDataProperty)
-            {
-                if(this.aggregat.compareTo("COUNT") == 0)
-                {
-                    ret += count+" "+s3+" ";
-                }
-                else if(this.aggregat.compareTo("SUM") == 0)
-                {
-                    ret += sum+" "+s3+" ";
-                }
-                else if(this.aggregat.compareTo("MIN") == 0)
-                {
-                    ret += min+" "+s3+" ";
-                }
-                else if(this.aggregat.compareTo("MAX") == 0)
-                {
-                    ret += max+" "+s3+" ";
-                }
-                else if(this.aggregat.compareTo("AVG") == 0)
-                {
-                    ret += avg+" "+s3+" ";
+
+
+
+            ret += s1 + " ";
+            if (this.cond.compareTo("") != 0 && !isNumericDataProperty) {
+                if (this.aggregat.compareTo("COUNT") == 0) {
+                    ret += count + " " + s3 + " ";
+                } else if (this.aggregat.compareTo("SUM") == 0) {
+                    ret += sum + " " + s3 + " ";
+                } else if (this.aggregat.compareTo("MIN") == 0) {
+                    ret += min + " " + s3 + " ";
+                } else if (this.aggregat.compareTo("MAX") == 0) {
+                    ret += max + " " + s3 + " ";
+                } else if (this.aggregat.compareTo("AVG") == 0) {
+                    ret += avg + " " + s3 + " ";
                 }
             }
             String subject = "";
-            if(generalized)
-                subject = "_assoc"+id+"_";
-            else
+            if (generalized) {
+                subject = "_assoc" + id + "_";
+            } else {
                 subject = this.keywordValue;
-            ret += subject+" "+s2+" ";
-            if(this.cond.compareTo("") != 0 )
-            {
+            }
+            ret += subject + " " + s2 + " ";
+            if (this.cond.compareTo("") != 0) {
                 ret += this.cond;
-            }
-            else if(this.aggregat.compareTo("MAX") == 0)
-            {
+            } else if (this.aggregat.compareTo("MAX") == 0) {
                 ret += max;
-            }
-            else if(this.aggregat.compareTo("MIN") == 0)
-            {
+            } else if (this.aggregat.compareTo("MIN") == 0) {
                 ret += min;
             }
-            
+
         }
-        
+
         return ret;
     }
-        
-     public String getStringValue()
-    {
+
+    public String getStringValue() {
         return this.keywordValue;
     }
 }

@@ -15,14 +15,6 @@
  **/
 function nlToPivot(nlQuery, lang)
 {
-    // $.ajax
-    // ({
-    //     type: 'GET',
-    //     dataType: "text",
-    //     url: 'http://192.168.250.91/NlToPivotGazetteer/resources/rest/gatherNamedEntities',
-    //     data: {text: nlQuery, tagWithClass:false},
-    // }).done(function(data)
-    // {
         $.ajax
         ({
             type: 'GET',
@@ -38,11 +30,6 @@ function nlToPivot(nlQuery, lang)
             alert('Ajax error, please try again !');
             toggleSearch(true);
         });
-
-    // }).fail(function(jqXHR, textStatus) {
-    //     alert('Ajax error, please try again !');
-    //     toggleSearch(true);
-    // });
 }
 
 /**
@@ -57,7 +44,10 @@ function pivotToSparql(pvQuery, respNum)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/generateBestMappings?pivotQuery=' + encodeURIComponent(pvQuery) + '&numMappings=' + encodeURIComponent(respNum) + '&kbName=cinemaDist'
+        dataType: "jsonp",
+        url: 'http://172.31.174.216:8080/PivotToMappings/resources/rest/generateBestMappingsJSONP',
+        data: {pivotQuery: pvQuery, numMappings: respNum, kb: 'musicbrainz', callback: '?'},
+        crossDomain: true,
     }).done(function(data)
     {
         toggleSearch(true);
@@ -91,7 +81,7 @@ function processQuery(query, id)
     $.ajax
     ({
         type: 'GET',
-        url: 'http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
+        url: 'http://192.168.250.91/PivotToMappingsWS/resources/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
     }).done(function(data)
     {
         sparqlQueryResult(data, id);

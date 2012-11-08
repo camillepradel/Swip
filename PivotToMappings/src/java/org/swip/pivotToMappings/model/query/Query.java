@@ -116,7 +116,6 @@ public class Query {
     public void matchElements(SparqlServer server) {
         for (QueryElement qe : this.queryElements) {
             qe.match(server);
-            java.awt.Toolkit.getDefaultToolkit().beep();
         }
     }
 

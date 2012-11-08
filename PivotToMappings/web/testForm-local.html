@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>PivotToMappings web service - local</title>
+        <link rel="stylesheet" type="text/css" href="testFormStyle.css" />
+    </head>
+
+    <body>
+        <h1>PivotToMappings web service - local</h1>
+
+
+        <h3>Translate pivot query to ordered list of formal queries</h3>
+
+        <form method="get" action="http://localhost:8080/PivotToMappings/resources/rest/generateBestMappings">
+            <table>
+                <tr>
+                    <th>Pivot query:</th><th><input type="text" name="pivotQuery" size="50"  value="?person: produce= In_Utero. In_Utero: album."/></th>
+                </tr>
+                <tr>
+                    <th>Knowledge base</th>
+                    <th>
+                        <select name="kb" size="1">
+                            <option value="musicbrainz" selected="selected">musicbrainz</option>
+                            <option value="cinema">cinema</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Number of mappings:</th><th><input type="text" name="numMappings" size="3"  value="50"/></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Translate"/></th>
+                </tr>
+            </table>			
+        </form>
+
+
+        <h2>Exemple queries:</h2>
+        <ul>
+            <li>?person: produce= In_Utero. In_Utero: album.</li>
+            <li>...</li>
+        </ul> 
+
+    </body>
+</html>

@@ -13,3 +13,9 @@ taille d'un fichier: du -sh nom_du_fichier
 taille d'un dossier: du -sh nom_du_dossier
 
 ouvrir un port: iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+
+tuer fuseki:
+ 1) trouver son pid: ps aux | grep fuseki
+    c'est le nombre dans la deuxième colonne
+ 2) tuer le processus en utilisant son PID: kill <PID>
+                        ou si il es planté: kill -9 <PID>

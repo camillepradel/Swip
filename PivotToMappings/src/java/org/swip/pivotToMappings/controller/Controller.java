@@ -49,10 +49,10 @@ public class Controller {
         this.sparqlServers = null;
         this.patternsMap = null;
         
-        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
-        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt", "fr"));
-        this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt", "fr"));
-        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://192.168.250.91:8080/musicbrainz/sparql", "patterns-musicbrainz.txt", "en"));
+//        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
+//        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt", "fr"));
+//        this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt", "fr"));
+        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://192.168.250.91:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
     }
 
     public static Controller getInstance() {
@@ -103,8 +103,8 @@ public class Controller {
         }
 
         logger.info("Sparql server created");
-        logger.info("time for creating sparql server: " + (System.currentTimeMillis() - time) + "ms");
-        logger.info("\n================================================================\n");
+        logger.info("time for creating sparql server: " + (System.currentTimeMillis() - time) + "ms\n");
+        logger.info("================================================================\n");
     }
 
     void loadPatterns() {
@@ -156,8 +156,8 @@ public class Controller {
                         }
                     }
                     logger.info("Pattern loaded");
-                    logger.info("time for loading patterns: " + (System.currentTimeMillis() - time) + "ms");
-                    logger.info("================================================================");
+                    logger.info("time for loading patterns: " + (System.currentTimeMillis() - time) + "ms\n");
+                    logger.info("================================================================\n");
                     // preprocess patterns
                     logger.info("Preprocessing patterns:");
                     logger.info("----------------------\n");
@@ -167,11 +167,11 @@ public class Controller {
                             pe.preprocess(this.sparqlServers.get(kbConf.name));
                         }
                     }
-                    logger.info("\nPattern element matchings:\n");
+                    logger.info("Pattern element matchings:");
                     PatternElement.printPatternElementMatchings();
                     logger.info("Pattern preprocessed");
-                    logger.info("time for preprocessing patterns: " + (System.currentTimeMillis() - time) + "ms");
-                    logger.info("\n================================================================\n");
+                    logger.info("time for preprocessing patterns: " + (System.currentTimeMillis() - time) + "ms\n");
+                    logger.info("================================================================\n");
                 } catch (PatternsParsingException ex) {
                     logger.info("An error occured while parsing patterns:\n" + ex.getMessage());
                     logger.info("Patterns loading aborted");
@@ -191,21 +191,20 @@ public class Controller {
             logger.info("There is no loaded patterns");
         } else {
             try {
-                logger.info("Parsing pivot query : <"+pivotQueryString+"> \n");
-                logger.info("-------------------\n");
+                logger.info("Parsing pivot query : "+pivotQueryString);
                 final Query userQuery = createQuery(pivotQueryString);
                 logger.info("parsed query: " + userQuery.toString() + "\n");
-                logger.info("\n================================================================\n");
+                logger.info("================================================================\n");
                 logger.info("Matching query elements to knowledge base and mapping pattern elements:");
                 logger.info("----------------------------------------------------------------------\n");
                 matchQueryElements(userQuery, kbName);
-                logger.info("\n================================================================\n");
+                logger.info("================================================================\n");
                 logger.info("Possible element mappings are:");
                 logger.info("-----------------------------\n");
                 for (Pattern pattern : this.patternsMap.get(kbName)) {
                     pattern.printElementMappings();
                 }
-                logger.info("\n================================================================\n");
+                logger.info("================================================================\n");
                 logger.info("Generating and evaluating possible mappings");
                 logger.info("--------------------------------------\n");
                 // determine the numMappings best mappings
@@ -225,7 +224,7 @@ public class Controller {
                 float lowestBestMappingMark = 0;
                 int totalNumMappings = 0;
                 for (Pattern p : this.patternsMap.get(kbName)) {
-                    for (PatternToQueryMapping ptqm : p.getMappingsIterable(userQuery)) {
+                    for (PatternToQueryMapping ptqm : p.getMappingsIterable()) {
                         totalNumMappings++;
                         if (ptqm.getRelevanceMark(userQuery) > lowestBestMappingMark) {
                             bestMappingsPQ.add(ptqm);
@@ -240,7 +239,8 @@ public class Controller {
                 final boolean printSentences = true;
                 final boolean printMappings = true;
                 final boolean printSparql = true;
-                String stringToDisplay = bestMappingsPQ.size() + " best mappings:\n";
+                logger.info("Total number of mappings: " + totalNumMappings + "\n");
+                logger.info(bestMappingsPQ.size() + " best mappings:\n");
                 List<PatternToQueryMapping> bestMappingsList = new LinkedList<PatternToQueryMapping>();
                 int numQuery = 1;
                 while (!bestMappingsPQ.isEmpty()) {
@@ -251,7 +251,7 @@ public class Controller {
                     bestMappingsList.add(nextBestMapping);
                     // store the string description of each mapping in order to be able to display it in the client application
                     nextBestMapping.setStringDescription(nextBestMapping.toString());
-                    stringToDisplay = numQuery++ + ")  trust mark = "
+                    String stringToDisplay = numQuery++ + ")  trust mark = "
                             + nextBestMapping.getRelevanceMark(userQuery)
                             + "(rMap=" + nextBestMapping.getrMap(userQuery)
                             + " - rPatternCov=" + nextBestMapping.getrPatternCov(userQuery)

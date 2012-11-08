@@ -1,6 +1,7 @@
 package org.swip.pivotToMappings.model.patterns.patternElement;
 
 import com.hp.hpl.jena.query.QuerySolution;
+import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.exceptions.PatternsParsingException;
 import org.swip.pivotToMappings.model.KbTypeEnum;
@@ -11,6 +12,7 @@ import org.swip.utils.sparql.SparqlServer;
 
 public abstract class KbPatternElement extends PatternElement {
 
+    private static final Logger logger = Logger.getLogger(KbPatternElement.class);
     private String uri;
     private static float ancestorCoef = (float) 0.5;
     private static float descendantCoef = (float) 0.9;
@@ -65,26 +67,22 @@ public abstract class KbPatternElement extends PatternElement {
 //    public static void setDescendantCoef(float aDescendantCoef) {
 //        descendantCoef = aDescendantCoef;
 //    }
-
     /**
      * @return the mappings
      */
 //    public List<KbElementMapping> getMappings() {
 //        return mappings;
 //    }
-
 //    @Override
 //    public List<? extends ElementMapping> getElementMappings() {
 //        return getMappings();
 //    }
-
     /**
      * @param mappings the mappings to set
      */
 //    public void setMappings(List<KbElementMapping> mappings) {
 //        this.mappings = mappings;
 //    }
-
 //    /**
 //     * @return the logger
 //     */
@@ -98,36 +96,39 @@ public abstract class KbPatternElement extends PatternElement {
 //    public static void setLogger(Logger aLogger) {
 //        logger = aLogger;
 //    }
-
     @Override
     public void preprocess(SparqlServer sparqlServer) throws PatternsParsingException {
         if (qualifying) {
+            logger.info("KbPatternElement: " + getUri());
+            // FIXME: normalement y'a pas besoin d'ajouter la ressource ici, vu qu'après on ajoute tous ses
+            // enfants et qu'elle fait partie de ses enfants (RDFS inferences). mais il semblerait que cela 
+            // ne fonctionne pas pour toutes les resources (par ex: http://purl.org/ontology/mo/producer)
+            logger.info("add: " + getUri());
             addPatternElementMatching(getUri(), new PatternElementMatching(this, 1));
 //            addPatternElementMatchingAncestorsSparql(getUri(), 1, sparqlServer);
             addPatternElementMatchingDescendantsSparql(getUri(), 1, sparqlServer);
         }
     }
 
-    void addPatternElementMatchingAncestorsSparql(String uri, float childrenMark, SparqlServer sparqlServer) throws PatternsParsingException {
-        float mark = childrenMark * KbPatternElement.ancestorCoef;
-        Iterable<QuerySolution> results = null;
-        try {
-            String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
-                    + "SELECT ?parent "
-                    + "WHERE { "
-                    + "       <" + uri + "> rdfs:subClassOf ?parent. "
-                    + "      } ";
-            results = sparqlServer.select(query);
-        } catch (Exception e) {
-            throw new PatternsParsingException("Error occured while querying sparql endpoint:\n" + e.getMessage());
-        }
-        for (QuerySolution sol : results) {
-            String superClassString = sol.getResource("parent").getURI();
-            addPatternElementMatching(superClassString, new PatternElementMatching(this, mark));
-            addPatternElementMatchingAncestorsSparql(superClassString, mark, sparqlServer);
-        }
-    }
-
+//    void addPatternElementMatchingAncestorsSparql(String uri, float childrenMark, SparqlServer sparqlServer) throws PatternsParsingException {
+//        float mark = childrenMark * KbPatternElement.ancestorCoef;
+//        Iterable<QuerySolution> results = null;
+//        try {
+//            String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+//                    + "SELECT ?parent "
+//                    + "WHERE { "
+//                    + "       <" + uri + "> rdfs:subClassOf ?parent. "
+//                    + "      } ";
+//            results = sparqlServer.select(query);
+//        } catch (Exception e) {
+//            throw new PatternsParsingException("Error occured while querying sparql endpoint:\n" + e.getMessage());
+//        }
+//        for (QuerySolution sol : results) {
+//            String superClassString = sol.getResource("parent").getURI();
+//            addPatternElementMatching(superClassString, new PatternElementMatching(this, mark));
+//            addPatternElementMatchingAncestorsSparql(superClassString, mark, sparqlServer);
+//        }
+//    }
     void addPatternElementMatchingDescendantsSparql(String uri, float childrenMark, SparqlServer sparqlServer) throws PatternsParsingException {
         float mark = childrenMark * KbPatternElement.descendantCoef;
         Iterable<QuerySolution> results = null;
@@ -135,7 +136,7 @@ public abstract class KbPatternElement extends PatternElement {
             String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
                     + "SELECT ?child "
                     + "WHERE { "
-                    + "       ?child rdfs:subClassOf <" + uri + ">. "
+                    + "       ?child (rdfs:subClassOf|rdfs:subPropertyOf) <" + uri + ">. "
                     + "      } ";
             results = sparqlServer.select(query);
         } catch (Exception e) {
@@ -143,14 +144,18 @@ public abstract class KbPatternElement extends PatternElement {
         }
         for (QuerySolution sol : results) {
             String subClassString = sol.getResource("child").getURI();
-            addPatternElementMatching(subClassString, new PatternElementMatching(this, mark));
-            addPatternElementMatchingDescendantsSparql(subClassString, mark, sparqlServer);
+            // FIXME: lié au fixme de la fonction appelante. ce test ne devrait normalement pas être là
+            if (!subClassString.equals(uri)) {
+                logger.info("add: " + subClassString);
+                addPatternElementMatching(subClassString, new PatternElementMatching(this, mark));
+//                addPatternElementMatchingDescendantsSparql(subClassString, mark, sparqlServer);
+            }
         }
     }
 
     public void addKbMapping(QueryElement qe, float trustMark, String firstlyMatched, String bestLabel, ElementMapping impliedBy, KbTypeEnum kbType) {
         for (ElementMapping em : Controller.getInstance().getElementMappingsForPatternElement(this)) {
-            KbElementMapping kbem = (KbElementMapping)em;
+            KbElementMapping kbem = (KbElementMapping) em;
             if (kbem.getQueryElement() == qe && kbem.getFirstlyMatchedOntResourceUri().equals(firstlyMatched)) {
                 if (trustMark > kbem.getTrustMark()) {
                     kbem.changeValues(trustMark, bestLabel, kbType);
