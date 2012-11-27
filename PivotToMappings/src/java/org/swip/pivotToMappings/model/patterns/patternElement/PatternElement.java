@@ -30,6 +30,7 @@ public abstract class PatternElement {
      * that this pattern element is not mapped. This is done in order to prevent redundant patterns (for
      * instance when a query element matched a KB element directly designated by a KB pattern element (neither
      * a descendant, nor ancestor, nor a instance)
+     * !! semble être tout le temps à false, donc sert à rien !!
      */
     boolean mappingIsCompulsory = false;
     String mappingCondition = null;
@@ -149,7 +150,7 @@ public abstract class PatternElement {
     public void printElementMappings() {
         logger.info("   - " + this + " mappable to:");
         for (ElementMapping mapping : Controller.getInstance().getElementMappingsForPatternElement(this)) {
-            logger.info(mapping.toString());
+            logger.info((mapping.toString()).replace(mapping.getPatternElement().toString(), " [...]"));
         }
     }
 

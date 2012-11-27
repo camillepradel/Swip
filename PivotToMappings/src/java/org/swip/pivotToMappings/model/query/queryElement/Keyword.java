@@ -2,10 +2,11 @@ package org.swip.pivotToMappings.model.query.queryElement;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.StringTokenizer;
 import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.patternElement.KbPatternElement;
@@ -19,6 +20,44 @@ import org.swip.pivotToMappings.stemmer.englishStemmer;
 public class Keyword extends QueryElement {
 
     private static final Logger logger = Logger.getLogger(Keyword.class);
+    public static final Map<String, String> jokerTypeProperties = Collections.unmodifiableMap(new HashMap<String, String>() {
+        {
+            put("http://purl.org/ontology/mo/release_type", "http://purl.org/ontology/mo/ReleaseType");
+        }
+    });
+    public static final String jokerTypePropertiesString = generate(jokerTypeProperties);
+    private static String generate(Map<String, String> jokerTypeProperties) {
+        String result = "(";
+        for (String prop : jokerTypeProperties.keySet()) {
+            result += "<" + prop + ">|";
+        }
+        result = result.substring(0, result.length()-1) + ")";
+        return result;
+    }
+    public static final String jokerTypePropertiesStringWithType = generateWithType(jokerTypeProperties);
+    private static String generateWithType(Map<String, String> jokerTypeProperties) {
+        String result = "( rdf:type | ";
+        for (String prop : jokerTypeProperties.keySet()) {
+            result += "<" + prop + ">|";
+        }
+        result = result.substring(0, result.length()-1) + ")";
+        return result;
+    }
+    public static Map<String, String> pseudoClasses = Collections.unmodifiableMap(new HashMap<String, String>() {
+        {
+            // http://purl.org/ontology/mo/release_type considered harmful
+            put("http://purl.org/ontology/mo/album", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/audiobook", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/compilation", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/ep", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/interview", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/live", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/remix", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/single", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/soundtrack", "http://purl.org/ontology/mo/MusicalManifestation");
+            put("http://purl.org/ontology/mo/spokenword", "http://purl.org/ontology/mo/MusicalManifestation");
+        }
+    });
     int id = 0;
     String keywordValue = null;
     String aggregat = "";
@@ -66,6 +105,7 @@ public class Keyword extends QueryElement {
         return keywordValue;
     }
 
+    @Override
     public String getVarName() {
         return "?" + (this.keywordValue.replaceAll(" ", "_"));
     }
@@ -131,7 +171,23 @@ public class Keyword extends QueryElement {
             scoresMap.put(uri, 20.0f);
         } else if (this.keywordValue.equalsIgnoreCase("single")) {
             String uri = "http://purl.org/ontology/mo/single";
-            labelsMap.put(uri, "producer");
+            labelsMap.put(uri, "single");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("release")) {
+            String uri = "http://xmlns.com/foaf/0.1/maker";
+            labelsMap.put(uri, "made by");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("band")) {
+            String uri = "http://purl.org/ontology/mo/MusicGroup";
+            labelsMap.put(uri, "band");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("found")) {
+            String uri = "http://purl.org/vocab/bio/0.1/Birth";
+            labelsMap.put(uri, "foundation");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("compose")) {
+            String uri = "http://purl.org/ontology/mo/composer";
+            labelsMap.put(uri, "composer");
             scoresMap.put(uri, 20.0f);
         }
 
@@ -164,6 +220,7 @@ public class Keyword extends QueryElement {
             float bestTrustMark = scoresMap.get(uri);
             String bestLabel = labelsMap.get(uri);
             boolean isClass = false;
+            boolean isPseudoClass = false;
             boolean isIndividual = false;
             boolean isProperty = false;
             boolean isNumericDataProperty = false;
@@ -173,6 +230,9 @@ public class Keyword extends QueryElement {
             if (serv.isClass(types)) {
                 isClass = true;
                 logger.info(" (o) class " + uri);
+            } else if (pseudoClasses.containsKey(uri)) {
+                isPseudoClass = true;
+                logger.info(" (o) pseudo class " + uri);
             } else if (serv.isDataProperty(types)) {
                 if (serv.isNumericDataProperty(uri)) {
                     isNumericDataProperty = true;
@@ -200,7 +260,7 @@ public class Keyword extends QueryElement {
                 }
                 logger.info("  --  type: " + (typeString.length() > 1 ? typeString.substring(0, typeString.length() - 2) : "NOT FOUND"));
             }
-            if (((isClass || isIndividual) && (roles.contains(QeRole.E2Q3)))
+            if (((isClass || isPseudoClass || isIndividual) && (roles.contains(QeRole.E2Q3)))
                     || ((isProperty) && (roles.contains(QeRole.E1Q1) || roles.contains(QeRole.E1Q23) || roles.contains(QeRole.E3Q3)))) {
                 bestTrustMark *= trustMarkDiminutionWhenIncompatible;
                 logger.info(" (incompatible type)");
@@ -215,6 +275,9 @@ public class Keyword extends QueryElement {
                 }
             } else if (isClass) {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.CLASS);
+            } else if (isPseudoClass) {
+                logger.info("addMatch(" + pseudoClasses.get(uri) + ", " + bestTrustMark + ", " + uri + ", " + bestLabel + ", " + false + ", ...");
+                this.addMatch(pseudoClasses.get(uri), bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.CLASS);
             } else if (isDataProperty) {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.DATAPROP);
             } else if (isNumericDataProperty) {
@@ -224,8 +287,9 @@ public class Keyword extends QueryElement {
                 List<String> inverses = serv.listInverses(uri);
                 if (inverses.size() > 0) {
                     String firstInverse = inverses.get(0);
-                    logger.info("  --> also matching inverse property: " + firstInverse);
-                    this.addMatch(firstInverse, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.PROP);
+                    String inverseLabel = serv.getALabel(firstInverse);
+                    logger.info("  --> also matching inverse property: " + firstInverse + " (label: " + inverseLabel + ")");
+                    this.addMatch(firstInverse, bestTrustMark, firstInverse, inverseLabel, false, matches, KbTypeEnum.PROP);
                 }
             } else {
                 this.addMatch(uri, bestTrustMark, uri, bestLabel, false, matches, KbTypeEnum.NONE);
@@ -302,6 +366,7 @@ public class Keyword extends QueryElement {
             this.kbType = kbType;
         }
 
+        @Override
         public int compareTo(Match o) {
             if (this.trustMark < o.trustMark) {
                 return -1;
@@ -338,6 +403,7 @@ public class Keyword extends QueryElement {
         return this.cond;
     }
 
+    @Override
     public boolean isAggregate() {
         return this.isAggregate;
     }
@@ -410,6 +476,7 @@ public class Keyword extends QueryElement {
         return ret;
     }
 
+    @Override
     public String getStringValue() {
         return this.keywordValue;
     }

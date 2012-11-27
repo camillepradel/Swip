@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.org/NET/c4dm/event.owl" uri="event.n3"/>
+    <uri id="Imports Wizard Entry" name="http://purl.org/NET/dc_owl2dl/terms" uri="dcterms.rdf"/>
+    <uri id="Imports Wizard Entry" name="http://purl.org/vocab/frbr/core" uri="core.rdf"/>
+    <uri id="Imports Wizard Entry" name="http://purl.org/vocab/bio/0.1/" uri="bio.rdf"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1351516857430" name="http://purl.org/ontology/mo/" uri="musicontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1352462356802" name="http://purl.org/NET/c4dm/keys.owl" uri="keys.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1352462356802" name="http://purl.org/ontology/ao/core#" uri="associationontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1352462356802" name="http://triplr.org/rdf/bloody-byte.net/rdf/dc_owl2dl/dcterms.ttl" uri="dcterms.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1352462356802" name="http://www.w3.org/2006/time" uri="time.rdf"/>
     </group>
 </catalog>

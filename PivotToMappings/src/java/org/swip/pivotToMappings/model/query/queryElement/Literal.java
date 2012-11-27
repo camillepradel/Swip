@@ -19,7 +19,7 @@ public class Literal extends QueryElement {
 
     static HashMap<String, LiteralTypeElements> buildLiteralTypes() {
         HashMap<String, LiteralTypeElements> localLiteralTypes = new HashMap<String, LiteralTypeElements>();
-        localLiteralTypes.put("date", new LiteralTypeElements("date", "some date", "http://www.w3.org/2001/XMLSchema#date"));
+        localLiteralTypes.put("date", new LiteralTypeElements("date", "some date", "http://www.w3.org/2001/XMLSchema#dateTime"));
         localLiteralTypes.put("decimal", new LiteralTypeElements("decimal", "some decimal", "http://www.w3.org/2001/XMLSchema#decimal"));
         return localLiteralTypes;
     }
@@ -48,11 +48,15 @@ public class Literal extends QueryElement {
         this.stringValue = stringValue;
     }
 
+    static int varNameId = 0;
+    @Override
      public String getVarName()
     {
-        return "?"+(this.stringValue.replaceAll(" ", "_"));
+//        return "?"+(this.stringValue.replaceAll(" ", "_"));
+        return "?literal" + varNameId++;
     }
      
+    @Override
       public boolean isAggregate()
     {
         return false;
@@ -74,6 +78,7 @@ public class Literal extends QueryElement {
         this.stringType = stringType;
     }
 
+    @Override
     public void match(SparqlServer server) {
         logger.info(this.stringType + "<" + this.stringValue + ">" + " matches with: ");
         logger.info(" (o) all literal pattern elements of type " + this.stringType + "\n");
@@ -90,15 +95,16 @@ public class Literal extends QueryElement {
         }
     }
 
-    public String getStringForSparql(List<String> typeStrings) {
+    public String getStringForSparql(List<String> labelStrings) {
         String result = "";
         if (this.stringType.equals("date") && !this.stringValue.contains("-")) {
             //result = "?literal" + ++(Subpattern.varCount);
             result = this.getVarName();
-            typeStrings.add("FILTER ( " + result + " <= '" + this.stringValue + "-12-31'^^xsd:date && " + result + " >= '" + this.stringValue + "-01-01'^^xsd:date )");
+            labelStrings.add("FILTER ( " + result + " <= '" + this.stringValue + "-12-31'^^xsd:date && " + result + " >= '" + this.stringValue + "-01-01'^^xsd:date )");
         } else {
             result = "\"" + this.stringValue + "\"^^xsd:" + this.stringType;
         }
+        logger.info("result: " + result);
         return result;
     }
 
@@ -126,6 +132,7 @@ public class Literal extends QueryElement {
         return this.stringValue;
     }
 
+    @Override
     public String getStringValue() {
         return stringValue;
     }

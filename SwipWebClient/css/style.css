@@ -16,9 +16,27 @@ body
 
 #logo
 {
-	width: 100%;
-	margin-top: 200px;
-	text-align: center;
+	position:relative;
+	margin: 200px auto 10px auto;
+	height: 76px;
+}
+
+#swiplogo
+{
+	position:absolute;
+	width: 808px;
+	left: 50%;
+	margin-left: -325px;
+	clip:rect(0, 414px, 76px, 236px);
+}
+
+#halo
+{
+	position:absolute;
+	width: 178px;
+	height: 76px;
+	left: 50%;
+	margin-left: -89px;
 }
 
 
@@ -34,7 +52,7 @@ body
 
 #form .searchField
 {
-	width: 300px;
+	width: 600px;
 }
 
 #form .searchButton

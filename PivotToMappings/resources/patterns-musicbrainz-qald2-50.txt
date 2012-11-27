@@ -2,6 +2,10 @@ prefixes
 	dc: 	"http://purl.org/dc/elements/1.1/"
 	foaf:	"http://xmlns.com/foaf/0.1/"
 	mo: 	"http://purl.org/ontology/mo/"
+	event: 	"http://purl.org/NET/c4dm/event.owl#"
+	tl: 	"http://purl.org/NET/c4dm/timeline.owl#"
+	time:	"http://www.w3.org/2006/time#"
+	bio:	"http://purl.org/vocab/bio/0.1/"
 	owl:	"http://www.w3.org/2002/07/owl#"
 	blank:	"Blank"
 	rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -36,34 +40,6 @@ question 4 : How many albums did Michael Jackson record?
 - question 17: How many albums did Amy Macdonald release?
 ?album:singer= Amy Macdonald.
 */
-
-/*
-
-question 1 : Which singles did Slayer release?
-?single: release= Slayer.
-
-
-question 19 : Who produced the album In Utero?
-?person: produce= In_Utero.
-TODO: gérer le type: ?person: produce= In_Utero. In_Utero: album.
-
-*/
-
-pattern cd_info
-	query
-		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:0..1/3
-/*		[ 1							4_mo:release_type(5)		5_mo:ReleaseType;		]type:0..1/5      */
-		[ 1							6_mo:producer			7_foaf:Agent;			]producer:0..1/7
-		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..1/9
-		[ 1							10_mo:singer(11)			11_mo:Performer;		]vocal:0..1/11
-		[ 1							12_mo:release_status(13)	13_mo:ReleaseStatus;	]status:0..1/13
-		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/15
-	end query
-	sentence
-		__1__ _if_status_[whose status is __13__, ]_end_if_status_ _if_type_[released as __5__, ]_end_if_type_ _if_creator_[created by __3__, ]_end_if_creator_ _if_producer_[produced by __7__, ]_end_if_producer_ _if_composer_[composed by __9__, ]_end_if_composer_ _if_vocal_[vocalised by __11__, ]_end_if_vocal_ _if_lyricist_[whose lyricist is __15__]_end_if_lyricist_
-	end sentence
-end pattern
-
 /*
 pattern cd_info
 	query
@@ -87,6 +63,42 @@ pattern cd_info
 	end mapping conditions
 end pattern
 */
+
+/*
+pattern: cd_info
+patron permettant de retrouver les infos : release, type, producer, composer
+-------------------
+
+question 1 : Which singles did Slayer release?
+?single: release= Slayer.
+
+question 4 : How many albums did Michael Jackson record?
+album: record= Michael_Jackson. COUNT.
+
+question 5: Who composed the Star Wars soundtrack?
+?person: compose= soundtrack. soundtrack: Star_Wars.
+
+
+question 19 : Who produced the album In Utero?
+?person: produce= In_Utero.
+TODO: gérer le type: ?person: produce= In_Utero. In_Utero: album.
+
+*/
+
+pattern cd_info
+	query
+		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:0..1/3
+		[ 1							6_mo:producer				7_foaf:Agent;			]producer:0..1/6
+		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..1/8
+		[ 1							10_mo:singer(11)			11_mo:Performer;		]vocal:0..1/10
+		[ 1							12_mo:release_status(13)	13_mo:ReleaseStatus;	]status:0..1/13
+		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/14
+	end query
+	sentence
+		__1__ _if_status_[whose status is __13__, ]_end_if_status_ _if_creator_[created by __3__, ]_end_if_creator_ _if_producer_[produced by __7__, ]_end_if_producer_ _if_composer_[composed by __9__, ]_end_if_composer_ _if_vocal_[vocalised by __11__, ]_end_if_vocal_ _if_lyricist_[whose lyricist is __15__]_end_if_lyricist_
+	end sentence
+end pattern
+
 
 
 /*
@@ -146,6 +158,35 @@ end pattern
 */
 
 
+/*
+pattern: artist_member
+TODO: fusionner avec around_artist_person
+-------------------
+
+question 2: Which groups was David Bowie a member of?
+?group: David_Bowie= member.
+
+question 7: Give me the present members of The Cure.
+?member: The_Cure; date<present>.
+
+*/
+
+pattern artist_member
+	query
+		[  1_foaf:Agent			 2_mo:member_of(1)		 3_foaf:Group;				]band:1..1
+		[  4_mo:membership		-5_event:agent			 1;
+		   4					-6_event:dateTime		-7_time:TemporalEntity;
+		  -7					 8_tl:start(6)			 9_<xsd:date>;				]start:0..1/9
+		[  10_mo:membership		-11_event:agent			 1;
+		   10					-12_event:dateTime		-13_time:TemporalEntity;
+		  -13					 14_tl:start(9)			 15_<xsd:date>;				]stop:0..1/15
+	end query
+	sentence
+		__1__ is or was member of __3__ _if_start_[since __6__]_end_if_start_ _if_stop_[until __9__]_end_if_stop_
+	end sentence
+end pattern
+
+
 
 
 
@@ -186,6 +227,31 @@ pattern date_group
 end pattern
 */
 
+/*
+pattern: date_group
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 3 : When was the band Green Day founded?
+band: Green_Day= date<?>. band: found.
+Green_Day: date<?>; found.
+
+TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
+*/
+
+pattern date_group
+	query
+		[ 1_mo:MusicGroup	-2_bio:event		3_bio:Birth;
+		  3					 4_bio:date(5)		5_<xsd:dateTime>;		]begin:0..1/5
+		[ 1					-6_bio:event		7_bio:Death;
+		  7					 8_bio:date(9)		9_<xsd:dateTime>;		]end:0..1/9
+	end query
+	sentence
+		__1__ _if_begin_[was formed on/in __5__,]_end_if_begin_ _if_end_[broke up on/in __9__,]_end_if_end_
+	end sentence
+end pattern
+
+
 
 /*
 pattern: date_person
@@ -193,17 +259,17 @@ TODO: fusionner avec around_artist_person
 --------------------
 attention : date peut correspondre a une annee, une date ou un couple jour mois
 
-question 26: When was Elvis Presley born?
-Elvis Presley: ?birthday
+question 6 :Which artists have their 50th birthday on May 30, 2011?
+NOT SUPPORTED
 
 question 12 :When is the birthday of Tom Waits?
 Tom Waits: ?birthday
 
-question 6 :Which artists have their 50th birthday on May 30, 2011?
-?artist:birthday=May 30
-
 question 13 :Which artists were born on the 29th of December 1960?
 ?artist:birthday=29 December 1960
+
+question 26: When was Elvis Presley born?
+Elvis Presley: ?birthday
 
 TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
 */

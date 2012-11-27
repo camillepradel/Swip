@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
+import org.swip.pivotToMappings.model.patterns.patternElement.ClassPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.patterns.subpattern.Subpattern;
 import org.swip.pivotToMappings.model.patterns.subpattern.SubpatternCollection;
@@ -15,9 +16,8 @@ import org.swip.utils.sparql.SparqlServer;
  * class representing a query pattern
  */
 public class Pattern {
-    
-    private static Logger logger = Logger.getLogger(Pattern.class);
 
+    private static Logger logger = Logger.getLogger(Pattern.class);
     private String name = null;
     private List<Subpattern> subpatterns = null;
     /**
@@ -74,14 +74,12 @@ public class Pattern {
 //    public List<PatternElement> getElements() {
 //        return elements;
 //    }
-
     /**
      * @param elements the elements to set
      */
 //    public void setElements(List<PatternElement> elements) {
 //        this.elements = elements;
 //    }
-
     public int getNumMappingsCombinations() {
         if (numMappingsCombinations <= 0) {
             generateNumMappingsCombinations();
@@ -107,9 +105,15 @@ public class Pattern {
         this.sentenceTemplate = sentenceTemplate;
     }
 
-    public void finalizeMappings(SparqlServer serv) {
+    public void finalizeMappings(Query userQuery, SparqlServer serv) {
         for (Subpattern sp : this.getSubpatterns()) {
             sp.finalizeMapping(serv, this);
+        }
+        //allow a pattern element to be mapped to a class and an instance of this class in a same elementMapping
+        for (PatternElement pe : Controller.getInstance().getPatternElementsForPattern(this)) {
+            if (pe instanceof ClassPatternElement) {
+                ((ClassPatternElement)pe).checkForInstanceAndClass(userQuery, serv);
+            }
         }
     }
 
@@ -161,8 +165,9 @@ public class Pattern {
             @Override
             public Iterator<PatternToQueryMapping> iterator() {
                 return new Iterator<PatternToQueryMapping>() {
-                    List<PatternElement> pe = Controller.getInstance().getPatternElementsForPattern(Pattern.this);
-                    final int numElements = pe.size();
+
+                    List<PatternElement> pes = Controller.getInstance().getPatternElementsForPattern(Pattern.this);
+                    final int numElements = pes.size();
                     long[] numMappings = new long[numElements];
                     int currentMapping = 0;
                     PatternToQueryMapping next;
@@ -170,7 +175,7 @@ public class Pattern {
                     {
                         // instance initializer
                         for (int i = 0; i < numElements; i++) {
-                            numMappings[i] = pe.get(i).calculateNumMappingsCombinations();
+                            numMappings[i] = pes.get(i).calculateNumMappingsCombinations();
                         }
                         for (int i = numElements - 2; i >= 0; i--) {
                             numMappings[i] *= numMappings[i + 1];
@@ -197,7 +202,8 @@ public class Pattern {
                             ptqm = new PatternToQueryMapping(Pattern.this);
                             long localCurrentMapping = currentMapping;
                             for (int i = 0; i < numElements; i++) {
-                                PatternElement pe = Controller.getInstance().getPatternElementsForPattern(Pattern.this).get(i);
+//                                PatternElement pe = Controller.getInstance().getPatternElementsForPattern(Pattern.this).get(i);
+                                PatternElement pe = pes.get(i);
                                 long numInPe = (i < numElements - 1) ? localCurrentMapping / numMappings[i + 1] : localCurrentMapping;
                                 ptqm.addElementMappings(pe.getElementMappings(numInPe));
                                 localCurrentMapping = (i < numElements - 1) ? localCurrentMapping % numMappings[i + 1] : 0;

@@ -6,17 +6,20 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
+import org.swip.pivotToMappings.model.query.queryElement.Keyword;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
 import org.swip.utils.sparql.SparqlServer;
 
 public class SubpatternCollection extends Subpattern {
 
+    private static Logger logger = Logger.getLogger(SubpatternCollection.class);
     Collection<Subpattern> subpatterns = new LinkedList<Subpattern>();
     String id = null;
     private int minOccurrences = 1;
@@ -169,7 +172,7 @@ public class SubpatternCollection extends Subpattern {
     }
 
     @Override
-    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements) {
+    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements, LinkedList<String> typeStrings, LinkedList<String> labelStrings) {
         // if subpattern collection is optional and pivot element is not mapped
         Collection<ElementMapping> pivotElementMappings = ptqm.getElementMappings(this.pivotElement);
         if (this.minOccurrences == 0 && pivotElementMappings.isEmpty()) {
@@ -178,16 +181,17 @@ public class SubpatternCollection extends Subpattern {
         String result = "";
         // TODO: factoriser cette partie avec celle de PatternTriple
         for (ElementMapping pivotElementMapping : pivotElementMappings) {
-               String pivotVarName = pivotElementMapping.getQueryElement().getVarName();
+            String pivotVarName = pivotElementMapping.getQueryElement().getVarName();
             if (pivotElementMapping instanceof KbElementMapping) {
                 KbElementMapping pivotKbElementMapping = (KbElementMapping) pivotElementMapping;
                 String firstlyMatchedOntResource = pivotKbElementMapping.getFirstlyMatchedOntResourceUri();
 
                 String toInsert = "";
-                if(pivotKbElementMapping.isGeneralized())
+                if (pivotKbElementMapping.isGeneralized()) {
                     toInsert = "_gen" + pivotKbElementMapping.getPatternElement().getId() + "_";
-                else
+                } else {
                     toInsert = "<" + pivotKbElementMapping.getFirstlyMatchedOntResourceUri() + ">";
+                }
 
                 if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
                     //pivotVarName = "?var" + ++(Subpattern.varCount);
@@ -195,23 +199,25 @@ public class SubpatternCollection extends Subpattern {
                     if (pivotKbElementMapping.getQueryElement().isQueried()) {
                         selectElements.add(pivotVarName);
                     }
-                } 
-                else if(pivotKbElementMapping.getKbType() == KbTypeEnum.NUMDATAPROP) {
-                        numerciDataPropertyElements.put(pivotKbElementMapping.getBestLabel(), "loutre");
-                        pivotVarName = toInsert;
+                } else if (Keyword.pseudoClasses.containsKey(firstlyMatchedOntResource)) { // pseudoclass
+                    // FIXME: ce cas n'arrive peut-être jamais, à vérifier
+                    result += "SI T'AS ÇA DANS LA REQUÊTE, ALORS Y'A UN PROBLÈME!!\n";
+                } else if (pivotKbElementMapping.getKbType() == KbTypeEnum.NUMDATAPROP) {
+                    numerciDataPropertyElements.put(pivotKbElementMapping.getBestLabel(), "loutre");
+                    pivotVarName = toInsert;
                 } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
                     pivotVarName = toInsert;
                 } else { // instance
                     //pivotVarName = "?var" + ++(Subpattern.varCount);
                     List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
-                    for (String type : types) {
-                        result += "       " + pivotVarName + " rdf:type " + toInsert + ".\n";
-                    }
+//                    for (String type : types) {
+                    result += "       " + pivotVarName + " rdf:type " + toInsert + ".\n";
+//                    }
                     String matchedLabel = ((KbElementMapping) pivotElementMapping).getBestLabel();
                     /*result += "       { " + pivotVarName + " <http://purl.org/dc/elements/1.1/title> \"" + matchedLabel + "\". } "
-                            + "UNION "
-                            + "{ " + pivotVarName + " rdfs:label \"" + matchedLabel + "\". }\n";*/
-                    result += "       " + pivotVarName + " (<http://purl.org/dc/elements/1.1/title>|rdfs:label) \"" + matchedLabel + "\"@fr.\n";
+                    + "UNION "
+                    + "{ " + pivotVarName + " rdfs:label \"" + matchedLabel + "\". }\n";*/
+                    result += "       " + pivotVarName + " (rdfs:label|dc:title|foaf:name) \"" + matchedLabel + "\".\n";
                 }
             } else { // literal
                 if (pivotElementMapping.getQueryElement().isQueried()) {
@@ -219,22 +225,22 @@ public class SubpatternCollection extends Subpattern {
                     // TODO: eventuellemnt contraindre le type du literal avec FILTER (datatype...
                     selectElements.add(pivotVarName);
                 } else {
-                    List<String> typeStrings = new LinkedList<String>();
-                    pivotVarName =  pivotElementMapping.getQueryElement().getVarName();
-                    for (String typeString : typeStrings) {
-                        result += typeString;
-                    }
+//                    List<String> typeStrings = new LinkedList<String>();
+                    pivotVarName = pivotElementMapping.getQueryElement().getVarName();
+//                    for (String typeString : typeStrings) {
+//                        result += typeString;
+//                    }
                 }
             }
-                elementsStrings.put(this.pivotElement, pivotVarName);
+            elementsStrings.put(this.pivotElement, pivotVarName);
             for (Subpattern sp : this.subpatterns) {
-                result += sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements);
+                result += sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements, typeStrings, labelStrings);
             }
         }
         // if pivot element was not mapped but minOccurrences>0
         if (result.equals("")) {
             for (Subpattern sp : this.subpatterns) {
-                result += sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements);
+                result += sp.generateSparqlWhere(ptqm, sparqlServer, elementsStrings, selectElements, numerciDataPropertyElements, typeStrings, labelStrings);
             }
         }
 

@@ -249,8 +249,15 @@ function generateSparql(mappingId, results)
 		for(var i = 0; i < genIds.length; i++)
 		{
 			var genId = genIds[i].substr(4, genIds[i].length - 5);
-			var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
-			var value = results.content[mappingId].descriptiveSentence.gen[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
+			var elem = document.getElementById('gen' + mappingId + '_' + genId);
+			if (elem != null)
+			{
+				var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
+			} else {
+				// this occurs when the qualifying element does not appear in the descriptive sentence
+				var selectedField = results.content[mappingId].sparqlQuery.uris[genId][0];
+			}
+			var value = results.content[mappingId].descriptiveSentence.gen[genId][0];
 			selectedFields.push(value);
 
 			$("span.assoc"+mappingId+"_"+genId).html(value);

@@ -1,6 +1,3 @@
-TODO: enlever la partie traduction de l'arbre de dépendances vers la requête pivot de ce projet et le mettre dans un projet à part.
-Mais pour ça, il faut être capable de sérialiser l'arbre de dépendance en JSON, et pour l'instant ça ne marche pas car il y a des cycles (ce qui créé un JSON "infini")
-
 for TreeTagger:
 copy treeTagger directory on the server
 specify the path of this directory in TreeTagger.java
@@ -19,8 +16,3 @@ if (lang.equals("en")) {
 
 for Stanford:
 not used for now
-
-if system memory is limited, we can get a "java io exception: error=12; can not allocate memory", because the parser wrapper makes a fork() which wants to create a process with as much memory as the calling one
-dangerous way to solve it:
-echo 1 > /proc/sys/vm/overcommit_memory
-other way (maybe more clever but not tried): make a posix_spawn() instead of a fork()

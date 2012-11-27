@@ -19,3 +19,17 @@ tuer fuseki:
     c'est le nombre dans la deuxième colonne
  2) tuer le processus en utilisant son PID: kill <PID>
                         ou si il es planté: kill -9 <PID>
+
+ajouter un fichier swap de 2G
+> su - root
+> dd if=/dev/zero of=/swap bs=1M count=2048
+> mkswap /swap 
+> chmod 0600 /swap 
+> swapon /swap 
+ajouter au fichier /etc/fstab: /swap swap swap defaults 0 0
+
+supprimer le fichier swap
+> su - root
+> swapoff -v /swap
+supprimer la ligne correspondante dans /etc/fstab
+> rm /swap

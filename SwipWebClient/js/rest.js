@@ -46,6 +46,7 @@ function pivotToSparql(pvQuery, respNum)
         type: 'GET',
         dataType: "jsonp",
         url: 'http://172.31.174.216:8080/PivotToMappings/resources/rest/generateBestMappingsJSONP',
+        //url: 'http://localhost:8080/PivotToMappings/resources/rest/generateBestMappingsJSONP',
         data: {pivotQuery: pvQuery, numMappings: respNum, kb: 'musicbrainz', callback: '?'},
         crossDomain: true,
     }).done(function(data)
@@ -54,9 +55,25 @@ function pivotToSparql(pvQuery, respNum)
 
         if(!$.isEmptyObject(data))
         {
+            $('#swiplogo').animate
+            ({
+                // 'margin-left': '-404px',
+                fontSize: 236
+            },
+            {
+              step: function(now, fx) { //now is the animated value from initial css value
+                  $(this).css('clip', 'rect(0, '+(414+1.67*now)+'px, 76px, '+(236-now)+'px)');
+                  $(this).css('margin-left', (-325-0.334745763*now)+'px');
+              }
+            }, 4000);
+            $('#halo').animate
+            ({
+                'width': '808px',
+                'margin-left': '-404px'                
+            }, 'fast');
             $('#logo').animate
             ({
-                'margin-top': 0
+                'margin-top': '10px'
             }, 'slow', function()
             {
                 displayResults(data);

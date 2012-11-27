@@ -1,15 +1,17 @@
 package org.swip.pivotToMappings.model.patterns.patternElement;
 
+import org.apache.log4j.Logger;
 import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.exceptions.LiteralException;
 import org.swip.pivotToMappings.exceptions.PatternsParsingException;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.LiteralElementMapping;
-import org.swip.pivotToMappings.model.query.queryElement.Literal;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
 import org.swip.utils.sparql.SparqlServer;
 
 public class LiteralPatternElement extends PatternElement {
+    
+    private static final Logger logger = Logger.getLogger(LiteralPatternElement.class);
 
     String type = null;
 //    List<LiteralElementMapping> possibleMappings = null;
@@ -62,7 +64,7 @@ public class LiteralPatternElement extends PatternElement {
 
     @Override
     public String getDefaultStringForSentence(SparqlServer sparqlServer) {
-        if (type.equals("date")) {
+        if (type.equals("http://www.w3.org/2001/XMLSchema#dateTime")) {
             return "some date";
         } else if (type.equals("year")) {
             return "some year";

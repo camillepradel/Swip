@@ -1,6 +1,7 @@
 package org.swip.pivotToMappings.model.patterns.subpattern;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import org.swip.pivotToMappings.model.patterns.Pattern;
@@ -26,7 +27,7 @@ abstract public class Subpattern {
     
     public abstract String toStringWithMapping(PatternToQueryMapping ptqm);
 
-    public abstract String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement,String> pivotsNames, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements);
+    public abstract String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement,String> pivotsNames, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements, LinkedList<String> typeStrings, LinkedList<String> labelStrings);
 
     abstract public void finalizeMapping(SparqlServer serv, Pattern p);
 }

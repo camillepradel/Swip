@@ -10,6 +10,7 @@ import org.swip.pivotToMappings.controller.Controller;
 import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
+import org.swip.pivotToMappings.model.patterns.mapping.InstanceAndClassElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.patterns.patternElement.ClassPatternElement;
@@ -17,6 +18,7 @@ import org.swip.pivotToMappings.model.patterns.patternElement.KbPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.LiteralPatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.patterns.patternElement.PropertyPatternElement;
+import org.swip.pivotToMappings.model.query.queryElement.Keyword;
 import org.swip.pivotToMappings.model.query.queryElement.Literal;
 import org.swip.utils.sparql.SparqlServer;
 
@@ -24,9 +26,8 @@ import org.swip.utils.sparql.SparqlServer;
  * class representing a subpattern (triple e1, e2, e3)
  */
 public class PatternTriple extends Subpattern {
-    
-    private static Logger logger = Logger.getLogger(PatternTriple.class);
 
+    private static Logger logger = Logger.getLogger(PatternTriple.class);
     private ClassPatternElement e1 = null;
     private PropertyPatternElement e2 = null;
     private PatternElement e3 = null;
@@ -77,12 +78,13 @@ public class PatternTriple extends Subpattern {
     }
 
     @Override
-    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements) {
-        LinkedList<String> typeStrings = new LinkedList<String>();
+    public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements, LinkedList<String> typeStrings, LinkedList<String> labelStrings) {
+//        LinkedList<String> typeStrings = new LinkedList<String>();
+//        LinkedList<String> labelStrings = new LinkedList<String>();
         HashMap<PatternElement, String> matchNumerciDataProperty = new HashMap<PatternElement, String>();
-        String sparqlE1 = sparqlForElement(e1, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
-        String sparqlE2 = sparqlForElement(e2, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
-        String sparqlE3 = sparqlForElement(e3, typeStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
+        String sparqlE1 = sparqlForElement(e1, typeStrings, labelStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
+        String sparqlE2 = sparqlForElement(e2, typeStrings, labelStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
+        String sparqlE3 = sparqlForElement(e3, typeStrings, labelStrings, ptqm, sparqlServer, elementsStrings, selectElements, matchNumerciDataProperty);
         String result = "       "
                 + sparqlE1 + " "
                 + sparqlE2 + " "
@@ -92,14 +94,18 @@ public class PatternTriple extends Subpattern {
             numerciDataPropertyElements.put(matchNumerciDataProperty.get(e2), sparqlE3);
         }
 
-        for (String typeString : typeStrings) {
-            result += typeString;
-        }
+//        for (String typeString : typeStrings) {
+//            result = typeString + result;
+//        }
+//
+//        for (String labelString : labelStrings) {
+//            result = labelString + result;
+//        }
 
         return result;
     }
 
-    private String sparqlForElement(PatternElement e, LinkedList<String> typeStrings, PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<PatternElement, String> numerciDataPropertyElements) {
+    private String sparqlForElement(PatternElement e, LinkedList<String> typeStrings, LinkedList<String> labelStrings, PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<PatternElement, String> numerciDataPropertyElements) {
         String elementString = elementsStrings.get(e);
         if (elementString == null) {
             List<ElementMapping> elementMappings = ptqm.getElementMappings(e);
@@ -127,6 +133,15 @@ public class PatternTriple extends Subpattern {
                         if (kbElementMapping.getQueryElement().isQueried()) {
                             selectElements.add(elementString);
                         }
+                    } else if (Keyword.pseudoClasses.containsKey(firstlyMatchedOntResource)) { // pseudoclass
+                        elementString = varName;
+                        String typeDeclaration = "       " + elementString + " " + Keyword.jokerTypePropertiesString + " " + toInsert + ".\n";
+                        if (!typeStrings.contains(typeDeclaration)) {
+                            typeStrings.add(typeDeclaration);
+                        }
+                        if (kbElementMapping.getQueryElement().isQueried()) {
+                            selectElements.add(elementString);
+                        }
                     } else if (kbElementMapping.getKbType() == KbTypeEnum.NUMDATAPROP) {
                         numerciDataPropertyElements.put(e, kbElementMapping.getQueryElement().getStringValue());
                         elementString = toInsert;
@@ -144,17 +159,22 @@ public class PatternTriple extends Subpattern {
                         }
                         String matchedLabel = ((KbElementMapping) ptqm.getElementMappings(e).get(0)).getBestLabel();
                         // FIXME: solve language tag problem
-                        typeStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + matchedLabel + "\".\n");
+                        labelStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + matchedLabel + "\".\n");
                     }
+                } else if (elementMapping instanceof InstanceAndClassElementMapping) {
+                    String varName = elementMapping.getQueryElement().getVarName();
+                    elementString = varName;
+                    typeStrings.add("       " + elementString + " " + Keyword.jokerTypePropertiesStringWithType + " <" + ((InstanceAndClassElementMapping) elementMapping).getFirstlyMatchedClass() + ">.\n");
+                    labelStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + ((InstanceAndClassElementMapping) elementMapping).getBestLabelInstance() + "\".\n");
                 } else { // literal
                     String varName = elementMapping.getQueryElement().getVarName();
                     if (elementMapping.getQueryElement().isQueried()) {
-                        //elementString = "?literal" + ++(Subpattern.varCount);
+//                        elementString = "?literal" + ++(Subpattern.varCount);
                         elementString = varName;
                         // TODO: eventuellemnt contraindre le type du literal avec FILTER (datatype...
                         selectElements.add(elementString);
                     } else {
-                        elementString = ((Literal) elementMapping.getQueryElement()).getStringForSparql(typeStrings);
+                        elementString = ((Literal) elementMapping.getQueryElement()).getStringForSparql(labelStrings);
                     }
                 }
             } else { // element not mapped
@@ -182,6 +202,7 @@ public class PatternTriple extends Subpattern {
 
     @Override
     public void finalizeMapping(SparqlServer serv, Pattern p) {
+        // handle pattern elements refered by property pattern elements
         List<PatternElement> elementsToMap = new LinkedList<PatternElement>();
         for (int id : this.e2.getReferedElements()) {
             elementsToMap.add(p.getPatternElementById(id));

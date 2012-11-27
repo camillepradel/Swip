@@ -468,7 +468,7 @@ public class PatternToQueryMapping {
             if(lang.compareTo("en") == 0)
                 beginAggregateSentence = "Is there";
             else if(lang.compareTo("fr") == 0)
-                beginAggregateSentence = "Existe t'il ";
+                beginAggregateSentence = "Existe-t-il ";
         }
         else if (userQuery.isAvg()) {
             if(lang.compareTo("en") == 0)
@@ -497,7 +497,8 @@ public class PatternToQueryMapping {
         
         for (ElementMapping em : this.getElementMappings()) {
             QueryElement qe = em.queryElement;
-            String queried = qe.isQueried() ? "?" : "";
+            String queriedBegin = qe.isQueried() ? "<b>" : "";
+            String queriedEnd = qe.isQueried() ? "</b>" : "";
             String elementSentence = "";
             boolean generalized = false;
             if(em instanceof KbElementMapping) {
@@ -531,7 +532,7 @@ public class PatternToQueryMapping {
                 elementSentence = em.getStringForSentence(sparqlServer, lang);
             }
             
-            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queried + elementSentence + queried);
+            localSentence = localSentence.replaceAll("__" + em.patternElement.getId() + "__", queriedBegin + elementSentence + queriedEnd);
             
             if(qe.isQueried() && userQuery.isSelectAggregate() && queriedElements.compareTo("") == 0)
             {
@@ -580,17 +581,28 @@ public class PatternToQueryMapping {
     }
 
     private void generateSparqlQuery(SparqlServer sparqlServer, Query userQuery) {
-        String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
-                + "PREFIX dc: <http://purl.org/dc/elements/1.1/>"
-                + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>";
+        String prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX dc: <http://purl.org/dc/elements/1.1/>\n"
+                + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n"
+                + "PREFIX mo: <http://purl.org/ontology/mo/>\n";
         Set<String> selectElements = new HashSet<String>();
         HashMap<String, String> numericDataPropertyElements = new HashMap<String, String>();
         String where = "";
         String query = "";
         Map<PatternElement, String> pivotsNames = new HashMap<PatternElement, String>();
+        LinkedList<String> typeStrings = new LinkedList<String>();
+        LinkedList<String> labelStrings = new LinkedList<String>();
         for (Subpattern sp : this.getPattern().getSubpatterns()) {
-            where += sp.generateSparqlWhere(this, sparqlServer, pivotsNames, selectElements, numericDataPropertyElements);
+            where += sp.generateSparqlWhere(this, sparqlServer, pivotsNames, selectElements, numericDataPropertyElements, typeStrings, labelStrings);
+        }
+        
+        for (String typeString : typeStrings) {
+            where = typeString + where;
+        }
+
+        for (String labelString : labelStrings) {
+            where = labelString + where;
         }
         
         String aggSelectFormat = "";
@@ -602,23 +614,23 @@ public class PatternToQueryMapping {
         else*/ if (userQuery.isCount()) 
         {
             //select = "COUNT(" + select + " AS "+(select.replaceAll("?", "?Nb"))+")";
-            aggSelectFormat = "(COUNT(%s) AS %sNb)";
+            aggSelectFormat = "(COUNT(%s) AS ?%sNb)";
         }
         else if(userQuery.isAvg())
         {
-            aggSelectFormat = "(AVG(%s) AS %sAvg)";
+            aggSelectFormat = "(AVG(%s) AS ?%sAvg)";
         }
         else if(userQuery.isMax())
         {
-            aggSelectFormat = "(MAX(%s) AS %sMax)";
+            aggSelectFormat = "(MAX(%s) AS ?%sMax)";
         }
         else if(userQuery.isMin())
         {
-            aggSelectFormat = "(MIN(%s) AS %sMin)";
+            aggSelectFormat = "(MIN(%s) AS ?%sMin)";
         }
         else if(userQuery.isSum())
         {
-            aggSelectFormat = "SUM(%s) AS %sSum";
+            aggSelectFormat = "SUM(%s) AS ?%sSum";
         }
         else
             aggSelectFormat = "%s";

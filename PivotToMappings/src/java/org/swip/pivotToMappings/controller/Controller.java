@@ -52,7 +52,8 @@ public class Controller {
 //        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
 //        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt", "fr"));
 //        this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt", "fr"));
-        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://192.168.250.91:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
+//        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://192.168.250.91:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
+        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://swip.univ-tlse2.fr:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
     }
 
     public static Controller getInstance() {
@@ -275,6 +276,7 @@ public class Controller {
             } catch (QueryParsingException ex) {
                 logger.info("An error occured while parsing query: " + pivotQueryString + "\n" + ex.getMessage());
                 logger.info("Query process aborted");
+                logger.error(ex.toString());
             }
         }
         return null;
@@ -324,7 +326,7 @@ public class Controller {
         userQuery.matchElements(sparqlServer);
         // mapping
         for (Pattern p : patterns) {
-            p.finalizeMappings(sparqlServer);
+            p.finalizeMappings(userQuery, sparqlServer);
         }
     }
 

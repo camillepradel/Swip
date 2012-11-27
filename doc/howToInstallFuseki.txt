@@ -81,10 +81,33 @@ download graph data
 > mkdir data/musicbrainz
 > mkdir data/musicbrainz/rdfdata
 > cd /home/operateur/data/musicbrainz/rdfdata/
+dowload musicbrainz dataset
 > wget http://greententacle.techfak.uni-bielefeld.de/~cunger/qald2/musicbrainz.tar.gz
 > tar -xvzf musicbrainz.tar.gz
-add also musicontology serialized in the RDF/XML format (save as with Protege)
-add more... ?? (rdf, rdfs, dc, foaf, time...)
+> rm musicbrainz.tar.gz
+dowload musicontology serialized in the RDF/XML format (save as with Protege). Remove all imports with relative URIs (eventually replace with absolute URIs)
+dowload all vocabularies and ontologies imported by musicontology (to allow better inferences)
+dowload event
+> wget http://motools.sf.net/event/event.n3
+dowload keys vocabulary
+> wget http://purl.org/NET/c4dm/keys.owl
+download dc terms
+> wget http://bloody-byte.net/rdf/dc_owl2dl/dcterms.rdf
+dowload association ontology
+> wget http://purl.org/ontology/ao/associationontology.owl
+download biographical information vocabulary
+> wget http://vocab.org/bio/0.1/.rdf
+> mv .rdf bio.rdf
+dowload Core FRBR vocabulary
+> wget http://vocab.org/frbr/core.rdf
+download time ontology
+> wget http://www.w3.org/2006/time
+> mv time time.rdf
+download FOAF vocabulary
+> wget http://xmlns.com/foaf/spec/index.rdf
+> mv index.rdf foaf.rdf
+
+add rdf, rdfs, owl?? (certainement inutile vu que les raisonneurs doivent les prendre en compte)
 
 build TDB indexes
 > cd ~/data/cinema/

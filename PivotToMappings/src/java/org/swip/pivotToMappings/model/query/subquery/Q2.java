@@ -16,6 +16,14 @@ public class Q2 extends Subquery {
         this.e2 = e2;
     }
 
+    public QueryElement getE1() {
+        return e1;
+    }
+
+    public QueryElement getE2() {
+        return e2;
+    }
+
     @Override
     Iterable<QueryElement> getQueryElements() {
         LinkedList<QueryElement> result = new LinkedList<QueryElement>();

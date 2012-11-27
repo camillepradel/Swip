@@ -22,7 +22,8 @@ import org.maltparser.core.syntaxgraph.node.Token;
 public class MaltParser {
 
     private static final Logger logger = Logger.getLogger(MaltParser.class);
-    MaltParserService service = null;
+    MaltParserService serviceFr = null;
+    MaltParserService serviceEn = null;
     boolean ASK = false;
     boolean COUNT = false;
     Set<Integer> visitedNodes = null;
@@ -38,13 +39,8 @@ public class MaltParser {
     List<String> ignoredRoots = new ArrayList<String>(Arrays.asList(new String[]{"?"}));
     final List<String> ignoredPostags = new ArrayList<String>(Arrays.asList(new String[]{"DET", "WRB", "WDT", "IN", "IN/that", "WP", "PP", "PP$", "DT", "SENT", "RB", "RBR", "JJR", "VHP", "VHZ"}));
     final List<String> ignoredLemmas = new ArrayList<String>(Arrays.asList(new String[]{"do", "be", "show", "give", "list", "call", "all", "many"}));
-    
+
     public MaltParser() {
-        try {
-            service = new MaltParserService();
-        } catch (MaltChainedException ex) {
-            logger.error(ex.getMessage());
-        }
     }
 
     public DependencyStructure posTaggedToDependecies(String[] tokens, String lang) throws MaltChainedException {
@@ -60,20 +56,43 @@ public class MaltParser {
             i++;
         }
 
+        MaltParserService serviceToUse = null;
         if (lang.equals("en")) {
-            // on mirail server
-            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
-            // on my computer
-//            service.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
+            if (serviceEn == null) {
+                try {
+                    serviceEn = new MaltParserService();
+                    // on mirail server
+//                    serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+                    // on irit server
+                    serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /usr/local/WWW/recherches/MELODI/swip/WEB-INF/classes/ -lfi parser.log");
+                    // on my computer
+                    // serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
+                } catch (MaltChainedException ex) {
+                    logger.error(ex.getMessage());
+                }
+
+            }
+            serviceToUse = serviceEn;
         } else if (lang.equals("fr")) {
-            // on mirail server
-            service.initializeParserModel("-c fremalt-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
-            // on my computer
-//            service.initializeParserModel("-c fremalt-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
+            if (serviceFr == null) {
+                try {
+                    serviceFr = new MaltParserService();
+                    // on mirail server
+//                    serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+                    // on irit server
+                    serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /usr/local/WWW/recherches/MELODI/swip/WEB-INF/classes/ -lfi parser.log");
+                    // on my computer
+                    // serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
+                } catch (MaltChainedException ex) {
+                    logger.error(ex.getMessage());
+                }
+            }
+            serviceToUse = serviceFr;
         } else {
             // Todo: rise exception
         }
-        DependencyStructure graph = service.parse(formatedTokens);
+
+        DependencyStructure graph = serviceToUse.parse(formatedTokens);
         logger.info("MaltParser result:");
         displayDependencyTree(graph);
         return graph;
@@ -303,7 +322,6 @@ public class MaltParser {
 //            }
 //        }
 //    }
-
     static DependencyTree changeInDependencyTree(DependencyStructure graph) throws MaltChainedException {
 
         int sentenceHeadId = 0;
@@ -387,7 +405,7 @@ public class MaltParser {
             }
         }
         deprel = extractDeprel(edge);
-        
+
         return new MyEdge(headNodeId, dependentNodeId, deprel);
     }
 
