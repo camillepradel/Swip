@@ -105,78 +105,25 @@ public class PatternTriple extends Subpattern {
         return result;
     }
 
-    private String sparqlForElement(PatternElement e, LinkedList<String> typeStrings, LinkedList<String> labelStrings, PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<PatternElement, String> numerciDataPropertyElements) {
+    private String sparqlForElement(
+            PatternElement e, 
+            LinkedList<String> typeStrings, 
+            LinkedList<String> labelStrings, 
+            PatternToQueryMapping ptqm, 
+            SparqlServer sparqlServer, 
+            Map<PatternElement, String> elementsStrings, 
+            Set<String> selectElements, 
+            HashMap<PatternElement, String> numerciDataPropertyElements) {
+        
         String elementString = elementsStrings.get(e);
         if (elementString == null) {
             List<ElementMapping> elementMappings = ptqm.getElementMappings(e);
             if (!elementMappings.isEmpty()) { // element mapped
                 ElementMapping elementMapping = elementMappings.get(0);
-                if (elementMapping instanceof KbElementMapping) {
-                    KbElementMapping kbElementMapping = (KbElementMapping) elementMapping;
-                    String varName = kbElementMapping.getQueryElement().getVarName();
-                    String firstlyMatchedOntResource = kbElementMapping.getFirstlyMatchedOntResourceUri();
-
-                    String toInsert = "";
-                    if (kbElementMapping.isGeneralized() && !kbElementMapping.isNumericDataProperty()) {
-                        toInsert = "_gen" + kbElementMapping.getPatternElement().getId() + "_";
-                    } else {
-                        toInsert = "<" + kbElementMapping.getFirstlyMatchedOntResourceUri() + ">";
-                    }
-
-                    if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
-                        //elementString = "?var" + ++(Subpattern.varCount);
-                        elementString = varName;
-                        String typeDeclaration = "       " + elementString + " rdf:type " + toInsert + ".\n";
-                        if (!typeStrings.contains(typeDeclaration)) {
-                            typeStrings.add(typeDeclaration);
-                        }
-                        if (kbElementMapping.getQueryElement().isQueried()) {
-                            selectElements.add(elementString);
-                        }
-                    } else if (Keyword.pseudoClasses.containsKey(firstlyMatchedOntResource)) { // pseudoclass
-                        elementString = varName;
-                        String typeDeclaration = "       " + elementString + " " + Keyword.jokerTypePropertiesString + " " + toInsert + ".\n";
-                        if (!typeStrings.contains(typeDeclaration)) {
-                            typeStrings.add(typeDeclaration);
-                        }
-                        if (kbElementMapping.getQueryElement().isQueried()) {
-                            selectElements.add(elementString);
-                        }
-                    } else if (kbElementMapping.getKbType() == KbTypeEnum.NUMDATAPROP) {
-                        numerciDataPropertyElements.put(e, kbElementMapping.getQueryElement().getStringValue());
-                        elementString = toInsert;
-                    } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
-                        elementString = toInsert;
-                    } else { // instance
-                        //elementString = "?var" + ++(Subpattern.varCount);
-                        elementString = varName;
-                        List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
-                        for (String type : types) {
-                            String typeDeclaration = "       " + elementString + " rdf:type " + toInsert + ".\n";
-                            if (!typeStrings.contains(typeDeclaration)) {
-                                typeStrings.add(typeDeclaration);
-                            }
-                        }
-                        String matchedLabel = ((KbElementMapping) ptqm.getElementMappings(e).get(0)).getBestLabel();
-                        // FIXME: solve language tag problem
-                        labelStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + matchedLabel + "\".\n");
-                    }
-                } else if (elementMapping instanceof InstanceAndClassElementMapping) {
-                    String varName = elementMapping.getQueryElement().getVarName();
-                    elementString = varName;
-                    typeStrings.add("       " + elementString + " " + Keyword.jokerTypePropertiesStringWithType + " <" + ((InstanceAndClassElementMapping) elementMapping).getFirstlyMatchedClass() + ">.\n");
-                    labelStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + ((InstanceAndClassElementMapping) elementMapping).getBestLabelInstance() + "\".\n");
-                } else { // literal
-                    String varName = elementMapping.getQueryElement().getVarName();
-                    if (elementMapping.getQueryElement().isQueried()) {
-//                        elementString = "?literal" + ++(Subpattern.varCount);
-                        elementString = varName;
-                        // TODO: eventuellemnt contraindre le type du literal avec FILTER (datatype...
-                        selectElements.add(elementString);
-                    } else {
-                        elementString = ((Literal) elementMapping.getQueryElement()).getStringForSparql(labelStrings);
-                    }
-                }
+                
+                elementString = innerSparqlForElement( e, typeStrings,  labelStrings,  ptqm,  sparqlServer, 
+                        selectElements,  numerciDataPropertyElements, elementMapping);
+                
             } else { // element not mapped
                 if (e instanceof ClassPatternElement) {
                     elementString = "?var" + ++(Subpattern.varCount);
@@ -194,6 +141,85 @@ public class PatternTriple extends Subpattern {
             elementsStrings.put(e, elementString);
         }
         return elementString;
+    }
+
+    private String innerSparqlForElement(
+            PatternElement e,
+            LinkedList<String> typeStrings,
+            LinkedList<String> labelStrings,
+            PatternToQueryMapping ptqm,
+            SparqlServer sparqlServer,
+            Set<String> selectElements,
+            HashMap<PatternElement, String> numerciDataPropertyElements,
+            ElementMapping elementMapping) {
+
+        String elementString = "";
+        String varName = elementMapping.getQueryElement().getVarName();
+        if (elementMapping instanceof KbElementMapping) {
+            KbElementMapping kbElementMapping = (KbElementMapping) elementMapping;
+            String firstlyMatchedOntResource = kbElementMapping.getFirstlyMatchedOntResourceUri();
+
+            String toInsert = "";
+            if (kbElementMapping.isGeneralized() && !kbElementMapping.isNumericDataProperty()) {
+                toInsert = "_gen" + kbElementMapping.getPatternElement().getId() + "_";
+            } else {
+                toInsert = "<" + kbElementMapping.getFirstlyMatchedOntResourceUri() + ">";
+            }
+
+            if (sparqlServer.isClass(firstlyMatchedOntResource)) { // class
+                //elementString = "?var" + ++(Subpattern.varCount);
+                elementString = varName;
+                String typeDeclaration = "       " + elementString + " rdf:type " + toInsert + ".\n";
+                if (!typeStrings.contains(typeDeclaration)) {
+                    typeStrings.add(typeDeclaration);
+                }
+                if (kbElementMapping.getQueryElement().isQueried()) {
+                    selectElements.add(elementString);
+                }
+            } else if (Keyword.pseudoClasses.containsKey(firstlyMatchedOntResource)) { // pseudoclass
+                elementString = varName;
+                String typeDeclaration = "       " + elementString + " " + Keyword.jokerTypePropertiesString + " " + toInsert + ".\n";
+                if (!typeStrings.contains(typeDeclaration)) {
+                    typeStrings.add(typeDeclaration);
+                }
+                if (kbElementMapping.getQueryElement().isQueried()) {
+                    selectElements.add(elementString);
+                }
+            } else if (kbElementMapping.getKbType() == KbTypeEnum.NUMDATAPROP) {
+                numerciDataPropertyElements.put(e, kbElementMapping.getQueryElement().getStringValue());
+                elementString = toInsert;
+            } else if (sparqlServer.isProperty(firstlyMatchedOntResource)) { // property
+                elementString = toInsert;
+            } else { // instance
+                //elementString = "?var" + ++(Subpattern.varCount);
+                elementString = varName;
+                List<String> types = sparqlServer.listTypes(firstlyMatchedOntResource);
+                for (String type : types) {
+                    String typeDeclaration = "       " + elementString + " rdf:type " + toInsert + ".\n";
+                    if (!typeStrings.contains(typeDeclaration)) {
+                        typeStrings.add(typeDeclaration);
+                    }
+                }
+                String matchedLabel = ((KbElementMapping) ptqm.getElementMappings(e).get(0)).getBestLabel();
+                // FIXME: solve language tag problem
+                labelStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + matchedLabel + "\".\n");
+            }
+        } else if (elementMapping instanceof InstanceAndClassElementMapping) {
+            elementString = varName;
+            typeStrings.add("       " + elementString + " " + Keyword.jokerTypePropertiesStringWithType + " <" + ((InstanceAndClassElementMapping) elementMapping).getFirstlyMatchedClass() + ">.\n");
+            labelStrings.add("       " + elementString + " (rdfs:label|dc:title|foaf:name) \"" + ((InstanceAndClassElementMapping) elementMapping).getBestLabelInstance() + "\".\n");
+        } else { // literal
+            if (elementMapping.getQueryElement().isQueried()) {
+//                        elementString = "?literal" + ++(Subpattern.varCount);
+                elementString = varName;
+                // TODO: eventuellemnt contraindre le type du literal avec FILTER (datatype...
+                selectElements.add(elementString);
+            } else {
+                elementString = ((Literal) elementMapping.getQueryElement()).getStringForSparql(labelStrings);
+            }
+        }
+        return elementString;
+
     }
 
     public boolean contains(PatternElement pe) {

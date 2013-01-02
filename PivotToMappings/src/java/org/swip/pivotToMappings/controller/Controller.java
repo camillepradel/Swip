@@ -31,29 +31,32 @@ import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.query.Query;
 import org.swip.pivotToMappings.model.query.antlr.userQueryGrammarLexer;
 import org.swip.pivotToMappings.model.query.antlr.userQueryGrammarParser;
+import org.swip.utils.Mail;
 import org.swip.utils.sparql.RemoteSparqlServer;
 import org.swip.utils.sparql.SparqlServer;
 
 public class Controller {
-    
+
     private static final Logger logger = Logger.getLogger(Controller.class);
     static Controller staticController = null;
-    private final ArrayList<KbConfiguration>  kbConfs = new ArrayList<KbConfiguration>();
+    private final ArrayList<KbConfiguration> kbConfs = new ArrayList<KbConfiguration>();
     private HashMap<String, SparqlServer> sparqlServers = null;
     private HashMap<String, List<Pattern>> patternsMap = null;
     private HashMap<String, String> langs = null;
     private Map<Pattern, List<PatternElement>> patternElements = new HashMap<Pattern, List<PatternElement>>();
     private Map<PatternElement, List<ElementMapping>> elementMappings = new HashMap<PatternElement, List<ElementMapping>>();
-
+    int nbQuery = 0;
+    
     public Controller() {
         this.sparqlServers = null;
         this.patternsMap = null;
-        
+
 //        this.kbConfs.add(new KbConfiguration("cinema", "http://localhost:2021/cinema", "patterns-cinema.txt", "fr"));
 //        this.kbConfs.add(new KbConfiguration("cinemaDist", "http://swipserver:2021/cinema", "patterns-cinema.txt", "fr"));
 //        this.kbConfs.add(new KbConfiguration("cinemaLocal", "http://localhost:2020/cinema", "patterns-cinema.txt", "fr"));
 //        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://192.168.250.91:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
-        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://swip.univ-tlse2.fr:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
+//        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://172.31.174.219:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
+        this.kbConfs.add(new KbConfiguration("musicbrainz", "http://localhost:8080/musicbrainz/sparql", "patterns-musicbrainz-qald2-50.txt", "en"));
     }
 
     public static Controller getInstance() {
@@ -82,24 +85,21 @@ public class Controller {
         this.elementMappings.get(pe).add(em);
     }
 
-    private void initLangs()
-    {
+    private void initLangs() {
         this.langs = new HashMap<String, String>();
-        for(KbConfiguration kbConf : this.kbConfs)
-        {
+        for (KbConfiguration kbConf : this.kbConfs) {
             this.langs.put(kbConf.name, kbConf.lang);
         }
     }
-    
+
     private void createSparqlServer() {
         logger.info("Creating sparql server:");
         logger.info("----------------------\n");
-        
+
         this.sparqlServers = new HashMap<String, SparqlServer>();
-        
+
         long time = System.currentTimeMillis();
-        for(KbConfiguration kbConf : this.kbConfs)
-        {
+        for (KbConfiguration kbConf : this.kbConfs) {
             this.sparqlServers.put(kbConf.name, new RemoteSparqlServer(kbConf.urlSparql));
         }
 
@@ -114,9 +114,8 @@ public class Controller {
             return;
         } else {
             this.patternsMap = new HashMap<String, List<Pattern>>();
-            for(KbConfiguration kbConf : this.kbConfs)
-            {
-                
+            for (KbConfiguration kbConf : this.kbConfs) {
+
                 List<Pattern> l = new LinkedList<Pattern>();
                 try {
                     logger.info("Loading patterns:");
@@ -184,7 +183,11 @@ public class Controller {
     }
 
     public List<PatternToQueryMapping> getBestMappings(String pivotQueryString, int numMappings, String kbName) {
-//        PropertyConfigurator.configure(projectPath+"/resources/log4j.properties");
+
+        // send me an email with the pivot query
+        Mail.sendEmail("[SWIP] getBestMappings query " + nbQuery++, "pivot query: " + pivotQueryString);
+
+        //        PropertyConfigurator.configure(projectPath+"/resources/log4j.properties");
         logger.info("KbName : " + kbName);
         if (this.sparqlServers == null) {
             logger.info("There is no defined sparql server");
@@ -192,7 +195,7 @@ public class Controller {
             logger.info("There is no loaded patterns");
         } else {
             try {
-                logger.info("Parsing pivot query : "+pivotQueryString);
+                logger.info("Parsing pivot query : " + pivotQueryString);
                 final Query userQuery = createQuery(pivotQueryString);
                 logger.info("parsed query: " + userQuery.toString() + "\n");
                 logger.info("================================================================\n");
@@ -248,7 +251,7 @@ public class Controller {
                     PatternToQueryMapping nextBestMapping = bestMappingsPQ.poll();
 
                     // Generalization
-                    
+
                     bestMappingsList.add(nextBestMapping);
                     // store the string description of each mapping in order to be able to display it in the client application
                     nextBestMapping.setStringDescription(nextBestMapping.toString());
@@ -270,8 +273,15 @@ public class Controller {
                     stringToDisplay += "\n";
                     logger.info(stringToDisplay);
                 }
-                logger.info("Query processed");
+                // send me an email with the returned result
+                String message = "pivot query: " + pivotQueryString + "\n\n\n" + "mappings:\n\n";
+                for (PatternToQueryMapping mapping : bestMappingsList) {
+                    message += " + " + mapping.getRelevanceMark() + "\n" + mapping.getSentence() + "\n" + mapping.getSparqlQuery() + "\n\n";
+                }
+                Mail.sendEmail("[SWIP] getBestMappings query " + (nbQuery-1), message);
                 
+                logger.info("Query processed");
+
                 return bestMappingsList;
             } catch (QueryParsingException ex) {
                 logger.info("An error occured while parsing query: " + pivotQueryString + "\n" + ex.getMessage());
@@ -311,10 +321,10 @@ public class Controller {
     }
 
     private void matchQueryElements(Query userQuery, String kbName) {
-        
+
         SparqlServer sparqlServer = this.sparqlServers.get(kbName);
         List<Pattern> patterns = this.patternsMap.get(kbName);
-        
+
         // first clear previous mappings
         for (List<PatternElement> pes : this.patternElements.values()) {
             for (PatternElement pe : pes) {
@@ -331,33 +341,29 @@ public class Controller {
     }
 
     /*public List<Pattern> getPatterns() {
-        return this.patterns;
+    return this.patterns;
     }*/
-    
-    public String processQuery(String sparqlQuery, String kbName)
-    {
-        
+    public String processQuery(String sparqlQuery, String kbName) {
+
         SparqlServer sparqlServer = this.sparqlServers.get(kbName);
-        logger.info("process Query : "+kbName);
-        logger.info("Query : "+sparqlQuery);
+        logger.info("process Query : " + kbName);
+        logger.info("Query : " + sparqlQuery);
         JSONObject response = new JSONObject();
         ArrayList<JSONObject> queryResults = new ArrayList();
         logger.info("Waiting for sparql server response ... ");
         Iterable<QuerySolution> sols = sparqlServer.select(sparqlQuery);
         logger.info("Response received.");
-        for(QuerySolution sol : sols)
-        {
+        for (QuerySolution sol : sols) {
             JSONObject query = new JSONObject();
             Iterator<String> varNames = sol.varNames();
-            while(varNames.hasNext())
-            {
+            while (varNames.hasNext()) {
                 String varName = varNames.next();
                 query.put("res", "" + sol.get(varName) + "");
             }
             queryResults.add(query);
         }
         response.put("content", queryResults);
-        logger.info("return to client : "+response.toString());
+        logger.info("return to client : " + response.toString());
         return response.toString();
     }
 }

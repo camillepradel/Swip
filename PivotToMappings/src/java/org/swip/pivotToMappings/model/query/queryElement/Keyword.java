@@ -21,29 +21,33 @@ public class Keyword extends QueryElement {
 
     private static final Logger logger = Logger.getLogger(Keyword.class);
     public static final Map<String, String> jokerTypeProperties = Collections.unmodifiableMap(new HashMap<String, String>() {
+
         {
             put("http://purl.org/ontology/mo/release_type", "http://purl.org/ontology/mo/ReleaseType");
         }
     });
     public static final String jokerTypePropertiesString = generate(jokerTypeProperties);
+
     private static String generate(Map<String, String> jokerTypeProperties) {
         String result = "(";
         for (String prop : jokerTypeProperties.keySet()) {
             result += "<" + prop + ">|";
         }
-        result = result.substring(0, result.length()-1) + ")";
+        result = result.substring(0, result.length() - 1) + ")";
         return result;
     }
     public static final String jokerTypePropertiesStringWithType = generateWithType(jokerTypeProperties);
+
     private static String generateWithType(Map<String, String> jokerTypeProperties) {
         String result = "( rdf:type | ";
         for (String prop : jokerTypeProperties.keySet()) {
             result += "<" + prop + ">|";
         }
-        result = result.substring(0, result.length()-1) + ")";
+        result = result.substring(0, result.length() - 1) + ")";
         return result;
     }
     public static Map<String, String> pseudoClasses = Collections.unmodifiableMap(new HashMap<String, String>() {
+
         {
             // http://purl.org/ontology/mo/release_type considered harmful
             put("http://purl.org/ontology/mo/album", "http://purl.org/ontology/mo/MusicalManifestation");
@@ -127,39 +131,18 @@ public class Keyword extends QueryElement {
         HashMap<String, String> labelsMap = new HashMap<String, String>();
         HashMap<String, Float> scoresMap = new HashMap<String, Float>();
 
-        String stringToMatch = this.getKeywordValue().replace("_", " ");
-//        StringTokenizer st2 = new StringTokenizer(this.keywordValue, " \t\n\r\f-_");
-//        String stringToMatch = "";
-//        while (st2.hasMoreTokens()) {
-//            // remove plural form if any (done manually because Lucene score doesn't handle this)
-//            // FIXME: is it possible to configure it in Lucene?
-//            String nextToken = st2.nextToken();
-//            if (nextToken.endsWith("ies")) {
-//                nextToken = nextToken.substring(0, nextToken.length() - 3) + "y";
-//            } else if (nextToken.endsWith("s")) {
-//                nextToken = nextToken.substring(0, nextToken.length() - 1);
-//            }
-//            stringToMatch += nextToken + " ";
-//        }
-
-        String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
-                + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                + "  PREFIX dc:  <http://purl.org/dc/elements/1.1/> "
-                + "  PREFIX foaf: <http://xmlns.com/foaf/0.1/> "
-                + "  PREFIX pf:  <http://jena.hpl.hp.com/ARQ/property#> "
-                + "SELECT ?subj ?label ?score "
-                + "WHERE { "
-                + "       (?label ?score ) pf:textMatch ('" + stringToMatch.trim() + "' 0.6 20). "
-                + "       ?subj (dc:title|rdfs:label|foaf:name) ?label. "
-                + "} ";
-
-        Iterable<QuerySolution> results = serv.select(query);
-
         // first add some important matchings
         // TODO: a more generic approach: favour matchings to ontology's entities over other KB entitites
         if (this.keywordValue.equalsIgnoreCase("person")) {
-            String uri = "http://xmlns.com/foaf/0.1/Person";
+            String uri = "http://xmlns.com/foaf/0.1/Agent";
             labelsMap.put(uri, "person");
+            scoresMap.put(uri, 20.0f);
+            uri = "http://purl.org/ontology/mo/Performer";
+            labelsMap.put(uri, "person");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("artist")) {
+            String uri = "http://xmlns.com/foaf/0.1/Agent"; // *type property considered harmful
+            labelsMap.put(uri, "artist");
             scoresMap.put(uri, 20.0f);
         } else if (this.keywordValue.equalsIgnoreCase("album")) {
             String uri = "http://purl.org/ontology/mo/album"; // *type property considered harmful
@@ -181,38 +164,115 @@ public class Keyword extends QueryElement {
             String uri = "http://purl.org/ontology/mo/MusicGroup";
             labelsMap.put(uri, "band");
             scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("track")) { // to compensate mispelling in ontology label
+            String uri = "http://purl.org/ontology/mo/Track";
+            labelsMap.put(uri, "track");
+            scoresMap.put(uri, 100.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("song")) {
+            String uri = "http://purl.org/ontology/mo/Track";
+            labelsMap.put(uri, "song");
+            scoresMap.put(uri, 20.0f);
         } else if (this.keywordValue.equalsIgnoreCase("found")) {
             String uri = "http://purl.org/vocab/bio/0.1/Birth";
             labelsMap.put(uri, "foundation");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("birth")) {
+            String uri = "http://purl.org/vocab/bio/0.1/Birth";
+            labelsMap.put(uri, "birth");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("be born")) {
+            String uri = "http://purl.org/vocab/bio/0.1/Birth";
+            labelsMap.put(uri, "birth");
             scoresMap.put(uri, 20.0f);
         } else if (this.keywordValue.equalsIgnoreCase("compose")) {
             String uri = "http://purl.org/ontology/mo/composer";
             labelsMap.put(uri, "composer");
             scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("sing")) {
+            String uri = "http://purl.org/ontology/mo/singer";
+            labelsMap.put(uri, "singer");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("duration")) {
+            String uri = "http://purl.org/ontology/mo/duration";
+            labelsMap.put(uri, "duration");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("create")) {
+            String uri = "http://xmlns.com/foaf/0.1/maker";
+            labelsMap.put(uri, "creator");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("make")) {
+            String uri = "http://xmlns.com/foaf/0.1/maker";
+            labelsMap.put(uri, "make");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("break up")) {
+            String uri = "http://purl.org/vocab/bio/0.1/Death";
+            labelsMap.put(uri, "break up");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("collaborate with")) {
+            String uri = "http://purl.org/ontology/mo/collaborated_with";
+            labelsMap.put(uri, "collaborate with");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("marry")) {
+            String uri = "http://purl.org/vocab/relationship/spouseOf";
+            labelsMap.put(uri, "married to");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("husband")) {
+            String uri = "http://purl.org/vocab/relationship/spouseOf";
+            labelsMap.put(uri, "husband");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("appear")) {
+            String uri = "http://purl.org/ontology/mo/track";
+            labelsMap.put(uri, "appear");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("live")) {
+            String uri = "http://purl.org/ontology/mo/live";
+            labelsMap.put(uri, "live");
+            scoresMap.put(uri, 20.0f);
+        } else if (this.keywordValue.equalsIgnoreCase("death")) {
+            String uri = "http://purl.org/vocab/bio/0.1/Death";
+            labelsMap.put(uri, "death");
+            scoresMap.put(uri, 20.0f);
         }
 
+        if (!this.keywordValue.equalsIgnoreCase("live")) {
+
+            String stringToMatch = this.getKeywordValue().replace("_", " ");
+
+            String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+                    + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+                    + "  PREFIX dc:  <http://purl.org/dc/elements/1.1/> "
+                    + "  PREFIX foaf: <http://xmlns.com/foaf/0.1/> "
+                    + "  PREFIX pf:  <http://jena.hpl.hp.com/ARQ/property#> "
+                    + "SELECT ?subj ?label ?score "
+                    + "WHERE { "
+                    + "       (?label ?score ) pf:textMatch ('" + stringToMatch.trim() + "' 0.6 20). "
+                    + "       ?subj (dc:title|rdfs:label|foaf:name) ?label. "
+                    + "} ";
+
+            Iterable<QuerySolution> results = serv.select(query);
 
 
-        for (QuerySolution qs : results) {
-            String uri = qs.get("subj").toString();
 
-            boolean changeMaps = false;
-            float score = ((com.hp.hpl.jena.rdf.model.Literal) qs.get("score")).getFloat();
-            if (scoresMap.containsKey(uri)) {
-                if (score > scoresMap.get(uri)) {
+            for (QuerySolution qs : results) {
+                String uri = qs.get("subj").toString();
+
+                boolean changeMaps = false;
+                float score = ((com.hp.hpl.jena.rdf.model.Literal) qs.get("score")).getFloat();
+                if (scoresMap.containsKey(uri)) {
+                    if (score > scoresMap.get(uri)) {
+                        changeMaps = true;
+                    }
+                } else {
                     changeMaps = true;
                 }
-            } else {
-                changeMaps = true;
-            }
 
-            if (changeMaps) {
-                String label = qs.get("label").toString();
-                labelsMap.put(uri, label);
-                scoresMap.put(uri, score);
+                if (changeMaps) {
+                    String label = qs.get("label").toString();
+                    labelsMap.put(uri, label);
+                    scoresMap.put(uri, score);
+                }
             }
         }
-
         logger.info(this.keywordValue + " matches with " + labelsMap.size() + " resources:");
         PriorityQueue<Match> matches = new PriorityQueue<Match>();
         for (String uri : labelsMap.keySet()) {
@@ -308,6 +368,7 @@ public class Keyword extends QueryElement {
             }
 
         }
+
         map(matches, serv);
 
         long time2 = System.currentTimeMillis();

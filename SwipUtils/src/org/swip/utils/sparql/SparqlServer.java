@@ -9,7 +9,6 @@ public abstract class SparqlServer {
     abstract public Iterable<QuerySolution> select(String queryString);
 
 //    abstract public Model construct(String queryString);
-
     abstract public boolean ask(String queryString);
 
     public boolean isClass(String resourceUri) {
@@ -57,21 +56,19 @@ public abstract class SparqlServer {
         }
         return false;
     }
-    
-    public boolean isDataProperty(List<String> types)
-    {
+
+    public boolean isDataProperty(List<String> types) {
         boolean ret = false;
-        for(String type: types)
-        {
-            if(type.endsWith("DatatypeProperty"))
+        for (String type : types) {
+            if (type.endsWith("DatatypeProperty")) {
                 ret = true;
+            }
         }
         return ret;
     }
-    
-    public boolean isDataProperty(String resourceUri)
-    {
-       List<String> types = listTypes(resourceUri);
+
+    public boolean isDataProperty(String resourceUri) {
+        List<String> types = listTypes(resourceUri);
         for (String type : types) {
             if (type.endsWith("DatatypeProperty")) {
                 return true;
@@ -80,29 +77,27 @@ public abstract class SparqlServer {
         return false;
     }
 
-    public boolean isNumericDataProperty(String uri)
-    {
-         String query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "+
-                        "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "+
-                        "ASK "+
-                        "WHERE "+
-                          "{ <"+uri+"> rdfs:range xsd:decimal }";
-         boolean ret = false;
-         
-         ret = ask(query);
-         
-         return ret;
+    public boolean isNumericDataProperty(String uri) {
+        String query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+                + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
+                + "ASK "
+                + "WHERE "
+                + "{ <" + uri + "> rdfs:range xsd:decimal }";
+        boolean ret = false;
+
+        ret = ask(query);
+
+        return ret;
     }
 
-    public boolean isInstanceOfClass(String instanceUri, String classUri)
-    {
-         String query = "PREFIX mo:   <http://purl.org/ontology/mo/> " +
-                        "ASK " +
-                        "WHERE " +
-                          "{ <"+instanceUri+"> (a|mo:release_type) <"+classUri+"> }";
-         return ask(query);
+    public boolean isInstanceOfClass(String instanceUri, String classUri) {
+        String query = "PREFIX mo:   <http://purl.org/ontology/mo/> "
+                + "ASK "
+                + "WHERE "
+                + "{ <" + instanceUri + "> (a|mo:release_type) <" + classUri + "> }";
+        return ask(query);
     }
-    
+
 //    public boolean isProperty(String resourceUri) {
 //        String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n"
 //                + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"
@@ -113,7 +108,6 @@ public abstract class SparqlServer {
 //                + "    } ";
 //        return ask(query);
 //    }
-
     public List<String> listTypes(String resourceUri) {
         String query = "  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n"
                 + "  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"
@@ -148,12 +142,15 @@ public abstract class SparqlServer {
                 + "    BIND(str(?label) AS ?str) \n"
                 + "} ";
 
-        Iterable<QuerySolution> results = select(query);
-
-        for (QuerySolution qs : results) {
-            return qs.get("str").toString();
+        try {
+            Iterable<QuerySolution> results = select(query);
+            for (QuerySolution qs : results) {
+                return qs.get("str").toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return null;
+        return "LABEL_NOT_FOUND";
     }
 
     public List<String> listRanges(String resourceUri) {

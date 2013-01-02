@@ -6,7 +6,64 @@ body
 {
 	margin: 0px;
 	padding: 0px;
-	font-size: 12px;
+	font-size: .8em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#disclaimer
+{
+	width: 800px;
+	min-height:70px;
+	margin: 0 auto;
+	padding: 10px 10px 10px 100px;
+	background-color: #a66;
+	background-image:url(../img/HAL9000-2.svg);
+	background-repeat: no-repeat;
+	background-size: 80px;
+	border-radius: 0px 0px 15px 15px;
+}
+
+#disclaimer .close
+{
+	float: right;
+	width: 30px;
+	height: 30px;
+	background-image:url(../img/close.svg);
+	background-repeat: no-repeat;
+	background-size: 30px;
+}
+
+#disclaimer .seemore
+{
+	width: 30px;
+	height: 30px;
+	background-image:url(../img/seemore.svg);
+	background-repeat: no-repeat;
+	background-size: 30px;
+	margin-top: 10px;
+}
+
+#disclaimer p
+{
+	display: none;
+}
+
+#disclaimer .seeless
+{
+	width: 30px;
+	height: 30px;
+	background-image:url(../img/seeless.svg);
+	background-repeat: no-repeat;
+	background-size: 30px;
+	display: none;
+}
+
+
+#disclaimer em
+{
+	font-weight:bold;
+	font-size: 2em;
 }
 
 
@@ -44,10 +101,16 @@ body
  * Search form
  **/
 
+table
+{
+	margin-right: auto;
+	margin-left: auto;	
+}
+
 #form
 {
 	width: 100%;
-	text-align: center;
+	text-align: right;
 }
 
 #form .searchField
@@ -57,7 +120,7 @@ body
 
 #form .searchButton
 {
-	width: 100px;
+	width: 150px;
 }
 
 

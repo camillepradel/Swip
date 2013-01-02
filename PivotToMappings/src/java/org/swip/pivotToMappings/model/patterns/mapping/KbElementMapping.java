@@ -193,6 +193,7 @@ public class KbElementMapping extends ElementMapping {
             Iterator<String> varNames = sol.varNames();
             while(varNames.hasNext()) {
                 String varName = varNames.next();
+                logger.info("get label of " + sol.get(varName).toString());
                 String labelGen = sparqlServer.getALabel(sol.get(varName).toString());
 
                 if(labelGen != null) {

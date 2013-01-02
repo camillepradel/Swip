@@ -10,6 +10,7 @@ prefixes
 	blank:	"Blank"
 	rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xsd:    "http://www.w3.org/2001/XMLSchema#"
+	rel:	"http://purl.org/vocab/relationship/"
 end prefixes
 
 
@@ -235,8 +236,6 @@ attention : date peut correspondre a une annee, une date ou un couple jour mois
 question 3 : When was the band Green Day founded?
 band: Green_Day= date<?>. band: found.
 Green_Day: date<?>; found.
-
-TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
 */
 
 pattern date_group
@@ -289,10 +288,6 @@ end pattern
 */
 
 
-
-
-
-
 /*
 pattern around_artist_person
 	query
@@ -324,6 +319,46 @@ end pattern
 
 
 
+/*
+pattern: around_artist_person
+patron issu de la fusion des anciens date_person et around_artist_person(plein de choses tronquées pour le moment)
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 6 :Which artists have their 50th birthday on May 30, 2011?
+NOT SUPPORTED
+
+question 12 :When is the birthday of Tom Waits?
+Tom Waits: ?birthday
+
+question 13 :Which artists were born on the 29th of December 1960?
+?artist:birthday=29 December 1960
+
+question 26: When was Elvis Presley born?
+Elvis Presley: ?birthday
+
+TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
+*/
+
+pattern around_artist_person
+	query
+		[ 1_foaf:Agent	-2_bio:event				3_bio:Birth;
+		  3				 4_bio:date(5)				5_<xsd:dateTime>;			]birth:0..1/5
+		[ 1				-6_bio:event				7_bio:Death;
+		  7				 8_bio:date(9)				9_<xsd:dateTime>;			]death:0..1/9
+		[ 1				 10_mo:member_of(1,11)		11_foaf:Group;				]band:0..1/11
+		[ 1				 12_rel:spouseOf			13_foaf:Agent;				]marriage:0..1/13
+		[ 1				 14_mo:collaborated_with	15_foaf:Agent;				]collab:0..1/15
+	end query
+	sentence
+		__1__ _if_birth_[was born on __5__,]_end_if_birth_ _if_death_[died on __9__,]_end_if_death_ _if_band_[member of __9__,]_end_if_band_ _if_marriage_[married to __17__,]_end_if_marriage_ _if_collab_[collaborated with __15__,]_end_if_collab_
+	end sentence
+end pattern
+
+
+
+
+
 
 
 
@@ -347,3 +382,22 @@ pattern around_track
 	end sentence
 end pattern
 */
+
+/*
+pattern: around_track
+---------------------
+
+question 15: How long is the Babylon 5 theme?
+Babylon 5 : ?duration
+*/
+
+pattern around_track
+	query
+		[ 1_mo:Track	2_mo:duration(3)	3_<xsd:decimal>;	]duration:0..1/3
+		[ 1				4_foaf:maker(5)		5_foaf:Agent;		]creator:0..1/5
+		[ 6_mo:Record	7_mo:track(1)		1;					]album:0..1/6
+	end query
+	sentence
+		__1__ _if_creator_[created by __5__,]_end_if_creator_ _if_album_[from the album __6__,]_end_if_album_ _if_duration_[is __3__ milliseconds long,]_end_if_duration_
+	end sentence
+end pattern

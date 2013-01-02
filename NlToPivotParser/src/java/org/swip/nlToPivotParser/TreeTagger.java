@@ -15,9 +15,9 @@ public class TreeTagger {
     // on mirail server
 //    final String treeTaggerDir = "/home/operateur/treeTagger";
     // on irit server
-    final String treeTaggerDir = "/usr/local/WWW/recherches/MELODI/swip/treeTagger";
+//    final String treeTaggerDir = "/usr/local/WWW/recherches/MELODI/swip/treeTagger";
     // on my computer
-//    final String treeTaggerDir = "/mnt/data/treeTagger";
+    final String treeTaggerDir = "/mnt/data/treeTagger";
     TreeTaggerWrapper tt = null;
     List<String> tokens = null;
 

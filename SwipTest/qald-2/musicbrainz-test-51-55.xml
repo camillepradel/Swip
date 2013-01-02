@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset id="musicbrainz-test">
+
+<question id="51" answertype="boolean" aggregation="false" supported="true">
+<string><![CDATA[
+Did Kylie Minogue ever collaborate with Mariah Carey?
+]]></string>
+		<manualPivotQuery>Kylie_Minogue: collaborate_with= Mariah_Carey. ASK</manualPivotQuery>
+<keywords><![CDATA[
+Kylie Minogue, collaborate, Mariah Carey
+]]></keywords>
+<query><![CDATA[
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rel: <http://purl.org/vocab/relationship/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+ASK WHERE {
+	?artist foaf:name 'Kylie Minogue'  .
+	?artist rel:collaboratesWith ?collaboration .
+	?artist2 foaf:name 'Mariah Carey' .
+	?artist2 rel:collaboratesWith ?collaboration .
+}
+]]></query>
+</question>
+
+<question id="52" answertype="resource" aggregation="false" supported="false">
+<string><![CDATA[
+In which countries was the single Incomplete published?
+]]></string>
+<keywords><![CDATA[
+country, single, Incomplete, publish
+]]></keywords>
+<query><![CDATA[
+OUT OF SCOPE
+]]></query>
+</question>
+
+<question id="53" answertype="resource" aggregation="true" supported="false">
+<string><![CDATA[
+Which group had 70 members?
+]]></string>
+<keywords><![CDATA[
+group, 70, member
+]]></keywords>
+<query><![CDATA[
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+SELECT DISTINCT ?band ?name WHERE { 
+	?artist mo:member_of ?band .
+	?band foaf:name ?name .
+} 
+GROUP BY ?band ?name 
+HAVING (COUNT(DISTINCT ?artist) = 70)
+]]></query>
+</question>
+
+<question id="54" answertype="string" aggregation="false" supported="false">
+<string><![CDATA[
+What is the legal name of Loona?
+]]></string>
+<keywords><![CDATA[
+legal name, Loona
+]]></keywords>
+<query><![CDATA[
+OUT OF SCOPE
+]]></query>
+</question>
+
+<question id="55" answertype="resource" aggregation="true" supported="false">
+<string><![CDATA[
+Which member of Take That recorded the most albums?
+]]></string>
+<keywords><![CDATA[
+member, Take That, the most, album
+]]></keywords>
+<query><![CDATA[
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?artist ?name WHERE {
+	?band foaf:name 'Take That' .
+  	?artist mo:member_of ?band .
+	?artist foaf:name ?name .
+	?record foaf:maker ?artist .
+        ?record rdf:type mo:Record .
+}
+ORDER BY DESC(COUNT(?record)) LIMIT 1
+]]></query>
+</question>
+
+</dataset>

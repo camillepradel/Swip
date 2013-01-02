@@ -1,0 +1,186 @@
+<?xml version="1.0" ?>
+<dataset id="musicbrainz-test">
+	
+
+
+	<question aggregation="false" answertype="resource" id="10" supported="true">
+		
+
+		<string>
+<![CDATA[
+Who made the lyrics of the song Mambo No. 5?
+]]>		</string>
+		
+		
+		<manualPivotQuery>
+			?person: lyrics= Mambo_No._5. Mambo_No._5: song.
+		</manualPivotQuery>
+		
+
+		<keywords>
+<![CDATA[
+lyrics, Mambo No. 5
+]]>		</keywords>
+		
+
+		<query>
+<![CDATA[
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+SELECT DISTINCT ?lyricist ?name WHERE {
+	?single mo:release_type mo:single .
+	?single dc:title 'Mambo No. 5' .
+	?single mo:lyricist ?lyricist .
+	?lyricist foaf:name ?name
+}
+]]>		</query>
+		
+
+		<queryInterpretation rank="1">
+			<relevancyMark>
+				1.5347737
+			</relevancyMark>
+			<descriptiveSentence>
+				Song(person) member of some date, married to __17__, collaborated with Mambo(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?song (rdfs:label|dc:title|foaf:name) &quot;Song&quot;.
+
+       ?song ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?lyrics rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?lyrics (rdfs:label|dc:title|foaf:name) &quot;The Lyrics&quot;.
+       ?song &lt;http://purl.org/ontology/mo/member_of&gt; ?lyrics.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?song &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?person.
+       ?song &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?Mambo_No.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="2">
+			<relevancyMark>
+				1.5347737
+			</relevancyMark>
+			<descriptiveSentence>
+				&lt;b&gt;un(e) person&lt;\/b&gt; member of some date, married to __17__, collaborated with Mambo(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?lyrics rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?lyrics (rdfs:label|dc:title|foaf:name) &quot;The Lyrics&quot;.
+       ?person &lt;http://purl.org/ontology/mo/member_of&gt; ?lyrics.
+       ?person &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?song.
+       ?person &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?Mambo_No.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="3">
+			<relevancyMark>
+				1.5347737
+			</relevancyMark>
+			<descriptiveSentence>
+				Song(person) member of some date, married to __17__, collaborated with &lt;b&gt;un(e) person&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?song (rdfs:label|dc:title|foaf:name) &quot;Song&quot;.
+
+       ?song ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?lyrics rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?lyrics (rdfs:label|dc:title|foaf:name) &quot;The Lyrics&quot;.
+       ?song &lt;http://purl.org/ontology/mo/member_of&gt; ?lyrics.
+       ?song &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?Mambo_No.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?song &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?person.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="4">
+			<relevancyMark>
+				1.5347737
+			</relevancyMark>
+			<descriptiveSentence>
+				Mambo(person) member of some date, married to __17__, collaborated with &lt;b&gt;un(e) person&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?Mambo_No (rdfs:label|dc:title|foaf:name) &quot;Mambo&quot;.
+
+       ?Mambo_No ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?lyrics rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?lyrics (rdfs:label|dc:title|foaf:name) &quot;The Lyrics&quot;.
+       ?Mambo_No &lt;http://purl.org/ontology/mo/member_of&gt; ?lyrics.
+       ?Mambo_No &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?song.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?Mambo_No &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?person.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="5">
+			<relevancyMark>
+				1.5347737
+			</relevancyMark>
+			<descriptiveSentence>
+				Mambo(person) member of some date, married to __17__, collaborated with Song(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?Mambo_No (rdfs:label|dc:title|foaf:name) &quot;Mambo&quot;.
+
+       ?Mambo_No ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?lyrics rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?lyrics (rdfs:label|dc:title|foaf:name) &quot;The Lyrics&quot;.
+       ?Mambo_No &lt;http://purl.org/ontology/mo/member_of&gt; ?lyrics.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?Mambo_No &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?person.
+       ?Mambo_No &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?song.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+	</question>
+	
+
+
+</dataset>

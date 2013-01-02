@@ -19,7 +19,8 @@ function nlToPivot(nlQuery, lang)
         ({
             type: 'GET',
             dataType: "json",
-            url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivot',
+            // url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivot',
+            url: 'http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivot',
             data: {nlQuery: nlQuery, kb:'musicbrainz', lang: lang, pos:'treeTagger', dep:'malt'},
         }).done(function(data2)
         {   
@@ -45,8 +46,8 @@ function pivotToSparql(pvQuery, respNum)
     ({
         type: 'GET',
         dataType: "jsonp",
-        url: 'http://172.31.174.216:8080/PivotToMappings/resources/rest/generateBestMappingsJSONP',
-        //url: 'http://localhost:8080/PivotToMappings/resources/rest/generateBestMappingsJSONP',
+        // url: 'http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP',
+        url: 'http://swip.univ-tlse2.fr/PivotToMappings/resources/rest/generateBestMappingsJSONP',
         data: {pivotQuery: pvQuery, numMappings: respNum, kb: 'musicbrainz', callback: '?'},
         crossDomain: true,
     }).done(function(data)
@@ -93,12 +94,14 @@ function pivotToSparql(pvQuery, respNum)
  * @param query SPARQL query to process
  * @param id Query's ID (concerns the view)
  **/
-function processQuery(query, id)
+function processQuery(sparqlQuery, id)
 {
     $.ajax
     ({
         type: 'GET',
-        url: 'http://192.168.250.91/PivotToMappingsWS/resources/rest/processQuery?query=' + encodeURIComponent(query) + '&kbName=cinemaDist'
+        dataType: "json",
+        url: 'http://swip.univ-tlse2.fr:8080/musicbrainz/sparql',
+        data: {query: sparqlQuery, output:'json'},
     }).done(function(data)
     {
         sparqlQueryResult(data, id);

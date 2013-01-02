@@ -293,14 +293,17 @@ function generateSparql(mappingId, results)
 /**
  * Called when a query has been processed
  **/
-function sparqlQueryResult(results, id)
+function sparqlQueryResult(sparqlResult, id)
 {
     $('#query' + id + ' .loading').css('display', 'none');
 
+    var bindings = sparqlResult['results']['bindings']
+    var varName = sparqlResult['head']['vars'][0]
     var resultString = '<br /><ul>';
-    for(var i = 0; i < results.content.length; i++)
+
+    for(var i=0; i<bindings.length; i++)
     {
-    	resultString += '<li>' + results.content[i].res.split('#')[1] + '</li>';
+    	resultString += '<li>' + bindings[i][varName]['value'] + '</li>';
     }
     resultString += '</ul>';
 

@@ -1,0 +1,345 @@
+<?xml version="1.0" ?>
+<dataset id="musicbrainz-test">
+
+<question id="15" answertype="resource" aggregation="false">
+<string><![CDATA[
+Who composed the song Coast To Coast?
+]]></string>
+<pivotQuery>Coast_To_Coast: song. ?person: compose= Coast_To_Coast.</pivotQuery>
+<keywords><![CDATA[
+compose, song, Coast To Coast
+]]></keywords>
+</question>
+
+<question id="21" answertype="number" aggregation="true">
+<string><![CDATA[
+How many singles did Peter Gabriel make?
+]]></string>
+<pivotQuery>single: make= Peter_Gabriel. COUNT.</pivotQuery>
+<keywords><![CDATA[
+single, Peter Gabriel, make
+]]></keywords>
+</question>
+
+<question id="24" answertype="resource" aggregation="false">
+<string><![CDATA[
+Which compilations does the song Last Christmas appear on?
+]]></string>
+<pivotQuery></pivotQuery>
+<keywords><![CDATA[
+compilation, song, Last Christmas, appear
+]]></keywords>
+</question>
+
+<question id="25" answertype="number" aggregation="false">
+<string><![CDATA[
+How long is Last Christmas by Kate and Bob?
+]]></string>
+<pivotQuery>Last_Christmas: song. ?compilation: appear= Last_Christmas.</pivotQuery>
+<keywords><![CDATA[
+long, Last Christman, Kate and Bob
+]]></keywords>
+</question>
+
+<question id="26" answertype="resource" aggregation="false">
+<string><![CDATA[
+Give me all singles by Loona.
+]]></string>
+<pivotQuery>?single: Loona.</pivotQuery>
+<keywords><![CDATA[
+single, Loona
+]]></keywords>
+</question>
+
+<question id="27" answertype="resource" aggregation="false">
+<string><![CDATA[
+What kind of record is Hijo de la luna?
+]]></string>
+<pivotQuery>kind: record= Hijo_de_la_luna. ASK.</pivotQuery>
+<keywords><![CDATA[
+kind of record, Hijo de la luna
+]]></keywords>
+</question>
+
+<question id="28" answertype="resource" aggregation="false">
+<string><![CDATA[
+Who made the song (Everything I Do) I Do It for You?
+]]></string>
+<pivotQuery>Everything_I_Do_I_Do_It_for_You: song. ?person: make= Everything_I_Do_I_Do_It_for_You.</pivotQuery>
+<keywords><![CDATA[
+make, song, (Everything I Do) I Do It for You
+]]></keywords>
+</question>
+
+<question id="29" answertype="resource" aggregation="true">
+<string><![CDATA[
+Who made more than 30 albums?
+]]></string>
+<pivotQuery>album: 30. ?person: make= album.</pivotQuery>
+<keywords><![CDATA[
+make, more than 30, album
+]]></keywords>
+</question>
+
+<question id="30" answertype="resource" aggregation="false">
+<string><![CDATA[
+Who was the husband of Whitney Houston?
+]]></string>
+<pivotQuery>?person: husband= Whitney_Houston.</pivotQuery>
+<keywords><![CDATA[
+husband, Whitney Houston
+]]></keywords>
+</question>
+
+<question id="31" answertype="date" aggregation="false">
+<string><![CDATA[
+Give me the death date of Ludwig van Beethoven.
+]]></string>
+<pivotQuery>?date: death. ?date: Ludwig_van_Beethoven.</pivotQuery>
+<keywords><![CDATA[
+death date, Ludwig van Beethoven
+]]></keywords>
+</question>
+
+<question id="32" answertype="number" aggregation="true">
+<string><![CDATA[
+How many pieces of work did Wolfgang Amadeus Mozart create?
+]]></string>
+<pivotQuery>pieces_of_work: create= Wolfgang_Amadeus_Mozart. COUNT.</pivotQuery>
+<keywords><![CDATA[
+piece of work, Wolfgang Amadeus Mozart, create
+]]></keywords>
+</question>
+
+<question id="33" answertype="date" aggregation="false">
+<string><![CDATA[
+When were the Dixie Chicks founded?
+]]></string>
+<pivotQuery>found: Dixie_Chicks= date<?>.</pivotQuery>
+<keywords><![CDATA[
+Dixie Chicks, founded
+]]></keywords>
+</question>
+
+<question id="34" answertype="date" aggregation="false">
+<string><![CDATA[
+When was That Which Remains founded? 
+]]></string>
+<pivotQuery>found: That_Which_Remains= date<?>.</pivotQuery>
+<keywords><![CDATA[
+That Which Remains, founded
+]]></keywords>
+</question>
+
+<question id="35" answertype="number" aggregation="true">
+<string><![CDATA[
+How many children did Bob Marley have?
+]]></string>
+<pivotQuery>child: Bob_Marley. COUNT.</pivotQuery>
+<keywords><![CDATA[
+children, Bob Marley
+]]></keywords>
+</question>
+
+<question id="36" answertype="number" aggregation="false">
+<string><![CDATA[
+How old is Rod Morgenstein?
+]]></string>
+<pivotQuery>old: Rod_Morgenstein. ASK.</pivotQuery>
+<keywords><![CDATA[
+old, Rod Morgenstein
+]]></keywords>
+</question>
+
+<question id="37" answertype="resource" aggregation="false">
+<string><![CDATA[
+Give me all artists who were both in a band and released a solo album.
+]]></string>
+<pivotQuery>album: solo. and: release. and: album. artist: band= and. ASK.</pivotQuery>
+<keywords><![CDATA[
+artist, band, release, solo album
+]]></keywords>
+</question>
+
+<question id="38" answertype="resource" aggregation="false">
+<string><![CDATA[
+In which albums does the song Because You Loved Me appear?
+]]></string>
+<pivotQuery>Because_You_Loved_Me: appear. ?album: song= Because_You_Loved_Me.</pivotQuery>
+<keywords><![CDATA[
+album, song, Because You Loved Me, appear
+]]></keywords>
+</question>
+
+<question id="39" answertype="boolean" aggregation="false">
+<string><![CDATA[
+Is the song Peggy Sue on the Greatest Hits compilation by Buddy Holly?
+]]></string>
+<pivotQuery>Peggy_Sue: song. Peggy_Sue: Greatest_Hits_compilation= Buddy_Holly. ASK.</pivotQuery>
+<keywords><![CDATA[
+song, Peggy Sue, Greatest Hits, compilation, Buddy Holly
+]]></keywords>
+</question>
+
+<question id="40" answertype="string" aggregation="false">
+<string><![CDATA[
+What is Beyonce Knowles middle name?
+]]></string>
+<pivotQuery>middle_name: Beyonce_Knowles. middle_name. ASK.</pivotQuery>
+<keywords><![CDATA[
+Beyonce Knowles, middle name
+]]></keywords>
+</question>
+
+<question id="41" answertype="resource" aggregation="true">
+<string><![CDATA[
+Which albums of Elvis Presley have Elvis in their title?
+]]></string>
+<pivotQuery>Elvis: title. ?album: Elvis_Presley= Elvis.</pivotQuery>
+<keywords><![CDATA[
+album, Elvis Presley, title, Elvis
+]]></keywords>
+</question>
+
+<question id="42" answertype="number" aggregation="true">
+<string><![CDATA[
+How many live albums by Elvis Presley are there?
+]]></string>
+<pivotQuery>album: live. album: Elvis_Presley. COUNT.</pivotQuery>
+<keywords><![CDATA[
+live album, Elvis Presley
+]]></keywords>
+</question>
+
+<question id="43" answertype="resource" aggregation="true">
+<string><![CDATA[
+Which member of the Beatles has more than one children?
+]]></string>
+<pivotQuery>child: one. ?member: the_Beatles= child.</pivotQuery>
+<keywords><![CDATA[
+member, Beatles, more than two, child
+]]></keywords>
+</question>
+
+<question id="44" answertype="resource" aggregation="false">
+<string><![CDATA[
+Give me all songs which are on live albums by Blondie.
+]]></string>
+<pivotQuery>album: live. ?song: album= Blondie.</pivotQuery>
+<keywords><![CDATA[
+song, live album, Blondie
+]]></keywords>
+</question>
+
+<question id="45" answertype="resource" aggregation="true">
+<string><![CDATA[
+Give me all artists born in March.
+]]></string>
+<pivotQuery>be born: ?artist. be born: date<March>.</pivotQuery>
+<keywords><![CDATA[
+artist, born, March
+]]></keywords>
+</question>
+
+<question id="46" answertype="string" aggregation="false">
+<string><![CDATA[
+Give me all titles of singles by Phil Collins.
+]]></string>
+<pivotQuery>single:Phil_Collins</pivotQuery>
+<keywords><![CDATA[
+title, single, Phil Collins
+]]></keywords>
+</question>
+
+<question id="47" answertype="resource" aggregation="false">
+<string><![CDATA[
+Which records did Robbie Williams record together with Martin Slattery?
+]]></string>
+<pivotQuery>?record: Robbie_Williams. ?record: ?record= Martin_Slattery.</pivotQuery>
+<keywords><![CDATA[
+record, Robbie Williams, record, together, Martin Slattery
+]]></keywords>
+</question>
+
+<question id="48" answertype="resource" aggregation="false">
+<string><![CDATA[
+Give me all soundtracks made by the Pet Shop Boys.
+]]></string>
+<pivotQuery>?soundtrack: make= Pet_Shop_Boys.</pivotQuery>
+<keywords><![CDATA[
+soundtrack, make, Pet Shop Boys
+]]></keywords>
+</question>
+
+<question id="49" answertype="string" aggregation="false">
+<string><![CDATA[
+In which language does Nyusha sing?
+]]></string>
+<pivotQuery>?language: Nyusha= sing.</pivotQuery>
+<keywords><![CDATA[
+language, sing, Nyusha
+]]></keywords>
+</question>
+
+<question id="50" answertype="resource" aggregation="false">
+<string><![CDATA[
+On which singles did Robbie Williams collaborate with Nicole Kidman?
+]]></string>
+<pivotQuery>collaborate: Nicole_Kidman. ?single: Robbie_Williams= collaborate.</pivotQuery>
+<keywords><![CDATA[
+single, collaborate, Robbie Williams, Nicole Kidman
+]]></keywords>
+</question>
+
+<question id="51" answertype="boolean" aggregation="false">
+<string><![CDATA[
+Did Kylie Minogue ever collaborate with Mariah Carey?
+]]></string>
+<pivotQuery></pivotQuery>
+<keywords><![CDATA[
+Kylie Minogue, collaborate, Mariah Carey
+]]></keywords>
+</question>
+
+<question id="52" answertype="resource" aggregation="false">
+<string><![CDATA[
+In which countries was the single Incomplete published?
+]]></string>
+<pivotQuery>Incomplete: single. Incomplete: country. Incomplete: publish. ASK.</pivotQuery>
+<keywords><![CDATA[
+country, single, Incomplete, publish
+]]></keywords>
+</question>
+
+<question id="53" answertype="resource" aggregation="true">
+<string><![CDATA[
+Which group had 70 members?
+]]></string>
+<pivotQuery>?group: member= 70.</pivotQuery>
+<keywords><![CDATA[
+group, 70, member
+]]></keywords>
+</question>
+
+<question id="54" answertype="string" aggregation="false">
+<string><![CDATA[
+What is the legal name of Loona?
+]]></string>
+<pivotQuery>album: most. record: album. ?member: Take_That= record.</pivotQuery>
+<keywords><![CDATA[
+legal name, Loona
+]]></keywords>
+</question>
+
+<question id="55" answertype="resource" aggregation="true">
+<string><![CDATA[
+Which member of Take That recorded the most albums?
+]]></string>
+<pivotQuery></pivotQuery>
+<keywords><![CDATA[
+member, Take That, the most, album
+]]></keywords>
+</question>
+
+</dataset>
+

@@ -598,11 +598,11 @@ public class PatternToQueryMapping {
         }
         
         for (String typeString : typeStrings) {
-            where = typeString + where;
+            where = typeString + "\n" + where;
         }
 
         for (String labelString : labelStrings) {
-            where = labelString + where;
+            where = labelString + "\n" + where;
         }
         
         String aggSelectFormat = "";

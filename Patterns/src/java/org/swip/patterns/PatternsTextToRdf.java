@@ -1,0 +1,240 @@
+package org.swip.patterns;
+
+import org.swip.patterns.antlr.LexicalErrorRuntimeException;
+import org.swip.patterns.antlr.patternsDefinitionGrammarParser;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.LinkedList;
+import java.util.List;
+import org.antlr.runtime.ANTLRInputStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
+import org.apache.log4j.Logger;
+import org.swip.patterns.antlr.patternsDefinitionGrammarLexer;
+
+/**
+ *
+ * @author camille
+ */
+public class PatternsTextToRdf {
+
+    private static final Logger logger = Logger.getLogger(PatternsTextToRdf.class);
+    
+    static InputStream in = null;
+    
+    static Model model = null;
+    static String uriStart = null;
+    // classes
+    static Resource patternClass = null;
+    static Resource patternTripleClass = null;
+    static Resource subPatternCollectionClass = null;
+    static Resource classPatternElementClass = null;
+    static Resource literalPatternElementClass = null;
+    static Resource blankNodePatternElementClass = null;
+    static Resource propertyPatternElementClass = null;
+    // object properties
+    static Property isPatternMadeUpOfProp = null;
+    static Property isMadeUpOfProp = null;
+    static Property hasSubjectProp = null;
+    static Property hasPropertyProp = null;
+    static Property hasObjectProp = null;
+    static Property targetsClassProp = null;
+    static Property targetsPropertyProp = null;
+    static Property targetsLiteralTypeProp = null;
+    static Property patternHasAuthorProp = null;
+    static Property targetsOntologyProp = null;
+    static Property refersToPatternElementProp = null;
+    static Property hasDeterminingElementProp = null;
+    // data properties
+    static Property hasCardMinProp = null;
+    static Property hasCardMaxProp = null;
+    static Property hasSentenceTemplateProp = null;
+    static Property isQualifyingProp = null;
+    static Property subpatternCollectionhasNameProp = null;
+    static Property patternElementHasIdProp = null;
+    static Property hasMappingConditionsProp = null;
+    
+    static int tripleCount = 1;
+
+    static public String patternsTextToRdf(String setName, String authorUri, String ontologyUri, String patternsText) {
+        List<Pattern> l = new LinkedList<Pattern>();
+        try {
+            logger.info("Loading patterns:");
+            logger.info("----------------\n");
+            long time = System.currentTimeMillis();
+            // read patterns on file and instantiate them
+            try {
+                ANTLRInputStream input = new ANTLRInputStream(new ByteArrayInputStream(patternsText.getBytes()));
+                patternsDefinitionGrammarLexer lexer = new patternsDefinitionGrammarLexer(input);
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+                patternsDefinitionGrammarParser parser = new patternsDefinitionGrammarParser(tokens);
+                l = parser.patterns();
+            } catch (RecognitionException ex) {
+                logger.error(ex);
+                throw new PatternsParsingException("RecognitionException: " + ex.getMessage());
+            } catch (IOException ex) {
+                logger.error(ex);
+                throw new PatternsParsingException("IOException: " + ex.getMessage());
+            } catch (SyntaxErrorRuntimeException ex) {
+                logger.error(ex);
+                throw new PatternsParsingException("Syntax error at " + ex.getMessage());
+            } catch (LexicalErrorRuntimeException ex) {
+                logger.error(ex);
+                throw new PatternsParsingException("Syntax error at " + ex.getMessage());
+            } catch (RuntimeException ex) {
+                logger.error(ex);
+                throw new PatternsParsingException(ex.getMessage());
+            }
+            // display loaded patterns
+//            logger.info("Patterns:\n");
+//            for (Pattern pattern : l) {
+//                logger.info(pattern.toString());
+//            }
+            logger.info("Pattern loaded");
+            logger.info("time for loading patterns: " + (System.currentTimeMillis() - time) + "ms");
+            logger.info("================================================================");
+
+
+            logger.info("Translating patterns:");
+            logger.info("--------------------\n");
+            model = ModelFactory.createDefaultModel();
+ 
+            in = PatternsTextToRdf.class.getClassLoader().getResourceAsStream("SwipOntology.owl");
+            if (in == null) {
+                logger.error("SWIP ONTOLOGY PATH ERROR!!");
+            }
+            // read the RDF/XML file
+            model.read(in, null);            
+            
+            uriStart = "http://swip.alwaysdata.net/patterns/" + setName + "#";
+            patternClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#Pattern");
+            patternTripleClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#PatternTriple");
+            subPatternCollectionClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#SubpatternCollection");
+            classPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#ClassPatternElement");
+            propertyPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#PropertyPatternElement");
+            literalPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#LiteralPatternElement");
+            blankNodePatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#BlankNodePatternElement");
+            hasSentenceTemplateProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasSentenceTemplate");
+            hasMappingConditionsProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasMappingConditions");
+            isPatternMadeUpOfProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isPatternMadeUpOf");
+            isMadeUpOfProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isMadeUpOf");
+            hasSubjectProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasSubject");
+            hasPropertyProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasProperty");
+            hasObjectProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasObject");
+            hasCardMinProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasCardinalityMin");
+            hasCardMaxProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasCardinalityMax");
+            targetsClassProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsClass");
+            targetsPropertyProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsProperty");
+            targetsLiteralTypeProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsLiteralType");
+            isQualifyingProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isQualifying");
+            subpatternCollectionhasNameProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#subpatternCollectionhasName");
+            patternHasAuthorProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#patternHasAuthor");
+            targetsOntologyProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsOntology");
+            refersToPatternElementProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#refersToPatternElement");
+            hasDeterminingElementProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasDeterminingElement");
+            patternElementHasIdProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#patternElementHasId");
+            
+            Resource authorResource = model.createResource(authorUri);
+            logger.info("authorUri: " + authorUri);
+            Resource ontologyResource = model.createResource(ontologyUri);
+            logger.info("ontologyUri: " + ontologyUri);
+            for (Pattern p : l) {
+                logger.info("pattern: " + p.getName());
+                tripleCount = 1;
+                Resource patternResource = model.createResource(uriStart + p.getName(), patternClass);
+                patternResource.addProperty(patternHasAuthorProp, authorResource);
+                patternResource.addProperty(targetsOntologyProp, ontologyResource);
+                patternResource.addLiteral(hasSentenceTemplateProp, model.createLiteral(p.getSentenceTemplate()));
+                for (Subpattern sp : p.getSubpatterns()) {
+                    logger.info("  - subpattern: " + ((SubpatternCollection)sp).getId());
+                    patternResource.addProperty(isPatternMadeUpOfProp, processSubpattern(sp, p));
+                }
+            }
+            OutputStream os = new ByteArrayOutputStream();
+            model.write(os);
+            return os.toString();
+
+        } catch (PatternsParsingException ex) {
+            logger.info("An error occured while parsing patterns:\n" + ex.getMessage());
+            logger.info("Patterns loading aborted");
+            logger.error(ex);
+        }
+        return "error";
+    }
+
+    private static Resource processSubpattern(Subpattern sp, Pattern pattern) {
+        Resource result = null;
+        String patternName = pattern.getName();
+        if (sp instanceof SubpatternCollection) {
+            SubpatternCollection spc = (SubpatternCollection)sp;
+            result = model.createResource(uriStart + patternName + "_" + spc.getId(), subPatternCollectionClass);
+            result.addLiteral(subpatternCollectionhasNameProp, spc.getId());
+            result.addLiteral(hasCardMinProp, spc.getMinOccurrences())
+                    .addLiteral(hasCardMaxProp, spc.getMaxOccurrences());
+            for (Subpattern spIn : spc.getSubpatterns()) {
+                result.addProperty(isMadeUpOfProp, processSubpattern(spIn, pattern));
+            }
+            if (spc.getMinOccurrences() == 0 || spc.getMaxOccurrences()>1) {
+                result.addProperty(hasDeterminingElementProp,
+                    model.createResource(generatePatternElementUri(spc.getPivotElement(), pattern)));
+            }            
+        } else if (sp instanceof PatternTriple) {
+            PatternTriple pt = (PatternTriple)sp;
+            result = model.createResource(uriStart + patternName + "_triple" + tripleCount++, patternTripleClass);
+            result.addProperty(hasSubjectProp, processPatternElement(pt.getE1(), pattern));
+            result.addProperty(hasPropertyProp, processPatternElement(pt.getE2(), pattern));
+            result.addProperty(hasObjectProp, processPatternElement(pt.getE3(), pattern));
+        }
+        return result;
+    }
+    
+    private static Resource processPatternElement(PatternElement pe, Pattern pattern) {
+        Resource result = model.createResource("http://mon.uri.moisie.fr/plop");
+        if (pe instanceof KbPatternElement) {
+            KbPatternElement kbpe = (KbPatternElement) pe;
+            if (kbpe.getUri().equals("BlankNode")) {
+                logger.info("BLANK NODE!!");
+                result = model.createResource(generatePatternElementUri(pe, pattern), blankNodePatternElementClass);
+            } else {
+                if (pe instanceof ClassPatternElement) {
+                    result = model.createResource(generatePatternElementUri(pe, pattern), classPatternElementClass)
+                            .addProperty(targetsClassProp, model.createResource(kbpe.getUri()))
+                            .addLiteral(isQualifyingProp, kbpe.isQualifying());
+                } else if (pe instanceof PropertyPatternElement) {
+                    PropertyPatternElement ppe = (PropertyPatternElement) pe;
+                    result = model.createResource(generatePatternElementUri(pe, pattern), propertyPatternElementClass)
+                            .addProperty(targetsPropertyProp, model.createResource(ppe.getUri()))
+                            .addLiteral(isQualifyingProp, ppe.isQualifying());
+                    for (Integer referedElement : ppe.getReferedElements()) {
+                        result.addProperty(refersToPatternElementProp,
+                                model.createResource(generatePatternElementUri(pattern.getPatternElementById(referedElement), pattern)));
+                    }
+                }
+            }
+        } else if (pe instanceof LiteralPatternElement) {
+            LiteralPatternElement lpe = (LiteralPatternElement)pe;
+            result = model.createResource(generatePatternElementUri(pe, pattern), literalPatternElementClass)
+                    .addProperty(targetsLiteralTypeProp, model.createResource(lpe.getType()))
+                    .addLiteral(isQualifyingProp, lpe.isQualifying());
+        }
+        
+        result.addLiteral(patternElementHasIdProp, pe.getId());
+        if (pe.getMappingCondition() != null) {
+            result.addLiteral(hasMappingConditionsProp, pe.getMappingCondition());
+        }
+        
+        return result;
+    }
+    
+    private static String generatePatternElementUri(PatternElement sp, Pattern pattern) {
+        logger.info(uriStart + pattern.getName() + "_element" + sp.getId());
+        return uriStart + pattern.getName() + "_element" + sp.getId();
+    }
+}

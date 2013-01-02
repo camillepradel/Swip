@@ -59,13 +59,19 @@ public class NlToPivotParserWS {
         logger.info("Dependency parser: " + depParser);
 
         if (posTagger.equals("treeTagger") && depParser.equals("malt")) {
+            long timeStart = System.currentTimeMillis();
             DependencyStructure graph = null;
             String[] tokens = getTt().posTag(nlQuery, lang);
+            long timePos = System.currentTimeMillis() - timeStart;
+            timeStart = System.currentTimeMillis();
             graph = getmp().posTaggedToDependecies(tokens, lang);
             logger.info("Returned dependecy graph:");
             getmp().displayDependencyTree(graph);
             DependencyTree dt = MaltParser.changeInDependencyTree(graph);
             logger.info(dt);
+            long timeDep = System.currentTimeMillis() - timeStart;
+            logger.info("time for POS tagging: " + timePos + " ms");
+            logger.info("time for dependency parsing: " + timeDep + " ms");
             return dt;
         } else if (posTagger.equals("stanfordParser") && depParser.equals("stanfordParser")) {
             return null;

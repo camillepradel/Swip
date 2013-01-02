@@ -15,20 +15,41 @@
 		<script type="text/javascript" src="js/rest.js"></script>
 		<script type="text/javascript" src="js/desc.js"></script>
 		<script type="text/javascript" src="js/descList.js"></script>
+		<script type="text/javascript" src="js/disclaimer.js"></script>
 	</head>
 
 	<body>
+		
+		<div id="disclaimer">
+			<div class="close"></div>
+			<em>Disclaimer.</em>
+			<div class="seemore"></div>
+			<p>SWIP is an approach aiming at translating user natural language queries into SPARQL queries targetting a given knowledge base. This web page is an interface to an implementation of this approach, currently in active development. It is provided to you for illustration purpose only.</p>
+			<p>Please note that the server hosting this application is also used for the development version and that some web services are shared. This may cause some unplanified inconveniences. If you enconter any problem preventing you from testing this service, please <a href="mailto:camillepradel@gmail.com">contact us</a>; we will react as promptly as possible.</p>
+			<div class="seeless"></div>
+		</div>		
 		<div id="logo">
 			<img id="swiplogo" src="img/swip-melodi.jpg" alt="Swip"/>
 			<img id="halo" src="img/halo2.png" alt="Swip"/>
 		</div>
 
 		<div id="form">
-			<input type="text" id="searchField1" class="searchField" value="Who produced the album In Utero?" />
-			<button id="searchButton1" class="searchButton" enabled="false">Translate</button><br />
-
-			<input type="text" id="searchField2" class="searchField" value="In_Utero." />
-			<button id="searchButton2" class="searchButton" enabled="false">Search</button>
+			<table>
+				<tr>
+					<th>Nl query:</th>
+					<td>
+						<input type="text" id="searchField1" class="searchField" value="Who produced the album In Utero?" />
+						<button id="searchButton1" class="searchButton" enabled="false">Get pivot query</button><br />
+					</td>
+				</tr>
+				<tr>
+					<th>Pivot query:</th>
+					<td>
+						<input type="text" id="searchField2" class="searchField" value="" />
+						<button id="searchButton2" class="searchButton" enabled="false">Get mappings</button>
+					</td>
+				</tr>
+			</table>
 		</div>
 
 		<div id="searchLoading" class="loading">

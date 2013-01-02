@@ -113,6 +113,19 @@ public class NlToPivotGazetteerWS {
                     resultNLQuery = resultNLQuery.replaceAll(substring, replacingSubstring);
                 }
             }
+            AnnotationSet dateAnnotSet = annotSet.get("TempDate");
+            for (Annotation lookupToKeepAnnot : dateAnnotSet) {
+                int start = lookupToKeepAnnot.getStartNode().getOffset().intValue();
+                int end = lookupToKeepAnnot.getEndNode().getOffset().intValue();
+                String substring = text.substring(start, end);
+                if (!dirtyStopList.contains(substring)) {
+                    String replacingSubstring = "date_" + substring.replaceAll(" ", "_");
+                    if (tagWithClass) {
+                        replacingSubstring = replacingSubstring + "(" + lookupToKeepAnnot.getFeatures().get("class") + ")";
+                    }
+                    resultNLQuery = resultNLQuery.replaceAll(substring, replacingSubstring);
+                }
+            }
             logger.info("adapted query for Gate pipeline with named entities: " + resultNLQuery);
             return resultNLQuery;
         } catch (ExecutionException ex) {

@@ -1,0 +1,879 @@
+<?xml version="1.0" ?>
+<dataset id="musicbrainz-test">
+	
+
+
+	<question aggregation="true" answertype="number" id="22" supported="true">
+		
+
+		<string>
+<![CDATA[
+To how many persons has Madonna been married?
+]]>		</string>
+		
+		
+		<manualPivotQuery>
+			Madonna: marry= person. COUNT
+		</manualPivotQuery>
+		
+
+		<keywords>
+<![CDATA[
+person, Madonna, married
+]]>		</keywords>
+		
+
+		<query>
+<![CDATA[
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rel: <http://purl.org/vocab/relationship/>
+SELECT COUNT(DISTINCT ?spouse) WHERE {
+	?artist foaf:name 'Madonna' .
+	?artist rel:spouseOf ?spouse .
+}
+]]>		</query>
+		
+
+		<queryInterpretation rank="1">
+			<relevancyMark>
+				1.7575642
+			</relevancyMark>
+			<descriptiveSentence>
+				Marry(person) married to __17__, collaborated with Madonna(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT (COUNT(*) AS ?AllNb)
+WHERE {
+       ?marry (rdfs:label|dc:title|foaf:name) &quot;Marry&quot;.
+
+       ?marry ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?marry &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?person.
+       ?marry &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?Madonna.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="2">
+			<relevancyMark>
+				1.7575642
+			</relevancyMark>
+			<descriptiveSentence>
+				un(e) person married to __17__, collaborated with Madonna(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT (COUNT(*) AS ?AllNb)
+WHERE {
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?person &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?marry.
+       ?person &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?Madonna.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="3">
+			<relevancyMark>
+				1.7575642
+			</relevancyMark>
+			<descriptiveSentence>
+				Madonna(person) married to __17__, collaborated with un(e) person
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT (COUNT(*) AS ?AllNb)
+WHERE {
+       ?Madonna (rdfs:label|dc:title|foaf:name) &quot;Madonna&quot;.
+
+       ?Madonna ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?Madonna &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?marry.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?Madonna &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?person.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="4">
+			<relevancyMark>
+				1.7575642
+			</relevancyMark>
+			<descriptiveSentence>
+				Marry(person) married to __17__, collaborated with un(e) person
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT (COUNT(*) AS ?AllNb)
+WHERE {
+       ?marry (rdfs:label|dc:title|foaf:name) &quot;Marry&quot;.
+
+       ?marry ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?marry &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?Madonna.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?marry &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?person.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="5">
+			<relevancyMark>
+				1.7575642
+			</relevancyMark>
+			<descriptiveSentence>
+				Madonna(person) married to __17__, collaborated with Marry(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT (COUNT(*) AS ?AllNb)
+WHERE {
+       ?Madonna (rdfs:label|dc:title|foaf:name) &quot;Madonna&quot;.
+
+       ?Madonna ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?Madonna &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?person.
+       ?Madonna &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?marry.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+	</question>
+	
+
+
+	<question aggregation="false" answertype="resource" id="24" supported="true">
+		
+
+		<string>
+<![CDATA[
+Which compilations does the song Last Christmas appear on?
+]]>		</string>
+		
+		
+		<manualPivotQuery>
+			Last_Christmas: appear= ?compilation. Last_Christmas: song.
+		</manualPivotQuery>
+		
+
+		<keywords>
+<![CDATA[
+compilation, song, Last Christmas, appear
+]]>		</keywords>
+		
+
+		<query>
+<![CDATA[
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+PREFIX tl: <http://purl.org/NET/c4dm/timeline.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?compilation ?title WHERE {
+	?track rdf:type mo:Track .
+	?track dc:title 'Last Christmas' .	
+	?compilation  mo:track ?track .
+	?compilation mo:release_type mo:compilation .
+	?compilation dc:title ?title
+}
+]]>		</query>
+		
+
+		<queryInterpretation rank="1">
+			<relevancyMark>
+				1.8380013
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas(song) from the album &lt;b&gt;Compilation&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?compilation rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?compilation (rdfs:label|dc:title|foaf:name) &quot;Compilation&quot;.
+       ?compilation &lt;http://purl.org/ontology/mo/track&gt; ?Last_Christmas.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="2">
+			<relevancyMark>
+				1.8380013
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas(song) from the album &lt;b&gt;Compilation&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?compilation rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?compilation (rdfs:label|dc:title|foaf:name) &quot;Compilation&quot;.
+       ?compilation &lt;http://purl.org/ontology/mo/track&gt; ?Last_Christmas.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="3">
+			<relevancyMark>
+				1.8380013
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas(song) from the album &lt;b&gt;Compilation&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?compilation rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?compilation (rdfs:label|dc:title|foaf:name) &quot;Compilation&quot;.
+       ?compilation &lt;http://purl.org/ontology/mo/track&gt; ?Last_Christmas.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="4">
+			<relevancyMark>
+				1.8380013
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas(song) from the album &lt;b&gt;Compilation&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?compilation rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?compilation (rdfs:label|dc:title|foaf:name) &quot;Compilation&quot;.
+       ?compilation &lt;http://purl.org/ontology/mo/track&gt; ?Last_Christmas.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="5">
+			<relevancyMark>
+				1.8380013
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas(song) from the album &lt;b&gt;Compilation&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?compilation rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?compilation (rdfs:label|dc:title|foaf:name) &quot;Compilation&quot;.
+       ?compilation &lt;http://purl.org/ontology/mo/track&gt; ?Last_Christmas.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+	</question>
+	
+
+
+	<question aggregation="false" answertype="number" id="25" supported="true">
+		
+
+		<string>
+<![CDATA[
+How long is Last Christmas by Kate and Bob?
+]]>		</string>
+		
+		
+		<manualPivotQuery>
+			Last_Christmas: ?duration; Kate_and_Bob.
+		</manualPivotQuery>
+		
+
+		<keywords>
+<![CDATA[
+long, Last Christman, Kate and Bob
+]]>		</keywords>
+		
+
+		<query>
+<![CDATA[
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+PREFIX tl: <http://purl.org/NET/c4dm/timeline.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?time WHERE {
+	?track rdf:type mo:Track .
+	?track dc:title 'Last Christmas' .	
+	?track  foaf:maker ?maker .
+	?maker foaf:name 'Kate & Bob' .
+	?track tl:duration ?time
+}
+]]>		</query>
+		
+
+		<queryInterpretation rank="1">
+			<relevancyMark>
+				1.8047009
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas created by Kate &amp; Bob, is &lt;b&gt;some pouet&lt;\/b&gt; milliseconds long
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?duration 
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Last_Christmas &lt;http://purl.org/ontology/mo/duration&gt; ?duration.
+       ?Kate_and_Bob rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?Kate_and_Bob (rdfs:label|dc:title|foaf:name) &quot;Kate &amp; Bob&quot;.
+       ?Last_Christmas &lt;http://xmlns.com/foaf/0.1/maker&gt; ?Kate_and_Bob.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="2">
+			<relevancyMark>
+				1.8047009
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas created by Kate &amp; Bob, is &lt;b&gt;some pouet&lt;\/b&gt; milliseconds long
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?duration 
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Last_Christmas &lt;http://purl.org/ontology/mo/duration&gt; ?duration.
+       ?Kate_and_Bob rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?Kate_and_Bob (rdfs:label|dc:title|foaf:name) &quot;Kate &amp; Bob&quot;.
+       ?Last_Christmas &lt;http://xmlns.com/foaf/0.1/maker&gt; ?Kate_and_Bob.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="3">
+			<relevancyMark>
+				1.8047009
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas created by Kate &amp; Bob, is &lt;b&gt;some pouet&lt;\/b&gt; milliseconds long
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?duration 
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Last_Christmas &lt;http://purl.org/ontology/mo/duration&gt; ?duration.
+       ?Kate_and_Bob rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?Kate_and_Bob (rdfs:label|dc:title|foaf:name) &quot;Kate &amp; Bob&quot;.
+       ?Last_Christmas &lt;http://xmlns.com/foaf/0.1/maker&gt; ?Kate_and_Bob.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="4">
+			<relevancyMark>
+				1.8047009
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas created by Kate &amp; Bob, is &lt;b&gt;some pouet&lt;\/b&gt; milliseconds long
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?duration 
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Last_Christmas &lt;http://purl.org/ontology/mo/duration&gt; ?duration.
+       ?Kate_and_Bob rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?Kate_and_Bob (rdfs:label|dc:title|foaf:name) &quot;Kate &amp; Bob&quot;.
+       ?Last_Christmas &lt;http://xmlns.com/foaf/0.1/maker&gt; ?Kate_and_Bob.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="5">
+			<relevancyMark>
+				1.8047009
+			</relevancyMark>
+			<descriptiveSentence>
+				Last Christmas created by Kate &amp; Bob, is &lt;b&gt;some pouet&lt;\/b&gt; milliseconds long
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?duration 
+WHERE {
+       ?Last_Christmas (rdfs:label|dc:title|foaf:name) &quot;Last Christmas&quot;.
+
+       ?Last_Christmas rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Last_Christmas &lt;http://purl.org/ontology/mo/duration&gt; ?duration.
+       ?Kate_and_Bob rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?Kate_and_Bob (rdfs:label|dc:title|foaf:name) &quot;Kate &amp; Bob&quot;.
+       ?Last_Christmas &lt;http://xmlns.com/foaf/0.1/maker&gt; ?Kate_and_Bob.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+	</question>
+	
+
+
+	<question aggregation="false" answertype="resource" id="26" supported="true">
+		
+
+		<string>
+<![CDATA[
+Give me all singles by Loona.
+]]>		</string>
+		
+		
+		<manualPivotQuery>
+			?single: Loona.
+		</manualPivotQuery>
+		
+
+		<keywords>
+<![CDATA[
+single, Loona
+]]>		</keywords>
+		
+
+		<query>
+<![CDATA[
+PREFIX event: <http://purl.org/NET/c4dm/event.owl#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+SELECT DISTINCT ?single ?title WHERE {
+	?single mo:release_type mo:single .
+	?single dc:title ?title .
+	?single foaf:maker ?maker .
+        ?maker foaf:name 'Loona' .
+}
+]]>		</query>
+		
+
+		<queryInterpretation rank="1">
+			<relevancyMark>
+				1.8180739
+			</relevancyMark>
+			<descriptiveSentence>
+				&lt;b&gt;a single&lt;\/b&gt; created by Loona
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?single 
+WHERE {
+       ?single (&lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://purl.org/ontology/mo/single&gt;.
+
+       ?Loona rdf:type &lt;http://purl.org/ontology/mo/MusicArtist&gt;.
+       ?Loona (rdfs:label|dc:title|foaf:name) &quot;Loona&quot;.
+       ?single &lt;http://xmlns.com/foaf/0.1/maker&gt; ?Loona.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="2">
+			<relevancyMark>
+				1.5904889
+			</relevancyMark>
+			<descriptiveSentence>
+				&lt;b&gt;Single&lt;\/b&gt; from the album Loona
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?single (rdfs:label|dc:title|foaf:name) &quot;Single&quot;.
+
+       ?single rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Loona rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?Loona (rdfs:label|dc:title|foaf:name) &quot;Loona&quot;.
+       ?Loona &lt;http://purl.org/ontology/mo/track&gt; ?single.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="3">
+			<relevancyMark>
+				1.5904889
+			</relevancyMark>
+			<descriptiveSentence>
+				&lt;b&gt;Single&lt;\/b&gt; from the album Loona
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?single (rdfs:label|dc:title|foaf:name) &quot;Single&quot;.
+
+       ?single rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Loona rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?Loona (rdfs:label|dc:title|foaf:name) &quot;Loona&quot;.
+       ?Loona &lt;http://purl.org/ontology/mo/track&gt; ?single.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="4">
+			<relevancyMark>
+				1.5904889
+			</relevancyMark>
+			<descriptiveSentence>
+				&lt;b&gt;Single&lt;\/b&gt; from the album Loona
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?single (rdfs:label|dc:title|foaf:name) &quot;Single&quot;.
+
+       ?single rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Loona rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?Loona (rdfs:label|dc:title|foaf:name) &quot;Loona&quot;.
+       ?Loona &lt;http://purl.org/ontology/mo/track&gt; ?single.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="5">
+			<relevancyMark>
+				1.5904889
+			</relevancyMark>
+			<descriptiveSentence>
+				&lt;b&gt;Single&lt;\/b&gt; from the album Loona
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT *
+WHERE {
+       ?single (rdfs:label|dc:title|foaf:name) &quot;Single&quot;.
+
+       ?single rdf:type &lt;http://purl.org/ontology/mo/Track&gt;.
+
+       ?Loona rdf:type &lt;http://purl.org/ontology/mo/Record&gt;.
+       ?Loona (rdfs:label|dc:title|foaf:name) &quot;Loona&quot;.
+       ?Loona &lt;http://purl.org/ontology/mo/track&gt; ?single.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+	</question>
+	
+
+
+	<question aggregation="false" answertype="resource" id="28" supported="true">
+		
+
+		<string>
+<![CDATA[
+Who made the song (Everything I Do) I Do It for You?
+]]>		</string>
+		
+		
+		<manualPivotQuery>
+			?person: make= (Everything_I_Do)_I_Do_It_for_You
+		</manualPivotQuery>
+		
+
+		<keywords>
+<![CDATA[
+make, song, (Everything I Do) I Do It for You
+]]>		</keywords>
+		
+
+		<query>
+<![CDATA[
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+SELECT DISTINCT ?maker ?name WHERE {
+	?single mo:release_type mo:single .
+	?single dc:title '(Everything I Do) I Do It for You' .
+	?single foaf:maker ?maker .
+	?maker foaf:name ?name
+}
+]]>		</query>
+		
+
+	</question>
+	
+
+
+	<question aggregation="false" answertype="resource" id="30" supported="true">
+		
+
+		<string>
+<![CDATA[
+Who was the husband of Whitney Houston?
+]]>		</string>
+		
+		
+		<manualPivotQuery>
+			Whitney_Houston: husband= ?person.
+		</manualPivotQuery>
+		
+
+		<keywords>
+<![CDATA[
+husband, Whitney Houston
+]]>		</keywords>
+		
+
+		<query>
+<![CDATA[
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rel: <http://purl.org/vocab/relationship/>
+SELECT DISTINCT ?spouse ?name WHERE {
+	?artist foaf:name 'Whitney Houston' .
+	?artist rel:spouseOf ?spouse .
+	?spouse foaf:name ?name
+}
+]]>		</query>
+		
+
+		<queryInterpretation rank="1">
+			<relevancyMark>
+				1.7447156
+			</relevancyMark>
+			<descriptiveSentence>
+				Whitney Houston(person) married to __17__, collaborated with James Husband(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?Whitney_Houston (rdfs:label|dc:title|foaf:name) &quot;Whitney Houston&quot;.
+
+       ?Whitney_Houston ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?Whitney_Houston &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?person.
+       ?Whitney_Houston &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?husband.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="2">
+			<relevancyMark>
+				1.7447156
+			</relevancyMark>
+			<descriptiveSentence>
+				&lt;b&gt;un(e) person&lt;\/b&gt; married to __17__, collaborated with James Husband(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?person &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?Whitney_Houston.
+       ?person &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?husband.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="3">
+			<relevancyMark>
+				1.7447156
+			</relevancyMark>
+			<descriptiveSentence>
+				Whitney Houston(person) married to __17__, collaborated with &lt;b&gt;un(e) person&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?Whitney_Houston (rdfs:label|dc:title|foaf:name) &quot;Whitney Houston&quot;.
+
+       ?Whitney_Houston ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?Whitney_Houston &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?husband.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?Whitney_Houston &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?person.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="4">
+			<relevancyMark>
+				1.7447156
+			</relevancyMark>
+			<descriptiveSentence>
+				James Husband(person) married to __17__, collaborated with &lt;b&gt;un(e) person&lt;\/b&gt;
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?husband (rdfs:label|dc:title|foaf:name) &quot;James Husband&quot;.
+
+       ?husband ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?husband &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?Whitney_Houston.
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?husband &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?person.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+		<queryInterpretation rank="5">
+			<relevancyMark>
+				1.7447156
+			</relevancyMark>
+			<descriptiveSentence>
+				James Husband(person) married to __17__, collaborated with Whitney Houston(person)
+			</descriptiveSentence>
+			<sparqlQuery>
+				PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+
+SELECT DISTINCT ?person 
+WHERE {
+       ?husband (rdfs:label|dc:title|foaf:name) &quot;James Husband&quot;.
+
+       ?husband ( rdf:type | &lt;http://purl.org/ontology/mo/release_type&gt;) &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+
+       ?person rdf:type &lt;http://xmlns.com/foaf/0.1/Agent&gt;.
+       ?husband &lt;http://purl.org/vocab/relationship/spouseOf&gt; ?person.
+       ?husband &lt;http://purl.org/ontology/mo/collaborated_with&gt; ?Whitney_Houston.
+}
+			</sparqlQuery>
+		</queryInterpretation>
+	</question>
+	
+
+
+</dataset>

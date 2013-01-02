@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset id="musicbrainz-test">
+
+<question id="24" answertype="resource" aggregation="false" supported="true">
+<string><![CDATA[
+Which compilations does the song Last Christmas appear on?
+]]></string>
+		<manualPivotQuery>Last_Christmas: appear= ?compilation. Last_Christmas: song.</manualPivotQuery>
+<keywords><![CDATA[
+compilation, song, Last Christmas, appear
+]]></keywords>
+<query><![CDATA[
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mo: <http://purl.org/ontology/mo/>
+PREFIX tl: <http://purl.org/NET/c4dm/timeline.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?compilation ?title WHERE {
+	?track rdf:type mo:Track .
+	?track dc:title 'Last Christmas' .	
+	?compilation  mo:track ?track .
+	?compilation mo:release_type mo:compilation .
+	?compilation dc:title ?title
+}
+]]></query>
+</question>
+
+</dataset>

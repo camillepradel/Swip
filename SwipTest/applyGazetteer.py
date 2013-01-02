@@ -3,7 +3,7 @@ from xml.dom.minidom import parse
 from suds.client import Client
 
 usage = """usage: python applyGazetteer inputFile outputFile
-    - inputFile: file containinf queries to be "gazetteed", to the qald format
+    - inputFile: file containing queries to be "gazetteed", to the qald format
     - outputFile: result file containing "gazetteed" queries."""
 
 
@@ -25,14 +25,14 @@ else:
 	dom = parse(inputFilename)
 
 	# web service
-	gazetteer_url = 'http://swipserver:8080/NlToPivotGatePipeline/NlToPivotGatePipelineWS?wsdl'
+	gazetteer_url = 'http://swip.univ-tlse2.fr/NlToPivotGazetteer/resources/rest/gatherNamedEntities'
 	gazetteer_client = Client(gazetteer_url)
 
 	for question_element in dom.getElementsByTagName('question'):
 		print question_element.attributes['id'].value
 		questionString = question_element.getElementsByTagName('string')[0].firstChild.wholeText.replace('\n','')
 		print questionString
-		d = dict(adaptedNlQuery=questionString, getClass=False)
+		d = dict(text=questionString, tagWithClass=False)
 		gazetteer_result = gazetteer_client.service.getQueryWithGatheredNamedEntities(**d)
 		print gazetteer_result
 		gazetteed_question_element = dom.createElement("gazetteedQuestion")

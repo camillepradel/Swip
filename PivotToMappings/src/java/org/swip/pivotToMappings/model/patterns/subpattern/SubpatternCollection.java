@@ -11,9 +11,11 @@ import org.swip.pivotToMappings.model.KbTypeEnum;
 import org.swip.pivotToMappings.model.patterns.Pattern;
 import org.swip.pivotToMappings.model.patterns.mapping.ElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.KbElementMapping;
+import org.swip.pivotToMappings.model.patterns.mapping.LiteralElementMapping;
 import org.swip.pivotToMappings.model.patterns.mapping.PatternToQueryMapping;
 import org.swip.pivotToMappings.model.patterns.patternElement.PatternElement;
 import org.swip.pivotToMappings.model.query.queryElement.Keyword;
+import org.swip.pivotToMappings.model.query.queryElement.Literal;
 import org.swip.pivotToMappings.model.query.queryElement.QueryElement;
 import org.swip.utils.sparql.SparqlServer;
 
@@ -173,6 +175,8 @@ public class SubpatternCollection extends Subpattern {
 
     @Override
     public String generateSparqlWhere(PatternToQueryMapping ptqm, SparqlServer sparqlServer, Map<PatternElement, String> elementsStrings, Set<String> selectElements, HashMap<String, String> numerciDataPropertyElements, LinkedList<String> typeStrings, LinkedList<String> labelStrings) {
+        
+        
         // if subpattern collection is optional and pivot element is not mapped
         Collection<ElementMapping> pivotElementMappings = ptqm.getElementMappings(this.pivotElement);
         if (this.minOccurrences == 0 && pivotElementMappings.isEmpty()) {
@@ -219,7 +223,7 @@ public class SubpatternCollection extends Subpattern {
                     + "{ " + pivotVarName + " rdfs:label \"" + matchedLabel + "\". }\n";*/
                     result += "       " + pivotVarName + " (rdfs:label|dc:title|foaf:name) \"" + matchedLabel + "\".\n";
                 }
-            } else { // literal
+            } else if (pivotElementMapping instanceof LiteralElementMapping) { // literal
                 if (pivotElementMapping.getQueryElement().isQueried()) {
                     //pivotVarName = "?literal" + ++(Subpattern.varCount);
                     // TODO: eventuellemnt contraindre le type du literal avec FILTER (datatype...
@@ -227,6 +231,9 @@ public class SubpatternCollection extends Subpattern {
                 } else {
 //                    List<String> typeStrings = new LinkedList<String>();
                     pivotVarName = pivotElementMapping.getQueryElement().getVarName();
+                    Literal l = (Literal) (pivotElementMapping.getQueryElement());
+                    String filterString = "FILTER ( " + pivotVarName + " = \"" + l.getStringValue() + "\"^^FIXME )";
+                    labelStrings.add(filterString);
 //                    for (String typeString : typeStrings) {
 //                        result += typeString;
 //                    }
