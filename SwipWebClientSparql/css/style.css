@@ -1,0 +1,225 @@
+/**
+ * General
+ **/
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+	font-size: .8em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#disclaimer
+{
+	width: 800px;
+	min-height:70px;
+	margin: 0 auto;
+	padding: 10px 10px 10px 100px;
+	background-color: #a66;
+	background-image:url(../img/HAL9000-2.svg);
+	background-repeat: no-repeat;
+	background-size: 80px;
+	border-radius: 0px 0px 15px 15px;
+}
+
+#disclaimer .close
+{
+	float: right;
+	width: 30px;
+	height: 30px;
+	background-image:url(../img/close.svg);
+	background-repeat: no-repeat;
+	background-size: 30px;
+}
+
+#disclaimer .seemore
+{
+	width: 30px;
+	height: 30px;
+	background-image:url(../img/seemore.svg);
+	background-repeat: no-repeat;
+	background-size: 30px;
+	margin-top: 10px;
+}
+
+#disclaimer p
+{
+	display: none;
+}
+
+#disclaimer .seeless
+{
+	width: 30px;
+	height: 30px;
+	background-image:url(../img/seeless.svg);
+	background-repeat: no-repeat;
+	background-size: 30px;
+	display: none;
+}
+
+
+#disclaimer em
+{
+	font-weight:bold;
+	font-size: 2em;
+}
+
+
+/**
+ * Logo
+ **/
+
+#logo
+{
+	position:relative;
+	margin: 200px auto 10px auto;
+	height: 76px;
+}
+
+#swiplogo
+{
+	position:absolute;
+	width: 808px;
+	left: 50%;
+	margin-left: -325px;
+	clip:rect(0, 414px, 76px, 236px);
+}
+
+#halo
+{
+	position:absolute;
+	width: 178px;
+	height: 76px;
+	left: 50%;
+	margin-left: -89px;
+}
+
+
+/**
+ * Search form
+ **/
+
+table
+{
+	margin-right: auto;
+	margin-left: auto;	
+}
+
+#form
+{
+	width: 100%;
+	text-align: right;
+}
+
+#form .searchField
+{
+	width: 600px;
+}
+
+#form .searchButton
+{
+	width: 150px;
+}
+
+
+/**
+ * Loading icon
+ **/
+
+.loading
+{
+	display: none;
+	width: 100%;
+	margin-top: 30px;
+	text-align: center;
+}
+
+
+/**
+ * Result table
+ **/
+
+#results
+{
+	display: none;
+	width: 80%;
+	overflow: hidden;
+	margin: 30px 0px 50px 10%;
+	padding: 0px;
+}
+
+#results .ui-tabs-panel
+{
+	padding: 10px 0px 0px 0px;
+}
+
+#results #jqGrid
+{
+	width: 100%;
+}
+
+#results #jqGrid td.descriptiveSentence
+{
+	padding-left: 20px;
+	text-align: left;
+}
+#results #jqGrid td.relevanceMark,
+#results #jqGrid td.id
+{
+	text-align: center;
+}
+
+#results .subgrid
+{
+	padding: 20px;
+}
+
+#results .subgrid span.title
+{
+	color: #448ac4;
+	font-weight: bold;
+}
+
+#results .subgrid .mappingPre
+{
+	font-size: 0.85em;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+#results ul.ui-tabs-nav li a
+{
+	padding: 4px 15px 2px 15px;
+}
+
+#results div.query
+{
+	padding: 20px;
+}
+
+#results div.query span.title
+{
+	color: #448ac4;
+	font-weight: bold;
+}
+
+#results div.query span.resultSpan
+{
+	display: block;
+	font-size: 1.1em;
+}
+
+#results span.removable:hover
+{
+	color: #ff0000;
+	text-decoration: line-through;
+}
+
+
+/**
+ * jQuery UI override
+ **/
+
+#results li .ui-icon-close { float: left; margin: 4px 0px 0px 0px; cursor: pointer; }

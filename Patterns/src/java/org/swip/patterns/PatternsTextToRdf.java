@@ -19,10 +19,6 @@ import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
 import org.swip.patterns.antlr.patternsDefinitionGrammarLexer;
 
-/**
- *
- * @author camille
- */
 public class PatternsTextToRdf {
 
     private static final Logger logger = Logger.getLogger(PatternsTextToRdf.class);
@@ -41,6 +37,10 @@ public class PatternsTextToRdf {
     static Resource propertyPatternElementClass = null;
     // object properties
     static Property isPatternMadeUpOfProp = null;
+    static Property patternHasSubpatternProp = null;
+    static Property hasDirectSubpatternProp = null;
+    static Property patternHasDirectSubpatternProp = null;
+    static Property patternHasPatternElementProp = null;
     static Property isMadeUpOfProp = null;
     static Property hasSubjectProp = null;
     static Property hasPropertyProp = null;
@@ -93,10 +93,10 @@ public class PatternsTextToRdf {
                 throw new PatternsParsingException(ex.getMessage());
             }
             // display loaded patterns
-//            logger.info("Patterns:\n");
-//            for (Pattern pattern : l) {
-//                logger.info(pattern.toString());
-//            }
+            logger.info("Patterns:\n");
+            for (Pattern pattern : l) {
+                logger.info(pattern.toString());
+            }
             logger.info("Pattern loaded");
             logger.info("time for loading patterns: " + (System.currentTimeMillis() - time) + "ms");
             logger.info("================================================================");
@@ -106,40 +106,45 @@ public class PatternsTextToRdf {
             logger.info("--------------------\n");
             model = ModelFactory.createDefaultModel();
  
-            in = PatternsTextToRdf.class.getClassLoader().getResourceAsStream("SwipOntology.owl");
+            in = PatternsTextToRdf.class.getClassLoader().getResourceAsStream("SwipPatterns.owl");
             if (in == null) {
                 logger.error("SWIP ONTOLOGY PATH ERROR!!");
             }
             // read the RDF/XML file
-            model.read(in, null);            
+            model.read(in, null);
             
-            uriStart = "http://swip.alwaysdata.net/patterns/" + setName + "#";
-            patternClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#Pattern");
-            patternTripleClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#PatternTriple");
-            subPatternCollectionClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#SubpatternCollection");
-            classPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#ClassPatternElement");
-            propertyPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#PropertyPatternElement");
-            literalPatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#LiteralPatternElement");
-            blankNodePatternElementClass = model.createResource("http://swip.alwaysdata.net/ontologies/SwipOntology#BlankNodePatternElement");
-            hasSentenceTemplateProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasSentenceTemplate");
-            hasMappingConditionsProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasMappingConditions");
-            isPatternMadeUpOfProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isPatternMadeUpOf");
-            isMadeUpOfProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isMadeUpOf");
-            hasSubjectProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasSubject");
-            hasPropertyProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasProperty");
-            hasObjectProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasObject");
-            hasCardMinProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasCardinalityMin");
-            hasCardMaxProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasCardinalityMax");
-            targetsClassProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsClass");
-            targetsPropertyProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsProperty");
-            targetsLiteralTypeProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsLiteralType");
-            isQualifyingProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#isQualifying");
-            subpatternCollectionhasNameProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#subpatternCollectionhasName");
-            patternHasAuthorProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#patternHasAuthor");
-            targetsOntologyProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#targetsOntology");
-            refersToPatternElementProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#refersToPatternElement");
-            hasDeterminingElementProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#hasDeterminingElement");
-            patternElementHasIdProp = model.createProperty("http://swip.alwaysdata.net/ontologies/SwipOntology#patternElementHasId");
+            uriStart = "http://swip.univ-tlse2.fr/patterns/" + setName + "#";
+            String patternOntologyUri = "http://swip.univ-tlse2.fr/ontologies/Patterns";
+            patternClass = model.createResource(patternOntologyUri + "#Pattern");
+            patternTripleClass = model.createResource(patternOntologyUri + "#PatternTriple");
+            subPatternCollectionClass = model.createResource(patternOntologyUri + "#SubpatternCollection");
+            classPatternElementClass = model.createResource(patternOntologyUri + "#ClassPatternElement");
+            propertyPatternElementClass = model.createResource(patternOntologyUri + "#PropertyPatternElement");
+            literalPatternElementClass = model.createResource(patternOntologyUri + "#LiteralPatternElement");
+            blankNodePatternElementClass = model.createResource(patternOntologyUri + "#BlankNodePatternElement");
+            hasSentenceTemplateProp = model.createProperty(patternOntologyUri + "#hasSentenceTemplate");
+            hasMappingConditionsProp = model.createProperty(patternOntologyUri + "#hasMappingConditions");
+            isPatternMadeUpOfProp = model.createProperty(patternOntologyUri + "#isPatternMadeUpOf");
+            patternHasSubpatternProp = model.createProperty(patternOntologyUri + "#patternHasSubpattern");
+            hasDirectSubpatternProp = model.createProperty(patternOntologyUri + "#hasDirectSubpattern");
+            patternHasDirectSubpatternProp = model.createProperty(patternOntologyUri + "#patternHasDirectSubpattern");
+            patternHasPatternElementProp = model.createProperty(patternOntologyUri + "#patternHasPatternElement");
+            isMadeUpOfProp = model.createProperty(patternOntologyUri + "#isMadeUpOf");
+            hasSubjectProp = model.createProperty(patternOntologyUri + "#hasSubject");
+            hasPropertyProp = model.createProperty(patternOntologyUri + "#hasProperty");
+            hasObjectProp = model.createProperty(patternOntologyUri + "#hasObject");
+            hasCardMinProp = model.createProperty(patternOntologyUri + "#hasCardinalityMin");
+            hasCardMaxProp = model.createProperty(patternOntologyUri + "#hasCardinalityMax");
+            targetsClassProp = model.createProperty(patternOntologyUri + "#targetsClass");
+            targetsPropertyProp = model.createProperty(patternOntologyUri + "#targetsProperty");
+            targetsLiteralTypeProp = model.createProperty(patternOntologyUri + "#targetsLiteralType");
+            isQualifyingProp = model.createProperty(patternOntologyUri + "#isQualifying");
+            subpatternCollectionhasNameProp = model.createProperty(patternOntologyUri + "#subpatternCollectionhasName");
+            patternHasAuthorProp = model.createProperty(patternOntologyUri + "#patternHasAuthor");
+            targetsOntologyProp = model.createProperty(patternOntologyUri + "#targetsOntology");
+            refersToPatternElementProp = model.createProperty(patternOntologyUri + "#refersToPatternElement");
+            hasDeterminingElementProp = model.createProperty(patternOntologyUri + "#hasDeterminingElement");
+            patternElementHasIdProp = model.createProperty(patternOntologyUri + "#patternElementHasId");
             
             Resource authorResource = model.createResource(authorUri);
             logger.info("authorUri: " + authorUri);
@@ -154,7 +159,7 @@ public class PatternsTextToRdf {
                 patternResource.addLiteral(hasSentenceTemplateProp, model.createLiteral(p.getSentenceTemplate()));
                 for (Subpattern sp : p.getSubpatterns()) {
                     logger.info("  - subpattern: " + ((SubpatternCollection)sp).getId());
-                    patternResource.addProperty(isPatternMadeUpOfProp, processSubpattern(sp, p));
+                    patternResource.addProperty(patternHasDirectSubpatternProp, processSubpattern(sp, p, patternResource));
                 }
             }
             OutputStream os = new ByteArrayOutputStream();
@@ -169,7 +174,7 @@ public class PatternsTextToRdf {
         return "error";
     }
 
-    private static Resource processSubpattern(Subpattern sp, Pattern pattern) {
+    private static Resource processSubpattern(Subpattern sp, Pattern pattern, Resource patternResource) {
         Resource result = null;
         String patternName = pattern.getName();
         if (sp instanceof SubpatternCollection) {
@@ -179,7 +184,9 @@ public class PatternsTextToRdf {
             result.addLiteral(hasCardMinProp, spc.getMinOccurrences())
                     .addLiteral(hasCardMaxProp, spc.getMaxOccurrences());
             for (Subpattern spIn : spc.getSubpatterns()) {
-                result.addProperty(isMadeUpOfProp, processSubpattern(spIn, pattern));
+                Resource spResource = processSubpattern(spIn, pattern, patternResource);
+                result.addProperty(hasDirectSubpatternProp, spResource);
+                patternResource.addProperty(patternHasSubpatternProp, spResource);
             }
             if (spc.getMinOccurrences() == 0 || spc.getMaxOccurrences()>1) {
                 result.addProperty(hasDeterminingElementProp,
@@ -188,9 +195,18 @@ public class PatternsTextToRdf {
         } else if (sp instanceof PatternTriple) {
             PatternTriple pt = (PatternTriple)sp;
             result = model.createResource(uriStart + patternName + "_triple" + tripleCount++, patternTripleClass);
-            result.addProperty(hasSubjectProp, processPatternElement(pt.getE1(), pattern));
-            result.addProperty(hasPropertyProp, processPatternElement(pt.getE2(), pattern));
-            result.addProperty(hasObjectProp, processPatternElement(pt.getE3(), pattern));
+            
+            Resource res = processPatternElement(pt.getE1(), pattern);
+            result.addProperty(hasSubjectProp, res);
+            patternResource.addProperty(patternHasPatternElementProp, res);
+            
+            res = processPatternElement(pt.getE2(), pattern);
+            result.addProperty(hasPropertyProp, res);
+            patternResource.addProperty(patternHasPatternElementProp, res);
+            
+            res = processPatternElement(pt.getE3(), pattern);
+            result.addProperty(hasObjectProp, res);
+            patternResource.addProperty(patternHasPatternElementProp, res);
         }
         return result;
     }

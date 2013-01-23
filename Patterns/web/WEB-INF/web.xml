@@ -7,7 +7,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletAdaptor</servlet-name>
-        <url-pattern>/resources/*</url-pattern>
+        <url-pattern>/PatternsWS/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

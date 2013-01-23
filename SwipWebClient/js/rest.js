@@ -18,10 +18,11 @@ function nlToPivot(nlQuery, lang)
         $.ajax
         ({
             type: 'GET',
-            dataType: "json",
+            dataType: "jsonp",
             // url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivot',
-            url: 'http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivot',
-            data: {nlQuery: nlQuery, kb:'musicbrainz', lang: lang, pos:'treeTagger', dep:'malt'},
+            url: 'http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP',
+            data: {nlQuery: nlQuery, kb:'musicbrainz', lang: lang, pos:'treeTagger', dep:'malt', callback: '?'},
+            crossDomain: true,
         }).done(function(data2)
         {   
             $('#searchField2').val(data2['pivotQuery']);

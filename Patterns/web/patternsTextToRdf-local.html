@@ -9,19 +9,46 @@
     <body>
         <h1>Translate query patterns from text to RDF</h1>
 
-        <form method="post" action="http://localhost:8080/PivotToMappings/PivotToMappingsWS/rest/patternsTextToRdf">
+        <form method="post" action="http://localhost:8080/Patterns/PatternsWS/rest/patternsTextToRdf">
             <table>
                 <tr>
-                    <th>Pattern set name:</th><th><input type="text" name="setName" size="50"/></th>
+                    <th>Pattern set name:</th><th><input type="text" name="setName" size="50" value="musicbrainz"/></th>
                 </tr>
                 <tr>
-                    <th>Targeted ontology URI:</th><th><input type="text" name="ontologyUri" size="50" value="http://ontologies.alwaysdata.net/cinema"/></th>
+                    <th>Targeted ontology URI:</th><th><input type="text" name="ontologyUri" size="50" value="http://purl.org/ontology/mo/"/></th>
                 </tr>
                 <tr>
                     <th>Author URI:</th><th><input type="text" name="authorUri" size="50" value="http://camillepradel.com/uris#me"/></th>
                 </tr>
                 <tr>
-                    <th>Patterns in text format:</th><th><textarea name="patterns" cols="133" rows="30"></textarea></th>
+                    <th>Patterns in text format:</th><th><textarea name="patterns" cols="133" rows="30">prefixes
+	dc: 	"http://purl.org/dc/elements/1.1/"
+	foaf:	"http://xmlns.com/foaf/0.1/"
+	mo: 	"http://purl.org/ontology/mo/"
+	event: 	"http://purl.org/NET/c4dm/event.owl#"
+	tl: 	"http://purl.org/NET/c4dm/timeline.owl#"
+	time:	"http://www.w3.org/2006/time#"
+	bio:	"http://purl.org/vocab/bio/0.1/"
+	owl:	"http://www.w3.org/2002/07/owl#"
+	blank:	"Blank"
+	rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xsd:    "http://www.w3.org/2001/XMLSchema#"
+	rel:	"http://purl.org/vocab/relationship/"
+end prefixes
+
+pattern cd_info
+	query
+		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:0..1/3
+		[ 1							6_mo:producer				7_foaf:Agent;			]producer:0..1/6
+		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..1/8
+		[ 1							10_mo:singer(11)			11_mo:Performer;		]vocal:0..1/10
+		[ 1							12_mo:release_status(13)	13_mo:ReleaseStatus;	]status:0..1/13
+		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/14
+	end query
+	sentence
+		__1__ _if_status_[whose status is __13__, ]_end_if_status_ _if_creator_[created by __3__, ]_end_if_creator_ _if_producer_[produced by __7__, ]_end_if_producer_ _if_composer_[composed by __9__, ]_end_if_composer_ _if_vocal_[vocalised by __11__, ]_end_if_vocal_ _if_lyricist_[whose lyricist is __15__]_end_if_lyricist_
+	end sentence
+end pattern</textarea></th>
                 </tr>
                 <tr>
                     <th></th><th><input type="submit" value="Translate to RDF"/></th>

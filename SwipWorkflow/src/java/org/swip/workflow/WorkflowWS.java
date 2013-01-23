@@ -3,6 +3,7 @@ package org.swip.workflow;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.json.JSONWithPadding;
 import com.sun.jersey.api.representation.Form;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -45,6 +46,8 @@ public class WorkflowWS {
         logger.info("Dependency parser: " + depParser);
 
         NlToPivotResult result = new NlToPivotResult();
+//        result.setGazetteedQuery("gazetteedQuery");
+//        result.setPivotQuery("?person: The_Heroes_of_Telemark");
 
         String gazetteedQuery = new NlToPivotGazetteerWS_JerseyClient().gatherNamedEntities(nlQuery, "false");
         result.setGazetteedQuery(gazetteedQuery);
@@ -72,6 +75,20 @@ public class WorkflowWS {
         logger.info("pivot query: " + pivotQuery);
 
         return result;
+    }
+
+    @GET
+    @Produces({"application/x-javascript", MediaType.APPLICATION_JSON})
+    @Path("nlToPivotJSONP")
+    public JSONWithPadding nlToPivotJSONP(
+            @QueryParam("nlQuery") @DefaultValue("") String nlQuery,
+            @QueryParam("kb") @DefaultValue("") String kb,
+            @QueryParam("lang") @DefaultValue("fr") String lang,
+            @QueryParam("pos") @DefaultValue("treeTagger") String posTagger,
+            @QueryParam("dep") @DefaultValue("malt") String depParser,
+            @QueryParam("callback") @DefaultValue("fn") String callback) throws ParseException, UniformInterfaceException, JAXBException, IOException {
+
+        return new JSONWithPadding(nlToPivot(nlQuery, kb, lang, posTagger, depParser), callback);
     }
 
     static class NlToPivotGazetteerWS_JerseyClient {

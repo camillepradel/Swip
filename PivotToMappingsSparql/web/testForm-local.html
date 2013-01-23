@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>PivotToMappingsSparql web service - local</title>
+        <link rel="stylesheet" type="text/css" href="testFormStyle.css" />
+    </head>
+
+    <body>
+        <h1>PivotToMappingsSparql web service - local</h1>
+
+
+        <h3>Generate best mappings</h3>
+
+        <form method="get" action="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappings">
+            <table>
+                <tr>
+                    <th>Pivot query:</th><th><input type="text" name="pivotQuery" size="50"  value="Coast_To_Coast: song. ?person: compose= Coast_To_Coast."/></th>
+                </tr>
+                <tr>
+                    <th>SPARQL endpoint URI:</th><th><input type="text" name="sparqlEndpointUri" size="50"  value="http://swip.univ-tlse2.fr:8080/musicbrainz/"/></th>
+                </tr>
+                <tr>
+                    <th>Num mappings:</th><th><input type="text" name="numMappings" size="5"  value="50"/></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Generate mappings"/></th>
+                </tr>
+            </table>			
+        </form>
+
+
+        <h3>Delete pivot query</h3>
+
+        <form method="get" action="http://localhost:8080/PivotToMappingsSparql/resources/rest/deleteQuery">
+            <table>
+                <tr>
+                    <th>Pivot query:</th><th><input type="text" name="pivotQuery" size="50"  value="Coast_To_Coast: song. ?person: compose= Coast_To_Coast."/></th>
+                </tr>
+                <tr>
+                    <th>SPARQL endpoint URI:</th><th><input type="text" name="sparqlEndpointUri" size="50"  value="http://swip.univ-tlse2.fr:8080/musicbrainz/"/></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" value="Delete query"/></th>
+                </tr>
+            </table>			
+        </form>
+
+    </body>
+</html>
