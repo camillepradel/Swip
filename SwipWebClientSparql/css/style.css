@@ -223,3 +223,19 @@ table
  **/
 
 #results li .ui-icon-close { float: left; margin: 4px 0px 0px 0px; cursor: pointer; }
+
+
+
+
+
+
+
+
+
+
+
+
+#result .pivottomappings .spcollectionmappings li
+{
+	list-style-type:none; 
+}

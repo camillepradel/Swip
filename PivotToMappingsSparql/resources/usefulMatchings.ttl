@@ -5,15 +5,17 @@
 graph:person a queries:KeywordQueryElement ;
              queries:keywordAlreadyMatched "true"^^xsd:boolean.
 
-_:m1 a queries:Matching;
-     queries:matchingHasKeyword graph:person;
-               queries:matchingHasResource <http://xmlns.com/foaf/0.1/Agent>;
-               queries:matchingHasScore "50"^^xsd:float;
-               queries:matchingHasMatchedLabel "person".
+graph:match_person1
+	a queries:Matching;
+    queries:matchingHasKeyword graph:person;
+    queries:matchingHasResource <http://xmlns.com/foaf/0.1/Agent>;
+    queries:matchingHasScore "50"^^xsd:float;
+    queries:matchingHasMatchedLabel "person".
 
-_:m2 a queries:Matching;
-     queries:matchingHasKeyword graph:person;
-               queries:matchingHasResource <http://purl.org/ontology/mo/Performer>;
-               queries:matchingHasScore "50"^^xsd:float;
-               queries:matchingHasMatchedLabel "person".
+graph:match_person2
+	a queries:Matching;
+    queries:matchingHasKeyword graph:person;
+    queries:matchingHasResource <http://purl.org/ontology/mo/Performer>;
+    queries:matchingHasScore "50"^^xsd:float;
+    queries:matchingHasMatchedLabel "person".
 

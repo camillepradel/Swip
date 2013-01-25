@@ -113,6 +113,8 @@ function pivotToSparql(pvQuery)
         $('#result .pivottomappings').append('<div class="triplemappings"></div>');
         $('#result .pivottomappings').append('<div class="spcollectionmappings"></div>');
         $('#result .pivottomappings').append('<div class="patternmappings"></div>');
+        $('#result .pivottomappings').append('<div class="mappingsranking"></div>');
+        $('#result .pivottomappings').append('<div class="queryprocessed"></div>');
         updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);});
         var refreshIntervalId = setInterval(function() { updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);}); }, 3000);
         

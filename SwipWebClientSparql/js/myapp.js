@@ -28,9 +28,17 @@ var PROCESSING_STATES = [
 		updateDisplay: diplaySpCollectionMapping,
 	},
 	{
+		uri: QUERIES_PREFIX + "PerformingPatternMapping",
+		updateDisplay: diplayPatternMapping,
+	},
+	{
+		uri: QUERIES_PREFIX + "PerformingMappingRanking",
+		updateDisplay: diplayMappingRanking,
+	},
+	{
 		uri: QUERIES_PREFIX + "QueryProcessed",
 		updateDisplay: function(queryUri, sparqlEndpointUri, stopRefresh) {
-			diplayPatternMapping(queryUri, sparqlEndpointUri);
+			diplayQueryProcessed(queryUri, sparqlEndpointUri);
 			stopRefresh();
 		},
 	},
@@ -54,7 +62,7 @@ function updateQueryState(queryUri, sparqlEndpointUri, stopRefresh) {
 		}
 
 		lastDisplayedProcessingStateNumber = processingStateNumber;
-		$('#state').text(processingState);
+		// $('#state').text(processingState);
 	});
 }
 
@@ -102,12 +110,12 @@ function diplayMatching(queryUri, sparqlEndpointUri)
 	// console.log(sparqlQuery);
 	var callback = function(data) {
 		var table = "<h2>Matchings</h2>\n";
-		table += "<table><tr><th>keyword</th><th>matched label</th><th>score</th></tr>";
+		table += "<table><tr><th>keyword</th><th>matched label</th><th>score</th><th>matching</th></tr>";
 		var currentKeywordValue = "";
 
 		$.each(data.results.bindings, function(i, val) {
 
-			table += "<tr><td>" + ((currentKeywordValue == val.keywordValue.value)? "" : val.keywordValue.value) + "</td><td><a href='" + val.resource.value + "' title='matched resource: " + val.resource.value + "'>" + val.matchedLabel.value + "</a></td><td>" + val.score.value + "</td></tr>";
+			table += "<tr><td>" + ((currentKeywordValue == val.keywordValue.value)? "" : val.keywordValue.value) + "</td><td><a href='" + val.resource.value + "' title='matched resource: " + val.resource.value + "'>" + val.matchedLabel.value + "</a></td><td>" + val.score.value + "</td><td>" + "<a href='" + val.matching.value + "'>lien</a></td></tr>";
 			currentKeywordValue = val.keywordValue.value;
 		});
 
@@ -162,12 +170,12 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 				}
 				currentPattern = val.p.value;
 				list += "<li>Pattern " + currentPattern + "</li>";
-				list += "<table><tr><th>pattern element</th><th>target</th><th>query element</th><th>matched label</th><th>score</th></tr>";
+				list += "<table><tr><th>pattern element</th><th>target</th><th>query element</th><th>matched label</th><th>score</th><th>element mapping</th></tr>";
 			}
 			// if (!val.keywordValue) {
 			// 	val.keywordValue = {value:"plop"};
 			// }
-			list += "<tr><td>" + val.pe.value.replace(currentPattern, "...") + "</td><td>" + val.target.value + "</td><td>" + (val.keywordValue? val.keywordValue.value : "<i>empty mapping</i>") + "</td><td>" + (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-") + "</td><td>" + (val.score? val.score.value : "-") + "</td></tr>";
+			list += "<tr><td>" + val.pe.value.replace(currentPattern, "...") + "</td><td>" + val.target.value + "</td><td>" + (val.keywordValue? val.keywordValue.value : "<i>empty mapping</i>") + "</td><td>" + (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-") + "</td><td>" + (val.score? val.score.value : "-") + "</td><td>" + "<a href='" + val.em.value + "'>lien</a></td></tr>";
 		});
 
 		list += "</table>";
@@ -294,11 +302,14 @@ function diplaySpCollectionMapping(queryUri, sparqlEndpointUri)
 				case "http://swip.univ-tlse2.fr/ontologies/Queries#toConsiderInMappingQuery":
 					imagePath = "img/mapped.svg";
 					break;
+				case "http://swip.univ-tlse2.fr/ontologies/Queries#allreadyCombinedForQuery":
+					imagePath = "img/mapped.svg";
+					break;
 				case "http://swip.univ-tlse2.fr/ontologies/Queries#isMappedToQuery":
 					imagePath = "img/mapped.svg";
 					break;
 			}
-			html += "<li><img src='" + imagePath + "' width='32px'>Subpattern " + val.sp.value + "</li>";
+			html += "<li><img src='" + imagePath + "' width='16px'>" + val.sp.value.replace("http://swip.univ-tlse2.fr/patterns/musicbrainz#", "") + "</li>";
 		});
 
 		html += " </ul> ";
@@ -312,57 +323,97 @@ function diplaySpCollectionMapping(queryUri, sparqlEndpointUri)
  **/
 function diplayPatternMapping(queryUri, sparqlEndpointUri)
 {
-	var sparqlQuery = "PREFIX patterns: <" + PATTERNS_PREFIX + ">\n"
-					+ "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
+	var sparqlQuery = "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
 					+ "PREFIX graph: <" + GRAPH_PREFIX + ">\n"
-					+ "SELECT * WHERE\n"
+					+ "select (count(?pm) AS ?nb) where\n"
 					+ "{\n"
-					+ "  GRAPH graph:patterns\n"
-					+ "  {\n"
-					+ "    ?p a patterns:Pattern.\n"
-					+ "  }\n"
 					+ "  GRAPH graph:queries\n"
 					+ "  {\n"
-					+ "    ?em a queries:ElementMapping.\n"
-					+ "    ?pm queries:mappingHasPatternConstituent ?p;\n"
-					+ "       queries:mappingHasQuery <" + queryUri + ">;\n"
-					+ "       queries:mappingContainsMapping+ ?em.\n"
-					+ "    ?em queries:emHasMatching ?m;\n"
-					+ "        queries:emHasPatternElement ?pe.\n"
-					+ "    ?m (queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue;\n"
-					+ "       queries:matchingHasScore ?score;\n"
-					+ "       queries:matchingHasMatchedLabel ?label;\n"
-					+ "       queries:matchingHasResource ?resource.\n"
+					+ "    ?pm a queries:PatternMapping;\n"
+					+ "        queries:mappingHasQuery <" + queryUri + "> .\n"
 					+ "  }\n"
-					+ "}\n"
-					+ "ORDER BY ?p ?pm LIMIT 50";
-	console.log(sparqlQuery);
+					+ "}";
+	// console.log(sparqlQuery);
 	var html = "<h2>Pattern mappings</h2>\n";
 	var callback = function(data) {
 		
-		html += " <ul> "
+		html += "number of mappings: "
 
 		$.each(data.results.bindings, function(i, val) {
-			var imagePath = "";
-			switch (val.state.value) {
-				case "http://swip.univ-tlse2.fr/ontologies/Queries#isNotMappedToQuery":
-					imagePath = "img/not_mapped.svg";
-					break;
-				case "http://swip.univ-tlse2.fr/ontologies/Queries#isBeingMappedToQuery":
-					imagePath = "img/being_mapped.svg";
-					break;
-				case "http://swip.univ-tlse2.fr/ontologies/Queries#toConsiderInMappingQuery":
-					imagePath = "img/mapped.svg";
-					break;
-				case "http://swip.univ-tlse2.fr/ontologies/Queries#isMappedToQuery":
-					imagePath = "img/mapped.svg";
-					break;
-			}
-			html += "<li><img src='" + imagePath + "' width='32px'>Subpattern " + val.sp.value + " : " + val.state.value.replace("http://swip.univ-tlse2.fr/ontologies/Queries#", "") + "</li>";
+			html += val.nb.value;
 		});
 
 		html += " </ul> ";
 		$('#result .pivottomappings .patternmappings').html(html);
 	}
-	// processQuery(sparqlQuery, sparqlEndpointUri, callback);
+	processQuery(sparqlQuery, sparqlEndpointUri, callback);
+}
+
+/**
+ * 
+ **/
+function diplayMappingRanking(queryUri, sparqlEndpointUri)
+{
+	var html = "<h2>Mappings ranking</h2>\n";
+	$('#result .pivottomappings .mappingsranking').html(html);
+}
+
+/**
+ * 
+ **/
+function diplayQueryProcessed(queryUri, sparqlEndpointUri)
+{
+	var sparqlQuery = "PREFIX patterns: <" + PATTERNS_PREFIX + ">\n"
+					+ "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
+					+ "PREFIX graph: <" + GRAPH_PREFIX + ">\n"
+					+ "SELECT * WHERE\n"
+					+ "{\n"
+					// + "  {\n"
+					// + "    SELECT * WHERE\n"
+					// + "    {\n"
+					+ "      GRAPH graph:queries\n"
+					+ "      {\n"
+					+ "        ?pm a queries:PatternMapping;\n"
+					+ "            queries:mappingHasQuery <" + queryUri + ">;\n"
+					+ "            queries:hasEmrMark ?emrmark;\n"
+					+ "            queries:hasQcrMark ?qcrmark;\n"
+					+ "            queries:hasPcrMark ?pcrmark;\n"
+					+ "            queries:hasRelevanceMark ?rmark.\n"
+					+ "      }\n"
+					// + "    } ORDER BY DESC(?score) ?pm OFFSET 0 LIMIT 10\n"
+					// + "  }\n"
+					// + "  GRAPH graph:queries\n"
+					// + "  {\n"
+					// + "    ?pm queries:mappingHasPatternConstituent ?p;\n"
+					// + "        queries:mappingContainsMapping+ ?em.\n"
+					// + "    ?em queries:emHasPatternElement ?pe.\n"
+					// + "    OPTIONAL\n"
+					// + "    {\n"
+					// + "      ?em queries:emHasMatching ?m.\n"
+					// + "      ?m (queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue;\n"
+					// + "         queries:matchingHasScore ?score;\n"
+					// + "         queries:matchingHasMatchedLabel ?label;\n"
+					// + "         queries:matchingHasResource ?resource.\n"
+					// + "    }\n"
+					// + "  }\n"
+					// + "  GRAPH graph:patterns\n"
+					// + "  {\n"
+					// + "    ?p a patterns:Pattern.\n"
+					// + "    ?pe patterns:targets ?target.\n"
+					// + "  }\n"
+					+ "}ORDER BY DESC(?rmark) ?pm OFFSET 0 LIMIT 10\n";
+	console.log(sparqlQuery);
+	var html = "<h2>Ranked interpretations</h2>\n";
+	var callback = function(data) {
+		
+		html += " <ul> "
+
+		$.each(data.results.bindings, function(i, val) {
+				html += "<li>" + val.pm.value + " - " + val.rmark.value + "(" + val.emrmark.value + " - " + val.qcrmark.value + " - " + val.pcrmark.value + ")</li>";
+		});
+
+		html += " </ul> ";
+		$('#result .pivottomappings .queryprocessed').html(html);
+	}
+	processQuery(sparqlQuery, sparqlEndpointUri, callback);
 }
