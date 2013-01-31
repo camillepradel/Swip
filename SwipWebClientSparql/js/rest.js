@@ -69,7 +69,8 @@ function nlToPivot(nlQuery, lang)
  **/
 function pivotToSparql(pvQuery)
 {
-    var sparqlEndpointUri = 'http://swip.univ-tlse2.fr:8080/musicbrainz/';
+    var shortSparqlEndpointUri = 'swip.univ-tlse2.fr:8080/musicbrainz';
+    var sparqlEndpointUri = 'http://' + shortSparqlEndpointUri + "/";
     $.ajax
     ({
         type: 'GET',
@@ -77,7 +78,7 @@ function pivotToSparql(pvQuery)
         // url: 'http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP',
         // url: 'http://swip.univ-tlse2.fr/PivotToMappings/resources/rest/generateBestMappingsJSONP',
         url: 'http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP',
-        data: {pivotQuery: pvQuery, sparqlEndpointUri: sparqlEndpointUri, numMappings: 50, kb: 'musicbrainz', callback: '?'},
+        data: {pivotQuery: pvQuery, sparqlEndpointUri: shortSparqlEndpointUri, numMappings: 5, kb: 'musicbrainz', callback: '?'},
         crossDomain: true,
             beforeSend : function (xhr) {
                 $('#swiplogo').animate
@@ -114,9 +115,10 @@ function pivotToSparql(pvQuery)
         $('#result .pivottomappings').append('<div class="spcollectionmappings"></div>');
         $('#result .pivottomappings').append('<div class="patternmappings"></div>');
         $('#result .pivottomappings').append('<div class="mappingsranking"></div>');
+        $('#result .pivottomappings').append('<div class="kbclearing"></div>');
         $('#result .pivottomappings').append('<div class="queryprocessed"></div>');
         updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);});
-        var refreshIntervalId = setInterval(function() { updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);}); }, 3000);
+        var refreshIntervalId = setInterval(function() { updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);}); }, 1000);
         
     }).fail(function(jqXHR, textStatus) {
         toggleSearch(true);

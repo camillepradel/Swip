@@ -1,0 +1,267 @@
+<html>
+<head>
+    <title>OpenLink AJAX Toolkit</title>
+    <link rel="STYLESHEET" type="text/css" href="oat.css"/>
+  </head>
+
+<div id="oatnav">
+    <a href="index.html">Index</a> | 
+      <a href="http://oat.openlinksw.com/" target="_new">OAT homepage</a> | 
+      <a href="http://www.openlinksw.com/" target="_new">OpenLink Software</a>
+  </div>
+  <h1>
+    OATDOCanchor</h1>
+  <div class="topic-text">
+    
+
+    <div class="oatwikitoc">
+      <div class="wikitoc">
+      <ul>
+        <li>
+            <a href="#OATDOCanchor">OATDOCanchor</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+        <a href="#anchor.js">anchor.js</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Functions">Functions</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.Anchor.assign(anchor,%20options)">OAT.Anchor.assign(anchor,
+        options)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.Anchor.close(element,%20recursive)">OAT.Anchor.close(element,
+        recursive)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Example">Example</a>
+          </li>
+      </ul>
+    </div>
+    </div>
+
+    
+
+    
+
+    
+
+    <h2>
+      <a name="anchor.js" id="anchor.js"> 
+      </a> anchor.js</h2>
+
+    <p>Enhanced Anchor tag.</p>
+
+    
+
+    <h3>
+      <a name="Functions" id="Functions"> 
+      </a> Functions</h3>
+
+    
+
+    <h4>
+      <a name="OAT.Anchor.assign(anchor, options)"> 
+      </a>
+    OAT.Anchor.assign(anchor, options)</h4>
+
+    <p>Modifies anchor element so it acts like Enhanced Anchor:
+    when activated, it displays some additional data in lookup
+    bubble. The lookup bubble is an instance of <a href="OATDOCwin.html">OAT.Win</a>object - so it can be styled the
+    same way: use predefined <tt>OAT.Win</tt> styles or use its own
+    via template. Options are the following:</p>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>href</tt>
+        </strong> - String, url of requested
+      data. When false, <tt>anchor</tt> inherits this value from
+      the <tt>href</tt> attribute.<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>connection</tt>
+        </strong> -
+      <tt>OAT.Connection</tt> object<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>datasource</tt>
+        </strong> -
+      <tt>OAT.DataSource</tt> object<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>result_control</tt>
+        </strong> - "
+      <tt>grid</tt> ", " <tt>timeline</tt> " or " <tt>form</tt> ".
+      Default is grid. Use false for common window.<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>content</tt>
+        </strong> - node to be inserted
+      (for example, <tt>OAT.Dom.text()</tt> can be used for raw
+      text).<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>status</tt>
+        </strong> - string to be inserted
+      into <tt>status</tt> line<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>title</tt>
+        </strong> - string to be in the
+      <tt>title</tt> area of the window<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>activation</tt>
+        </strong> - " <tt>hover</tt>
+      ", " <tt>click</tt> ", " <tt>dblclick</tt> " or "
+      <tt>focus</tt> "<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>width</tt>
+        </strong> ,
+      <strong>
+          <tt>height</tt>
+        </strong> - dimensions of lookup
+      window (false is like ' <tt>auto</tt> ' in CSS)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>elm</tt>
+        </strong> - anchor node (use when
+      other than current)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>newHref</tt>
+        </strong> - new ' <tt>href</tt> '
+      attribute of the <tt>anchor</tt> , defaults to '
+      <tt>javascript:void(0)</tt> '<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>type</tt>
+        </strong> - Window style type
+      (default <tt>OAT.WinData.RECT</tt> ). (See <a href="OATDOCwin.html">OAT.Win</a> for other types.)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>template</tt>
+        </strong> - custom type data.
+      (See <a href="OATDOCwin.html">OAT.Win</a> for details.)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>visibleButtons</tt>
+        </strong> - default "
+      <tt>cr</tt> ". (See <a href="OATDOCwin.html">OAT.Win</a> for details.)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>enabledButtons</tt>
+        </strong> - default "
+      <tt>cr</tt> ". (See <a href="OATDOCwin.html">OAT.Win</a> for details.)</li>
+    </ul>
+
+    <h4>
+      <a name="OAT.Anchor.close(element, recursive)"> 
+      </a>
+    OAT.Anchor.close(element, recursive)</h4>
+
+    <p>
+      <br/>
+    Closes selected a++ window. The main point of this method is
+    that it can be called from anywhere, so we do not have to use
+    the close button of the window itself.<br/>
+    </p>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>element</tt>
+        </strong> - any element inside
+      the a++ or the a++ container itself.<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>recursive</tt>
+        </strong> - (optional) if the
+      anchor is inside of another window, close all parents
+      recursively.</li>
+    </ul>
+
+    <h3>
+      <a name="Example" id="Example"> 
+      </a> Example</h3>
+
+    
+    <pre>
+var options = {
+        title:"Title text",
+        content:OAT.Dom.text("Content text"),
+        status:"Status text",
+        result_control:false,
+        activation: "hover",
+        type:OAT.WinData.TYPE_MAC
+}
+OAT.Anchor.assign("elementID", options);
+
+</pre>
+
+    
+
+    
+    <hr/>
+  </div>
+<div id="oatcopy">
+      Copyright (C) 2005-2008
+      <a href="http://www.openlinksw.com/">OpenLink Software</a>
+  </div>
+</html>

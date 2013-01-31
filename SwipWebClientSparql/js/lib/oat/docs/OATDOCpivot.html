@@ -1,0 +1,584 @@
+<html>
+<head>
+    <title>OpenLink AJAX Toolkit</title>
+    <link rel="STYLESHEET" type="text/css" href="oat.css"/>
+  </head>
+
+<div id="oatnav">
+    <a href="index.html">Index</a> | 
+      <a href="http://oat.openlinksw.com/" target="_new">OAT homepage</a> | 
+      <a href="http://www.openlinksw.com/" target="_new">OpenLink Software</a>
+  </div>
+  <h1>
+    OATDOCpivot</h1>
+  <div class="topic-text">
+    
+
+    <div class="oatwikitoc">
+      <div class="wikitoc">
+      <ul>
+        <li>
+            <a href="#OATDOCpivot">OATDOCpivot</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+        <a href="#pivot.js">pivot.js</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Objects">Objects</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.Pivot(div,%20chartDiv,%20filterDiv,%20headerRow,%20dataRows,%20headerRowIndexes,%20headerColIndexes,%20filterIndexes,%20dataColumnIndex,%20options)">
+        OAT.Pivot(div, chartDiv, filterDiv, headerRow, dataRows,
+        headerRowIndexes, headerColIndexes, filterIndexes,
+        dataColumnIndex, options)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Constants">Constants</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.PivotData.TYPE_">OAT.PivotData.TYPE_</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#CSS%20classes">CSS
+        classes</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.pivot_table">.pivot_table</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.h1">.h1</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.h2">.h2</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.odd">.odd</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.even">.even</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.subtotal">.subtotal</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.total">.total</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.gtotal">.gtotal</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.pivot_chart">.pivot_chart</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.pivot">.pivot</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#.pivot">.pivot</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Example">Example</a>
+          </li>
+      </ul>
+    </div>
+    </div>
+
+    
+
+    
+
+    
+
+    <h2>
+      <a name="pivot.js" id="pivot.js"> 
+      </a> pivot.js</h2>
+
+    <p>Advanced interactive Pivot table.</p>
+
+    
+
+    <h3>
+      <a name="Objects" id="Objects"> 
+      </a> Objects</h3>
+
+    
+
+    <h4>
+      <a name="OAT.Pivot(div, chartDiv, filterDiv, headerRow, dataRows, headerRowIndexes, headerColIndexes, filterIndexes, dataColumnIndex, options)"> 
+      </a> OAT.Pivot(div, chartDiv, filterDiv, headerRow, dataRows,
+    headerRowIndexes, headerColIndexes, filterIndexes,
+    dataColumnIndex, options)</h4>
+
+    <p>Creates Pivot table. Arguments are explained below:</p>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>div</tt>
+        </strong> - the pivot table will be
+      created as a child of this element (dom element)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>chartDiv</tt>
+        </strong> - pivot chart will be
+      created as a child of this element (dom element)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>filterDiv</tt>
+        </strong> - 'paging' selects
+      will go here (dom element)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>headerRow</tt>
+        </strong> - array of headings
+      for dataRows (array)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>dataRows</tt>
+        </strong> - array of rows. Every
+      row (array) must have the same number of elements as
+      <tt>headerRow</tt> (array of arrays)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>headerRowIndexes</tt>
+        </strong> - array,
+      containing indexes of columns which should be drawn as
+      vertical aggregate columns (array)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>headerColIndexes</tt>
+        </strong> - array,
+      containing indexes of columns which should be drawn as
+      horizontal aggregate columns (array)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>filterIndexes</tt>
+        </strong> - array,
+      containing indexes of columns which should be drawn as paging
+      aggregate columns (array)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>dataColumnIndex</tt>
+        </strong> - index of data
+      column (number)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>optObj</tt>
+        </strong> - object containing
+      following:<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>headingBefore</tt>
+        </strong> - should we
+      create headings before data? (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>headingAfter</tt>
+        </strong> - should we create
+      headings after data? (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>agg</tt>
+        </strong> - constant, specifying
+      appropriate aggregating function index (number)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>aggTotals</tt>
+        </strong> - constant,
+      specifying appropriate aggregating function index for
+      sub-totals and totals (number)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>showChart</tt>
+        </strong> - show chart?
+      (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>showRowChart</tt>
+        </strong> - show row totals
+      chart? (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>showColChart</tt>
+        </strong> - show column
+      totals chart? (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>type</tt>
+        </strong> - one of <tt>TYPE_</tt>
+      constants for number formatting ( <tt>OAT.PivotData</tt>
+      )<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>customType</tt>
+        </strong> - formatting
+      function for <tt>TYPE_CUSTOM</tt>
+        <br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>showEmpty</tt>
+        </strong> - show columns &amp;
+      rows with null values? (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>subtotals</tt>
+        </strong> - show subtotals?
+      (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>totals</tt>
+        </strong> - show totals?
+      (bool)<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>currencySymbol</tt>
+        </strong> - when using
+      <tt>OAT.PivotData.TYPE_CURRENCY</tt> as <tt>customType</tt>
+      option. Default is $.</li>
+    </ul>
+
+    <h3>
+      <a name="Constants" id="Constants"> 
+      </a> Constants</h3>
+
+    
+
+    <h4>
+      <a name="OAT.PivotData.TYPE_" id="OAT.PivotData.TYPE_"> 
+      </a>
+    OAT.PivotData.TYPE_</h4>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>OAT.PivotData.TYPE_BASIC</tt>
+        </strong> -
+      1234.56<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>OAT.PivotData.TYPE_PERCENT</tt>
+        </strong> -
+      1234.56%<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>OAT.PivotData.TYPE_SCI</tt>
+        </strong> -
+      1234E+02<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>OAT.PivotData.TYPE_SPACE</tt>
+        </strong> - 1
+      234.56<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>OAT.PivotData.TYPE_CUSTOM</tt>
+        </strong> -
+      function in <tt>options.customType</tt>
+        <br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>OAT.PivotData.TYPE_COMMA</tt>
+        </strong> -
+      1,234.56<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>OAT.PivotData.TYPE_CURRENCY</tt>
+        </strong>
+      (currency symbol in <tt>options.currencySymbol</tt> .
+      <tt>$</tt> is default)</li>
+    </ul>
+
+    <h3>
+      <a name="CSS classes"> 
+      </a> CSS classes</h3>
+
+    
+
+    <h4>
+      <a name=".pivot_table"> 
+      </a> .pivot_table</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".h1"> 
+      </a> .h1</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".h2"> 
+      </a> .h2</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".odd"> 
+      </a> .odd</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".even"> 
+      </a> .even</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".subtotal"> 
+      </a> .subtotal</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".total"> 
+      </a> .total</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".gtotal"> 
+      </a> .gtotal</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".pivot_chart"> 
+      </a> .pivot_chart</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".pivot"> 
+      </a> .pivot
+    <strong>row_chart</strong>
+    </h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name=".pivot"> 
+      </a> .pivot
+    <strong>col_chart</strong>
+    </h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h3>
+      <a name="Example" id="Example"> 
+      </a> Example</h3>
+
+    
+    <pre>
+var pivot = new OAT.Pivot(div, chartDiv, filterDiv, headerRow, dataRows, 
+                          headerRowIndexes, headerColIndexes, 
+                          filterIndexes, dataColumnIndex, {}) 
+
+</pre>
+
+    
+
+    
+    <hr/>
+  </div>
+<div id="oatcopy">
+      Copyright (C) 2005-2008
+      <a href="http://www.openlinksw.com/">OpenLink Software</a>
+  </div>
+</html>

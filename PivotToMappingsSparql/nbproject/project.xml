@@ -64,6 +64,10 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+                    <file>${file.reference.httpmime-4.2.2.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
                     <file>${file.reference.jena-2.6.4.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>

@@ -2,6 +2,7 @@ package org.swip.patterns;
 
 import java.util.List;
 import org.apache.log4j.Logger;
+import org.swip.patterns.sentence.SentenceTemplate;
 
 /**
  * class representing a query pattern
@@ -23,15 +24,14 @@ public class Pattern {
     /**
      * the template used to generate the sentence presented to the user to explain the result of the mapping
      */
-    private String sentenceTemplate = null;
+    private SentenceTemplate sentenceTemplate = null;
 
     public Pattern() {
     }
 
-    public Pattern(String name, List<Subpattern> subpatterns, String sentenceTemplate) {
+    public Pattern(String name, List<Subpattern> subpatterns) {
         this.name = name;
         this.subpatterns = subpatterns;
-        this.sentenceTemplate = sentenceTemplate;
     }
 
     /**
@@ -69,14 +69,14 @@ public class Pattern {
         this.numMappingsCombinations = numMappingsCombinations;
     }
 
-    public String getSentenceTemplate() {
+    public SentenceTemplate getSentenceTemplate() {
         return sentenceTemplate;
     }
 
     /**
      * @param sentenceTemplate the sentenceTemplate to set
      */
-    public void setSentenceTemplate(String sentenceTemplate) {
+    public void setSentenceTemplate(SentenceTemplate sentenceTemplate) {
         this.sentenceTemplate = sentenceTemplate;
     }
 
@@ -86,7 +86,7 @@ public class Pattern {
         for (Subpattern sp : this.getSubpatterns()) {
             result += sp.toString() + "\n";
         }
-        result += "sentence template: " + this.getSentenceTemplate();
+        result += "sentence template: " + this.getSentenceTemplate().toString();
         return result;
     }
 
@@ -94,6 +94,34 @@ public class Pattern {
         for (PatternElement pe : Controller.getInstance().getPatternElementsForPattern(this)) {
             if (pe.getId() == id) {
                 return pe;
+            }
+        }
+        return null;
+    }
+
+    public SubpatternCollection getSubpatternCollectionById(String id) {
+        for (Subpattern sp : this.getSubpatterns()) {
+            if (sp instanceof SubpatternCollection) {
+                SubpatternCollection spc = (SubpatternCollection)sp;
+                if (spc.id.equals(id))
+                    return spc;
+                SubpatternCollection spc2 = getSubpatternCollectionById2(spc, id);
+                if (spc2 != null)
+                    return spc2;
+            }
+        }
+        return null;
+    }
+
+    private SubpatternCollection getSubpatternCollectionById2(SubpatternCollection spc3, String id) {
+        for (Subpattern sp : spc3.getSubpatterns()) {
+            if (sp instanceof SubpatternCollection) {
+                SubpatternCollection spc = (SubpatternCollection)sp;
+                if (spc.id.equals(id))
+                    return spc;
+                SubpatternCollection spc2 = getSubpatternCollectionById2(spc, id);
+                if (spc2 != null)
+                    return spc2;
             }
         }
         return null;

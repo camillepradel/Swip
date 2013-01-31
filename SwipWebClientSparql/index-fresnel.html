@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>OpenLink Fresnel processor tests</title>
+	<script type="text/javascript" >
+		var featureList=["rdfstore","fresnel","xml","ajax2","json","resize"];
+		var rdf = false;
+		var fresnel = false;
+		var xsl = false;
+		var loaded = 0;
+
+		function transform() {
+			if (loaded != 3) { return; }
+			var results = fresnel.format(rdf.data.all);
+			/* append stylesheets */
+			var ss = results[1];
+			for (var i=0;i<ss.length;i++) {
+				var s = ss[i];
+				var elm = OAT.Dom.create("link");
+				elm.rel = "stylesheet";
+				elm.type = "text/css";
+				elm.href = s;
+				document.getElementsByTagName("head")[0].appendChild(elm);
+			}
+			/* go */
+			var xmlDoc = results[0];
+			$("out_xml").value = OAT.Xml.serializeXmlDoc(xmlDoc);
+			var out = OAT.Xml.transformXSLT(xmlDoc,xsl);
+			OAT.Dom.clear("out_html");
+			$("out_html").innerHTML = OAT.Xml.serializeXmlDoc(out);
+		}
+		
+		function load() {
+			loaded = 0;
+			
+			var cb1 = function() { 
+				loaded++; 
+				$("out_rdf").value = OAT.JSON.stringify(rdf.data.triples);
+				transform(); 
+			}
+
+			var cb2 = function() { 
+				loaded++; 
+				$("out_fresnel").value = OAT.JSON.stringify(fresnel.store.data.triples);
+				transform(); 
+			}
+
+			var cb3 = function() { 
+				loaded++; 
+				transform(); 
+			}
+
+			rdf = new OAT.RDFStore(cb1);
+			fresnel = new OAT.Fresnel();
+			
+			rdf.addURL($v("rdf"));
+			fresnel.addURL($v("fresnel"),cb2);
+			OAT.AJAX.GET("fresnel2html.xsl",false,function(xmlDoc){
+				xsl = xmlDoc;
+				$("out_xsl").value = OAT.Xml.serializeXmlDoc(xmlDoc);
+				cb3();
+			},{type:OAT.AJAX.TYPE_XML});
+		}
+		
+		function init() {
+			OAT.Event.attach("btn","click",load);
+
+			var cb2 = function() {
+				result = f.format(s.data.all);
+				window.pica = result[0];
+			}
+
+			/* make the textareas resizable */
+			// var img = OAT.Preferences.imagePath + "MsWin_resize.gif";
+
+			// var corner = OAT.Dom.image(img);
+			// var body = $("out_rdf_div");
+			// body.appendChild(corner);
+			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
+
+			// var corner = OAT.Dom.image(img);
+			// var body = $("out_fresnel_div");
+			// body.appendChild(corner);
+			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
+
+			// var corner = OAT.Dom.image(img);
+			// var body = $("out_xsl_div");
+			// body.appendChild(corner);
+			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
+
+			// var corner = OAT.Dom.image(img);
+			// var body = $("out_xml_div");
+			// body.appendChild(corner);
+			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
+
+		}
+	</script>
+	<script type="text/javascript" src="js/lib/oat/loader.js"></script>
+	<style type="text/css">
+		body {
+			background-color: #f5f5f5;
+		}
+		.fresnel_resource {
+			border: 2px solid #f00;
+			margin: 3px;
+			padding: 3px;
+		}
+		
+		.fresnel_value {
+			display: inline;
+		}
+		
+		.fresnel_container {
+		}
+		
+		.fresnel_property {
+		}
+		
+		.fresnel_label {
+		}
+		
+		table {
+			border-collapse: collapse;
+		}
+		
+		td {
+			padding: 1em;
+			border: 1px solid #888;
+		}
+		textarea {
+			width: 99%;
+			height: 95%;
+		}
+		div.out {
+			width: 80%;
+			text-align: right;
+			margin-bottom: 5px;
+		}
+		div.out img {
+			margin: 3px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Fresnel processor tests</h1>
+	<h3>Input</h3>
+	<table>
+		<tr>
+			<td>
+				RDF file: <input type="text" id="rdf" value="music.n3" /><br/>
+				(try: tbl.xml for FOAF, music.n3 for MO)
+			</td>
+			<td>
+				Fresnel file: <input type="text" id="fresnel" value="fresnel-mo-album.n3" /><br/>
+				(try: fresnel-foaf.n3 for FOAF, fresnel-mo-album.n3 for MO)
+			</td>
+			<td>
+				XSLT file: <input type="text" id="xsl" value="fresnel2html.xsl" /><br/>
+				(try: fresnel2html.xsl)
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:center;">
+				<input type="button" value="GO!" id="btn" />
+			</td>
+	</table>
+	
+	<hr/>
+	
+	<h3>Output</h3>
+	
+	RDF file:<br/>
+	
+	<div class="out" id="out_rdf_div"><textarea rows="6" id="out_rdf"></textarea><img src=""/></div>
+	
+	Fresnel file:<br/>
+	<div class="out" id="out_fresnel_div"><textarea rows="6" id="out_fresnel"></textarea></div>
+
+	XSLT file:<br/>
+	<div class="out" id="out_xsl_div"><textarea rows="6" id="out_xsl"></textarea></div>
+
+	Transformed XML:<br/>
+	<div class="out" id="out_xml_div"><textarea rows="6" id="out_xml"></textarea></div>
+
+	XSLT-ed HTML:<br/>
+	<div id="out_html">
+	</div>
+
+</body>
+</html>

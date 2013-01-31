@@ -1,9 +1,10 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/patternsDefinitionGrammar.g 2013-01-02 14:02:49
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/patternsDefinitionGrammar.g 2013-01-27 20:58:08
 
 package org.swip.patterns.antlr;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.swip.patterns.*;
+import org.swip.patterns.sentence.*;
 
 
 import org.antlr.runtime.*;
@@ -13,13 +14,15 @@ import java.util.ArrayList;
 
 public class patternsDefinitionGrammarParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ENDPREF", "ENDSENT", "ENDQUER", "ENDMAPCOND", "ENDPAT", "PREF", "PAT", "QUER", "SENT", "MAPCOND", "UNDERSCORE", "COLON", "MINUS", "LEFTSB", "RIGHTSB", "X", "N", "LOWERTHAN", "GREATERTHAN", "TWOPOINTS", "SLASH", "ID", "CITE", "SENTENCE", "INT", "COMMENT", "WS", "';'", "'('", "','", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ENDPREF", "ENDSENT", "ENDQUER", "ENDMAPCOND", "ENDPAT", "PREF", "PAT", "QUER", "SENT", "MAPCOND", "UNDERSCORE", "COLON", "MINUS", "LEFTSB", "RIGHTSB", "X", "N", "LOWERTHAN", "GREATERTHAN", "TWOPOINTS", "SLASH", "ID", "CITE", "INT", "COMMENT", "WS", "';'", "'('", "','", "')'", "'-['", "'-for-'"
     };
     public static final int EOF=-1;
+    public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int T__33=33;
     public static final int T__34=34;
+    public static final int T__35=35;
     public static final int ENDPREF=4;
     public static final int ENDSENT=5;
     public static final int ENDQUER=6;
@@ -43,10 +46,9 @@ public class patternsDefinitionGrammarParser extends Parser {
     public static final int SLASH=24;
     public static final int ID=25;
     public static final int CITE=26;
-    public static final int SENTENCE=27;
-    public static final int INT=28;
-    public static final int COMMENT=29;
-    public static final int WS=30;
+    public static final int INT=27;
+    public static final int COMMENT=28;
+    public static final int WS=29;
 
     // delegates
     // delegators
@@ -84,7 +86,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "patterns"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:54:1: patterns returns [List<Pattern> ps] : prefixes ( pattern )+ ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:55:1: patterns returns [List<Pattern> ps] : prefixes ( pattern )+ ;
     public final List<Pattern> patterns() throws RecognitionException {
         List<Pattern> ps = null;
 
@@ -92,8 +94,8 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:55:2: ( prefixes ( pattern )+ )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:55:4: prefixes ( pattern )+
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:56:2: ( prefixes ( pattern )+ )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:56:4: prefixes ( pattern )+
             {
             pushFollow(FOLLOW_prefixes_in_patterns171);
             prefixes();
@@ -101,7 +103,7 @@ public class patternsDefinitionGrammarParser extends Parser {
             state._fsp--;
 
             ps = new LinkedList<Pattern>();
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:57:3: ( pattern )+
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:58:3: ( pattern )+
             int cnt1=0;
             loop1:
             do {
@@ -115,7 +117,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:57:4: pattern
+            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:58:4: pattern
             	    {
             	    pushFollow(FOLLOW_pattern_in_patterns180);
             	    pattern1=pattern();
@@ -152,14 +154,14 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "prefixes"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:60:1: prefixes : PREF ( prefix )+ ENDPREF ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:61:1: prefixes : PREF ( prefix )+ ENDPREF ;
     public final void prefixes() throws RecognitionException {
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:61:2: ( PREF ( prefix )+ ENDPREF )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:61:4: PREF ( prefix )+ ENDPREF
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:62:2: ( PREF ( prefix )+ ENDPREF )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:62:4: PREF ( prefix )+ ENDPREF
             {
             match(input,PREF,FOLLOW_PREF_in_prefixes196); 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:62:3: ( prefix )+
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:63:3: ( prefix )+
             int cnt2=0;
             loop2:
             do {
@@ -173,7 +175,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
                 switch (alt2) {
             	case 1 :
-            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:62:3: prefix
+            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:63:3: prefix
             	    {
             	    pushFollow(FOLLOW_prefix_in_prefixes200);
             	    prefix();
@@ -210,14 +212,14 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "prefix"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:66:1: prefix : ID COLON CITE ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:67:1: prefix : ID COLON CITE ;
     public final void prefix() throws RecognitionException {
         Token CITE2=null;
         Token ID3=null;
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:67:2: ( ID COLON CITE )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:67:4: ID COLON CITE
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:68:2: ( ID COLON CITE )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:68:4: ID COLON CITE
             {
             ID3=(Token)match(input,ID,FOLLOW_ID_in_prefix217); 
             match(input,COLON,FOLLOW_COLON_in_prefix219); 
@@ -243,18 +245,19 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "pattern"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:75:1: pattern returns [Pattern p] : PAT ID QUER ( subpattern )+ ENDQUER SENTENCE ( mappinconditions )? ENDPAT ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:76:1: pattern returns [Pattern p] : PAT ID QUER ( subpattern )+ ENDQUER sentenceTemplate[p] ENDPAT ;
     public final Pattern pattern() throws RecognitionException {
         Pattern p = null;
 
         Token ID4=null;
-        Token SENTENCE6=null;
         Subpattern subpattern5 = null;
+
+        SentenceTemplate sentenceTemplate6 = null;
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:76:2: ( PAT ID QUER ( subpattern )+ ENDQUER SENTENCE ( mappinconditions )? ENDPAT )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:76:4: PAT ID QUER ( subpattern )+ ENDQUER SENTENCE ( mappinconditions )? ENDPAT
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:77:2: ( PAT ID QUER ( subpattern )+ ENDQUER sentenceTemplate[p] ENDPAT )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:77:4: PAT ID QUER ( subpattern )+ ENDQUER sentenceTemplate[p] ENDPAT
             {
 
             		pes = new HashMap<String, PatternElement>();
@@ -264,7 +267,7 @@ public class patternsDefinitionGrammarParser extends Parser {
             ID4=(Token)match(input,ID,FOLLOW_ID_in_pattern247); 
             patternName = (ID4!=null?ID4.getText():null);
             match(input,QUER,FOLLOW_QUER_in_pattern253); 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:82:3: ( subpattern )+
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:83:3: ( subpattern )+
             int cnt3=0;
             loop3:
             do {
@@ -278,7 +281,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
                 switch (alt3) {
             	case 1 :
-            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:82:4: subpattern
+            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:83:4: subpattern
             	    {
             	    pushFollow(FOLLOW_subpattern_in_pattern258);
             	    subpattern5=subpattern();
@@ -302,35 +305,17 @@ public class patternsDefinitionGrammarParser extends Parser {
             } while (true);
 
             match(input,ENDQUER,FOLLOW_ENDQUER_in_pattern268); 
-            SENTENCE6=(Token)match(input,SENTENCE,FOLLOW_SENTENCE_in_pattern272); 
-            String sentence = (SENTENCE6!=null?SENTENCE6.getText():null); sentence = StringManipulation.removeBlankBorders(sentence.substring(8,sentence.length()-12));
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:88:3: ( mappinconditions )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==MAPCOND) ) {
-                alt4=1;
-            }
-            switch (alt4) {
-                case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:88:4: mappinconditions
-                    {
-                    pushFollow(FOLLOW_mappinconditions_in_pattern279);
-                    mappinconditions();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-            match(input,ENDPAT,FOLLOW_ENDPAT_in_pattern285); 
-
-            		p = new Pattern(patternName, subpatterns, sentence);
+            		p = new Pattern(patternName, subpatterns);
             		Controller.getInstance().setPatternElementsForPattern(new LinkedList<PatternElement>(pes.values()), p);
             		
+            pushFollow(FOLLOW_sentenceTemplate_in_pattern276);
+            sentenceTemplate6=sentenceTemplate(p);
+
+            state._fsp--;
+
+            p.setSentenceTemplate(sentenceTemplate6);/*String sentence = $SENTENCE.text; sentence = StringManipulation.removeBlankBorders(sentence.substring(8,sentence.length()-12));*/
+            match(input,ENDPAT,FOLLOW_ENDPAT_in_pattern284); 
 
             }
 
@@ -346,7 +331,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "subpattern"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:97:1: subpattern returns [Subpattern sp] : ( patterntriple | subpatterncollection );
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:98:1: subpattern returns [Subpattern sp] : ( patterntriple | subpatterncollection );
     public final Subpattern subpattern() throws RecognitionException {
         Subpattern sp = null;
 
@@ -356,27 +341,27 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:98:2: ( patterntriple | subpatterncollection )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:99:2: ( patterntriple | subpatterncollection )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA5_0==MINUS||LA5_0==INT) ) {
-                alt5=1;
+            if ( (LA4_0==MINUS||LA4_0==INT) ) {
+                alt4=1;
             }
-            else if ( (LA5_0==LEFTSB) ) {
-                alt5=2;
+            else if ( (LA4_0==LEFTSB) ) {
+                alt4=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:98:4: patterntriple
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:99:4: patterntriple
                     {
-                    pushFollow(FOLLOW_patterntriple_in_subpattern312);
+                    pushFollow(FOLLOW_patterntriple_in_subpattern307);
                     patterntriple7=patterntriple();
 
                     state._fsp--;
@@ -386,9 +371,9 @@ public class patternsDefinitionGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:99:4: subpatterncollection
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:100:4: subpatterncollection
                     {
-                    pushFollow(FOLLOW_subpatterncollection_in_subpattern319);
+                    pushFollow(FOLLOW_subpatterncollection_in_subpattern314);
                     subpatterncollection8=subpatterncollection();
 
                     state._fsp--;
@@ -412,7 +397,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "patterntriple"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:102:1: patterntriple returns [PatternTriple pt] : e1 e2 e3 ';' ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:103:1: patterntriple returns [PatternTriple pt] : e1 e2 e3 ';' ;
     public final PatternTriple patterntriple() throws RecognitionException {
         PatternTriple pt = null;
 
@@ -424,25 +409,25 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:103:2: ( e1 e2 e3 ';' )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:103:4: e1 e2 e3 ';'
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:104:2: ( e1 e2 e3 ';' )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:104:4: e1 e2 e3 ';'
             {
-            pushFollow(FOLLOW_e1_in_patterntriple338);
+            pushFollow(FOLLOW_e1_in_patterntriple333);
             e19=e1();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_e2_in_patterntriple340);
+            pushFollow(FOLLOW_e2_in_patterntriple335);
             e210=e2();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_e3_in_patterntriple342);
+            pushFollow(FOLLOW_e3_in_patterntriple337);
             e311=e3();
 
             state._fsp--;
 
-            match(input,31,FOLLOW_31_in_patterntriple344); 
+            match(input,30,FOLLOW_30_in_patterntriple339); 
 
             		pt = new PatternTriple(e19, e210, e311);
             		
@@ -462,7 +447,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "e1"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:109:1: e1 returns [ClassPatternElement pe] : classPe ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:110:1: e1 returns [ClassPatternElement pe] : classPe ;
     public final ClassPatternElement e1() throws RecognitionException {
         ClassPatternElement pe = null;
 
@@ -470,10 +455,10 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:110:2: ( classPe )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:110:4: classPe
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:111:2: ( classPe )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:111:4: classPe
             {
-            pushFollow(FOLLOW_classPe_in_e1363);
+            pushFollow(FOLLOW_classPe_in_e1358);
             classPe12=classPe();
 
             state._fsp--;
@@ -495,7 +480,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "e2"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:113:1: e2 returns [PropertyPatternElement pe] : propertyPe ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:114:1: e2 returns [PropertyPatternElement pe] : propertyPe ;
     public final PropertyPatternElement e2() throws RecognitionException {
         PropertyPatternElement pe = null;
 
@@ -503,10 +488,10 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:114:2: ( propertyPe )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:114:4: propertyPe
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:115:2: ( propertyPe )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:115:4: propertyPe
             {
-            pushFollow(FOLLOW_propertyPe_in_e2381);
+            pushFollow(FOLLOW_propertyPe_in_e2376);
             propertyPe13=propertyPe();
 
             state._fsp--;
@@ -528,7 +513,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "e3"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:117:1: e3 returns [PatternElement pe] : ( classPe | literalPe );
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:118:1: e3 returns [PatternElement pe] : ( classPe | literalPe );
     public final PatternElement e3() throws RecognitionException {
         PatternElement pe = null;
 
@@ -538,53 +523,53 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:118:2: ( classPe | literalPe )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:119:2: ( classPe | literalPe )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA6_0==MINUS) ) {
-                alt6=1;
+            if ( (LA5_0==MINUS) ) {
+                alt5=1;
             }
-            else if ( (LA6_0==INT) ) {
-                int LA6_2 = input.LA(2);
+            else if ( (LA5_0==INT) ) {
+                int LA5_2 = input.LA(2);
 
-                if ( (LA6_2==UNDERSCORE) ) {
-                    int LA6_3 = input.LA(3);
+                if ( (LA5_2==UNDERSCORE) ) {
+                    int LA5_3 = input.LA(3);
 
-                    if ( (LA6_3==LOWERTHAN) ) {
-                        alt6=2;
+                    if ( (LA5_3==LOWERTHAN) ) {
+                        alt5=2;
                     }
-                    else if ( (LA6_3==ID) ) {
-                        alt6=1;
+                    else if ( (LA5_3==ID) ) {
+                        alt5=1;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 6, 3, input);
+                            new NoViableAltException("", 5, 3, input);
 
                         throw nvae;
                     }
                 }
-                else if ( (LA6_2==31) ) {
-                    alt6=1;
+                else if ( (LA5_2==30) ) {
+                    alt5=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 6, 2, input);
+                        new NoViableAltException("", 5, 2, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt5) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:118:4: classPe
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:119:4: classPe
                     {
-                    pushFollow(FOLLOW_classPe_in_e3399);
+                    pushFollow(FOLLOW_classPe_in_e3394);
                     classPe14=classPe();
 
                     state._fsp--;
@@ -594,9 +579,9 @@ public class patternsDefinitionGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:119:4: literalPe
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:120:4: literalPe
                     {
-                    pushFollow(FOLLOW_literalPe_in_e3406);
+                    pushFollow(FOLLOW_literalPe_in_e3401);
                     literalPe15=literalPe();
 
                     state._fsp--;
@@ -620,7 +605,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "subpatterncollection"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:122:1: subpatterncollection returns [SubpatternCollection spc] : '[' ( subpattern )+ ']' ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )? ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:123:1: subpatterncollection returns [SubpatternCollection spc] : '[' ( subpattern )+ ']' ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )? ;
     public final SubpatternCollection subpatterncollection() throws RecognitionException {
         SubpatternCollection spc = null;
 
@@ -632,8 +617,8 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:123:2: ( '[' ( subpattern )+ ']' ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )? )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:123:4: '[' ( subpattern )+ ']' ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )?
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:124:2: ( '[' ( subpattern )+ ']' ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )? )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:124:4: '[' ( subpattern )+ ']' ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )?
             {
 
             		List<Subpattern> sps = new LinkedList<Subpattern>();
@@ -642,24 +627,24 @@ public class patternsDefinitionGrammarParser extends Parser {
             		int maxOccurrences = 1;
             		PatternElement pivotElement = null;
             		
-            match(input,LEFTSB,FOLLOW_LEFTSB_in_subpatterncollection429); 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:130:7: ( subpattern )+
-            int cnt7=0;
-            loop7:
+            match(input,LEFTSB,FOLLOW_LEFTSB_in_subpatterncollection424); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:131:7: ( subpattern )+
+            int cnt6=0;
+            loop6:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( ((LA7_0>=MINUS && LA7_0<=LEFTSB)||LA7_0==INT) ) {
-                    alt7=1;
+                if ( ((LA6_0>=MINUS && LA6_0<=LEFTSB)||LA6_0==INT) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt6) {
             	case 1 :
-            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:130:8: subpattern
+            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:131:8: subpattern
             	    {
-            	    pushFollow(FOLLOW_subpattern_in_subpatterncollection431);
+            	    pushFollow(FOLLOW_subpattern_in_subpatterncollection426);
             	    subpattern16=subpattern();
 
             	    state._fsp--;
@@ -670,83 +655,83 @@ public class patternsDefinitionGrammarParser extends Parser {
             	    break;
 
             	default :
-            	    if ( cnt7 >= 1 ) break loop7;
+            	    if ( cnt6 >= 1 ) break loop6;
                         EarlyExitException eee =
-                            new EarlyExitException(7, input);
+                            new EarlyExitException(6, input);
                         throw eee;
                 }
-                cnt7++;
+                cnt6++;
             } while (true);
 
-            match(input,RIGHTSB,FOLLOW_RIGHTSB_in_subpatterncollection436); 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:131:10: ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            match(input,RIGHTSB,FOLLOW_RIGHTSB_in_subpatterncollection431); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:132:10: ( ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )? )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA12_0==ID) ) {
-                alt12=1;
+            if ( (LA11_0==ID) ) {
+                alt11=1;
             }
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:131:11: ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )?
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:132:11: ID ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )?
                     {
-                    ID17=(Token)match(input,ID,FOLLOW_ID_in_subpatterncollection448); 
+                    ID17=(Token)match(input,ID,FOLLOW_ID_in_subpatterncollection443); 
                     scName = (ID17!=null?ID17.getText():null);
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:132:11: ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )?
-                    int alt11=2;
-                    int LA11_0 = input.LA(1);
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:133:11: ( COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )? )?
+                    int alt10=2;
+                    int LA10_0 = input.LA(1);
 
-                    if ( (LA11_0==COLON) ) {
-                        alt11=1;
+                    if ( (LA10_0==COLON) ) {
+                        alt10=1;
                     }
-                    switch (alt11) {
+                    switch (alt10) {
                         case 1 :
-                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:132:12: COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )?
+                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:133:12: COLON mio= INT ( TWOPOINTS (mao= INT | N ) )? ( SLASH pe= INT )?
                             {
-                            match(input,COLON,FOLLOW_COLON_in_subpatterncollection463); 
-                            mio=(Token)match(input,INT,FOLLOW_INT_in_subpatterncollection467); 
+                            match(input,COLON,FOLLOW_COLON_in_subpatterncollection458); 
+                            mio=(Token)match(input,INT,FOLLOW_INT_in_subpatterncollection462); 
                             minOccurrences = Integer.parseInt((mio!=null?mio.getText():null));
-                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:133:14: ( TWOPOINTS (mao= INT | N ) )?
-                            int alt9=2;
-                            int LA9_0 = input.LA(1);
+                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:134:14: ( TWOPOINTS (mao= INT | N ) )?
+                            int alt8=2;
+                            int LA8_0 = input.LA(1);
 
-                            if ( (LA9_0==TWOPOINTS) ) {
-                                alt9=1;
+                            if ( (LA8_0==TWOPOINTS) ) {
+                                alt8=1;
                             }
-                            switch (alt9) {
+                            switch (alt8) {
                                 case 1 :
-                                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:133:15: TWOPOINTS (mao= INT | N )
+                                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:134:15: TWOPOINTS (mao= INT | N )
                                     {
-                                    match(input,TWOPOINTS,FOLLOW_TWOPOINTS_in_subpatterncollection485); 
-                                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:134:18: (mao= INT | N )
-                                    int alt8=2;
-                                    int LA8_0 = input.LA(1);
+                                    match(input,TWOPOINTS,FOLLOW_TWOPOINTS_in_subpatterncollection480); 
+                                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:135:18: (mao= INT | N )
+                                    int alt7=2;
+                                    int LA7_0 = input.LA(1);
 
-                                    if ( (LA8_0==INT) ) {
-                                        alt8=1;
+                                    if ( (LA7_0==INT) ) {
+                                        alt7=1;
                                     }
-                                    else if ( (LA8_0==N) ) {
-                                        alt8=2;
+                                    else if ( (LA7_0==N) ) {
+                                        alt7=2;
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("", 8, 0, input);
+                                            new NoViableAltException("", 7, 0, input);
 
                                         throw nvae;
                                     }
-                                    switch (alt8) {
+                                    switch (alt7) {
                                         case 1 :
-                                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:134:19: mao= INT
+                                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:135:19: mao= INT
                                             {
-                                            mao=(Token)match(input,INT,FOLLOW_INT_in_subpatterncollection507); 
+                                            mao=(Token)match(input,INT,FOLLOW_INT_in_subpatterncollection502); 
                                             maxOccurrences = Integer.parseInt((mao!=null?mao.getText():null));
 
                                             }
                                             break;
                                         case 2 :
-                                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:134:74: N
+                                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:135:74: N
                                             {
-                                            match(input,N,FOLLOW_N_in_subpatterncollection510); 
+                                            match(input,N,FOLLOW_N_in_subpatterncollection505); 
                                             maxOccurrences = -1;
 
                                             }
@@ -760,19 +745,19 @@ public class patternsDefinitionGrammarParser extends Parser {
 
                             }
 
-                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:135:16: ( SLASH pe= INT )?
-                            int alt10=2;
-                            int LA10_0 = input.LA(1);
+                            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:136:16: ( SLASH pe= INT )?
+                            int alt9=2;
+                            int LA9_0 = input.LA(1);
 
-                            if ( (LA10_0==SLASH) ) {
-                                alt10=1;
+                            if ( (LA9_0==SLASH) ) {
+                                alt9=1;
                             }
-                            switch (alt10) {
+                            switch (alt9) {
                                 case 1 :
-                                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:135:17: SLASH pe= INT
+                                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:136:17: SLASH pe= INT
                                     {
-                                    match(input,SLASH,FOLLOW_SLASH_in_subpatterncollection530); 
-                                    pe=(Token)match(input,INT,FOLLOW_INT_in_subpatterncollection534); 
+                                    match(input,SLASH,FOLLOW_SLASH_in_subpatterncollection525); 
+                                    pe=(Token)match(input,INT,FOLLOW_INT_in_subpatterncollection529); 
 
                                     					     		 			pivotElement = pes.get((pe!=null?pe.getText():null));
                                     						     		 		if (pivotElement == null) {
@@ -816,7 +801,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "classPe"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:148:1: classPe returns [ClassPatternElement cpe] : ( MINUS )? INT ( UNDERSCORE qname )? ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:149:1: classPe returns [ClassPatternElement cpe] : ( MINUS )? INT ( UNDERSCORE qname )? ;
     public final ClassPatternElement classPe() throws RecognitionException {
         ClassPatternElement cpe = null;
 
@@ -825,25 +810,25 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:149:2: ( ( MINUS )? INT ( UNDERSCORE qname )? )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:149:4: ( MINUS )? INT ( UNDERSCORE qname )?
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:150:2: ( ( MINUS )? INT ( UNDERSCORE qname )? )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:150:4: ( MINUS )? INT ( UNDERSCORE qname )?
             {
 
             		String qnameUri = null;
             		boolean qualifying = true;
             		
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:153:3: ( MINUS )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:154:3: ( MINUS )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==MINUS) ) {
-                alt13=1;
+            if ( (LA12_0==MINUS) ) {
+                alt12=1;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:153:4: MINUS
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:154:4: MINUS
                     {
-                    match(input,MINUS,FOLLOW_MINUS_in_classPe586); 
+                    match(input,MINUS,FOLLOW_MINUS_in_classPe581); 
                     qualifying = false;
 
                     }
@@ -851,20 +836,20 @@ public class patternsDefinitionGrammarParser extends Parser {
 
             }
 
-            INT19=(Token)match(input,INT,FOLLOW_INT_in_classPe594); 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:154:6: ( UNDERSCORE qname )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            INT19=(Token)match(input,INT,FOLLOW_INT_in_classPe589); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:155:6: ( UNDERSCORE qname )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA14_0==UNDERSCORE) ) {
-                alt14=1;
+            if ( (LA13_0==UNDERSCORE) ) {
+                alt13=1;
             }
-            switch (alt14) {
+            switch (alt13) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:154:7: UNDERSCORE qname
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:155:7: UNDERSCORE qname
                     {
-                    match(input,UNDERSCORE,FOLLOW_UNDERSCORE_in_classPe596); 
-                    pushFollow(FOLLOW_qname_in_classPe598);
+                    match(input,UNDERSCORE,FOLLOW_UNDERSCORE_in_classPe591); 
+                    pushFollow(FOLLOW_qname_in_classPe593);
                     qname18=qname();
 
                     state._fsp--;
@@ -916,7 +901,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "propertyPe"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:181:1: propertyPe returns [PropertyPatternElement ppe] : ( MINUS )? id= INT ( UNDERSCORE qname )? ( '(' ref= INT ( ',' ref2= INT )* ')' )? ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:182:1: propertyPe returns [PropertyPatternElement ppe] : ( MINUS )? id= INT ( UNDERSCORE qname )? ( '(' ref= INT ( ',' ref2= INT )* ')' )? ;
     public final PropertyPatternElement propertyPe() throws RecognitionException {
         PropertyPatternElement ppe = null;
 
@@ -927,26 +912,26 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:182:2: ( ( MINUS )? id= INT ( UNDERSCORE qname )? ( '(' ref= INT ( ',' ref2= INT )* ')' )? )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:182:4: ( MINUS )? id= INT ( UNDERSCORE qname )? ( '(' ref= INT ( ',' ref2= INT )* ')' )?
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:183:2: ( ( MINUS )? id= INT ( UNDERSCORE qname )? ( '(' ref= INT ( ',' ref2= INT )* ')' )? )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:183:4: ( MINUS )? id= INT ( UNDERSCORE qname )? ( '(' ref= INT ( ',' ref2= INT )* ')' )?
             {
 
             		String qnameUri = null;
             		boolean qualifying = true;
             		List<Integer> referedElements = new LinkedList<Integer>();
             		
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:187:3: ( MINUS )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:3: ( MINUS )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA15_0==MINUS) ) {
-                alt15=1;
+            if ( (LA14_0==MINUS) ) {
+                alt14=1;
             }
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:187:4: MINUS
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:4: MINUS
                     {
-                    match(input,MINUS,FOLLOW_MINUS_in_propertyPe626); 
+                    match(input,MINUS,FOLLOW_MINUS_in_propertyPe621); 
                     qualifying = false;
 
                     }
@@ -954,20 +939,20 @@ public class patternsDefinitionGrammarParser extends Parser {
 
             }
 
-            id=(Token)match(input,INT,FOLLOW_INT_in_propertyPe636); 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:9: ( UNDERSCORE qname )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            id=(Token)match(input,INT,FOLLOW_INT_in_propertyPe631); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:189:9: ( UNDERSCORE qname )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0==UNDERSCORE) ) {
-                alt16=1;
+            if ( (LA15_0==UNDERSCORE) ) {
+                alt15=1;
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:10: UNDERSCORE qname
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:189:10: UNDERSCORE qname
                     {
-                    match(input,UNDERSCORE,FOLLOW_UNDERSCORE_in_propertyPe638); 
-                    pushFollow(FOLLOW_qname_in_propertyPe640);
+                    match(input,UNDERSCORE,FOLLOW_UNDERSCORE_in_propertyPe633); 
+                    pushFollow(FOLLOW_qname_in_propertyPe635);
                     qname20=qname();
 
                     state._fsp--;
@@ -979,48 +964,48 @@ public class patternsDefinitionGrammarParser extends Parser {
 
             }
 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:52: ( '(' ref= INT ( ',' ref2= INT )* ')' )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:189:52: ( '(' ref= INT ( ',' ref2= INT )* ')' )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA18_0==32) ) {
-                alt18=1;
+            if ( (LA17_0==31) ) {
+                alt17=1;
             }
-            switch (alt18) {
+            switch (alt17) {
                 case 1 :
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:53: '(' ref= INT ( ',' ref2= INT )* ')'
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:189:53: '(' ref= INT ( ',' ref2= INT )* ')'
                     {
-                    match(input,32,FOLLOW_32_in_propertyPe645); 
-                    ref=(Token)match(input,INT,FOLLOW_INT_in_propertyPe648); 
+                    match(input,31,FOLLOW_31_in_propertyPe640); 
+                    ref=(Token)match(input,INT,FOLLOW_INT_in_propertyPe643); 
                     referedElements.add(Integer.parseInt((ref!=null?ref.getText():null)));
-                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:116: ( ',' ref2= INT )*
-                    loop17:
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:189:116: ( ',' ref2= INT )*
+                    loop16:
                     do {
-                        int alt17=2;
-                        int LA17_0 = input.LA(1);
+                        int alt16=2;
+                        int LA16_0 = input.LA(1);
 
-                        if ( (LA17_0==33) ) {
-                            alt17=1;
+                        if ( (LA16_0==32) ) {
+                            alt16=1;
                         }
 
 
-                        switch (alt17) {
+                        switch (alt16) {
                     	case 1 :
-                    	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:188:117: ',' ref2= INT
+                    	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:189:117: ',' ref2= INT
                     	    {
-                    	    match(input,33,FOLLOW_33_in_propertyPe653); 
-                    	    ref2=(Token)match(input,INT,FOLLOW_INT_in_propertyPe656); 
+                    	    match(input,32,FOLLOW_32_in_propertyPe648); 
+                    	    ref2=(Token)match(input,INT,FOLLOW_INT_in_propertyPe651); 
                     	    referedElements.add(Integer.parseInt((ref2!=null?ref2.getText():null)));
 
                     	    }
                     	    break;
 
                     	default :
-                    	    break loop17;
+                    	    break loop16;
                         }
                     } while (true);
 
-                    match(input,34,FOLLOW_34_in_propertyPe662); 
+                    match(input,33,FOLLOW_33_in_propertyPe657); 
 
                     }
                     break;
@@ -1067,7 +1052,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "qname"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:215:1: qname returns [String uri] : p= ID COLON s= ID ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:216:1: qname returns [String uri] : p= ID COLON s= ID ;
     public final String qname() throws RecognitionException {
         String uri = null;
 
@@ -1075,12 +1060,12 @@ public class patternsDefinitionGrammarParser extends Parser {
         Token s=null;
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:216:2: (p= ID COLON s= ID )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:216:4: p= ID COLON s= ID
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:217:2: (p= ID COLON s= ID )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:217:4: p= ID COLON s= ID
             {
-            p=(Token)match(input,ID,FOLLOW_ID_in_qname687); 
-            match(input,COLON,FOLLOW_COLON_in_qname689); 
-            s=(Token)match(input,ID,FOLLOW_ID_in_qname693); 
+            p=(Token)match(input,ID,FOLLOW_ID_in_qname682); 
+            match(input,COLON,FOLLOW_COLON_in_qname684); 
+            s=(Token)match(input,ID,FOLLOW_ID_in_qname688); 
 
             		String ps = prefixes.get((p!=null?p.getText():null));
             		if (ps == null) {
@@ -1105,7 +1090,7 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
     // $ANTLR start "literalPe"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:227:1: literalPe returns [LiteralPatternElement lpe] : INT UNDERSCORE LOWERTHAN qname GREATERTHAN ;
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:228:1: literalPe returns [LiteralPatternElement lpe] : INT UNDERSCORE LOWERTHAN qname GREATERTHAN ;
     public final LiteralPatternElement literalPe() throws RecognitionException {
         LiteralPatternElement lpe = null;
 
@@ -1114,18 +1099,18 @@ public class patternsDefinitionGrammarParser extends Parser {
 
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:228:2: ( INT UNDERSCORE LOWERTHAN qname GREATERTHAN )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:228:4: INT UNDERSCORE LOWERTHAN qname GREATERTHAN
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:229:2: ( INT UNDERSCORE LOWERTHAN qname GREATERTHAN )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:229:4: INT UNDERSCORE LOWERTHAN qname GREATERTHAN
             {
-            INT21=(Token)match(input,INT,FOLLOW_INT_in_literalPe713); 
-            match(input,UNDERSCORE,FOLLOW_UNDERSCORE_in_literalPe715); 
-            match(input,LOWERTHAN,FOLLOW_LOWERTHAN_in_literalPe717); 
-            pushFollow(FOLLOW_qname_in_literalPe719);
+            INT21=(Token)match(input,INT,FOLLOW_INT_in_literalPe708); 
+            match(input,UNDERSCORE,FOLLOW_UNDERSCORE_in_literalPe710); 
+            match(input,LOWERTHAN,FOLLOW_LOWERTHAN_in_literalPe712); 
+            pushFollow(FOLLOW_qname_in_literalPe714);
             qname22=qname();
 
             state._fsp--;
 
-            match(input,GREATERTHAN,FOLLOW_GREATERTHAN_in_literalPe721); 
+            match(input,GREATERTHAN,FOLLOW_GREATERTHAN_in_literalPe716); 
 
             		try {
             			String key = (INT21!=null?INT21.getText():null);
@@ -1153,49 +1138,57 @@ public class patternsDefinitionGrammarParser extends Parser {
     // $ANTLR end "literalPe"
 
 
-    // $ANTLR start "mappinconditions"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:243:1: mappinconditions : MAPCOND ( mappingcondition )+ ENDMAPCOND ;
-    public final void mappinconditions() throws RecognitionException {
-        try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:244:2: ( MAPCOND ( mappingcondition )+ ENDMAPCOND )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:244:4: MAPCOND ( mappingcondition )+ ENDMAPCOND
-            {
-            match(input,MAPCOND,FOLLOW_MAPCOND_in_mappinconditions738); 
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:245:3: ( mappingcondition )+
-            int cnt19=0;
-            loop19:
-            do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+    // $ANTLR start "sentenceTemplate"
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:263:1: sentenceTemplate[Pattern p] returns [SentenceTemplate st] : SENT ( subsentenceTemplate[p] )+ ENDSENT ;
+    public final SentenceTemplate sentenceTemplate(Pattern p) throws RecognitionException {
+        SentenceTemplate st = null;
 
-                if ( (LA19_0==INT) ) {
-                    alt19=1;
+        SubsentenceTemplate subsentenceTemplate23 = null;
+
+
+        try {
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:264:2: ( SENT ( subsentenceTemplate[p] )+ ENDSENT )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:264:4: SENT ( subsentenceTemplate[p] )+ ENDSENT
+            {
+            List<SubsentenceTemplate> sstl = new LinkedList<SubsentenceTemplate>();
+            match(input,SENT,FOLLOW_SENT_in_sentenceTemplate765); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:266:3: ( subsentenceTemplate[p] )+
+            int cnt18=0;
+            loop18:
+            do {
+                int alt18=2;
+                int LA18_0 = input.LA(1);
+
+                if ( (LA18_0==MINUS||LA18_0==CITE||LA18_0==35) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt18) {
             	case 1 :
-            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:245:4: mappingcondition
+            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:266:4: subsentenceTemplate[p]
             	    {
-            	    pushFollow(FOLLOW_mappingcondition_in_mappinconditions743);
-            	    mappingcondition();
+            	    pushFollow(FOLLOW_subsentenceTemplate_in_sentenceTemplate770);
+            	    subsentenceTemplate23=subsentenceTemplate(p);
 
             	    state._fsp--;
 
+            	    sstl.add(subsentenceTemplate23);
 
             	    }
             	    break;
 
             	default :
-            	    if ( cnt19 >= 1 ) break loop19;
+            	    if ( cnt18 >= 1 ) break loop18;
                         EarlyExitException eee =
-                            new EarlyExitException(19, input);
+                            new EarlyExitException(18, input);
                         throw eee;
                 }
-                cnt19++;
+                cnt18++;
             } while (true);
 
-            match(input,ENDMAPCOND,FOLLOW_ENDMAPCOND_in_mappinconditions749); 
+            match(input,ENDSENT,FOLLOW_ENDSENT_in_sentenceTemplate778); 
+            st = new SentenceTemplate(sstl);
 
             }
 
@@ -1206,33 +1199,142 @@ public class patternsDefinitionGrammarParser extends Parser {
         }
         finally {
         }
-        return ;
+        return st;
     }
-    // $ANTLR end "mappinconditions"
+    // $ANTLR end "sentenceTemplate"
 
 
-    // $ANTLR start "mappingcondition"
-    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:249:1: mappingcondition : INT COLON CITE ;
-    public final void mappingcondition() throws RecognitionException {
-        Token INT23=null;
-        Token CITE24=null;
+    // $ANTLR start "subsentenceTemplate"
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:271:1: subsentenceTemplate[Pattern p] returns [SubsentenceTemplate sst] : ( peInTemplate[p] | spcInTemplate[p] | staticStringInTemplate | forLoopInTemplate[p] );
+    public final SubsentenceTemplate subsentenceTemplate(Pattern p) throws RecognitionException {
+        SubsentenceTemplate sst = null;
+
+        PeInTemplate peInTemplate24 = null;
+
+        SpcInTemplate spcInTemplate25 = null;
+
+        StaticStringInTemplate staticStringInTemplate26 = null;
+
+        ForLoopInTemplate forLoopInTemplate27 = null;
+
 
         try {
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:250:2: ( INT COLON CITE )
-            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:250:4: INT COLON CITE
-            {
-            INT23=(Token)match(input,INT,FOLLOW_INT_in_mappingcondition764); 
-            match(input,COLON,FOLLOW_COLON_in_mappingcondition766); 
-            CITE24=(Token)match(input,CITE,FOLLOW_CITE_in_mappingcondition768); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:272:2: ( peInTemplate[p] | spcInTemplate[p] | staticStringInTemplate | forLoopInTemplate[p] )
+            int alt19=4;
+            switch ( input.LA(1) ) {
+            case MINUS:
+                {
+                int LA19_1 = input.LA(2);
 
-            		String key = (INT23!=null?INT23.getText():null);
-            		PatternElement pe = pes.get(key);
-            		if (pe == null) {
-            			throw new RuntimeException("error in mapping conditions: element " + key + " does not exist");
-            		}
-            		String condition = (CITE24!=null?CITE24.getText():null);
-            		pe.setMappingCondition(condition.substring(1, condition.length()-1));
-            		
+                if ( (LA19_1==INT) ) {
+                    alt19=1;
+                }
+                else if ( (LA19_1==ID) ) {
+                    alt19=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 19, 1, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case CITE:
+                {
+                alt19=3;
+                }
+                break;
+            case 35:
+                {
+                alt19=4;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 19, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt19) {
+                case 1 :
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:272:4: peInTemplate[p]
+                    {
+                    pushFollow(FOLLOW_peInTemplate_in_subsentenceTemplate799);
+                    peInTemplate24=peInTemplate(p);
+
+                    state._fsp--;
+
+                    sst = peInTemplate24;
+
+                    }
+                    break;
+                case 2 :
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:273:4: spcInTemplate[p]
+                    {
+                    pushFollow(FOLLOW_spcInTemplate_in_subsentenceTemplate807);
+                    spcInTemplate25=spcInTemplate(p);
+
+                    state._fsp--;
+
+                    sst = spcInTemplate25;
+
+                    }
+                    break;
+                case 3 :
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:274:4: staticStringInTemplate
+                    {
+                    pushFollow(FOLLOW_staticStringInTemplate_in_subsentenceTemplate815);
+                    staticStringInTemplate26=staticStringInTemplate();
+
+                    state._fsp--;
+
+                    sst = staticStringInTemplate26;
+
+                    }
+                    break;
+                case 4 :
+                    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:275:4: forLoopInTemplate[p]
+                    {
+                    pushFollow(FOLLOW_forLoopInTemplate_in_subsentenceTemplate822);
+                    forLoopInTemplate27=forLoopInTemplate(p);
+
+                    state._fsp--;
+
+                    sst = forLoopInTemplate27;
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return sst;
+    }
+    // $ANTLR end "subsentenceTemplate"
+
+
+    // $ANTLR start "peInTemplate"
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:278:1: peInTemplate[Pattern p] returns [PeInTemplate peit] : '-' INT '-' ;
+    public final PeInTemplate peInTemplate(Pattern p) throws RecognitionException {
+        PeInTemplate peit = null;
+
+        Token INT28=null;
+
+        try {
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:279:2: ( '-' INT '-' )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:279:5: '-' INT '-'
+            {
+            match(input,MINUS,FOLLOW_MINUS_in_peInTemplate856); 
+            INT28=(Token)match(input,INT,FOLLOW_INT_in_peInTemplate857); 
+            match(input,MINUS,FOLLOW_MINUS_in_peInTemplate858); 
+            peit = new PeInTemplate(p.getPatternElementById(Integer.parseInt((INT28!=null?INT28.getText():null))));
 
             }
 
@@ -1243,9 +1345,175 @@ public class patternsDefinitionGrammarParser extends Parser {
         }
         finally {
         }
-        return ;
+        return peit;
     }
-    // $ANTLR end "mappingcondition"
+    // $ANTLR end "peInTemplate"
+
+
+    // $ANTLR start "spcInTemplate"
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:282:1: spcInTemplate[Pattern p] returns [SpcInTemplate spcit] : '-' ID '-[' ( subsentenceTemplate[p] )+ ']' ;
+    public final SpcInTemplate spcInTemplate(Pattern p) throws RecognitionException {
+        SpcInTemplate spcit = null;
+
+        Token ID30=null;
+        SubsentenceTemplate subsentenceTemplate29 = null;
+
+
+        try {
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:283:2: ( '-' ID '-[' ( subsentenceTemplate[p] )+ ']' )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:283:4: '-' ID '-[' ( subsentenceTemplate[p] )+ ']'
+            {
+            List<SubsentenceTemplate> sstl = new LinkedList<SubsentenceTemplate>();
+            match(input,MINUS,FOLLOW_MINUS_in_spcInTemplate889); 
+            ID30=(Token)match(input,ID,FOLLOW_ID_in_spcInTemplate891); 
+            match(input,34,FOLLOW_34_in_spcInTemplate893); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:284:15: ( subsentenceTemplate[p] )+
+            int cnt20=0;
+            loop20:
+            do {
+                int alt20=2;
+                int LA20_0 = input.LA(1);
+
+                if ( (LA20_0==MINUS||LA20_0==CITE||LA20_0==35) ) {
+                    alt20=1;
+                }
+
+
+                switch (alt20) {
+            	case 1 :
+            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:284:16: subsentenceTemplate[p]
+            	    {
+            	    pushFollow(FOLLOW_subsentenceTemplate_in_spcInTemplate895);
+            	    subsentenceTemplate29=subsentenceTemplate(p);
+
+            	    state._fsp--;
+
+            	    sstl.add(subsentenceTemplate29);
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt20 >= 1 ) break loop20;
+                        EarlyExitException eee =
+                            new EarlyExitException(20, input);
+                        throw eee;
+                }
+                cnt20++;
+            } while (true);
+
+            match(input,RIGHTSB,FOLLOW_RIGHTSB_in_spcInTemplate900); 
+            spcit = new SpcInTemplate(p.getSubpatternCollectionById((ID30!=null?ID30.getText():null)), sstl);
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return spcit;
+    }
+    // $ANTLR end "spcInTemplate"
+
+
+    // $ANTLR start "staticStringInTemplate"
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:289:1: staticStringInTemplate returns [StaticStringInTemplate ssit] : CITE ;
+    public final StaticStringInTemplate staticStringInTemplate() throws RecognitionException {
+        StaticStringInTemplate ssit = null;
+
+        Token CITE31=null;
+
+        try {
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:290:2: ( CITE )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:290:5: CITE
+            {
+            CITE31=(Token)match(input,CITE,FOLLOW_CITE_in_staticStringInTemplate927); 
+            String s = (CITE31!=null?CITE31.getText():null); ssit = new StaticStringInTemplate(s.substring(1, s.length()-1));
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ssit;
+    }
+    // $ANTLR end "staticStringInTemplate"
+
+
+    // $ANTLR start "forLoopInTemplate"
+    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:293:1: forLoopInTemplate[Pattern p] returns [ForLoopInTemplate flit] : '-for-' ID '-[' ( subsentenceTemplate[p] )+ ']' ;
+    public final ForLoopInTemplate forLoopInTemplate(Pattern p) throws RecognitionException {
+        ForLoopInTemplate flit = null;
+
+        Token ID33=null;
+        SubsentenceTemplate subsentenceTemplate32 = null;
+
+
+        try {
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:294:2: ( '-for-' ID '-[' ( subsentenceTemplate[p] )+ ']' )
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:294:4: '-for-' ID '-[' ( subsentenceTemplate[p] )+ ']'
+            {
+            List<SubsentenceTemplate> sstl = new LinkedList<SubsentenceTemplate>();
+            match(input,35,FOLLOW_35_in_forLoopInTemplate961); 
+            ID33=(Token)match(input,ID,FOLLOW_ID_in_forLoopInTemplate963); 
+            match(input,34,FOLLOW_34_in_forLoopInTemplate965); 
+            // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:295:19: ( subsentenceTemplate[p] )+
+            int cnt21=0;
+            loop21:
+            do {
+                int alt21=2;
+                int LA21_0 = input.LA(1);
+
+                if ( (LA21_0==MINUS||LA21_0==CITE||LA21_0==35) ) {
+                    alt21=1;
+                }
+
+
+                switch (alt21) {
+            	case 1 :
+            	    // /home/camille/ANTLRWorks/patternsDefinitionGrammar.g:295:20: subsentenceTemplate[p]
+            	    {
+            	    pushFollow(FOLLOW_subsentenceTemplate_in_forLoopInTemplate967);
+            	    subsentenceTemplate32=subsentenceTemplate(p);
+
+            	    state._fsp--;
+
+            	    sstl.add(subsentenceTemplate32);
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt21 >= 1 ) break loop21;
+                        EarlyExitException eee =
+                            new EarlyExitException(21, input);
+                        throw eee;
+                }
+                cnt21++;
+            } while (true);
+
+            match(input,RIGHTSB,FOLLOW_RIGHTSB_in_forLoopInTemplate972); 
+            flit = new ForLoopInTemplate(p.getSubpatternCollectionById((ID33!=null?ID33.getText():null)), sstl);
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return flit;
+    }
+    // $ANTLR end "forLoopInTemplate"
 
     // Delegated rules
 
@@ -1262,59 +1530,73 @@ public class patternsDefinitionGrammarParser extends Parser {
     public static final BitSet FOLLOW_CITE_in_prefix221 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_PAT_in_pattern245 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_ID_in_pattern247 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_QUER_in_pattern253 = new BitSet(new long[]{0x0000000010030000L});
-    public static final BitSet FOLLOW_subpattern_in_pattern258 = new BitSet(new long[]{0x0000000010030040L});
-    public static final BitSet FOLLOW_ENDQUER_in_pattern268 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_SENTENCE_in_pattern272 = new BitSet(new long[]{0x0000000000002100L});
-    public static final BitSet FOLLOW_mappinconditions_in_pattern279 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_ENDPAT_in_pattern285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_patterntriple_in_subpattern312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_subpatterncollection_in_subpattern319 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_e1_in_patterntriple338 = new BitSet(new long[]{0x0000000010010000L});
-    public static final BitSet FOLLOW_e2_in_patterntriple340 = new BitSet(new long[]{0x0000000010010000L});
-    public static final BitSet FOLLOW_e3_in_patterntriple342 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_patterntriple344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classPe_in_e1363 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_propertyPe_in_e2381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classPe_in_e3399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literalPe_in_e3406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LEFTSB_in_subpatterncollection429 = new BitSet(new long[]{0x0000000010030000L});
-    public static final BitSet FOLLOW_subpattern_in_subpatterncollection431 = new BitSet(new long[]{0x0000000010070000L});
-    public static final BitSet FOLLOW_RIGHTSB_in_subpatterncollection436 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_ID_in_subpatterncollection448 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_COLON_in_subpatterncollection463 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_INT_in_subpatterncollection467 = new BitSet(new long[]{0x0000000001800002L});
-    public static final BitSet FOLLOW_TWOPOINTS_in_subpatterncollection485 = new BitSet(new long[]{0x0000000010100000L});
-    public static final BitSet FOLLOW_INT_in_subpatterncollection507 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_N_in_subpatterncollection510 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_SLASH_in_subpatterncollection530 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_INT_in_subpatterncollection534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_in_classPe586 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_INT_in_classPe594 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_UNDERSCORE_in_classPe596 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_qname_in_classPe598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_in_propertyPe626 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_INT_in_propertyPe636 = new BitSet(new long[]{0x0000000100004002L});
-    public static final BitSet FOLLOW_UNDERSCORE_in_propertyPe638 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_qname_in_propertyPe640 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_32_in_propertyPe645 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_INT_in_propertyPe648 = new BitSet(new long[]{0x0000000600000000L});
-    public static final BitSet FOLLOW_33_in_propertyPe653 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_INT_in_propertyPe656 = new BitSet(new long[]{0x0000000600000000L});
-    public static final BitSet FOLLOW_34_in_propertyPe662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_qname687 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_COLON_in_qname689 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_ID_in_qname693 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_literalPe713 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_UNDERSCORE_in_literalPe715 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_LOWERTHAN_in_literalPe717 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_qname_in_literalPe719 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_GREATERTHAN_in_literalPe721 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MAPCOND_in_mappinconditions738 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_mappingcondition_in_mappinconditions743 = new BitSet(new long[]{0x0000000010000080L});
-    public static final BitSet FOLLOW_ENDMAPCOND_in_mappinconditions749 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_mappingcondition764 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_COLON_in_mappingcondition766 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_CITE_in_mappingcondition768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUER_in_pattern253 = new BitSet(new long[]{0x0000000008030000L});
+    public static final BitSet FOLLOW_subpattern_in_pattern258 = new BitSet(new long[]{0x0000000008030040L});
+    public static final BitSet FOLLOW_ENDQUER_in_pattern268 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_sentenceTemplate_in_pattern276 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_ENDPAT_in_pattern284 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_patterntriple_in_subpattern307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_subpatterncollection_in_subpattern314 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_e1_in_patterntriple333 = new BitSet(new long[]{0x0000000008010000L});
+    public static final BitSet FOLLOW_e2_in_patterntriple335 = new BitSet(new long[]{0x0000000008010000L});
+    public static final BitSet FOLLOW_e3_in_patterntriple337 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_patterntriple339 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classPe_in_e1358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_propertyPe_in_e2376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classPe_in_e3394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literalPe_in_e3401 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LEFTSB_in_subpatterncollection424 = new BitSet(new long[]{0x0000000008030000L});
+    public static final BitSet FOLLOW_subpattern_in_subpatterncollection426 = new BitSet(new long[]{0x0000000008070000L});
+    public static final BitSet FOLLOW_RIGHTSB_in_subpatterncollection431 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_ID_in_subpatterncollection443 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_COLON_in_subpatterncollection458 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_INT_in_subpatterncollection462 = new BitSet(new long[]{0x0000000001800002L});
+    public static final BitSet FOLLOW_TWOPOINTS_in_subpatterncollection480 = new BitSet(new long[]{0x0000000008100000L});
+    public static final BitSet FOLLOW_INT_in_subpatterncollection502 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_N_in_subpatterncollection505 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_SLASH_in_subpatterncollection525 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_INT_in_subpatterncollection529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_classPe581 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_INT_in_classPe589 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_UNDERSCORE_in_classPe591 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_qname_in_classPe593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_propertyPe621 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_INT_in_propertyPe631 = new BitSet(new long[]{0x0000000080004002L});
+    public static final BitSet FOLLOW_UNDERSCORE_in_propertyPe633 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_qname_in_propertyPe635 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_31_in_propertyPe640 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_INT_in_propertyPe643 = new BitSet(new long[]{0x0000000300000000L});
+    public static final BitSet FOLLOW_32_in_propertyPe648 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_INT_in_propertyPe651 = new BitSet(new long[]{0x0000000300000000L});
+    public static final BitSet FOLLOW_33_in_propertyPe657 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_qname682 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_COLON_in_qname684 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_ID_in_qname688 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_literalPe708 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_UNDERSCORE_in_literalPe710 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_LOWERTHAN_in_literalPe712 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_qname_in_literalPe714 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_GREATERTHAN_in_literalPe716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SENT_in_sentenceTemplate765 = new BitSet(new long[]{0x0000000804010000L});
+    public static final BitSet FOLLOW_subsentenceTemplate_in_sentenceTemplate770 = new BitSet(new long[]{0x0000000804010020L});
+    public static final BitSet FOLLOW_ENDSENT_in_sentenceTemplate778 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_peInTemplate_in_subsentenceTemplate799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_spcInTemplate_in_subsentenceTemplate807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_staticStringInTemplate_in_subsentenceTemplate815 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_forLoopInTemplate_in_subsentenceTemplate822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_peInTemplate856 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_INT_in_peInTemplate857 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_MINUS_in_peInTemplate858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_spcInTemplate889 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_ID_in_spcInTemplate891 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_spcInTemplate893 = new BitSet(new long[]{0x0000000804010000L});
+    public static final BitSet FOLLOW_subsentenceTemplate_in_spcInTemplate895 = new BitSet(new long[]{0x0000000804050000L});
+    public static final BitSet FOLLOW_RIGHTSB_in_spcInTemplate900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CITE_in_staticStringInTemplate927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_forLoopInTemplate961 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_ID_in_forLoopInTemplate963 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_forLoopInTemplate965 = new BitSet(new long[]{0x0000000804010000L});
+    public static final BitSet FOLLOW_subsentenceTemplate_in_forLoopInTemplate967 = new BitSet(new long[]{0x0000000804050000L});
+    public static final BitSet FOLLOW_RIGHTSB_in_forLoopInTemplate972 = new BitSet(new long[]{0x0000000000000002L});
 
 }

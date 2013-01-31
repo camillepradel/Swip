@@ -1,0 +1,297 @@
+<html>
+<head>
+    <title>OpenLink AJAX Toolkit</title>
+    <link rel="STYLESHEET" type="text/css" href="oat.css"/>
+  </head>
+
+<div id="oatnav">
+    <a href="index.html">Index</a> | 
+      <a href="http://oat.openlinksw.com/" target="_new">OAT homepage</a> | 
+      <a href="http://www.openlinksw.com/" target="_new">OpenLink Software</a>
+  </div>
+  <h1>
+    OATDOCrdfbrowser</h1>
+  <div class="topic-text">
+    
+
+    <div class="oatwikitoc">
+      <div class="wikitoc">
+      <ul>
+        <li>
+            <a href="#OATDOCrdfbrowser">OATDOCrdfbrowser</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+        <a href="#rdfbrowser.js">rdfbrowser.js</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Objects">Objects</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.RDFBrowser(div,options)">OAT.RDFBrowser(div,options)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Methods">Methods</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.RDFBrowser::store.addURL(url)">OAT.RDFBrowser::store.addURL(url)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.RDFBrowser::store.addTriples(triples,%20label,%20href)">
+        OAT.RDFBrowser::store.addTriples(triples, label,
+        href)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#CSS%20IDs">CSS IDs</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="##rdf_side">#rdf_side</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="##rdf_cache">#rdf_cache</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="##rdf_tabs">#rdf_tabs</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="##rdf_filter">#rdf_filter</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="##rdf_content">#rdf_content</a>
+          </li>
+      </ul>
+    </div>
+    </div>
+
+    
+
+    
+
+    
+
+    <h2>
+      <a name="rdfbrowser.js" id="rdfbrowser.js"> 
+      </a>
+    rdfbrowser.js</h2>
+
+    <p>Multi-purpose RDF Browser.</p>
+
+    
+
+    <h3>
+      <a name="Objects" id="Objects"> 
+      </a> Objects</h3>
+
+    
+
+    <h4>
+      <a name="OAT.RDFBrowser(div,options)"> 
+      </a>
+    OAT.RDFBrowser(div,options)</h4>
+
+    <p>
+      <br/>
+    Creates an RDF Browser object. Contents will be displayed
+    inside <tt>div</tt> . You don't need to specify div if you have
+    previously created (and appended) all elements with CSS IDs
+    mentioned before. <tt>options</tt> may contain:<br/>
+    </p>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>maxLength</tt>
+        </strong> - maximum length of
+      tree node label (default <tt>30</tt> )<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>maxURILength</tt>
+        </strong> - maximum length
+      of displayed URI (default <tt>60</tt> )<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>maxDistinctValues</tt>
+        </strong> - maximum
+      number of leaves in one tree node (default <tt>100</tt>
+      )<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>imagePath</tt>
+        </strong> - include trailing
+      slash (default <tt>OAT.Preferences.imagePath</tt>
+      )<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>defaultURL</tt>
+        </strong> - to be shown in
+      input area (default <tt>""</tt> )<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>endpoint</tt>
+        </strong> - SPARQL query
+      endpoint (default <tt>"/sparql?query="</tt> )</li>
+    </ul>
+
+    <h3>
+      <a name="Methods" id="Methods"> 
+      </a> Methods</h3>
+
+    
+
+    <h4>
+      <a name="OAT.RDFBrowser::store.addURL(url)"> 
+      </a>
+    OAT.RDFBrowser::store.addURL(url)</h4>
+
+    <p>
+      <br/>
+    Adds data from <tt>url</tt> to the Browser.</p>
+
+    <h4>
+      <a name="OAT.RDFBrowser::store.addTriples(triples, label, href)"> 
+      </a>
+    OAT.RDFBrowser::store.addTriples(triples, label, href)</h4>
+
+    <p>
+      <br/>
+    Adds a set of <tt>triples</tt> to the Browser. One should
+    specify a <tt>label</tt> and originating URI as <tt>href</tt>
+    .</p>
+
+    <h3>
+      <a name="CSS IDs"> 
+      </a> CSS IDs</h3>
+
+    
+
+    <h4>
+      <a name="#rdf_side"> 
+      </a> #rdf_side</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name="#rdf_cache"> 
+      </a> #rdf_cache</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name="#rdf_tabs"> 
+      </a> #rdf_tabs</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name="#rdf_filter"> 
+      </a> #rdf_filter</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+    </p>
+
+    <h4>
+      <a name="#rdf_content"> 
+      </a> #rdf_content</h4>
+
+    <p>
+      <br/>
+      <div class="tdl">
+    ToBeDone</div>
+      <br/>
+    </p>
+
+    
+    <hr/>
+  </div>
+<div id="oatcopy">
+      Copyright (C) 2005-2008
+      <a href="http://www.openlinksw.com/">OpenLink Software</a>
+  </div>
+</html>

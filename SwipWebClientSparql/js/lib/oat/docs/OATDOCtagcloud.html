@@ -1,0 +1,286 @@
+<html>
+<head>
+    <title>OpenLink AJAX Toolkit</title>
+    <link rel="STYLESHEET" type="text/css" href="oat.css"/>
+  </head>
+
+<div id="oatnav">
+    <a href="index.html">Index</a> | 
+      <a href="http://oat.openlinksw.com/" target="_new">OAT homepage</a> | 
+      <a href="http://www.openlinksw.com/" target="_new">OpenLink Software</a>
+  </div>
+  <h1>
+    OATDOCtagcloud</h1>
+  <div class="topic-text">
+    
+
+    <div class="oatwikitoc">
+      <div class="wikitoc">
+      <ul>
+        <li>
+            <a href="#OATDOCtagcloud">OATDOCtagcloud</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+        <a href="#tagcloud.js">tagcloud.js</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Objects">Objects</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.TagCloud(div,%20optionsObject)">OAT.TagCloud(div,
+        optionsObject)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Methods">Methods</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.TagCloud.clearItems()">OAT.TagCloud.clearItems()</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.TagCloud.addItem(name,%20link[,%20frequency])">OAT.TagCloud.addItem(name,
+        link[, frequency])</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.TagCloud.draw()">OAT.TagCloud.draw()</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Constants">Constants</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.TagCloudData.COLOR_SIZE">OAT.TagCloudData.COLOR_SIZE</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.TagCloudData.COLOR_CYCLE">OAT.TagCloudData.COLOR_CYCLE</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.TagCloudData.COLOR_RANDOM">OAT.TagCloudData.COLOR_RANDOM</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Example">Example</a>
+          </li>
+      </ul>
+    </div>
+    </div>
+
+    
+
+    
+
+    
+
+    <h2>
+      <a name="tagcloud.js" id="tagcloud.js"> 
+      </a>
+    tagcloud.js</h2>
+
+    <p>Displays a "Tag Cloud", a visually enhanced set of
+    links.</p>
+
+    
+
+    <h3>
+      <a name="Objects" id="Objects"> 
+      </a> Objects</h3>
+
+    
+
+    <h4>
+      <a name="OAT.TagCloud(div, optionsObject)"> 
+      </a>
+    OAT.TagCloud(div, optionsObject)</h4>
+
+    <p>
+      <br/>
+    Creates a Tag Cloud inside <tt>div</tt> . Options are specified
+    in <tt>optionsObject</tt> :<br/>
+    </p>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>separator</tt>
+        </strong> - string which
+      separates individual entries<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>colors</tt>
+        </strong> - array of colors to be
+      used<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>sizes</tt>
+        </strong> - array of font sizes to
+      be used<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>colorMapping</tt>
+        </strong> - one of the
+      <tt>OAT.TagCloudData.COLOR_</tt> constants</li>
+    </ul>
+
+    <h3>
+      <a name="Methods" id="Methods"> 
+      </a> Methods</h3>
+
+    
+
+    <h4>
+      <a name="OAT.TagCloud.clearItems()"> 
+      </a>
+    OAT.TagCloud.clearItems()</h4>
+
+    <p>
+      <br/>
+    Removes all items (links).</p>
+
+    <h4>
+      <a name="OAT.TagCloud.addItem(name, link[, frequency])"> 
+      </a>
+    OAT.TagCloud.addItem(name, link[, frequency])</h4>
+
+    <p>
+      <br/>
+    Adds a new item. Its label is <tt>name</tt> , <tt>link</tt> is
+    an URL. Third argument, <tt>frequency</tt> is optional and
+    defaults to 1.</p>
+
+    <h4>
+      <a name="OAT.TagCloud.draw()"> 
+      </a> OAT.TagCloud.draw()</h4>
+
+    <p>
+      <br/>
+    Draws the Tag Cloud.</p>
+
+    <h3>
+      <a name="Constants" id="Constants"> 
+      </a> Constants</h3>
+
+    
+
+    <h4>
+      <a name="OAT.TagCloudData.COLOR_SIZE" id="OAT.TagCloudData.COLOR_SIZE"> 
+      </a>
+    OAT.TagCloudData.COLOR_SIZE</h4>
+
+    <p>
+      <br/>
+    Create color based on size (</p>
+
+    <p>frequency).</p>
+
+    <h4>
+      <a name="OAT.TagCloudData.COLOR_CYCLE" id="OAT.TagCloudData.COLOR_CYCLE"> 
+      </a>
+    OAT.TagCloudData.COLOR_CYCLE</h4>
+
+    <p>
+      <br/>
+    Periodically cycle all specified colors.</p>
+
+    <h4>
+      <a name="OAT.TagCloudData.COLOR_RANDOM" id="OAT.TagCloudData.COLOR_RANDOM"> 
+      </a>
+    OAT.TagCloudData.COLOR_RANDOM</h4>
+
+    <p>
+      <br/>
+    Use randomly chosen color for each item.</p>
+
+    <h3>
+      <a name="Example" id="Example"> 
+      </a> Example</h3>
+
+    
+    <pre>
+var colors = ["#f00","#0f0","#00f"];
+var sizes = ["80%","100%","120%"];
+var tc = new OAT.TagCloud("myDiv",{separator:", ", 
+                          colorMapping:OAT.TagCloudData.COLOR_SIZE, 
+                          colors:colors, sizes:sizes});
+
+tc.addItem("Label 1", "http://", 10);
+tc.addItem("Label 2", "http://", 5);
+tc.addItem("Label 3", "http://"); /* frequency == 1 */
+
+tc.draw();
+
+</pre>
+
+    
+
+    
+    <hr/>
+  </div>
+<div id="oatcopy">
+      Copyright (C) 2005-2008
+      <a href="http://www.openlinksw.com/">OpenLink Software</a>
+  </div>
+</html>

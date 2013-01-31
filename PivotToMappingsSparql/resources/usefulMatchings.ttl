@@ -1,21 +1,41 @@
 @prefix graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>.
 @prefix queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>.
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
+@prefix mo:  <http://purl.org/ontology/mo/>.
 
 graph:person a queries:KeywordQueryElement ;
              queries:keywordAlreadyMatched "true"^^xsd:boolean.
 
-graph:match_person1
-	a queries:Matching;
+<http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person1>
+    a queries:Matching;
     queries:matchingHasKeyword graph:person;
     queries:matchingHasResource <http://xmlns.com/foaf/0.1/Agent>;
-    queries:matchingHasScore "50"^^xsd:float;
+    queries:matchingHasScore "30"^^xsd:float;
     queries:matchingHasMatchedLabel "person".
 
-graph:match_person2
-	a queries:Matching;
+<http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person2>
+    a queries:Matching;
     queries:matchingHasKeyword graph:person;
-    queries:matchingHasResource <http://purl.org/ontology/mo/Performer>;
-    queries:matchingHasScore "50"^^xsd:float;
+    queries:matchingHasResource mo:Performer;
+    queries:matchingHasScore "30"^^xsd:float;
     queries:matchingHasMatchedLabel "person".
 
+graph:album a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_album1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:album;
+    queries:matchingHasResource mo:MusicalManifestation;
+    queries:matchingHasScore "30"^^xsd:float;
+    queries:matchingHasMatchedLabel "album".
+
+graph:compose a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_compose1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:compose;
+    queries:matchingHasResource mo:composer;
+    queries:matchingHasScore "30"^^xsd:float;
+    queries:matchingHasMatchedLabel "compose".

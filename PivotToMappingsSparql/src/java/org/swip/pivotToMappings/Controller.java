@@ -24,7 +24,7 @@ import org.swip.pivotToMappings.model.query.subquery.Q1;
 import org.swip.pivotToMappings.model.query.subquery.Q2;
 import org.swip.pivotToMappings.model.query.subquery.Q3;
 import org.swip.pivotToMappings.model.query.subquery.Subquery;
-import org.swip.utils.sparql.RemoteSparqlServer;
+import org.swip.utils.sparql.SparqlClient;
 
 public class Controller {
 
@@ -52,16 +52,14 @@ public class Controller {
         logger.info("pivotQueryString : " + pivotQueryString);
         logger.info("sparqlEndpointUri : " + sparqlEndpointUri);
         logger.info("numMappings : " + numMappings);
-        RemoteSparqlServer sparqlServer = new RemoteSparqlServer(sparqlEndpointUri);
+        SparqlClient sparqlClient = new SparqlClient(sparqlEndpointUri);
         try {
             logger.info("Parsing pivot query : " + pivotQueryString);
             final Query userQuery = createQuery(pivotQueryString);
             logger.info("parsed query: " + userQuery.toString() + "\n");
-            String queryLocalName = generateQueryLocalName(userQuery);
-            String queryUri = sparqlServer.getEndpointUri() + queryLocalName;
-            logger.info("query local name: " + queryLocalName + "\n");
+            String queryUri = generateQueryUri(userQuery, sparqlClient);
             logger.info("query uri: " + queryUri + "\n");
-            if (queryAlreadyExists(queryUri, sparqlServer)) {
+            if (queryAlreadyExists(queryUri, sparqlClient)) {
                 // TODO: update query metadata
                 logger.info("query already exists");
                 return queryUri;
@@ -69,12 +67,12 @@ public class Controller {
                 logger.info("================================================================\n");
                 logger.info("Commit query into SPARQL endpoint:");
                 logger.info("---------------------------------\n");
-                commitQuery(queryUri, userQuery, sparqlServer);
+                commitQuery(queryUri, userQuery, sparqlClient);
                 // change query processing state
-                changeQueryProcessingState(queryUri, sparqlServer, "NotBegun");
+                changeQueryProcessingState(queryUri, sparqlClient, "NotBegun");
                 
                 // perform query interpretation in a new thread
-                QueryInterpreter qi = new QueryInterpreter(queryUri, sparqlServer, numMappings);
+                QueryInterpreter qi = new QueryInterpreter(queryUri, sparqlClient, numMappings);
                 qi.start();
                 
                 return queryUri;
@@ -120,9 +118,9 @@ public class Controller {
      * @param userQuery
      * @return 
      */
-    private String generateQueryLocalName(Query userQuery) {
+    private String generateQueryUri(Query userQuery, SparqlClient sparqlClient) {
         List<String> subqueryStrings = new LinkedList<String>();
-        String result = "";
+        String result = "http://" + sparqlClient.getEndpointUri() + "/";
         for (Subquery sq : userQuery.getSubqueries()) {
             subqueryStrings.add(getStringForSubquery(sq));
         }
@@ -151,7 +149,7 @@ public class Controller {
         }
     }
 
-    private boolean queryAlreadyExists(String queryUri, RemoteSparqlServer sparqlServer) {
+    private boolean queryAlreadyExists(String queryUri, SparqlClient sparqlServer) {
         String ask = "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
                 + "ASK\n"
                 + "{\n"
@@ -163,9 +161,10 @@ public class Controller {
         return sparqlServer.ask(ask);
     }
 
-    private void commitQuery(String queryUri, Query userQuery, RemoteSparqlServer sparqlServer) {
+    private void commitQuery(String queryUri, Query userQuery, SparqlClient sparqlServer) {
         String updateGraph = getGraphForQuery(queryUri, userQuery, sparqlServer);
-        String query = "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
+        String query = "# commit query "+ queryUri + "\n"
+                + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
                 + "INSERT DATA\n"
                 + "{\n"
@@ -184,15 +183,15 @@ public class Controller {
             logger.info("Process query");
             logger.info("pivotQueryString : " + pivotQueryString);
             logger.info("sparqlEndpointUri : " + sparqlEndpointUri);
-            RemoteSparqlServer sparqlServer = new RemoteSparqlServer(sparqlEndpointUri);
+            SparqlClient sparqlClient = new SparqlClient(sparqlEndpointUri);
             final Query userQuery = createQuery(pivotQueryString);
             logger.info("parsed query: " + userQuery.toString() + "\n");
-            String queryLocalName = generateQueryLocalName(userQuery);
-            String queryUri = sparqlServer.getEndpointUri() + queryLocalName;
+            String queryLocalName = generateQueryUri(userQuery, sparqlClient);
+            String queryUri = sparqlClient.getEndpointUri() + queryLocalName;
             logger.info("query local name: " + queryLocalName + "\n");
             logger.info("query uri: " + queryUri + "\n");
 
-            String queryGraph = getGraphForQuery(queryUri, userQuery, sparqlServer);
+            String queryGraph = getGraphForQuery(queryUri, userQuery, sparqlClient);
             String query = "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                     + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
                     + "DELETE WHERE\n"
@@ -203,19 +202,19 @@ public class Controller {
                     + "  }\n"
                     + "}";
             logger.info(query);
-            sparqlServer.update(query);
+            sparqlClient.update(query);
         } catch (QueryParsingException ex) {
             java.util.logging.Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private String getGraphForQuery(String queryUri, Query userQuery, RemoteSparqlServer sparqlServer) {
+    private String getGraphForQuery(String queryUri, Query userQuery, SparqlClient sparqlServer) {
         String queryGraph = "    <" + queryUri + "> a queries:PivotQuery.\n";
         int literalId = 0;
         for (QueryElement qe : userQuery.getQueryElements()) {
             String qeUri = "";
             if (qe instanceof Keyword) {
-                qeUri = sparqlServer.getEndpointUri() + qe.getStringValue();
+                qeUri = "http://" + sparqlServer.getEndpointUri() + "/" + qe.getStringValue();
                 queryGraph += "    <" + qeUri + "> a queries:KeywordQueryElement.\n";
             } else if (qe instanceof Literal) {
                 qeUri = queryUri + "/literal" + literalId++;
@@ -249,7 +248,7 @@ public class Controller {
         return queryGraph;
     }
 
-    void changeQueryProcessingState(String queryUri, RemoteSparqlServer sparqlServer, String stateLocalName) {
+    void changeQueryProcessingState(String queryUri, SparqlClient sparqlServer, String stateLocalName) {
         String query = "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
                 + "DELETE WHERE\n"

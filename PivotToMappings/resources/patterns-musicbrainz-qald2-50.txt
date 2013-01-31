@@ -53,7 +53,7 @@ pattern cd_info
 		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/15
 	end query
 	sentence
-		__1__ _if_status_[whose status is __13__, ]_end_if_status_ _if_type_[released as __5__, ]_end_if_type_ _if_creator_[created by __3__, ]_end_if_creator_ _if_producer_[produced by __7__, ]_end_if_producer_ _if_composer_[composed by __9__, ]_end_if_composer_ _if_vocal_[vocalised by __11__, ]_end_if_vocal_ _if_lyricist_[whose lyricist is __15__]_end_if_lyricist_
+		__1__ -status-[whose status is __13__, ]status_ -type-[released as __5__, ]type_ -creator-[created by __3__, ]creator_ -producer-[produced by __7__, ]producer_ -composer-[composed by __9__, ]composer_ -vocal-[vocalised by __11__, ]vocal_ -lyricist-[whose lyricist is __15__]lyricist_
 	end sentence
 	mapping conditions
 		3:	"?var	<http://purl.org/dc/elements/1.1/creator>	__3__."
@@ -88,7 +88,7 @@ TODO: gérer le type: ?person: produce= In_Utero. In_Utero: album.
 
 pattern cd_info
 	query
-		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:1..3/3/*0..1/3*/
+		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:1..2/3/*0..1/3*/
 		[ 1							6_mo:producer(7)			7_foaf:Agent;			]producer:0..1/7
 		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..2/9/*0..1/9*/
 		[ 1							10_mo:singer(11)			11_mo:Performer;		]vocal:0..1/11
@@ -96,7 +96,7 @@ pattern cd_info
 		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/15
 	end query
 	sentence
-		__1__ _if_status_[whose status is __13__, ]_end_if_status_ _if_creator_[created by __3__, ]_end_if_creator_ _if_producer_[produced by __7__, ]_end_if_producer_ _if_composer_[composed by __9__, ]_end_if_composer_ _if_vocal_[vocalised by __11__, ]_end_if_vocal_ _if_lyricist_[whose lyricist is __15__]_end_if_lyricist_
+		-1- -status-[" whose status is "-13-", "] -creator-[" created by " -for-creator-[-3-", "]] -producer-[" produced by "-7-", "] -composer-[" composed by "-9-", "] -vocal-[" vocalised by "-11-", "] -lyricist-[" whose lyricist is "-15-]
 	end sentence
 end pattern
 
@@ -149,7 +149,7 @@ pattern artist_member
 		[ -3			8_mm:endDate(9)			9_<xsd:dateTime>;		]stop:0..1/9
 	end query
 	sentence
-		__1__ is or was member of the band __5__ _if_start_[since __7__]_end_if_start_ _if_stop_[until __9__]_end_if_stop_
+		__1__ is or was member of the band __5__ -start-[since __7__]start_ -stop-[until __9__]stop_
 	end sentence
 	mapping conditions
 		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
@@ -183,7 +183,7 @@ pattern artist_member
 		  -13					 14_tl:start(9)			 15_<xsd:date>;				]stop:0..1/15
 	end query
 	sentence
-		__1__ is or was member of __3__ _if_start_[since __6__]_end_if_start_ _if_stop_[until __9__]_end_if_stop_
+		-1-" is or was member of "-3- -start-[" since "-6-] -stop-[" until "-9-]
 	end sentence
 end pattern
 
@@ -220,7 +220,7 @@ pattern date_group
 		[ 1		4_mm:endDate(5)		5_<xsd:dateTime>;			]end:0..1/5
 	end query
 	sentence
-		__1__ _if_begin_[was formed on/in __3__,]_end_if_begin_ _if_end_[broke up on/in __5__,]_end_if_end_
+		__1__ -begin-[was formed on/in __3__,]begin_ -end-[broke up on/in __5__,]end_
 	end sentence
 	mapping conditions
 		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypeGroup>."
@@ -246,7 +246,7 @@ pattern date_group
 		  7					 8_bio:date(9)		9_<xsd:dateTime>;		]end:0..1/9
 	end query
 	sentence
-		__1__ _if_begin_[was formed on/in __5__,]_end_if_begin_ _if_end_[broke up on/in __9__,]_end_if_end_
+		-1- -begin-[" was formed on/in "-5-","] -end-[" broke up on/in "-9-]
 	end sentence
 end pattern
 
@@ -279,7 +279,7 @@ pattern date_person
 		[ 1				4_mm:endDate(5)		5_<xsd:dateTime>;			]death:0..1/5
 	end query
 	sentence
-		__1__ _if_birth_[was born on __3__,]_end_if_birth_ _if_death_[died on __3__,]_end_if_death_
+		__1__ -birth-[was born on __3__,]birth_ -death-[died on __3__,]death_
 	end sentence
 	mapping conditions
 		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
@@ -305,7 +305,7 @@ pattern around_artist_person
 		 -27		-28_ar:toArtist			 29_mm:Artist;		]collab:0..1/29
 	end query
 	sentence
-		__1__, _if_band_[member of __9__,]_end_if_band_ _if_sibling_[who has for sibling __13__,]_end_if_sibling_ _if_parent_[parent of __25__,]_end_if_parent_ _if_marriage_[married to __17__ _if_beginMarriage_[from __19__,]_end_if_beginMarriage_ _if_endMarriage_[to __21__,]_end_if_endMarriage_,]_end_if_marriage_ _if_collab_[collaborated with __29__,]_end_if_collab_
+		__1__, -band-[member of __9__,]band_ -sibling-[who has for sibling __13__,]sibling_ -parent-[parent of __25__,]parent_ -marriage-[married to __17__ -beginMarriage-[from __19__,]beginMarriage_ -endMarriage-[to __21__,]endMarriage_,]marriage_ -collab-[collaborated with __29__,]collab_
 	end sentence
 	mapping conditions
 		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
@@ -351,7 +351,7 @@ pattern around_artist_person
 		[ 1				 14_mo:collaborated_with	15_foaf:Agent;				]collab:0..1/15
 	end query
 	sentence
-		__1__ _if_birth_[was born on __5__,]_end_if_birth_ _if_death_[died on __9__,]_end_if_death_ _if_band_[member of __9__,]_end_if_band_ _if_marriage_[married to __17__,]_end_if_marriage_ _if_collab_[collaborated with __15__,]_end_if_collab_
+		-1- -birth-[" was born on "-5-", "] -death-[" died on "-9-", "] -band-[" member of "-11-", "] -marriage-[" married to "-13-", "] -collab-["collaborated with "-15-]
 	end sentence
 end pattern
 
@@ -378,7 +378,7 @@ pattern around_track
 		  -8			-9_blank:Node		1;				]album:0..1/6
 	end query
 	sentence
-		__1__ _if_creator_[created by __5__,]_end_if_creator_ _if_album_[from the album __6__,]_end_if_album_ _if_duration_[is __3__ milliseconds long,]_end_if_duration_
+		__1__ -creator-[created by __5__,]creator_ -album-[from the album __6__,]album_ -duration-[is __3__ milliseconds long,]duration_
 	end sentence
 end pattern
 */
@@ -398,6 +398,6 @@ pattern around_track
 		[ 6_mo:Record	7_mo:track(1)		1;					]album:0..1/6
 	end query
 	sentence
-		__1__ _if_creator_[created by __5__,]_end_if_creator_ _if_album_[from the album __6__,]_end_if_album_ _if_duration_[is __3__ milliseconds long,]_end_if_duration_
+		-1- -creator-[" created by "-5-", "] -album-[" from the album "-6-", "] -duration-[" is "-3-" milliseconds long"]
 	end sentence
 end pattern

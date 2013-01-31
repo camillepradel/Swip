@@ -1,0 +1,205 @@
+<html>
+<head>
+    <title>OpenLink AJAX Toolkit</title>
+    <link rel="STYLESHEET" type="text/css" href="oat.css"/>
+  </head>
+
+<div id="oatnav">
+    <a href="index.html">Index</a> | 
+      <a href="http://oat.openlinksw.com/" target="_new">OAT homepage</a> | 
+      <a href="http://www.openlinksw.com/" target="_new">OpenLink Software</a>
+  </div>
+  <h1>
+    OATDOCmessaging</h1>
+  <div class="topic-text">
+    
+
+    <div class="oatwikitoc">
+      <div class="wikitoc">
+      <ul>
+        <li>
+            <a href="#OATDOCmessaging">OATDOCmessaging</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+        <a href="#Messaging">Messaging</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Functions">Functions</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.MSG.send(sender,%20message,%20event)">OAT.MSG.send(sender,
+        message, event)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.MSG.attach(sender,%20message,%20callback)">OAT.MSG.attach(sender,
+        message, callback)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#OAT.MSG.detach(sender,%20message,%20callback)">OAT.MSG.detach(sender,
+        message, callback)</a>
+          </li>
+
+        <li>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label>
+            <label class="c1">_</label> <a href="#Example">Example</a>
+          </li>
+      </ul>
+    </div>
+    </div>
+
+    
+
+    
+
+    
+
+    <h2>
+      <a name="Messaging" id="Messaging"> 
+      </a> Messaging</h2>
+
+    <p>How to send &amp; receive inter-control messages</p>
+
+    
+
+    <h3>
+      <a name="Functions" id="Functions"> 
+      </a> Functions</h3>
+
+    
+
+    <h4>
+      <a name="OAT.MSG.send(sender, message, event)"> 
+      </a>
+    OAT.MSG.send(sender, message, event)</h4>
+
+    <p>
+      <br/>
+    Dispatches a message.<br/>
+    </p>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>sender</tt>
+        </strong> - to object sending this
+      message.<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>message</tt>
+        </strong> - a constant, defined
+      in <tt>OAT.MSG</tt> . Developers are encouraged to add more
+      message types. Examples include <tt>OAT_LOAD</tt> ,
+      <tt>TREE_EXPAND</tt> , and <tt>AJAX_FAILURE</tt> .<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>event</tt>
+        </strong> - an object carrying data
+      relevant to this message; no particular format is
+      required.</li>
+    </ul>
+
+    <h4>
+      <a name="OAT.MSG.attach(sender, message, callback)"> 
+      </a>
+    OAT.MSG.attach(sender, message, callback)</h4>
+
+    <p>
+      <br/>
+    Subscribes to messages.<br/>
+    </p>
+
+    <ul>
+      <li>
+        <strong>
+          <tt>sender</tt>
+        </strong> - the object whose
+      messages we want to receive; value of "*" means ALL
+      senders.<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>message</tt>
+        </strong> - the message we want
+      to receive; it is possible to use "*" or RegExp matches here.<br/>
+      </li>
+
+      <li>
+        <strong>
+          <tt>callback</tt>
+        </strong> - When a message
+      arrives, <tt>callback</tt> is executed with arguments passed
+      to appropriate <tt>OAT.MSG.send()</tt> function.</li>
+    </ul>
+
+    <h4>
+      <a name="OAT.MSG.detach(sender, message, callback)"> 
+      </a>
+    OAT.MSG.detach(sender, message, callback)</h4>
+
+    <p>
+      <br/>
+    Detaches previously set message receiving handler. All three
+    fields must match.</p>
+
+    <h3>
+      <a name="Example" id="Example"> 
+      </a> Example</h3>
+
+    
+    <pre>
+/* assume that there exists OAT.MSG.CUSTOM_MESSAGE */
+
+function myMessageHandler(source, message, event) {
+        alert("Message arrived!"(;
+}
+
+/* subscribe to receiving... */
+OAT.MSG.attach("*","CUSTOM_.*",myMessageHandler);
+
+/* dispatch message */
+OAT.MSG.send(this, OAT.MSG.CUSTOM_MESSAGE, {}); // will invoke myMessageHandler 
+
+</pre>
+
+    
+
+    
+    <hr/>
+  </div>
+<div id="oatcopy">
+      Copyright (C) 2005-2008
+      <a href="http://www.openlinksw.com/">OpenLink Software</a>
+  </div>
+</html>
