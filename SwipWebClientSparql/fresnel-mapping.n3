@@ -1,0 +1,168 @@
+@prefix fresnel:  <http://www.w3.org/2004/09/fresnel#> .
+@prefix mo:       <http://purl.org/ontology/mo/> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix :         <#> .
+@prefix queries:  <http://swip.univ-tlse2.fr/ontologies/Queries#> .
+
+# -----------------------------------------------
+
+:patternMappingLens rdf:type fresnel:Lens ;
+   fresnel:purpose fresnel:defaultLens ;
+   fresnel:classLensDomain queries:PatternMapping ;
+   fresnel:group :mappingGroup ;
+   fresnel:showProperties ( 
+								queries:hasRelevanceMark
+								queries:hasEmrMark
+								queries:hasQcrMark
+								queries:hasPcrMark
+								[ rdf:type fresnel:PropertyDescription;
+								  fresnel:property queries:hasDescriptiveSubsentence;
+								  fresnel:sublens :descriptiveSentenceLens]
+								queries:mappingHasPatternConstituent
+								[ rdf:type fresnel:PropertyDescription;
+								  fresnel:property queries:mappingContainsMapping;
+								  fresnel:sublens :spcMappingLens]
+	) .
+
+:spcMappingLens rdf:type fresnel:Lens ;
+   fresnel:classLensDomain queries:SubpatternCollectionMapping ;
+   fresnel:group :mappingGroup ;
+   fresnel:showProperties ( 
+								[ rdf:type fresnel:PropertyDescription;
+								  fresnel:property queries:mappingContainsMapping;
+#								  fresnel:sublens :elementMappingLens;
+								  fresnel:sublens :spcMappingLens]
+								queries:emHasPatternElement
+								[ rdf:type fresnel:PropertyDescription;
+								  fresnel:property queries:emHasMatching;
+								  fresnel:sublens :matchingLens]
+	) .
+
+#:elementMappingLens rdf:type fresnel:Lens ;
+#   fresnel:classLensDomain queries:ElementMapping ;
+#   fresnel:group :mappingGroup ;
+#   fresnel:showProperties ( 
+#								queries:emHasPatternElement
+#								[ rdf:type fresnel:PropertyDescription;
+#								  fresnel:property queries:emHasMatching;
+#								  fresnel:sublens :matchingLens]
+#	) .
+
+:matchingLens rdf:type fresnel:Lens ;
+   fresnel:group :mappingGroup ;
+   fresnel:showProperties ( 
+								queries:matchingHasResource
+								[ rdf:type fresnel:PropertyDescription;
+								  fresnel:property queries:matchingHasKeyword;
+								  fresnel:sublens :keywordLens]
+	) .
+
+:keywordLens rdf:type fresnel:Lens ;
+   fresnel:group :mappingGroup ;
+   fresnel:showProperties ( 
+								queries:queryElementHasValue
+	) .
+
+:descriptiveSentenceLens rdf:type fresnel:Lens ;
+#   fresnel:purpose fresnel:labelLens ;
+#   fresnel:classLensDomain queries:DescriptiveSubsentence ;
+   fresnel:group :mappingGroup ;
+   fresnel:showProperties ( 
+								queries:isMadeUpOfList
+	) .
+
+
+
+
+# -----------------------------------------------
+
+:mappingGroup rdf:type fresnel:Group .
+
+	
+:relevanceMarkFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:hasRelevanceMark ;
+	fresnel:label "Relevance mark: " ;
+	fresnel:valueStyle "relevencemark"^^fresnel:styleClass ;
+	fresnel:propertyStyle "relevencemark"^^fresnel:styleClass .
+	
+:emrMarkFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:hasEmrMark ;
+	fresnel:label fresnel:none ;
+	fresnel:valueFormat [fresnel:contentFirst " (" ;
+	                     fresnel:contentLast " - "] ;
+	fresnel:valueStyle "emrmark"^^fresnel:styleClass ;
+	fresnel:propertyStyle "emrmark"^^fresnel:styleClass .
+	
+:qcrMarkFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:hasQcrMark ;
+	fresnel:label fresnel:none ;
+	fresnel:valueFormat [fresnel:contentLast " - "] ;
+	fresnel:valueStyle "qcrmark"^^fresnel:styleClass ;
+	fresnel:propertyStyle "qcrmark"^^fresnel:styleClass .
+	
+:pcrMarkFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:hasPcrMark ;
+	fresnel:label fresnel:none ;
+	fresnel:valueFormat [fresnel:contentLast ") "] ;
+	fresnel:valueStyle "pcrmark"^^fresnel:styleClass ;
+	fresnel:propertyStyle "pcrmark"^^fresnel:styleClass .
+	
+:descriptiveSubsentenceFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:hasDescriptiveSubsentence ;
+	fresnel:label "Descriptive sentence: " ;
+	fresnel:valueStyle "descriptivesubsentence"^^fresnel:styleClass ;
+	fresnel:propertyStyle "descriptivesubsentence"^^fresnel:styleClass .
+	
+:mappingHasPatternConstituentFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:mappingHasPatternConstituent ;
+	fresnel:label "Relative to (sub)pattern: " .
+	
+:mappingContainsMappingFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:mappingContainsMapping ;
+	fresnel:label fresnel:none ;
+	fresnel:valueStyle "mappingContainsMapping"^^fresnel:styleClass ;
+	fresnel:propertyStyle "mappingContainsMapping"^^fresnel:styleClass .
+	
+:emHasPatternElementFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:emHasPatternElement ;
+	fresnel:label "Element mapping: " ;
+	fresnel:valueFormat [fresnel:contentLast " -> "] ;
+	fresnel:valueStyle "emHasPatternElement"^^fresnel:styleClass ;
+	fresnel:propertyStyle "emHasPatternElement"^^fresnel:styleClass .
+	
+:emHasMatchingFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:emHasMatching ;
+	fresnel:label fresnel:none ;
+	fresnel:valueStyle "emHasMatching"^^fresnel:styleClass ;
+	fresnel:propertyStyle "emHasMatching"^^fresnel:styleClass .
+	
+:matchingHasResourceFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:matchingHasResource ;
+	fresnel:label fresnel:none ;
+	fresnel:valueStyle "matchingHasResource"^^fresnel:styleClass ;
+	fresnel:propertyStyle "matchingHasResource"^^fresnel:styleClass .
+	
+:matchingHasKeywordFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:matchingHasKeyword ;
+	fresnel:label fresnel:none ;
+	fresnel:valueStyle "matchingHasKeyword"^^fresnel:styleClass ;
+	fresnel:propertyStyle "matchingHasKeyword"^^fresnel:styleClass .
+	
+:queryElementHasValueFormat rdf:type fresnel:Format ;
+	fresnel:group :mappingGroup ;
+	fresnel:propertyFormatDomain queries:queryElementHasValue ;
+	fresnel:label " <- " ;
+	fresnel:valueStyle "queryElementHasValue"^^fresnel:styleClass ;
+	fresnel:propertyStyle "queryElementHasValue"^^fresnel:styleClass .

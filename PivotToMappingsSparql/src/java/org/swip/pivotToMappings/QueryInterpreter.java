@@ -35,6 +35,7 @@ public class QueryInterpreter extends Thread {
         logger.info("Mapping subpattern collections:");
         logger.info("------------------------\n");
         performSpCollectionMapping(queryUri, sparqlClient, commitUpdate);
+//        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping patterns:");
         logger.info("------------------------\n");
@@ -46,11 +47,11 @@ public class QueryInterpreter extends Thread {
         logger.info("================================================================");
         logger.info("Clearing KB:");
         logger.info("-----------\n");
-        clearMappings(queryUri, sparqlClient, commitUpdate);
-        logger.info("================================================================");
-        logger.info("Generate descriptive sentences:");
-        logger.info("------------------------------\n");
-        generateDescriptiveSentences(queryUri, sparqlClient, commitUpdate);
+//        clearMappings(queryUri, sparqlClient, commitUpdate);
+//        logger.info("================================================================");
+//        logger.info("Generate descriptive sentences:");
+//        logger.info("------------------------------\n");
+//        generateDescriptiveSentences(queryUri, sparqlClient, commitUpdate);
         // change query processing state
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlClient, "QueryProcessed");
     }
@@ -203,7 +204,9 @@ public class QueryInterpreter extends Thread {
                 + "           queries:emHasPatternElement ?pe;\n"
                 + "           queries:mappingHasPatternConstituent ?pe;\n" // we don't use any reasonner in queries graph
                 + "           queries:emHasMatching ?matching;\n"
-                + "           queries:mappingHasQuery <" + queryUri + ">.\n"
+                + "           queries:mappingHasQuery <" + queryUri + ">;\n"
+                + "           queries:hasDescriptiveSubsentence [a queries:DescriptiveSubsentence;\n"
+                + "                                              queries:hasStringValue ?l].\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -212,7 +215,8 @@ public class QueryInterpreter extends Thread {
                 + "  {\n"
                 + "    <" + queryUri + "> queries:queryHasQueryElement ?keyword.\n"
                 + "    ?matching queries:matchingHasKeyword ?keyword;\n"
-                + "              queries:matchingHasResource ?r.\n"
+                + "              queries:matchingHasResource ?r;\n"
+                + "              queries:matchingHasMatchedLabel ?l.\n"
                 + "  }\n"
                 + "  GRAPH graph:patterns\n"
                 + "  {\n"
@@ -250,13 +254,6 @@ public class QueryInterpreter extends Thread {
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "DELETE\n"
-                + "{\n"
-                + "  GRAPH graph:queries\n"
-                + "  {\n"
-                + "    ?pe queries:isNotMappedToQuery <" + queryUri + ">.\n"
-                + "  }\n"
-                + "}\n"
                 + "INSERT\n"
                 + "{\n"
                 + "  GRAPH graph:queries\n"
@@ -265,7 +262,9 @@ public class QueryInterpreter extends Thread {
                 + "           a queries:ElementMapping;\n" // we don't use any reasonner in queries graph
                 + "           queries:emHasPatternElement ?pe;\n"
                 + "           queries:mappingHasPatternConstituent ?pe;\n" // we don't use any reasonner in queries graph
-                + "           queries:mappingHasQuery <" + queryUri + ">.\n"
+                + "           queries:mappingHasQuery <" + queryUri + ">;\n"
+                + "           queries:hasDescriptiveSubsentence [a queries:DescriptiveSubsentence;\n"
+                + "                                              queries:hasStringValue \"(EmptyElementMapping)\"].\n"
                 + "    ?pe queries:toConsiderInMappingQuery <" + queryUri + ">.\n"
                 + "  }\n"
                 + "}\n"
@@ -358,9 +357,11 @@ public class QueryInterpreter extends Thread {
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, "PerformingSpCollectionMapping");
 
         initializeSpCollectionMapping(queryUri, sparqlServer, commitUpdate);
-
+        
+//        commitUpdate = false;
+        
         int iteration = 0;
-        while (!allPatternsAreMapped(queryUri, sparqlServer)) {
+        do {
 //        for (int i = 0; i < 2; i++) {
             logger.info("iteration " + ++iteration);
             if (iteration > 1) {
@@ -373,7 +374,7 @@ public class QueryInterpreter extends Thread {
                 makeProgress(queryUri, sparqlServer, commitUpdate);
             }
             validateMappings(queryUri, sparqlServer, commitUpdate);
-        }
+        } while (!allPatternsAreMapped(queryUri, sparqlServer));
 
     }
 
@@ -403,36 +404,11 @@ public class QueryInterpreter extends Thread {
         if (commitUpdate) {
             sparqlServer.update(query);
         }
-
-        // specify for all pattern elements that they have not yet been mapped to the current query
-//        query = "# specify for all pattern elements that they have not yet been mapped to the current query\n"
-//                + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
-//                + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
-//                + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
-//                + "INSERT\n"
-//                + "{\n"
-//                + "  GRAPH graph:queries\n"
-//                + "  {\n"
-//                + "    ?pe queries:isNotMappedToQuery <" + queryUri + ">.\n"
-//                + "  }\n"
-//                + "}\n"
-//                + "WHERE\n"
-//                + "{\n"
-//                + "  GRAPH graph:patterns\n"
-//                + "  {\n"
-//                + "    ?pe a patterns:PatternElement.\n"
-//                + "  }\n"
-//                + "}";
-//
-//        logger.info(query);
-//        if (commitUpdate) {
-//            sparqlServer.update(query);
-//        }
     }
 
     private boolean allPatternsAreMapped(String queryUri, SparqlClient sparqlServer) {
-        logger.info("are all patterns mapped to the current query?");
-        String query = "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
+        String query = "# are all patterns mapped to the current query?\n"
+                + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
                 + "ASK\n"
@@ -528,7 +504,9 @@ public class QueryInterpreter extends Thread {
                 + "    ?mappingUri a queries:EmptySubpatternCollectionMapping;\n"
                 + "                a queries:SubpatternCollectionMapping;\n" // we don't use any reasonner in queries graph
                 + "                queries:mappingHasPatternConstituent ?spc;\n"
-                + "                queries:mappingHasQuery <" + queryUri + ">.\n"
+                + "                queries:mappingHasQuery <" + queryUri + ">;\n"
+                + "                queries:hasDescriptiveSubsentence [a queries:DescriptiveSubsentence;\n"
+                + "                                                   queries:hasStringValue \"(EmptySubpatternCollectionMapping)\"].\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE # select all ContingentSubpatternCollections which don't have yet an EmptySubpatternCollectionMapping\n"
@@ -638,7 +616,8 @@ public class QueryInterpreter extends Thread {
      */
     private void preventFrom(String queryUri, SparqlClient sparqlServer, boolean commitUpdate) {
 
-        String query = "# prevent from ...\n"
+        String query = "# prevent from adding in a subpattern collection mapping a element mapping\n"
+                + "# relative to a pattern element appearing outside of this subpattern collection\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
@@ -769,10 +748,109 @@ public class QueryInterpreter extends Thread {
      */
     private void validateMappings(String queryUri, SparqlClient sparqlServer, boolean commitUpdate) {
         // 
-        String query = "# validate mappings of SubpatternCollections whose...\n"
+//        String query = "# validate mappings of SubpatternCollections which are being mapped and whose contained SubpatternCollections are all mapped or to be mapped in next step\n"
+//                + "# change the status of toConsiderNextStepInMappingQuery SubpatternCollections into toConsiderInMappingQuery\n"
+//                + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
+//                + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
+//                + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
+//                + "PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+//                + "DELETE\n"
+//                + "{\n"
+//                + "  GRAPH graph:queries\n"
+//                + "  {\n"
+//                + "    ?spc queries:isBeingMappedToQuery <" + queryUri + ">.\n"
+//                + "    ?comp queries:toConsiderNextStepInMappingQuery <" + queryUri + ">.\n"
+//                + "  }\n"
+//                + "}\n"
+//                + "INSERT\n"
+//                + "{\n"
+//                + "  GRAPH graph:queries\n"
+//                + "  {\n"
+//                + "    ?spc queries:toConsiderInMappingQuery <" + queryUri + ">.\n"
+//                + "    ?comp queries:toConsiderInMappingQuery <" + queryUri + ">.\n"
+//                + "    # process the descriptive sentence\n"
+//                + "    ?spcm queries:hasDescriptiveSubsentence ?dss.\n"
+//                + "    ?dss queries:isMadeUpOfList ?listSerialized.\n"
+//                + "    ?listSerialized rdf:first ?firstElementSerialized .\n"
+//                + "    ?oneListSerialized rdf:first ?oneElementSerialized ;\n"
+//                + "                       rdf:rest ?nextListSerialized .\n"
+//                + "  }\n"
+//                + "}\n"
+//                + "WHERE\n"
+//                + "{\n"
+//                + "  {\n"
+//                + "    # get all SubpatternCollections which are being mapped and whose contained SubpatternCollections are all mapped or to be mapped in next step\n"
+//                + "    SELECT ?spc WHERE\n"
+//                + "    {\n"
+//                + "      # all SubpatternCollections\n"
+//                + "      GRAPH graph:patterns\n"
+//                + "      {\n"
+//                + "        ?spc a patterns:SubpatternCollection.\n"
+//                + "      }\n"
+//                + "      # which are being mapped\n"
+//                + "      GRAPH graph:queries\n"
+//                + "      {\n"
+//                + "        ?spc queries:isBeingMappedToQuery <" + queryUri + ">.\n"
+//                + "      }\n"
+//                + "      # whose contained SubpatternCollections are all mapped or to be mapped in next step\n"
+//                + "      MINUS\n"
+//                + "      {\n"
+//                + "        # get all SubpatternCollections whose at least one contained component is not mapped\n"
+//                + "        SELECT DISTINCT ?spc WHERE\n"
+//                + "        {\n"
+//                + "          GRAPH graph:patterns\n"
+//                + "          {\n"
+//                + "            ?spc a patterns:SubpatternCollection;\n"
+//                + "                 patterns:isMadeUpOf ?comp.\n"
+//                + "          }\n"
+//                + "          GRAPH graph:queries\n"
+//                + "          {\n"
+//                + "            ?comp queries:toConsiderInMappingQuery <" + queryUri + ">.\n"
+//                + "          }\n"
+//                + "        }\n"
+//                + "      }\n"
+//                + "    }\n"
+//                + "  }\n"
+//                + "  # change the status of toConsiderNextStepInMappingQuery SubpatternCollections into toConsiderInMappingQuery\n"
+//                + "  OPTIONAL\n"
+//                + "  {\n"
+//                + "    GRAPH graph:patterns\n"
+//                + "    {\n"
+//                + "      ?spc patterns:isMadeUpOf ?comp.\n"
+//                + "    }\n"
+//                + "    GRAPH graph:queries\n"
+//                + "    {\n"
+//                + "      ?comp queries:toConsiderNextStepInMappingQuery <" + queryUri + ">.\n"
+//                + "    }\n"
+//                + "  }\n"
+//                + "  # process the descriptive sentence\n"
+//                + "  GRAPH graph:queries\n"
+//                + "  {\n"
+//                + "    ?spcm queries:mappingHasPatternConstituent ?spc.\n"
+//                + "  }\n"
+//                + "  GRAPH graph:patterns\n"
+//                + "  {\n"
+//                + "    ?sst patterns:sstTargetsPc ?spc ;\n"
+//                + "         patterns:isMadeUpOfList ?list .\n"
+//                + "    ?list rdf:first ?firstElement ;\n"
+//                + "          rdf:rest* ?oneList .\n"
+//                + "    ?oneList rdf:first ?oneElement ;\n"
+//                + "             rdf:rest ?nextList .\n"
+//                + "  }\n"
+//                + "  BIND (CONCAT(?spcm, \"_descSubsent\") AS ?dss)\n"
+//                + "  BIND (CONCAT(?spcm, ?list) AS ?listSerialized)\n"
+//                + "  BIND (CONCAT(?spcm, ?firstElement) AS ?firstElementSerialized)\n"
+//                + "  BIND (CONCAT(?spcm, ?oneList) AS ?oneListSerialized)\n"
+//                + "  BIND (CONCAT(?spcm, ?oneElement) AS ?oneElementSerialized)\n"
+//                + "  BIND (CONCAT(?spcm, ?nextList) AS ?nextListSerialized)\n"
+//                + "}\n";
+        
+        String query = "# validate mappings of SubpatternCollections which are being mapped and whose contained SubpatternCollections are all mapped or to be mapped in next step\n"
+                + "# change the status of toConsiderNextStepInMappingQuery SubpatternCollections into toConsiderInMappingQuery\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
+                + "PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "DELETE\n"
                 + "{\n"
                 + "  GRAPH graph:queries\n"
@@ -787,6 +865,15 @@ public class QueryInterpreter extends Thread {
                 + "  {\n"
                 + "    ?spc queries:toConsiderInMappingQuery <" + queryUri + ">.\n"
                 + "    ?comp queries:toConsiderInMappingQuery <" + queryUri + ">.\n"
+                + "    # process the descriptive sentence\n"
+                + "    ?spcm queries:hasDescriptiveSubsentence ?descSubsent.\n"
+                + "    ?descSubsent a queries:DescriptiveSubsentence;\n"
+                + "                 queries:isMadeUpOfList ?listSerialized .\n"
+                + "    ?listSerialized rdf:first ?firstElementSerialized .\n"
+                + "    ?oneListSerialized rdf:first ?oneElementSerializedSsit ;\n"
+                + "                       rdf:first ?oneElementSerializedOther ;\n"
+                + "                       rdf:rest ?nextListSerialized .\n"
+                + "    ?oneElementSerializedSsit queries:hasStringValue ?ssitValue.\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -805,7 +892,7 @@ public class QueryInterpreter extends Thread {
                 + "      {\n"
                 + "        ?spc queries:isBeingMappedToQuery <" + queryUri + ">.\n"
                 + "      }\n"
-                + "      # whose contained SubpatternCollections are all mapped\n"
+                + "      # whose contained SubpatternCollections are all mapped or to be mapped in next step\n"
                 + "      MINUS\n"
                 + "      {\n"
                 + "        # get all SubpatternCollections whose at least one contained component is not mapped\n"
@@ -824,6 +911,7 @@ public class QueryInterpreter extends Thread {
                 + "      }\n"
                 + "    }\n"
                 + "  }\n"
+                + "  # change the status of toConsiderNextStepInMappingQuery SubpatternCollections into toConsiderInMappingQuery\n"
                 + "  OPTIONAL\n"
                 + "  {\n"
                 + "    GRAPH graph:patterns\n"
@@ -835,6 +923,38 @@ public class QueryInterpreter extends Thread {
                 + "      ?comp queries:toConsiderNextStepInMappingQuery <" + queryUri + ">.\n"
                 + "    }\n"
                 + "  }\n"
+                + "  # process the descriptive sentence\n"
+                + "  GRAPH graph:queries\n"
+                + "  {\n"
+                + "    ?spcm queries:mappingHasPatternConstituent ?spc.\n"
+                + "  }\n"
+                + "  GRAPH graph:patterns\n"
+                + "  {\n"
+                + "    ?sst (patterns:sstTargetsPc|^patterns:hasSentenceTemplate) ?spc ;\n"
+                + "         patterns:isMadeUpOfList ?list .\n"
+                + "    ?list rdf:first ?firstElement ;\n"
+                + "          rdf:rest* ?oneList .\n"
+                + "    ?oneList rdf:first ?oneElement ;\n"
+                + "             rdf:rest ?nextList .\n"
+                + "  }\n"
+                + "  # oneElement is a static string\n"
+                + "  OPTIONAL\n"
+                + "  {\n"
+                + "    GRAPH graph:patterns { ?oneElement patterns:ssitHasValue ?ssitValue. \n"
+                + "                           BIND (UUID() AS ?oneElementSerializedSsit) }\n"
+                + "  }\n"
+                + "  # oneElement is a PeInTemplate, SpcInTemplate or a ForLoopInTemplate\n"
+                + "  OPTIONAL\n"
+                + "  {\n"
+                + "    GRAPH graph:patterns { ?oneElement patterns:sstTargetsPc ?pc. }\n"
+                + "    GRAPH graph:queries { ?spcm queries:mappingContainsMapping ?sspcm. \n"
+                + "                          ?sspcm queries:hasDescriptiveSubsentence ?oneElementSerializedOther. }\n"
+                + "  }\n"
+                + "  BIND (IRI(CONCAT(str(?spcm), \"_descSubsent\")) AS ?descSubsent)\n"
+                + "  BIND (IRI(CONCAT(str(?spcm), str(?list))) AS ?listSerialized)\n"
+                + "  BIND (IRI(CONCAT(str(?spcm), str(?firstElement))) AS ?firstElementSerialized)\n"
+                + "  BIND (IRI(CONCAT(str(?spcm), str(?oneList))) AS ?oneListSerialized)\n"
+                + "  BIND (IRI(CONCAT(str(?spcm), str(?nextList))) AS ?nextListSerialized)\n"
                 + "}\n";
 
         logger.info(query);
@@ -920,10 +1040,10 @@ public class QueryInterpreter extends Thread {
                 + "  } GROUP BY ?pm\n"
                 + "}\n";
 
-//        logger.info(query);
-//        if (commitUpdate) {
-//            sparqlServer.update(query);
-//        }
+        logger.info(query);
+        if (commitUpdate) {
+            sparqlServer.update(query);
+        }
 
         query = "# process the query coverage relevance mark\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
@@ -1028,12 +1148,12 @@ public class QueryInterpreter extends Thread {
                 + "  {\n"
                 + "    ?pm a queries:PatternMapping;\n"
                 + "        queries:mappingHasQuery <" + queryUri + ">;\n"
-//                + "        queries:hasEmrMark ?emrmark;\n"
+                + "        queries:hasEmrMark ?emrmark;\n"
                 + "        queries:hasQcrMark ?qcrmark;\n"
                 + "        queries:hasPcrMark ?pcrmark.\n"
                 + "  }\n"
-//                + "  BIND ( ?emrmark * ?qcrmark * ?pcrmark AS ?rmark )\n"
-                + "  BIND ( ?qcrmark * ?pcrmark AS ?rmark )\n"
+                + "  BIND ( ?emrmark * ?qcrmark * ?pcrmark AS ?rmark )\n"
+//                + "  BIND ( ?qcrmark * ?pcrmark AS ?rmark )\n"
                 + "}\n";
 
         logger.info(query);
@@ -1057,7 +1177,7 @@ public class QueryInterpreter extends Thread {
         // in two steps for efficiency reasons
 
         // step one
-        String query = "# clear bad mappings\n"
+        String query = "# clear bad mappings - step 1\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
@@ -1092,7 +1212,7 @@ public class QueryInterpreter extends Thread {
         }
 
         // step 2
-        query = "# clear bad mappings\n"
+        query = "# clear bad mappings - step 2\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"

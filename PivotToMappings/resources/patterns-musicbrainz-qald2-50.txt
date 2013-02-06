@@ -96,7 +96,7 @@ pattern cd_info
 		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/15
 	end query
 	sentence
-		-1- -status-[" whose status is "-13-", "] -creator-[" created by " -for-creator-[-3-", "]] -producer-[" produced by "-7-", "] -composer-[" composed by "-9-", "] -vocal-[" vocalised by "-11-", "] -lyricist-[" whose lyricist is "-15-]
+		"Plop "-1- -status-[" whose status is "-13-", "] -creator-[" created by " -for-creator-[-3-", "]] -producer-[" produced by "-7-", "] -composer-[" composed by "-9-", "] -vocal-[" vocalised by "-11-", "] -lyricist-[" whose lyricist is "-15-]
 	end sentence
 end pattern
 

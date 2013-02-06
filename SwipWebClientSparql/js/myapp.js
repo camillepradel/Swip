@@ -296,14 +296,17 @@ function diplaySpCollectionMapping(queryUri, sparqlEndpointUri)
 					+ "  {\n"
 					+ "    ?sp a patterns:SubpatternCollection.\n"
 					+ "  }\n"
-					+ "  GRAPH graph:queries\n"
+					+ "  OPTIONAL\n"
 					+ "  {\n"
-					+ "    OPTIONAL { ?sp ?state <" + queryUri + "> . }\n"
+					+ "    GRAPH graph:queries\n"
+					+ "    {\n"
+					+ "      ?sp ?state <" + queryUri + "> .\n"
+					+ "    }\n"
 					+ "  }\n"
 					+ "}\n"
 					+ "GROUP BY ?sp\n"
 					+ "ORDER BY ?sp";
-	// console.log(sparqlQuery);
+	console.log(sparqlQuery);
 	var html = "<h2>Subpattern collections mappings</h2>\n";
 	var callback = function(data) {
 		waitingForAnswer = false;
@@ -313,6 +316,9 @@ function diplaySpCollectionMapping(queryUri, sparqlEndpointUri)
 		$.each(data.results.bindings, function(i, val) {
 			var imagePath = "";
 			switch ((val.stateSample? val.stateSample.value : "")) {
+				case "":
+					imagePath = "img/not_mapped.svg";
+					break;
 				case "http://swip.univ-tlse2.fr/ontologies/Queries#isNotMappedToQuery":
 					imagePath = "img/not_mapped.svg";
 					break;
@@ -431,7 +437,7 @@ function diplayQueryProcessed(queryUri, sparqlEndpointUri)
 					+ "      {\n"
 					+ "        ?pm a queries:PatternMapping;\n"
 					+ "            queries:mappingHasQuery <" + queryUri + ">;\n"
-					// + "            queries:hasEmrMark ?emrmark;\n"
+					+ "            queries:hasEmrMark ?emrmark;\n"
 					+ "            queries:hasQcrMark ?qcrmark;\n"
 					+ "            queries:hasPcrMark ?pcrmark;\n"
 					+ "            queries:hasRelevanceMark ?rmark.\n"
@@ -446,7 +452,7 @@ function diplayQueryProcessed(queryUri, sparqlEndpointUri)
 		html += " <ul> "
 
 		$.each(data.results.bindings, function(i, val) {
-				html += "<li><a href='" + val.pm.value + "'>" + (val.sent? val.sent.value : "no descriptive sentence") + "</a> - " + val.rmark.value + "(" + /*val.emrmark.value +*/ " - " + val.qcrmark.value + " - " + val.pcrmark.value + ")</li>";
+				html += "<li><a href='" + val.pm.value + "'>" + (val.sent? val.sent.value : "no descriptive sentence") + "</a> - " + val.rmark.value + "(" + val.emrmark.value + " - " + val.qcrmark.value + " - " + val.pcrmark.value + ")</li>";
 		});
 
 		html += " </ul> ";

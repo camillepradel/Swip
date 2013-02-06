@@ -118,7 +118,7 @@ function pivotToSparql(pvQuery)
         $('#result .pivottomappings').append('<div class="kbclearing"></div>');
         $('#result .pivottomappings').append('<div class="queryprocessed"></div>');
         updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);});
-        var refreshIntervalId = setInterval(function() { updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);}); }, 1000);
+        var refreshIntervalId = setInterval(function() { updateQueryState(queryUri, sparqlEndpointUri, function() {clearInterval(refreshIntervalId);}); }, 2000);
         
     }).fail(function(jqXHR, textStatus) {
         toggleSearch(true);

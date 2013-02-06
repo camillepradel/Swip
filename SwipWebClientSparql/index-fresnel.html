@@ -53,8 +53,35 @@
 
 			rdf = new OAT.RDFStore(cb1);
 			fresnel = new OAT.Fresnel();
-			
-			rdf.addURL($v("rdf"));
+
+			var query = "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
+					+ "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
+					+ "PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+					+ "CONSTRUCT\n"
+					+ "{\n"
+					+ "    ?a ?b ?c.\n"
+					// + "    ?d ?e ?a.\n"
+					+ "}\n"
+					+ "WHERE\n"
+					+ "{\n"
+					+ "  GRAPH graph:queries\n"
+					+ "  {\n"
+					+ "    <urn:uuid:37737572-55ea-4ce9-9931-cb0611b7414b> (rdf:type | rdf:first | rdf:rest | queries:hasRelevanceMark | queries:hasEmrMark | queries:hasQcrMark | queries:hasPcrMark | queries:hasDescriptiveSubsentence | queries:isMadeUpOfList | queries:hasStringValue | queries:mappingHasQuery | queries:mappingContainsMapping | queries:mappingHasPatternConstituent | queries:emHasMatching | queries:matchingHasKeyword)* ?a.\n"
+					+ "    {?a ?b ?c.}\n"
+					// + "    UNION\n"
+					// + "    {?d ?e ?a.}\n"
+					+ "  }\n"
+					+ "}";
+
+			var url = "http://192.168.250.91:8080/musicbrainz/sparql?query=" + encodeURIComponent(query);
+
+        	var returnRef = function(xmlDoc) {
+	            rdf.addXmlDoc(xmlDoc, url);
+	        }
+	        OAT.AJAX.GET(url,false,returnRef,{type:OAT.AJAX.TYPE_XML});
+
+
+
 			fresnel.addURL($v("fresnel"),cb2);
 			OAT.AJAX.GET("fresnel2html.xsl",false,function(xmlDoc){
 				xsl = xmlDoc;
@@ -64,35 +91,13 @@
 		}
 		
 		function init() {
-			OAT.Event.attach("btn","click",load);
+			// OAT.Event.attach("btn","click",load);
+			load();
 
 			var cb2 = function() {
 				result = f.format(s.data.all);
 				window.pica = result[0];
 			}
-
-			/* make the textareas resizable */
-			// var img = OAT.Preferences.imagePath + "MsWin_resize.gif";
-
-			// var corner = OAT.Dom.image(img);
-			// var body = $("out_rdf_div");
-			// body.appendChild(corner);
-			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
-
-			// var corner = OAT.Dom.image(img);
-			// var body = $("out_fresnel_div");
-			// body.appendChild(corner);
-			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
-
-			// var corner = OAT.Dom.image(img);
-			// var body = $("out_xsl_div");
-			// body.appendChild(corner);
-			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
-
-			// var corner = OAT.Dom.image(img);
-			// var body = $("out_xml_div");
-			// body.appendChild(corner);
-			// OAT.Resize.create(corner, body, OAT.Resize.TYPE_XY);
 
 		}
 	</script>
@@ -105,10 +110,6 @@
 			border: 2px solid #f00;
 			margin: 3px;
 			padding: 3px;
-		}
-		
-		.fresnel_value {
-			display: inline;
 		}
 		
 		.fresnel_container {
@@ -140,6 +141,12 @@
 		div.out img {
 			margin: 3px;
 		}
+		ul.mappingContainsMapping {
+			padding-left: 15px;
+		}
+		#out_html {
+			font-size: small;
+		}
 	</style>
 </head>
 <body>
@@ -152,7 +159,7 @@
 				(try: tbl.xml for FOAF, music.n3 for MO)
 			</td>
 			<td>
-				Fresnel file: <input type="text" id="fresnel" value="fresnel-mo-album.n3" /><br/>
+				Fresnel file: <input type="text" id="fresnel" value="fresnel-mapping.n3" /><br/>
 				(try: fresnel-foaf.n3 for FOAF, fresnel-mo-album.n3 for MO)
 			</td>
 			<td>
@@ -169,9 +176,12 @@
 	<hr/>
 	
 	<h3>Output</h3>
+
+	XSLT-ed HTML:<br/>
+	<div id="out_html">
+	</div>
 	
-	RDF file:<br/>
-	
+	RDF file:<br/>	
 	<div class="out" id="out_rdf_div"><textarea rows="6" id="out_rdf"></textarea><img src=""/></div>
 	
 	Fresnel file:<br/>
@@ -182,10 +192,6 @@
 
 	Transformed XML:<br/>
 	<div class="out" id="out_xml_div"><textarea rows="6" id="out_xml"></textarea></div>
-
-	XSLT-ed HTML:<br/>
-	<div id="out_html">
-	</div>
 
 </body>
 </html>

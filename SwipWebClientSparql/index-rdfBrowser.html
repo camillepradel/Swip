@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>OpenLink Fresnel processor tests</title>
+	<script type="text/javascript" >
+		var featureList=["rdfstore","fresnel","xml","ajax2","json","resize"];
+		var rdf = false;
+		var fresnel = false;
+		var xsl = false;
+		var loaded = 0;
+		
+		function init() {
+
+			rdfBrowser = new OAT.RDFBrowser($("rdfbrowser"));
+
+		}
+	</script>
+	<script type="text/javascript" src="js/lib/oat/loader.js"></script>
+	<script type="text/javascript" src="js/lib/oat/rdfbrowser.js"></script>
+	<script type="text/javascript" src="js/lib/oat/tab.js"></script>
+	<script type="text/javascript" src="js/lib/oat/tree.js"></script>
+	<script type="text/javascript" src="js/lib/oat/ghostdrag.js"></script>
+	<style type="text/css">
+		body {
+			background-color: #f5f5f5;
+		}
+		.fresnel_resource {
+			border: 2px solid #f00;
+			margin: 3px;
+			padding: 3px;
+		}
+		
+		.fresnel_value {
+			display: inline;
+		}
+		
+		.fresnel_container {
+		}
+		
+		.fresnel_property {
+		}
+		
+		.fresnel_label {
+		}
+		
+		table {
+			border-collapse: collapse;
+		}
+		
+		td {
+			padding: 1em;
+			border: 1px solid #888;
+		}
+		textarea {
+			width: 99%;
+			height: 95%;
+		}
+		div.out {
+			width: 80%;
+			text-align: right;
+			margin-bottom: 5px;
+		}
+		div.out img {
+			margin: 3px;
+		}
+	</style>
+</head>
+<body>
+	<h1>RDF browser</h1>
+	<div id="rdfbrowser">
+	</div>
+
+</body>
+</html>
