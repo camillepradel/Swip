@@ -162,11 +162,12 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					+ "  {\n"
 					+ "    ?em queries:mappingHasQuery <" + queryUri + ">;\n"
 					+ "        queries:emHasPatternElement ?pe;\n"
+					+ "        queries:emHasScore ?score.\n"
 					+ "    OPTIONAL\n"
 					+ "    {\n"
 					+ "      ?em queries:emHasMatching ?m.\n"
 					+ "      ?m (queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue;\n"
-					+ "         queries:matchingHasScore ?score;\n"
+					// + "         queries:matchingHasScore ?score;\n"
 					+ "         queries:matchingHasMatchedLabel ?label;\n"
 					+ "         queries:matchingHasResource ?resource.\n"
 					+ "    }\n"
@@ -204,86 +205,86 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 	processQuery(sparqlQuery, sparqlEndpointUri, callback);
 }
 
-/**
- * 
- **/
-function diplayTripleInstanciation(queryUri, sparqlEndpointUri)
-{
-	var sparqlQuery = "PREFIX patterns: <" + PATTERNS_PREFIX + ">\n"
-					+ "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
-					+ "PREFIX graph: <" + GRAPH_PREFIX + ">\n"
-					+ "SELECT * WHERE\n"
-					+ "{\n"
-					+ "  GRAPH graph:patterns\n"
-					+ "  {\n"
-					+ "    ?p a patterns:Pattern;\n"
-					+ "       patterns:isPatternMadeUpOf ?triple.\n"
-					+ "    ?triple a patterns:PatternTriple.\n"
-					+ "  }\n"
-					+ "  GRAPH graph:queries\n"
-					+ "  {\n"
-					+ "    ?ptm a queries:PatternTripleMapping;\n"
-					+ "        queries:hasQuery <" + queryUri + ">;\n"
-					+ "        queries:hasPatternTriple ?triple;\n"
-					+ "        queries:hasElementMapping ?em.\n"
-					+ "    ?em queries:emHasPatternElement ?pe;\n"
-					+ "    OPTIONAL\n"
-					+ "    {\n"
-					+ "      ?em (queries:emHasMatching / queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue.\n"
-					+ "    }\n"
-					+ "  }\n"
-					+ "}\n"
-					+ "ORDER BY ?p ?triple ?ptm ?pe";
-	// console.log(sparqlQuery);
+// /**
+//  * 
+//  **/
+// function diplayTripleInstanciation(queryUri, sparqlEndpointUri)
+// {
+// 	var sparqlQuery = "PREFIX patterns: <" + PATTERNS_PREFIX + ">\n"
+// 					+ "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
+// 					+ "PREFIX graph: <" + GRAPH_PREFIX + ">\n"
+// 					+ "SELECT * WHERE\n"
+// 					+ "{\n"
+// 					+ "  GRAPH graph:patterns\n"
+// 					+ "  {\n"
+// 					+ "    ?p a patterns:Pattern;\n"
+// 					+ "       patterns:isPatternMadeUpOf ?triple.\n"
+// 					+ "    ?triple a patterns:PatternTriple.\n"
+// 					+ "  }\n"
+// 					+ "  GRAPH graph:queries\n"
+// 					+ "  {\n"
+// 					+ "    ?ptm a queries:PatternTripleMapping;\n"
+// 					+ "        queries:hasQuery <" + queryUri + ">;\n"
+// 					+ "        queries:hasPatternTriple ?triple;\n"
+// 					+ "        queries:hasElementMapping ?em.\n"
+// 					+ "    ?em queries:emHasPatternElement ?pe;\n"
+// 					+ "    OPTIONAL\n"
+// 					+ "    {\n"
+// 					+ "      ?em (queries:emHasMatching / queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue.\n"
+// 					+ "    }\n"
+// 					+ "  }\n"
+// 					+ "}\n"
+// 					+ "ORDER BY ?p ?triple ?ptm ?pe";
+// 	// console.log(sparqlQuery);
 
-	var html = "<h2>Pattern triples mappings</h2>\n";
-	var callback = function(data) {
-		waitingForAnswer = false;
+// 	var html = "<h2>Pattern triples mappings</h2>\n";
+// 	var callback = function(data) {
+// 		waitingForAnswer = false;
 		
-		html += " <ul> "
-		var currentPattern = "";
-		var currentTriple = "";
-		var currentTripleMapping = "";
+// 		html += " <ul> "
+// 		var currentPattern = "";
+// 		var currentTriple = "";
+// 		var currentTripleMapping = "";
 
-		$.each(data.results.bindings, function(i, val) {
-			if (currentPattern != val.p.value) {
-				if (currentPattern != "") {
-					html += " </ul> ";
-				}
-				currentPattern = val.p.value;
-				html += " <li>Pattern " + currentPattern + "</li> ";
-				html += " <ul> ";
-				currentTriple = "";
-			}
-			if (currentTriple != val.triple.value) {
-				if (currentTriple != "") {
-					html += " </ul> </ul> ";
-				}
-				currentTriple = val.triple.value;
-				html += " <li>Pattern triple " + currentTriple + "</li> ";
-				html += " <ul> ";
-				currentTripleMapping = "";
-			}
-			if (currentTripleMapping != val.ptm.value) {
-				if (currentTripleMapping != "") {
-					html += " </ul> ";
-				}
-				currentTripleMapping = val.ptm.value;
-				html += " <li>Pattern triple mapping " + currentTripleMapping + "</li> ";
-				html += " <ul> ";
-			}
-			html += "<li>" + val.em.value + ": " + val.pe.value.replace(currentPattern, "...") + " -> " + (val.keywordValue? (val.keywordValue.value) : "<i>empty mapping</i>") + "</li>";
-		});
+// 		$.each(data.results.bindings, function(i, val) {
+// 			if (currentPattern != val.p.value) {
+// 				if (currentPattern != "") {
+// 					html += " </ul> ";
+// 				}
+// 				currentPattern = val.p.value;
+// 				html += " <li>Pattern " + currentPattern + "</li> ";
+// 				html += " <ul> ";
+// 				currentTriple = "";
+// 			}
+// 			if (currentTriple != val.triple.value) {
+// 				if (currentTriple != "") {
+// 					html += " </ul> </ul> ";
+// 				}
+// 				currentTriple = val.triple.value;
+// 				html += " <li>Pattern triple " + currentTriple + "</li> ";
+// 				html += " <ul> ";
+// 				currentTripleMapping = "";
+// 			}
+// 			if (currentTripleMapping != val.ptm.value) {
+// 				if (currentTripleMapping != "") {
+// 					html += " </ul> ";
+// 				}
+// 				currentTripleMapping = val.ptm.value;
+// 				html += " <li>Pattern triple mapping " + currentTripleMapping + "</li> ";
+// 				html += " <ul> ";
+// 			}
+// 			html += "<li>" + val.em.value + ": " + val.pe.value.replace(currentPattern, "...") + " -> " + (val.keywordValue? (val.keywordValue.value) : "<i>empty mapping</i>") + "</li>";
+// 		});
 
-		html += " </ul> ";
-		html += " </ul> ";
-		html += " </ul> ";
-		html += " </ul> ";
-		$('#result .pivottomappings .triplemappings').html(html);
-	}
-	waitingForAnswer = true;
-	processQuery(sparqlQuery, sparqlEndpointUri, callback);
-}
+// 		html += " </ul> ";
+// 		html += " </ul> ";
+// 		html += " </ul> ";
+// 		html += " </ul> ";
+// 		$('#result .pivottomappings .triplemappings').html(html);
+// 	}
+// 	waitingForAnswer = true;
+// 	processQuery(sparqlQuery, sparqlEndpointUri, callback);
+// }
 
 /**
  * 
@@ -320,7 +321,7 @@ function diplaySpCollectionMapping(queryUri, sparqlEndpointUri)
 			var imagePath = "";
 			switch ((val.stateSample? val.stateSample.value : "")) {
 				case "":
-					imagePath = "img/not_mapped.svg";
+					imagePath = "img/interogation_mark.svg";
 					break;
 				case "http://swip.univ-tlse2.fr/ontologies/Queries#isNotMappedToQuery":
 					imagePath = "img/not_mapped.svg";
@@ -329,10 +330,10 @@ function diplaySpCollectionMapping(queryUri, sparqlEndpointUri)
 					imagePath = "img/being_mapped.svg";
 					break;
 				case "http://swip.univ-tlse2.fr/ontologies/Queries#toConsiderInMappingQuery":
-					imagePath = "img/mapped.svg";
+					imagePath = "img/almost_mapped.svg";
 					break;
 				case "http://swip.univ-tlse2.fr/ontologies/Queries#allreadyCombinedForQuery":
-					imagePath = "img/mapped.svg";
+					imagePath = "img/almost_mapped_2.svg";
 					break;
 				case "http://swip.univ-tlse2.fr/ontologies/Queries#isMappedToQuery":
 					imagePath = "img/mapped.svg";
@@ -444,8 +445,13 @@ function diplayQueryProcessed(queryUri, sparqlEndpointUri)
 					+ "        OPTIONAL { ?pm queries:hasQcrMark ?qcrmark. }\n"
 					+ "        OPTIONAL { ?pm queries:hasPcrMark ?pcrmark. }\n"
 					+ "        OPTIONAL { ?pm queries:hasRelevanceMark ?rmark. }\n"
+
+					+ "        OPTIONAL { ?pm queries:hasEmAvg ?avgscore. }\n"
+					+ "        OPTIONAL { ?pm queries:hasEmFactor ?factor. }\n"
+					+ "        OPTIONAL { ?pm queries:numberOfElementMappings ?nbem. }\n"
+					+ "        OPTIONAL { ?pm queries:numberOfSignificantElementMappings ?nbsem. }\n"
 					+ "      }\n"
-					+ "} ORDER BY DESC(?rmark) ?pm OFFSET 0 LIMIT 3\n";
+					+ "} ORDER BY DESC(?rmark) ?pm OFFSET 0 LIMIT 10\n";
 	// console.log(sparqlQuery);
 	$('#result .pivottomappings .queryprocessed').append("<h2>Ranked interpretations</h2>\n");
 	var callback = function(data) {
@@ -459,8 +465,14 @@ function diplayQueryProcessed(queryUri, sparqlEndpointUri)
 			var qcrmark = val.qcrmark? val.qcrmark.value : "no QC mark";
 			var pcrmark = val.pcrmark? val.pcrmark.value : "no PC mark";
 			var rmark = val.rmark? val.rmark.value : "no relevance mark";
+
+			var avgscore = val.avgscore? val.avgscore.value : "no avgscore";
+			var factor = val.factor? val.factor.value : "no factor";
+			var nbem = val.nbem? val.nbem.value : "no nbem";
+			var nbsem = val.nbsem? val.nbsem.value : "no nbsem";
+
 			var html = "<li id='" + mappingUri.replace('urn:uuid:', '') + "'>" ;
-			html += "<span class='mark' title='emrmark=" + emrmark + " - qcrmark=" + qcrmark + " - pcrmark=" + pcrmark + "'>" + rmark + "</span><a href='" + mappingUri + "' class='descsent'>...</a>" ;
+			html += "<span class='mark' title='emrmark=avgscore*factor=" + avgscore + "*" + factor + "=" + emrmark + " - qcrmark=" + qcrmark + " - pcrmark=" + nbsem + "/" + nbem + "=" + pcrmark + "'>" + rmark + "</span><a href='" + mappingUri + "' class='descsent'>...</a>" ;
 			html += "<div class='em'>Element mappings:</div>"
 			html += "<div class='sparql'>SPARQL query:</div>"
 			html += "</li>" ;
@@ -484,21 +496,22 @@ function displayDescriptiveSentenceForPatternMapping(mappingUri, sparqlEndpointU
 					+ "{\n"
 					+ "      GRAPH graph:queries\n"
 					+ "      {\n"
-					+ "        <" + mappingUri + "> (queries:hasDescriptiveSubsentence/queries:isMadeUpOfList) ?firstList.\n"
+					+ "        <" + mappingUri + "> queries:hasDescriptiveSubsentence ?node.\n"
+					+ "        ?node queries:isMadeUpOfList ?firstList.\n"
 					+ "      }\n"
 					+ "}\n";
 	// console.log(sparqlQuery);
 	var callback = function(data) {	
 		var html = "<span id='list_" + subsentenceId + "'></span>";
 		$('#' + mappingUri.replace('urn:uuid:', '') + ' .descsent').html(html);
-		displayDescriptiveSentenceList(data.results.bindings[0].firstList.value, sparqlEndpointUri, subsentenceId);
+		displayDescriptiveSentenceList(data.results.bindings[0].firstList.value, data.results.bindings[0].node.value, sparqlEndpointUri, subsentenceId);
 		subsentenceId++;
 	}
 	processQuery(sparqlQuery, sparqlEndpointUri, callback);
 }
 
 
-function displayDescriptiveSentenceList(listUri, sparqlEndpointUri, elementId)
+function displayDescriptiveSentenceList(listUri, parentNodeUri, sparqlEndpointUri, elementId)
 {
 	var sparqlQuery = "PREFIX patterns: <" + PATTERNS_PREFIX + ">\n"
 					+ "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
@@ -517,14 +530,14 @@ function displayDescriptiveSentenceList(listUri, sparqlEndpointUri, elementId)
 		// $('#list_' + elementId).append(" LIST ( ");
 		if (data.results.bindings[0].first) {
 			$('#list_' + elementId).append("<span id='list_" + subsentenceId + "'></span>");
-			displayDescriptiveSentenceNode(data.results.bindings[0].first.value, sparqlEndpointUri, subsentenceId);
+			displayDescriptiveSentenceNode(data.results.bindings[0].first.value, parentNodeUri, sparqlEndpointUri, subsentenceId);
 			subsentenceId++;
 		}
 		// $('#list_' + elementId).append(" / ");
 		var restUri = data.results.bindings[0].rest.value;
 		if (!endsWith(restUri, 'http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')) {
 			$('#list_' + elementId).append("<span id='list_" + subsentenceId + "'></span>");
-			displayDescriptiveSentenceList(restUri, sparqlEndpointUri, subsentenceId);
+			displayDescriptiveSentenceList(restUri, parentNodeUri, sparqlEndpointUri, subsentenceId);
 			subsentenceId++;
 		}
 		// $('#list_' + elementId).append(" ) ");
@@ -534,7 +547,7 @@ function displayDescriptiveSentenceList(listUri, sparqlEndpointUri, elementId)
 }
 
 
-function displayDescriptiveSentenceNode(NodeUri, sparqlEndpointUri, elementId)
+function displayDescriptiveSentenceNode(nodeUri, parentNodeUri, sparqlEndpointUri, elementId)
 {
 	var sparqlQuery = "PREFIX patterns: <" + PATTERNS_PREFIX + ">\n"
 					+ "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
@@ -544,15 +557,16 @@ function displayDescriptiveSentenceNode(NodeUri, sparqlEndpointUri, elementId)
 					+ "{\n"
 					+ "      GRAPH graph:queries\n"
 					+ "      {\n"
-					+ "        OPTIONAL {<" + NodeUri + "> queries:hasStringValue ?stringValue.}\n"
-					+ "        OPTIONAL {<" + NodeUri + "> queries:isMadeUpOfList ?list.}\n"
-					// + "        OPTIONAL {<" + NodeUri + "> (queries:insertForSubsentenceOf/queries:hasDescriptiveSubsentence/queries:isMadeUpOfList-for) ?listFor.}\n"
-					+ "        OPTIONAL {select distinct ?listFor where {<" + NodeUri + "> queries:insertForSubsentenceOf ?plop.\n"
-					+ "                  ?parentNode (queries:isMadeUpOfList/rdf:rest*/rdf:first) <" + NodeUri + ">;\n"
-					+ "                              queries:isMadeUpOfList-for ?listFor.}}\n"
+					+ "        OPTIONAL {<" + nodeUri + "> queries:hasStringValue ?stringValue.}\n"
+					+ "        OPTIONAL {<" + nodeUri + "> queries:isMadeUpOfList ?list.}\n"
+					// + "        OPTIONAL {<" + nodeUri + "> (queries:insertForSubsentenceOf/queries:hasDescriptiveSubsentence/queries:isMadeUpOfList-for) ?listFor.}\n"
+					+ "        OPTIONAL {select distinct ?listFor where\n"
+					+ "          {<" + nodeUri + "> queries:insertForSubsentenceOf ?plop.\n"
+					+ "           <" + parentNodeUri + "> queries:isMadeUpOfList-for ?listFor.}\n"
+					+ "          }\n"
 					+ "      }\n"
 					+ "}\n";
-	// console.log(sparqlQuery);
+	console.log(sparqlQuery);
 	var callback = function(data) {
 		if (data.results.bindings.length > 0) {
 			var stringValue = data.results.bindings[0].stringValue? data.results.bindings[0].stringValue.value : "";
@@ -562,7 +576,7 @@ function displayDescriptiveSentenceNode(NodeUri, sparqlEndpointUri, elementId)
 			var list = data.results.bindings[0].list? data.results.bindings[0].list.value : "";
 			if (list != "") {
 				$('#list_' + elementId).append("<span id='list_" + subsentenceId + "'></span>");
-				displayDescriptiveSentenceList(list, sparqlEndpointUri, subsentenceId);
+				displayDescriptiveSentenceList(list, nodeUri, sparqlEndpointUri, subsentenceId);
 				subsentenceId++;
 			}
 			
@@ -570,7 +584,7 @@ function displayDescriptiveSentenceNode(NodeUri, sparqlEndpointUri, elementId)
 				for (var i=0,len=data.results.bindings.length; i<len; i++) {
 					var listFor = data.results.bindings[i].listFor? data.results.bindings[i].listFor.value : "PROBLEM!!";
 					$('#list_' + elementId).append("<span id='list_" + subsentenceId + "'></span>");
-					displayDescriptiveSentenceList(listFor, sparqlEndpointUri, subsentenceId);
+					displayDescriptiveSentenceList(listFor, nodeUri, sparqlEndpointUri, subsentenceId);
 					subsentenceId++;
 				}
 			}
@@ -592,11 +606,12 @@ function diplaysElementMappings(mappingUri, sparqlEndpointUri, elementId)
 					+ "  {\n"
 					+ "    <" + mappingUri + "> queries:mappingContainsMapping+ ?em.\n"
 					+ "    ?em queries:emHasPatternElement ?pe;\n"
+					+ "        queries:emHasScore ?score;\n"
 					+ "    OPTIONAL\n"
 					+ "    {\n"
 					+ "      ?em queries:emHasMatching ?m.\n"
 					+ "      ?m (queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue;\n"
-					+ "         queries:matchingHasScore ?score;\n"
+					// + "         queries:matchingHasScore ?score;\n"
 					+ "         queries:matchingHasMatchedLabel ?label;\n"
 					+ "         queries:matchingHasResource ?resource.\n"
 					+ "    }\n"

@@ -11,21 +11,21 @@ graph:person a queries:KeywordQueryElement ;
 #    a queries:Matching;
 #    queries:matchingHasKeyword graph:person;
 #    queries:matchingHasResource foaf:Agent;
-#    queries:matchingHasScore "30"^^xsd:float;
+#    queries:matchingHasScore "20"^^xsd:float;
 #    queries:matchingHasMatchedLabel "person".
 
 <http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person2>
     a queries:Matching;
     queries:matchingHasKeyword graph:person;
     queries:matchingHasResource mo:Performer;
-    queries:matchingHasScore "30"^^xsd:float;
+    queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "person".
 
 <http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person3>
     a queries:Matching;
     queries:matchingHasKeyword graph:person;
     queries:matchingHasResource mo:MusicArtist;
-    queries:matchingHasScore "30"^^xsd:float;
+    queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "person".
 
 graph:album a queries:KeywordQueryElement ;
@@ -35,7 +35,7 @@ graph:album a queries:KeywordQueryElement ;
     a queries:Matching;
     queries:matchingHasKeyword graph:album;
     queries:matchingHasResource mo:MusicalManifestation;
-    queries:matchingHasScore "30"^^xsd:float;
+    queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "album".
 
 graph:compose a queries:KeywordQueryElement ;
@@ -45,5 +45,5 @@ graph:compose a queries:KeywordQueryElement ;
     a queries:Matching;
     queries:matchingHasKeyword graph:compose;
     queries:matchingHasResource mo:composer;
-    queries:matchingHasScore "30"^^xsd:float;
+    queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "compose".
