@@ -217,6 +217,11 @@ table
 	text-decoration: line-through;
 }
 
+.mark
+{
+	float: right;
+}
+
 
 /**
  * jQuery UI override

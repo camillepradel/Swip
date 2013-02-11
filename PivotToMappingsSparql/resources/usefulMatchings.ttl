@@ -2,21 +2,29 @@
 @prefix queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>.
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
 @prefix mo:  <http://purl.org/ontology/mo/>.
+@prefix foaf:  <http://xmlns.com/foaf/0.1/>.
 
 graph:person a queries:KeywordQueryElement ;
              queries:keywordAlreadyMatched "true"^^xsd:boolean.
 
-<http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person1>
-    a queries:Matching;
-    queries:matchingHasKeyword graph:person;
-    queries:matchingHasResource <http://xmlns.com/foaf/0.1/Agent>;
-    queries:matchingHasScore "30"^^xsd:float;
-    queries:matchingHasMatchedLabel "person".
+#<http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person1>
+#    a queries:Matching;
+#    queries:matchingHasKeyword graph:person;
+#    queries:matchingHasResource foaf:Agent;
+#    queries:matchingHasScore "30"^^xsd:float;
+#    queries:matchingHasMatchedLabel "person".
 
 <http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person2>
     a queries:Matching;
     queries:matchingHasKeyword graph:person;
     queries:matchingHasResource mo:Performer;
+    queries:matchingHasScore "30"^^xsd:float;
+    queries:matchingHasMatchedLabel "person".
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/person-c-The_Heroes_of_Telemark-p-/match_person3>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:person;
+    queries:matchingHasResource mo:MusicArtist;
     queries:matchingHasScore "30"^^xsd:float;
     queries:matchingHasMatchedLabel "person".
 

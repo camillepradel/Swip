@@ -5,8 +5,6 @@ import org.swip.patterns.antlr.patternsDefinitionGrammarParser;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFList;
-import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -77,6 +75,7 @@ public class PatternsTextToRdf {
     static Property hasMappingConditionsProp = null;
     static Property ssitHasValueProp = null;
     static Property hasSentenceTemplateStringProp = null;
+    static Property numberOfQualifyingPEProp = null;
     static int tripleCount = 1;
     static int staticStringCount = 1;
     static int listCount = 0;
@@ -148,6 +147,7 @@ public class PatternsTextToRdf {
             staticStringInTemplateClass = model.createResource(patternOntologyUri + "#StaticStringInTemplate");
             hasSentenceTemplateProp = model.createProperty(patternOntologyUri + "#hasSentenceTemplate");
             hasSentenceTemplateStringProp = model.createProperty(patternOntologyUri + "#hasSentenceTemplateString");
+            numberOfQualifyingPEProp = model.createProperty(patternOntologyUri + "#numberOfQualifyingPE");
             sstTargetsPcProp = model.createProperty(patternOntologyUri + "#sstTargetsPc");
             rdfFirstProp = model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#first");
             rdfRestProp = model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");
@@ -188,6 +188,13 @@ public class PatternsTextToRdf {
                 patternResource.addProperty(targetsOntologyProp, ontologyResource);
                 patternResource.addProperty(hasSentenceTemplateProp, processSentenceTemplate(p, patternResource));
                 patternResource.addLiteral(hasSentenceTemplateStringProp, p.getSentenceTemplate().toString());
+                int numberOfQualifyingPE = 0;
+                for (PatternElement pe : Controller.getInstance().getPatternElementsForPattern(p)) {
+                    if (pe.qualifying) {
+                        numberOfQualifyingPE++;
+                    }
+                }
+                patternResource.addLiteral(numberOfQualifyingPEProp, numberOfQualifyingPE);
                 for (Subpattern sp : p.getSubpatterns()) {
                     logger.info("  - subpattern: " + ((SubpatternCollection) sp).getId());
                     patternResource.addProperty(patternHasDirectSubpatternProp, processSubpattern(sp, p, patternResource));
@@ -301,7 +308,7 @@ public class PatternsTextToRdf {
 //        }
 //        RDFList sstListRessource = model.createList(nodes);
 //        result.addProperty(isMadeUpOfListProp, sstListRessource);
-        
+
         int iter = 0;
         Resource previousList = null;
         Resource currentList = model.createResource(uriStart + patternName + "_list_" + ++listCount, listClass);
@@ -329,44 +336,27 @@ public class PatternsTextToRdf {
 
         return result;
     }
-    
+
     private static Resource processPeInTemplate(PeInTemplate peit, Pattern pattern) {
         String patternName = pattern.getName();
         Resource result = model.createResource(uriStart + patternName + "_peit_" + peit.getPe().getId(), peInTemplateClass);
         result.addProperty(sstTargetsPcProp, model.createResource(generatePatternElementUri(peit.getPe(), pattern)));
         return result;
     }
-    
+
     private static Resource processStaticStringInTemplate(StaticStringInTemplate ssit, Pattern pattern) {
         String patternName = pattern.getName();
         Resource result = model.createResource(uriStart + patternName + "_ssit_" + staticStringCount++, staticStringInTemplateClass);
-        result.addLiteral(ssitHasValueProp, ssit.getStringValue());        
+        result.addLiteral(ssitHasValueProp, ssit.getStringValue());
         return result;
     }
-    
+
     private static Resource processSpcInTemplate(SpcInTemplate spcit, Pattern pattern) {
         String patternName = pattern.getName();
         Resource result = model.createResource(uriStart + patternName + "_spcit_" + spcit.getSpc().getId(), spcInTemplateClass);
-        
+
         result.addProperty(sstTargetsPcProp, model.createResource(generateSubpatternCollectionUri(spcit.getSpc(), pattern)));
-        
-//        int size = spcit.getSstList().size();
-//        RDFNode[] nodes = new RDFNode[size];
-//        int i = 0;
-//        for (SubsentenceTemplate sst : spcit.getSstList()) {
-//            if (sst instanceof PeInTemplate) {
-//                nodes[i++] = processPeInTemplate((PeInTemplate) sst, pattern);
-//            } else if (sst instanceof StaticStringInTemplate) {
-//                nodes[i++] = processStaticStringInTemplate((StaticStringInTemplate) sst, pattern);
-//            } else if (sst instanceof SpcInTemplate) {
-//                nodes[i++] = processSpcInTemplate((SpcInTemplate) sst, pattern);
-//            } else if (sst instanceof ForLoopInTemplate) {
-//                nodes[i++] = processForLoopInTemplate((ForLoopInTemplate) sst, pattern);
-//            }
-//        }
-//        RDFList sstListRessource = model.createList(nodes);
-//        result.addProperty(isMadeUpOfListProp, sstListRessource);
-        
+
         int iter = 0;
         Resource previousList = null;
         Resource currentList = model.createResource(uriStart + patternName + "_list_" + ++listCount, listClass);
@@ -394,30 +384,38 @@ public class PatternsTextToRdf {
 
         return result;
     }
-    
+
     private static Resource processForLoopInTemplate(ForLoopInTemplate flit, Pattern pattern) {
         String patternName = pattern.getName();
         Resource result = model.createResource(uriStart + patternName + "_flit_" + flit.getSpc().getId(), forLoopInTemplateClass);
-        
+
         result.addProperty(sstTargetsPcProp, model.createResource(generateSubpatternCollectionUri(flit.getSpc(), pattern)));
-        
-        int size = flit.getSstList().size();
-        RDFNode[] nodes = new RDFNode[size];
-        int i = 0;
+
+        int iter = 0;
+        Resource previousList = null;
+        Resource currentList = model.createResource(uriStart + patternName + "_list_" + ++listCount, listClass);
+        result.addProperty(isMadeUpOfListProp, currentList);
         for (SubsentenceTemplate sst : flit.getSstList()) {
-            if (sst instanceof PeInTemplate) {
-                nodes[i++] = processPeInTemplate((PeInTemplate) sst, pattern);
-            } else if (sst instanceof StaticStringInTemplate) {
-                nodes[i++] = processStaticStringInTemplate((StaticStringInTemplate) sst, pattern);
-            } else if (sst instanceof SpcInTemplate) {
-                nodes[i++] = processSpcInTemplate((SpcInTemplate) sst, pattern);
-            } else if (sst instanceof ForLoopInTemplate) {
-                nodes[i++] = processForLoopInTemplate((ForLoopInTemplate) sst, pattern);
+            if (iter > 0) {
+                currentList = model.createResource(uriStart + patternName + "_list_" + ++listCount, listClass);
             }
+            if (sst instanceof PeInTemplate) {
+                currentList.addProperty(rdfFirstProp, processPeInTemplate((PeInTemplate) sst, pattern));
+            } else if (sst instanceof StaticStringInTemplate) {
+                currentList.addProperty(rdfFirstProp, processStaticStringInTemplate((StaticStringInTemplate) sst, pattern));
+            } else if (sst instanceof SpcInTemplate) {
+                currentList.addProperty(rdfFirstProp, processSpcInTemplate((SpcInTemplate) sst, pattern));
+            } else if (sst instanceof ForLoopInTemplate) {
+                currentList.addProperty(rdfFirstProp, processForLoopInTemplate((ForLoopInTemplate) sst, pattern));
+            }
+            if (iter > 0) {
+                previousList.addProperty(rdfRestProp, currentList);
+            }
+            previousList = currentList;
+            iter++;
         }
-        RDFList sstListRessource = model.createList(nodes);
-        result.addProperty(isMadeUpOfListProp, sstListRessource);
-        
+        currentList.addProperty(rdfRestProp, model.createResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"));
+
         return result;
     }
 }
