@@ -1,9 +1,8 @@
-// Imports
-// $.getScript('js/rest.js');
-// $.getScript('js/descList.js');
 
 $(function()
 {
+	$('#searchField2').focus();
+
 	/** 
 	 * Submits the form when the return key
 	 * is pressed in the search field
@@ -29,301 +28,134 @@ $(function()
 	 **/
 	$('#searchButton1').click(function()
 	{
-		translateQuery($('#searchField1').val());
+		if($('#searchField1').val() != '')
+		{
+			nlToPivot($('#searchField1').val(), 'en');
+		}
 	});
 	$('#searchButton2').click(function()
 	{
-		search($('#searchField2').val());
-	});
-
-	/**
-	 * Tabs management
-	 **/
-	var previousTab = 'tabs-1';
-	$('#results').tabs
-	({
-		tabTemplate: "<li><a href='#{href}'>#{label}</a><span class='ui-icon ui-icon-close'>Remove Tab</span></li>",
-		add: function(event, ui) 
+		if($('#searchField2').val() != '')
 		{
-	        $('#results').tabs('select', '#' + ui.panel.id);
-	    }
+			pivotToSparql($('#searchField2').val());
+		}
 	});
-	$('#results span.ui-icon-close').live('click', function() 
-	{
-		var index = $('li', $('#results')).index($(this).parent());
-		$('#results').tabs('remove', index);
-	});
-
-	$('span.removable').live('click', function()
-	{
-		$(this).remove();
-	})
 });
 
 
+
+
 /**
- * Fills the results tab with data extracted from
- * a JSON string
+ * Translates a query from natural language
+ * to pivot
+ * Provides two handlers (nlToPivotSuccHandler & 
+ * nlToPivotErrHandler)
+ * @param nlQuery Query in natural language
  **/
-function fillTab(results)
+function nlToPivot(nlQuery, lang)
 {
-	// For further information, see the JqGrid documentation
-	jQuery('#jqGrid').jqGrid
-	({
-		datatype: 'jsonstring',
-		datastr: results,
-		loadonce: true,
-		height: 'auto',
-		autowidth: true,
-		shrinkToFit: true,
-		jsonReader: 
-		{
-			root: 'content',
-			repeatitems: false,
-		},
-	   	colNames: ['Id', 'Desc', 'Rel'],
-	   	colModel:
-	   	[
-   			{name: 'id', index: 'id', width: 3, classes: 'id', sortable: false},
-   			{name: 'descriptiveSentence.string', index: 'descriptiveSentence', width: 82, classes: 'descriptiveSentence'},
-   			{name: 'relevanceMark', index: 'relevanceMark', width: 15, classes: 'relevanceMark'}
-   		],
-   		multiselect: false,
-	   	subGrid: true,
-	   	subGridRowExpanded: function(subgrid_id, row_id) 
-	   	{
-	   		var queryPre = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
-	   		var mappingPre = '<span class="title">Mapping Description :</span><br /><br /><pre class="mappingPre"></pre>';
-            $('#' + subgrid_id).addClass('subgrid');
-            $('#' + subgrid_id).append(queryPre + '<br /><hr /><br />' + mappingPre);
-            $('#' + subgrid_id + ' .queryPre').text(generateSparql(row_id - 1, results));
-            $('#' + subgrid_id + ' .mappingPre').text(results.content[row_id - 1].mappingDescription);
-        },
-        gridComplete: function()
+        $.ajax
+        ({
+            type: 'GET',
+            dataType: "jsonp",
+            url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivotJSONP',
+            // url: 'http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP',
+            // url: 'http://localhost:8080/SwipWorkflow/resources/rest/nlToPivotJSONP',
+            data: {nlQuery: nlQuery, kb:'musicbrainz', lang: lang, pos:'treeTagger', dep:'malt', callback: '?'},
+            crossDomain: true,
+            beforeSend : function (xhr) {
+                animateLogo();
+                $('.searchButton').attr('disabled', 'disabled');
+                $('#result').empty();
+                $('#result').append('<img src="img/loading_icon.gif" alt="Loading" />');
+            }
+        }).done(function(data2)
         {
-			var ids = jQuery("#jqGrid").jqGrid('getDataIDs');
-			for(var i = 0; i < ids.length; i++)
-			{
-				jQuery("#jqGrid").jqGrid('setRowData', ids[i], {id: ids[i]});
-			}
-		},
-        pager: '#pager',
-        rowNum: 20
-	});
-
-	/**
-	 * Handles the double click on a query
-	 **/
-	$('.jqgrow').die();
-	$('.jqgrow').live('dblclick', function()
-	{
-		selectQuery($(this).attr('id'), results);
-	});
-
-	$('.descriptiveSentence select').die();
-	$('.descriptiveSentence select').live('change', function()
-	{
-		var reg = $(this).attr('id').match(/gen(\d+)_(\d+)/);
-		updateSparql(parseInt(reg[1]), results);
-	});
-}
-
-
-/**
- * Called when results have to be displayed
- **/
-function displayResults(results)
-{
-	var sentences = new DescList();
-	for(var i = 0; i < results.content.length; i++)
-		sentences.add(results.content[i].descriptiveSentence, i);
-	
-	var duplicates = [];//sentences.checkCover();
-	
-	for(var i = 0; i < results.content.length; i++)
-	{
-		if($.inArray(i, duplicates) < 0)
-		{
-			results.content[i].descriptiveSentence.string = sentences.getGeneralizedSentence(i);
-			//results.content[i].relevanceMark = results.content[sentences.getMaxDescent(i)].relevanceMark;
-		}
-	}
-
-	var i = results.content.length - 1;
-	while(i >= 0)
-	{
-		if($.inArray(i, duplicates) >= 0)
-			results.content.splice(i, 1);
-		i--;
-	}
-
-	for(var i = 0; i < results.content.length; i++)
-	{
-		results.content[i].descriptiveSentence.string = results.content[i].descriptiveSentence.string.replace(/_mappingId_/g, i);
-
-		// Temporary (For testing purpose) !
-		results.content[i].mappingDescription = results.content[i].mappingDescription.replace(/http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/Cinema\.owl#/g, 'cin:');
-		results.content[i].mappingDescription = results.content[i].mappingDescription.replace(/http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/cesar2012\.owl#/g, 'ces:');
-	}
-
-	// Displaying
-	$('#results').css('display', 'block');
-	fillTab(results);
-}
-
-
-/**
- * Called when the user has validated his input
- **/
-function translateQuery(query)
-{
-	if(query != '')
-	{
-		toggleSearch(false);
-		nlToPivot(query, 'en');
-	}
-}
-
-function search(query)
-{
-	if(query != '')
-	{
-		$('#results').css('display', 'none');
-
-		$('[id^="query"]').each(function()
-		{
-			$('#results').tabs('remove', $(this).attr('id'));
-		});
-
-		$('#jqGrid').GridUnload();
-		toggleSearch(false);
-		pivotToSparql(query, 50);
-	}
-}
-
-
-/**
- * Called when a query is selected
- **/
-function selectQuery(id, results)
-{
-	if($('#query' + id).length)
-	{
-		$('#query' + id).html('');
-		$('#results').tabs('select', '#query' + id);
-	}
-	else
-	{
-		$('#results').append('<div id="query' + id + '" class="query">');
-		$('#results').tabs('add', '#query' + id, 'Query #' + id);
-	}
-
-	var sparqlQuery = '<span class="title">SPARQL Query :</span><pre class="queryPre"></pre>';
-	var sparqlResult = '<span class="title">SPARQL Result :</span><span class="resultSpan"></span><div class="loading" style="display: block"><img src="img/loading_icon_blue.gif" alt="Loading" /><br /></div>'
-	
-	$('#query' + id).html(sparqlResult + '<br /><hr /><br />' + sparqlQuery);
-	$('#query' + id + ' .queryPre').text(generateSparql(id - 1, results));
-
-	processQuery(generateSparql(id - 1, results), id);
-}
-
-
-function updateSparql(mappingId, results)
-{
-	if($('#query' + (mappingId + 1)).length)
-	{
-		$('#results').tabs('remove', '#query' + mappingId);
-	}
-
-	$('#jqGrid_' + (mappingId + 1) + '.subgrid .queryPre').text(generateSparql(mappingId, results));
-}
-
-function generateSparql(mappingId, results)
-{
-	var ret = results.content[mappingId].sparqlQuery.string;
-	var genIds = ret.match(/_gen\d+_/g);
-	var selectedFields = [];
-
-	if(genIds != null)
-	{
-		for(var i = 0; i < genIds.length; i++)
-		{
-			var genId = genIds[i].substr(4, genIds[i].length - 5);
-			var elem = document.getElementById('gen' + mappingId + '_' + genId);
-			if (elem != null)
-			{
-				var selectedField = results.content[mappingId].sparqlQuery.uris[genId][document.getElementById('gen' + mappingId + '_' + genId).selectedIndex];
-			} else {
-				// this occurs when the qualifying element does not appear in the descriptive sentence
-				var selectedField = results.content[mappingId].sparqlQuery.uris[genId][0];
-			}
-			var value = results.content[mappingId].descriptiveSentence.gen[genId][0];
-			selectedFields.push(value);
-
-			$("span.assoc"+mappingId+"_"+genId).html(value);
-
-			var reg = new RegExp('_gen' + genId + '_');
-			ret = ret.replace(reg, selectedField);
-		}
-
-		var inds = ret.match(/\?\w+ \(<http:\/\/purl\.org\/dc\/elements\/1\.1\/title>\|rdfs:label\) "([\w\s]+)"@\w{2}\./);
-
-		if(inds != null && inds.length > 1)
-		{
-			for(var i = 1; i < inds.length; i++)
-			{
-				if($.inArray(inds[i], selectedFields) < 0)
-				{
-					var reg = new RegExp('\\?\\w+ \\(<http:\\/\\/purl\\.org\\/dc\\/elements\\/1\\.1\\/title>\\|rdfs:label\\) "' + inds[i] + '"@\\w{2}\\.');
-					ret = ret.replace(reg, '');
-				}
-			}
-		}
-	}
-
-	// Temporary ! (For testing purpose)
-	ret = "PREFIX cin: <http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/Cinema.owl#>\n" + ret;
-	ret = "PREFIX ces: <http://www.irit.fr/-Equipe-MELODI-/ontologies/cinema/cesar2012.owl#>\n" + ret;
-	ret = ret.replace(/<http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/Cinema\.owl#(\w+)>/g, 'cin:$1');
-	ret = ret.replace(/<http:\/\/www\.irit\.fr\/-Equipe-MELODI-\/ontologies\/cinema\/cesar2012\.owl#(\w+)>/g, 'ces:$1');
-
-	return ret;
+            $('#result').empty();
+            $('#result').append('<div id="nltopivot"></div><div id="pivottomappings"></div>');
+            $('#nltopivot').append('<h1>NL to pivot query translation</h1>');
+            $('#nltopivot').append('<p><b>Initial NL query:</b> <i>' + nlQuery + '</i></p>');
+            $('#nltopivot').append('<p><b>Gazetteed query:</b> <i>' + (data2['gazetteedQuery']) + '</i></p>');
+            $('#nltopivot').append('<p><b>Pivot query:</b> <i>' + (data2['pivotQuery']) + '</i></p>');
+            $('#searchField2').val(data2['pivotQuery']);
+            $('.searchButton').removeAttr('disabled');
+        }).fail(function(jqXHR, textStatus) {
+            alert('Ajax error, please try again !');
+            $('.searchButton').removeAttr('disabled');
+            $('#nltopivot img').css('display', 'none');
+        });
 }
 
 /**
- * Called when a query has been processed
+ * Gets best mappings for a pivot query
+ * Provides two handlers (pivotToSparqlSuccHandler & 
+ * pivotToSparqlErrHandler)
+ * @param pvQuery Query in pivot
+ * @param respNum Size of the returned array
  **/
-function sparqlQueryResult(sparqlResult, id)
+function pivotToSparql(pvQuery)
 {
-    $('#query' + id + ' .loading').css('display', 'none');
+    var shortSparqlEndpointUri = 'swip.univ-tlse2.fr:8080/musicbrainz';
+    var sparqlEndpointUri = 'http://' + shortSparqlEndpointUri + "/";
+    $.ajax
+    ({
+        type: 'GET',
+        dataType: "jsonp",
+        // url: 'http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP',
+        // url: 'http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP',
+        url: 'http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP',
+        data: {pivotQuery: pvQuery, sparqlEndpointUri: shortSparqlEndpointUri, numMappings: 50, kb: 'musicbrainz', callback: '?'},
+        crossDomain: true,
+            beforeSend : function (xhr) {
+                beforePivotToSparql();
+            }
+    }).done(function(data) {
+        donePivotToSparql(data, sparqlEndpointUri);        
+    }).fail(function(jqXHR, textStatus) {
+        failPivotToSparql();
+    });
+}
 
-    var bindings = sparqlResult['results']['bindings']
-    var varName = sparqlResult['head']['vars'][0]
-    var resultString = '<br /><ul>';
-
-    for(var i=0; i<bindings.length; i++)
+function animateLogo() {
+    $('#swiplogo').animate
+    ({
+        // 'margin-left': '-404px',
+        fontSize: 236
+    },
     {
-    	resultString += '<li>' + bindings[i][varName]['value'] + '</li>';
-    }
-    resultString += '</ul>';
-
-    $('#query' + id + ' .resultSpan').html(resultString);
+      step: function(now, fx) { //now is the animated value from initial css value
+          $(this).css('clip', 'rect(0, '+(414+1.67*now)+'px, 76px, '+(236-now)+'px)');
+          $(this).css('margin-left', (-325-0.334745763*now)+'px');
+      }
+    }, 4000);
+    $('#halo').animate
+    ({
+        'width': '808px',
+        'margin-left': '-404px'                
+    }, 'fast');
+    $('#logo').animate
+    ({
+        'margin-top': '10px'
+    }, 'slow', function(){});
 }
 
 
 /**
- * Enabling or disabling the search feature
+ * Processes a SPARQL query
  **/
-function toggleSearch(b)
+function processQuery(sparqlQuery, sparqlEndpointUri, callback)
 {
-	if(b)
-	{
-		$('.searchButton').removeAttr('disabled');
-		$('#searchLoading').css('display', 'none');
-	}
-	else
-	{
-		$('.searchButton').attr('disabled', 'disabled');
-		$('#searchLoading').css('display', 'block');
-	}
+    $.ajax
+    ({
+        type: 'GET',
+        dataType: "json",
+        url: sparqlEndpointUri + 'sparql',
+        data: {query: sparqlQuery, output:'json'},
+    })
+    .done(function(data) {
+        callback(data);
+    })
+    .fail(function(jqXHR, textStatus) {
+        alert('Ajax error, please try again !');
+    });
 }

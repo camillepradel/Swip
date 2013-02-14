@@ -7,6 +7,68 @@
 @prefix rel:  <http://purl.org/vocab/relationship/>.
 
 
+
+#############################################################
+# http://purl.org/ontology/mo/release_type considered harmful
+#############################################################
+
+
+graph:joker_release_type a queries:JokerTypeProperty;
+    queries:concernsProperty mo:release_type;
+    queries:hasPseudoClass
+        graph:pseudo_class_album,
+        graph:pseudo_class_audiobook,
+        graph:pseudo_class_compilation,
+        graph:pseudo_class_ep,
+        graph:pseudo_class_interview,
+        graph:pseudo_class_live,
+        graph:pseudo_class_remix,
+        graph:pseudo_class_single,
+        graph:pseudo_class_soundtrack,
+        graph:pseudo_class_spokenword.
+
+graph:pseudo_class_album a queries:PseudoClass;
+    queries:hasInstance mo:album;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_audiobook a queries:PseudoClass;
+    queries:hasInstance mo:audiobook;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_compilation a queries:PseudoClass;
+    queries:hasInstance mo:compilation;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_ep a queries:PseudoClass;
+    queries:hasInstance mo:ep;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_interview a queries:PseudoClass;
+    queries:hasInstance mo:interview;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_live a queries:PseudoClass;
+    queries:hasInstance mo:live;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_remix a queries:PseudoClass;
+    queries:hasInstance mo:remix;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_single a queries:PseudoClass;
+    queries:hasInstance mo:single;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_soundtrack a queries:PseudoClass;
+    queries:hasInstance mo:soundtrack;
+    queries:hasClass mo:MusicalManifestation.
+
+graph:pseudo_class_spokenword a queries:PseudoClass;
+    queries:hasInstance mo:spokenword;
+    queries:hasClass mo:MusicalManifestation.
+
+
+
 ################
 # album
 ################
