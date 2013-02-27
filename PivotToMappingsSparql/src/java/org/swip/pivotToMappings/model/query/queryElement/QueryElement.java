@@ -39,7 +39,9 @@ public abstract class QueryElement {
         return this.queried;
     }
 
-    public abstract String getVarName();
+//    public abstract String getVarName();
         
     public abstract String getStringValue();
+    public abstract String getStringForQueryUri();
+    public abstract String getStringUri(String queryUri, String sparqlServerUri);
 }

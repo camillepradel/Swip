@@ -1,7 +1,8 @@
-var QUERIES_PREFIX = "http://swip.univ-tlse2.fr/ontologies/Queries#"
-var PATTERNS_PREFIX = "http://swip.univ-tlse2.fr/ontologies/Patterns#"
-var GRAPH_PREFIX = "http://swip.univ-tlse2.fr:8080/musicbrainz/"
-var RDF_PREFIX = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+var QUERIES_PREFIX = "http://swip.univ-tlse2.fr/ontologies/Queries#";
+var PATTERNS_PREFIX = "http://swip.univ-tlse2.fr/ontologies/Patterns#";
+var GRAPH_PREFIX = "http://swip.univ-tlse2.fr:8080/musicbrainz/";
+var RDF_PREFIX = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+var SP_PREFIX = "http://spinrdf.org/sp";
 var waitingForAnswer = false;
 var subsentenceId = 0;
 
@@ -36,6 +37,10 @@ var PROCESSING_STATES = [
 	},
 	{
 		uri: QUERIES_PREFIX + "PerformingSentenceGeneration",
+		updateDisplay: function() {},
+	},
+	{
+		uri: QUERIES_PREFIX + "PerformingQueryGeneration",
 		updateDisplay: function(queryUri, sparqlEndpointUri, stopRefresh) {
 			diplayMappingsAndSentences(queryUri, sparqlEndpointUri);
 			console.log("stopRefresh");
@@ -152,12 +157,12 @@ function diplayMatching(queryUri, sparqlEndpointUri)
 		var callback = function(data) {
 		waitingForAnswer = false;
 
-		var table = "<table><tr><th>keyword</th><th>matched label</th><th>score</th><th>matching</th></tr>";
+		var table = "<table><tr><th>keyword</th><th>matched label</th><th>score</th><th>URI</th></tr>";
 		var currentKeywordValue = "";
 
 		$.each(data.results.bindings, function(i, val) {
 
-			table += "<tr><td>" + ((currentKeywordValue == val.keywordValue.value)? "" : val.keywordValue.value) + "</td><td><a href='" + val.resource.value + "' title='matched resource: " + val.resource.value + "'>" + val.matchedLabel.value + "</a></td><td>" + val.score.value + "</td><td>" + "<a href='" + val.matching.value + "'>lien</a></td></tr>";
+			table += "<a name='" + val.matching.value + "'><tr><td>" + ((currentKeywordValue == val.keywordValue.value)? "" : val.keywordValue.value) + "</td><td><a href='" + val.resource.value + "' title='matched resource: " + val.resource.value + "'>" + val.matchedLabel.value + "</a></td><td>" + val.score.value + "</td><td>" + "<a href='" + val.matching.value + "'>link</a></td></tr></a>";
 			currentKeywordValue = val.keywordValue.value;
 		});
 
@@ -197,14 +202,11 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					+ "    ?em queries:mappingHasQuery <" + queryUri + ">;\n"
 					+ "        queries:emHasPatternElement ?pe;\n"
 					+ "        queries:emHasScore ?score.\n"
-					+ "    OPTIONAL\n"
-					+ "    {\n"
-					+ "      ?em queries:emHasMatching ?m.\n"
-					+ "      ?m (queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue;\n"
-					// + "         queries:matchingHasScore ?score;\n"
-					+ "         queries:matchingHasMatchedLabel ?label;\n"
-					+ "         queries:matchingHasResource ?resource.\n"
-					+ "    }\n"
+					+ "    OPTIONAL{ ?em queries:emHasMatching ?m. }\n"
+					+ "    OPTIONAL{ ?em (queries:emHasQueryElement / queries:queryElementHasValue) ?qeValue. }\n"
+					+ "    OPTIONAL{ ?em queries:emHasMatchedLabel ?label. }\n"
+					+ "    OPTIONAL{ ?em (queries:hasDescriptiveSubsentence/queries:hasStringValue) ?subsent. }\n"
+					+ "    OPTIONAL{ ?em queries:emHasResource ?resource. }\n"
 					+ "  }\n"
 					+ "}\n"
 					+ "ORDER BY ?p ?pe DESC(?score)";
@@ -214,6 +216,7 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 			
 			var list = " <ul> "
 			var currentPattern = "";
+			var lastEm = "";
 
 			$.each(data.results.bindings, function(i, val) {
 				if (currentPattern != val.p.value) {
@@ -222,21 +225,33 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					}
 					currentPattern = val.p.value;
 					list += "<li>Pattern " + formatUriForDisplay(currentPattern) + "</li>";
-					list += "<table><tr><th>pattern element</th><th>target</th><th>query element</th><th>matched label</th><th>score</th><th>element mapping</th></tr>";
+					list += "<table><tr><th>pattern element</th><th>target</th><th>query element</th><th>matched label</th><th>subsentence</th><th>score</th><th>matching</th><th>URI</th></tr>";
 				}
-				// if (!val.keywordValue) {
-				// 	val.keywordValue = {value:"plop"};
-				// }
-				var pe = val.pe.value;
-				var shortPe = pe.replace(currentPattern, "...");
-				var peHtml = "<a href='" + pe + "'>" + shortPe + "</a>";
-				var target = val.target.value;
-				var targetHtml = "<a href='" + target + "'>" + formatUriForDisplay(target) + "</a>";
-				var qeHTML = val.keywordValue? val.keywordValue.value : "<i>empty mapping</i>";
-				var labelHtml = (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-");
-				var scoreHtml = (val.score? val.score.value : "-");
-				var emHtml = "<a href='" + val.em.value + "'>link</a>";
-				list += "<tr><td>" + peHtml + "</td><td>" + targetHtml + "</td><td>" + qeHTML +  "</td><td>" + labelHtml + "</td><td>" + scoreHtml + "</td><td>" + emHtml + "</td></tr>";
+				var em = val.em.value;
+				if (em == lastEm) {
+					var peHtml = "";
+					var targetHtml = "";
+					var qeHTML = val.qeValue? val.qeValue.value : "-";//"<i>empty mapping</i>";
+					var labelHtml = "";
+					var subsentHtml = "";
+					var scoreHtml = "";
+					var matchingHtml = "";
+					var emHtml = "";
+				} else {
+					var pe = val.pe.value;
+					var shortPe = pe.replace(currentPattern, "...");
+					var peHtml = "<a href='" + pe + "'>" + shortPe + "</a>";
+					var target = val.target.value;
+					var targetHtml = "<a href='" + target + "'>" + formatUriForDisplay(target) + "</a>";
+					var qeHTML = val.qeValue? val.qeValue.value : "-";//"<i>empty mapping</i>";
+					var labelHtml = (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-");
+					var subsentHtml = val.subsent? val.subsent.value : "-";
+					var scoreHtml = (val.score? val.score.value : "-");
+					var matchingHtml = val.m? "<a href='#" + val.m.value + "'>link</a>" : "-";
+					var emHtml = "<a href='" + val.em.value + "'>link</a>";
+				}
+				lastEm = em;
+				list += "<tr><td>" + peHtml + "</td><td>" + targetHtml + "</td><td>" + qeHTML +  "</td><td>" + labelHtml + "</td><td>" + subsentHtml + "</td><td>" + scoreHtml + "</td><td>" + matchingHtml + "</td><td>" + emHtml + "</td></tr>";
 			});
 
 			list += "</table>";
@@ -402,7 +417,7 @@ function diplayMappingsAndSentences(queryUri, sparqlEndpointUri)
 {
 	var html = "<h2 id='interpretationresultsH' class='pointer'>Ranked interpretations</h2><div id='interpretationresults'></div>";
 	$('#pivottomappings').append(html);
-	displayInterpretations(queryUri, sparqlEndpointUri, 0, 5);	
+	displayInterpretations(queryUri, sparqlEndpointUri, 0, 10);	
 }
 
 
@@ -542,6 +557,7 @@ function displayDescriptiveSentenceNode(nodeUri, parentNodeUri, sparqlEndpointUr
 					+ "      GRAPH graph:queries\n"
 					+ "      {\n"
 					+ "        OPTIONAL {<" + nodeUri + "> queries:hasStringValue ?stringValue.}\n"
+					+ "        OPTIONAL {<" + nodeUri + "> queries:dsIsQueried ?queried.}\n"
 					+ "        OPTIONAL {<" + nodeUri + "> queries:isMadeUpOfList ?list.}\n"
 					// + "        OPTIONAL {<" + nodeUri + "> (queries:insertForSubsentenceOf/queries:hasDescriptiveSubsentence/queries:isMadeUpOfList-for) ?listFor.}\n"
 					+ "        OPTIONAL {select distinct ?listFor where\n"
@@ -554,7 +570,11 @@ function displayDescriptiveSentenceNode(nodeUri, parentNodeUri, sparqlEndpointUr
 	var callback = function(data) {
 		if (data.results.bindings.length > 0) {
 			var stringValue = data.results.bindings[0].stringValue? data.results.bindings[0].stringValue.value : "";
+			var queried = data.results.bindings[0].queried? data.results.bindings[0].queried.value : "";
 			if (stringValue != "") {
+				if (queried == "true") {
+					stringValue = "<b>" + stringValue + "</b>";
+				}
 				$('#list_' + elementId).append(stringValue);
 			}
 			var list = data.results.bindings[0].list? data.results.bindings[0].list.value : "";
@@ -591,14 +611,10 @@ function diplaysElementMappings(mappingUri, sparqlEndpointUri, elemId)
 					+ "    <" + mappingUri + "> queries:mappingContainsMapping+ ?em.\n"
 					+ "    ?em queries:emHasPatternElement ?pe;\n"
 					+ "        queries:emHasScore ?score;\n"
-					+ "    OPTIONAL\n"
-					+ "    {\n"
-					+ "      ?em queries:emHasMatching ?m.\n"
-					+ "      ?m (queries:matchingHasKeyword / queries:queryElementHasValue) ?keywordValue;\n"
-					// + "         queries:matchingHasScore ?score;\n"
-					+ "         queries:matchingHasMatchedLabel ?label;\n"
-					+ "         queries:matchingHasResource ?resource.\n"
-					+ "    }\n"
+					+ "    OPTIONAL{ ?em queries:emHasMatching ?m. }\n"
+					+ "    OPTIONAL{ ?em (queries:emHasQueryElement / queries:queryElementHasValue) ?qeValue. }\n"
+					+ "    OPTIONAL{ ?em queries:emHasMatchedLabel ?label. }\n"
+					+ "    OPTIONAL{ ?em queries:emHasResource ?resource. }\n"
 					+ "  }\n"
 					+ "  GRAPH graph:patterns\n"
 					+ "  {\n"
@@ -608,10 +624,17 @@ function diplaysElementMappings(mappingUri, sparqlEndpointUri, elemId)
 	// console.log(sparqlQuery);
 	var callback = function(data) {		
 		var html = "<table><tr><th>pattern element</th><th>target</th><th>query element</th><th>matched label</th><th>score</th><th>element mapping</th></tr>";
+		var lastEm = "";
 
 		$.each(data.results.bindings, function(i, val) {
 			
-			html += "<tr><td>" + formatUriForDisplay(val.pe.value) + "</td><td>" + formatUriForDisplay(val.target.value) + "</td><td>" + (val.keywordValue? val.keywordValue.value : "<i>empty mapping</i>") + "</td><td>" + (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-") + "</td><td>" + (val.score? val.score.value : "-") + "</td><td>" + "<a href='" + val.em.value + "'>lien</a></td></tr>";
+			var em = val.em.value;
+			if (em == lastEm) {
+				html += "<tr><td></td><td></td><td>" + (val.qeValue? val.qeValue.value : "plop") + "</td><td></td><td></td><td></td></tr>";
+			} else {
+				html += "<tr><td>" + formatUriForDisplay(val.pe.value) + "</td><td>" + formatUriForDisplay(val.target.value) + "</td><td>" + (val.qeValue? val.qeValue.value : "-") + "</td><td>" + (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-") + "</td><td>" + (val.score? val.score.value : "-") + "</td><td>" + "<a href='" + val.em.value + "'>lien</a></td></tr>";
+			}
+			lastEm = em;
 		});
 
 		html += "</table>";
@@ -626,7 +649,29 @@ function diplaysElementMappings(mappingUri, sparqlEndpointUri, elemId)
 
 
 function diplaysSparqlQuery(mappingUri, sparqlEndpointUri, elemId)
-{	
+{
+	var sparqlQuery = "PREFIX patterns: <" + PATTERNS_PREFIX + ">\n"
+					+ "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
+					+ "PREFIX graph: <" + GRAPH_PREFIX + ">\n"
+                	+ "PREFIX sp:  <http://spinrdf.org/sp>\n"
+					+ "SELECT * WHERE\n"
+					+ "{\n"
+					+ "      GRAPH graph:queries\n"
+					+ "      {\n"
+					+ "        <" + mappingUri + "> queries:hasSparqlQuery ?sq.\n"
+					+ "        ?sq sp:where ?where.\n"
+					+ "      }\n"
+					+ "}\n";
+	console.log(sparqlQuery);
+	var callback = function(data) {	
+		var html = "<span id='list_" + subsentenceId + "'></span>";
+		$('#' + mappingUri.replace('urn:uuid:', '') + ' .descsent').html(html);
+		displayDescriptiveSentenceList(data.results.bindings[0].firstList.value, data.results.bindings[0].node.value, sparqlEndpointUri, subsentenceId);
+		subsentenceId++;
+	}
+	// processQuery(sparqlQuery, sparqlEndpointUri, callback);
+
+
 	var html = "<div><b>comming soon...</b></div>";
 	$('#' + elemId + " .sparql").html(html);
 	$('#'+elemId+' .sparqlH').unbind("click");

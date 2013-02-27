@@ -5,6 +5,7 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/>.
 @prefix bio:  <http://purl.org/vocab/bio/0.1/>.
 @prefix rel:  <http://purl.org/vocab/relationship/>.
+@prefix tl:   <http://purl.org/NET/c4dm/timeline.owl#>.
 
 
 ################
@@ -210,6 +211,21 @@ graph:found a queries:KeywordQueryElement ;
 
 
 ################
+# group
+################
+
+graph:group a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_group1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:group;
+    queries:matchingHasResource mo:MusicGroup;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "group".
+
+
+################
 # husband
 ################
 
@@ -222,6 +238,21 @@ graph:husband a queries:KeywordQueryElement ;
     queries:matchingHasResource rel:spouseOf;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "husband of".
+
+
+################
+# join
+################
+
+graph:join a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_join1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:join;
+    queries:matchingHasResource tl:start;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "join".
 
 
 ################
@@ -267,6 +298,21 @@ graph:marry a queries:KeywordQueryElement ;
     queries:matchingHasResource rel:spouseOf;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "married to".
+
+
+################
+# member
+################
+
+graph:member a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_member1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:member;
+    queries:matchingHasResource mo:member_of;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "member of".
 
 
 ################
@@ -398,3 +444,50 @@ graph:wife a queries:KeywordQueryElement ;
     queries:matchingHasResource rel:spouseOf;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "wife of".
+
+
+
+
+
+
+
+
+
+#############################################################
+# http://purl.org/ontology/mo/release_type considered harmful
+#############################################################
+
+
+graph:joker_release_type a queries:JokerTypeProperty;
+    queries:concernsProperty mo:release_type;
+    queries:hasClass mo:MusicalManifestation;
+    queries:hasPseudoClass
+        mo:album,
+        mo:audiobook,
+        mo:compilation,
+        mo:ep,
+        mo:interview,
+        mo:live,
+        mo:remix,
+        mo:single,
+        mo:soundtrack,
+        mo:spokenword.
+
+
+
+
+
+
+
+
+
+#############################################################
+# literal matchings
+#############################################################
+
+
+graph:literal_mapping_date a queries:LiteralMappingRule;
+    queries:hasSwipTypeString "date";
+    queries:hasLiteralType xsd:date.
+
+

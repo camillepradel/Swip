@@ -55,6 +55,7 @@ public class Keyword extends QueryElement {
     String aggregat = "";
     String cond = "";
     boolean isAggregate = false;
+    String stringUri = null;
 
     public Keyword() {
         super();
@@ -79,10 +80,10 @@ public class Keyword extends QueryElement {
         return keywordValue;
     }
 
-    @Override
-    public String getVarName() {
-        return "?" + (this.keywordValue.replaceAll(" ", "_"));
-    }
+//    @Override
+//    public String getVarName() {
+//        return "?" + (this.keywordValue.replaceAll(" ", "_"));
+//    }
 
     public void setKeywordValue(String keywordValue) {
         this.keywordValue = keywordValue;
@@ -96,11 +97,24 @@ public class Keyword extends QueryElement {
 
     @Override
     public String toString() {
-        return "Keyword{\"" + keywordValue + "\" - queried=" + queried + " - id=" + id + " - varName = " + this.getVarName() + " - cond = " + this.aggregat + "(" + this.getVarName() + ")" + this.cond + "}";
+        return "Keyword{\"" + keywordValue + "\" - queried=" + queried + " - id=" + id + " - cond = " + this.aggregat + this.cond + "}";
     }
 
     @Override
     public String getStringValue() {
         return this.keywordValue;
+    }
+
+    @Override
+    public String getStringForQueryUri() {
+        return this.keywordValue;
+    }
+
+    @Override
+    public String getStringUri(String queryUri, String sparqlServerUri) {
+        if (this.stringUri == null) {
+            this.stringUri = "http://" + sparqlServerUri + "/" + this.getStringValue();
+        }
+        return stringUri;
     }
 }

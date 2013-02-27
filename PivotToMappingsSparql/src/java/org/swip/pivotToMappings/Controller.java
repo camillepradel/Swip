@@ -139,11 +139,11 @@ public class Controller {
 
     private String getStringForSubquery(Subquery sq) {
         if (sq instanceof Q1) {
-            return ((Q1) sq).getE1().getStringValue();
+            return ((Q1) sq).getE1().getStringForQueryUri();
         } else if (sq instanceof Q2) {
-            return ((Q2) sq).getE1().getStringValue() + "-c-" + ((Q2) sq).getE2().getStringValue();
+            return ((Q2) sq).getE1().getStringForQueryUri() + "-c-" + ((Q2) sq).getE2().getStringForQueryUri();
         } else if (sq instanceof Q3) {
-            return ((Q3) sq).getE1().getStringValue() + "-c-" + ((Q3) sq).getE2().getStringValue() + "-e-" + ((Q3) sq).getE3().getStringValue();
+            return ((Q3) sq).getE1().getStringForQueryUri() + "-c-" + ((Q3) sq).getE2().getStringForQueryUri() + "-e-" + ((Q3) sq).getE3().getStringForQueryUri();
         } else {
             return null;
         }
@@ -166,6 +166,7 @@ public class Controller {
         String query = "# commit query "+ queryUri + "\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
+                + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
                 + "INSERT DATA\n"
                 + "{\n"
                 + "  GRAPH graph:queries\n"
@@ -194,6 +195,7 @@ public class Controller {
             String queryGraph = getGraphForQuery(queryUri, userQuery, sparqlClient);
             String query = "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                     + "PREFIX graph:   <http://swip.univ-tlse2.fr:8080/musicbrainz/>\n"
+                    + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
                     + "DELETE WHERE\n"
                     + "{\n"
                     + "  GRAPH graph:queries\n"
@@ -210,20 +212,19 @@ public class Controller {
 
     private String getGraphForQuery(String queryUri, Query userQuery, SparqlClient sparqlServer) {
         String queryGraph = "    <" + queryUri + "> a queries:PivotQuery.\n";
-        int literalId = 0;
         for (QueryElement qe : userQuery.getQueryElements()) {
-            String qeUri = "";
+            String qeUri = qe.getStringUri(queryUri, sparqlServer.getEndpointUri());
             if (qe instanceof Keyword) {
-                qeUri = "http://" + sparqlServer.getEndpointUri() + "/" + qe.getStringValue();
                 queryGraph += "    <" + qeUri + "> a queries:KeywordQueryElement.\n";
             } else if (qe instanceof Literal) {
-                qeUri = queryUri + "/literal" + literalId++;
                 queryGraph += "    <" + qeUri + "> a queries:LiteralQueryElement.\n";
-                // FIXME: *Type property considered armfull!!!
                 queryGraph += "    <" + qeUri + "> queries:literalQueryElementHasType \"" + ((Literal)qe).getStringType() + "\".\n";
             }
             queryGraph += "    <" + qeUri + "> queries:queryElementHasValue \"" + qe.getStringValue().replaceAll("_", " ") + "\".\n";
             queryGraph += "    <" + queryUri + "> queries:queryHasQueryElement <" + qeUri + ">.\n";
+            if (qe.isQueried()) {
+                queryGraph += "    <" + qeUri + "> queries:queryElementIsQueried \"true\"^^xsd:boolean.\n";
+            }
         }
         int i = 1;
         for (Subquery sq : userQuery.getSubqueries()) {
@@ -231,18 +232,18 @@ public class Controller {
             if (sq instanceof Q1) {
                 queryGraph += "    <" + sqUri + "> a queries:Q1.\n";
                 queryGraph += "    <" + queryUri + "> queries:queryHasSubquery <" + sqUri + ">.\n";
-                queryGraph += "    <" + sqUri + "> queries:subqueryHasE1 <" + queryUri + "/" + ((Q1) sq).getE1().getStringValue() + ">.\n";
+                queryGraph += "    <" + sqUri + "> queries:subqueryHasE1 <" + ((Q1) sq).getE1().getStringUri(queryUri, sparqlServer.getEndpointUri()) + ">.\n";
             } else if (sq instanceof Q2) {
                 queryGraph += "    <" + sqUri + "> a queries:Q2.\n";
                 queryGraph += "    <" + queryUri + "> queries:queryHasSubquery <" + sqUri + ">.\n";
-                queryGraph += "    <" + sqUri + "> queries:subqueryHasE1 <" + queryUri + "/" + ((Q2) sq).getE1().getStringValue() + ">.\n";
-                queryGraph += "    <" + sqUri + "> queries:subqueryHasE2 <" + queryUri + "/" + ((Q2) sq).getE2().getStringValue() + ">.\n";
+                queryGraph += "    <" + sqUri + "> queries:subqueryHasE1 <" + ((Q2) sq).getE1().getStringUri(queryUri, sparqlServer.getEndpointUri()) + ">.\n";
+                queryGraph += "    <" + sqUri + "> queries:subqueryHasE2 <" + ((Q2) sq).getE2().getStringUri(queryUri, sparqlServer.getEndpointUri()) + ">.\n";
             } else if (sq instanceof Q3) {
                 queryGraph += "    <" + sqUri + "> a queries:Q3.\n";
                 queryGraph += "    <" + queryUri + "> queries:queryHasSubquery <" + sqUri + ">.\n";
-                queryGraph += "    <" + sqUri + "> queries:subqueryHasE1 <" + queryUri + "/" + ((Q3) sq).getE1().getStringValue() + ">.\n";
-                queryGraph += "    <" + sqUri + "> queries:subqueryHasE2 <" + queryUri + "/" + ((Q3) sq).getE2().getStringValue() + ">.\n";
-                queryGraph += "    <" + sqUri + "> queries:subqueryHasE3 <" + queryUri + "/" + ((Q3) sq).getE3().getStringValue() + ">.\n";
+                queryGraph += "    <" + sqUri + "> queries:subqueryHasE1 <" + ((Q3) sq).getE1().getStringUri(queryUri, sparqlServer.getEndpointUri()) + ">.\n";
+                queryGraph += "    <" + sqUri + "> queries:subqueryHasE2 <" + ((Q3) sq).getE2().getStringUri(queryUri, sparqlServer.getEndpointUri()) + ">.\n";
+                queryGraph += "    <" + sqUri + "> queries:subqueryHasE3 <" + ((Q3) sq).getE3().getStringUri(queryUri, sparqlServer.getEndpointUri()) + ">.\n";
             }
         }
         return queryGraph;

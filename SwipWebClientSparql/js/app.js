@@ -58,8 +58,8 @@ function nlToPivot(nlQuery, lang)
         ({
             type: 'GET',
             dataType: "jsonp",
-            url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivotJSONP',
-            // url: 'http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP',
+            // url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivotJSONP',
+            url: 'http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP',
             // url: 'http://localhost:8080/SwipWorkflow/resources/rest/nlToPivotJSONP',
             data: {nlQuery: nlQuery, kb:'musicbrainz', lang: lang, pos:'treeTagger', dep:'malt', callback: '?'},
             crossDomain: true,
