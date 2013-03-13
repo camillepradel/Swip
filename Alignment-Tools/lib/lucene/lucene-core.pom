@@ -1,0 +1,17 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.apache.lucene</groupId>
+  <artifactId>lucene-core</artifactId>
+  <version>3.0.2</version>
+  <name>Lucene Core</name>
+  <description>Apache Lucene Java Core</description>
+  <packaging>jar</packaging>
+  <licenses>
+    <license>
+      <name>Apache License Version 2.0, January 2004</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+</project>

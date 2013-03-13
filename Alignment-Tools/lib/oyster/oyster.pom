@@ -1,0 +1,19 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.neon_toolkit.registery</groupId>
+  <artifactId>oyster2</artifactId>
+  <version>0.99</version>
+  <name>Oyster</name>
+  <description>Oyster is a distributed registry that exploits semantic web techniques in order to provide a solution for the management of ontology related metadata in distributed environments. It also provides services supporting ontology evolution.</description>
+  <licenses>
+    <license>
+      <name>Eclipse Public License 1.0</name>
+      <url>http://opensource.org/licenses/eclipse-1.0.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <url>http://oyster2.sourceforge.net/</url>
+
+</project>

@@ -1,0 +1,28 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.postgresql</groupId>
+  <artifactId>postgresql-jdbc4</artifactId>
+  <version>8.4-701</version>
+  <name>Java Database connector (JDBC) for Postgres</name>
+  <licenses>
+    <license>
+      <name>BSD</name>
+      <url>http://www.opensource.org/licenses/bsd-license.php</url>
+      <distribution>repo</distribution>
+   </license>
+  </licenses>
+  <url></url>
+  <!--distributionManagement>
+    <downloadUrl></downloadUrl>
+  </distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId></groupId>
+      <artifactId></artifactId>
+      <version></version>
+    </dependency>
+  </dependencies-->
+
+</project>

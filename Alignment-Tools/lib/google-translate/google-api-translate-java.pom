@@ -1,0 +1,51 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <!-- JE: from original pom -->
+  <groupId>com.google.api</groupId>
+  <artifactId>google-api-translate-java</artifactId>
+  <version>0.93-SNAPSHOT</version>
+  <name>google-api-translate-java</name>
+  <description>A Java wrapper for the Google Translate service</description>
+  <licenses>
+    <license>
+      <name>GNU LESSER GENERAL PUBLIC LICENSE Version 3, 29 June 2007</name>
+      <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+    </license>
+  </licenses>
+
+  <!--url></url>
+  <distributionManagement>
+    <downloadUrl></downloadUrl>
+  </distributionManagement-->
+
+  <dependencies>
+    <dependency>  
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20090211</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.google.api.translate.TranslatorFrame</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

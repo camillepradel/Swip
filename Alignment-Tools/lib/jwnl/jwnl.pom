@@ -1,0 +1,30 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>net.didion</groupId>
+  <artifactId>jwnl</artifactId>
+  <version>1.4rc2</version>
+  <name></name>
+  <description></description>
+  <!-- Copyright (C) 2000-2007 the JWNL development team -->
+  <licenses>
+    <license>
+      <name>BSD?? In fact custom...</name>
+      <url>http://www.opensource.org/licenses/bsd-license.php</url>
+    </license>
+  </licenses>
+
+  <url>http://www.sourceforge.net/projects/jwordnet</url>
+  <!--distributionManagement>
+    <downloadUrl></downloadUrl>
+  </distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId></groupId>
+      <artifactId></artifactId>
+      <version></version>
+    </dependency>
+  </dependencies-->
+
+</project>
