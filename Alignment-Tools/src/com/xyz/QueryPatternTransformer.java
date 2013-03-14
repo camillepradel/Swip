@@ -128,7 +128,7 @@ public class QueryPatternTransformer {
 			}
 		} while (index < 1 || index > cellsArray.length);
 
-		return cellsArray[index];
+		return cellsArray[index-1];
 	}
 
 	private void transform(Map<URI, Set<Cell>> m, List<String> lines)

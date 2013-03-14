@@ -5,7 +5,7 @@
     <target name="create_run_jar">
         <jar destfile="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools.jar">
             <manifest>
-                <attribute name="Main-Class" value="QueryPatternTransformer"/>
+                <attribute name="Main-Class" value="com.xyz.QueryPatternTransformer"/>
                 <attribute name="Class-Path" value=". align-tools_lib/align.jar align-tools_lib/skosapi.jar align-tools_lib/owlapi-bin.jar align-tools_lib/getopt.jar align-tools_lib/arq.jar align-tools_lib/icu4j.jar align-tools_lib/iri.jar align-tools_lib/jena.jar align-tools_lib/jwnl.jar align-tools_lib/commons-logging.jar align-tools_lib/log4j.jar align-tools_lib/slf4j-api.jar align-tools_lib/slf4j-log4j.jar align-tools_lib/api.jar align-tools_lib/impl.jar align-tools_lib/io.jar align-tools_lib/rdfapi.jar align-tools_lib/rdfparser.jar align-tools_lib/xercesImpl.jar align-tools_lib/ontosim.jar align-tools_lib/lucene-core.jar align-tools_lib/resolver.jar align-tools_lib/xml-apis.jar align-tools_lib/ontowrap.jar align-tools_lib/procalign.jar align-tools_lib/http.jar align-tools_lib/jade.jar align-tools_lib/iiop.jar align-tools_lib/mysql-connector-java.jar align-tools_lib/postgresql-jdbc4.jar align-tools_lib/servlet-api.jar align-tools_lib/jetty.jar align-tools_lib/jetty-util.jar align-tools_lib/alignsvc.jar"/>
             </manifest>
             <fileset dir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/bin"/>
