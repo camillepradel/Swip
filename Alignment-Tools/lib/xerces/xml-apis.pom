@@ -1,0 +1,18 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.apache.xml</groupId>
+  <artifactId>xml-apis</artifactId>
+  <version>1.4.01</version>
+  <name>Java XML APIs</name>
+  <description>Standard XML APIs (SAX 2.0.2, DOM 1.0, StAX 1.0, datatype, namespace, JAXP 1.4)</description>
+  <licenses>
+    <license>
+      <name>W3C License</name>
+      <url>http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231</url>
+    </license>
+  </licenses>
+
+  <url>http://xml.apache.org/commons/</url>
+
+</project>

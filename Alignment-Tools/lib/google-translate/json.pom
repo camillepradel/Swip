@@ -1,0 +1,29 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.json</groupId>
+  <artifactId>json</artifactId>
+  <version>20090211</version>
+  <!--name></name>
+  <description></description-->
+  <licenses>
+    <license>
+      <name></name>
+      <url></url>
+    </license>
+  </licenses>
+
+  <!--url></url>
+  <distributionManagement>
+    <downloadUrl></downloadUrl>
+  </distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId></groupId>
+      <artifactId></artifactId>
+      <version></version>
+    </dependency>
+  </dependencies-->
+
+</project>

@@ -1,0 +1,23 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-parent</artifactId>
+    <version>1.6.4</version>
+  </parent>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-api</artifactId>
+  <packaging>jar</packaging>
+  <name>SLF4J API Module</name>
+  <!-- Copyright (c) 2004-2011 QOS.ch -->
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+  <url>http://www.slf4j.org</url>
+  <description>The slf4j API</description>
+  <dependencies />
+
+</project>

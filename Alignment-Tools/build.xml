@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project Alignment-Tools with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools.jar">
+            <manifest>
+                <attribute name="Main-Class" value="com.xyz.QueryPatternTransformer"/>
+                <attribute name="Class-Path" value=". align-tools_lib/align.jar align-tools_lib/skosapi.jar align-tools_lib/owlapi-bin.jar align-tools_lib/getopt.jar align-tools_lib/arq.jar align-tools_lib/icu4j.jar align-tools_lib/iri.jar align-tools_lib/jena.jar align-tools_lib/jwnl.jar align-tools_lib/commons-logging.jar align-tools_lib/log4j.jar align-tools_lib/slf4j-api.jar align-tools_lib/slf4j-log4j.jar align-tools_lib/api.jar align-tools_lib/impl.jar align-tools_lib/io.jar align-tools_lib/rdfapi.jar align-tools_lib/rdfparser.jar align-tools_lib/xercesImpl.jar align-tools_lib/ontosim.jar align-tools_lib/lucene-core.jar align-tools_lib/resolver.jar align-tools_lib/xml-apis.jar align-tools_lib/ontowrap.jar align-tools_lib/procalign.jar align-tools_lib/http.jar align-tools_lib/jade.jar align-tools_lib/iiop.jar align-tools_lib/mysql-connector-java.jar align-tools_lib/postgresql-jdbc4.jar align-tools_lib/servlet-api.jar align-tools_lib/jetty.jar align-tools_lib/jetty-util.jar align-tools_lib/alignsvc.jar"/>
+            </manifest>
+            <fileset dir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/bin"/>
+        </jar>
+        <delete dir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <mkdir dir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/align.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/skosapi/skosapi.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/owlapi30/owlapi-bin.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/getopt/getopt.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jena/arq.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jena/icu4j.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jena/iri.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jena/jena.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jwnl/jwnl.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/log4j/commons-logging.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/log4j/log4j.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/log4j/slf4j-api.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/log4j/slf4j-log4j.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/owlapi10/api.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/owlapi10/impl.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/owlapi10/io.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/owlapi10/rdfapi.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/owlapi10/rdfparser.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/xerces/xercesImpl.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/ontosim/ontosim.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/lucene/lucene-core.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/xerces/resolver.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/xerces/xml-apis.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/ontowrap.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/procalign.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jade/http.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jade/jade.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jade/iiop.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jdbc/mysql-connector-java.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jdbc/postgresql-jdbc4.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/servlet/servlet-api.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jetty/jetty.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/jetty/jetty-util.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+        <copy file="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/lib/alignsvc.jar" todir="E:/pgillet/Workbench/SCM/gitrepo/Swip/Alignment-Tools/align-tools_lib"/>
+    </target>
+</project>

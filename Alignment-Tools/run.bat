@@ -1,0 +1,1 @@
+java -cp align-tools_lib/align.jar;align-tools_lib/alignsvc.jar;align-tools_lib/ontowrap.jar;align-tools_lib/procalign.jar -jar align-tools.jar

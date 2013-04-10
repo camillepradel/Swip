@@ -1,0 +1,27 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <version>5.1.12</version>
+  <name>Java Database connector (JDBC) for MySQL</name>
+  <licenses>
+    <license>
+      <name>GNU LESSER GENERAL PUBLIC LICENSE Version 2.0, June 1991</name>
+      <url>http://www.gnu.org/licenses/gpl-2.0.txt</url>
+    </license>
+  </licenses>
+  <url></url>
+  <!--distributionManagement>
+    <downloadUrl></downloadUrl>
+  </distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId></groupId>
+      <artifactId></artifactId>
+      <version></version>
+    </dependency>
+  </dependencies-->
+
+</project>

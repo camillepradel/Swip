@@ -1,0 +1,18 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.relaxng</groupId>
+  <artifactId>datatype</artifactId>
+  <version>20090415</version>
+  <name>RelaxNG datatypes</name>
+  <description>Datatype definitions for Relax-NG</description>
+  <licenses>
+    <license>
+      <name>BSD</name>
+      <url>http://www.opensource.org/licenses/bsd-license.php</url>
+    </license>
+  </licenses>
+
+  <url>http://msv.java.net</url>
+
+</project>

@@ -1,0 +1,6 @@
+xsdlib 20090415 (2003)
+relaxngDatatype 20090415 (2001)
+
+BSD License
+From msv.java.net
+

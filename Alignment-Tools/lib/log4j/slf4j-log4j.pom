@@ -1,0 +1,56 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <!-- JE: from original pom -->
+  <parent>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-parent</artifactId>
+    <version>1.6.4</version>
+  </parent>
+	
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-log4j12</artifactId>
+  <!--version></version--><!-- inherited -->
+  <packaging>jar</packaging>
+  <name>SLF4J LOG4J-12 Binding</name>
+  <description>The slf4j log4j-12 binding</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <url>http://www.slf4j.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>   
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+    	<plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <configuration>
+                <archive>
+                  <manifestEntries>
+                    <Bundle-Version>${parsedVersion.osgiVersion}</Bundle-Version>
+                    <Bundle-Description>${project.description}</Bundle-Description>
+                    <Implementation-Version>${project.version}</Implementation-Version>
+                  </manifestEntries>
+                  <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                </archive>
+              </configuration>			
+          </plugin>
+    </plugins>
+  </build>
+
+</project>

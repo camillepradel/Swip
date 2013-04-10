@@ -1,0 +1,17 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>edu.unika.aifb</groupId>
+  <artifactId>rdf</artifactId>
+  <version>1.4.3</version>
+  <name>RDF-API</name>
+  <description>RDF API for OWL 1.0 (part of OWL API)</description>
+  <licenses>
+    <license>
+      <name>GNU LESSER GENERAL PUBLIC LICENSE Version 3, 29 June 2007</name>
+      <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+    </license>
+  </licenses>
+
+  <url>http://owlapi.sourceforge.org/</url>
+</project>

@@ -1,0 +1,18 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.apache.xml</groupId>
+  <artifactId>resolver</artifactId>
+  <version>1.2</version>
+  <name>xml-commons Resolver code</name>
+  <description></description>
+  <licenses>
+    <license>
+      <name>Apache License Version 2.0, January 2004</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <url>http://xerces.apache.org/</url>
+
+</project>
