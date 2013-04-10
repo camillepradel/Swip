@@ -111,9 +111,9 @@ public class Keyword extends QueryElement {
     }
 
     @Override
-    public String getStringUri(String queryUri, String sparqlServerUri) {
+    public String getStringUri(String queryUri, String queriesNamedGraphUri) {
         if (this.stringUri == null) {
-            this.stringUri = "http://" + sparqlServerUri + "/" + this.getStringValue();
+            this.stringUri = queriesNamedGraphUri + "#" + this.getStringValue();
         }
         return stringUri;
     }

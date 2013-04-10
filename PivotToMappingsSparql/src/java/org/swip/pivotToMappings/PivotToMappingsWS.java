@@ -25,10 +25,15 @@ public class PivotToMappingsWS {
     public String generateBestMappings(
             @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString,
             @QueryParam("sparqlEndpointUri") @DefaultValue("") String sparqlEndpointUri,
+            @QueryParam("useFederatedSparql") @DefaultValue("false") boolean useFederatedSparql,
+            @QueryParam("useLarq") @DefaultValue("true") boolean useLarq,
+            @QueryParam("kbLocation") @DefaultValue("") String kbLocation,
+            @QueryParam("queriesNamedGraphUri") @DefaultValue("") String queriesNamedGraphUri,
+            @QueryParam("patternsNamedGraphUri") @DefaultValue("") String patternsNamedGraphUri,
             @QueryParam("numMappings") @DefaultValue("50") int numMappings) {
 
         JSONObject response = new JSONObject();
-        String queryUri = Controller.getInstance().processQuery(pivotQueryString, sparqlEndpointUri, numMappings);
+        String queryUri = Controller.getInstance().processQuery(pivotQueryString, sparqlEndpointUri, useFederatedSparql, useLarq, kbLocation, queriesNamedGraphUri, patternsNamedGraphUri, numMappings);
         response.put("queryUri", queryUri);
         return response.toString();
     }
@@ -39,19 +44,24 @@ public class PivotToMappingsWS {
     public JSONWithPadding generateBestMappingsJSONP(
             @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString,
             @QueryParam("sparqlEndpointUri") @DefaultValue("") String sparqlEndpointUri,
+            @QueryParam("useFederatedSparql") @DefaultValue("false") boolean useFederatedSparql,
+            @QueryParam("useLarq") @DefaultValue("true") boolean useLarq,
+            @QueryParam("kbLocation") @DefaultValue("") String kbLocation,
+            @QueryParam("queriesNamedGraphUri") @DefaultValue("") String queriesNamedGraphUri,
+            @QueryParam("patternsNamedGraphUri") @DefaultValue("") String patternsNamedGraphUri,
             @QueryParam("numMappings") @DefaultValue("50") int numMappings,
             @QueryParam("callback") @DefaultValue("fn") String callback) {
 
-        return new JSONWithPadding(generateBestMappings(pivotQueryString, sparqlEndpointUri, numMappings), callback);
+        return new JSONWithPadding(generateBestMappings(pivotQueryString, sparqlEndpointUri, useFederatedSparql, useLarq, kbLocation, queriesNamedGraphUri, patternsNamedGraphUri, numMappings), callback);
     }
 
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    @Path("deleteQuery")
-    public void deleteQuery(
-            @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString,
-            @QueryParam("sparqlEndpointUri") @DefaultValue("") String sparqlEndpointUri) {
-
-        Controller.getInstance().deleteQuery(pivotQueryString, sparqlEndpointUri);
-    }
+//    @GET
+//    @Produces({MediaType.APPLICATION_JSON})
+//    @Path("deleteQuery")
+//    public void deleteQuery(
+//            @QueryParam("pivotQuery") @DefaultValue("") String pivotQueryString,
+//            @QueryParam("sparqlEndpointUri") @DefaultValue("") String sparqlEndpointUri) {
+//
+//        Controller.getInstance().deleteQuery(pivotQueryString, sparqlEndpointUri);
+//    }
 }

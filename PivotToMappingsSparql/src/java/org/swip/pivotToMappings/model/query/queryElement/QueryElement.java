@@ -43,5 +43,5 @@ public abstract class QueryElement {
         
     public abstract String getStringValue();
     public abstract String getStringForQueryUri();
-    public abstract String getStringUri(String queryUri, String sparqlServerUri);
+    public abstract String getStringUri(String queryUri, String queriesNamedGraphUri);
 }

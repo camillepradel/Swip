@@ -42,7 +42,7 @@ public class Literal extends QueryElement {
     }
 
     @Override
-    public String getStringUri(String queryUri, String sparqlServerUri) {
+    public String getStringUri(String queryUri, String queriesNamedGraphUri) {
         if (this.stringUri == null) {
             this.stringUri = queryUri + "/literal" + (uriId++);
         }

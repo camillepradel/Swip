@@ -31,59 +31,78 @@ h2
 	background-color: rgb(230, 230, 230);
 }
 
-#disclaimer
-{
-	width: 800px;
-	min-height:70px;
-	margin: 0 auto;
-	padding: 10px 10px 10px 100px;
-	background-color: #a66;
-	background-image:url(../img/HAL9000-2.svg);
-	background-repeat: no-repeat;
-	background-size: 80px;
-	border-radius: 0px 0px 15px 15px;
+
+/**
+ * left tabs
+ **/
+
+ .lefttab .showHideButton {
+	z-index: 1;
+	position:fixed;
+	left: 0;
+	background-repeat:no-repeat;
+	background-position: center;
+	background-color: rgb(230, 230, 230);
+	height: 22px;
+	width: 22px;
+ }
+
+.lefttab .content {
+	z-index: 1;
+	position:fixed;
+	background-color: rgb(230, 230, 230);
+	width: 900px;
+	padding: 10px;
+	left: -920px;
 }
 
-#disclaimer .close
-{
-	float: right;
-	width: 30px;
-	height: 30px;
-	background-image:url(../img/close.svg);
-	background-repeat: no-repeat;
-	background-size: 30px;
+.lefttab .content h2 {
+	margin-top: 0px;
 }
 
-#disclaimer .seemore
-{
-	width: 30px;
-	height: 30px;
-	background-image:url(../img/seemore.svg);
-	background-repeat: no-repeat;
-	background-size: 30px;
-	margin-top: 10px;
+#disclaimer .showHideButton {
+	top: 20px;
+	background-image:url(../img/disclaimer.svg);
 }
 
-#disclaimer p
-{
-	display: none;
+#disclaimer .content {
+	top: 20px;
 }
 
-#disclaimer .seeless
-{
-	width: 30px;
-	height: 30px;
-	background-image:url(../img/seeless.svg);
-	background-repeat: no-repeat;
-	background-size: 30px;
-	display: none;
+#configurations .showHideButton {
+	top: 50px;
+	background-image:url(../img/configurations.svg);
+}
+
+#configurations .content {
+	top: 50px;
 }
 
 
-#disclaimer em
+
+/**
+ * Config panel
+ **/
+
+#configurations th:first-child
 {
-	font-weight:bold;
-	font-size: 2em;
+	text-align: right;
+	width: 200px;
+}
+
+#configurations th:nth-child(2)
+{
+	text-align: left;
+}
+
+#configurations table
+{
+	width: 100%;
+}
+
+#configurations input
+{
+	width: 100%;
 }
 
 
@@ -228,6 +247,13 @@ h2
 {
 	font-size: 1.2em;
 	color: rgb(70, 0, 0);
+}
+
+.CodeMirror {
+	/*border-top: 1px solid white;
+	border-bottom: 1px solid white;*/
+    height: auto;
+	background-color: rgb(240, 240, 240);
 }
 
 

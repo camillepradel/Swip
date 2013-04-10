@@ -1,18 +1,33 @@
 $(function()
 {
-	$('#disclaimer .seemore').click(function() {
-		$('#disclaimer .seemore').hide();
-    	$("#disclaimer p").show();
-		$('#disclaimer .seeless').show();
+	$('#disclaimer .showHideButton').click(function() {
+        if ($("#disclaimer .openCloseIdentifier").is(":hidden")) {
+            $("#disclaimer .content").animate({
+                left: "-920px"
+                }, 500 );
+            $("#disclaimer .openCloseIdentifier").show();
+        } else {
+            $("#disclaimer .content").animate({
+                left: "22px"
+                }, 500 );
+            $("#disclaimer .openCloseIdentifier").hide();
+        }
 	});
+});
 
-	$('#disclaimer .seeless').click(function() {
-		$('#disclaimer .seemore').show();
-    	$("#disclaimer p").hide();
-		$('#disclaimer .seeless').hide();
-	});
-
-	$('#disclaimer .close').click(function() {
-		$('#disclaimer').hide();
+$(function()
+{
+	$('#configurations .showHideButton').click(function() {
+        if ($("#configurations .openCloseIdentifier").is(":hidden")) {
+            $("#configurations .content").animate({
+                left: "-920px"
+                }, 500 );
+            $("#configurations .openCloseIdentifier").show();
+        } else {
+            $("#configurations .content").animate({
+                left: "22px"
+                }, 500 );
+            $("#configurations .openCloseIdentifier").hide();
+        }
 	});
 });

@@ -95,22 +95,37 @@ function nlToPivot(nlQuery, lang)
  **/
 function pivotToSparql(pvQuery)
 {
-    var shortSparqlEndpointUri = 'swip.univ-tlse2.fr:8080/musicbrainz';
-    var sparqlEndpointUri = 'http://' + shortSparqlEndpointUri + "/";
+    var sparqlenpoint = $('#configurations .sparqlenpoint').val();
+    console.log(sparqlenpoint);
+    var wsUrl = $('#configurations .ptswebservice').val();
+    var sparqlEnpointServer = $('#configurations .sparqlenpointserver').val();
+    var useFederatedSparql = $('#configurations .usefederatedsparql').attr('checked')? true : false;
+    var useLarq = $('#configurations .uselarq').attr('checked')? true : false;
+    var kbLocation = $('#configurations .kblocation').val();
+    var queriesUri = $('#configurations .queriesuri').val();
+    var patternsUri = $('#configurations .patternsuri').val();
+    var nbmappings = $('#configurations .nbmappings').val();
+    console.log("hello");
     $.ajax
     ({
         type: 'GET',
         dataType: "jsonp",
-        // url: 'http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP',
-        // url: 'http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP',
-        url: 'http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP',
-        data: {pivotQuery: pvQuery, sparqlEndpointUri: shortSparqlEndpointUri, numMappings: 50, kb: 'musicbrainz', callback: '?'},
+        url: wsUrl,
+        data: {pivotQuery: pvQuery, 
+            sparqlEndpointUri: sparqlEnpointServer, 
+            useFederatedSparql: useFederatedSparql, 
+            useLarq: useLarq, 
+            kbLocation: kbLocation,
+            queriesNamedGraphUri: queriesUri, 
+            patternsNamedGraphUri: patternsUri, 
+            numMappings: nbmappings, 
+            callback: '?'},
         crossDomain: true,
-            beforeSend : function (xhr) {
+        beforeSend : function (xhr) {
                 beforePivotToSparql();
             }
     }).done(function(data) {
-        donePivotToSparql(data, sparqlEndpointUri);        
+        donePivotToSparql(data, sparqlenpoint, queriesUri, patternsUri);        
     }).fail(function(jqXHR, textStatus) {
         failPivotToSparql();
     });

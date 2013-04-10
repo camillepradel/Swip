@@ -95,9 +95,13 @@ public class SparqlClient {
     private Document httpGetXmlContent(String queryString) {
         try {
             URIBuilder builder = new URIBuilder();
-            builder.setScheme("http");
-            builder.setHost(this.endpointUri);
-            builder.setPath("/sparql");
+            if (this.endpointUri.startsWith("http://")) {
+                builder.setScheme("http");
+                builder.setHost(this.endpointUri.substring(7));
+            } else {
+                // TODO: raise exception
+            }
+            builder.setPath("sparql");
             builder.setParameter("query", queryString);
             builder.setParameter("output", "xml");
             URI uri = builder.build();
@@ -124,7 +128,12 @@ public class SparqlClient {
     public void update(String queryString) {
         try {
             DefaultHttpClient httpclient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://" + endpointUri + "/update");
+            HttpPost httpPost = null;
+            if (this.endpointUri.startsWith("http://")) {
+                httpPost = new HttpPost(endpointUri + "update");
+            } else {
+                httpPost = new HttpPost(endpointUri + "update");
+            }            
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();
             nvps.add(new BasicNameValuePair("update", queryString));
             httpPost.setEntity(new UrlEncodedFormEntity(nvps));

@@ -1,0 +1,317 @@
+prefixes
+	dc: 	"http://purl.org/dc/elements/1.1/"
+	foaf:	"http://xmlns.com/foaf/0.1/"
+	mo: 	"http://purl.org/ontology/mo/"
+	event: 	"http://purl.org/NET/c4dm/event.owl#"
+	tl: 	"http://purl.org/NET/c4dm/timeline.owl#"
+	time:	"http://www.w3.org/2006/time#"
+	bio:	"http://purl.org/vocab/bio/0.1/"
+	owl:	"http://www.w3.org/2002/07/owl#"
+	blank:	"Blank"
+	rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xsd:    "http://www.w3.org/2001/XMLSchema#"
+	rel:	"http://purl.org/vocab/relationship/"
+end prefixes
+
+
+/*
+pattern: cd_info
+patron permettant de retrouver les infos : release, type, producer, composer
+-------------------
+
+question 1 : Which singles did Slayer release?
+?single: release= Slayer.
+
+question 4 : How many albums did Michael Jackson record?
+album: record= Michael_Jackson. COUNT.
+
+question 5: Who composed the Star Wars soundtrack?
+?person: compose= soundtrack. soundtrack: Star_Wars.
+
+question 19 : Who produced the album In Utero?
+?person: produce= In_Utero.
+
+*/
+
+pattern cd_info
+	query
+		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:0..2/3/*0..1/3*/
+		[ 1							6_mo:producer(7)			7_foaf:Agent;			]producer:0..1/7
+		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..1/9/*0..1/9*/
+		[ 1							10_mo:singer(11)			11_mo:Performer;		]vocal:0..2/11
+		[ 1							12_mo:release_status(13)	13_mo:ReleaseStatus;	]status:0..1/13
+		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/15
+	end query
+	sentence
+		-1- -status-[" whose status is "-13-", "] -creator-[" created by " -for-creator-[-3-", "]] -producer-[" produced by "-7-", "] -composer-[" composed by "-9-", "] -vocal-[" vocalised by "-for-vocal-[-11-", "]] -lyricist-[" whose lyricist is "-15-]
+	end sentence
+end pattern
+
+
+
+/*
+pattern: artist_member
+TODO: fusionner avec around_artist_person
+-------------------
+
+question 16: Give me all bands that Michael Stipe is a member of.
+?band:member=Michael Stipe
+
+question 11 : Was Quee MacArthur a member of Queen?
+Quee MacArthur:belongs to band=Queen
+
+question 21 : When did Kurt Cobain join Nirvana?
+Kurt Cobain:belongs to band=Nirvana,?joining date
+
+question 28 : Since when is Tom Araya a member of Slayer?
+Tom Arava:belongs to band=Slayer,?joining date
+
+question 7 : Give me the present members of The Cure
+?artiste:belongs to band=The Cure, today
+
+question 29 : Give me all people who were members of The Beatles.
+?artiste:belong to band=The Beatles
+
+question 2 : Which groups was David Bowie a member of?
+?Band: member= David_Bowie.
+David_Bowie: member_of= ?Band.
+David_Bowie: member_of_band= ?Band.
+
+question 30 : Give me the birthdays of all members of The Beatles.
+?artiste:belongs to band=The beetles,?birthday
+
+-question 24 : How many members does the band Trio have?
+?artiste:belongs to band=Trio
+
+-> peu pas pour le not question 25 : Are the members of the Ramones that are not called Ramone?
+
+TODO : verifier que j'ai bien compris comment on met les noeuds blanc dans les patrons
+*/
+
+pattern artist_member
+	query
+		[  1_foaf:Agent			 2_mo:member_of(1)		 3_foaf:Group;				]band:1..1
+		[  4_mo:membership		-5_event:agent			 1;
+		   4					-6_mo:band			 	 3;
+		   4					-7_event:dateTime		-8_time:TemporalEntity;
+		  -8					 9_tl:start(6)			 10_<xsd:date>;				]start:1..1/9
+	end query
+	sentence
+		-1-" is or was member of "-3- -start-[" since "-10-] /*-stop-[" until "-12-]*/
+	end sentence
+end pattern
+
+
+
+
+
+
+
+/*
+pattern: date_group
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 3 : When was the band Green Day founded?
+Green_Day: foundation= date<?>.
+Green Day:?creation date
+
+question 10 : When did the Sex Pistols break up?
+Sex Pistols:broke up date=?date
+
+- question 14 : How many bands broke up in 2010?
+?band:broke up year=2010
+
+question 23 : Since when does Fugazi exist?
+Fugazi:?creation date
+
+TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
+*/
+/*
+pattern date_group
+	query
+		[ 1_mm:Artist	2_mm:beginDate(3)	3_<xsd:dateTime>;			]begin:0..1/3
+		[ 1		4_mm:endDate(5)		5_<xsd:dateTime>;			]end:0..1/5
+	end query
+	sentence
+		__1__ -begin-[was formed on/in __3__,]begin_ -end-[broke up on/in __5__,]end_
+	end sentence
+	mapping conditions
+		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypeGroup>."
+	end mapping conditions
+end pattern
+*/
+
+/*
+pattern: date_group
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 3 : When was the band Green Day founded?
+band: Green_Day= date<?>. band: found.
+Green_Day: date<?>; found.
+*/
+
+pattern date_group
+	query
+		[ 1_mo:MusicGroup	-2_bio:event		3_bio:Birth;
+		  3					 4_bio:date(5)		5_<xsd:dateTime>;		]begin:0..1/5
+		[ 1					-6_bio:event		7_bio:Death;
+		  7					 8_bio:date(9)		9_<xsd:dateTime>;		]end:0..1/9
+	end query
+	sentence
+		-1- -begin-[" was formed on/in "-5-","] -end-[" broke up on/in "-9-]
+	end sentence
+end pattern
+
+
+
+/*
+pattern: date_person
+TODO: fusionner avec around_artist_person
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 6 :Which artists have their 50th birthday on May 30, 2011?
+NOT SUPPORTED
+
+question 12 :When is the birthday of Tom Waits?
+Tom Waits: ?birthday
+
+question 13 :Which artists were born on the 29th of December 1960?
+?artist:birthday=29 December 1960
+
+question 26: When was Elvis Presley born?
+Elvis Presley: ?birthday
+
+TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
+*/
+/*
+pattern date_person
+	query
+		[ 1_mm:Artist	2_mm:beginDate(3)	3_<xsd:dateTime>;			]birth:0..1/3
+		[ 1				4_mm:endDate(5)		5_<xsd:dateTime>;			]death:0..1/5
+	end query
+	sentence
+		__1__ -birth-[was born on __3__,]birth_ -death-[died on __3__,]death_
+	end sentence
+	mapping conditions
+		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+	end mapping conditions
+end pattern
+*/
+
+
+/*
+pattern around_artist_person
+	query
+		[ 1_mm:Artist	  6_ar:memberOfBand(1,9)	 -7_blank:Node;	
+		 -7		 -8_ar:toArtist			  9_mm:Artist;		]band:0..1/9
+		[ 1		 10_ar:isSibling(13)		-11_blank:Node;
+		 -11		-12_ar:toArtist			 13_mm:Artist;		]sibling:0..1/13
+		[ 1		 22_ar:isParent(25)		-23_blank:Node;
+		  -23		-24_ar:toArtist			 25_mm:Artist;		]parent:0..1/25
+		[ 1		 14_ar:marriedTo(17)		-15_blank:Node;
+		 -15		-16_ar:toArtist			 17_mm:Artist;		
+		[-15		 18_mm:beginDate(19)		 19_<xsd:dateTime>;		]beginMarriage:0..1/19
+		[-15		 20_mm:endDate(21)		 21_<xsd:dateTime>;		]endMarriage:0..1/21		]marriage:0..1/17
+		[ 1		 26_ar:collaboratedWith(29)	-27_blank:Node;
+		 -27		-28_ar:toArtist			 29_mm:Artist;		]collab:0..1/29
+	end query
+	sentence
+		__1__, -band-[member of __9__,]band_ -sibling-[who has for sibling __13__,]sibling_ -parent-[parent of __25__,]parent_ -marriage-[married to __17__ -beginMarriage-[from __19__,]beginMarriage_ -endMarriage-[to __21__,]endMarriage_,]marriage_ -collab-[collaborated with __29__,]collab_
+	end sentence
+	mapping conditions
+		1:	"__1__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+		9:	"__9__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypeGroup>."
+		13:	"__13__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+		25:	"__25__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+		17:	"__17__	<http://musicbrainz.org/mm/mm-2.1#artistType>	<http://musicbrainz.org/mm/mm-2.1#TypePerson>."
+	end mapping conditions
+end pattern
+*/
+
+
+
+/*
+pattern: around_artist_person
+patron issu de la fusion des anciens date_person et around_artist_person(plein de choses tronquées pour le moment)
+--------------------
+attention : date peut correspondre a une annee, une date ou un couple jour mois
+
+question 6 :Which artists have their 50th birthday on May 30, 2011?
+NOT SUPPORTED
+
+question 12 :When is the birthday of Tom Waits?
+Tom Waits: ?birthday
+
+question 13 :Which artists were born on the 29th of December 1960?
+?artist:birthday=29 December 1960
+
+question 26: When was Elvis Presley born?
+Elvis Presley: ?birthday
+
+TODO : pb phrase si pas type groupe ou artiste dans la requete, va rien ecrire avant la date
+*/
+
+pattern around_artist_person
+	query
+		[ 1_foaf:Agent	-2_bio:event				3_bio:Birth;
+		  3				 4_bio:date(5)				5_<xsd:dateTime>;			]birth:0..1/5
+		[ 1				-6_bio:event				7_bio:Death;
+		  7				 8_bio:date(9)				9_<xsd:dateTime>;			]death:0..1/9
+		[ 1				 10_mo:member_of(1,11)		11_foaf:Group;				]band:0..1/11
+		[ 1				 12_rel:spouseOf			13_foaf:Agent;				]marriage:0..1/13
+		[ 1				 14_mo:collaborated_with	15_foaf:Agent;				]collab:0..1/15
+	end query
+	sentence
+		-1- -birth-[" was born on "-5-", "] -death-[" died on "-9-", "] -band-[" member of "-11-", "] -marriage-[" married to "-13-", "] -collab-["collaborated with "-15-]
+	end sentence
+end pattern
+
+
+
+
+
+
+
+
+/*
+pattern: around_track
+---------------------
+
+question 15: How long is the Babylon 5 theme?
+Babylon 5 : ?duration
+*/
+/*
+pattern around_track
+	query
+		[ 1_mm:Track	2_mm:duration(3)	3_<xsd:decimal>;	]duration:0..1/3
+		[ 1				4_foaf:maker(5)		5_mm:Artist;	]creator:0..1/5
+		[ 6_mm:Album	7_mm:trackList(1)	-8_blank:Node;
+		  -8			-9_blank:Node		1;				]album:0..1/6
+	end query
+	sentence
+		__1__ -creator-[created by __5__,]creator_ -album-[from the album __6__,]album_ -duration-[is __3__ milliseconds long,]duration_
+	end sentence
+end pattern
+*/
+
+/*
+pattern: around_track
+---------------------
+
+question 15: How long is the Babylon 5 theme?
+Babylon 5 : ?duration
+*/
+
+pattern around_track
+	query
+		[ 1_mo:Track	2_mo:duration(3)	3_<xsd:decimal>;	]duration:0..1/3
+		[ 1				4_foaf:maker(5)		5_foaf:Agent;		]creator:0..1/5
+		[ 6_mo:Record	7_mo:track(1)		1;					]album:0..1/6
+	end query
+	sentence
+		-1- -creator-[" created by "-5-", "] -album-[" from the album "-6-", "] -duration-[" is "-3-" milliseconds long"]
+	end sentence
+end pattern

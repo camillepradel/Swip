@@ -3,14 +3,14 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>Swip Search Engine</title>
-		<link rel="stylesheet" type="text/css" href="js/lib/css/cupertino/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="js/lib/jqGrid/ui.jqgrid.css" />
+
+		<link rel="stylesheet" href="codemirror/lib/codemirror.css" />
+		<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+		<script type="text/javascript" src="codemirror/mode/sparql/sparql.js"></script>
+		
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="icon" href="img/muffin-favicon.ico" />
 		<script type="text/javascript" src="js/lib/jquery.js"></script>
-		<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/lib/jqGrid/jquery.jqGrid.min.js"></script>
-		<script type="text/javascript" src="js/lib/jqGrid/grid.locale-en.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/displayPivotToMappings.js"></script>
 		<script type="text/javascript" src="js/disclaimer.js"></script>
@@ -18,14 +18,97 @@
 
 	<body>
 		
-		<!--div id="disclaimer">
-			<div class="close"></div>
-			<em>Disclaimer.</em>
-			<div class="seemore"></div>
-			<p>SWIP is an approach aiming at translating user natural language queries into SPARQL queries targetting a given knowledge base. This web page is an interface to an implementation of this approach, currently in active development. It is provided to you for illustration purpose only.</p>
-			<p>Please note that the server hosting this application is also used for the development version and that some web services are shared. This may cause some unplanified inconveniences. If you enconter any problem preventing you from testing this service, please <a href="mailto:camillepradel@gmail.com">contact us</a>; we will react as promptly as possible.</p>
-			<div class="seeless"></div>
-		</div-->	
+		<div class="lefttab" id="disclaimer">
+			<div class="openCloseIdentifier"></div>
+    		<div class="content">
+        		<h2>Disclaimer.</h2>
+				<p>SWIP is an approach aiming at translating user natural language queries into SPARQL queries targetting a given knowledge base. This web page is an interface to an implementation of this approach, currently in active development. It is provided to you for illustration purpose only.</p>
+				<p>Please note that the server hosting this application is also used for the development version and that some web services are shared. This may cause some unplanified inconveniences. If you enconter any problem preventing you from testing this service, please <a href="mailto:camillepradel@gmail.com">contact us</a>; we will react as promptly as possible.</p>
+    		</div>
+			<div class="showHideButton"></div>
+	    </div>
+		
+		<div class="lefttab" id="configurations">
+			<div class="openCloseIdentifier"></div>
+    		<div class="content">
+        		<h2>Configurations</h2>
+        		<h3>Interface</h3>
+	            <table>
+	                <tr>
+	                    <th>Sparql endpoint: </th>
+	                    <th>
+	                    	<input name="sparqlenpoint" class="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
+	                        <!-- <select name="sparqlenpoint" class="sparqlenpoint" size="1">
+	                            <option value="http://localhost:8080/musicbrainz/">localhostl</option>
+	                            <option value="http://swip.univ-tlse2.fr:8080/musicbrainz/" selected="selected">mirail from inner</option>
+	                            <option value="http://swip.univ-tlse2.fr:8080/musicbrainz/" selected="selected">mirail from ext</option>
+	                        </select> -->
+	                    </th>
+	                </tr>
+	            </table>
+	            <h3>Pivot to SPARQL</h3>
+	            <table>
+	                <tr>
+	                    <th>Web service: </th>
+	                    <th>
+	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" /> -->
+	                    	<input name="ptswebservice" class="ptswebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" />
+	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP" /> -->
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Sparql endpoint for server: </th>
+	                    <th>
+	                    	<!-- <input name="sparqlenpointserver" class="sparqlenpointserver" value="http://localhost:8080/musicbrainz/" /> -->
+	                    	<input name="sparqlenpointserver" class="sparqlenpointserver" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Use Federated SPARQL: </th>
+	                    <th>
+	                    	<input type="checkbox" class="usefederatedsparql" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Use Larq: </th>
+	                    <th>
+	                    	<input type="checkbox" class="uselarq" checked="checked" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>KB location: </th>
+	                    <th>
+	                    	<input name="kblocation" class="kblocation" value="http://swip.univ-tlse2.fr/musicbrainz/kb" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th></th>
+	                    <th>
+	                    	(named graph or SPARQL endpoint)
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Queries Named Graph URI: </th>
+	                    <th>
+	                    	<input name="queriesuri" class="queriesuri" value="http://swip.univ-tlse2.fr/musicbrainz/queries" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Patterns Named Graph URI: </th>
+	                    <th>
+	                    	<input name="patternsuri" class="patternsuri" value="http://swip.univ-tlse2.fr/musicbrainz/patterns" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Number of mappings: </th>
+	                    <th>
+	                        <input name="nbmappings" class="nbmappings" type="number" size="1" value="50" />
+	                    </th>
+	                </tr>
+	            </table>
+    		</div>
+			<div class="showHideButton"></div>
+	    </div>
 
 		<div id="logo">
 			<img id="swiplogo" src="img/swip-melodi.jpg" alt="Swip"/>

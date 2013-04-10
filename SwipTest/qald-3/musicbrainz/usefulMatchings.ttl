@@ -1,0 +1,494 @@
+@prefix graph:   <http://swip.univ-tlse2.fr/musicbrainz/queries#>.
+@prefix queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
+@prefix mo:  <http://purl.org/ontology/mo/>.
+@prefix foaf:  <http://xmlns.com/foaf/0.1/>.
+@prefix bio:  <http://purl.org/vocab/bio/0.1/>.
+@prefix rel:  <http://purl.org/vocab/relationship/>.
+@prefix tl:   <http://purl.org/NET/c4dm/timeline.owl#>.
+
+
+################
+# album
+################
+
+graph:album a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_album1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:album;
+    queries:matchingHasResource mo:album;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "album".
+
+
+################
+# appear
+################
+
+graph:appear a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_appear>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:appear;
+    queries:matchingHasResource mo:track;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "appear".
+
+
+################
+# artist
+################
+
+graph:artist a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_artist1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:artist;
+    queries:matchingHasResource foaf:Agent;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "artist".
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_artist2>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:artist;
+    queries:matchingHasResource mo:SoloMusicArtist;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "artist".
+
+
+################
+# band
+################
+
+graph:band a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_band1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:band;
+    queries:matchingHasResource mo:MusicGroup;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "band".
+
+
+################
+# birth
+################
+
+graph:birth a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_birth>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:birth;
+    queries:matchingHasResource bio:Birth;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "birth".
+
+
+################
+# be born
+################
+
+graph:be_born a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_be_born1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:be_born;
+    queries:matchingHasResource bio:Birth;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "birth".
+
+
+################
+# break up
+################
+
+graph:break_up a queries:KeywordQueryElement ;
+               queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_break_up1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:break_up;
+    queries:matchingHasResource bio:Death;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "break up".
+
+
+################
+# collaborate with
+################
+
+graph:collaborate_with a queries:KeywordQueryElement ;
+                       queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_collaborate_with1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:collaborate_with;
+    queries:matchingHasResource mo:collaborated_with;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "collaborate with".
+
+
+################
+# compose
+################
+
+graph:compose a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_compose1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:compose;
+    queries:matchingHasResource mo:composer;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "compose".
+
+
+################
+# create
+################
+
+graph:create a queries:KeywordQueryElement ;
+            queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_create1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:create;
+    queries:matchingHasResource foaf:maker;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "created by".
+
+
+################
+# death
+################
+
+graph:death a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_death1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:death;
+    queries:matchingHasResource bio:Death;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "death".
+
+
+################
+# duration
+################
+
+graph:duration a queries:KeywordQueryElement ;
+               queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_duration1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:duration;
+    queries:matchingHasResource mo:duration;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "duration".
+
+
+################
+# found
+################
+
+graph:found a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_found1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:found;
+    queries:matchingHasResource bio:Birth;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "foundation".
+
+
+################
+# group
+################
+
+graph:group a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_group1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:group;
+    queries:matchingHasResource mo:MusicGroup;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "group".
+
+
+################
+# husband
+################
+
+graph:husband a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_husband1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:husband;
+    queries:matchingHasResource rel:spouseOf;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "husband of".
+
+
+################
+# join
+################
+
+graph:join a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_join1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:join;
+    queries:matchingHasResource tl:start;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "join".
+
+
+################
+# live
+################
+
+graph:live a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_live1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:live;
+    queries:matchingHasResource mo:live;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "live".
+
+
+################
+# make
+################
+
+graph:make a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_make1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:make;
+    queries:matchingHasResource foaf:maker;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "made by".
+
+
+################
+# marry
+################
+
+graph:marry a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_marry1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:marry;
+    queries:matchingHasResource rel:spouseOf;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "married to".
+
+
+################
+# member
+################
+
+graph:member a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_member1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:member;
+    queries:matchingHasResource mo:member_of;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "member of".
+
+
+################
+# person
+################
+
+graph:person a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_person1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:person;
+    queries:matchingHasResource foaf:Agent;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "person".
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_person2>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:person;
+    queries:matchingHasResource mo:Performer;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "person".
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_person3>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:person;
+    queries:matchingHasResource mo:MusicArtist;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "person".
+
+
+################
+# produce
+################
+
+graph:produce a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_produce1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:produce;
+    queries:matchingHasResource mo:producer;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "produce".
+
+
+################
+# release
+################
+
+graph:release a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_release1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:release;
+    queries:matchingHasResource foaf:maker;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "released by".
+
+
+################
+# sing
+################
+
+graph:sing a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_sing1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:sing;
+    queries:matchingHasResource mo:singer;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "singer".
+
+
+################
+# single
+################
+
+graph:single a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_single1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:single;
+    queries:matchingHasResource mo:single;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "single".
+
+################
+# song
+################
+
+graph:song a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_song1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:song;
+    queries:matchingHasResource mo:Track;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "song".
+
+################
+# track
+################
+
+graph:track a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_track1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:track;
+    queries:matchingHasResource mo:Track;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "track".
+
+
+################
+# wife
+################
+
+graph:wife a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_wife1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:wife;
+    queries:matchingHasResource rel:spouseOf;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "wife of".
+
+
+
+
+
+
+
+
+
+#############################################################
+# http://purl.org/ontology/mo/release_type considered harmful
+#############################################################
+
+
+graph:joker_release_type a queries:JokerTypeProperty;
+    queries:concernsProperty mo:release_type;
+    queries:hasClass mo:MusicalManifestation;
+    queries:hasPseudoClass
+        mo:album,
+        mo:audiobook,
+        mo:compilation,
+        mo:ep,
+        mo:interview,
+        mo:live,
+        mo:remix,
+        mo:single,
+        mo:soundtrack,
+        mo:spokenword.
+
+
+
+
+
+
+
+
+
+#############################################################
+# literal matchings
+#############################################################
+
+
+graph:literal_mapping_date a queries:LiteralMappingRule;
+    queries:hasSwipTypeString "date";
+    queries:hasLiteralType xsd:date.
+
+
