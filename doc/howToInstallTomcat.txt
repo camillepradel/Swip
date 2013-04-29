@@ -68,3 +68,10 @@ start tomcat server
 
 to stop the server
 > ./bin/shutdown.sh
+
+
+once the server started, if you want the root url to redirect to an another one, create an index.html file in the webapps/ROOT directory with the following content:
+(TODO: this is not the method recommanded by th W3C - must be changed!)
+'''
+<meta http-equiv="refresh" content="0; url=http://swip.univ-tlse2.fr/SwipWebClient/">
+'''

@@ -1,0 +1,469 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"bord",
+				"border-radius"
+			],
+			[
+				"key",
+				"keyword"
+			],
+			[
+				"spar",
+				"sparqlQuery"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "patterns-musicbrainz-qald3.txt",
+			"settings":
+			{
+				"buffer_size": 5724,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "usefulMatchings.ttl",
+			"settings":
+			{
+				"buffer_size": 15470,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "musicbrainz-train.xml",
+			"settings":
+			{
+				"buffer_size": 135280,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "musicbrainz-train-my_results.xml",
+			"settings":
+			{
+				"buffer_size": 4639,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/mnt/data/gitSwip/SwipWebClientSparql/index.html",
+			"settings":
+			{
+				"buffer_size": 7032,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/mnt/data/gitSwip/SwipWebClientSparql/js/displayPivotToMappings.js",
+			"settings":
+			{
+				"buffer_size": 26707,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/camille/Desktop/howToInstallFuseki",
+			"settings":
+			{
+				"buffer_size": 10095,
+				"line_ending": "Unix",
+				"name": "# part of this cookbook is inspired from http://co"
+			}
+		},
+		{
+			"file": "/home/camille/Documents/Documents Windows/serveurMirail.txt",
+			"settings":
+			{
+				"buffer_size": 926,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/mnt/data/QALDchallenge3/musicontology.owl",
+		"/mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/resetKB.py",
+		"/mnt/data/Jena/jena-larq/log4j.properties",
+		"/mnt/data/Jena/jena-fuseki/log4j.properties",
+		"/mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/musicbrainz-train-answers.xml",
+		"/mnt/data/gitSwip/SwipWebClientSparql/css/style.css",
+		"/home/camille/Documents/Documents Windows/serveurMirail.txt",
+		"/mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/musicbrainz-train-answers-my_results.xml",
+		"/mnt/data/gitSwip/SwipWebClient/index.html",
+		"/mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/log",
+		"/mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/simple_pattern-rdf.xml",
+		"/mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/simple_pattern.ttl",
+		"/mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/cd_info.ttl",
+		"/usr/share/applications/defaults.list",
+		"/usr/share/applications/sublime.desktop"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"\\n# >",
+			"sound",
+			"Record",
+			"record",
+			"re",
+			"diplayMatching",
+			"membershi",
+			"mo:member_of",
+			"membership",
+			"diplayMatching",
+			"hello",
+			"diplayMatching",
+			"displayss",
+			"diplaysSparqlQuery",
+			"NSERT DATA {",
+			"isMadeUpOfList",
+			".fr/patterns/musicbrainz#simple_pattern_ssit_40",
+			"http://swip.univ-tlse2.fr/patterns/musicbrainz#cd_info_sentenceTemplate",
+			"gedit.desktop"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\n",
+			"sublime.desktop"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "patterns-musicbrainz-qald3.txt",
+					"settings":
+					{
+						"buffer_size": 5724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 425.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "usefulMatchings.ttl",
+					"settings":
+					{
+						"buffer_size": 15470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7074.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "musicbrainz-train.xml",
+					"settings":
+					{
+						"buffer_size": 135280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5945,
+								5945
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3672.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "musicbrainz-train-my_results.xml",
+					"settings":
+					{
+						"buffer_size": 4639,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4289,
+								4289
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1384.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/mnt/data/gitSwip/SwipWebClientSparql/index.html",
+					"settings":
+					{
+						"buffer_size": 7032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 424.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/mnt/data/gitSwip/SwipWebClientSparql/js/displayPivotToMappings.js",
+					"settings":
+					{
+						"buffer_size": 26707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24234,
+								24234
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9222.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/camille/Desktop/howToInstallFuseki",
+					"settings":
+					{
+						"buffer_size": 10095,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								592,
+								592
+							]
+						],
+						"settings":
+						{
+							"auto_name": "# part of this cookbook is inspired from http://co",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/camille/Documents/Documents Windows/serveurMirail.txt",
+					"settings":
+					{
+						"buffer_size": 926,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								699,
+								699
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

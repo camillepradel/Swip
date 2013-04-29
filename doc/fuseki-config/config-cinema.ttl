@@ -1,0 +1,46 @@
+@prefix :        <#> .
+@prefix fuseki:  <http://jena.apache.org/fuseki#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tdb:     <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix graph:   <http://swip.univ-tlse2.fr/musicbrainz/> .
+
+[] rdf:type fuseki:Server ;
+   fuseki:services (
+     <#serviceCinema>
+   ) .
+
+[] ja:loadClass "com.hp.hpl.jena.tdb.TDB" .
+tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb:GraphTDB    rdfs:subClassOf  ja:Model .
+
+<#serviceCinema> a fuseki:Service ;
+    fuseki:name                        "cinema" ;
+    fuseki:serviceQuery                "sparql" ;
+    fuseki:serviceQuery                "query" ;
+#    fuseki:serviceUpdate               "update" ;
+#    fuseki:serviceUpload               "upload" ;
+    fuseki:serviceReadWriteGraphStore  "data" ;
+    fuseki:serviceReadGraphStore       "get" ;
+    fuseki:dataset                     <#cinemaDataset> ;
+    .
+
+<#cinemaDataset>
+    a ja:RDFDataset ;
+    ja:defaultGraph [
+        a ja:InfModel;
+        ja:reasoner [
+            ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/RDFSExptRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLFBRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLMiniFBRuleReasoner>;
+
+        ];
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/home/operateur/data/cinema/tdbdata";
+        ];
+    ];
+#    ja:textIndex "/stockage/data/cinema/larqdata"
+    .

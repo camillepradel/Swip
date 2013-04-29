@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Translate patterns</title>
+        <link rel="stylesheet" type="text/css" href="patternsTextToRdfStyle.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript">   
+            $(function()
+            {
+                $('#translate').click(function()
+                {
+                    var wsUrl = $('#wsLocation').val();
+                    var setName = $('#setName').val();
+                    var ontologyUri = $('#ontologyUri').val();
+                    var authorUri = $('#authorUri').val();
+                    var patterns = $('#patterns').val();
+
+                    $('#inset_form').html("<form action='" + wsUrl + "' name='translate2' method='post' style='display:none;'>"
+                        + "<input type='text' name='setName' value='" + setName + "' />" 
+                        + "<input type='text' name='ontologyUri' value='" + ontologyUri + "' />" 
+                        + "<input type='text' name='authorUri' value='" + authorUri + "' />" 
+                        + "<input type='text' name='patterns' value='" + patterns + "' />" 
+                        + '</form>');
+
+                    document.forms['translate2'].submit();
+                });
+            });
+        </script> 
+    </head>
+
+    <body>
+        <h1>Translate query patterns from text to RDF</h1>
+        
+        <div id="inset_form"></div>
+
+        <table>
+            <tr>
+                <th>Web service location:</th>
+                <th>
+                    <select id="wsLocation">
+                          <option value="http://swip.univ-tlse2.fr/Patterns/PatternsWS/rest/patternsTextToRdf">http://swip.univ-tlse2.fr/Patterns/PatternsWS/rest/patternsTextToRdf</option>
+                          <option value="http://localhost:8080/Patterns/PatternsWS/rest/patternsTextToRdf">http://localhost:8080/Patterns/PatternsWS/rest/patternsTextToRdf</option>
+                          <option value="http://192.168.250.91/Patterns/PatternsWS/rest/patternsTextToRdf">http://192.168.250.91/Patterns/PatternsWS/rest/patternsTextToRdf</option>
+                    </select> 
+                </th>
+            </tr>
+            <tr>
+                <th>Pattern set name:</th><th><input type="text" id="setName" name="setName" size="50" value="musicbrainz"/></th>
+            </tr>
+            <tr>
+                <th>Targeted ontology URI:</th><th><input type="text" id="ontologyUri" name="ontologyUri" size="50" value="http://purl.org/ontology/mo/"/></th>
+            </tr>
+            <tr>
+                <th>Author URI:</th><th><input type="text" id="authorUri" name="authorUri" size="50" value="http://camillepradel.com/uris#me"/></th>
+            </tr>
+            <tr>
+                <th>Patterns in text format:</th><th><textarea id="patterns" name="patterns" cols="180" rows="35">prefixes
+    dc: 	"http://purl.org/dc/elements/1.1/"
+    foaf:	"http://xmlns.com/foaf/0.1/"
+    mo: 	"http://purl.org/ontology/mo/"
+    event: 	"http://purl.org/NET/c4dm/event.owl#"
+    tl: 	"http://purl.org/NET/c4dm/timeline.owl#"
+    time:	"http://www.w3.org/2006/time#"
+    bio:	"http://purl.org/vocab/bio/0.1/"
+    owl:	"http://www.w3.org/2002/07/owl#"
+    blank:	"Blank"
+    rdf:	"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xsd:    "http://www.w3.org/2001/XMLSchema#"
+    rel:	"http://purl.org/vocab/relationship/"
+end prefixes
+
+pattern cd_info
+	query
+		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:0..2/3/*0..1/3*/
+		[ 1							6_mo:producer(7)			7_foaf:Agent;			]producer:0..1/7
+		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..1/9/*0..1/9*/
+		[ 1							10_mo:singer(11)			11_mo:Performer;		]vocal:0..2/11
+		[ 1							12_mo:release_status(13)	13_mo:ReleaseStatus;	]status:0..1/13
+		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/15
+	end query
+	sentence
+		-1- -status-[" whose status is "-13-", "] -creator-[" created by " -for-creator-[-3-", "]] -producer-[" produced by "-7-", "] -composer-[" composed by "-9-", "] -vocal-[" vocalised by "-for-vocal-[-11-", "]] -lyricist-[" whose lyricist is "-15-]
+	end sentence
+end pattern</textarea></th>
+            </tr>
+            <tr>
+                <th></th><th><button id="translate">Translate to RDF</button></th>
+            </tr>
+        </table>
+    </body>
+</html>

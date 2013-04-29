@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+ 
+<!-- 
+  Reference: http://wiki.eclipse.org/Jetty/Reference/jetty.xml_syntax
+  http://wiki.eclipse.org/Jetty/Reference/jetty.xml
+-->
+
+<Configure id="Fuseki" class="org.eclipse.jetty.server.Server">
+  <Call name="addConnector">
+    <Arg>
+      <!-- org.eclipse.jetty.server.nio.BlockingChannelConnector -->
+      <!-- org.eclipse.jetty.server.nio.SelectChannelConnector -->
+      <New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+	<!-- BlockingChannelConnector specific:
+	     <Set name="useDirectBuffer">false</Set>
+	-->
+	<!-- Only listen to interface ...
+	<Set name="host">localhost</Set>
+	-->
+	<Set name="port">8080</Set>
+	<Set name="maxIdleTime">0</Set>
+	<!-- All connectors -->
+	<Set name="requestHeaderSize">1310720</Set>       <!-- 128*1024 -->
+	<Set name="requestBufferSize">5242880</Set>     <!-- 5*1024*1024 -->
+	<Set name="responseBufferSize">5242880</Set>    <!-- 5*1024*1024 -->
+      </New>
+    </Arg>
+  </Call>
+  <!--<Call name="setAttribute">
+    <Arg>org.eclipse.jetty.server.Request.maxFormContentSize</Arg>
+    <Arg>20</Arg>
+  </Call>-->
+</Configure>

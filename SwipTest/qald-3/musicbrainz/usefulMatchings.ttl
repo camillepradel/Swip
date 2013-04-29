@@ -310,9 +310,9 @@ graph:member a queries:KeywordQueryElement ;
 <http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_member1>
     a queries:Matching;
     queries:matchingHasKeyword graph:member;
-    queries:matchingHasResource mo:member_of;
+    queries:matchingHasResource mo:Membership;
     queries:matchingHasScore "20"^^xsd:float;
-    queries:matchingHasMatchedLabel "member of".
+    queries:matchingHasMatchedLabel "membership".
 
 
 ################
@@ -345,6 +345,14 @@ graph:person a queries:KeywordQueryElement ;
 
 
 ################
+# present (ignored)
+################
+
+graph:present a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+
+################
 # produce
 ################
 
@@ -357,6 +365,28 @@ graph:produce a queries:KeywordQueryElement ;
     queries:matchingHasResource mo:producer;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "produce".
+
+
+################
+# record
+################
+
+graph:record a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_record1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:record;
+    queries:matchingHasResource foaf:maker;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "recorded by".
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_record2>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:record;
+    queries:matchingHasResource mo:Record;
+    queries:matchingHasScore "15"^^xsd:float;
+    queries:matchingHasMatchedLabel "record".
 
 
 ################
@@ -416,6 +446,20 @@ graph:song a queries:KeywordQueryElement ;
     queries:matchingHasResource mo:Track;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "song".
+
+################
+# soundtrack
+################
+
+graph:soundtrack a queries:KeywordQueryElement ;
+                queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_soundtrack1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:soundtrack;
+    queries:matchingHasResource mo:soundtrack;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "soundtrack".
 
 ################
 # track

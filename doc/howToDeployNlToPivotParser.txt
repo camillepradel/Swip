@@ -1,5 +1,3 @@
-TODO: enlever la partie traduction de l'arbre de dépendances vers la requête pivot de ce projet et le mettre dans un projet à part.
-Mais pour ça, il faut être capable de sérialiser l'arbre de dépendance en JSON, et pour l'instant ça ne marche pas car il y a des cycles (ce qui créé un JSON "infini")
 
 for TreeTagger:
 copy treeTagger directory on the server

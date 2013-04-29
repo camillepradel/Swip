@@ -105,7 +105,6 @@ function pivotToSparql(pvQuery)
     var queriesUri = $('#configurations .queriesuri').val();
     var patternsUri = $('#configurations .patternsuri').val();
     var nbmappings = $('#configurations .nbmappings').val();
-    console.log("hello");
     $.ajax
     ({
         type: 'GET',

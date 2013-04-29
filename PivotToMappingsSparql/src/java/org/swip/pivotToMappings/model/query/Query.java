@@ -45,6 +45,14 @@ public class Query {
         return subqueries;
     }
 
+    public boolean isAsk() {
+        return ask;
+    }
+
+    public boolean isCount() {
+        return count;
+    }
+
     public void addSubquery(Subquery sq) {
         this.subqueries.add(sq);
     }

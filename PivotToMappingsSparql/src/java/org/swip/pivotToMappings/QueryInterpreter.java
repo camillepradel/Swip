@@ -33,36 +33,43 @@ public class QueryInterpreter extends Thread {
         logger.info("================================================================");
         logger.info("Matching query elements to knowledge base elements:");
         logger.info("---------------------------------------------------\n");
-        performMatching(queryUri, sparqlClient, commitUpdate, logQuery);
+        performMatching(queryUri, sparqlClient, commitUpdate, true);
+//        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping patterns elements:");
         logger.info("--------------------------\n");
         performElementMapping(queryUri, sparqlClient, commitUpdate, logQuery);
-//        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping subpattern collections:");
-        logger.info("------------------------\n");
+        logger.info("------------------------------\n");
         performSpCollectionMapping(queryUri, sparqlClient, commitUpdate, logQuery);
         logger.info("================================================================");
         logger.info("Mapping patterns:");
-        logger.info("------------------------\n");
+        logger.info("----------------\n");
         performPatternMapping(queryUri, sparqlClient, commitUpdate, logQuery);
         logger.info("================================================================");
         logger.info("Ranking pattern mappings:");
         logger.info("------------------------\n");
         performMappingRanking(queryUri, sparqlClient, commitUpdate, logQuery);
         logger.info("================================================================");
-        logger.info("Clearing KB:");
-        logger.info("-----------\n");
+        logger.info("Clearing bad mappings:");
+        logger.info("---------------------\n");
         clearMappings(queryUri, sparqlClient, commitUpdate, logQuery);
         logger.info("================================================================");
-        logger.info("Generate descriptive sentences:");
+        logger.info("Clearing KB:");
         logger.info("-----------\n");
+        clearKB(queryUri, sparqlClient, commitUpdate, logQuery);
+        logger.info("================================================================");
+        logger.info("Generate descriptive sentences:");
+        logger.info("------------------------------\n");
         generateDescriptiveSentences(queryUri, sparqlClient, commitUpdate, logQuery);
         logger.info("================================================================");
         logger.info("Generate SPARQL queries:");
-        logger.info("-----------\n");
+        logger.info("-----------------------\n");
         generateSparqlQueries(queryUri, sparqlClient, commitUpdate, logQuery);
+        logger.info("================================================================");
+        logger.info("Done!");
+        logger.info("-----\n");
         // change query processing state
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlClient, queriesNamedGraphUri, "QueryProcessed");
     }
@@ -107,24 +114,22 @@ public class QueryInterpreter extends Thread {
         if (useLarq) {
             query += "          (?l ?score) pf:textMatch (?keywordValue 6.0 5).\n"
                     + "          ?r rdfs:label ?l.\n"
+                    + "          FILTER(REGEX(?l, ?keywordValue, 'i'))\n"
                     + "          BIND ((?score * 1) AS ?s)\n";
         } else {
-            query += "          CONTAINS(?l ?keywordValue)\n"
+            query += "          ?r rdfs:label ?l.\n"
+                    + "          FILTER (CONTAINS(STR(?l), STR(?keywordValue)))\n"
                     + "          BIND (10 AS ?s)\n";
         }
         query += "        }\n"
                 + "      }\n"
                 + "    }\n"
                 + "  }\n"
-                + "  BIND (UUID() AS ?matchUri)\n"
+                //                + "  BIND (IRI(CONCAT(\"" + queriesNamedGraphUri + "#matching-\", REPLACE(?keywordValue, \" \", \"_\", \"i\"), \"-\", STRUUID())) AS ?matchUri)\n"
+                + "  BIND (IRI(CONCAT(\"" + queriesNamedGraphUri + "#matching-\", REPLACE(?keywordValue, \" \", \"_\", \"i\"), \"-to-\", REPLACE(?l, \" \", \"_\", \"i\"))) AS ?matchUri)\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -136,13 +141,144 @@ public class QueryInterpreter extends Thread {
         // change query processing state
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingElementMapping");
 
-        // mapping KB pattern elements to keywords
-        String query = "# mapping KB pattern elements to keywords\n"
+        mappingKbPeToKeywords(queryUri, sparqlServer, commitUpdate, logQuery);
+        removeRedundantEm(queryUri, sparqlServer, commitUpdate, logQuery);
+        findOutInstanceClassMappings(queryUri, sparqlServer, commitUpdate, logQuery);
+        addEmptyEm(queryUri, sparqlServer, commitUpdate, logQuery);
+        mappingLiterals(queryUri, sparqlServer, commitUpdate, logQuery);
+    }
+
+    private void mappingKbPeToKeywords(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
+
+//        // mapping KB pattern elements to keywords
+//        String query = "# mapping KB pattern elements to keywords\n"
+//                + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
+//                + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
+//                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+//                + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
+//                + "PREFIX owl:  <http://www.w3.org/2002/07/owl#>\n"
+//                + "INSERT\n"
+//                + "{\n"
+//                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+//                + "  {\n"
+//                + "    ?emUri a queries:KeywordMapping;\n"
+//                + "           a queries:ElementMapping;\n" // we don't use any reasonner in queries graph
+//                + "           queries:emHasPatternElement ?pe;\n"
+//                + "           queries:mappingHasPatternConstituent ?pe;\n" // we don't use any reasonner in queries graph
+//                + "           queries:emHasMatching ?matching;\n"
+//                + "           queries:emHasQueryElement ?keyword;\n"
+//                + "           queries:emHasKeyword ?keyword;\n" // we don't use any reasonner in queries graph
+//                + "           queries:emHasMatchedLabel ?l;\n"
+//                + "           queries:emHasResource ?r;\n"
+//                + "           queries:emHasScore ?score;\n"
+//                + "           queries:mappingHasQuery <" + queryUri + ">.\n"
+//                + "    # generated NL\n"
+//                + "    ?emUri queries:hasDescriptiveSubsentence ?descSubsentUri.\n"
+//                + "    ?descSubsentUri a queries:DescriptiveSubsentence;\n"
+//                + "                   queries:dsIsQueried ?queried;\n"
+//                + "                   queries:hasStringValue ?stringValue.\n"
+//                + "    # generated SPARQL\n"
+//                + "    ?emUri queries:hasTriple ?tripleUri1, ?tripleUri2.\n"
+//                + "     ?tripleUri1 sp:subject  ?s1 ;\n"
+//                + "                sp:predicate ?p1 ;\n"
+//                + "                sp:object    ?o1 .\n"
+//                + "     ?tripleUri2 sp:subject  ?s2 ;\n"
+//                + "                sp:predicate ?p2 ;\n"
+//                + "                sp:object    ?o2 .\n"
+//                + "  }\n"
+//                + "}\n"
+//                + "WHERE\n"
+//                + "{\n"
+//                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+//                + "  {\n"
+//                + "    <" + queryUri + "> queries:queryHasQueryElement ?keyword.\n"
+//                + "    ?matching queries:matchingHasKeyword ?keyword;\n"
+//                + "              queries:matchingHasResource ?r;\n"
+//                + "              queries:matchingHasScore ?score;\n"
+//                + "              queries:matchingHasMatchedLabel ?l.\n"
+//                + "    OPTIONAL\n"
+//                + "    {\n"
+//                + "      ?keyword queries:queryElementIsQueried ?queried.\n"
+//                + "    }\n"
+//                + "  }\n"
+//                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
+//                + "  {\n"
+//                + "    ?p patterns:patternHasPatternElement ?pe.\n"
+//                + "    ?pe patterns:isQualifying \"true\"^^xsd:boolean;\n"
+//                + "        patterns:targetsKBElement ?kbe.\n"
+//                + "  }\n"
+//                + "  BIND (UUID() AS ?emUri) # needed in the following\n"
+//                + "  # class\n"
+//                + "  {\n"
+//                + "    GRAPH <" + kbLocation + ">\n"
+//                + "    {\n"
+//                + "      {?r a owl:Class.} UNION {?r a rdfs:Class.}\n"
+//                + "      ?r rdfs:subClassOf* ?kbe.\n"
+//                + "      BIND (\"some \" AS ?stringValuePrefix)\n"
+//                + "    }\n"
+//                + "  }\n"
+//                + "  UNION\n"
+//                + "  # pseudo class (*Type properties)\n"
+//                + "  {\n"
+//                + "    GRAPH <" + queriesNamedGraphUri + ">\n"
+//                + "    {\n"
+//                + "      ?jtp a queries:JokerTypeProperty;\n"
+//                + "           queries:concernsProperty ?prop;\n"
+//                + "           queries:hasClass ?kbe;\n"
+//                + "           queries:hasPseudoClass ?r.\n"
+//                + "      BIND (\"*some \" AS ?stringValuePrefix)\n"
+//                + "    }\n"
+//                + "  }\n"
+//                + "  UNION\n"
+//                + "  # property\n"
+//                + "  {\n"
+//                + "    GRAPH <" + kbLocation + ">\n"
+//                + "    {\n"
+//                + "      {?r a owl:ObjectProperty.} UNION {?r a owl:DatatypeProperty.}\n"
+//                + "      ?r rdfs:subPropertyOf* ?kbe.\n"
+//                + "      BIND (\"\" AS ?stringValuePrefix)\n"
+//                + "    }\n"
+//                + "  }\n"
+//                + "  UNION\n"
+//                + "  # instance\n"
+//                + "  {\n"
+//                + "    GRAPH <" + kbLocation + ">\n"
+//                + "    {\n"
+//                + "      ?r a ?c.\n"
+//                + "      ?c rdfs:subClassOf* ?kbe.\n"
+//                + "      # generated NL\n"
+//                + "      BIND (\"\" AS ?stringValuePrefix)\n"
+//                + "      # generated SPARQL\n"
+//                + "      BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple1\")) AS ?tripleUri1)\n"
+//                + "      BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple2\")) AS ?tripleUri2)\n"
+//                + "      BIND (CONCAT (\"?\", REPLACE(?kwValue, \" \", \"_\", \"i\")) AS ?rep)\n"
+//                + "      BIND (?rep AS ?s1)\n"
+//                + "      BIND (rdfs:label AS ?p1)\n"
+//                + "      BIND (?l AS ?o1)\n"
+//                + "      BIND (?rep AS ?s2)\n"
+//                + "      BIND (rdf:type AS ?p2)\n"
+//                + "      BIND (?targetedClass AS ?o2)\n"
+//                
+//                + "    }\n"
+//                + "  }\n"
+//                + "  BIND (IRI(CONCAT(str(?emUri), \"_descSubsent\")) AS ?descSubsentUri)\n"
+//                + "  BIND (if (BOUND(?stringValuePrefix), CONCAT(?stringValuePrefix, ?l), STR(?l)) AS ?stringValue)\n"
+//                + "}";
+//
+//        if (logQuery) {
+//            logger.info(query);
+//        }
+//        if (commitUpdate) {
+//            sparqlServer.update(query);
+//        }
+        String queryFrame = "# mapping KB pattern elements to keywords\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
                 + "PREFIX owl:  <http://www.w3.org/2002/07/owl#>\n"
+                + "prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "prefix sp:  <http://spinrdf.org/sp>\n"
                 + "INSERT\n"
                 + "{\n"
                 + "  GRAPH <" + queriesNamedGraphUri + ">\n"
@@ -157,11 +293,21 @@ public class QueryInterpreter extends Thread {
                 + "           queries:emHasMatchedLabel ?l;\n"
                 + "           queries:emHasResource ?r;\n"
                 + "           queries:emHasScore ?score;\n"
-                + "           queries:mappingHasQuery <" + queryUri + ">;\n"
-                + "           queries:hasDescriptiveSubsentence ?descSubsentUri.\n"
+                + "           queries:mappingHasQuery <" + queryUri + ">.\n"
+                + "    # generated NL\n"
+                + "    ?emUri queries:hasDescriptiveSubsentence ?descSubsentUri.\n"
                 + "    ?descSubsentUri a queries:DescriptiveSubsentence;\n"
                 + "                   queries:dsIsQueried ?queried;\n"
                 + "                   queries:hasStringValue ?stringValue.\n"
+                + "    # generated SPARQL\n"
+                + "    ?emUri queries:hasTriple ?tripleUri1, ?tripleUri2;\n"
+                + "           queries:hasSparqlRepresentation ?rep.\n"
+                + "    ?tripleUri1 sp:subject  ?s1 ;\n"
+                + "                sp:predicate ?p1 ;\n"
+                + "                sp:object    ?o1 .\n"
+                + "    ?tripleUri2 sp:subject  ?s2 ;\n"
+                + "                sp:predicate ?p2 ;\n"
+                + "                sp:object    ?o2 .\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -173,6 +319,7 @@ public class QueryInterpreter extends Thread {
                 + "              queries:matchingHasResource ?r;\n"
                 + "              queries:matchingHasScore ?score;\n"
                 + "              queries:matchingHasMatchedLabel ?l.\n"
+                + "    ?keyword queries:queryElementHasValue ?kwValue.\n"
                 + "    OPTIONAL\n"
                 + "    {\n"
                 + "      ?keyword queries:queryElementIsQueried ?queried.\n"
@@ -184,62 +331,92 @@ public class QueryInterpreter extends Thread {
                 + "    ?pe patterns:isQualifying \"true\"^^xsd:boolean;\n"
                 + "        patterns:targetsKBElement ?kbe.\n"
                 + "  }\n"
-                + "  # class\n"
-                + "  {\n"
+                + "  BIND (UUID() AS ?emUri) # needed in query inner\n"
+                + "[QUERY_INNER]"
+                + "  BIND (IRI(CONCAT(str(?emUri), \"_descSubsent\")) AS ?descSubsentUri)\n"
+                + "  BIND (if (BOUND(?stringValuePrefix), CONCAT(?stringValuePrefix, ?l), STR(?l)) AS ?stringValue)\n"
+                + "}";
+
+        String queryInner = "  # -- class\n"
                 + "    GRAPH <" + kbLocation + ">\n"
                 + "    {\n"
                 + "      {?r a owl:Class.} UNION {?r a rdfs:Class.}\n"
                 + "      ?r rdfs:subClassOf* ?kbe.\n"
-                + "      BIND (\"some \" AS ?stringValuePrefix)\n"
                 + "    }\n"
-                + "  }\n"
-                + "  UNION\n"
-                + "  # pseudo class (*Type properties)\n"
-                + "  {\n"
+                + "    # generated NL\n"
+                + "    BIND (\"some \" AS ?stringValuePrefix)\n"
+                + "    # generated SPARQL\n"
+                + "    BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple\")) AS ?tripleUri1)\n"
+                + "    BIND (CONCAT (\"?\", REPLACE(?kwValue, \" \", \"_\", \"i\")) AS ?rep)\n"
+                + "    BIND (?rep AS ?s1) BIND (rdf:type AS ?p1) BIND (?r AS ?o1)\n"
+                + "    # --\n";
+
+        String query = "# classes\n" + queryFrame.replace("[QUERY_INNER]", queryInner);
+
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+
+        queryInner = "  # -- pseudo class (*Type properties)\n"
                 + "    GRAPH <" + queriesNamedGraphUri + ">\n"
                 + "    {\n"
                 + "      ?jtp a queries:JokerTypeProperty;\n"
                 + "           queries:concernsProperty ?prop;\n"
                 + "           queries:hasClass ?kbe;\n"
                 + "           queries:hasPseudoClass ?r.\n"
-                + "      BIND (\"some \" AS ?stringValuePrefix)\n"
                 + "    }\n"
-                + "  }\n"
-                + "  UNION\n"
-                + "  # property\n"
-                + "  {\n"
+                + "    # generated NL\n"
+                + "    BIND (\"*some \" AS ?stringValuePrefix)\n"
+                + "    # generated SPARQL\n"
+                + "    BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple\")) AS ?tripleUri1)\n"
+                + "    BIND (CONCAT (\"?\", REPLACE(?kwValue, \" \", \"_\", \"i\")) AS ?rep)\n"
+                + "    BIND (?rep AS ?s1) BIND (?prop AS ?p1) BIND (?r AS ?o1)\n"
+                + "    # --\n";
+
+        query = "# pseudo classes\n" + queryFrame.replace("[QUERY_INNER]", queryInner);
+
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+
+        queryInner = "  # -- property\n"
                 + "    GRAPH <" + kbLocation + ">\n"
                 + "    {\n"
                 + "      {?r a owl:ObjectProperty.} UNION {?r a owl:DatatypeProperty.}\n"
                 + "      ?r rdfs:subPropertyOf* ?kbe.\n"
-                + "      BIND (\"prop \" AS ?stringValuePrefix)\n"
                 + "    }\n"
-                + "  }\n"
-                + "  UNION\n"
-                + "  # instance\n"
-                + "  {\n"
+                + "    # generated NL\n"
+                + "    BIND (\"\" AS ?stringValuePrefix)\n"
+                + "    # generated SPARQL\n"
+                + "    BIND (?r AS ?rep)\n"
+                + "    # --\n";
+
+        query = "# properties\n" + queryFrame.replace("[QUERY_INNER]", queryInner);
+
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+
+        queryInner = "  # -- instance\n"
                 + "    GRAPH <" + kbLocation + ">\n"
                 + "    {\n"
                 + "      ?r a ?c.\n"
                 + "      ?c rdfs:subClassOf* ?kbe.\n"
-                + "      BIND (\"inst \" AS ?stringValuePrefix)\n"
                 + "    }\n"
-                + "  }\n"
-                + "  BIND (UUID() AS ?emUri)\n"
-                + "  BIND (IRI(CONCAT(str(?emUri), \"_descSubsent\")) AS ?descSubsentUri)\n"
-                + "  BIND (if (BOUND(?stringValuePrefix), CONCAT(?stringValuePrefix, ?l), STR(?l)) AS ?stringValue)\n"
-                + "}";
+                + "    # generated NL\n"
+                + "    BIND (\"\" AS ?stringValuePrefix)\n"
+                + "    # generated SPARQL\n"
+                + "    BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple1\")) AS ?tripleUri1)\n"
+                + "    BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple2\")) AS ?tripleUri2)\n"
+                + "    BIND (CONCAT (\"?\", REPLACE(?kwValue, \" \", \"_\", \"i\")) AS ?rep)\n"
+                + "    BIND (?rep AS ?s1) BIND (rdfs:label AS ?p1) BIND (?l AS ?o1)\n"
+                + "    BIND (?rep AS ?s2) BIND (rdf:type AS ?p2) BIND (?kbe AS ?o2)\n"
+                + "    # --\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        query = "# instances\n" + queryFrame.replace("[QUERY_INNER]", queryInner);
 
-        // remove "redundant" element mappings, i.e. mappings having a same pattern element and distinct KB resources with same matched label
-        // FIXME: move this to the matching level
-        query = "# remove \"redundant\" element mappings, i.e. mappings having a same pattern element and distinct KB resources with same matched label\n"
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+    }
+
+    private void removeRedundantEm(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
+
+        // remove "redundant" element mappings, i.e. mappings of same type having a same pattern element and distinct KB resources with same matched label
+        // FIXME: only element mappings of te same type (class, pseudo-class, property, instance), or we have to keep each mapped resource, or something like that
+        String query = "# remove \"redundant\" element mappings, i.e. mappings having a same pattern element and distinct KB resources with same matched label\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -269,19 +446,19 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+    }
+
+    private void findOutInstanceClassMappings(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
 
         // find out instance/class mappings
-        query = "# find out instance/class mappings\n"
+        String query = "# find out instance/class mappings\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
+                + "prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "prefix sp:  <http://spinrdf.org/sp>\n"
                 + "INSERT\n"
                 + "{\n"
                 + "  GRAPH <" + queriesNamedGraphUri + ">\n"
@@ -299,6 +476,15 @@ public class QueryInterpreter extends Thread {
                 + "           queries:hasDescriptiveSubsentence ?descSubsentUri.\n"
                 + "    ?descSubsentUri a queries:DescriptiveSubsentence;\n"
                 + "                    queries:hasStringValue ?descSubsentValue.\n"
+                + "    # generated SPARQL\n"
+                + "    ?emUri queries:hasTriple ?tripleUri1, ?tripleUri2;\n"
+                + "           queries:hasSparqlRepresentation ?rep.\n"
+                + "    ?tripleUri1 sp:subject  ?s1 ;\n"
+                + "                sp:predicate ?p1 ;\n"
+                + "                sp:object    ?o1 .\n"
+                + "    ?tripleUri2 sp:subject  ?s2 ;\n"
+                + "                sp:predicate ?p2 ;\n"
+                + "                sp:object    ?o2 .\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -312,7 +498,9 @@ public class QueryInterpreter extends Thread {
                 + "        queries:emHasResource ?ir;\n"
                 + "        queries:emHasScore ?iScore;\n"
                 + "        queries:emHasKeyword ?iKeyword;\n"
+                + "        queries:emHasMatchedLabel ?l;\n"
                 + "        (queries:hasDescriptiveSubsentence/queries:hasStringValue) ?iDescSubsentValue.\n"
+                + "    ?iKeyword queries:queryElementHasValue ?kwValue.\n"
                 + "    # class mapping\n"
                 + "    ?cm a queries:ElementMapping;\n"
                 + "        queries:mappingHasQuery <" + queryUri + ">;\n"
@@ -326,6 +514,8 @@ public class QueryInterpreter extends Thread {
                 + "    GRAPH <" + kbLocation + ">\n"
                 + "    {\n"
                 + "      ?ir a ?cr.\n"
+                + "      BIND (rdf:type AS ?p2).\n"
+                + "      BIND (?cr AS ?o2).\n"
                 + "    }\n"
                 + "  }\n"
                 + "  UNION\n"
@@ -333,28 +523,36 @@ public class QueryInterpreter extends Thread {
                 + "    GRAPH <" + queriesNamedGraphUri + ">\n"
                 + "    {\n"
                 + "      ?jtp a queries:JokerTypeProperty;\n"
-                + "           queries:concernsProperty ?pseudoType.\n"
+                + "           queries:concernsProperty ?pseudoType;\n"
+                + "           queries:hasPseudoClass ?cr.\n"
                 + "    }\n"
                 + "    GRAPH <" + kbLocation + ">\n"
                 + "    {\n"
                 + "      ?ir ?pseudoType ?cr.\n"
+                + "      BIND (?pseudoType AS ?p2).\n"
+                + "      BIND (?cr AS ?o2).\n"
                 + "    }\n"
                 + "  }\n"
                 + "  BIND (UUID() AS ?emUri)\n"
+                + "  BIND (?iScore + ?cScore AS ?score)\n"
+                + "  # generated NL\n"
                 + "  BIND (IRI(CONCAT(str(?emUri), \"_descSubsent\")) AS ?descSubsentUri)\n"
                 + "  BIND (CONCAT( ?iDescSubsentValue, \" (\", ?cMatchedLabel, \")\") AS ?descSubsentValue)\n"
-                + "  BIND (?iScore + ?cScore AS ?score)\n"
+                + "  # generated SPARQL\n"
+                + "  BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple1\")) AS ?tripleUri1)\n"
+                + "  BIND (IRI(CONCAT(str(?emUri), \"_impliedTriple2\")) AS ?tripleUri2)\n"
+                + "  BIND (CONCAT (\"?\", REPLACE(?kwValue, \" \", \"_\", \"i\")) AS ?rep)\n"
+                + "  BIND (?rep AS ?s1) BIND (rdfs:label AS ?p1) BIND (?l AS ?o1)\n"
+                + "  BIND (?rep AS ?s2)\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+    }
+
+    private void addEmptyEm(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
 
         // add an empty mapping to all qualifying pattern elements
-        query = "# add an empty mapping to all pattern elements\n"
+        String query = "# add an empty mapping to all pattern elements\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -389,15 +587,13 @@ public class QueryInterpreter extends Thread {
                 + "  BIND (IF( BOUND(?label), CONCAT( \"(a/an)\", ?label), CONCAT( \"[\", STR(?kbe), \"]\")) AS ?l)\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+    }
+
+    private void mappingLiterals(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
 
         // mapping literals
-        query = "# mapping literals\n"
+        String query = "# mapping literals\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -413,11 +609,14 @@ public class QueryInterpreter extends Thread {
                 + "           queries:emHasLiteralQe ?literalQe;\n"
                 + "           queries:emHasQueryElement ?literalQe;\n" // we don't use any reasonner in queries graph
                 + "           queries:emHasScore \"15\"^^xsd:float;\n"
-                + "           queries:mappingHasQuery <" + queryUri + ">;\n"
-                + "           queries:hasDescriptiveSubsentence ?descSubsentUri.\n"
+                + "           queries:mappingHasQuery <" + queryUri + ">.\n"
+                + "    # generated SPARQL\n"
+                + "    ?emUri queries:hasDescriptiveSubsentence ?descSubsentUri.\n"
                 + "    ?descSubsentUri a queries:DescriptiveSubsentence;\n"
                 + "                    queries:dsIsQueried ?queried;\n"
                 + "                    queries:hasStringValue ?stringValue.\n"
+                + "    # generated SPARQL\n"
+                + "    ?emUri queries:hasSparqlRepresentation ?rep.\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -442,17 +641,14 @@ public class QueryInterpreter extends Thread {
                 + "    ?pe patterns:targetsLiteralType ?literalType.\n"
                 + "  }\n"
                 + "  BIND (UUID() AS ?emUri)\n"
+                + "  # generated NL\n"
                 + "  BIND (IRI(CONCAT(str(?emUri), \"_descSubsent\")) AS ?descSubsentUri)\n"
                 + "  BIND ( IF (?literalValue=\"?\", CONCAT (\"some \", ?swipTypeString), ?literalValue) AS ?stringValue)\n"
+                + "  # generated SPARQL\n"
+                + "  BIND (CONCAT (\"?literal_\", REPLACE(STRUUID(), \"-\", \"\", \"i\")) AS ?rep)\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
-
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     private void performSpCollectionMapping(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
@@ -462,22 +658,19 @@ public class QueryInterpreter extends Thread {
         initializeSpCollectionMapping(queryUri, sparqlServer, commitUpdate, logQuery);
 
         int iteration = 0;
-        do {
-//        for (int i = 0; i < 2; i++) {
-            logger.info("iteration " + ++iteration);
-            if (iteration > 1) {
-                removeMappingsOfEmptyMappings(queryUri, sparqlServer, commitUpdate, logQuery);
-                combineMappings(queryUri, sparqlServer, commitUpdate, logQuery);
-                addEmptyMapping(queryUri, sparqlServer, commitUpdate, logQuery);
+
+        if (commitUpdate) {
+            do {
+                logger.info("iteration " + ++iteration);
+                performSpCollectionMappingLoop(queryUri, sparqlServer, commitUpdate, logQuery, iteration);
+            } while (!allPatternsAreMapped(queryUri, sparqlServer, false));
+        } else {
+            for (int i = 0; i < 2; i++) {
+                logger.info("iteration " + ++iteration);
+                performSpCollectionMappingLoop(queryUri, sparqlServer, commitUpdate, logQuery, iteration);
             }
-            startMapping(queryUri, sparqlServer, commitUpdate, logQuery);
-            preventFrom(queryUri, sparqlServer, commitUpdate, logQuery);
-//            commitUpdate = false;
-            for (int j = 0; j < 12; j++) {
-                makeProgress(queryUri, sparqlServer, commitUpdate, logQuery);
-            }
-            validateMappings(queryUri, sparqlServer, commitUpdate, logQuery);
-        } while (!allPatternsAreMapped(queryUri, sparqlServer, false));
+        }
+
     }
 
     private void initializeSpCollectionMapping(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
@@ -501,12 +694,22 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+    }
+
+    private void performSpCollectionMappingLoop(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery, int iteration) {
+        if (iteration > 1) {
+            removeMappingsOfEmptyMappings(queryUri, sparqlServer, commitUpdate, logQuery);
+            combineMappings(queryUri, sparqlServer, commitUpdate, logQuery);
+            addEmptyMapping(queryUri, sparqlServer, commitUpdate, logQuery);
         }
-        if (commitUpdate) {
-            sparqlServer.update(query);
+        startMapping(queryUri, sparqlServer, commitUpdate, logQuery);
+        preventFrom(queryUri, sparqlServer, commitUpdate, logQuery);
+//            commitUpdate = false;
+        for (int j = 0; j < 12; j++) {
+            makeProgress(queryUri, sparqlServer, commitUpdate, logQuery);
         }
+        validateMappings(queryUri, sparqlServer, commitUpdate, logQuery);
     }
 
     private boolean allPatternsAreMapped(String queryUri, SparqlClient sparqlServer, boolean logQuery) {
@@ -533,12 +736,6 @@ public class QueryInterpreter extends Thread {
         return result;
     }
 
-    /**
-     * 
-     * @param queryUri
-     * @param sparqlServer
-     * @param commitUpdate 
-     */
     private void removeMappingsOfEmptyMappings(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
 
         String query = "# remove mappings of contingent subpattern collections containing only empty mappings\n"
@@ -575,12 +772,7 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -641,12 +833,7 @@ public class QueryInterpreter extends Thread {
                 + "  BIND (UUID() AS ?descSubsent)\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -698,12 +885,7 @@ public class QueryInterpreter extends Thread {
                 + "  BIND (UUID() AS ?mappingUri)\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -769,12 +951,7 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -830,12 +1007,7 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -907,12 +1079,7 @@ public class QueryInterpreter extends Thread {
                 + "  BIND (UUID() AS ?mappingUri)\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -1063,12 +1230,7 @@ public class QueryInterpreter extends Thread {
                 //                + "  BIND (IRI(CONCAT(str(?spcm), str(?nextList))) AS ?nextListSerialized)\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     /**
@@ -1113,18 +1275,37 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+
+        query = "# save the number of generated mappings\n"
+                + "PREFIX queries: <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
+                + "INSERT\n"
+                + "{\n"
+                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    <" + queryUri + "> queries:hasNumPatternMappings ?nb.\n"
+                + "  }\n"
+                + "}\n"
+                + "WHERE\n"
+                + "{\n"
+                + "  SELECT (count(?pm) AS ?nb) where\n"
+                + "  {\n"
+                + "    GRAPH <" + queriesNamedGraphUri + ">\n"
+                + "    {\n"
+                + "      ?pm a queries:PatternMapping;\n"
+                + "          queries:mappingHasQuery <" + queryUri + "> .\n"
+                + "    }\n"
+                + "  }\n"
+                + "}";
+
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     private void performMappingRanking(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
         // change query processing state
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingMappingRanking");
 
+        logger.info("element mapping relevance mark");
         String query = "# process the element mapping relevance mark\n"
                 + "# step 1: process the average score of involved element mappings\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
@@ -1188,13 +1369,9 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
 
+        logger.info("query coverage relevance mark");
         query = "# process the query coverage relevance mark\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
@@ -1233,13 +1410,9 @@ public class QueryInterpreter extends Thread {
                 + "  BIND ( ?nbmappedqe / ?nbqe AS ?qcrmark )\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
 
+        logger.info("pattern coverage relevance mark");
         query = "# process the pattern coverage relevance mark\n"
                 + "# in two step probably because of a bug in ARQ\n"
                 + "# step 1: find out for each query mapping the number of element mapping with distinct pattern element\n"
@@ -1312,13 +1485,9 @@ public class QueryInterpreter extends Thread {
                 + "  BIND (?nbsem / ?nbem AS ?pcrmark)\n"
                 + "}";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
 
+        logger.info("final relevance mark");
         query = "# process final relevance mark\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
@@ -1343,12 +1512,7 @@ public class QueryInterpreter extends Thread {
                 //                + "  BIND ( ?qcrmark * ?pcrmark AS ?rmark )\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
 
 
     }
@@ -1361,13 +1525,12 @@ public class QueryInterpreter extends Thread {
      */
     private void clearMappings(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
         // change query processing state
-        Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingKbClearing");
+        Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingMappingsClearing");
 
         // in two steps for efficiency reasons
 
         // step one
         String query = "# clear all mappings whose rank is over a given threshold\n"
-                + "# step 1: clear bad query mappings\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
@@ -1391,43 +1554,10 @@ public class QueryInterpreter extends Thread {
                 + "      } ORDER BY DESC(?rmark) ?pm OFFSET " + this.numMappings + "\n"
                 + "    }\n"
                 + "    ?pm ?c ?d .\n"
-                //                + "    OPTIONAL { # optional is temporary\n"
-                //                + "    ?pm queries:hasDescriptiveSubsentence ?descSubsent .\n"
-                //                + "    ?descSubsent a queries:DescriptiveSubsentence ;\n"
-                //                + "                 queries:isMadeUpOfList ?list .\n"
-                //                + "    ?list rdf:rest* ?rest .\n"
-                //                + "    ?rest rdf:rest ?rest2 ;\n"
-                //                + "          rdf:first ?first .\n"
-                //                + "    ?first ?e ?f .\n"
-                //                + "    }\n"
-                + "  }\n"
-                + "};\n"
-                + "# step 2: clear spc mappings which are not contained in any query mapping\n"
-                + "DELETE\n"
-                + "{\n"
-                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
-                + "  {\n"
-                + "    ?spcm ?a ?b .\n"
-                + "  }\n"
-                + "}\n"
-                + "WHERE\n"
-                + "{\n"
-                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
-                + "  {\n"
-                + "    ?spcm a queries:SubpatternCollectionMapping .\n"
-                //                + "    FILTER NOT EXISTS { ?spcm a queries:PatternMapping. }\n"
-                + "    FILTER NOT EXISTS { ?pm a queries:PatternMapping; \n"
-                + "                            queries:mappingContainsMapping* ?spcm. }\n"
-                + "    ?spcm ?a ?b .\n"
                 + "  }\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     private void generateDescriptiveSentences(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
@@ -1481,7 +1611,7 @@ public class QueryInterpreter extends Thread {
                 + "  GRAPH <" + patternsNamedGraphUri + ">\n"
                 + "  {\n"
                 + "    ?sst (patterns:sstTargetsPc|^patterns:hasSentenceTemplate) ?spc ;\n"
-                + "         patterns:isMadeUpOfList ?list ;\n"
+                + "         patterns:isMadeUpOfList ?list .\n"
                 + "    # when dealing with spc containing a for loop, two subsentences are generated (one for the inner for loop, one for the whole spc) \n"
                 + "    OPTIONAL {\n"
                 + "      ?sst a patterns:ForLoopInTemplate.\n"
@@ -1552,42 +1682,27 @@ public class QueryInterpreter extends Thread {
                 //                + "  }\n"
                 + "}\n";
 
-        if (logQuery) {
-            logger.info(query);
-        }
-        if (commitUpdate) {
-            sparqlServer.update(query);
-        }
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     private void generateSparqlQueries(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
         // change query processing state
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingSparqlQueryGeneration");
 
-//        commitUpdate = false;
-
         String query = "# generate SPARQL queries\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
                 + "prefix sp:  <http://spinrdf.org/sp>\n"
                 + "# step 1: sparql representation and implied triples of each element mapping\n"
-                + "# step 1.1: keywords whom mapped KB element is an instance of the ressource targeted by pattern element\n"
                 + "INSERT\n"
                 + "{\n"
                 + "  GRAPH <" + queriesNamedGraphUri + ">\n"
                 + "  {\n"
-                + "     ?em queries:hasSparqlRepresentation ?rep.\n"
                 + "     ?pm queries:hasSparqlQuery ?sq.\n"
-                + "     ?sq queries:hasTriple ?tripleUri1.\n"
-                + "     ?tripleUri1 sp:subject    ?rep ;\n"
-                + "                sp:predicate rdfs:label ;\n"
-                + "                sp:object   ?l .\n"
-                + "     ?sq queries:hasTriple ?tripleUri2.\n"
-                + "     ?tripleUri2 sp:subject    ?rep ;\n"
-                + "                    sp:predicate rdf:type ;\n"
-                + "                    sp:object   ?targetedClass .\n"
+                + "     ?sq queries:hasTriple ?tripleUri.\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -1597,94 +1712,11 @@ public class QueryInterpreter extends Thread {
                 + "    ?pm a queries:PatternMapping ;\n"
                 + "        queries:mappingHasQuery <" + queryUri + "> ;\n"
                 + "        queries:mappingContainsMapping+ ?em .\n"
-                + "    ?em queries:emHasPatternElement ?pe;\n"
-                + "        queries:emHasKeyword ?keyword;\n"
-                + "        queries:emHasMatchedLabel ?l;\n"
-                + "        queries:emHasResource ?r.\n"
-                + "    ?keyword queries:queryElementHasValue ?kwValue.\n"
-                + "  }\n"
-                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
-                + "  {\n"
-                + "      ?pe patterns:targetsClass ?targetedClass.\n"
-                + "  }\n"
-                + "  GRAPH <" + kbLocation + ">\n"
-                + "  {\n"
-                + "      ?r a ?c.\n"
-                + "      ?c rdfs:subClassOf* ?targetedClass.\n"
-                + "  }\n"
-                + "  BIND (IRI(CONCAT(str(?pm), \"_sparql\")) AS ?sq) \n"
-                + "  BIND (IRI(CONCAT(str(?em), \"_impliedTriple1\")) AS ?tripleUri1)\n"
-                + "  BIND (IRI(CONCAT(str(?em), \"_impliedTriple2\")) AS ?tripleUri2)\n"
-                + "  BIND (CONCAT (\"?\", REPLACE(?kwValue, \" \", \"_\", \"i\")) AS ?rep)\n"
-                + "};\n"
-                + "# step 1.2: keywords whom mapped KB element is a subclass of the ressource targeted by pattern element\n"
-                + "INSERT\n"
-                + "{\n"
-                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
-                + "  {\n"
-                + "     ?em queries:hasSparqlRepresentation ?rep.\n"
-                + "     ?pm queries:hasSparqlQuery ?sq.\n"
-                + "     ?sq queries:hasTriple ?tripleUri1.\n"
-                + "     ?sq queries:hasTriple ?tripleUri2.\n"
-                + "     ?tripleUri2 sp:subject    ?rep ;\n"
-                + "                    sp:predicate rdf:type ;\n"
-                + "                    sp:object   ?r .\n"
-                + "  }\n"
-                + "}\n"
-                + "WHERE\n"
-                + "{\n"
-                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
-                + "  {\n"
-                + "    ?pm a queries:PatternMapping ;\n"
-                + "        queries:mappingHasQuery <" + queryUri + "> ;\n"
-                + "        queries:mappingContainsMapping+ ?em .\n"
-                + "    ?em queries:emHasPatternElement ?pe;\n"
-                + "        queries:emHasKeyword ?keyword;\n"
-                + "        queries:emHasResource ?r.\n"
-                + "    ?keyword queries:queryElementHasValue ?kwValue.\n"
-                + "  }\n"
-                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
-                + "  {\n"
-                + "      ?pe patterns:targetsClass ?targetedClass.\n"
-                + "  }\n"
-                + "  GRAPH <" + kbLocation + ">\n"
-                + "  {\n"
-                + "      ?r rdfs:subClassOf* ?targetedClass.\n"
-                + "  }\n"
-                + "  BIND (IRI(CONCAT(str(?pm), \"_sparql\")) AS ?sq) \n"
-                + "  BIND (IRI(CONCAT(str(?em), \"_impliedTriple1\")) AS ?tripleUri1)\n"
-                + "  BIND (IRI(CONCAT(str(?em), \"_impliedTriple2\")) AS ?tripleUri2)\n"
-                + "  BIND (CONCAT (\"?\", REPLACE(?kwValue, \" \", \"_\", \"i\")) AS ?rep)\n"
-                + "};\n"
-                + "# step 1.3: keywords whom mapped KB element is a property\n"
-                + "INSERT\n"
-                + "{\n"
-                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
-                + "  {\n"
-                + "     ?em queries:hasSparqlRepresentation ?r.\n"
-                + "  }\n"
-                + "}\n"
-                + "WHERE\n"
-                + "{\n"
-                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
-                + "  {\n"
-                + "    ?pm a queries:PatternMapping ;\n"
-                + "        queries:mappingHasQuery <" + queryUri + "> ;\n"
-                + "        queries:mappingContainsMapping+ ?em .\n"
-                + "    ?em queries:emHasPatternElement ?pe;\n"
-                + "        queries:emHasResource ?r;\n"
-                + "        queries:emHasKeyword ?keyword.\n"
-                + "    ?keyword queries:queryElementHasValue ?kwValue.\n"
-                + "  }\n"
-                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
-                + "  {\n"
-                + "      ?pe patterns:targetsProperty ?targetedProp.\n"
+                + "    ?em queries:hasTriple ?tripleUri.\n"
                 + "  }\n"
                 + "  BIND (IRI(CONCAT(str(?pm), \"_sparql\")) AS ?sq) \n"
                 + "};\n"
-                + "# step 1.4: literals\n"
-                + "# TODO\n"
-                + "# step 2:\n"
+                + "# step 2: adding triples of the query patterns\n"
                 + "INSERT\n"
                 + "{\n"
                 + "  GRAPH <" + queriesNamedGraphUri + ">\n"
@@ -1710,14 +1742,38 @@ public class QueryInterpreter extends Thread {
                 + "  {\n"
                 + "    ?pm a queries:PatternMapping ;\n"
                 + "        queries:mappingHasPatternConstituent ?p ;\n"
-                + "        queries:mappingHasQuery <" + queryUri + "> ;\n"
-                + "        queries:mappingContainsMapping+ ?emS, ?emP, ?emO .\n"
-                + "    ?emS queries:emHasPatternElement ?subj .\n"
-                + "    ?emP queries:emHasPatternElement ?prop .\n"
-                + "    ?emO queries:emHasPatternElement ?obj .\n"
-                + "    ?emS queries:hasSparqlRepresentation ?repS.\n"
-                + "    ?emP queries:hasSparqlRepresentation ?repP.\n"
-                + "    ?emO queries:hasSparqlRepresentation ?repO.\n"
+                + "        queries:mappingHasQuery <" + queryUri + "> .\n"
+                + "  }\n"
+                + "  # subject of pattern triple\n"
+                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?pm queries:mappingContainsMapping+ ?emS .\n"
+                + "    ?emS queries:emHasPatternElement ?subj ;\n"
+                + "         queries:hasSparqlRepresentation ?repS.\n"
+                + "  }\n"
+                + "  # property of pattern triple\n"
+                + "  {\n"
+                + "    GRAPH <" + queriesNamedGraphUri + ">\n"
+                + "    {\n"
+                + "      ?pm queries:mappingContainsMapping+ ?emP .\n"
+                + "      ?emP queries:emHasPatternElement ?prop ;\n"
+                + "           queries:hasSparqlRepresentation ?repP.\n"
+                + "    }\n"
+                + "  }\n"
+                + "  UNION\n"
+                + "  {\n"
+                + "    GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "    {\n"
+                + "      ?prop patterns:isQualifying \"false\"^^xsd:boolean ;\n"
+                + "            patterns:targetsProperty ?repP .\n"
+                + "    }\n"
+                + "  }\n"
+                + "  # object of pattern triple\n"
+                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?pm queries:mappingContainsMapping+ ?emO .\n"
+                + "    ?emO queries:emHasPatternElement ?obj ;\n"
+                + "         queries:hasSparqlRepresentation ?repO.\n"
                 + "  }\n"
                 + "  BIND (IRI(CONCAT(str(?pm), \"_sparql\")) AS ?sq) \n"
                 + "  BIND (UUID() AS ?tripleUri)\n"
@@ -1727,19 +1783,78 @@ public class QueryInterpreter extends Thread {
                 + "{\n"
                 + "  GRAPH <" + queriesNamedGraphUri + ">\n"
                 + "  {\n"
-                + "     ?sq queries:hasSelectVar <pliplo> .\n"
+                + "     ?sq queries:hasSelectVar ?rep .\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
                 + "{\n"
-                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
-                + "  {\n"
-                + "  }\n"
                 + "  GRAPH <" + queriesNamedGraphUri + ">\n"
                 + "  {\n"
+                + "    ?pm a queries:PatternMapping ;\n"
+                + "        queries:mappingHasPatternConstituent ?p ;\n"
+                + "        queries:mappingHasQuery <" + queryUri + "> ;\n"
+                + "        queries:mappingContainsMapping+ ?em ;\n"
+                + "        queries:hasSparqlQuery ?sq.\n"
+                + "    <" + queryUri + "> queries:queryHasQueryElement ?qe.\n"
+                + "    ?qe queries:queryElementIsQueried \"true\"^^xsd:boolean.\n"
+                + "    ?em queries:emHasQueryElement ?qe;\n"
+                + "        queries:hasSparqlRepresentation ?rep.\n"
                 + "  }\n"
                 + "}\n";
 
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+    }
+
+    private void clearKB(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
+        // change query processing state
+        Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingKbClearing");
+
+//        String query = "# clear spc mappings which are not contained in any query mapping\n"
+//                + "DELETE\n"
+//                + "{\n"
+//                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+//                + "  {\n"
+//                + "    ?spcm ?a ?b .\n"
+//                + "  }\n"
+//                + "}\n"
+//                + "WHERE\n"
+//                + "{\n"
+//                + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+//                + "  {\n"
+//                + "    ?spcm a queries:SubpatternCollectionMapping .\n"
+//                + "    FILTER NOT EXISTS { ?pm a queries:PatternMapping; \n"
+//                + "                            queries:mappingContainsMapping* ?spcm. }\n"
+//                + "    ?spcm ?a ?b .\n"
+//                + "  }\n"
+//                + "}\n";
+
+        for (int i = 1; i <= 6; i++) {
+            logger.info("iteration " + i);
+            String query = "# clear spc mappings which are not contained in any query mapping\n"
+                    + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
+                    + "DELETE\n"
+                    + "{\n"
+                    + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+                    + "  {\n"
+                    + "    ?spcm ?a ?b .\n"
+                    + "  }\n"
+                    + "}\n"
+                    + "WHERE\n"
+                    + "{\n"
+                    + "  GRAPH <" + queriesNamedGraphUri + ">\n"
+                    + "  {\n"
+                    + "    ?spcm a queries:SubpatternCollectionMapping .\n"
+                    + "    FILTER NOT EXISTS { ?spcm a queries:PatternMapping . }\n"
+                    + "    FILTER NOT EXISTS { ?pm queries:mappingContainsMapping ?spcm . }\n"
+                    + "    ?spcm ?a ?b .\n"
+                    + "  }\n"
+                    + "}\n";
+            logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+        }
+
+    }
+
+    private void logAndCommitQuery(String query, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
         if (logQuery) {
             logger.info(query);
         }

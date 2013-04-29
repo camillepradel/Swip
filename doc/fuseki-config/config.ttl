@@ -1,0 +1,219 @@
+@prefix :        <#> .
+@prefix fuseki:  <http://jena.apache.org/fuseki#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tdb:     <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix graphmb:   <http://swip.univ-tlse2.fr/musicbrainz/> .
+@prefix graphdbp:   <http://swip.univ-tlse2.fr/dbpedia/> .
+
+[] rdf:type fuseki:Server ;
+   fuseki:services (
+     <#serviceMusicbrainz>
+     <#serviceDbpedia>
+     <#serviceSparqluedo>
+     <#serviceCinema>
+   ) .
+
+[] ja:loadClass "com.hp.hpl.jena.tdb.TDB" .
+tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb:GraphTDB    rdfs:subClassOf  ja:Model .
+
+
+###########################################
+# Musicbrainz
+###########################################
+
+<#serviceMusicbrainz> rdf:type fuseki:Service ;
+    fuseki:name                        "musicbrainz" ;
+    fuseki:serviceQuery                "sparql" ;
+    fuseki:serviceQuery                "query" ;
+    fuseki:serviceUpdate               "update" ;
+    fuseki:serviceUpload               "upload" ;
+    fuseki:serviceReadWriteGraphStore  "data" ;
+    fuseki:serviceReadGraphStore       "get" ;
+    fuseki:serviceReadGraphStore       "" ;
+    fuseki:dataset                     <#musicbrainzDataset> ;
+    .
+
+<#musicbrainzDataset>
+    a ja:RDFDataset ;
+#    ja:defaultGraph <#mbKB>;
+    ja:defaultGraph [
+        a ja:MemoryModel ;
+    ];
+    ja:namedGraph
+       [ ja:graphName      graphmb:kb ;
+         ja:graph          <#mbKB>; ] ;
+    ja:namedGraph
+       [ ja:graphName      graphmb:patterns ;
+         ja:graph          <#mbPatterns>; ] ;
+    ja:namedGraph
+       [ ja:graphName      graphmb:queries ;
+         ja:graph          <#mbQueries>; ] ;
+
+    ja:textIndex "/stockage/data/musicbrainz/larqdata-mv";
+    tdb:unionDefaultGraph true ;
+    .
+
+<#mbKB> a ja:TDBDataset;#InfModel;
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/stockage/data/musicbrainz/tdbdata-kb";
+        ];
+    .
+
+<#mbPatterns> a ja:InfModel;
+        ja:reasoner [
+            ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/RDFSExptRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLFBRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLMiniFBRuleReasoner>;
+        ];
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/stockage/data/musicbrainz/tdbdata-patterns";
+        ];
+    .
+
+<#mbQueries> a ja:MemoryModel ;
+        ja:content [ja:externalContent <file:/stockage/data/musicbrainz/rdfdata-queries/usefulMatchings.ttl> ] ;
+    .
+
+
+###########################################
+# DBpedia
+###########################################
+
+<#serviceDbpedia> rdf:type fuseki:Service ;
+    fuseki:name                        "dbpedia" ;
+    fuseki:serviceQuery                "sparql" ;
+    fuseki:serviceQuery                "query" ;
+    fuseki:serviceUpdate               "update" ;
+    fuseki:serviceUpload               "upload" ;
+    fuseki:serviceReadWriteGraphStore  "data" ;
+    fuseki:serviceReadGraphStore       "get" ;
+    fuseki:serviceReadGraphStore       "" ;
+    fuseki:dataset                     <#dbpediaDataset> ;
+    .
+
+<#dbpediaDataset>
+    a ja:RDFDataset ;
+    ja:defaultGraph [
+        a ja:MemoryModel ;
+    ];
+    ja:namedGraph
+       [ ja:graphName      graph:kb ;
+         ja:graph          <#dbpKB>; ] ;
+    ja:namedGraph
+       [ ja:graphName      graph:patterns ;
+         ja:graph          <#dbpPatterns>; ] ;
+    ja:namedGraph
+       [ ja:graphName      graph:queries ;
+         ja:graph          <#dbpQueries>; ] ;
+
+    ja:textIndex "/stockage/data/dbpedia/larqdata-mv";
+#    ja:defaultGraph <#dbpKB>;
+    tdb:unionDefaultGraph true ;
+    .
+
+<#dbpKB> a ja:TDBDataset;#InfModel;
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/stockage/data/dbpedia/tdbdata-kb";
+        ];
+    .
+
+<#dbpPatterns> a ja:InfModel;
+        ja:reasoner [
+            ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/RDFSExptRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLFBRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLMiniFBRuleReasoner>;
+        ];
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/stockage/data/dbpedia/tdbdata-patterns";
+        ];
+    .
+
+<#dbpQueries> a ja:MemoryModel ;
+        ja:content [ja:externalContent <file:/stockage/data/dbpedia/rdfdata-queries/usefulMatchings.ttl> ] ;
+    .
+
+
+###########################################
+# Sparqluedo
+###########################################
+
+[] ja:loadClass "com.hp.hpl.jena.tdb.TDB" .
+tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb:GraphTDB    rdfs:subClassOf  ja:Model .
+
+<#serviceSparqluedo> rdf:type fuseki:Service ;
+    fuseki:name                        "sparqluedo" ;
+    fuseki:serviceQuery                "sparql" ;
+    fuseki:serviceQuery                "query" ;
+    fuseki:serviceUpdate               "update" ;
+    fuseki:serviceUpload               "upload" ;
+    fuseki:serviceReadWriteGraphStore  "data" ;
+    fuseki:serviceReadGraphStore       "get" ;
+    fuseki:serviceReadGraphStore       "" ;
+    fuseki:dataset                     <#sparqluedoDataset> ;
+    .
+
+## In-memory, initially empty.
+<#sparqluedoDataset> a ja:RDFDataset ;
+    ja:defaultGraph [
+        a ja:InfModel;
+        ja:reasoner [
+            #ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/RDFSExptRuleReasoner>;
+            ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLFBRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLMiniFBRuleReasoner>;
+          ];
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/stckage/data/sparqluedo/tdbdata";
+        ];
+    ];
+    .
+
+
+###########################################
+# Cinema
+###########################################
+
+[] ja:loadClass "com.hp.hpl.jena.tdb.TDB" .
+tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb:GraphTDB    rdfs:subClassOf  ja:Model .
+
+<#serviceCinema> a fuseki:Service ;
+    fuseki:name                        "cinema" ;
+    fuseki:serviceQuery                "sparql" ;
+    fuseki:serviceQuery                "query" ;
+#    fuseki:serviceUpdate               "update" ;
+#    fuseki:serviceUpload               "upload" ;
+    fuseki:serviceReadWriteGraphStore  "data" ;
+    fuseki:serviceReadGraphStore       "get" ;
+    fuseki:dataset                     <#cinemaDataset> ;
+    .
+
+<#cinemaDataset>
+    a ja:RDFDataset ;
+    ja:defaultGraph [
+        a ja:InfModel;
+        ja:reasoner [
+            ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/RDFSExptRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLFBRuleReasoner>;
+            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLMiniFBRuleReasoner>;
+
+        ];
+        ja:baseModel [
+            a tdb:GraphTDB;
+            tdb:location "/home/operateur/data/cinema/tdbdata";
+        ];
+    ];
+#    ja:textIndex "/stockage/data/cinema/larqdata"
+    .

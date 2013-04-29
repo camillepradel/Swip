@@ -214,6 +214,11 @@ public class Controller {
 
     private String getGraphForQuery(String queryUri, Query userQuery, String queriesNamedGraphUri, SparqlClient sparqlServer) {
         String queryGraph = "    <" + queryUri + "> a queries:PivotQuery.\n";
+        if (userQuery.isCount()) {
+            queryGraph += "    <" + queryUri + "> a queries:CountPivotQuery.\n";
+        } else if (userQuery.isAsk()) {
+            queryGraph += "    <" + queryUri + "> a queries:AskPivotQuery.\n";
+        }
         for (QueryElement qe : userQuery.getQueryElements()) {
             String qeUri = qe.getStringUri(queryUri, queriesNamedGraphUri);
             if (qe instanceof Keyword) {

@@ -43,11 +43,11 @@ public class MaltParser {
                 try {
                     serviceEn = new MaltParserService();
                     // on mirail server
-//                    serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+                    serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /home/cpradel/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
                     // on irit server
 //                    serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /usr/local/WWW/recherches/MELODI/swip/WEB-INF/classes/ -lfi parser.log");
                     // on my computer
-                     serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
+//                     serviceEn.initializeParserModel("-c engmalt.linear-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
                 } catch (MaltChainedException ex) {
                     logger.error(ex.getMessage());
                 }
@@ -58,9 +58,9 @@ public class MaltParser {
                 try {
                     serviceFr = new MaltParserService();
                     // on mirail server
-//                    serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /home/operateur/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
+                    serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /home/cprade/apache-tomcat-7.0.32/webapps/NlToPivotParser/WEB-INF/classes/ -lfi parser.log");
                     // on irit server
-                    serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /usr/local/WWW/recherches/MELODI/swip/WEB-INF/classes/ -lfi parser.log");
+//                    serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /usr/local/WWW/recherches/MELODI/swip/WEB-INF/classes/ -lfi parser.log");
                     // on my computer
                     // serviceFr.initializeParserModel("-c fremalt-1.7 -m parse -w /mnt/data/gitSwip/NlToPivotParser/build/web/WEB-INF/classes/ -lfi parser.log");
                 } catch (MaltChainedException ex) {

@@ -1,3 +1,13 @@
-SWIP
+# SWIP
 
-TODO (Camille) : Ajouter description brève du projet
+## Overview
+
+SWIP is an approach aiming at translating user natural language queries into SPARQL queries targetting a given knowledge base.
+
+## License
+
+http://creativecommons.org/licenses/by-nc-sa/3.0/deed
+
+## Usage
+
+cf. doc folder

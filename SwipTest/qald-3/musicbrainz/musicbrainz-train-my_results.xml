@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dataset id="musicbrainz-train">
+
+<question id="1" answertype="resource" aggregation="false">
+<string lang="en"><![CDATA[
+Which singles did Slayer release?
+]]></string>
+<pivotQuery>release: Slayer. ?single: release.</pivotQuery>
+<query><![CDATA[
+SELECT ?single WHERE
+{
+  ?Slayer <http://www.w3.org/2000/01/rdf-schema#label> "Slayer".
+  ?single <http://xmlns.com/foaf/0.1/maker> ?Slayer.
+  ?single <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/single>.
+  ?Slayer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+</question>
+
+<question id="2" answertype="resource" aggregation="false">
+<string lang="en"><![CDATA[
+Which groups was David Bowie a member of?
+]]></string>
+<pivotQuery>?group: David_Bowie= member.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?group WHERE
+{
+  ?David_Bowie <http://www.w3.org/2000/01/rdf-schema#label> "David Bowie".
+  ?David_Bowie <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+  ?group <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+  ?member <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/membership>.
+  ?member <http://purl.org/ontology/mo/group> ?group.
+  ?member <http://purl.org/NET/c4dm/event.owl#agent> ?David_Bowie.
+}
+]]></query>
+<remark>problem of confusion membership-Membership solved manually after SPARQL generation</remark>
+</question>
+
+<question id="3" answertype="date" aggregation="false">
+<string lang="en"><![CDATA[
+When was the band Dover founded?
+]]></string>
+<pivotQuery>found: Dover= date&lt;?&gt;. Dover: band.</pivotQuery>
+<pivotQuery>Dover: found= date&lt;?&gt;. Dover: band.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?literal_ebc6a0d766374d9f96cbbe56176492b2 WHERE
+{
+  ?Dover <http://www.w3.org/2000/01/rdf-schema#label> "Dover".
+  ?found <http://purl.org/vocab/bio/0.1/date> ?literal_ebc6a0d766374d9f96cbbe56176492b2.
+  ?Dover <http://purl.org/vocab/bio/0.1/event> ?found.
+  ?found <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Birth>.
+  ?Dover <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+}
+]]></query>
+</question>
+
+<question id="4" answertype="number" aggregation="true">
+<string lang="en"><![CDATA[
+How many albums did Michael Jackson record?
+]]></string>
+<pivotQuery>record: Michael_Jackson. album: record. COUNT.</pivotQuery>
+<query><![CDATA[
+SELECT (COUNT(DISTINCT *) as ?count) WHERE
+{
+  ?Michael_Jackson <http://www.w3.org/2000/01/rdf-schema#label> "Michael Jackson".
+  ?album <http://xmlns.com/foaf/0.1/maker> ?Michael_Jackson.
+  ?album <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+  ?Michael_Jackson <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<remark>problem in gold standart query: all records are queried (and not only albums)</remark>
+<remark>virtuoso doesn't accept the (COUNT(DISTINCT *) as ?count) which is though valid according to http://www.w3.org/TR/2013/REC-sparql11-query-20130321/#rAggregate</remark>
+</question>
+
+<question id="5" answertype="resource" aggregation="true">
+<string lang="en"><![CDATA[
+Who composed the Star Wars soundtrack?
+]]></string>
+<pivotQuery>soundtrack: Star_Wars. ?person: compose= soundtrack.</pivotQuery>
+<query><![CDATA[
+  SELECT DISTINCT ?person WHERE
+{
+  ?Star_Wars <http://www.w3.org/2000/01/rdf-schema#label> "Star Wars: The Clone Wars".
+  ?Star_Wars <http://purl.org/ontology/mo/composer> ?person.
+  ?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Agent>.
+  ?Star_Wars <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/soundtrack>.
+}
+]]></query>
+<remark>interpretation is not bad, but doesn't return any result</remark>
+</question>
+
+<question id="6" answertype="resource" aggregation="true">
+<string lang="en"><![CDATA[
+Which solo artists had their 50th birthday on May 30, 2012?
+]]></string>
+<query></query>
+<remark>query not handled</remark>
+</question>
+
+<question id="7" answertype="resource" aggregation="true">
+<string lang="en"><![CDATA[
+Give me the present members of The Cure.
+]]></string>
+<pivotQuery>?member: present. ?member: The_Cure.</pivotQuery>
+<query><![CDATA[
+
+]]></query>
+</question>
+
+<question id="8" answertype="resource" aggregation="false">
+<string lang="en"><![CDATA[
+Give me all Kraftwerk albums.
+]]></string>
+<pivotQuery>album: ?Kraftwerk.</pivotQuery>
+<query><![CDATA[
+
+]]></query>
+</question>
+
+</dataset>
+

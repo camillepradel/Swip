@@ -1,213 +1,280 @@
-requires:
- - jdk -> howToInstallJdk.txt
- - subversion
- - maven
+# part of this cookbook is inspired from http://code.google.com/p/onki-light/wiki/InstallFusekiLARQ
+# requires:
+#  - jdk -> howToInstallJdk.txt
+#  - subversion
+#  - maven
 
-cookbook inspired from http://code.google.com/p/onki-light/wiki/InstallFusekiLARQ
+cd /local2/users/cpr
 
-If you have previously used Maven, you may want to clear your Maven repository before building Fuseki to get rid of
-any old package versions:
-> rm -rf ~/.m2
+##################################################
+# Build the server
+##################################################
 
-Check out the Jena source
-> svn co https://svn.apache.org/repos/asf/jena/trunk/ Jena
-
-Adding LARQ dependency
-You will need to add a LARQ dependency to the Jena/jena-fuseki/pom.xml file. Edit the file and add this block after
-the other dependencies:
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-larq</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
-    </dependency>
-Newer versions of LARQ may be available by the time you read this. Check out this directory listing
-(https://repository.apache.org/content/groups/snapshots/org/apache/jena/jena-larq/).
-
-Adding Pellet reasoner to class path (only if you want to use Pellet)
-download and unzip Pellet archive such as pellet-2.3.0 folder is in ~/Jena/jena-fuseki/
-> mvn install:install-file -Dfile=pellet-2.3.0/lib/aterm-java-1.6.jar -DgroupId=org.mindswap -DartifactId=aterm -Dversion=2.3.0 -Dpackaging=jar
-> ...
-> mvn install:install-file -Dfile=pellet-2.3.0/lib/pellet-core.jar -DgroupId=org.mindswap -DartifactId=pellet-core -Dversion=2.3.0 -Dpackaging=jar
-> ...
->  mvn install:install-file -Dfile=pellet-2.3.0/lib/pellet-jena.jar -DgroupId=org.mindswap -DartifactId=pellet-jena -Dversion=2.3.0 -Dpackaging=jar
-> ...
-> mvn install:install-file -Dfile=pellet-2.3.0/lib/servlet.jar -DgroupId=org.mindswap -DartifactId=servlet -Dversion=2.3.0 -Dpackaging=jar
-> mvn install:install-file -Dfile=pellet-2.3.0/lib/jgrapht/jgrapht-jdk1.5.jar -DgroupId=org.jgrapht -DartifactId=jgrapht -Dversion=2.3.0 -Dpackaging=jar
-
-Edit Jena/jena-fuseki/pom.xml and add the coresponding dependencies:
+# if, you don't have a home directory
+export HOME=/local2/users/cpr
+# DIY: create a file mavenSettings with the following content
 '''
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+  <localRepository>/local2/users/cpr/mavenLocalRepository</localRepository>
+</settings>
+'''
+mkdir mavenLocalRepository # usefull?
+# in the following, add "-gs ~/mavenSettings.xml" parameter to each mvn call
+
+
+# If you have previously used Maven, you may want to clear your Maven repository before building Fuseki to get rid of any old package versions:
+rm -rf ~/.m2
+
+# download the Jena source
+# (you can also check out repository trunk: svn co https://svn.apache.org/repos/asf/jena/trunk/ Jena)
+wget http://www.apache.org/dist/jena/source/jena-2.10.0-source-release.zip
+unzip jena-2.10.0-source-release.zip
+
+cd jena-2.10.0/jena-larq/
+
+# DIY: edit pom.xml
+#      change <ver.arq>2.10.0-SNAPSHOT</ver.arq> into <ver.arq>2.10.0</ver.arq>
+#      change <ver.tdb>0.10.0-SNAPSHOT</ver.tdb> into <ver.tdb>0.10.0</ver.tdb>
+#      change <version>1.0.1-SNAPSHOT</version> into <version>1.0.1</version>
+
+# DIY: IF you want to prevent the use of stop words, edit src/main/java/org/apache/jena/larq/IndexWriterFactory.java
+# replace
+# > IndexWriterConfig config = new IndexWriterConfig(LARQ.LUCENE_VERSION, new StandardAnalyzer(LARQ.LUCENE_VERSION)) ;
+# by
+# > Set stopWords = new HashSet();
+# > stopWords.add("plop");
+# > IndexWriterConfig config = new IndexWriterConfig(LARQ.LUCENE_VERSION, new StandardAnalyzer(LARQ.LUCENE_VERSION, stopWords)) ;
+# add the corresponfing imports:
+# > import java.util.HashSet;
+# > import java.util.Set;
+# then some tests will fail while building the project; that is why we need to skip these tests (by using the option -Dmaven.test.skip=true)
+
+mvn install -Dmaven.test.skip=true
+
+# DIY: IF you want to use Pellet reasoner, you need to add the corresponding dependencies
+# download Pellet archive in ~/
+cd
+unzip pellet-2.3.0.zip
+cd pellet-2.3.0/
+mvn install:install-file -Dfile=lib/aterm-java-1.6.jar         -DgroupId=org.mindswap -DartifactId=aterm              -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-cli.jar             -DgroupId=org.mindswap -DartifactId=pellet-cli         -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-core.jar            -DgroupId=org.mindswap -DartifactId=pellet-core        -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-datatypes.jar       -DgroupId=org.mindswap -DartifactId=pellet-datatypes   -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-dig.jar             -DgroupId=org.mindswap -DartifactId=pellet-dig         -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-el.jar              -DgroupId=org.mindswap -DartifactId=pellet-el          -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-explanation.jar     -DgroupId=org.mindswap -DartifactId=pellet-explanation -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-jena.jar            -DgroupId=org.mindswap -DartifactId=pellet-jena        -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-modularity.jar      -DgroupId=org.mindswap -DartifactId=pellet-modularity  -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-pellint.jar         -DgroupId=org.mindswap -DartifactId=pellet-pellint     -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-query.jar           -DgroupId=org.mindswap -DartifactId=pellet-query       -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-rules.jar           -DgroupId=org.mindswap -DartifactId=pellet-rules       -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/pellet-test.jar            -DgroupId=org.mindswap -DartifactId=pellet-test        -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/servlet.jar                -DgroupId=org.mindswap -DartifactId=servlet            -Dversion=2.3.0 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/jgrapht/jgrapht-jdk1.5.jar -DgroupId=org.jgrapht  -DartifactId=jgrapht            -Dversion=2.3.0 -Dpackaging=jar
+cd jena-2.10.0/jena-fuseky
+# add the corresponding dependencies jena-fuseky/pom.xml
+'''
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>aterm</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-cli</artifactId>
+      <version>2.3.0</version>
+    </dependency>
     <dependency>
       <groupId>org.mindswap</groupId>
       <artifactId>pellet-core</artifactId>
       <version>2.3.0</version>
     </dependency>
-...
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-datatypes</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-dig</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-el</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-explanation</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-jena</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-modularity</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-pellint</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-query</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-rules</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindswap</groupId>
+      <artifactId>pellet-test</artifactId>
+      <version>2.3.0</version>
+    </dependency>
     <dependency>
       <groupId>org.mindswap</groupId>
       <artifactId>servlet</artifactId>
       <version>2.3.0</version>
     </dependency>
     <dependency>
-      <groupId>org.mindswap</groupId>
+      <groupId>org.jgrapht</groupId>
       <artifactId>jgrapht</artifactId>
       <version>2.3.0</version>
     </dependency>
 '''
 
+cd ../jena-fuseki/
+# DIY: add a LARQ dependency to the pom.xml file. Edit the file and add this block after the other dependencies:
+'''
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-larq</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+'''
+mvn clean package
+cd
+tar -xvzf jena-2.10.0/jena-fuseki/target/jena-fuseki-0.2.6-distribution.tar.gz
 
-Build fuseki using Maven
-> cd ~/Jena/jena-fuseki
-> mvn clean package
 
-untar built distribution file
-> cd
-> tar -xvzf Jena/jena-fuseki/target/jena-fuseki-0.2.5-SNAPSHOT-distribution.tar.gz
 
-dowload and install jena
-> cd
-> wget http://www.apache.org/dist/jena/binaries/apache-jena-2.7.3.tar.gz
-> tar -xzvf apache-jena-2.7.3.tar.gz
-> export JENAROOT=/home/operateur/apache-jena-2.7.3
-> PATH=$JENAROOT/bin:$PATH
+##################################################
+# Download and index the data
+##################################################
 
-download graph data
-> mkdir ~/data
-> mkdir ~/data/cinema
-> mkdir ~/data/cinema/rdfdata
-> cd ~/data/cinema/rdfdata
-> wget http://tampon.alwaysdata.net/Cinema.owl
-> wget http://tampon.alwaysdata.net/cesar2012-rdf.xml
-> wget http://tampon.alwaysdata.net/cannes2011-rdf.xml
-> mkdir data/musicbrainz
-> mkdir data/musicbrainz/rdfdata
-> cd /home/operateur/data/musicbrainz/rdfdata/
-dowload musicbrainz dataset
-> wget http://greententacle.techfak.uni-bielefeld.de/~cunger/qald2/musicbrainz.tar.gz
-> tar -xvzf musicbrainz.tar.gz
-> rm musicbrainz.tar.gz
-dowload musicontology serialized in the RDF/XML format (save as with Protege). Remove all imports with relative URIs (eventually replace with absolute URIs)
-dowload all vocabularies and ontologies imported by musicontology (to allow better inferences)
-dowload event
-> wget http://motools.sf.net/event/event.n3
-dowload keys vocabulary
-> wget http://purl.org/NET/c4dm/keys.owl
-download dc terms
-> wget http://bloody-byte.net/rdf/dc_owl2dl/dcterms.rdf
-dowload association ontology
-> wget http://purl.org/ontology/ao/associationontology.owl
-download biographical information vocabulary
-> wget http://vocab.org/bio/0.1/.rdf
-> mv .rdf bio.rdf
-dowload Core FRBR vocabulary
-> wget http://vocab.org/frbr/core.rdf
-download time ontology
-> wget http://www.w3.org/2006/time
-> mv time time.rdf
-download FOAF vocabulary
-> wget http://xmlns.com/foaf/spec/index.rdf
-> mv index.rdf foaf.rdf
+mkdir ~/data
 
-add rdf, rdfs, owl?? (certainement inutile vu que les raisonneurs doivent les prendre en compte)
+# for Musicbrainz
+mkdir ~/data/musicbrainz
+mkdir ~/data/musicbrainz/rdfdata-kb
+cd ~/data/musicbrainz/rdfdata-kb
+# dowload musicbrainz dataset
+wget http://greententacle.techfak.uni-bielefeld.de/~cunger/qald2/musicbrainz.tar.gz
+tar -xvzf musicbrainz.tar.gz
+rm musicbrainz.tar.gz
+# dowload musicontology serialized in the RDF/XML format (save as with Protege). - maybe not necessary??
+# Remove all imports with relative URIs (eventually replace with absolute URIs)
+# dowload all vocabularies and ontologies imported by musicontology (to allow better inferences)
+# dowload event
+wget http://motools.sf.net/event/event.n3
+# dowload keys vocabulary
+wget http://purl.org/NET/c4dm/keys.owl
+# download dc terms
+wget http://bloody-byte.net/rdf/dc_owl2dl/dcterms.rdf
+# dowload association ontology
+wget http://purl.org/ontology/ao/associationontology.owl
+# download biographical information vocabulary
+wget http://vocab.org/bio/0.1/.rdf
+mv .rdf bio.rdf
+# dowload Core FRBR vocabulary
+wget http://vocab.org/frbr/core.rdf
+# download time ontology
+wget http://www.w3.org/2006/time
+mv time time.rdf
+# download FOAF vocabulary
+wget http://xmlns.com/foaf/spec/index.rdf
+mv index.rdf foaf.rdf
 
-build TDB indexes
-> cd ~/data/cinema/
-> mkdir tdbdata
-> tdbloader --loc=tdbdata/ rdfdata/*
-> cd ~/data/musicbrainz/
-> mkdir tdbdata
-> tdbloader --loc=tdbdata/ rdfdata/*
+# for cinema dataset
+mkdir ~/data/cinema
+mkdir ~/data/cinema/rdfdata-kb
+cd ~/data/cinema/rdfdata-kb
+wget http://tampon.alwaysdata.net/Cinema.owl
+wget http://tampon.alwaysdata.net/cesar2012-rdf.xml
+wget http://tampon.alwaysdata.net/cannes2011-rdf.xml
 
-LARQ indexes are built automatically when Fuseki is launched (the directory specified in the config file as containing the index must not exist).
-otherwise, it can be done manually:
-!!! looks like the good way to do it, but doesn't work
-> mkdir ~/data/cinema/larqdata
-> cd ~/jena-fuseki-0.2.5-SNAPSHOT/
-> java -cp fuseki-server.jar larq.larqbuilder --larq=~/data/cinema/larqdata --desc=config.ttl
-download ARQ
+# for Andreas dataset
+mkdir ~/data/andreas
+mkdir ~/data/andreas/rdfdata-kb
+cd ~/data/andreas/rdfdata-kb
+# dowload the rdf files
+wget http://data.wunderfacts.com/v1.0/data-all.1.aa.ttl.gz
+wget http://data.wunderfacts.com/v1.0/data-all.1.ab.ttl.gz
+wget http://data.wunderfacts.com/v1.0/data-all.1.ac.ttl.gz
+wget http://data.wunderfacts.com/v1.0/data-all.1.ad.ttl.gz
+wget http://data.wunderfacts.com/v1.0/data-all.1.ae.ttl.gz
+wget http://data.wunderfacts.com/v1.0/data-all.1.af.ttl.gz
+wget http://data.wunderfacts.com/v1.0/data-all.1.ag.ttl.gz
+wget http://data.wunderfacts.com/v1.0/data-all.1.ah.ttl.gz
+gunzip *.gz
 
-edit ~/jena-fuseki-0.2.5-SNAPSHOT/config.ttl such as it looks like that:
+
+# add rdf, rdfs, owl?? (probably unusefull because reasonners must take them naturally into account)
+
+
+# dowload and install jena (needed only for TDB indexing; there is probably a lighter way)
+cd
+wget http://www.apache.org/dist/jena/binaries/apache-jena-2.10.0.tar.gz
+tar -xzvf apache-jena-2.10.0.tar.gz
+export JENAROOT=~/apache-jena-2.10.0
+PATH=$JENAROOT/bin:$PATH
+
+# build TDB indexes
+cd ~/data/[dataset]/
+mkdir tdbdata-kb
+tdbloader --loc=tdbdata-kb/ rdfdata-kb/*
+
+# LARQ indexes are built automatically when Fuseki is launched (the directory specified in the config file as containing the index must not exist).
+# otherwise, it can be done manually:
+# !!! looks like the good way to do it, but doesn't work
+# > mkdir ~/data/cinema/larqdata
+# > cd ~/jena-fuseki-0.2.5-SNAPSHOT/
+# > java -cp fuseki-server.jar larq.larqbuilder --larq=~/data/cinema/larqdata --desc=config.ttl
+
+
+
+
+##################################################
+# Configure and run the server
+##################################################
+
+cd ~/jena-fuseki-0.2.6/
+
+
+# edit ~/jena-fuseki-0.2.6/config.ttl such as it looks like that the examples given in fuseki-config/config*.ttl
+
+# editing ~/jena-fuseki-0.2.6/fuseki-server, you can modify parameters of java virtual machine (such as -Xmx):
 """
-@prefix :        <#> .
-@prefix fuseki:  <http://jena.apache.org/fuseki#> .
-@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix tdb:     <http://jena.hpl.hp.com/2008/tdb#> .
-@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
-
-[] rdf:type fuseki:Server ;
-   fuseki:services (
-#     <#serviceCinema>
-     <#serviceMusicbrainz>
-   ) .
-
-[] ja:loadClass "com.hp.hpl.jena.tdb.TDB" .
-tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
-tdb:GraphTDB    rdfs:subClassOf  ja:Model .
-
-#<#serviceCinema> a fuseki:Service ;
-#    fuseki:name                        "cinema" ;
-#    fuseki:serviceQuery                "sparql" ;
-#    fuseki:serviceQuery                "query" ;
-#    fuseki:serviceUpdate               "update" ;
-#    fuseki:serviceUpload               "upload" ;
-#    fuseki:serviceReadWriteGraphStore  "data" ;
-#    fuseki:serviceReadGraphStore       "get" ;
-#    fuseki:dataset                     <#cinemaDataset> ;
-#    .
-
-#<#cinemaDataset>
-#    a ja:RDFDataset ;
-#    ja:defaultGraph [
-#        a ja:InfModel;
-#        ja:reasoner [
-#            ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
-#        ];
-#        ja:baseModel [
-#            a tdb:GraphTDB;
-#            tdb:location "/home/operateur/data/cinema/tdbdata";
-#        ];
-#    ];
-#    ja:textIndex "/home/operateur/data/cinema/larqdata"
-#    .
-
-<#serviceMusicbrainz> rdf:type fuseki:Service ;
-    fuseki:name                        "musicbrainz" ;
-    fuseki:serviceQuery                "sparql" ;
-    fuseki:serviceQuery                "query" ;
-    fuseki:serviceUpdate               "update" ;
-    fuseki:serviceUpload               "upload" ;
-    fuseki:serviceReadWriteGraphStore  "data" ;
-    fuseki:serviceReadGraphStore       "get" ;
-    fuseki:serviceReadGraphStore       "" ;
-    fuseki:dataset                     <#musicbrainzDataset> ;
-    .
-
-<#musicbrainzDataset>
-    a ja:RDFDataset ;
-    ja:defaultGraph [
-        a ja:InfModel;
-        ja:reasoner [
-            #ja:reasonerClass "org.mindswap.pellet.jena.PelletReasonerFactory";
-            ja:reasonerURL <http://jena.hpl.hp.com/2003/RDFSExptRuleReasoner>;
-            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLFBRuleReasoner>;
-            #ja:reasonerURL <http://jena.hpl.hp.com/2003/OWLMiniFBRuleReasoner>;
-        ];
-        ja:baseModel [
-            a tdb:GraphTDB;
-            tdb:location "/home/operateur/data/musicbrainz/tdbdata";
-        ];
-    ];
-    ja:textIndex "/home/operateur/data/musicbrainz/larqdata"
-    .
+JVM_ARGS=${JVM_ARGS:--Xmx2G}
 """
 
-editing ~/jena-fuseki-0.2.5-SNAPSHOT/fuseki-server, you can modify parameters of java virtual machine (such as -Xmx):
-"""
-JVM_ARGS=${JVM_ARGS:--Xmx1200M}
-"""
+# change rights
+chmod +x fuseki-server s-*
+# start the server
+./fuseki-server --port=8080 --config=config.ttl
+# DIY: runserver.sh
 
-run server
-> cd ~/jena-fuseki-0.2.5-SNAPSHOT/
-> chmod +x fuseki-server s-*
-> ./fuseki-server --port=8080 --config=config.ttl
 
+
+# DIY: create runserver.sh
+chmod +x fuseki-server runserver.sh s-*
+./runserver.sh

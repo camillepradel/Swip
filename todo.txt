@@ -18,6 +18,8 @@
    - ajout du français
    - optimisation pour "garder le parseur en mémoire"
    - raffinage des règles
+ + dégager le pivot
+   - explooiter directement l'arbre de dépendances (idéalement au format NIF: http://nlp2rdf.org/)
  + nouvelle implem de NlToPivot à base d'apprentissage
  + participation à QALD-3 pour le dataset DbPedia
    - définition des patrons

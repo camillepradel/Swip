@@ -38,11 +38,6 @@
 	                    <th>Sparql endpoint: </th>
 	                    <th>
 	                    	<input name="sparqlenpoint" class="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
-	                        <!-- <select name="sparqlenpoint" class="sparqlenpoint" size="1">
-	                            <option value="http://localhost:8080/musicbrainz/">localhostl</option>
-	                            <option value="http://swip.univ-tlse2.fr:8080/musicbrainz/" selected="selected">mirail from inner</option>
-	                            <option value="http://swip.univ-tlse2.fr:8080/musicbrainz/" selected="selected">mirail from ext</option>
-	                        </select> -->
 	                    </th>
 	                </tr>
 	            </table>
@@ -51,16 +46,16 @@
 	                <tr>
 	                    <th>Web service: </th>
 	                    <th>
-	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" /> -->
-	                    	<input name="ptswebservice" class="ptswebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" />
+	                    	<input name="ptswebservice" class="ptswebservice" value="http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" />
+	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" /> -->
 	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP" /> -->
 	                    </th>
 	                </tr>
 	                <tr>
 	                    <th>Sparql endpoint for server: </th>
 	                    <th>
-	                    	<!-- <input name="sparqlenpointserver" class="sparqlenpointserver" value="http://localhost:8080/musicbrainz/" /> -->
-	                    	<input name="sparqlenpointserver" class="sparqlenpointserver" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
+	                    	<input name="sparqlenpointserver" class="sparqlenpointserver" value="http://localhost:8080/musicbrainz/" />
+	                    	<!-- <input name="sparqlenpointserver" class="sparqlenpointserver" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" /> -->
 	                    </th>
 	                </tr>
 	                <tr>
@@ -144,8 +139,10 @@
 				<li id="PerformingSpCollectionMapping_state">Mapping subpattern collections</li>
 				<li id="PerformingPatternMapping_state">Mapping patterns</li>
 				<li id="PerformingMappingRanking_state">Ranking mappings</li>
+				<li id="PerformingMappingsClearing_state">Clearing bad mappings</li>
 				<li id="PerformingKbClearing_state">Clearing KB</li>
-				<li id="PerformingSentenceGeneration_state">Generating NL sentences and SPARQL queries</li>
+				<li id="PerformingSentenceGeneration_state">Generating NL sentences</li>
+				<li id="PerformingSparqlQueryGeneration_state">Generating SPARQL queries</li>
 			</ol>
 		</div>
 

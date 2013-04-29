@@ -37,7 +37,7 @@ public class NlToPivotGazetteerWS {
                 logger.info("Loading Gate process pipeline.......");
 //                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File(this.getClass().getClassLoader().getResource("../NlToPivotGazetteerMusicbrainz.gapp").getPath()));
                 // on mirail server
-                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File("/home/operateur/gate/NlToPivotGazetteerMusicbrainz.gapp"));
+                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File("/home/cpradel/gate/NlToPivotGazetteerMusicbrainz.gapp"));
                 // on my computer
 //                corpusControllerGazetteer = (CorpusController) PersistenceManager.loadObjectFromFile(new File("/home/camille/gate/NlToPivotGazetteerMusicbrainz.gapp"));
                 logger.info("Process pipeline loaded");

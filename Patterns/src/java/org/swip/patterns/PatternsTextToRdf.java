@@ -5,6 +5,7 @@ import org.swip.patterns.antlr.patternsDefinitionGrammarParser;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFWriter;
 import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -200,7 +201,12 @@ public class PatternsTextToRdf {
                     patternResource.addProperty(patternHasDirectSubpatternProp, processSubpattern(sp, p, patternResource));
                 }
             }
+            // ugly n-triple serialization is ugly, because turtle and N3 print object lists as
+            // comma separated lists and thus we loose URIs assigned to lists (which are required
+            // during the interpretation process)
+//            RDFWriter writer = model.getWriter();//"N-TRIPLE");
             OutputStream os = new ByteArrayOutputStream();
+//            writer.write(model, os, patternOntologyUri);
             model.write(os);
             return os.toString();
 
@@ -281,6 +287,8 @@ public class PatternsTextToRdf {
     }
 
     private static String generatePatternElementUri(PatternElement sp, Pattern pattern) {
+        logger.info("sp: " + sp.getId());
+        logger.info("pattern name: " + pattern.getName());
         return uriStart + pattern.getName() + "_element" + sp.getId();
     }
 

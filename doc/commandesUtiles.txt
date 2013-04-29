@@ -20,6 +20,11 @@ tuer fuseki:
  2) tuer le processus en utilisant son PID: kill <PID>
                         ou si il es planté: kill -9 <PID>
 
+afficher les commandes exécutées dans un script bash
+> set -x
+désactiver
+> set +x
+
 ajouter un fichier swap de 2G
 > su - root
 > dd if=/dev/zero of=/swap bs=1M count=2048
