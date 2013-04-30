@@ -6,8 +6,6 @@ import java.io.FileFilter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.util.logging.Logger;
 
 import javax.xml.transform.TransformerException;
@@ -15,7 +13,6 @@ import javax.xml.transform.TransformerException;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentVisitor;
-import org.xml.sax.SAXException;
 
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
@@ -53,7 +50,7 @@ public class AlignmentMerger {
 			}
 		});
 
-		BasicAlignment alignment = null;
+		BasicAlignmentDecorator alignment = null;
 		AlignmentParser aparser = new AlignmentParser(0);
 
 		FileFilter filter = new RdfFileFilter();
@@ -68,12 +65,14 @@ public class AlignmentMerger {
 				if (alignment == null) {
 					LOGGER.info("First alignment from = "
 							+ rdfFile.getParentFile().getName());
-					alignment = (BasicAlignment) aparser.parse(rdfFile.toURI());
+					alignment = new BasicAlignmentDecorator(
+							(BasicAlignment) aparser.parse(rdfFile.toURI()));
 				} else {
 
 					Alignment other = aparser.parse(rdfFile.toURI());
 					LOGGER.info("Merging with = "
 							+ rdfFile.getParentFile().getName());
+
 					alignment.ingest(other);
 				}
 			}
@@ -81,8 +80,7 @@ public class AlignmentMerger {
 		}
 
 		// Displays it as OWL Rules
-		File out = new File(
-				"E:/pgillet/Stage/Data/Alignements/Output - MusicBrainz - DBPedia - v3/dbpedia-music/output.rdf");
+		File out = new File(basedir, "merge.rdf");
 		LOGGER.info("Writing the final result to = " + out);
 		PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(
 				out /*
