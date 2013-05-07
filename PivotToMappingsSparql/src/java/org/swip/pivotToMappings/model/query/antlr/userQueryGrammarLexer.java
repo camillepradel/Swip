@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/userQueryGrammar.g 2013-01-02 18:06:49
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/userQueryGrammar.g 2013-05-06 15:23:12
 package  org.swip.pivotToMappings.model.query.antlr;
 
 import org.antlr.runtime.*;
@@ -224,10 +224,10 @@ public class userQueryGrammarLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/camille/ANTLRWorks/userQueryGrammar.g:137:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /home/camille/ANTLRWorks/userQueryGrammar.g:137:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/camille/ANTLRWorks/userQueryGrammar.g:137:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '\\'' )* )
+            // /home/camille/ANTLRWorks/userQueryGrammar.g:137:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '\\'' )*
             {
-            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            if ( input.LA(1)=='\''||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
 
             }
@@ -236,13 +236,13 @@ public class userQueryGrammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /home/camille/ANTLRWorks/userQueryGrammar.g:137:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/camille/ANTLRWorks/userQueryGrammar.g:137:36: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '\\'' )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>='0' && LA1_0<='9')||(LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')) ) {
+                if ( (LA1_0=='\''||(LA1_0>='0' && LA1_0<='9')||(LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')) ) {
                     alt1=1;
                 }
 
@@ -251,7 +251,7 @@ public class userQueryGrammarLexer extends Lexer {
             	case 1 :
             	    // /home/camille/ANTLRWorks/userQueryGrammar.g:
             	    {
-            	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	    if ( input.LA(1)=='\''||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
 
             	    }
@@ -766,59 +766,59 @@ public class userQueryGrammarLexer extends Lexer {
 
     protected DFA10 dfa10 = new DFA10(this);
     static final String DFA10_eotS =
-        "\2\uffff\2\21\6\uffff\1\21\4\uffff\2\21\2\uffff\2\21\1\27\1\21\1"+
+        "\2\uffff\2\16\6\uffff\1\16\5\uffff\2\16\1\uffff\2\16\1\27\1\16\1"+
         "\uffff\1\31\1\uffff";
     static final String DFA10_eofS =
         "\32\uffff";
     static final String DFA10_minS =
-        "\1\11\1\uffff\2\40\6\uffff\1\40\4\uffff\2\40\2\uffff\4\40\1\uffff"+
+        "\1\11\1\uffff\2\40\6\uffff\1\40\5\uffff\2\40\1\uffff\4\40\1\uffff"+
         "\1\40\1\uffff";
     static final String DFA10_maxS =
-        "\1\172\1\uffff\2\172\6\uffff\1\172\4\uffff\2\172\2\uffff\4\172\1"+
+        "\1\172\1\uffff\2\172\6\uffff\1\172\5\uffff\2\172\1\uffff\4\172\1"+
         "\uffff\1\172\1\uffff";
     static final String DFA10_acceptS =
         "\1\uffff\1\1\2\uffff\1\4\1\5\1\6\1\7\1\10\1\11\1\uffff\1\13\1\14"+
-        "\1\15\1\17\2\uffff\1\12\1\16\4\uffff\1\3\1\uffff\1\2";
+        "\1\15\1\12\1\17\2\uffff\1\16\4\uffff\1\3\1\uffff\1\2";
     static final String DFA10_specialS =
         "\32\uffff}>";
     static final String[] DFA10_transitionS = {
-            "\2\15\2\uffff\1\15\22\uffff\1\15\3\uffff\1\11\7\uffff\1\7\1"+
-            "\uffff\1\1\1\14\12\13\1\4\1\5\1\16\1\6\1\uffff\1\10\1\uffff"+
-            "\1\3\1\12\1\2\27\12\4\uffff\1\12\1\uffff\32\12",
+            "\2\15\2\uffff\1\15\22\uffff\1\15\3\uffff\1\11\2\uffff\1\16\4"+
+            "\uffff\1\7\1\uffff\1\1\1\14\12\13\1\4\1\5\1\17\1\6\1\uffff\1"+
+            "\10\1\uffff\1\3\1\12\1\2\27\12\4\uffff\1\12\1\uffff\32\12",
             "",
-            "\1\22\17\uffff\12\20\7\uffff\16\20\1\17\13\20\4\uffff\1\20"+
-            "\1\uffff\32\20",
-            "\1\22\17\uffff\12\20\7\uffff\22\20\1\23\7\20\4\uffff\1\20\1"+
-            "\uffff\32\20",
-            "",
-            "",
+            "\1\22\17\uffff\12\21\7\uffff\16\21\1\20\13\21\4\uffff\1\21"+
+            "\1\uffff\32\21",
+            "\1\22\17\uffff\12\21\7\uffff\22\21\1\23\7\21\4\uffff\1\21\1"+
+            "\uffff\32\21",
             "",
             "",
             "",
             "",
-            "\1\22\17\uffff\12\20\7\uffff\32\20\4\uffff\1\20\1\uffff\32"+
-            "\20",
+            "",
+            "",
+            "\1\22\17\uffff\12\21\7\uffff\32\21\4\uffff\1\21\1\uffff\32"+
+            "\21",
             "",
             "",
             "",
             "",
-            "\1\22\17\uffff\12\20\7\uffff\24\20\1\24\5\20\4\uffff\1\20\1"+
-            "\uffff\32\20",
-            "\1\22\17\uffff\12\20\7\uffff\32\20\4\uffff\1\20\1\uffff\32"+
-            "\20",
             "",
+            "\1\22\17\uffff\12\21\7\uffff\24\21\1\24\5\21\4\uffff\1\21\1"+
+            "\uffff\32\21",
+            "\1\22\17\uffff\12\21\7\uffff\32\21\4\uffff\1\21\1\uffff\32"+
+            "\21",
             "",
-            "\1\22\17\uffff\12\20\7\uffff\12\20\1\25\17\20\4\uffff\1\20"+
-            "\1\uffff\32\20",
-            "\1\22\17\uffff\12\20\7\uffff\15\20\1\26\14\20\4\uffff\1\20"+
-            "\1\uffff\32\20",
-            "\1\22\17\uffff\12\20\7\uffff\32\20\4\uffff\1\20\1\uffff\32"+
-            "\20",
-            "\1\22\17\uffff\12\20\7\uffff\23\20\1\30\6\20\4\uffff\1\20\1"+
-            "\uffff\32\20",
+            "\1\22\17\uffff\12\21\7\uffff\12\21\1\25\17\21\4\uffff\1\21"+
+            "\1\uffff\32\21",
+            "\1\22\17\uffff\12\21\7\uffff\15\21\1\26\14\21\4\uffff\1\21"+
+            "\1\uffff\32\21",
+            "\1\22\6\uffff\1\16\10\uffff\12\21\7\uffff\32\21\4\uffff\1\21"+
+            "\1\uffff\32\21",
+            "\1\22\17\uffff\12\21\7\uffff\23\21\1\30\6\21\4\uffff\1\21\1"+
+            "\uffff\32\21",
             "",
-            "\1\22\17\uffff\12\20\7\uffff\32\20\4\uffff\1\20\1\uffff\32"+
-            "\20",
+            "\1\22\6\uffff\1\16\10\uffff\12\21\7\uffff\32\21\4\uffff\1\21"+
+            "\1\uffff\32\21",
             ""
     };
 

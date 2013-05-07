@@ -37,7 +37,7 @@
 	                <tr>
 	                    <th>Sparql endpoint: </th>
 	                    <th>
-	                    	<input name="sparqlenpoint" class="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
+	                    	<input name="sparqlenpoint" class="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/dbpedia/" />
 	                    </th>
 	                </tr>
 	            </table>
@@ -46,16 +46,16 @@
 	                <tr>
 	                    <th>Web service: </th>
 	                    <th>
-	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" /> -->
-	                    	<input name="ptswebservice" class="ptswebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" />
+	                    	<input name="ptswebservice" class="ptswebservice" value="http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" />
+	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" /> -->
 	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP" /> -->
 	                    </th>
 	                </tr>
 	                <tr>
 	                    <th>Sparql endpoint for server: </th>
 	                    <th>
-	                    	<!-- <input name="sparqlenpointserver" class="sparqlenpointserver" value="http://localhost:8080/musicbrainz/" /> -->
-	                    	<input name="sparqlenpointserver" class="sparqlenpointserver" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
+	                    	<input name="sparqlenpointserver" class="sparqlenpointserver" value="http://localhost:8080/dbpedia/" />
+	                    	<!-- <input name="sparqlenpointserver" class="sparqlenpointserver" value="http://swip.univ-tlse2.fr:8080/dbpedia/" /> -->
 	                    </th>
 	                </tr>
 	                <tr>
@@ -79,7 +79,7 @@
 	                <tr>
 	                    <th>KB location: </th>
 	                    <th>
-	                    	<input name="kblocation" class="kblocation" value="http://swip.univ-tlse2.fr/musicbrainz/kb" />
+	                    	<input name="kblocation" class="kblocation" value="http://swip.univ-tlse2.fr/dbpedia/kb" />
 	                    	<!-- <input name="kblocation" class="kblocation" value="http://api.wunderfacts.com/virtuoso/sparql?default-graph-uri=" /> -->
 	                    </th>
 	                </tr>
@@ -92,13 +92,13 @@
 	                <tr>
 	                    <th>Queries Named Graph URI: </th>
 	                    <th>
-	                    	<input name="queriesuri" class="queriesuri" value="http://swip.univ-tlse2.fr/musicbrainz/queries" />
+	                    	<input name="queriesuri" class="queriesuri" value="http://swip.univ-tlse2.fr/dbpedia/queries" />
 	                    </th>
 	                </tr>
 	                <tr>
 	                    <th>Patterns Named Graph URI: </th>
 	                    <th>
-	                    	<input name="patternsuri" class="patternsuri" value="http://swip.univ-tlse2.fr/musicbrainz/patterns" />
+	                    	<input name="patternsuri" class="patternsuri" value="http://swip.univ-tlse2.fr/dbpedia/patterns" />
 	                    </th>
 	                </tr>
 	                <tr>
@@ -123,7 +123,7 @@
 					<th>Nl query:</th>
 					<td>
 						<!-- <input type="text" id="searchField1" class="searchField" value="Who produced the album In Utero?" /> -->
-						<input type="text" id="searchField1" class="searchField" value="Who composed The Heroes of Telemark?" />
+						<input type="text" id="searchField1" class="searchField" value="In which country is the Limerick Lake?" />
 						<button id="searchButton1" class="searchButton" enabled="false">Get pivot query</button><br />
 					</td>
 				</tr>
@@ -131,7 +131,7 @@
 					<th>Pivot query:</th>
 					<td>
 						<!-- <input type="text" id="searchField2" class="searchField" value="?person: The_Heroes_of_Telemark." /> -->
-						<input type="text" id="searchField2" class="searchField" value="In_Utero: album. ?person: produce= In_Utero." />
+						<input type="text" id="searchField2" class="searchField" value="?country: Limerick_Lake." />
 						<button id="searchButton2" class="searchButton" enabled="false">Get mappings</button>
 					</td>
 				</tr>

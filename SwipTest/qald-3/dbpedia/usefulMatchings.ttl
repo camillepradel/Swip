@@ -1,0 +1,31 @@
+@prefix graph:   <http://swip.univ-tlse2.fr/dbpedia/queries#>.
+@prefix queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
+@prefix mo:  <http://purl.org/ontology/mo/>.
+@prefix foaf:  <http://xmlns.com/foaf/0.1/>.
+@prefix bio:  <http://purl.org/vocab/bio/0.1/>.
+@prefix rel:  <http://purl.org/vocab/relationship/>.
+@prefix tl:   <http://purl.org/NET/c4dm/timeline.owl#>.
+@prefix dbpedia: <http://dbpedia.org/ontology/>.
+
+
+
+################
+# country
+################
+
+graph:country a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/dbpedia/matches/match_country>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:country;
+    queries:matchingHasResource dbpedia:Country;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "country".
+
+
+
+
+
+

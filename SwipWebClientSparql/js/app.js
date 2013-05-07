@@ -101,6 +101,7 @@ function pivotToSparql(pvQuery)
     var sparqlEnpointServer = $('#configurations .sparqlenpointserver').val();
     var useFederatedSparql = $('#configurations .usefederatedsparql').attr('checked')? true : false;
     var useLarq = $('#configurations .uselarq').attr('checked')? true : false;
+    var larqParams = $('#configurations .larqparams').val();
     var kbLocation = $('#configurations .kblocation').val();
     var queriesUri = $('#configurations .queriesuri').val();
     var patternsUri = $('#configurations .patternsuri').val();
@@ -113,7 +114,8 @@ function pivotToSparql(pvQuery)
         data: {pivotQuery: pvQuery, 
             sparqlEndpointUri: sparqlEnpointServer, 
             useFederatedSparql: useFederatedSparql, 
-            useLarq: useLarq, 
+            useLarq: useLarq,  
+            larqParams: larqParams, 
             kbLocation: kbLocation,
             queriesNamedGraphUri: queriesUri, 
             patternsNamedGraphUri: patternsUri, 

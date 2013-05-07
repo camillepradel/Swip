@@ -225,14 +225,20 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					+ "    OPTIONAL{ ?em queries:emHasResource ?resource. }\n"
 					+ "  }\n"
 					+ "}\n"
-					+ "ORDER BY ?p ?pe DESC(?score)";
+					+ "ORDER BY ?p ?pe ?em DESC(?score)";
 		// console.log(sparqlQuery);
 		var callback = function(data) {
 			waitingForAnswer = false;
 			
 			var list = " <ul> "
 			var currentPattern = "";
-			var lastEm = "";
+			// var lastEm = "";
+					var lastPeHtml = "";
+					var lastEmHtml = "";
+					var lastQeHTML = "";
+					var lastLabelHtml = "";
+					var lastSubsentHtml = "";
+					var lastMatchingHtml = "";
 
 			$.each(data.results.bindings, function(i, val) {
 				if (currentPattern != val.p.value) {
@@ -241,33 +247,83 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					}
 					currentPattern = val.p.value;
 					list += "<li>Pattern " + formatUriForDisplay(currentPattern) + "</li>";
-					list += "<table><tr><th>pattern element</th><th>target</th><th>query element</th><th>matched label</th><th>subsentence</th><th>score</th><th>matching</th><th>URI</th></tr>";
+					list += "<table><tr><th>pattern element</th><th>target</th><th>em link</th><th>score</th><th>subsentence</th><th>query element</th><th>match link</th><th>matched label</th><th>res link</th></tr>";
 				}
-				var em = val.em.value;
-				if (em == lastEm) {
-					var peHtml = "";
-					var targetHtml = "";
-					var qeHTML = val.qeValue? "<a href='" + val.qe.value + "'>" + val.qeValue.value + "</a>" : "-";//"<i>empty mapping</i>";
-					var labelHtml = "";
-					var subsentHtml = "";
-					var scoreHtml = "";
-					var matchingHtml = "";
-					var emHtml = "";
-				} else {
 					var pe = val.pe.value;
 					var shortPe = pe.replace(currentPattern, "...");
 					var peHtml = "<a href='" + pe + "'>" + shortPe + "</a>";
 					var target = val.target.value;
 					var targetHtml = "<a href='" + target + "'>" + formatUriForDisplay(target) + "</a>";
 					var qeHTML = val.qeValue? "<a href='" + val.qe.value + "'>" + val.qeValue.value + "</a>" : "-";//"<i>empty mapping</i>";
-					var labelHtml = (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-");
+					var labelHtml = val.label? val.label.value : "-";
+					var resHtml = val.resource? "<a href='" + val.resource.value + "'>link</a>" : "-";
 					var subsentHtml = val.subsent? val.subsent.value : "-";
 					var scoreHtml = (val.score? val.score.value : "-");
 					var matchingHtml = val.m? "<a href='#" + val.m.value + "'>link</a>" : "-";
 					var emHtml = "<a href='" + val.em.value + "'>link</a>";
-				}
-				lastEm = em;
-				list += "<tr><td>" + peHtml + "</td><td>" + targetHtml + "</td><td>" + qeHTML +  "</td><td>" + labelHtml + "</td><td>" + subsentHtml + "</td><td>" + scoreHtml + "</td><td>" + matchingHtml + "</td><td>" + emHtml + "</td></tr>";
+					if (peHtml == lastPeHtml) {
+						peHtml = "";
+						targetHtml = "";
+
+						if (emHtml == lastEmHtml) {
+							emHtml = "";
+							scoreHtml = "";
+							subsentHtml = "";
+
+							if (qeHTML == lastQeHTML) {
+								qeHTML = "";
+							} else {
+								lastQeHTML = qeHTML;
+							}
+							if (labelHtml == lastLabelHtml && labelHtml != "-") {
+								labelHtml = "";
+							} else {
+								lastLabelHtml = labelHtml;
+							}
+							if (matchingHtml == lastMatchingHtml && matchingHtml != "-") {
+								matchingHtml = "";
+							} else {
+								lastMatchingHtml = matchingHtml;
+							}
+
+						} else {
+						lastEmHtml = emHtml;
+						lastQeHTML = qeHTML;
+						lastMatchingHtml = matchingHtml;
+						lastLabelHtml = labelHtml;
+						}
+					} else {
+						lastPeHtml = peHtml;
+						lastEmHtml = emHtml;
+						lastQeHTML = qeHTML;
+						lastMatchingHtml = matchingHtml;
+						lastLabelHtml = labelHtml;
+					}
+				// var em = val.em.value;
+				// if (em == lastEm) {
+				// 	var peHtml = "";
+				// 	var targetHtml = "";
+				// 	var qeHTML = val.qeValue? "<a href='" + val.qe.value + "'>" + val.qeValue.value + "</a>" : "-";//"<i>empty mapping</i>";
+				// 	var labelHtml = "";
+				// 	var subsentHtml = "";
+				// 	var scoreHtml = "";
+				// 	var matchingHtml = "";
+				// 	var emHtml = "";
+				// } else {
+				// 	var pe = val.pe.value;
+				// 	var shortPe = pe.replace(currentPattern, "...");
+				// 	var peHtml = "<a href='" + pe + "'>" + shortPe + "</a>";
+				// 	var target = val.target.value;
+				// 	var targetHtml = "<a href='" + target + "'>" + formatUriForDisplay(target) + "</a>";
+				// 	var qeHTML = val.qeValue? "<a href='" + val.qe.value + "'>" + val.qeValue.value + "</a>" : "-";//"<i>empty mapping</i>";
+				// 	var labelHtml = (val.label? ("<a href='" + val.resource.value + "'>" + val.label.value + "</a>") : "-");
+				// 	var subsentHtml = val.subsent? val.subsent.value : "-";
+				// 	var scoreHtml = (val.score? val.score.value : "-");
+				// 	var matchingHtml = val.m? "<a href='#" + val.m.value + "'>link</a>" : "-";
+				// 	var emHtml = "<a href='" + val.em.value + "'>link</a>";
+				// }
+				// lastEm = em;
+				list += "<tr><td>" + peHtml + "</td><td>" + targetHtml + "</td><td>" + emHtml + "</td><td>" + scoreHtml + "</td><td>" + subsentHtml + "</td><td>" + qeHTML +  "</td><td>" + matchingHtml + "</td><td>" + labelHtml + "</td><td>" + resHtml + "</td></tr>";
 			});
 
 			list += "</table>";
@@ -630,6 +686,7 @@ function displaysSparqlQuery(mappingUri, sparqlEndpointUri, elemId)
 		}		
 	}
 	processQuery(sparqlQuery, sparqlEndpointUri, callback1);
+
 	// check if it is a count query
 	var sparqlQuery2 = "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
 					+ "ASK\n"
@@ -646,6 +703,23 @@ function displaysSparqlQuery(mappingUri, sparqlEndpointUri, elemId)
 		}		
 	}
 	processQuery(sparqlQuery2, sparqlEndpointUri, callback2);
+	
+	// check if it is a ask query
+	var sparqlQuery4 = "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
+					+ "ASK\n"
+					+ "{\n"
+					+ "  GRAPH <" + queriesNamedGraphUri + ">\n"
+					+ "  {\n"
+					+ "    <" + mappingUri + "> (queries:mappingHasQuery/a) queries:AskPivotQuery.\n"
+					+ "  }\n"
+					+ "}\n";
+	// console.log(sparqlQuery2);
+	var callback4 = function(data) {
+		if (data.boolean == true) {
+			q = q.replace("SELECT * WHERE", "ASK" );
+		}		
+	}
+	processQuery(sparqlQuery4, sparqlEndpointUri, callback4);
 
 	// display the WHERE content
 	var sparqlQuery3 = "PREFIX queries: <" + QUERIES_PREFIX + ">\n"

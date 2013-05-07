@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Describe</title>
+
+		<script type="text/javascript" src="js/lib/jquery.js"></script>
+
+		<script type="text/javascript">
+$(function()
+{
+	$('#resource').focus();
+
+	$('#resource').keydown(function(event)
+	{
+    	if(event.keyCode == 13)
+    	{
+	        $('#describe').click();
+	    }
+	});
+
+	$('#describe').click(function()
+	{
+		if($('#resource').val() != '')
+		{
+			console.log ("plop");
+			window.location.href = $('#sparqlenpoint').val() + "query?query=describe+<" + encodeURIComponent($('#resource').val()) + ">&output=xml&stylesheet=%2Fxml-to-html.xsl";
+		}
+	});
+});
+		</script> 
+
+	</head>
+
+	<body>
+	            <table>
+	                <tr>
+	                    <th>Sparql endpoint: </th>
+	                    <th>
+	                    	<input name="sparqlenpoint" id="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
+	                    </th>
+	                </tr>
+				<tr>
+					<th>Ressource to describe:</th>
+					<td>
+						<input type="text" id="resource" class="searchField" />
+					</td>
+					<td>
+						<button id="describe" class="searchButton" enabled="false">Describe</button><br />
+					</td>
+				</tr>
+	            </table>
+	</body>
+</html>

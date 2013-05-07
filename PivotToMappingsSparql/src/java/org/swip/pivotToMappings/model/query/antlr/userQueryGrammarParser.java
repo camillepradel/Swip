@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/userQueryGrammar.g 2013-01-02 18:06:49
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 /home/camille/ANTLRWorks/userQueryGrammar.g 2013-05-06 15:23:12
 
 package org.swip.pivotToMappings.model.query.antlr;
 import java.util.HashMap;
