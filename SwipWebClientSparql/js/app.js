@@ -101,6 +101,7 @@ function nlToPivot(nlQuery)
  **/
 function pivotToSparql(pvQuery)
 {
+    console.log("plop");
     var sparqlenpoint = $('#configurations .sparqlenpoint').val();
     var wsUrl = $('#configurations .ptswebservice').val();
     var sparqlEnpointServer = $('#configurations .sparqlenpointserver').val();

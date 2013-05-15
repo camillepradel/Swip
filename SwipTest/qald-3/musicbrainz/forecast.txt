@@ -1,4 +1,4 @@
-TODO: make it work! cf. manage the filter
+OK
 OK
 -
 not supported
@@ -12,17 +12,17 @@ maybe OK
 not supported
 OK
 probably OK
-TODO
-TODO: manage the filter - OK
+fail (problematic question)
 OK
-TODO
-TODO: pivot failed
+OK
+more or less OK
+probably not good
 not supported
 probably OK
 more or less OK
 not supported
-TODO
-TODO
+OK
+OK
 OK
 not supported
 OK
@@ -35,7 +35,7 @@ OK
 OK
 not supported
 not covered
-TODO
+OK
 problematic question
 -
 not really supported, but quite OK

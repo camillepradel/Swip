@@ -36,11 +36,11 @@ public class QueryInterpreter extends Thread {
         logger.info("Matching query elements to knowledge base elements:");
         logger.info("---------------------------------------------------\n");
         performMatching(queryUri, sparqlClient, commitUpdate, logQuery);
+//        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping patterns elements:");
         logger.info("--------------------------\n");
         performElementMapping(queryUri, sparqlClient, commitUpdate, logQuery);
-        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping subpattern collections:");
         logger.info("------------------------------\n");
@@ -426,7 +426,7 @@ public class QueryInterpreter extends Thread {
 
         query = "# properties\n" + queryFrame.replace("[QUERY_INNER]", queryInner);
 
-        logAndCommitQuery(query, sparqlServer, commitUpdate, true);
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
 
         queryInner = "  # -- instance\n"
                 + "    GRAPH <" + kbLocation + ">\n"
@@ -709,7 +709,8 @@ public class QueryInterpreter extends Thread {
                 + "                    queries:dsIsQueried ?queried;\n"
                 + "                    queries:hasStringValue ?stringValue.\n"
                 + "    # generated SPARQL\n"
-                + "    ?emUri queries:hasSparqlRepresentation ?rep.\n"
+                + "    ?emUri queries:hasSparqlRepresentation ?rep;\n"
+                + "           queries:hasFilter ?filter.\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -739,6 +740,7 @@ public class QueryInterpreter extends Thread {
                 + "  BIND ( IF (?literalValue=\"?\", CONCAT (\"some \", ?swipTypeString), ?literalValue) AS ?stringValue)\n"
                 + "  # generated SPARQL\n"
                 + "  BIND (CONCAT (\"?literal_\", REPLACE(STRUUID(), \"-\", \"\", \"i\")) AS ?rep)\n"
+                + "  BIND (CONCAT (\"FILTER ( regex (\", ?rep, \", '\", ?literalValue, \"') )\") AS ?filter)\n"
                 + "}";
 
         logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
@@ -1804,7 +1806,8 @@ public class QueryInterpreter extends Thread {
                 + "  GRAPH <" + queriesNamedGraphUri + ">\n"
                 + "  {\n"
                 + "     ?pm queries:hasSparqlQuery ?sq.\n"
-                + "     ?sq queries:hasTriple ?tripleUri.\n"
+                + "     ?sq queries:hasTriple ?tripleUri;\n"
+                + "         queries:hasFilter ?filter.\n"
                 + "  }\n"
                 + "}\n"
                 + "WHERE\n"
@@ -1814,7 +1817,9 @@ public class QueryInterpreter extends Thread {
                 + "    ?pm a queries:PatternMapping ;\n"
                 + "        queries:mappingHasQuery <" + queryUri + "> ;\n"
                 + "        queries:mappingContainsMapping+ ?em .\n"
-                + "    ?em queries:hasTriple ?tripleUri.\n"
+                + "    {?em queries:hasTriple ?tripleUri.}\n"
+                + "    UNION\n"
+                + "    {?em queries:hasFilter ?filter.}\n"
                 + "  }\n"
                 + "  BIND (IRI(CONCAT(str(?pm), \"_sparql\")) AS ?sq) \n"
                 + "};\n"

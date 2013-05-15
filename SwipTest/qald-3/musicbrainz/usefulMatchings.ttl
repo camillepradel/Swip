@@ -166,6 +166,21 @@ graph:collaborate_with a queries:KeywordQueryElement ;
 
 
 ################
+# compilation
+################
+
+graph:compilation a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_compilation>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:compilation;
+    queries:matchingHasResource mo:compilation;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "compilation".
+
+
+################
 # compose
 ################
 
@@ -178,6 +193,21 @@ graph:compose a queries:KeywordQueryElement ;
     queries:matchingHasResource mo:composer;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "compose".
+
+
+################
+# contain
+################
+
+graph:contain a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_contain>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:contain;
+    queries:matchingHasResource mo:track;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "contains track".
 
 
 ################
@@ -313,6 +343,24 @@ graph:live a queries:KeywordQueryElement ;
     queries:matchingHasResource mo:live;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "live".
+
+
+################
+# Lou Reed
+################
+
+graph:Lou_Reed a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/Lou_Reed>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:Lou_Reed;
+    queries:matchingHasResource <http://zitgist.com/music/artist/9d1ebcfe-4c15-4d18-95d3-d919898638a1>;
+    queries:matchingHasResource <http://zitgist.com/music/record/fd6f0ad3-9375-48b2-9b63-49d5b569ca5b>;
+    queries:matchingHasResource <http://zitgist.com/music/track/5c3cae23-3d0a-4f98-97f9-6e1fbbffc0be>;
+    queries:matchingHasResource <http://zitgist.com/music/track/952370e0-5bae-41de-9fa6-e1f44f32cbfb>;
+    queries:matchingHasScore "10"^^xsd:float;
+    queries:matchingHasMatchedLabel "Lou Reed".
 
 
 ################
@@ -573,6 +621,21 @@ graph:wife a queries:KeywordQueryElement ;
     queries:matchingHasResource rel:spouseOf;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "wife of".
+
+
+################
+# work
+################
+
+graph:work a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_work>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:work;
+    queries:matchingHasResource mo:collaborated_with;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "worked with".
 
 
 

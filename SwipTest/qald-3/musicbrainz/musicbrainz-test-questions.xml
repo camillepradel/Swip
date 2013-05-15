@@ -91,11 +91,18 @@ SELECT COUNT (DISTINCT ?single) WHERE
 
 <question aggregation="true" answertype="resource" id="1">
 <string lang="en"><![CDATA[Which groups were founded in 1924?]]></string>
-<pivotQuery></pivotQuery>
+<pivotQuery>?group: found= date&lt;1924&gt;.</pivotQuery>
 <query><![CDATA[
-
+SELECT DISTINCT ?group WHERE
+{
+	?found <http://purl.org/vocab/bio/0.1/date> ?literal.
+	?group <http://purl.org/vocab/bio/0.1/event> ?found.
+	?found <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Birth>.
+	?group <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+	FILTER ( regex (?literal, '1924') )
+}
 ]]></query>
-<status>TODO: make it work! cf. manage the filter</status>
+<status>OK</status>
 </question>
 
 <question aggregation="false" answertype="string" id="54">
@@ -187,18 +194,18 @@ SELECT DISTINCT ?literal_c3d5c53d746a44e094162740334a9b05 WHERE
 
 <question aggregation="true" answertype="resource" id="16">
 <string lang="en"><![CDATA[Which bands broke up in 2000?]]></string>
-<pivotQuery></pivotQuery>
+<pivotQuery>?band: break_up= date<2000>.</pivotQuery>
 <query><![CDATA[
 SELECT DISTINCT ?band WHERE
 {
-	?break_up <http://purl.org/vocab/bio/0.1/date> ?date.
+	?break_up <http://purl.org/vocab/bio/0.1/date> ?literal.
 	?band <http://purl.org/vocab/bio/0.1/event> ?break_up.
 	?break_up <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Death>.
 	?band <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
-    FILTER ( regex (?date,'2000') ) 
+	FILTER ( regex (?literal, '2000') )
 }
 ]]></query>
-<status>TODO: manage the filter - OK</status>
+<status>OK</status>
 </question>
 
 <question aggregation="false" answertype="boolean" id="39">
@@ -344,8 +351,15 @@ ASK
 <string lang="en"><![CDATA[Who produced the albums Out of Time and Automatic for the People?]]></string>
 <pivotQuery>Out_of_Time: Automatic_for_the_People. Out_of_Time: album. ?person: produce= Out_of_Time.</pivotQuery>
 <query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Automatic_for_the_People <http://www.w3.org/2000/01/rdf-schema#label> "Automatic for the People".
+	?Automatic_for_the_People <http://purl.org/ontology/mo/producer> ?person.
+	?Automatic_for_the_People <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+}
 ]]></query>
-<status>TODO</status>
+<comment>returns producer of Automatic for the People (only)</comment>
+<status>more or less OK</status>
 </question>
 
 <!-- 30 -->
@@ -468,10 +482,20 @@ ASK
 
 <question aggregation="false" answertype="number" id="25">
 <string lang="en"><![CDATA[How long is the song This Magic Moment by Lou Reed?]]></string>
-<pivotQuery></pivotQuery>
+<pivotQuery>This_Magic_Moment: Lou_Reed. This_Magic_Moment: song. ?duration: This_Magic_Moment.</pivotQuery>
 <query><![CDATA[
+SELECT DISTINCT ?duration WHERE
+{
+	?This_Magic_Moment <http://www.w3.org/2000/01/rdf-schema#label> "This Magic Moment".
+	?Lou_Reed <http://www.w3.org/2000/01/rdf-schema#label> "Lou Reed".
+	?This_Magic_Moment <http://purl.org/NET/c4dm/timeline.owl#duration> ?duration.
+	?This_Magic_Moment <http://xmlns.com/foaf/0.1/maker> ?Lou_Reed.
+	?This_Magic_Moment <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+	?Lou_Reed <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Lou_Reed <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
 ]]></query>
-<status>TODO</status>
+<status>OK</status>
 </question>
 
 <!-- 40 -->
@@ -480,16 +504,30 @@ ASK
 <string lang="en"><![CDATA[On which albums does the song Because You Loved Me appear?]]></string>
 <pivotQuery>Because_You_Loved_Me: appear. album: song= Because_You_Loved_Me.</pivotQuery>
 <query><![CDATA[
+SELECT DISTINCT ?album WHERE
+{
+	?Because_You_Loved_Me <http://www.w3.org/2000/01/rdf-schema#label> "Because You Loved Me".
+	?album <http://purl.org/ontology/mo/track> ?Because_You_Loved_Me.
+	?album <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+	?Because_You_Loved_Me <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
 ]]></query>
-<status>TODO</status>
+<status>OK</status>
 </question>
 
 <question aggregation="false" answertype="resource" id="24">
 <string lang="en"><![CDATA[Which compilations contain the song Last Christmas?]]></string>
 <pivotQuery>song: Last_Christmas. ?compilation: contain= song.</pivotQuery>
 <query><![CDATA[
+SELECT DISTINCT ?compilation WHERE
+{
+	?Last_Christmas <http://www.w3.org/2000/01/rdf-schema#label> "Last Christmas".
+	?compilation <http://purl.org/ontology/mo/track> ?Last_Christmas.
+	?compilation <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/compilation>.
+	?Last_Christmas <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
 ]]></query>
-<status>TODO</status>
+<status>OK</status>
 </question>
 
 <question aggregation="true" answertype="resource" id="53">
@@ -523,10 +561,16 @@ SELECT DISTINCT ?literal_8b99bad69bfe4b59b8405f077bcd12c1 WHERE
 
 <question aggregation="false" answertype="resource" id="19">
 <string lang="en"><![CDATA[With whom did Phil Collins work together?]]></string>
-<pivotQuery>work: Phil_Collins. work. ASK.</pivotQuery>
+<pivotQuery>Phil_Collins: work= ?person.</pivotQuery>
 <query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Phil_Collins <http://www.w3.org/2000/01/rdf-schema#label> "Phil Collins".
+	?Phil_Collins <http://purl.org/ontology/mo/collaborated_with> ?person.
+}
 ]]></query>
-<status>TODO: pivot failed</status>
+<comment>no result</comment>
+<status>probably not good</status>
 </question>
 
 <question aggregation="true" answertype="resource" id="12">
@@ -559,8 +603,16 @@ SELECT DISTINCT ?single WHERE
 <string lang="en"><![CDATA[Who composed the song Coast to Coast?]]></string>
 <pivotQuery>Coast_to_Coast: song. ?person: compose= Coast_to_Coast.</pivotQuery>
 <query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Coast_to_Coast <http://www.w3.org/2000/01/rdf-schema#label> "Coast to Coast".
+	?Coast_to_Coast <http://purl.org/ontology/mo/composer> ?person.
+	?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Agent>.
+	?Coast_to_Coast <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
 ]]></query>
-<status>TODO</status>
+<comment>no composer is specified. some foaf:makers are specified but it is not what is asked in the NL query</comment>
+<status>fail (problematic question)</status>
 </question>
 
 <!-- 50 -->

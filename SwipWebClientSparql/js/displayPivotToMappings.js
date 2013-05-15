@@ -722,6 +722,7 @@ function displaysSparqlQuery(mappingUri, sparqlEndpointUri, elemId)
 	processQuery(sparqlQuery4, sparqlEndpointUri, callback4);
 
 	// display the WHERE content
+	// first the triples
 	var sparqlQuery3 = "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
                 	+ "PREFIX sp:  <http://spinrdf.org/sp>\n"
 					+ "SELECT * WHERE\n"
@@ -739,29 +740,49 @@ function displaysSparqlQuery(mappingUri, sparqlEndpointUri, elemId)
 					+ "  BIND (isIRI(?s) AS ?sIsIri)\n"
 					+ "} ORDER BY DESC(?o)\n";
 	// console.log(sparqlQuery3);
-	var callback3 = function(data) {	
+	var callback3 = function(data) {
 		$.each(data.results.bindings, function(i, val) {
 			var sInQ = (val.sIsIri.value == "true"? "<" : "") + val.s.value + (val.sIsIri.value == "true"? ">" : "");
 			var pInQ = (val.pIsIri.value == "true"? "<" : "") + val.p.value + (val.pIsIri.value == "true"? ">" : "");
 			var oInQ = (val.oIsIri.value == "true"? "<" : (val.o.value.charAt(0)=='?'? "" : '"')) + val.o.value + (val.oIsIri.value == "true"? ">" : (val.o.value.charAt(0)=='?'? "" : '"'));
 			q += "\t" + sInQ + " " + pInQ + " " + oInQ + ".\n";
 		});
-		q += '}';
 
-		sparqlEditor = CodeMirror.fromTextArea(document.getElementById(sparqlId), {
-		        mode: "application/x-sparql-query",
-	    		tabMode: "indent",
-	    		matchBrackets: true,
-		        // readOnly: "true",
-		      });
-		sparqlEditor.setValue(q);
+		// then the filters
+		var sparqlQuery5 = "PREFIX queries: <" + QUERIES_PREFIX + ">\n"
+	                	+ "PREFIX sp:  <http://spinrdf.org/sp>\n"
+						+ "SELECT * WHERE\n"
+						+ "{\n"
+						+ "  GRAPH <" + queriesNamedGraphUri + ">\n"
+						+ "  {\n"
+						+ "    <" + mappingUri + "> queries:hasSparqlQuery ?sq.\n"
+						+ "    ?sq queries:hasFilter ?f.\n"
+						+ "  }\n"
+						+ "}\n";
+		console.log(sparqlQuery5);
+		var callback5 = function(data) {
+			$.each(data.results.bindings, function(i, val) {
+				q += "\t" + val.f.value + "\n";
+			});
 
-		$('#'+elemId+' .descsent').unbind("click");
-		$('#'+elemId+' .descsent').click( function(e){
-			e.preventDefault();
-			// window.open("http://swip.univ-tlse2.fr:8080/musicbrainz/sparql?query=" + encodeURIComponent(sparqlEditor.getValue()) + "&output=xml&stylesheet=%2Fxml-to-html.xsl");
-			window.open("http://vtentacle.techfak.uni-bielefeld.de:443/sparql?default-graph-uri=&query=" + encodeURIComponent(sparqlEditor.getValue()) + "&format=text%2Fhtml&timeout=0&debug=on");
-		});
+			q += '}';
+
+			sparqlEditor = CodeMirror.fromTextArea(document.getElementById(sparqlId), {
+			        mode: "application/x-sparql-query",
+		    		tabMode: "indent",
+		    		matchBrackets: true,
+			        // readOnly: "true",
+			      });
+			sparqlEditor.setValue(q);
+
+			$('#'+elemId+' .descsent').unbind("click");
+			$('#'+elemId+' .descsent').click( function(e){
+				e.preventDefault();
+				// window.open("http://swip.univ-tlse2.fr:8080/musicbrainz/sparql?query=" + encodeURIComponent(sparqlEditor.getValue()) + "&output=xml&stylesheet=%2Fxml-to-html.xsl");
+				window.open("http://vtentacle.techfak.uni-bielefeld.de:443/sparql?default-graph-uri=&query=" + encodeURIComponent(sparqlEditor.getValue()) + "&format=text%2Fhtml&timeout=0&debug=on");
+			});
+		}
+		processQuery(sparqlQuery5, sparqlEndpointUri, callback5);
 	}
 	processQuery(sparqlQuery3, sparqlEndpointUri, callback3);
 
