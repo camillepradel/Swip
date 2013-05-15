@@ -32,12 +32,47 @@
 			<div class="openCloseIdentifier"></div>
     		<div class="content">
         		<h2>Configurations</h2>
-        		<h3>Interface</h3>
+        		<h3>Web client</h3>
 	            <table>
 	                <tr>
-	                    <th>Sparql endpoint: </th>
+	                    <th>Sparql endpoint for client: </th>
 	                    <th>
 	                    	<input name="sparqlenpoint" class="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/dbpedia/" />
+	                    </th>
+	                </tr>
+	            </table>
+	            <h3>NL to Pivot</h3>
+	            <table>
+	                <tr>
+	                    <th>Web service: </th>
+	                    <th>
+	                    	<!-- <input name="nltpwebservice" class="nltpwebservice" value="http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP" /> -->
+	                    	<input name="nltpwebservice" class="nltpwebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/nlToPivotJSONP" />
+	                    	<!-- <input name="nltpwebservice" class="nltpwebservice" value="http://192.168.250.91/PivotToMappings/resources/rest/nlToPivotJSONP" /> -->
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>KB name: </th>
+	                    <th>
+	                    	<input name="kbname" class="kbname" value="musicbrainz" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Language: </th>
+	                    <th>
+	                    	<input name="lang" class="lang" value="en" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>POS tagger: </th>
+	                    <th>
+	                    	<input name="pos" class="pos" value="treeTagger" />
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Dependency parser: </th>
+	                    <th>
+	                    	<input name="dep" class="dep" value="malt" />
 	                    </th>
 	                </tr>
 	            </table>

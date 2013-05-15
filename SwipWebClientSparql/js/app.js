@@ -30,7 +30,7 @@ $(function()
 	{
 		if($('#searchField1').val() != '')
 		{
-			nlToPivot($('#searchField1').val(), 'en');
+			nlToPivot($('#searchField1').val());
 		}
 	});
 	$('#searchButton2').click(function()
@@ -52,38 +52,44 @@ $(function()
  * nlToPivotErrHandler)
  * @param nlQuery Query in natural language
  **/
-function nlToPivot(nlQuery, lang)
+function nlToPivot(nlQuery)
 {
-        $.ajax
-        ({
-            type: 'GET',
-            dataType: "jsonp",
-            // url: 'http://192.168.250.91/SwipWorkflow/resources/rest/nlToPivotJSONP',
-            url: 'http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP',
-            // url: 'http://localhost:8080/SwipWorkflow/resources/rest/nlToPivotJSONP',
-            data: {nlQuery: nlQuery, kb:'musicbrainz', lang: lang, pos:'treeTagger', dep:'malt', callback: '?'},
-            crossDomain: true,
-            beforeSend : function (xhr) {
-                animateLogo();
-                $('.searchButton').attr('disabled', 'disabled');
-                $('#result').empty();
-                $('#result').append('<img src="img/loading_icon.gif" alt="Loading" />');
-            }
-        }).done(function(data2)
-        {
+    var wfwebservice = $('#configurations .wfwebservice').val();
+    var gazwebservice = $('#configurations .gazwebservice').val();
+    var dpwebservice = $('#configurations .dpwebservice').val();
+    var ruleswebservice = $('#configurations .ruleswebservice').val();
+    var kbname = $('#configurations .kbname').val();
+    var lang = $('#configurations .lang').val();
+    var pos = $('#configurations .pos').val();
+    var dep = $('#configurations .dep').val();
+    $.ajax
+    ({
+        type: 'GET',
+        dataType: "jsonp",
+        url: wfwebservice,
+        data: {nlQuery: nlQuery, kb:kbname, lang: lang, pos:pos, dep:dep, gazwebservice:gazwebservice, dpwebservice:dpwebservice, ruleswebservice:ruleswebservice, callback: '?'},
+        crossDomain: true,
+        beforeSend : function (xhr) {
+            animateLogo();
+            $('.searchButton').attr('disabled', 'disabled');
             $('#result').empty();
-            $('#result').append('<div id="nltopivot"></div><div id="pivottomappings"></div>');
-            $('#nltopivot').append('<h1>NL to pivot query translation</h1>');
-            $('#nltopivot').append('<p><b>Initial NL query:</b> <i>' + nlQuery + '</i></p>');
-            $('#nltopivot').append('<p><b>Gazetteed query:</b> <i>' + (data2['gazetteedQuery']) + '</i></p>');
-            $('#nltopivot').append('<p><b>Pivot query:</b> <i>' + (data2['pivotQuery']) + '</i></p>');
-            $('#searchField2').val(data2['pivotQuery']);
-            $('.searchButton').removeAttr('disabled');
-        }).fail(function(jqXHR, textStatus) {
-            alert('Ajax error, please try again !');
-            $('.searchButton').removeAttr('disabled');
-            $('#nltopivot img').css('display', 'none');
-        });
+            $('#result').append('<img src="img/loading_icon.gif" alt="Loading" />');
+        }
+    }).done(function(data2)
+    {
+        $('#result').empty();
+        $('#result').append('<div id="nltopivot"></div><div id="pivottomappings"></div>');
+        $('#nltopivot').append('<h1>NL to pivot query translation</h1>');
+        $('#nltopivot').append('<p><b>Initial NL query:</b> <i>' + nlQuery + '</i></p>');
+        $('#nltopivot').append('<p><b>Gazetteed query:</b> <i>' + (data2['gazetteedQuery']) + '</i></p>');
+        $('#nltopivot').append('<p><b>Pivot query:</b> <i>' + (data2['pivotQuery']) + '</i></p>');
+        $('#searchField2').val(data2['pivotQuery']);
+        $('.searchButton').removeAttr('disabled');
+    }).fail(function(jqXHR, textStatus) {
+        alert('Ajax error, please try again !');
+        $('.searchButton').removeAttr('disabled');
+        $('#nltopivot img').css('display', 'none');
+    });
 }
 
 /**
@@ -96,7 +102,6 @@ function nlToPivot(nlQuery, lang)
 function pivotToSparql(pvQuery)
 {
     var sparqlenpoint = $('#configurations .sparqlenpoint').val();
-    console.log(sparqlenpoint);
     var wsUrl = $('#configurations .ptswebservice').val();
     var sparqlEnpointServer = $('#configurations .sparqlenpointserver').val();
     var useFederatedSparql = $('#configurations .usefederatedsparql').attr('checked')? true : false;

@@ -37,26 +37,37 @@ public class WorkflowWS {
             @QueryParam("kb") @DefaultValue("") String kb,
             @QueryParam("lang") @DefaultValue("fr") String lang,
             @QueryParam("pos") @DefaultValue("treeTagger") String posTagger,
-            @QueryParam("dep") @DefaultValue("malt") String depParser) throws ParseException, UniformInterfaceException, JAXBException, IOException {
+            @QueryParam("dep") @DefaultValue("malt") String depParser,
+            @QueryParam("gazwebservice") @DefaultValue("") String gazwebservice,
+            @QueryParam("dpwebservice") @DefaultValue("") String dpwebservice,
+            @QueryParam("ruleswebservice") @DefaultValue("") String ruleswebservice) throws ParseException, UniformInterfaceException, JAXBException, IOException {
 
         logger.info("User nl query: " + nlQuery);
         logger.info("Target knowledge base: " + kb);
         logger.info("Query language: " + lang);
         logger.info("POS tagger: " + posTagger);
         logger.info("Dependency parser: " + depParser);
+        logger.info("gazwebservice: " + gazwebservice);
+        logger.info("dpwebservice: " + dpwebservice);
+        logger.info("ruleswebservice: " + ruleswebservice);
 
         NlToPivotResult result = new NlToPivotResult();
 //        result.setGazetteedQuery("gazetteedQuery");
 //        result.setPivotQuery("?person: The_Heroes_of_Telemark");
 
-        String gazetteedQuery = new NlToPivotGazetteerWS_JerseyClient().gatherNamedEntities(nlQuery, "false");
+        String gazetteedQuery = null;
+        if (kb.equals("dbpedia")) {
+            gazetteedQuery = nlQuery;
+        } else {
+            gazetteedQuery = new NlToPivotGazetteerWS_JerseyClient(gazwebservice).gatherNamedEntities(nlQuery, "false");
+        }
         result.setGazetteedQuery(gazetteedQuery);
         logger.info("Gazetteed query: " + gazetteedQuery);
 
-        DependencyTree dependencyTree = new NlToPivotParserWS_JerseyClient().nlToDependenciesJson(lang, gazetteedQuery, depParser, posTagger);
+        DependencyTree dependencyTree = new NlToPivotParserWS_JerseyClient(dpwebservice).nlToDependenciesJson(lang, gazetteedQuery, depParser, posTagger);
         result.setDependencyTree(dependencyTree);
         logger.info("Dependency tree: " + dependencyTree);
-        
+
         // marshal dependencyTree into JSON
         ObjectMapper mapper = new ObjectMapper();
         Writer strWriter = new StringWriter();
@@ -69,7 +80,7 @@ public class WorkflowWS {
         f.add("pos", "treeTagger");
         f.add("dep", "malt");
 
-        WebResource resource = Client.create().resource(serverIP + "NlToPivotRules/resources/rest/dependenciesToPivot");
+        WebResource resource = Client.create().resource(ruleswebservice);
         String pivotQuery = resource.type(MediaType.APPLICATION_FORM_URLENCODED_TYPE).post(String.class, f);
         result.setPivotQuery(pivotQuery);
         logger.info("pivot query: " + pivotQuery);
@@ -86,21 +97,23 @@ public class WorkflowWS {
             @QueryParam("lang") @DefaultValue("fr") String lang,
             @QueryParam("pos") @DefaultValue("treeTagger") String posTagger,
             @QueryParam("dep") @DefaultValue("malt") String depParser,
+            @QueryParam("gazwebservice") @DefaultValue("") String gazwebservice,
+            @QueryParam("dpwebservice") @DefaultValue("") String dpwebservice,
+            @QueryParam("ruleswebservice") @DefaultValue("") String ruleswebservice,
             @QueryParam("callback") @DefaultValue("fn") String callback) throws ParseException, UniformInterfaceException, JAXBException, IOException {
 
-        return new JSONWithPadding(nlToPivot(nlQuery, kb, lang, posTagger, depParser), callback);
+        return new JSONWithPadding(nlToPivot(nlQuery, kb, lang, posTagger, depParser, gazwebservice, dpwebservice, ruleswebservice), callback);
     }
 
     static class NlToPivotGazetteerWS_JerseyClient {
 
         private WebResource webResource;
         private Client client;
-        private static final String BASE_URI = serverIP + "NlToPivotGazetteer/resources";
 
-        public NlToPivotGazetteerWS_JerseyClient() {
+        public NlToPivotGazetteerWS_JerseyClient(String wsUrl) {
             com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
             client = Client.create(config);
-            webResource = client.resource(BASE_URI).path("rest");
+            webResource = client.resource(wsUrl);
         }
 
         public String gatherNamedEntities(String text, String tagWithClass) throws UniformInterfaceException {
@@ -111,7 +124,6 @@ public class WorkflowWS {
             if (text != null) {
                 resource = resource.queryParam("text", text);
             }
-            resource = resource.path("gatherNamedEntities");
             return resource.accept(javax.ws.rs.core.MediaType.TEXT_PLAIN).get(String.class);
         }
 
@@ -124,12 +136,11 @@ public class WorkflowWS {
 
         private WebResource webResource;
         private Client client;
-        private static final String BASE_URI = serverIP + "NlToPivotParser/resources";
 
-        public NlToPivotParserWS_JerseyClient() {
+        public NlToPivotParserWS_JerseyClient(String wsUrl) {
             com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
             client = Client.create(config);
-            webResource = client.resource(BASE_URI).path("rest");
+            webResource = client.resource(wsUrl);
         }
 
         public DependencyTree nlToDependenciesJson(String lang, String nlQuery, String dep, String pos) throws UniformInterfaceException {
@@ -146,7 +157,6 @@ public class WorkflowWS {
             if (pos != null) {
                 resource = resource.queryParam("pos", pos);
             }
-            resource = resource.path("nlToDependenciesJson");
             return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(DependencyTree.class);
         }
 
@@ -154,5 +164,4 @@ public class WorkflowWS {
             client.destroy();
         }
     }
-
 }

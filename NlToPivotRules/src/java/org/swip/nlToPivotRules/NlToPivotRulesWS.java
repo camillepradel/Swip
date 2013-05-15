@@ -153,9 +153,9 @@ public class NlToPivotRulesWS {
                    // for (MyEdge edgeDep : verbe.getRightDependentEdges()){
                     
                    // }
-                    queryObject = "DURATION";
+                    queryObject = "duration";
                     nextElementRole = "e2q2";
-                    subjectOfNextQ2 = "DURATION";
+                    subjectOfNextQ2 = "duration";
                     firstNodeToBrowse = verbe;
                     logger.info("query object : how long"+queryObject +"--- verbe"+verbe.getLemma() );
                     return;

@@ -15,27 +15,24 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_sentenceTemplate">
-    <isMadeUpOfList rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_145"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SentenceTemplate"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A0">
-    <owl:intersectionOf rdf:nodeID="A1"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A2">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:nodeID="A3"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1371">
+    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1372"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_580"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#NonQualifyingPatternElement">
     <rdfs:comment xml:lang="en">static pattern element that can not be instanciated. it will remain the same in the generated query (if none of its containing subpatterns is omited)</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="A4"/>
+    <owl:equivalentClass rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isPatternMadeUpOf">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isMadeUpOf"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <owl:intersectionOf rdf:nodeID="A2"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#Pattern">
     <rdfs:comment>removed equivalent class: NecessarySubpatternCollection
@@ -55,31 +52,37 @@
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#QueryProcessed">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple2">
-    <hasObject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element5"/>
-    <hasProperty rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element4"/>
-    <hasSubject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element3"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
+  <rdf:Description rdf:nodeID="A3">
+    <rdf:rest rdf:nodeID="A4"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A5">
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasPatternElement"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A6">
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isQualifying"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_580">
+    <ssitHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> is located in </ssitHasValue>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element7">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">7</patternElementHasId>
+  <rdf:Description rdf:nodeID="A0">
+    <owl:intersectionOf rdf:nodeID="A6"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element3">
+    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">3</patternElementHasId>
     <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
-    <targetsClass rdf:resource="http://purl.org/vocab/bio/0.1/Death"/>
+    <targetsClass rdf:resource="http://dbpedia.org/ontology/Country"/>
     <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A7">
-    <rdf:rest rdf:nodeID="A8"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
+    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isPropertyOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1369">
+    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1370"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_peit_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSubject">
     <owl:inverseOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isSubjectOf"/>
@@ -93,68 +96,61 @@
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternConstituent"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A1">
-    <rdf:rest rdf:nodeID="A9"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
+  <rdf:Description rdf:nodeID="A8">
+    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isSubjectOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1370">
+    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1374"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_spcit_country"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#matchingHasResource">
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A10">
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsLiteralType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_152">
+  <rdf:Description rdf:nodeID="A9">
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_peit_9"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple3">
-    <hasObject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element7"/>
-    <hasProperty rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element6"/>
-    <hasSubject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element1"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_149">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_ssit_59"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:nodeID="A10"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A11">
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsKBElement"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A12">
-    <rdf:rest rdf:nodeID="A5"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A13">
-    <owl:unionOf rdf:nodeID="A7"/>
+    <owl:unionOf rdf:nodeID="A12"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_spcit_end">
-    <isMadeUpOfList rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_151"/>
-    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_end"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SpcInTemplate"/>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:rest rdf:nodeID="A13"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A14">
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#subpatternCollectionhasName"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple">
-    <owl:equivalentClass rdf:nodeID="A15"/>
+    <owl:intersectionOf rdf:nodeID="A15"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element6">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">6</patternElementHasId>
-    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isQualifying>
-    <targetsProperty rdf:resource="http://purl.org/vocab/bio/0.1/event"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element2">
+    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">2</patternElementHasId>
+    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
+    <targetsProperty rdf:resource="http://dbpedia.org/ontology/country"/>
     <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_highestPlace">
+    <hasDeterminingElement rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element5"/>
+    <hasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_triple2"/>
+    <hasCardinalityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1</hasCardinalityMax>
+    <hasCardinalityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#long">0</hasCardinalityMin>
+    <subpatternCollectionhasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">highestPlace</subpatternCollectionhasName>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_peit_3">
+    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element3"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PeInTemplate"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <rdf:rest rdf:nodeID="A17"/>
+    <rdf:first rdf:nodeID="A18"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple">
+    <owl:equivalentClass rdf:nodeID="A1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#makesUp">
     <owl:inverseOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isMadeUpOf"/>
@@ -162,39 +158,27 @@
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternConstituent"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_spcit_begin">
-    <isMadeUpOfList rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_147"/>
-    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_begin"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SpcInTemplate"/>
+  <rdf:Description rdf:nodeID="A19">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasCardinalityMin"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#queryElementHasMatching">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A16">
-    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isObjectOf"/>
+  <rdf:Description rdf:nodeID="A20">
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isQualifying"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection">
     <rdfs:comment>removed equivalent class: Subpattern
  and (isMadeUpOf some Subpattern)</rdfs:comment>
-    <rdfs:subClassOf rdf:nodeID="A14"/>
-    <rdfs:subClassOf rdf:nodeID="A17"/>
-    <rdfs:subClassOf rdf:nodeID="A18"/>
+    <rdfs:subClassOf rdf:nodeID="A21"/>
+    <rdfs:subClassOf rdf:nodeID="A22"/>
+    <rdfs:subClassOf rdf:nodeID="A19"/>
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Subpattern"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_begin">
-    <hasDeterminingElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element5"/>
-    <hasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple2"/>
-    <hasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple1"/>
-    <hasCardinalityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1</hasCardinalityMax>
-    <hasCardinalityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#long">0</hasCardinalityMin>
-    <subpatternCollectionhasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">begin</subpatternCollectionhasName>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A15">
-    <owl:intersectionOf rdf:nodeID="A19"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#ForLoopInTemplate">
@@ -202,43 +186,60 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isObjectOf">
-    <rdfs:domain rdf:nodeID="A13"/>
+    <rdfs:domain rdf:nodeID="A11"/>
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isPatternElementOf"/>
     <owl:inverseOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasObject"/>
     <rdfs:range rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:rest rdf:nodeID="A23"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A24">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_582">
+    <ssitHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> has </ssitHasValue>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isMadeUpOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <rdf:rest rdf:nodeID="A9"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsOntology">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targets"/>
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Pattern"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A20">
-    <owl:unionOf rdf:nodeID="A12"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element5">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">5</patternElementHasId>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element1">
+    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1</patternElementHasId>
     <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
-    <targetsLiteralType rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement"/>
+    <targetsClass rdf:resource="http://dbpedia.org/ontology/Place"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#NotBegun">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_peit_5">
-    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element5"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PeInTemplate"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_sentenceTemplate">
+    <isMadeUpOfList rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1369"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SentenceTemplate"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://dbpedia.org/ontology/author">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A25">
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsLiteralType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#refersToPatternElement">
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
@@ -246,14 +247,6 @@
     <rdfs:comment xml:lang="en">allows to "slide" the matching of a pattern element to an another one.
 for instance, in the query "Ladies Night: ?producer", the keyword producer matches the property producer (from Musicbrainz) whereas the user is most probably interested in the object of the property, which is an instance of Artist (still in musicbrainz)</rdfs:comment>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A4">
-    <owl:intersectionOf rdf:nodeID="A21"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A22">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#patternElementHasId">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -266,14 +259,23 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1376">
+    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1377"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_peit_5"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSubpattern">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isMadeUpOf"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A23">
+  <rdf:Description rdf:nodeID="A26">
     <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isPropertyOf"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#makesUp"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isPatternElementOf">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#makesUp"/>
@@ -283,13 +285,22 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A27">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#queryHasProcessingState">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A24">
-    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#makesUp"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_peit_1">
+    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element1"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PeInTemplate"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A23">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasMappingConditions">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -303,20 +314,23 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A25">
-    <rdf:rest rdf:nodeID="A26"/>
-    <rdf:first rdf:nodeID="A27"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_581">
+    <ssitHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">, </ssitHasValue>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isQualifying"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A28">
+    <rdf:rest rdf:nodeID="A24"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#QualifyingPatternElement">
     <rdfs:comment xml:lang="en">pattern element to wich a keyword from the pivot query can be matched</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="A0"/>
+    <owl:equivalentClass rdf:nodeID="A14"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple1">
-    <hasObject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element3"/>
-    <hasProperty rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element2"/>
-    <hasSubject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element1"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isQualifying">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -324,94 +338,89 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A21">
-    <rdf:rest rdf:nodeID="A28"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsProperty">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsKBElement"/>
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element4">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">4</patternElementHasId>
-    <refersToPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element5"/>
-    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isQualifying>
-    <targetsProperty rdf:resource="http://purl.org/vocab/bio/0.1/date"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
+  <rdf:Description rdf:nodeID="A29">
+    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isObjectOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_ssit_58">
-    <ssitHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> was formed on/in </ssitHasValue>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate"/>
+  <rdf:Description rdf:nodeID="A17">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="A8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_triple1">
+    <hasObject rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element3"/>
+    <hasProperty rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element2"/>
+    <hasSubject rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element1"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1377">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_583"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#patternHasSubpattern">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isPatternMadeUpOf"/>
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSubpattern"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group">
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element5"/>
-    <patternHasSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple1"/>
-    <patternHasAuthor rdf:resource="http://camillepradel.com/uris#me"/>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element1"/>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element7"/>
-    <patternHasSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple4"/>
-    <patternHasSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple3"/>
-    <hasSentenceTemplate rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_sentenceTemplate"/>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element4"/>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element9"/>
-    <numberOfQualifyingPE rdf:datatype="http://www.w3.org/2001/XMLSchema#long">5</numberOfQualifyingPE>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element6"/>
-    <patternHasSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple2"/>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element2"/>
-    <patternHasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_begin"/>
-    <targetsOntology rdf:resource="http://purl.org/ontology/mo/"/>
-    <patternHasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_end"/>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element3"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Pattern"/>
-    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element8"/>
-    <hasSentenceTemplateString rdf:datatype="http://www.w3.org/2001/XMLSchema#string">-1- -begin-[" was formed on/in " -5- "," ] -end-[" broke up on/in " -9- ] </hasSentenceTemplateString>
+  <rdf:Description rdf:nodeID="A30">
+    <rdf:rest rdf:nodeID="A31"/>
+    <rdf:first rdf:nodeID="A27"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#SubsentenceTemplate">
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternConstituent"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A29">
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_end">
-    <hasDeterminingElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element9"/>
-    <hasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple4"/>
-    <hasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple3"/>
-    <hasCardinalityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1</hasCardinalityMax>
-    <hasCardinalityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#long">0</hasCardinalityMin>
-    <subpatternCollectionhasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">end</subpatternCollectionhasName>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PeInTemplate">
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubsentenceTemplate"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A30">
-    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isQualifying"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsClass">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsKBElement"/>
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A21">
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#subpatternCollectionhasName"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A32">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Pattern"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#makesUpPattern"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#NecessarySubpatternCollection">
     <rdfs:comment>removed equivalent class: SubpatternCollection and (hasCardinalityMin exactly 1 integer[&gt;= 1])</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A33">
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1374">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_spcit_highestPlace"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#SpcInTemplate">
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubsentenceTemplate"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_triple2">
+    <hasObject rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element5"/>
+    <hasProperty rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element4"/>
+    <hasSubject rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element1"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#ssitHasValue">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -420,50 +429,32 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdfs:subPropertyOf rdf:resource="http://dbpedia.org/ontology/author"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element3">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">3</patternElementHasId>
-    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
-    <targetsClass rdf:resource="http://purl.org/vocab/bio/0.1/Birth"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A31">
-    <rdf:rest rdf:nodeID="A32"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_146">
-    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_150"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_spcit_begin"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#patternHasDirectSubpattern">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#patternHasSubpattern"/>
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasDirectSubpattern"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_country">
+    <hasDeterminingElement rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element3"/>
+    <hasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_triple1"/>
+    <hasCardinalityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1</hasCardinalityMax>
+    <hasCardinalityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#long">0</hasCardinalityMin>
+    <subpatternCollectionhasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">country</subpatternCollectionhasName>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A34">
+    <owl:unionOf rdf:nodeID="A28"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#subpatternCollectionhasName">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_ssit_59">
-    <ssitHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">,</ssitHasValue>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_peit_9">
-    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element9"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PeInTemplate"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A33">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:nodeID="A34"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A32">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A28">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:nodeID="A30"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_spcit_highestPlace">
+    <isMadeUpOfList rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1375"/>
+    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_highestPlace"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SpcInTemplate"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasDeterminingElement">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasPatternElement"/>
@@ -477,6 +468,11 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A22">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasCardinalityMax"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasProperty">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasPatternElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -486,108 +482,88 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#NonQualifyingPatternElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_ssit_60">
-    <ssitHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> broke up on/in </ssitHasValue>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsKBElement">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targets"/>
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A35">
-    <rdf:rest rdf:nodeID="A22"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSubpattern"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A27">
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:nodeID="A20"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasObject"/>
+    <owl:onClass rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSubject"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A36">
-    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isObjectOf"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsKBElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A19">
-    <rdf:rest rdf:nodeID="A25"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Subpattern"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1375">
+    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1376"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_582"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternConstituent">
-    <rdfs:subClassOf rdf:nodeID="A37"/>
+    <rdfs:subClassOf rdf:nodeID="A32"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element2">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">2</patternElementHasId>
-    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isQualifying>
-    <targetsProperty rdf:resource="http://purl.org/vocab/bio/0.1/event"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PerformingMapping">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_145">
-    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_146"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_peit_1"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_583">
+    <ssitHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> for highest place</ssitHasValue>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#patternHasPatternElement">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isPatternMadeUpOf"/>
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasPatternElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A38">
-    <owl:unionOf rdf:nodeID="A39"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element8">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">8</patternElementHasId>
-    <refersToPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element9"/>
-    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isQualifying>
-    <targetsProperty rdf:resource="http://purl.org/vocab/bio/0.1/date"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A18">
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasCardinalityMin"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A34">
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSubject"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  <rdf:Description rdf:nodeID="A37">
+    <rdf:rest rdf:nodeID="A30"/>
+    <rdf:first rdf:nodeID="A38"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement">
     <rdfs:comment xml:lang="en">PatternElement which targets a class (can't be expressed in property restriction because owl:Class is part of the protected vocabulary)</rdfs:comment>
-    <rdfs:subClassOf rdf:nodeID="A38"/>
+    <rdfs:subClassOf rdf:nodeID="A39"/>
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
-    <owl:equivalentClass rdf:nodeID="A40"/>
+    <owl:equivalentClass rdf:nodeID="A33"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A39">
-    <rdf:rest rdf:nodeID="A2"/>
-    <rdf:first rdf:nodeID="A36"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_151">
-    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_152"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_ssit_60"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  <rdf:Description rdf:nodeID="A31">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="A35"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#StaticStringInTemplate">
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubsentenceTemplate"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A41">
-    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isQualifying"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#ContingentSubpatternCollection">
     <rdfs:comment>removed equivalent class: SubpatternCollection and (hasCardinalityMin value 0)</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SubpatternCollection"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place">
+    <patternHasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_country"/>
+    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element2"/>
+    <patternHasSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_triple2"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Pattern"/>
+    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element5"/>
+    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element4"/>
+    <patternHasAuthor rdf:resource="http://camillepradel.com/uris#me"/>
+    <numberOfQualifyingPE rdf:datatype="http://www.w3.org/2001/XMLSchema#long">5</numberOfQualifyingPE>
+    <targetsOntology rdf:resource="http://purl.org/ontology/mo/"/>
+    <patternHasDirectSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_highestPlace"/>
+    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element1"/>
+    <patternHasSubpattern rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_triple1"/>
+    <patternHasPatternElement rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element3"/>
+    <hasSentenceTemplate rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_sentenceTemplate"/>
+    <hasSentenceTemplateString rdf:datatype="http://www.w3.org/2001/XMLSchema#string">-1- -country-[" is located in " -3- ", " ] -highestPlace-[" has " -5- " for highest place" ] </hasSentenceTemplateString>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A40">
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isQualifying"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasCardinalityMin">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
@@ -599,15 +575,15 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SpcInTemplate"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_peit_1">
-    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element1"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PeInTemplate"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A37">
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Pattern"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#makesUpPattern"/>
+  <rdf:Description rdf:nodeID="A18">
+    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isObjectOf"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1372">
+    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1373"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_peit_3"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isDeterminingElementOf">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isPatternElementOf"/>
@@ -624,25 +600,23 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternConstituent"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_148">
-    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_149"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_peit_5"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A26">
-    <rdf:rest rdf:nodeID="A33"/>
-    <rdf:first rdf:nodeID="A42"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A40">
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsClass"/>
+  <rdf:Description rdf:nodeID="A38">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:nodeID="A34"/>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasObject"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element5">
+    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">5</patternElementHasId>
+    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
+    <targetsClass rdf:resource="http://dbpedia.org/ontology/Place"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement">
     <rdfs:comment xml:lang="en">PatternElement which targets a property (can't be expressed in property restriction because owl:Property is part of the protected vocabulary)</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
-    <owl:equivalentClass rdf:nodeID="A23"/>
-    <owl:equivalentClass rdf:nodeID="A29"/>
+    <owl:equivalentClass rdf:nodeID="A7"/>
+    <owl:equivalentClass rdf:nodeID="A41"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsLiteralType">
@@ -650,11 +624,10 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdfs:domain rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element1">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1</patternElementHasId>
-    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
-    <targetsClass rdf:resource="http://purl.org/ontology/mo/MusicGroup"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#ClassPatternElement"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_spcit_country">
+    <isMadeUpOfList rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1371"/>
+    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_country"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#SpcInTemplate"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#sstTargetsPc">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targets"/>
@@ -662,27 +635,16 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasPatternElement">
-    <owl:propertyChainAxiom rdf:nodeID="A35"/>
+    <owl:propertyChainAxiom rdf:nodeID="A42"/>
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isMadeUpOf"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement">
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternConstituent"/>
-    <owl:equivalentClass rdf:nodeID="A24"/>
-    <owl:equivalentClass rdf:nodeID="A6"/>
-    <owl:equivalentClass rdf:nodeID="A11"/>
+    <owl:equivalentClass rdf:nodeID="A26"/>
+    <owl:equivalentClass rdf:nodeID="A20"/>
+    <owl:equivalentClass rdf:nodeID="A36"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element9">
-    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">9</patternElementHasId>
-    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
-    <targetsLiteralType rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A17">
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasCardinalityMax"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasCardinalityMax">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
@@ -690,19 +652,17 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_triple4">
-    <hasObject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element9"/>
-    <hasProperty rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element8"/>
-    <hasSubject rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_element7"/>
-    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
+  <rdf:Description rdf:nodeID="A42">
+    <rdf:rest rdf:nodeID="A5"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSubpattern"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#PerformingMatching">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_150">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_spcit_end"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  <rdf:Description rdf:nodeID="A41">
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#targetsProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#resourceInvolvedInMatching">
     <owl:inverseOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#matchingHasResource"/>
@@ -712,41 +672,35 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isMadeUpOf"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A3">
-    <owl:someValuesFrom rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternTriple"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isSubjectOf"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#Subpattern">
-    <owl:disjointUnionOf rdf:nodeID="A31"/>
+    <owl:disjointUnionOf rdf:nodeID="A3"/>
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternConstituent"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="A40"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#hasSentenceTemplate">
     <rdfs:subPropertyOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#isMadeUpOf"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A9">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:nodeID="A41"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isTargetedBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A42">
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
-    <owl:onProperty rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#hasProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  <rdf:Description rdf:nodeID="A39">
+    <owl:unionOf rdf:nodeID="A16"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A8">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement"/>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:rest rdf:nodeID="A37"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Subpattern"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_147">
-    <rdf:rest rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_list_148"/>
-    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/musicbrainz#date_group_ssit_58"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element4">
+    <patternElementHasId rdf:datatype="http://www.w3.org/2001/XMLSchema#long">4</patternElementHasId>
+    <isQualifying rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isQualifying>
+    <targetsProperty rdf:resource="http://dbpedia.org/ontology/highestPlace"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PropertyPatternElement"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#isAuthorOfPattern">
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
@@ -754,11 +708,20 @@ for instance, in the query "Ladies Night: ?producer", the keyword producer match
     <rdfs:range rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#Pattern"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_list_1373">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_ssit_581"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://swip.univ-tlse2.fr/patterns/dbpedia#place_peit_5">
+    <sstTargetsPc rdf:resource="http://swip.univ-tlse2.fr/patterns/dbpedia#place_element5"/>
+    <rdf:type rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PeInTemplate"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://swip.univ-tlse2.fr/ontologies/Patterns#LiteralPatternElement">
     <rdfs:comment xml:lang="en">PatternElement which targets a literal (can't be expressed in property restriction because rdfs:Literal is part of the protected vocabulary)</rdfs:comment>
-    <rdfs:subClassOf rdf:nodeID="A16"/>
+    <rdfs:subClassOf rdf:nodeID="A29"/>
     <rdfs:subClassOf rdf:resource="http://swip.univ-tlse2.fr/ontologies/Patterns#PatternElement"/>
-    <owl:equivalentClass rdf:nodeID="A10"/>
+    <owl:equivalentClass rdf:nodeID="A25"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
 </rdf:RDF>

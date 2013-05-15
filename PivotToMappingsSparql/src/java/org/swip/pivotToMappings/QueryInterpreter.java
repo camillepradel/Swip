@@ -36,11 +36,11 @@ public class QueryInterpreter extends Thread {
         logger.info("Matching query elements to knowledge base elements:");
         logger.info("---------------------------------------------------\n");
         performMatching(queryUri, sparqlClient, commitUpdate, logQuery);
-//        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping patterns elements:");
         logger.info("--------------------------\n");
-        performElementMapping(queryUri, sparqlClient, commitUpdate, true);
+        performElementMapping(queryUri, sparqlClient, commitUpdate, logQuery);
+        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping subpattern collections:");
         logger.info("------------------------------\n");
@@ -393,19 +393,28 @@ public class QueryInterpreter extends Thread {
         logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
 
         queryInner = "  # -- property\n"
+                + "    GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "    {\n"
+                + "      ?pe a patterns:PropertyPatternElement.\n"
+                + "    }\n"
                 + "    GRAPH <" + kbLocation + ">\n"
                 + "    {\n"
                 + "      # devious way to check that we deal with a property because KB often forget to express that properties are properties\n"
-                + "      {\n"
-                + "        SELECT ?subject WHERE{\n"
+                + "      #{\n"
+                + "      #  SELECT ?subject WHERE{\n"
                 + "          # to be considered as a property, a resource must either be declared or used as such\n"
                 + "          # FIXME: the first two subqueries are made unusefull by following FILTER\n"
-                + "          {?r a owl:ObjectProperty. BIND (\"plop\" AS ?subject)} UNION\n"
-                + "          {?r a owl:DatatypeProperty. BIND (\"plop\" AS ?subject)} UNION\n"
-                + "          {?subject ?r ?object}\n"
-                + "        } LIMIT 1\n"
-                + "      }\n"
-                + "      FILTER ( BOUND(?subject) )\n"
+                + "          #      {?r a owl:ObjectProperty. BIND (\"plop\" AS ?subject)}\n"
+                + "          #UNION {?r a owl:DatatypeProperty. BIND (\"plop\" AS ?subject)}\n"
+                + "          #UNION {?subject ?r ?object}\n"
+                + "      #  } LIMIT 1\n"
+                + "      #}\n"
+                + "      #FILTER ( BOUND(?subject) )\n"
+                + "      #{{?r a owl:ObjectProperty.} UNION {?r a owl:DatatypeProperty.}\n"
+                + "      #?r rdfs:subPropertyOf* ?kbe.}\n"
+                + "      #UNION\n"
+                + "      #{ ?r rdfs:subPropertyOf* ?kbe.\n"
+                + "      #FILTER (sameTerm(?r, <http://purl.org/NET/c4dm/timeline.owl#duration>)) }\n"
                 + "      ?r rdfs:subPropertyOf* ?kbe.\n"
                 + "    }\n"
                 + "    BIND (queries:PropertyElementMapping AS ?type)\n"
@@ -417,7 +426,7 @@ public class QueryInterpreter extends Thread {
 
         query = "# properties\n" + queryFrame.replace("[QUERY_INNER]", queryInner);
 
-        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+        logAndCommitQuery(query, sparqlServer, commitUpdate, true);
 
         queryInner = "  # -- instance\n"
                 + "    GRAPH <" + kbLocation + ">\n"
@@ -747,7 +756,7 @@ public class QueryInterpreter extends Thread {
             do {
                 logger.info("iteration " + ++iteration);
                 performSpCollectionMappingLoop(queryUri, sparqlServer, commitUpdate, logQuery, iteration);
-            } while (!allPatternsAreMapped(queryUri, sparqlServer, false));
+            } while (!allPatternsAreMapped(queryUri, sparqlServer, logQuery));
         } else {
             for (int i = 0; i < 2; i++) {
                 logger.info("iteration " + ++iteration);
@@ -1327,6 +1336,7 @@ public class QueryInterpreter extends Thread {
         // change query processing state
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingPatternMapping");
 
+        logger.info(" - perform pattern mapping");
         String query = "# perform pattern mapping\n"
                 + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
@@ -1368,6 +1378,7 @@ public class QueryInterpreter extends Thread {
 
         logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
 
+        logger.info(" - save the number of generated mappings");
         query = "# save the number of generated mappings\n"
                 + "PREFIX queries: <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "INSERT\n"

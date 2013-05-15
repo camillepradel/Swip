@@ -1,0 +1,228 @@
+prefixes
+	foaf:		 "http://xmlns.com/foaf/0.1/"
+	owl:		 "http://www.w3.org/2002/07/owl#"
+	rdf:		 "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	rdfs:		 "http://www.w3.org/2000/01/rdf-schema#"
+	xsd:		 "http://www.w3.org/2001/XMLSchema#"
+	dbpedia:	 "http://dbpedia.org/ontology/"
+	dbpprop:	 "http://dbpedia.org/property/"
+	res:		 "http://dbpedia.org/ressource/"
+	yago:		 "http://dbpedia.org/class/yago/"
+end prefixes
+
+/*
+Pattern river (Graphe 3)
+	
+	-question 4 : Which river does the Brooklyn Bridge cross?
+	-question 10 : In which country does the Nile start?
+	-question 36 : Through which countries does the Yenisei river flow?
+*//*
+pattern river
+	query
+		[ 1_dbpedia:Bridge 2_dbpedia:crosses	   3_dbpedia:River;		     ]cross:0..1/1
+		[ 3				   4_dbpprop:sourceCountry 5_dbpedia:PopulatedPlace; ]source:0..1/5
+		[ 3				   6_dbpprop:country	   7_dbpedia:PopulatedPlace; ]countries:0..2/7
+	end query
+	
+	sentence
+		-3- -cross-[" is crossed by "-1-", "] -source-[" starts in "-5-", "] -countries-[" crosses " -for-countries-[-7- ", "]]
+	end sentence
+end pattern
+*/
+/*
+Pattern work (Graphe 8)
+
+	-question 29 : Which awards did WikiLeaks win?
+	-question 60 : Is there a video game called Battle Chess?
+	-question 82 : In which programming language is GIMP written?
+*//*
+pattern work
+	query
+		[ 1_dbpedia:Work 2_dbpprop:awards			   3_owl:Thing;  ]award:0..3/3
+		[ 1				 4_rdfs:label				   5_xsd:string; ]game:0..1/5
+		[ 1				 6_dbpedia:programmingLanguage 7_owl:Thing;  ]soft:0..2/7
+	end query
+	
+	sentence
+		-1- -game-[" is called "-5-", "] -soft-[" is written in " -for-soft-[-7- ", "]] -award-[" won " -for-award-[-3- ", "]]
+	end sentence
+end pattern
+*/
+/*
+Pattern place (Graphe 10)
+	
+	-question 22 : In which country is the Limerick Lake?
+	-question 47 : What is the highest place of Karakoram?
+*/
+pattern place
+	query
+		[ 1_dbpedia:Place 2_dbpedia:country		 3_dbpedia:Country; ]country:0..1/3
+		[ 1				  4_dbpedia:highestPlace 5_dbpedia:Place;   ]highestPlace:0..1/5
+	end query
+	
+	sentence
+		-1- -country-[" is located in "-3-", "] -highestPlace-[" has "-5-" for highest place"]
+	end sentence
+end pattern
+
+/*
+Pattern mountain (Graphe 16)
+	-question 24 : Which mountain is the highest after the Annapurna?
+	-question 40 : What is the highest mountain in Australia?
+	-question 61 : Which mountains are higher than the Nanga Parbat?
+	-question 92 : What is the highest mountain?
+*//*
+pattern mountain
+	query
+		[ 1_dbpedia:Mountain 2_dbpedia:elevation	 3_xsd:double;		]elevation:0..1/3
+		[ 1					 4_dbpedia:locatedInArea 5_dbpedia:Country; ]country:0..1/5
+	end query
+	
+	sentence
+		-1- -country-[" located in "-5-", "] -elevation-[" which elevation is "-3-]
+	end sentence	
+end pattern
+*/
+/*
+Pattern city (Graphe 17)
+	-question 17 : Give me all cities in New Jersey with more than 100000 inhabitants.
+	-question 33 : What is the area code of Berlin?
+	-question 43 : Who is the mayor of New York City?
+	-question 74 : Which capitals in Europe were host cities of the summer olympic games?
+*//*
+pattern city
+	query
+		[ 1_dbpedia:City 2_dbpedia:isPartOf		   3_dbpedia:Place;							  ]isPartOf:0..1/3
+		[ 1				 4_dbpprop:populationTotal 5_xsd:integer;							  ]population:0..1/5
+		[ 1				 6_dbpedia:areaCode		   7_xsd:string;							  ]areaCode:0..1/7
+		[ 1				 8_dbpedia:leaderName	   9_foaf:Person;							  ]mayor:0..1/9
+		[ 1				 10_rdf:type			   11_yago:CapitalsInEurope;				  ]eurCaps:0..1/11
+		[ 1				 12_rdf:type			   13_yago:HostCitiesOfTheSummerOlympicGames; ]jo:0..1/13
+	end query
+	
+	sentence
+		-1- -isPartOf-[" is part of "-3-", "] -population-[" is composed by "-5-" people, "] -areaCode-[" has the area code "-7-", "]
+		-mayor-[" which mayor is "-9-", "] -eurCaps-[" which is an European Capital, "]
+		-jo-[" was an host city of the summer Olympic Games"]
+	end sentence
+end pattern
+*/
+/*
+Pattern agent (Graphe 7)
+	-question 20 : How many employees does IBM have?
+	-question 35 : Who is the owner of Universal Studios?
+	-question 41 : Give me all soccer clubs in Spain.
+	-question 45 : Which telecommunications organizations are located in Belgium?
+	-question 48 : Give me the homepage of Forbes.
+	-question 49 : Give me all companies in the advertising industry.
+	-question 55 : Who developed the video game World of Warcraft?
+	-question 64 : Which software has been developed by organizations founded in California?
+	-question 65 : Which companies work in the aerospace industry as well as on nuclear reactor technology?
+	-question 67 : Give me the websites of companies with more than 500000 employees.
+	-question 71 : Give me all video games published by Mean Hamster Software.
+	-question 73 : Qui possède Aldi ?
+	-question 80 : Donnes-moi tous les labels discographiques canadiens de grunge.
+	-question 89 : Donnes-moi toutes les équipes de la Premier League.
+	-question 90 : Quand a été fondé Capcom ?
+	-question 91 : Quels organisations ont été fondées en 1950 ?
+	                
+*//*
+pattern agent
+	query
+		[ 1_dbpedia:Agent 2_dbpedia:league	 3_dbpedia:SportsLeague; ]league:0..1/3
+		[ 1				  4_dbpprop:industry 5_owl:Thing;			 ]sector:0..1/5
+	end query
+	
+	sentence
+		-1- -league-[" of the league "-3-", "] -sector-[" is in the sector of "-5-", "] --
+	end sentence
+end pattern
+*/
+/*
+Pattern films/séries/tv (Graphe 15)
+	-question 2 : Give me the birthdays of all actors of the television show Charmed.
+	-question 15 : Who created Goofy?
+	-question 23 : Which television shows were created by Walt Disney?
+	-question 25 : In which films directed by Garry Marshall was Julia Roberts starring?
+	-question 57 : List all episodes of the first season of the HBO television series The Sopranos!
+	-question 58 : Who produced the most films?
+	-question 63 : Give me all actors starring in Last Action Hero.
+	-question 66 : Is Christian Bale starring in Batman Begins?
+	-question 70 : Give me all films produced by Hal Roach.
+	-question 76 : How many films did Hal Roach produce?
+	-question 83 : Who produced films starring Natalie Portman?
+	-question 84 : Give me all movies with Tom Cruise.
+	-question 85 : In which films did Julia Roberts as well as Richard Gere play?
+	-question 88 : How many films did Leonardo DiCaprio star in?
+	-question 94 : Which budget did the first movie of Zdenek Sverak have?	         
+*//*
+pattern film
+	query
+		[	1_dbpedia:Work 2_dbpprop:starring	   3_foaf:Person;
+		  [ 3			   4_dbpprop:birthDate	   5_xsd:date;				  ]birthdateActors:0..1/5
+		]actors:0..2/3 *//*cardinalité effective : 0..18*//*
+		[	1			   6_dbpedia:releaseDate   7_xsd:date; 				  ]release:0..1/7
+		[ 	1			   8_dbpprop:creator	   9_dbpedia:Agent;			  ]creator:0..1/9
+		[	1			   10_dbpprop:director	   11_foaf:Person;			  ]director:0..1/11
+		[	1			   12_dbpprop:producer	   13_foaf:Person;			  ]producer:0..1/13
+		[	1			   14_dbpedia:series	   15_dbpedia:Work;
+			1			   16_dbpedia:seasonNumber 17_xsd:nonNegativeInteger; ]serie:0..1/1
+		[	1			   18_dbpprop:budget	   19_dbpedia:Currency;		  ]budget:0..1/19
+	end query
+	
+	sentence
+		-actors-[-for-actors-[-3- -birthdateActors-[", born at "-5-", "]] " played in "] -1- -release-[" released at "-7-", "] 
+		-creator-[" created by "-9-", "] -director-[" directed by "-11-", "] -producer-[" produced by "-13-]
+		-serie-[" is an episode of the season"-17-"	of "-15-", "] -budget-[" cost "-19-]
+	end sentence
+end pattern
+*/
+/*
+Pattern country (Graphe 4)
+	-question 5 : Combien de monarchies existent en Europe ?
+	-question 8 : Quels sont les états d'Allemagne gouvernés par le parti social-démocrate d'Allemagne ?
+	-question 9 : Quels états des États-Unis d'Amérique possèdent de l'or ?
+	-question 16 : Donnes-moi la capitale de chaque pays d'Afrique.
+	-question 19 : La ville la plus grande de l’Égypte est-elle sa capitale ?
+	-question 21 : Quels sont les états voisins de l'Illinois ?
+	-question 28 : Quels pays d'Europe ont une monarchie constitutionnelle ?
+	-question 30 : Quel état des États-Unis a la plus haute densité de population ?
+	-question 31 : Quelle est la devise de la Tchéquie ?
+	-question 32 : Quels pays de l'Union Européenne ont adopté l'Euro ?
+	-question 34 : Quels pays ont plus de deux langues officielles ?
+	-question 37 : Quand la Lettonie est devenue membre de l'Union Européenne ?
+	-question 42 : Quels sont les langues officielles des Philippines ?
+	-question 72 : Quelles langues parle-t-on en Estonie ?
+	-question 79 : Quels aéroports se trouvent en Californie ?
+	-question 81 : Quel pays a le plus de langues officielles ?
+*//*
+pattern country
+	query
+		[ 1_dbpedia:Country  2_dbpprop:densityrank  	  3_xsd:string;			  	 ]densityRank:0..1/3
+		[ 1					 4_dbpprop:currency	  		  5_dbpedia:Currency;		 ]currency:0..1/5
+		[ 1					 6_dbpprop:currencyCode 	  7_xsd:string;			  	 ]currencyCode:0..1/7
+		[ 1					 8_dbpprop:mineral	   		  9_owl:Thing;				 ]mineral:0..1/7
+		[ 1 				 10_dbpprop:rulingParty 	  11_dbpedia:Organisation; 	 ]rulingParty:0..1/11
+		[ 1 				 12_dbpprop:capital	   		  13_dbpedia:City;			 ]capital:0..1/13
+		[ 1					 14_dbpprop:largestCity		  15_dbpedia:City;			 ]largestCity:0..1/15
+		[ 1 				 16_dbpprop:OfficialLanguages 17_owl:Thing;				 ]officialLanguages:0..2/17
+		[ 1					 18_dbpedia:language		  19_dbpedia:Language;		 ]language:0..2/19
+		[ 1					 20_dbpprop:borderingstates	  21_dbpedia:PopulatedPlace; ]borderingStates:0..2/21
+		[ 1					 22_dbpprop:accessioneudate	  23_xsd:date;				 ]eudate:0..1/23
+		[ 24_dbpedia:Airport 25_dbpprop:location		  1;						 ]airports:0..2/24
+		[ 1					 26_rdf:type				  27_yago:EuropeanCountries; ]eucountry:0..1/27
+		[ 1					 28_dbpedia:governmentType	  29_dbpedia:GovernmentType; ]governmentType:0..1/29
+	end query
+	
+	sentence
+		-densityRank-["In the "-3-" position about density there is "] -1- -currency-[" which currency is "-5-", "]
+		-currencyCode-[" wich have "-7-" for currency code, "] -mineral-[" have the mineral "-9-", "]
+		-rulingParty-[" is govern by the party "-11-", "] -capital-[" has "-13-" for capital"]
+		-largestCity-[" which largest city is "-15-", "] -officialLanguages-[" has official languages "
+		-for-officialLanguages-[-17-", "]] -language-[" in which we speak "-for-language-[-19-", "]]
+		-borderingStates-[" is a bordering state of "-for-borderingStates-[-21-", "]]
+		-eudate-[" is a member of the European Union since "-23-", "] -airports-[" is served by "-for-airports-[-24-", "]]
+		-eucountry-[" is an european country, "] -governmentType-[" which government is a "-29-]
+	end sentence
+end pattern
+*/

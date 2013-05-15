@@ -1,0 +1,55 @@
+TODO: make it work! cf. manage the filter
+OK
+-
+not supported
+more or less OK (problematic question)
+OK
+not supported
+OK
+OK
+-
+maybe OK
+not supported
+OK
+probably OK
+TODO
+TODO: manage the filter - OK
+OK
+TODO
+TODO: pivot failed
+not supported
+probably OK
+more or less OK
+not supported
+TODO
+TODO
+OK
+not supported
+OK
+not supported
+OK
+OK
+bad matching
+OK
+OK
+OK
+not supported
+not covered
+TODO
+problematic question
+-
+not really supported, but quite OK
+probably OK
+not supported
+-
+not supported (quite silly question)
+OK
+-
+more or less OK
+not covered (out of scope?)
+TRY AGAIN: data doesn't respect definition of rel:collaboratesWith (problematic question)
+probably OK
+pivot failed, not covered anyway
+not supported
+out of scope
+not supported
