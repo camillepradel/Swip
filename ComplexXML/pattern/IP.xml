@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<complexMapping>
+	<define>
+		<first path="D:\conference\ontologies\cmt.owl"/>
+		<second path="D:\conference\ontologies\ekaw.owl"/>
+	</define>
+	<anchorCorrespondence>
+		<load>
+			<concept origin="first" id="1" partOfCorrespondence="yes"/>
+			<concept origin="second" id="2" partOfCorrespondence="yes"/>
+		</load>		
+		<condition>
+			<and>
+				<similarityAbove value="0.9">
+					<name>
+						<entity id="1"/>
+					</name>
+					<name>
+						<entity id="2"/>
+					</name>
+				</similarityAbove>
+			</and>
+		</condition>
+	</anchorCorrespondence>
+	<correspondence>
+		<load>
+			<objectProperty origin="first" id="1p" partOfCorrespondence="yes"/>
+			<objectProperty origin="second" id="2p" partOfCorrespondence="yes"/>
+			<concept origin="first" id="1d" partOfCorrespondence="no"/>
+			<concept origin="first" id="1r" partOfCorrespondence="no"/> 
+			<concept origin="second" id="2d" partOfCorrespondence="no"/>
+			<concept origin="second" id="2r" partOfCorrespondence="no"/>
+		</load>
+		<condition>
+			<and>
+				<isRangeOf>
+					<entity id="2r"/>
+					<entity id="2p"/>					
+				</isRangeOf>
+				<or>
+					<isSubclassOf>					
+						<entity id="1d"/>
+						<entity id="2r"/>
+					</isSubclassOf>		
+					<hyponym>
+						<entity id="1d"/>
+						<entity id="2r"/>
+					</hyponym>
+				</or>	
+				<isRangeOf>
+					<entity id="1r"/>
+					<entity id="1p"/>
+				</isRangeOf>				
+				<isDomainOf>
+					<entity id="2d"/>
+					<entity id="2p"/>					
+				</isDomainOf>
+				<or>
+					<isSubclassOf>
+						<entity id="1r"/>
+						<entity id="2d"/>
+					</isSubclassOf>
+					<hyponym>
+						<entity id="2d"/>
+						<entity id="1r"/>
+					</hyponym>
+				</or>				
+				<isDomainOf>
+					<entity id="1d"/>
+					<entity id="1p"/>					
+				</isDomainOf>					
+				<equal>
+					<active>		
+						<verb>
+							<entity id="2p"/>
+						</verb>
+					</active>
+					<verb>
+						<entity id="1p"/>
+					</verb>
+				</equal> 
+			</and>
+		</condition>
+		<outputFormat>
+		<![CDATA[
+			<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+			<rdf:RDF
+				xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+				xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+				xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+				xmlns:edoal="http://ns.inria.org/edoal/1.0/#"> 	
+				<Alignment>
+					<level>2EDOAL</level>
+					<type>**</type>
+					<onto1>
+						<Ontology rdf:about="http://cmt">
+							<formalism>
+								<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+							</formalism>
+						</Ontology>
+					</onto1>
+					<onto2>
+						<Ontology rdf:about="http://ekaw">
+							<formalism>
+								<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+							</formalism>
+						</Ontology>
+					</onto2>
+					<correspondenceFormat>	
+						<map>
+							<Cell>
+								<relation>SubsumedBy</relation>
+								<measure>1.0</measure>
+								<entity1>
+									<edoal:Relation rdf:about="1p"/>
+								</entity1>
+								<entity2>
+									<edoal:Relation rdf:about="2p"/>
+								</entity2>
+							</Cell>
+						</map>	
+					</correspondenceFormat>	
+				</Alignment>
+			</rdf:RDF>
+			]]>
+		</outputFormat>
+    </correspondence>
+ </complexMapping>

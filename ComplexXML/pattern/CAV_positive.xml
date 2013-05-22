@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<complexMapping>
+	<define>
+		<first path="D:\conference\ontologies\ekaw.owl"/>
+		<second path="D:\conference\ontologies\confOf.owl"/>
+	</define>
+	<anchorCorrespondence>
+		<load>
+			<concept origin="first" id="1" partOfCorrespondence="yes"/>
+			<concept origin="second" id="2" partOfCorrespondence="yes"/>
+		</load>		
+		<condition>
+			<and>
+				<similarityAbove value="0.7">
+					<name>
+						<entity id="1"/>
+					</name>
+					<name>
+						<entity id="2"/>
+					</name>
+				</similarityAbove>
+			</and>
+		</condition>
+	</anchorCorrespondence>
+	<correspondence>
+		<load>
+  			<concept origin="first" id="1a" partOfCorrespondence="yes"/> 
+			<datatypeProperty origin="second" id="2r" partOfCorrespondence="yes"/>
+			<concept origin="second" id="2d" partOfCorrespondence="no"/>
+		</load>
+			<condition>
+				<and>
+					<isRangeOf>
+						<datatype>
+							boolean
+						</datatype>
+						<entity id="2r"/>
+					</isRangeOf>
+					<isDomainOf>
+						<entity id="2d"/>
+						<entity id="2r"/>
+					</isDomainOf>
+					<isSubclassOf>
+						<entity id="1a"/>
+						<entity id="2d"/>						
+					</isSubclassOf>
+					<nominalization>	
+						<verb>
+							<modifier>
+								<entity id="1a"/>
+							</modifier>
+						</verb>
+						<head>
+							<entity id="2r"/>
+						</head>
+					</nominalization>
+					<synonyms>
+						<modifier>
+							<modifier>
+								<entity id="1a"/>
+							</modifier>
+						</modifier>	
+						<modifier>
+							<entity id="2r"/>
+						</modifier>
+					</synonyms>	
+				</and>
+			</condition>
+		<outputFormat>
+		<![CDATA[
+			<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+			<rdf:RDF
+				xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+				xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+				xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+				xmlns:edoal="http://ns.inria.org/edoal/1.0/#"> 	
+				<Alignment>
+					<level>2EDOAL</level>
+					<type>**</type>
+					<onto1>
+						<Ontology rdf:about="http://ekaw">
+							<formalism>
+								<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+							</formalism>
+						</Ontology>
+					</onto1>
+					<onto2>
+						<Ontology rdf:about="http://conOf">
+							<formalism>
+								<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+							</formalism>
+						</Ontology>
+					</onto2>
+					<correspondenceFormat>	
+						<map>
+							<Cell>
+								<relation>Equivalence</relation>
+								<measure>1.0</measure>
+								<entity1>
+									<edoal:Class rdf:about="1a"/>
+								</entity1>
+								<entity2>
+									<edoal:Class>
+										<edoal:and rdf:parseType="Collection">
+											<edoal:AttributeValueRestriction>
+												<edoal:onAttribute>
+													<edoal:Property rdf:about="2r"/>
+												</edoal:onAttribute>
+												<edoal:comparator rdf:resource="http://www.w3.org/2001/XMLSchema#equals"/>
+												<edoal:value><edoal:Literal edoal:string="true"/></edoal:value>
+											</edoal:AttributeValueRestriction>
+										</edoal:and>
+									</edoal:Class>
+								</entity2>
+							</Cell>	
+						</map>	
+					</correspondenceFormat>	
+				</Alignment>
+			</rdf:RDF>
+			]]>
+		</outputFormat>
+    </correspondence>
+ </complexMapping>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<complexMapping>
+	<define>
+		<first path="E:\pgillet\Stage\Data\Music\v8\musicontology.owl"/>
+		<second path="E:\pgillet\Stage\Data\dbpedia_3.8.owl\dbpedia_3.8.owl"/>		
+	</define>
+	<anchorCorrespondence>
+		<load>
+			<concept origin="first" id="1" partOfCorrespondence="yes"/>
+			<concept origin="second" id="2" partOfCorrespondence="yes"/>
+		</load>		
+		<condition>
+			<and>
+				<similarityAbove value="0.7">
+					<name>
+						<entity id="1"/>
+					</name>
+					<name>
+						<entity id="2"/>
+					</name>
+				</similarityAbove>
+			</and>
+		</condition>
+	</anchorCorrespondence>
+	<correspondence>
+		<load>
+  			<concept origin="first" id="1a" partOfCorrespondence="yes"/>
+			<concept origin="second" id="2b" partOfCorrespondence="yes"/>
+			<concept origin="second" id="2c" partOfCorrespondence="no"/> 
+			<objectProperty origin="second" id="2r" partOfCorrespondence="yes"/>
+			<concept origin="second" id="2d" partOfCorrespondence="yes"/>
+		</load>
+		<condition>
+			<and>
+				<nominalization>						
+					<name>
+						<entity id="2b"/>
+					</name>			
+					<active>
+						<modifier>
+							<entity id="1a"/>
+						</modifier>
+					</active>	
+				</nominalization>			
+				<isSuperclassOf>
+					<entity id="2c"/>
+					<entity id="2b"/>
+				</isSuperclassOf>
+				<isRangeOf>
+					<entity id="2c"/>
+					<entity id="2r"/>
+				</isRangeOf>
+				<isDomainOf>
+					<entity id="2d"/>
+					<entity id="2r"/>
+				</isDomainOf>
+				<or>				 
+				<isSubclassOf>
+					<entity id="1a"/>
+					<entity id="2d"/>
+				</isSubclassOf> 
+				<hyponym>
+					<entity id="1a"/>
+					<entity id="2d"/>
+				</hyponym>  
+				</or>
+		    </and>
+		</condition>
+		<outputFormat>
+		<![CDATA[
+			<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+			<rdf:RDF
+				xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+				xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+				xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+				xmlns:edoal="http://ns.inria.org/edoal/1.0/#"> 	
+				<Alignment>
+					<level>2EDOAL</level>
+					<type>**</type>
+					<onto1>
+						<Ontology rdf:about="http://pcs">
+							<formalism>
+								<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+							</formalism>
+						</Ontology>
+					</onto1>
+					<onto2>
+						<Ontology rdf:about="http://cmt">
+							<formalism>
+								<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+							</formalism>
+						</Ontology>
+					</onto2>
+					<correspondenceFormat>	
+						<map>
+							<Cell>
+								<relation>Equivalence</relation>
+								<measure>1.0</measure>
+								<entity1>
+									<edoal:Class rdf:about="1a"/>
+								</entity1>							
+								<entity2>
+									<edoal:Class>
+										<edoal:and rdf:parseType="Collection">
+											<edoal:Class rdf:about="2d"/>
+											<edoal:AttributeTypeRestriction>
+												<edoal:onAttribute>
+													<edoal:Relation rdf:about="2r"/>
+												</edoal:onAttribute>
+												<edoal:value>
+													<edoal:Class rdf:about="2b"/>
+												</edoal:value>
+												<edoal:datatype></edoal:datatype>
+											</edoal:AttributeTypeRestriction>
+										</edoal:and>
+									</edoal:Class>
+								</entity2>
+							</Cell>	
+						</map>	
+					</correspondenceFormat>	
+				</Alignment>
+			</rdf:RDF>
+			]]>
+		</outputFormat>
+    </correspondence>
+ </complexMapping>
