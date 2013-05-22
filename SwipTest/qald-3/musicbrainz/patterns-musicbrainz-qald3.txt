@@ -165,15 +165,15 @@ Elvis Presley: ?birthday
 pattern around_artist_person
 	query
 		[ 1_foaf:Agent	-2_bio:event				3_bio:Birth;
-		  3				 4_bio:date(5)				5_<xsd:dateTime>;			]birth:0..1/5
+		  3				 4_bio:date(5)				5_<xsd:date>;				]birth:0..1/5
 		[ 1				-6_bio:event				7_bio:Death;
-		  7				 8_bio:date(9)				9_<xsd:dateTime>;			]death:0..1/9
+		  7				 8_bio:date(9)				9_<xsd:date>;				]death:0..1/9
 		[ 1				 10_mo:member_of(1,11)		11_foaf:Group;				]band:0..1/11
 		[ 1				 12_rel:spouseOf			13_foaf:Agent;				]marriage:0..1/13
 		[ 1				 14_mo:collaborated_with	15_foaf:Agent;				]collab:0..1/15
 	end query
 	sentence
-		-1- -birth-[" was born on "-5-", "] -death-[" died on "-9-", "] -band-[" member of "-11-", "] -marriage-[" married to "-13-", "] -collab-["collaborated with "-15-]
+		-1- -birth-[" was born on "-5-", "] -death-[" died on "-9-", "] -band-[" member of "-11-", "] -marriage-[" married to "-13-", "] -collab-[" collaborated with "-15-]
 	end sentence
 end pattern
 
@@ -193,7 +193,7 @@ Babylon 5 : ?duration
 
 pattern around_track
 	query
-		[ 1_mo:Track	2_mo:duration(3)	3_<xsd:decimal>;	]duration:0..1/3
+		[ 1_mo:Track	2_tl:duration(3)	3_<xsd:decimal>;	]duration:0..1/3
 		[ 1				4_foaf:maker(5)		5_foaf:Agent;		]creator:0..1/5
 		[ 6_mo:Record	7_mo:track(1)		1;					]album:0..1/6
 	end query

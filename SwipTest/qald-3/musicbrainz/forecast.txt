@@ -1,0 +1,55 @@
+OK
+OK
+-
+not supported
+more or less OK (problematic question)
+OK
+not supported
+OK
+OK
+-
+maybe OK
+not supported
+OK
+probably OK
+fail (problematic question)
+OK
+OK
+more or less OK
+probably not good
+not supported
+probably OK
+more or less OK
+not supported
+OK
+OK
+OK
+not supported
+OK
+not supported
+OK
+OK
+bad matching
+OK
+OK
+OK
+not supported
+not covered
+OK
+problematic question
+-
+not really supported, but quite OK
+probably OK
+not supported
+-
+not supported (quite silly question)
+OK
+-
+more or less OK
+not covered (out of scope?)
+TRY AGAIN: data doesn't respect definition of rel:collaboratesWith (problematic question)
+probably OK
+pivot failed, not covered anyway
+not supported
+out of scope
+not supported

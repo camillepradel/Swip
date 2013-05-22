@@ -1,0 +1,620 @@
+<?xml version="1.0" ?>
+<dataset id="musicbrainz-test">
+<question aggregation="false" answertype="resource" id="2">
+<string lang="en"><![CDATA[Who produced the album Dookie?]]></string>
+<pivotQuery>Dookie: album. ?person: produce= Dookie.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Dookie <http://www.w3.org/2000/01/rdf-schema#label> "Dookie".
+	?Dookie <http://purl.org/ontology/mo/producer> ?person.
+	?Dookie <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="52">
+<string lang="en"><![CDATA[In which countries was the single Incomplete published?]]></string>
+<status>pivot failed, not covered anyway</status>
+</question>
+
+<question aggregation="false" answertype="boolean" id="8">
+<string lang="en"><![CDATA[Is Bugs a track on the album Vitalogy?]]></string>
+<pivotQuery>Vitalogy: album. track: Bugs. track: Vitalogy. ASK.</pivotQuery>
+<query><![CDATA[
+ASK
+{
+	?Vitalogy <http://www.w3.org/2000/01/rdf-schema#label> "Vitalogy".
+	?Bugs <http://www.w3.org/2000/01/rdf-schema#label> "Bugs".
+	?Vitalogy <http://purl.org/ontology/mo/track> ?Bugs.
+	?Vitalogy <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+	?Bugs <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="true" answertype="number" id="42">
+<string lang="en"><![CDATA[How many live albums by Elvis Presley are there?]]></string>
+<pivotQuery>album: live. album: Elvis_Presley. COUNT.</pivotQuery>
+<query><![CDATA[
+SELECT (COUNT(*)) WHERE
+{
+	?Elvis_Presley <http://www.w3.org/2000/01/rdf-schema#label> "Elvis Presley".
+	?live_album <http://xmlns.com/foaf/0.1/maker> ?Elvis_Presley.
+	?live_album <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/live>.
+	?Elvis_Presley <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>probably OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="30">
+<string lang="en"><![CDATA[Who was Whitney Houston's husband?]]></string>
+<pivotQuery>?person: Whitney_Houston= husband.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Whitney_Houston <http://www.w3.org/2000/01/rdf-schema#label> "Whitney Houston".
+	?person <http://purl.org/vocab/relationship/spouseOf> ?Whitney_Houston.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="50">
+<string lang="en"><![CDATA[On which singles did Robbie Williams collaborate with Nicole Kidman?]]></string>
+<pivotQuery></pivotQuery>
+<status>TRY AGAIN: data doesn't respect definition of rel:collaboratesWith (problematic question)</status>
+</question>
+
+<question aggregation="true" answertype="number" id="21">
+<string lang="en"><![CDATA[How many singles did Brian Eno record?]]></string>
+<pivotQuery></pivotQuery>
+<query><![CDATA[
+SELECT COUNT (DISTINCT ?single) WHERE
+{
+	?Brian_Eno <http://www.w3.org/2000/01/rdf-schema#label> "Brian Eno".
+	?single <http://xmlns.com/foaf/0.1/maker> ?Brian_Eno.
+	?single <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/single>.
+	?Brian_Eno <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>probably OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="7">
+<string lang="en"><![CDATA[Which artists turned 60 on May 15, 2011?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="1">
+<string lang="en"><![CDATA[Which groups were founded in 1924?]]></string>
+<pivotQuery>?group: found= date&lt;1924&gt;.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?group WHERE
+{
+	?found <http://purl.org/vocab/bio/0.1/date> ?literal.
+	?group <http://purl.org/vocab/bio/0.1/event> ?found.
+	?found <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Birth>.
+	?group <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+	FILTER ( regex (?literal, '1924') )
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="string" id="54">
+<string lang="en"><![CDATA[What is the legal name of Loona?]]></string>
+<status>out of scope</status>
+</question>
+
+<!-- 10 -->
+
+<question aggregation="true" answertype="number" id="14">
+<string lang="en"><![CDATA[How many singles did the Scorpions release?]]></string>
+<pivotQuery>release: Scorpions. single: release. COUNT.</pivotQuery>
+<query><![CDATA[
+SELECT (COUNT(DISTINCT ?single)) WHERE
+{
+	?Scorpions <http://www.w3.org/2000/01/rdf-schema#label> "Scorpions".
+	?single <http://xmlns.com/foaf/0.1/maker> ?Scorpions.
+	?single <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/single>.
+	?Scorpions <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<comment>had to change 'the Scorpions' into 'Scorpions'</comment>
+<status>probably OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="27">
+<string lang="en"><![CDATA[What kind of record is Hijo de la luna?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="41">
+<string lang="en"><![CDATA[Which albums of Elvis Presley have Elvis in their title?]]></string>
+<pivotQuery>Elvis: title. ?album: Elvis_Presley= Elvis.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?album WHERE
+{
+	?Elvis_Presley <http://www.w3.org/2000/01/rdf-schema#label> "Elvis Presley".
+	?album <http://xmlns.com/foaf/0.1/maker> ?Elvis_Presley.
+	?album <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+}
+]]></query>
+<comment>returns all albums from Elvis Presley; better than nothing</comment>
+<status>not really supported, but quite OK</status>
+</question>
+
+<question aggregation="false" answertype="string" id="49">
+<string lang="en"><![CDATA[In which language does Marco Borsato sing?]]></string>
+<status>not covered (out of scope?)</status>
+</question>
+
+<question aggregation="true" answertype="number" id="5">
+<string lang="en"><![CDATA[How many tracks does Erotica have?]]></string>
+<pivotQuery>track: Erotica. COUNT.</pivotQuery>
+<query><![CDATA[
+SELECT (COUNT(DISTINCT ?track)) WHERE
+{
+	?Erotica <http://www.w3.org/2000/01/rdf-schema#label> "Erotica".
+	?Erotica <http://purl.org/ontology/mo/track> ?track.
+	?track <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+	?Erotica <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Record>.
+}
+]]></query>
+<comments>returns the total number of tracks in all albums named Erotica (consistent with the way entyties are resolved in the gold standart training set, but not very accurate in this case)</comments>
+<status>more or less OK (problematic question)</status>
+</question>
+
+<!-- 15 -->
+
+<question aggregation="true" answertype="resource" id="45">
+<string lang="en"><![CDATA[Give me all solo artists born in March.]]></string>
+<status>not supported (quite silly question)</status>
+</question>
+
+<question aggregation="false" answertype="date" id="33">
+<string lang="en"><![CDATA[When were the Dixie Chicks founded?]]></string>
+<pivotQuery>found: Dixie_Chicks= date<?>.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?literal_c3d5c53d746a44e094162740334a9b05 WHERE
+{
+	?Dixie_Chicks <http://www.w3.org/2000/01/rdf-schema#label> "Dixie Chicks".
+	?found <http://purl.org/vocab/bio/0.1/date> ?literal_c3d5c53d746a44e094162740334a9b05.
+	?Dixie_Chicks <http://purl.org/vocab/bio/0.1/event> ?found.
+	?found <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Birth>.
+	?Dixie_Chicks <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="16">
+<string lang="en"><![CDATA[Which bands broke up in 2000?]]></string>
+<pivotQuery>?band: break_up= date<2000>.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?band WHERE
+{
+	?break_up <http://purl.org/vocab/bio/0.1/date> ?literal.
+	?band <http://purl.org/vocab/bio/0.1/event> ?break_up.
+	?break_up <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Death>.
+	?band <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+	FILTER ( regex (?literal, '2000') )
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="boolean" id="39">
+<string lang="en"><![CDATA[Does the song Peggy Sue appear on Buddy Holly's Greatest Hits compilation?]]></string>
+<pivotQuery>compilation: Buddy_Holly's_Greatest_Hits. Peggy_Sue: song. appear: Peggy_Sue= compilation. ASK.</pivotQuery>
+<query><![CDATA[
+ASK
+{
+	?Peggy_Sue <http://www.w3.org/2000/01/rdf-schema#label> "Peggy Sue".
+	?Buddy_Holly <http://www.w3.org/2000/01/rdf-schema#label> "Buddy Holly's Greatest Hits".
+	?Buddy_Holly <http://purl.org/ontology/mo/track> ?Peggy_Sue.
+	?Peggy_Sue <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+	?Buddy_Holly <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Record>.
+}
+]]></query>
+<comments>KB doesn't specify tracks of the compilation, so the answer is false, but actually we don't know</comments>
+<status>problematic question</status>
+</question>
+
+<question aggregation="true" answertype="number" id="35">
+<string lang="en"><![CDATA[How many children did Bob Marley have?]]></string>
+<pivotQuery>child: Bob_Marley. COUNT.</pivotQuery>
+<query><![CDATA[
+SELECT (COUNT(DISTINCT ?cpe_b365b8f66a2a4a3c8983176c4ea966f7)) WHERE
+{
+	?Bob_Marley <http://www.w3.org/2000/01/rdf-schema#label> "Bob Marley".
+	?Bob_Marley <http://purl.org/vocab/relationship/parentOf> ?cpe_b365b8f66a2a4a3c8983176c4ea966f7.
+	?Bob_Marley <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Bob_Marley <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<!-- 20 -->
+
+<question aggregation="false" answertype="resource" id="48">
+<string lang="en"><![CDATA[Give me all soundtracks composed by the Pet Shop Boys.]]></string>
+<pivotQuery>?soundtrack: compose= Pet_Shop_Boys.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?soundtrack WHERE
+{
+	?Pet_Shop_Boys <http://www.w3.org/2000/01/rdf-schema#label> "Pet Shop Boys".
+	?soundtrack <http://purl.org/ontology/mo/composer> ?Pet_Shop_Boys.
+	?soundtrack <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/soundtrack>.
+	?Pet_Shop_Boys <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+	?Pet_Shop_Boys <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<comment>generated query looks ok, but returns only one soundtrack, while wikipedia says there are more</comment>
+<status>more or less OK</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="43">
+<string lang="en"><![CDATA[Which members of The Beatles have more than one child?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="37">
+<string lang="en"><![CDATA[Give me all artists who were in a band as well as released a solo album.]]></string>
+<status>not covered</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="23">
+<string lang="en"><![CDATA[Who was born on the same day as Tina Turner?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="28">
+<string lang="en"><![CDATA[By whom is the song Everlong?]]></string>
+<pivotQuery>Everlong: song; ?person.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Everlong <http://www.w3.org/2000/01/rdf-schema#label> "Everlong".
+	?Everlong <http://xmlns.com/foaf/0.1/maker> ?person.
+	?Everlong <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+	?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<!-- 25 -->
+
+<question aggregation="true" answertype="resource" id="55">
+<string lang="en"><![CDATA[Which member of Take That recorded the most albums?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="true" answertype="number" id="22">
+<string lang="en"><![CDATA[How often did Madonna marry?]]></string>
+<pivotQuery>marry: Madonna. COUNT.</pivotQuery>
+<query><![CDATA[
+SELECT (COUNT(DISTINCT ?var)) WHERE
+{
+	?Madonna <http://www.w3.org/2000/01/rdf-schema#label> "Madonna".
+	?Madonna <http://purl.org/vocab/relationship/spouseOf> ?var.
+	?Madonna <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Madonna <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<comment>doesn't look like proper English; pivot translated manually</comment>
+<comment>Sean Penn is not taken into account, but maybe the information is not in the KB</comment>
+<comment>Madonna had sex with John F. Kennedy, Jr.!</comment>
+<status>more or less OK</status>
+</question>
+
+<question aggregation="false" answertype="string" id="46">
+<string lang="en"><![CDATA[Give me the titles of all singles by Phil Collins.]]></string>
+<pivotQuery>Phil_Collins: ?single.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?single WHERE
+{
+	?Phil_Collins <http://www.w3.org/2000/01/rdf-schema#label> "Phil Collins".
+	?single <http://xmlns.com/foaf/0.1/maker> ?Phil_Collins.
+	?single <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/single>.
+	?Phil_Collins <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Phil_Collins <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="boolean" id="13">
+<string lang="en"><![CDATA[Was the album Coming Home created by Lionel Richie?]]></string>
+<pivotQuery>Coming_Home: album. Coming_Home: create= Lionel_Richie. ASK.</pivotQuery>
+<query><![CDATA[
+ASK
+{
+	?Lionel_Richie <http://www.w3.org/2000/01/rdf-schema#label> "Lionel Richie".
+	?Coming_Home <http://www.w3.org/2000/01/rdf-schema#label> "Coming Home".
+	?Coming_Home <http://xmlns.com/foaf/0.1/maker> ?Lionel_Richie.
+	?Coming_Home <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+	?Lionel_Richie <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Lionel_Richie <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="18">
+<string lang="en"><![CDATA[Who produced the albums Out of Time and Automatic for the People?]]></string>
+<pivotQuery>Out_of_Time: Automatic_for_the_People. Out_of_Time: album. ?person: produce= Out_of_Time.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Automatic_for_the_People <http://www.w3.org/2000/01/rdf-schema#label> "Automatic for the People".
+	?Automatic_for_the_People <http://purl.org/ontology/mo/producer> ?person.
+	?Automatic_for_the_People <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+}
+]]></query>
+<comment>returns producer of Automatic for the People (only)</comment>
+<status>more or less OK</status>
+</question>
+
+<!-- 30 -->
+
+<question aggregation="true" answertype="number" id="32">
+<string lang="en"><![CDATA[How many pieces of work did Mozart create?]]></string>
+<pivotQuery>pieces_of_work: create= Mozart. COUNT.</pivotQuery>
+<query><![CDATA[
+SELECT COUNT(?cpe) WHERE
+{
+	?Mozart <http://www.w3.org/2000/01/rdf-schema#label> "Mozart".
+	?cpe <http://xmlns.com/foaf/0.1/maker> ?Mozart.
+	?Mozart <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Mozart <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<comment>only 1!? obviously it's not the good Mozart which was matched</comment>
+<status>bad matching</status>
+</question>
+
+<question aggregation="false" answertype="date" id="34">
+<string lang="en"><![CDATA[When was That Which Remains founded?]]></string>
+<pivotQuery>found: That_Which_Remains= date<?>.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?literal_979615076dc449cd945b73dd9d0d6cab WHERE
+{
+	?That_Which_Remains <http://www.w3.org/2000/01/rdf-schema#label> "That Which Remains".
+	?found <http://purl.org/vocab/bio/0.1/date> ?literal_979615076dc449cd945b73dd9d0d6cab.
+	?That_Which_Remains <http://purl.org/vocab/bio/0.1/event> ?found.
+	?found <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Birth>.
+	?That_Which_Remains <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicGroup>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="number" id="11">
+<string lang="en"><![CDATA[How long is Louder Than Words by Against All Authority?]]></string>
+<pivotQuery>Louder_Than_Words: Against_All_Authority. ?DURATION: Louder_Than_Words.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?lpe WHERE
+{
+	?Louder_Than_Words <http://www.w3.org/2000/01/rdf-schema#label> "Louder Than Words".
+	?Louder_Than_Words <http://purl.org/ontology/mo/duration> ?lpe.
+	?Louder_Than_Words <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
+]]></query>
+<coment>no answer in the database!?</comment>
+<status>maybe OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="9">
+<string lang="en"><![CDATA[Who is the singer on the album The Dark Side of the Moon?]]></string>
+<pivotQuery>The_Dark_Side_of_the_Moon: singer= ?person. The_Dark_Side_of_the_Moon: album.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?The_Dark_Side_of_the_Moon <http://www.w3.org/2000/01/rdf-schema#label> "The Dark Side of the Moon".
+	?The_Dark_Side_of_the_Moon <http://purl.org/ontology/mo/singer> ?person.
+	?The_Dark_Side_of_the_Moon <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="17">
+<string lang="en"><![CDATA[By whom is the single Pure Morning?]]></string>
+<pivotQuery>Pure_Morning: single. Pure_Morning: by= ?person.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Pure_Morning <http://www.w3.org/2000/01/rdf-schema#label> "Pure Morning".
+	?Pure_Morning <http://xmlns.com/foaf/0.1/maker> ?person.
+	?Pure_Morning <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/single>.
+	?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<!-- 35 -->
+
+<question aggregation="false" answertype="resource" id="6">
+<string lang="en"><![CDATA[Who composed the soundtrack for Blade Runner?]]></string>
+<pivotQuery>soundtrack: Blade_Runner. ?person: compose= soundtrack.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Blade_Runner <http://www.w3.org/2000/01/rdf-schema#label> "Blade Runner".
+	?Blade_Runner <http://purl.org/ontology/mo/composer> ?person.
+	?Blade_Runner <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/soundtrack>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="number" id="36">
+<string lang="en"><![CDATA[How old is Rod Morgenstein?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="20">
+<string lang="en"><![CDATA[Give me all bands whose name starts with The.]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="false" answertype="boolean" id="51">
+<string lang="en"><![CDATA[Did Kylie Minogue ever collaborate with Mariah Carey?]]></string>
+<pivotQuery>Kylie_Minogue: collaborate= Mariah_Carey. ASK.</pivotQuery>
+<query><![CDATA[
+ASK
+{
+	?Mariah_Carey <http://www.w3.org/2000/01/rdf-schema#label> "Mariah Carey".
+	?Kylie_Minogue <http://www.w3.org/2000/01/rdf-schema#label> "Kylie Minogue".
+	?Mariah_Carey <http://purl.org/ontology/mo/collaborated_with> ?Kylie_Minogue.
+}
+]]></query>
+<status>probably OK</status>
+</question>
+
+<question aggregation="false" answertype="number" id="25">
+<string lang="en"><![CDATA[How long is the song This Magic Moment by Lou Reed?]]></string>
+<pivotQuery>This_Magic_Moment: Lou_Reed. This_Magic_Moment: song. ?duration: This_Magic_Moment.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?duration WHERE
+{
+	?This_Magic_Moment <http://www.w3.org/2000/01/rdf-schema#label> "This Magic Moment".
+	?Lou_Reed <http://www.w3.org/2000/01/rdf-schema#label> "Lou Reed".
+	?This_Magic_Moment <http://purl.org/NET/c4dm/timeline.owl#duration> ?duration.
+	?This_Magic_Moment <http://xmlns.com/foaf/0.1/maker> ?Lou_Reed.
+	?This_Magic_Moment <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+	?Lou_Reed <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Lou_Reed <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<!-- 40 -->
+
+<question aggregation="false" answertype="resource" id="38">
+<string lang="en"><![CDATA[On which albums does the song Because You Loved Me appear?]]></string>
+<pivotQuery>Because_You_Loved_Me: appear. album: song= Because_You_Loved_Me.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?album WHERE
+{
+	?Because_You_Loved_Me <http://www.w3.org/2000/01/rdf-schema#label> "Because You Loved Me".
+	?album <http://purl.org/ontology/mo/track> ?Because_You_Loved_Me.
+	?album <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/album>.
+	?Because_You_Loved_Me <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="24">
+<string lang="en"><![CDATA[Which compilations contain the song Last Christmas?]]></string>
+<pivotQuery>song: Last_Christmas. ?compilation: contain= song.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?compilation WHERE
+{
+	?Last_Christmas <http://www.w3.org/2000/01/rdf-schema#label> "Last Christmas".
+	?compilation <http://purl.org/ontology/mo/track> ?Last_Christmas.
+	?compilation <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/compilation>.
+	?Last_Christmas <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="53">
+<string lang="en"><![CDATA[Which group had 70 members?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="29">
+<string lang="en"><![CDATA[Which bands recorded more than 50 albums?]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="false" answertype="date" id="31">
+<string lang="en"><![CDATA[When did Ludwig van Beethoven die?]]></string>
+<pivotQuery>die: date<?>. die: Ludwig_van_Beethoven.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?literal_8b99bad69bfe4b59b8405f077bcd12c1 WHERE
+{
+	?Ludwig_van_Beethoven <http://www.w3.org/2000/01/rdf-schema#label> "Ludwig van Beethoven".
+	?die <http://purl.org/vocab/bio/0.1/date> ?literal_8b99bad69bfe4b59b8405f077bcd12c1.
+	?Ludwig_van_Beethoven <http://purl.org/vocab/bio/0.1/event> ?die.
+	?die <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/bio/0.1/Death>.
+	?Ludwig_van_Beethoven <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Ludwig_van_Beethoven <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<!-- 45 -->
+
+<question aggregation="false" answertype="resource" id="19">
+<string lang="en"><![CDATA[With whom did Phil Collins work together?]]></string>
+<pivotQuery>Phil_Collins: work= ?person.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Phil_Collins <http://www.w3.org/2000/01/rdf-schema#label> "Phil Collins".
+	?Phil_Collins <http://purl.org/ontology/mo/collaborated_with> ?person.
+}
+]]></query>
+<comment>no result</comment>
+<status>probably not good</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="12">
+<string lang="en"><![CDATA[Give me all albums which have the name of their artist as their title.]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="true" answertype="resource" id="4">
+<string lang="en"><![CDATA[Give me all solo artists who contributed to more than three collaborations.]]></string>
+<status>not supported</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="26">
+<string lang="en"><![CDATA[Give me all singles by Donovan.]]></string>
+<pivotQuery>?single: Donovan.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?single WHERE
+{
+	?Donovan <http://www.w3.org/2000/01/rdf-schema#label> "Donovan".
+	?single <http://xmlns.com/foaf/0.1/maker> ?Donovan.
+	?single <http://purl.org/ontology/mo/release_type> <http://purl.org/ontology/mo/single>.
+	?Donovan <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/SoloMusicArtist>.
+	?Donovan <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/MusicArtist>.
+}
+]]></query>
+<status>OK</status>
+</question>
+
+<question aggregation="false" answertype="resource" id="15">
+<string lang="en"><![CDATA[Who composed the song Coast to Coast?]]></string>
+<pivotQuery>Coast_to_Coast: song. ?person: compose= Coast_to_Coast.</pivotQuery>
+<query><![CDATA[
+SELECT DISTINCT ?person WHERE
+{
+	?Coast_to_Coast <http://www.w3.org/2000/01/rdf-schema#label> "Coast to Coast".
+	?Coast_to_Coast <http://purl.org/ontology/mo/composer> ?person.
+	?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Agent>.
+	?Coast_to_Coast <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Track>.
+}
+]]></query>
+<comment>no composer is specified. some foaf:makers are specified but it is not what is asked in the NL query</comment>
+<status>fail (problematic question)</status>
+</question>
+
+<!-- 50 -->
+
+</dataset>

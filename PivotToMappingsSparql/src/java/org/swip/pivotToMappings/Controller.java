@@ -41,7 +41,7 @@ public class Controller {
         return staticController;
     }
 
-    String processQuery(String pivotQueryString, String sparqlEndpointUri, boolean useFederatedSparql, boolean useLarq, String kbLocation, String queriesNamedGraphUri, String patternsNamedGraphUri, int numMappings) {
+    String processQuery(String pivotQueryString, String sparqlEndpointUri, boolean useFederatedSparql, boolean useLarq, String larqParams, String kbLocation, String queriesNamedGraphUri, String patternsNamedGraphUri, int numMappings) {
 
         logger.info("Process query");
 
@@ -52,6 +52,7 @@ public class Controller {
         logger.info("sparqlEndpointUri : " + sparqlEndpointUri);
         logger.info("useFederatedSparql : " + useFederatedSparql);
         logger.info("useLarq : " + useLarq);
+        logger.info("larqParams : " + larqParams);
         logger.info("kbLocation : " + kbLocation);
         logger.info("queriesNamedGraphUri : " + queriesNamedGraphUri);
         logger.info("patternsNamedGraphUri : " + patternsNamedGraphUri);
@@ -76,7 +77,7 @@ public class Controller {
                 changeQueryProcessingState(queryUri, sparqlClient, queriesNamedGraphUri, "NotBegun");
                 
                 // perform query interpretation in a new thread
-                QueryInterpreter qi = new QueryInterpreter(queryUri, sparqlClient, useFederatedSparql, useLarq, kbLocation, queriesNamedGraphUri, patternsNamedGraphUri, numMappings);
+                QueryInterpreter qi = new QueryInterpreter(queryUri, sparqlClient, useFederatedSparql, useLarq, larqParams, kbLocation, queriesNamedGraphUri, patternsNamedGraphUri, numMappings);
                 qi.start();
                 
                 return queryUri;

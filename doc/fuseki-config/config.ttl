@@ -162,7 +162,6 @@ tdb:GraphTDB    rdfs:subClassOf  ja:Model .
     fuseki:dataset                     <#sparqluedoDataset> ;
     .
 
-## In-memory, initially empty.
 <#sparqluedoDataset> a ja:RDFDataset ;
     ja:defaultGraph [
         a ja:InfModel;

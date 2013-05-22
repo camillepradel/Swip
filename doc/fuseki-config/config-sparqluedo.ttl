@@ -15,6 +15,11 @@
 tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
 tdb:GraphTDB    rdfs:subClassOf  ja:Model .
 
+
+###########################################
+# Sparqluedo
+###########################################
+
 <#serviceSparqluedo> rdf:type fuseki:Service ;
     fuseki:name                        "sparqluedo" ;
     fuseki:serviceQuery                "sparql" ;
@@ -39,7 +44,7 @@ tdb:GraphTDB    rdfs:subClassOf  ja:Model .
           ];
         ja:baseModel [
             a tdb:GraphTDB;
-            tdb:location "/stckage/data/sparqluedo/tdbdata";
+            tdb:location "/stockage/data/sparqluedo/tdbdata";
         ];
     ];
     .

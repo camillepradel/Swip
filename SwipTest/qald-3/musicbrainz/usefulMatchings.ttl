@@ -76,21 +76,6 @@ graph:band a queries:KeywordQueryElement ;
 
 
 ################
-# birth
-################
-
-graph:birth a queries:KeywordQueryElement ;
-              queries:keywordAlreadyMatched "true"^^xsd:boolean.
-
-<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_birth>
-    a queries:Matching;
-    queries:matchingHasKeyword graph:birth;
-    queries:matchingHasResource bio:Birth;
-    queries:matchingHasScore "20"^^xsd:float;
-    queries:matchingHasMatchedLabel "birth".
-
-
-################
 # be born
 ################
 
@@ -100,6 +85,21 @@ graph:be_born a queries:KeywordQueryElement ;
 <http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_be_born1>
     a queries:Matching;
     queries:matchingHasKeyword graph:be_born;
+    queries:matchingHasResource bio:Birth;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "birth".
+
+
+################
+# birth
+################
+
+graph:birth a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_birth>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:birth;
     queries:matchingHasResource bio:Birth;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "birth".
@@ -121,6 +121,36 @@ graph:break_up a queries:KeywordQueryElement ;
 
 
 ################
+# by
+################
+
+graph:by a queries:KeywordQueryElement ;
+            queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_by>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:by;
+    queries:matchingHasResource foaf:maker;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "created by".
+
+
+################
+# collaborate
+################
+
+graph:collaborate a queries:KeywordQueryElement ;
+                       queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_collaborate>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:collaborate;
+    queries:matchingHasResource mo:collaborated_with;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "collaborated with".
+
+
+################
 # collaborate with
 ################
 
@@ -132,7 +162,22 @@ graph:collaborate_with a queries:KeywordQueryElement ;
     queries:matchingHasKeyword graph:collaborate_with;
     queries:matchingHasResource mo:collaborated_with;
     queries:matchingHasScore "20"^^xsd:float;
-    queries:matchingHasMatchedLabel "collaborate with".
+    queries:matchingHasMatchedLabel "collaborated with".
+
+
+################
+# compilation
+################
+
+graph:compilation a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_compilation>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:compilation;
+    queries:matchingHasResource mo:compilation;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "compilation".
 
 
 ################
@@ -148,6 +193,21 @@ graph:compose a queries:KeywordQueryElement ;
     queries:matchingHasResource mo:composer;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "compose".
+
+
+################
+# contain
+################
+
+graph:contain a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_contain>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:contain;
+    queries:matchingHasResource mo:track;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "contains track".
 
 
 ################
@@ -181,6 +241,21 @@ graph:death a queries:KeywordQueryElement ;
 
 
 ################
+# die
+################
+
+graph:die a queries:KeywordQueryElement ;
+              queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_die>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:die;
+    queries:matchingHasResource bio:Death;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "death".
+
+
+################
 # duration
 ################
 
@@ -190,7 +265,7 @@ graph:duration a queries:KeywordQueryElement ;
 <http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_duration1>
     a queries:Matching;
     queries:matchingHasKeyword graph:duration;
-    queries:matchingHasResource mo:duration;
+    queries:matchingHasResource tl:duration;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "duration".
 
@@ -268,6 +343,24 @@ graph:live a queries:KeywordQueryElement ;
     queries:matchingHasResource mo:live;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "live".
+
+
+################
+# Lou Reed
+################
+
+graph:Lou_Reed a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/Lou_Reed>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:Lou_Reed;
+    queries:matchingHasResource <http://zitgist.com/music/artist/9d1ebcfe-4c15-4d18-95d3-d919898638a1>;
+    queries:matchingHasResource <http://zitgist.com/music/record/fd6f0ad3-9375-48b2-9b63-49d5b569ca5b>;
+    queries:matchingHasResource <http://zitgist.com/music/track/5c3cae23-3d0a-4f98-97f9-6e1fbbffc0be>;
+    queries:matchingHasResource <http://zitgist.com/music/track/952370e0-5bae-41de-9fa6-e1f44f32cbfb>;
+    queries:matchingHasScore "10"^^xsd:float;
+    queries:matchingHasMatchedLabel "Lou Reed".
 
 
 ################
@@ -420,6 +513,21 @@ graph:sing a queries:KeywordQueryElement ;
 
 
 ################
+# singer
+################
+
+graph:singer a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_singer1>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:singer;
+    queries:matchingHasResource mo:singer;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "has singer".
+
+
+################
 # single
 ################
 
@@ -462,6 +570,30 @@ graph:soundtrack a queries:KeywordQueryElement ;
     queries:matchingHasMatchedLabel "soundtrack".
 
 ################
+# The_Dark_Side_of_the_Moon
+# necessary because of a bug in LARQ (FIXME)
+################
+
+graph:The_Dark_Side_of_the_Moon a queries:KeywordQueryElement ;
+             queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_The_Dark_Side_of_the_Moon>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:The_Dark_Side_of_the_Moon;
+    queries:matchingHasResource <http://zitgist.com/music/track/541de90a-6aca-415b-bab5-57c49df043c2>;
+    queries:matchingHasResource <http://zitgist.com/music/record/25fbfbb4-b1ee-4448-aadf-ae3bc2e2dd27>;
+    queries:matchingHasResource <http://zitgist.com/music/record/b84ee12a-09ef-421b-82de-0441a926375b>;
+    queries:matchingHasResource <http://zitgist.com/music/record/9290923d-3b97-45ab-aac1-4880980c72ed>;
+    queries:matchingHasResource <http://zitgist.com/music/record/403f7aa0-5705-49be-ae29-ed8f906121bc>;
+    queries:matchingHasResource <http://zitgist.com/music/record/80fe1ca4-7756-478a-a385-c54a20fa8aaa>;
+    queries:matchingHasResource <http://zitgist.com/music/record/cbaebadf-ba04-4bf8-a9b7-4c90caebd05f>;
+    queries:matchingHasResource <http://zitgist.com/music/record/7f6d3088-837d-495e-905f-be5c70ac2d82>;
+    queries:matchingHasResource <http://zitgist.com/music/record/9cf0c97d-0cd4-4538-ac8a-4a5fd87ab218>;
+    queries:matchingHasResource <http://zitgist.com/music/record/c8050a51-9716-40b0-924e-82843164d81c>;
+    queries:matchingHasScore "10"^^xsd:float;
+    queries:matchingHasMatchedLabel "The Dark Side of the Moon".
+
+################
 # track
 ################
 
@@ -489,6 +621,21 @@ graph:wife a queries:KeywordQueryElement ;
     queries:matchingHasResource rel:spouseOf;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "wife of".
+
+
+################
+# work
+################
+
+graph:work a queries:KeywordQueryElement ;
+           queries:keywordAlreadyMatched "true"^^xsd:boolean.
+
+<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_work>
+    a queries:Matching;
+    queries:matchingHasKeyword graph:work;
+    queries:matchingHasResource mo:collaborated_with;
+    queries:matchingHasScore "20"^^xsd:float;
+    queries:matchingHasMatchedLabel "worked with".
 
 
 
