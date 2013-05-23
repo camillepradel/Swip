@@ -71,6 +71,7 @@ public class ComplexXML {
             System.out.println("Alignment created!");
         } catch (Exception ex) {
             System.err.println(ex);
+            ex.printStackTrace();
         }
     }
 

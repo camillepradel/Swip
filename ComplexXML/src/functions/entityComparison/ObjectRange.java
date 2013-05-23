@@ -1,15 +1,17 @@
 package functions.entityComparison;
 
 import java.util.Set;
-import org.semanticweb.owl.model.OWLClass;
-import org.semanticweb.owl.model.OWLDescription;
-import org.semanticweb.owl.model.OWLEntity;
-import org.semanticweb.owl.model.OWLObjectProperty;
-import org.semanticweb.owl.model.OWLOntology;
+
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLOntology;
+
 import reasoner.Reasoner;
 import reasoner.ReasonerOneOntology;
-import exception.ComplexMappingException;
 import utility.Attributes;
+import exception.ComplexMappingException;
 
 /**
  *
@@ -45,7 +47,7 @@ public class ObjectRange implements EntityComparison{
                     onto = Attributes.secondOntology.getOntology();
 		}
 
-                Set<? extends OWLDescription> range = ((OWLObjectProperty)p).getRanges(onto);
+                Set<? extends OWLClassExpression> range = ((OWLObjectProperty)p).getRanges(onto);
 
                 //if the set is empty, every class can be range of the property
                 if(range.size() == 0) {
@@ -57,7 +59,7 @@ public class ObjectRange implements EntityComparison{
                 }
                 //check if the range is anonymous
                 //every direct subclass is then the range
-                for(OWLDescription someRange : range) {
+                for(OWLClassExpression someRange : range) {
                     if(someRange.isAnonymous()) {
 
                         ReasonerOneOntology reasoner;

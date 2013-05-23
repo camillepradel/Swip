@@ -1,7 +1,8 @@
 package functions.entityIdentifier;
 
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import functions.Function;
-import org.semanticweb.owl.model.OWLEntity;
 
 /**
  *

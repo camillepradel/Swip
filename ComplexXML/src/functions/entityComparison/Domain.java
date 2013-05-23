@@ -2,17 +2,19 @@ package functions.entityComparison;
 
 
 import java.util.Set;
-import org.semanticweb.owl.model.OWLClass;
-import org.semanticweb.owl.model.OWLDataProperty;
-import org.semanticweb.owl.model.OWLDescription;
-import org.semanticweb.owl.model.OWLEntity;
-import org.semanticweb.owl.model.OWLObjectProperty;
-import org.semanticweb.owl.model.OWLOntology;
-import org.semanticweb.owl.model.OWLProperty;
-import exception.ComplexMappingException;
+
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLProperty;
+
 import reasoner.Reasoner;
 import reasoner.ReasonerOneOntology;
 import utility.Attributes;
+import exception.ComplexMappingException;
 
 /**
  *
@@ -53,7 +55,7 @@ public class Domain implements EntityComparison{
 			onto = Attributes.secondOntology.getOntology();
 		}
 		
-		Set<OWLDescription> domain;
+		Set<OWLClassExpression> domain;
 		
 		//get the domain described directly in the ontology
 		if(p instanceof OWLObjectProperty) {
@@ -70,7 +72,7 @@ public class Domain implements EntityComparison{
 
                 //check if the domain is anonymous, than every direct subclass
                 //can be the domain
-                for(OWLDescription someDomain : domain) {
+                for(OWLClassExpression someDomain : domain) {
                     if(someDomain.isAnonymous()) {
 
                         ReasonerOneOntology reasoner;

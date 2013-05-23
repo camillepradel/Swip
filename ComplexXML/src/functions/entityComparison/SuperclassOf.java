@@ -1,14 +1,16 @@
 package functions.entityComparison;
 
 import ontology.Ontology;
-import org.semanticweb.owl.model.OWLDescription;
-import org.semanticweb.owl.model.OWLEntity;
-import exception.ComplexMappingException;
-import org.semanticweb.owl.model.OWLClass;
+
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import reasoner.Reasoner;
 import reasoner.ReasonerOneOntology;
 import reasoner.ReasonerTwoOntologies;
 import utility.Attributes;
+import exception.ComplexMappingException;
 
 /**
  *
@@ -82,7 +84,7 @@ public class SuperclassOf implements EntityComparison{
                         reasonerOne = Attributes.reasonerSecond;
                     }
 				
-                    if(reasonerOne.getTypeClasses((OWLDescription)class1, Reasoner.DESCENDANT)
+                    if(reasonerOne.getTypeClasses((OWLClassExpression)class1, Reasoner.DESCENDANT)
                             .contains((OWLClass)class2)) {
                             return true;
                     }
@@ -97,7 +99,7 @@ public class SuperclassOf implements EntityComparison{
                     reasonerBoth = Attributes.reasonerBoth;
 				
 
-                    if(reasonerBoth.getTypeClassesBothOntologies((OWLDescription)
+                    if(reasonerBoth.getTypeClassesBothOntologies((OWLClassExpression)
                             class1, Reasoner.DESCENDANT).contains((OWLClass)class2)) {
                             return true;
                     }

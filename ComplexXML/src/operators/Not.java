@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import org.semanticweb.owl.model.OWLEntity;
+
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import pattern.Pattern;
 import utility.Tuple;
 

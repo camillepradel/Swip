@@ -1,7 +1,9 @@
 package utility;
 
 import java.util.Arrays;
-import org.semanticweb.owl.model.OWLEntity;
+
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import pattern.Pattern;
 
 /**

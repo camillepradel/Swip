@@ -1,7 +1,9 @@
 package functions.entityComparison;
 
 import java.util.ArrayList;
-import org.semanticweb.owl.model.OWLEntity;
+
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import utility.Attributes;
 import de.unima.alcomox.mapping.Alignment;
 import de.unima.alcomox.mapping.Correspondence;
@@ -34,14 +36,14 @@ public class Equivalent implements EntityComparison{
                     ArrayList<Correspondence> corres = reference.getCorrespondences();
                     for(Correspondence c : corres) {
                         //check if the current two entities are in a given correspondence
-                        if(c.getSourceEntityUri().toString().equals(e1.getURI().toString()) &&
-                                c.getTargetEntityUri().toString().equals(e2.getURI().toString()) &&
+                        if(c.getSourceEntityUri().toString().equals(e1.getIRI().toString()) &&
+                                c.getTargetEntityUri().toString().equals(e2.getIRI().toString()) &&
                                 c.getRelation().getType() == SemanticRelation.EQUIV) {
                             return true;
                         }
 
-                        if(c.getSourceEntityUri().toString().equals(e2.getURI().toString()) &&
-                                c.getTargetEntityUri().toString().equals(e1.getURI().toString()) &&
+                        if(c.getSourceEntityUri().toString().equals(e2.getIRI().toString()) &&
+                                c.getTargetEntityUri().toString().equals(e1.getIRI().toString()) &&
                                 c.getRelation().getType() == SemanticRelation.EQUIV) {
                             return true;
                         }

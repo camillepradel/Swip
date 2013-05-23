@@ -47,7 +47,10 @@ public class Similarity implements StringComparison{
          */
 	public boolean compute(String s1, String s2) throws ComplexMappingException{
 
-            utility.Attributes.correspondencePattern.get(0).getCorrespondences().get(0).getTuple();
+		if (!utility.Attributes.correspondencePattern.isEmpty()) {
+			utility.Attributes.correspondencePattern.get(0)
+					.getCorrespondences().get(0).getTuple();
+		}
 
                 if(s1.equals("") && s2.equals("")) {
                     return false;

@@ -1,6 +1,7 @@
 package functions.stringComparison;
 
-import org.semanticweb.owl.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLDataProperty;
+
 import utility.Attributes;
 
 /**

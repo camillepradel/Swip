@@ -1,11 +1,23 @@
 package pattern;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import org.semanticweb.owl.model.OWLEntity;
+
+import operators.And;
+import operators.Not;
+import operators.Operator;
+import operators.Or;
+
+import org.semanticweb.owlapi.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import parser.OutputFormat;
+import utility.Tuple;
 import condition.Condition;
 import condition.Condition.Type;
 import condition.StringCondition;
@@ -14,28 +26,27 @@ import de.unima.ki.mmatch.MMatchException;
 import de.unima.ki.mmatch.Setting;
 import exception.ComplexMappingException;
 import exception.ComplexMappingException.ExceptionType;
-import functions.stringComparison.DatatypeRange;
-import functions.entityComparison.Equivalent;
 import functions.Function;
-import functions.entityComparison.SubclassOf;
-import functions.entityComparison.SuperclassOf;
-import functions.stringComparison.StringComparison;
-import functions.stringComparison.Compatible;
-import functions.stringComparison.Contained;
-import functions.stringComparison.Equal;
-import functions.stringComparison.Similarity;
-import functions.entityIdentifier.Label;
-import functions.entityIdentifier.Name;
 import functions.entityComparison.Domain;
 import functions.entityComparison.EntityComparison;
+import functions.entityComparison.Equivalent;
 import functions.entityComparison.ObjectRange;
+import functions.entityComparison.SubclassOf;
+import functions.entityComparison.SuperclassOf;
 import functions.entityIdentifier.Empty;
+import functions.entityIdentifier.Label;
+import functions.entityIdentifier.Name;
 import functions.stringComparison.Antonym;
 import functions.stringComparison.Category;
+import functions.stringComparison.Compatible;
+import functions.stringComparison.Contained;
+import functions.stringComparison.DatatypeRange;
+import functions.stringComparison.Equal;
 import functions.stringComparison.Hypernym;
 import functions.stringComparison.Hyponym;
 import functions.stringComparison.Nominalization;
-import functions.stringManipulation.WordClass;
+import functions.stringComparison.Similarity;
+import functions.stringComparison.StringComparison;
 import functions.stringComparison.Synonyms;
 import functions.stringManipulation.Active;
 import functions.stringManipulation.ComplementFirstPart;
@@ -46,15 +57,7 @@ import functions.stringManipulation.Modifier;
 import functions.stringManipulation.Passive;
 import functions.stringManipulation.StringManipulation;
 import functions.stringManipulation.Verb;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import operators.And;
-import operators.Not;
-import operators.Operator;
-import operators.Or;
-import org.semanticweb.owl.model.OWLDataProperty;
-import utility.Tuple;
+import functions.stringManipulation.WordClass;
 
 /**
  *

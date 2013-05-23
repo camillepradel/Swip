@@ -36,7 +36,7 @@ public class ComplexCorrespondence {
     public String toString() {
         String output = pattern.getOutputFormat().getCorrespondenceOutput();
         for(String s : pattern.getAssignment().keySet()) {
-            output = output.replace(s, entities.getEntries()[pattern.getAssignment().get(s)].getURI().toString());
+            output = output.replace(s, entities.getEntries()[pattern.getAssignment().get(s)].getIRI().toString());
             output = output.replace("&amp;", "&");
         }
         return output;

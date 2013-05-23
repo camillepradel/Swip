@@ -1,20 +1,22 @@
 
 package pattern;
 
-import de.unima.alcomox.mapping.Correspondence;
-import de.unima.ki.mmatch.MMatchException;
-import de.unima.ki.mmatch.descriptions.Term;
-import de.unima.ki.mmatch.smeasures.Measure;
-import exception.ComplexMappingException;
-import functions.entityComparison.SubclassOf;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import org.semanticweb.owl.model.OWLEntity;
+
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import utility.Attributes;
+import de.unima.alcomox.mapping.Correspondence;
+import de.unima.ki.mmatch.MMatchException;
+import de.unima.ki.mmatch.descriptions.Term;
+import de.unima.ki.mmatch.smeasures.Measure;
+import exception.ComplexMappingException;
+import functions.entityComparison.SubclassOf;
 
 /**
  *
@@ -100,10 +102,10 @@ public class Selector {
                 try {
                     Term sepEntityTerm;
                     if(ent.isOWLDataProperty() || ent.isOWLObjectProperty()) {
-                        sepEntityTerm = new Term(ent.getURI().getFragment(), sepDelimiter, true);
+                        sepEntityTerm = new Term(ent.getIRI().getFragment(), sepDelimiter, true);
                     }
                     else {
-                        sepEntityTerm = new Term(ent.getURI().getFragment(), sepDelimiter);
+                        sepEntityTerm = new Term(ent.getIRI().getFragment(), sepDelimiter);
                     }
                     double bestValue = 0.0;
                     Set<ComplexCorrespondence> bestOne = new HashSet<ComplexCorrespondence>();
@@ -113,15 +115,15 @@ public class Selector {
                         OWLEntity[] parts = oneCorres.getTuple().getEntries();
                         double similarity = 0.0;
                         for(OWLEntity e : parts) {
-                            if(e.getURI().equals(ent.getURI())) {
+                            if(e.getIRI().equals(ent.getIRI())) {
                                 continue;
                             }
                             Term complexTerm;
                             if(e.isOWLDataProperty() || e.isOWLObjectProperty()) {
-                                complexTerm = new Term(e.getURI().getFragment(), complexDelimiter, true);
+                                complexTerm = new Term(e.getIRI().getFragment(), complexDelimiter, true);
                             }
                             else {
-                                complexTerm = new Term(e.getURI().getFragment(), complexDelimiter);
+                                complexTerm = new Term(e.getIRI().getFragment(), complexDelimiter);
                             }
                             
                             Measure m = new Measure();
@@ -174,13 +176,13 @@ public class Selector {
             for(ComplexCorrespondence c : correspondences) {
                 OWLEntity currentEntity;
                 //the first or second entity can be the "current" entity
-                if(c.getTuple().getEntries()[0].getURI().equals(firstEntity.getURI()) ||
-                        c.getTuple().getEntries()[1].getURI().equals(firstEntity.getURI())) {
+                if(c.getTuple().getEntries()[0].getIRI().equals(firstEntity.getIRI()) ||
+                        c.getTuple().getEntries()[1].getIRI().equals(firstEntity.getIRI())) {
                     //check whether the similarity value is higher than
                     //all other regarded before
                     if(c.getTuple().getSimilarityValue() >= maxValue) {
                         //save the current entity
-                        if(c.getTuple().getEntries()[0].getURI().equals(firstEntity.getURI())) {
+                        if(c.getTuple().getEntries()[0].getIRI().equals(firstEntity.getIRI())) {
                             currentEntity = c.getTuple().getEntries()[1];
                         }
                         else {
@@ -204,7 +206,7 @@ public class Selector {
                         }
 
                         maxValue = c.getTuple().getSimilarityValue();
-                        if(c.getTuple().getEntries()[0].getURI().equals(firstEntity.getURI())) {
+                        if(c.getTuple().getEntries()[0].getIRI().equals(firstEntity.getIRI())) {
                             bestEntity = c.getTuple().getEntries()[1];
                         }
                         else {
@@ -256,8 +258,8 @@ public class Selector {
                     for(int index : indexes) {
                         OWLEntity separatedEnt = c.getTuple().getEntries()[index];
                         for(de.unima.alcomox.mapping.Correspondence simpleCor : simpleCorres) {
-                            if(separatedEnt.getURI().toString().equals(simpleCor.getSourceEntityUri().toString()) ||
-                               separatedEnt.getURI().toString().equals(simpleCor.getTargetEntityUri().toString())) {
+                            if(separatedEnt.getIRI().toString().equals(simpleCor.getSourceEntityUri().toString()) ||
+                               separatedEnt.getIRI().toString().equals(simpleCor.getTargetEntityUri().toString())) {
                                 inSimpleAlig = true;
                                 break;
                             }

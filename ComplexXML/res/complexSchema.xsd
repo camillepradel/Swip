@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">	
+    <xsd:element name="complexMapping">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="define" type="define" minOccurs="1" maxOccurs="1"/>
+                                <xsd:element name="anchorCorrespondence" type="correspondence" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="correspondence" type="correspondence" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+  
+	<!--The define tag in which the paths to the ontologies and the alignment is defined.-->
+    <xsd:complexType name="define">
+		<xsd:sequence>
+			<xsd:element name="first" minOccurs="1" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:attribute name="path" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="second " minOccurs="1" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:attribute name="path" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alignment" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:attribute name="path" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>	
+	</xsd:complexType>	 
+	
+	<xsd:complexType name="correspondence">
+		<xsd:sequence>
+			<xsd:element name="load" type="load" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="condition" type="condition" minOccurs="1" maxOccurs="1"/>	
+			<xsd:element name="properties" type="properties" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="outputFormat" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+        <xsd:complexType name="outputFormat">
+            <xsd:sequence>
+                <xsd:element name="correspondenceFormat" minOccurs="0" maxOccurs="1"/>
+            </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:complexType name="properties">
+            <xsd:sequence>
+                <xsd:element name="select" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:attribute name="value" default="one-to-one" type="xsd:string" use="optional"/>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+	
+	<xsd:complexType name="condition">
+		<xsd:choice>
+			<xsd:element name="and" type="binaryOperator"/>
+			<xsd:element name="or" type="binaryOperator"/>
+			<xsd:element name="not" type="unaryOperator"/>
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<!--Define the concepts and properties which are needed for the correspondence.-->
+	<xsd:complexType name="load">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="concept">
+				<xsd:complexType>
+					<xsd:attribute name="origin" type="xsd:string" use="required"/>
+					<xsd:attribute name="id" type="xsd:string" use="required"/>
+					<xsd:attribute name="partOfCorrespondence" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="objectProperty">
+				<xsd:complexType>
+					<xsd:attribute name="origin" type="xsd:string" use="required"/>
+					<xsd:attribute name="id" type="xsd:string" use="required"/>
+					<xsd:attribute name="partOfCorrespondence" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="datatypeProperty">
+				<xsd:complexType>
+					<xsd:attribute name="origin" type="xsd:string" use="required"/>
+					<xsd:attribute name="id" type="xsd:string" use="required"/>
+					<xsd:attribute name="partOfCorrespondence" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<!--Binary operator and, or can contained several conditions like equal, contained or similarity.-->
+	<xsd:complexType name="binaryOperator">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="equal" type="stringComparison"/>
+			<xsd:element name="contained" type="stringComparison"/>
+			<xsd:element name="similarityAbove" type="stringComparison"/>
+			<xsd:element name="compatible" type="entityComparison"/>
+			<xsd:element name="isDomainOf" type="entityComparison"/>
+			<xsd:element name="isRangeOf" type ="entityComparison"/>
+			<xsd:element name="isSubclassOf" type="entityComparison"/>
+			<xsd:element name="isSuperclassOf" type ="entityComparison"/>
+			<xsd:element name="equivalent" type ="entityComparison"/>
+			<xsd:element name="synonyms" type="stringComparison"/>
+			<xsd:element name="antonyms" type="stringComparison"/>
+			<xsd:element name="hyponym" type="stringComparison"/>
+			<xsd:element name="hypernym" type="stringComparison"/>
+			<xsd:element name="nominalization" type="stringComparison"/>
+			<xsd:element name="isCategorizedAs" type="stringComparison"/>			
+			<xsd:element name="and" type="binaryOperator"/>
+			<xsd:element name="or" type="binaryOperator"/>
+			<xsd:element name="not" type="unaryOperator"/>
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<!--Possible conditions contained in not-operator.-->
+	<xsd:complexType name="unaryOperator">
+		<xsd:choice minOccurs="1" maxOccurs="1">
+			<xsd:element name="equal" type="stringComparison"/>
+			<xsd:element name="contained" type="stringComparison"/>
+			<xsd:element name="similarityAbove" type="stringComparison"/>
+			<xsd:element name="compatible" type="stringComparison"/>
+			<xsd:element name="isDomainOf" type="entityComparison"/>
+			<xsd:element name="isRangeOf" type ="entityComparison"/>
+			<xsd:element name="isSubclassOf" type="entityComparison"/>
+			<xsd:element name="isSuperclassOf" type ="entityComparison"/>
+			<xsd:element name="equivalent" type ="entityComparison"/>
+			<xsd:element name="synonyms" type="stringComparison"/>
+			<xsd:element name="antonyms" type="stringComparison"/>
+			<xsd:element name="hyponym" type="stringComparison"/>
+			<xsd:element name="hypernym" type="stringComparison"/>
+			<xsd:element name="nominalization" type="stringComparison"/>
+			<xsd:element name="isCategorizedAs" type="stringComparison"/>
+			<xsd:element name="and" type="binaryOperator"/>
+			<xsd:element name="or" type="binaryOperator"/>
+			<xsd:element name="not" type="unaryOperator"/>
+		</xsd:choice>	
+	</xsd:complexType>
+	
+	<!--String manipulations like head or first part.-->
+	<xsd:complexType name="stringComparison">
+		<xsd:choice minOccurs="1" maxOccurs="2">
+			<xsd:element name="name" type="entityComparison"/>
+			<xsd:element name="label" type="entityComparison"/>
+			<xsd:element name="string"/>		
+			<xsd:element name="category"/>			
+			<xsd:element name="head" type="stringComparison"/>
+			<xsd:element name="complementHead" type="stringComparison"/>
+			<xsd:element name="firstPart" type="stringComparison"/>
+			<xsd:element name="complementFirstPart" type="stringComparison"/>
+			<xsd:element name="passive" type="stringComparison"/>
+			<xsd:element name="active" type="stringComparison"/>
+			<xsd:element name="modifier" type="stringComparison"/>
+			<xsd:element name="adverb" type="stringComparison"/>
+			<xsd:element name="verb" type="stringComparison"/>
+			<xsd:element name="wordClass" type="stringComparison"/>
+			<xsd:element name="entity" type="entityID" minOccurs="1" maxOccurs="2"/>
+		</xsd:choice>
+		<xsd:attribute name="value" use="optional"/>
+	</xsd:complexType>
+	
+	<!--Entity tag with entity id.-->
+	<xsd:complexType name="entityComparison">
+            <xsd:sequence>
+                <xsd:element name="datatype" minOccurs="0"/>
+                <xsd:sequence>
+			<xsd:element name="entity" type="entityID" minOccurs="1" maxOccurs="2"/>
+		</xsd:sequence>	
+            </xsd:sequence>
+	</xsd:complexType>
+	
+	<!--Entity id for entity.-->
+	<xsd:complexType name="entityID">
+		<xsd:attribute name="id"/>
+	</xsd:complexType>	
+	
+</xsd:schema>

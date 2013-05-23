@@ -1,14 +1,17 @@
 package utility;
 
 
-import java.util.ArrayList;
-import java.util.Set;
-import pattern.Pattern;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
+
 import ontology.Ontology;
 import ontology.OntologyAlignment;
-import org.semanticweb.owl.model.OWLEntity;
+
+import org.semanticweb.owlapi.model.OWLEntity;
+
+import pattern.Pattern;
 import reasoner.ReasonerOneOntology;
 import reasoner.ReasonerTwoOntologies;
 
@@ -74,22 +77,22 @@ public class Attributes {
 
 
             for(OWLEntity e : Attributes.firstOntology.getClasses()) {
-                    Attributes.classNamesFirst.add(e.getURI().getFragment());
+                    Attributes.classNamesFirst.add(e.getIRI().getFragment());
             }
             for(OWLEntity e : Attributes.secondOntology.getClasses()) {
-                    Attributes.classNamesSecond.add(e.getURI().getFragment());
+                    Attributes.classNamesSecond.add(e.getIRI().getFragment());
             }
             for(OWLEntity e : Attributes.firstOntology.getObjectProperties()) {
-                    Attributes.propertyNamesFirst.add(e.getURI().getFragment());
+                    Attributes.propertyNamesFirst.add(e.getIRI().getFragment());
             }
             for(OWLEntity e : Attributes.secondOntology.getObjectProperties()) {
-                    Attributes.propertyNamesSecond.add(e.getURI().getFragment());
+                    Attributes.propertyNamesSecond.add(e.getIRI().getFragment());
             }
             for(OWLEntity e : Attributes.firstOntology.getDatatypeProperties()) {
-                    Attributes.propertyNamesFirst.add(e.getURI().getFragment());
+                    Attributes.propertyNamesFirst.add(e.getIRI().getFragment());
             }
             for(OWLEntity e : Attributes.secondOntology.getDatatypeProperties()) {
-                    Attributes.propertyNamesSecond.add(e.getURI().getFragment());
+                    Attributes.propertyNamesSecond.add(e.getIRI().getFragment());
             }
         }
 }

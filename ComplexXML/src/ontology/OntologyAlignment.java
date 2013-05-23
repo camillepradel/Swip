@@ -1,5 +1,17 @@
 package ontology;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.semanticweb.owlapi.model.OWLEntity;
+
+import pattern.ComplexCorrespondence;
+import pattern.Pattern;
+import pattern.Selector;
+import utility.Attributes;
+import utility.Tuple;
 import condition.Condition;
 import de.unima.alcomox.exceptions.CorrespondenceException;
 import de.unima.alcomox.exceptions.MappingException;
@@ -11,16 +23,6 @@ import de.unima.alcomox.mapping.Correspondence;
 import de.unima.alcomox.mapping.SemanticRelation;
 import exception.ComplexMappingException;
 import exception.ComplexMappingException.ExceptionType;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import org.semanticweb.owl.model.OWLEntity;
-import pattern.ComplexCorrespondence;
-import pattern.Pattern;
-import pattern.Selector;
-import utility.Attributes;
-import utility.Tuple;
 
 /**
  * 
@@ -121,10 +123,10 @@ public class OntologyAlignment {
                     //determine source and target entity
                     for(String parts : p.getPartsOfCorrespondence()) {
                         if(sourceEntity.equals("")) {
-                            sourceEntity = t.getValue(p.getAssignment().get(parts)).getURI().toString();
+                            sourceEntity = t.getValue(p.getAssignment().get(parts)).getIRI().toString();
                         }
                         else {
-                            targetEntity = t.getValue(p.getAssignment().get(parts)).getURI().toString();
+                            targetEntity = t.getValue(p.getAssignment().get(parts)).getIRI().toString();
                         }
                     }
                     //create  new correspondence 
@@ -189,28 +191,28 @@ public class OntologyAlignment {
                 for(Correspondence c : reference.getCorrespondences()) {
                     datatype = false;
                     for(OWLEntity e : Attributes.firstOntology.getDatatypeProperties()) {
-                        if(c.getSourceEntityUri().equals(e.getURI().toString()) ||
-                                c.getTargetEntityUri().equals(e.getURI().toString())) {
+                        if(c.getSourceEntityUri().equals(e.getIRI().toString()) ||
+                                c.getTargetEntityUri().equals(e.getIRI().toString())) {
                             datatype = true;
                         }
                     }
                     for(OWLEntity e : Attributes.secondOntology.getDatatypeProperties()) {
-                        if(c.getSourceEntityUri().equals(e.getURI().toString()) ||
-                                c.getTargetEntityUri().equals(e.getURI().toString())) {
+                        if(c.getSourceEntityUri().equals(e.getIRI().toString()) ||
+                                c.getTargetEntityUri().equals(e.getIRI().toString())) {
                             datatype = true;
                         }
                     }
                     for(OWLEntity e : Attributes.firstOntology.getObjectProperties()) {
-                        if(c.getSourceEntityUri().equals(e.getURI().toString()) ||
-                                c.getTargetEntityUri().equals(e.getURI().toString())) {
+                        if(c.getSourceEntityUri().equals(e.getIRI().toString()) ||
+                                c.getTargetEntityUri().equals(e.getIRI().toString())) {
                             if(datatype) {
                                 return false;
                             }
                         }
                     }
                     for(OWLEntity e : Attributes.secondOntology.getObjectProperties()) {
-                        if(c.getSourceEntityUri().equals(e.getURI().toString()) ||
-                                c.getTargetEntityUri().equals(e.getURI().toString())) {
+                        if(c.getSourceEntityUri().equals(e.getIRI().toString()) ||
+                                c.getTargetEntityUri().equals(e.getIRI().toString())) {
                             if(datatype) {
                                 return false;
                             }

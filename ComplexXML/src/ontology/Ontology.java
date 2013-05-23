@@ -2,24 +2,27 @@ package ontology;
 
 import java.io.File;
 import java.net.URI;
-import java.util.HashSet;
-import java.util.Set;
-import org.semanticweb.owl.apibinding.OWLManager;
-import org.semanticweb.owl.model.OWLClass;
-import org.semanticweb.owl.model.OWLDataProperty;
-import org.semanticweb.owl.model.OWLEntity;
-import org.semanticweb.owl.model.OWLObjectProperty;
-import org.semanticweb.owl.model.OWLOntology;
-import org.semanticweb.owl.model.OWLOntologyCreationException;
-import org.semanticweb.owl.model.OWLOntologyManager;
-import exception.ComplexMappingException;
-import de.unima.ki.mmatch.Setting;
-import exception.ComplexMappingException.ExceptionType;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+import de.unima.ki.mmatch.Setting;
+import exception.ComplexMappingException;
+import exception.ComplexMappingException.ExceptionType;
 
 /**
  * 
@@ -73,16 +76,16 @@ public class Ontology {
 		
 		this.ontology = buildOWLOntology();		
 		//add all classes except Thing and Nothing to the set classes
-		for(OWLEntity e : ontology.getReferencedClasses()) {
-			if(e.getURI().getFragment() != null && (e.getURI().getFragment().equals("Thing") || e.getURI().getFragment().equals("Nothing"))) {
+		for(OWLEntity e : ontology.getClassesInSignature(true)) {
+			if(e.getIRI().getFragment() != null && (e.getIRI().getFragment().equals("Thing") || e.getIRI().getFragment().equals("Nothing"))) {
 				continue;				
 			} 
 			classes.add((OWLClass) e);
 		}
 		
-		this.entities = ontology.getReferencedEntities();
-		this.objectProperties = ontology.getReferencedObjectProperties();
-		this.datatypeProperties = ontology.getReferencedDataProperties();
+		this.entities = ontology.getSignature(true);
+		this.objectProperties = ontology.getObjectPropertiesInSignature(true);
+		this.datatypeProperties = ontology.getDataPropertiesInSignature(true);
 		this.delimiter = getDelimiter(ontology);
 		
 	}
@@ -98,7 +101,7 @@ public class Ontology {
 		int countHyphen = 0;
 		int countUnderscore = 0;
 		int countBlank = 0;	
-		int size = ontology.getReferencedClasses().size();
+		int size = ontology.getClassesInSignature().size();
 		
 		/*
 		 * The following three loops check which delimiters are used in the ontology. 
@@ -106,40 +109,40 @@ public class Ontology {
 		 * the delimiter is not considered as a real delimiter.
 		 */
 		//iterate through all classes of the ontology and count the hypens, the blanks and the underscores
-		for(OWLClass cls : ontology.getReferencedClasses()) {
-			if(cls.getURI().toString().contains("-")) {
+		for(OWLClass cls : ontology.getClassesInSignature(true)) {
+			if(cls.getIRI().toString().contains("-")) {
 				countHyphen++;
 			}
-			if(cls.getURI().toString().contains(" ")) {
+			if(cls.getIRI().toString().contains(" ")) {
 				countBlank++;
 			}
-			if(cls.getURI().toString().contains("_")) {
+			if(cls.getIRI().toString().contains("_")) {
 				countUnderscore++;
 			}
 		}
         	
 		//iterate through all data properties and count hypens, blanks, underscores
-		for(OWLDataProperty dataProp : ontology.getReferencedDataProperties()) {
-			if(dataProp.getURI().toString().contains("-")) {
+		for(OWLDataProperty dataProp : ontology.getDataPropertiesInSignature()) {
+			if(dataProp.getIRI().toString().contains("-")) {
 				countHyphen++;
 			}
-			if(dataProp.getURI().toString().contains(" ")) {
+			if(dataProp.getIRI().toString().contains(" ")) {
 				countBlank++;
 			}
-			if(dataProp.getURI().toString().contains("_")) {
+			if(dataProp.getIRI().toString().contains("_")) {
 				countUnderscore++;
 			}
 		}
         	
 		//iterate through all object properties and count hypens, blanks, underscores
-		for(OWLObjectProperty objectProp : ontology.getReferencedObjectProperties()) {  
-			if(objectProp.getURI().toString().contains("-")) {
+		for(OWLObjectProperty objectProp : ontology.getObjectPropertiesInSignature()) {  
+			if(objectProp.getIRI().toString().contains("-")) {
 				countHyphen++;
 			}
-			if(objectProp.getURI().toString().contains(" ")) {
+			if(objectProp.getIRI().toString().contains(" ")) {
 				countBlank++;
 			}
-			if(objectProp.getURI().toString().contains("_")) {
+			if(objectProp.getIRI().toString().contains("_")) {
 				countUnderscore++;
 			} 
 		}
@@ -165,14 +168,15 @@ public class Ontology {
 	 * @throws ComplexMappingException 
 	 */
 	public OWLOntology buildOWLOntology() throws ComplexMappingException {
-		//create the OWLOntologies out of the path
-		OWLOntologyManager manager1 = OWLManager.createOWLOntologyManager();   
-                try {
-			return manager1.loadOntologyFromPhysicalURI(path);	 
-                } catch(OWLOntologyCreationException e) {
-                        throw new ComplexMappingException(ExceptionType.CREATION_EXCEPTION,
-                                "Could not create an OWLOntology in Ontology.", e);
-                }
+		// create the OWLOntologies out of the path
+		OWLOntologyManager manager1 = OWLManager.createOWLOntologyManager();
+		try {
+			// return manager1.loadOntologyFromPhysicalURI(path);
+			return manager1.loadOntology(IRI.create(path));
+		} catch (OWLOntologyCreationException e) {
+			throw new ComplexMappingException(ExceptionType.CREATION_EXCEPTION,
+					"Could not create an OWLOntology in Ontology.", e);
+		}
 	}
 
         /**
@@ -247,7 +251,7 @@ public class Ontology {
         public Set<String> getEntityNames() {
             Set<String> names = new HashSet<String>();
             for(OWLEntity e : this.getEntities()) {
-                names.add(e.getURI().getFragment());
+                names.add(e.getIRI().getFragment());
             }
             return names;
         }

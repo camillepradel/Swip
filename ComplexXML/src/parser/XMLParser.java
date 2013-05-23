@@ -6,19 +6,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
 import ontology.Ontology;
 import ontology.OntologyAlignment;
-import org.semanticweb.owl.model.OWLEntity;
+
+import org.semanticweb.owlapi.model.OWLEntity;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import pattern.Pattern;
 import condition.Condition;
 import condition.Condition.Type;
 import condition.StringCondition;
 import condition.StringCondition.StringType;
-import pattern.Pattern;
 import exception.ComplexMappingException;
 import exception.ComplexMappingException.ExceptionType;
 
@@ -556,6 +560,7 @@ public class XMLParser extends DefaultHandler {
                     //first anchor
                     if(utility.Attributes.alignment == null) {
                         utility.Attributes.alignment = new OntologyAlignment(p);
+                        System.out.println("WTF");
                     }
                     //another anchor
                     else {

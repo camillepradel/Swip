@@ -1,14 +1,16 @@
 
 package utility;
 
-import de.unima.ki.mmatch.MMatchException;
-import de.unima.ki.mmatch.descriptions.Term;
-import exception.ComplexMappingException;
 import lila.syntax.Phrase;
 import lila.syntax.Verb;
 import lila.syntax.Word;
 import ontology.Ontology;
-import org.semanticweb.owl.model.OWLEntity;
+
+import org.semanticweb.owlapi.model.OWLEntity;
+
+import de.unima.ki.mmatch.MMatchException;
+import de.unima.ki.mmatch.descriptions.Term;
+import exception.ComplexMappingException;
 
 /**
  *
@@ -146,7 +148,7 @@ public class Normalizer {
      */
     private static void checkString(String s, Ontology o) throws ComplexMappingException {
         for(OWLEntity c : o.getEntities()) {
-            if(c.getURI().getFragment().equals(s)) {
+            if(c.getIRI().getFragment().equals(s)) {
                 try {
                     t = new Term(s, o.getDelimiter());
                 }

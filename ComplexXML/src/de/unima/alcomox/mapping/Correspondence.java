@@ -1,6 +1,8 @@
 package de.unima.alcomox.mapping;
 
 
+import java.net.URI;
+
 import de.unima.alcomox.exceptions.CorrespondenceException;
 
 
@@ -34,12 +36,14 @@ public class Correspondence implements Comparable<Correspondence>  {
 	* Checking wether the uri reference can be resolved does not occur in this context.
 	*/
 	public Correspondence(String sourceEntityUri, String targetEntityUri, SemanticRelation relation) throws CorrespondenceException {
-		this.setSourceEntityUri(sourceEntityUri);
-		this.setTargetEntityUri(targetEntityUri);
+		// this.setSourceEntityUri(sourceEntityUri);
+		// this.setTargetEntityUri(targetEntityUri);
+		
+		this.sourceEntityUri = sourceEntityUri;
+		this.targetEntityUri = targetEntityUri;
 		this.setRelation(relation);
 		this.setConfidence(1.0);
 	}
-
 	
 	/**
 	* Constructs an unbound correspondence with confidence value set to 1.0.

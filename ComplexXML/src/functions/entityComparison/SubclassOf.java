@@ -1,7 +1,8 @@
 package functions.entityComparison;
 
+import org.semanticweb.owlapi.model.OWLEntity;
+
 import exception.ComplexMappingException;
-import org.semanticweb.owl.model.OWLEntity;
 
 /**
  *

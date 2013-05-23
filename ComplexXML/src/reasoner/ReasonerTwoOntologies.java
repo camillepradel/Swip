@@ -8,15 +8,22 @@ import java.util.Set;
 
 import ontology.OntologyAlignment;
 
-import org.semanticweb.owl.apibinding.OWLManager;
-import org.semanticweb.owl.inference.OWLReasoner;
-import org.semanticweb.owl.model.OWLClass;
-import org.semanticweb.owl.model.OWLDescription;
-import org.semanticweb.owl.model.OWLOntology;
-import org.semanticweb.owl.model.OWLOntologyCreationException;
-import org.semanticweb.owl.model.OWLOntologyManager;
-import exception.ComplexMappingException;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.reasoner.Node;
+import org.semanticweb.owlapi.reasoner.NodeSet;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.reasoner.impl.DefaultNodeSet;
+import org.semanticweb.owlapi.reasoner.impl.OWLClassNode;
+import org.semanticweb.owlapi.reasoner.impl.OWLClassNodeSet;
+
 import de.unima.alcomox.mapping.Correspondence;
+import exception.ComplexMappingException;
 import exception.ComplexMappingException.ExceptionType;
 
 /**
@@ -34,7 +41,7 @@ public class ReasonerTwoOntologies extends Reasoner {
 	private OWLReasoner reasoner1;
 	private OWLReasoner reasoner2;
 	private OWLOntology ontology2;
-	private ArrayList<Correspondence> correspondences;
+	private ArrayList<Correspondence> correspondences = new ArrayList<Correspondence>();
 	
 	/**
 	 * Constructor to save all information.
@@ -51,12 +58,14 @@ public class ReasonerTwoOntologies extends Reasoner {
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();   
 		//load second ontology
 		try {
-			this.ontology2 = manager.loadOntologyFromPhysicalURI(onto2);
+			this.ontology2 = manager.loadOntology(IRI.create(onto2));
 		} catch(OWLOntologyCreationException e) {
 			throw new ComplexMappingException(ExceptionType.CREATION_EXCEPTION,
                                 "Could not create second ontolgy in ReasonerTwoOntologies.", e);
-		}		
-		this.correspondences = ali.getAlignment().getCorrespondences();
+		}
+		if (ali != null) {
+			this.correspondences = ali.getAlignment().getCorrespondences();
+		}
 	}
 	
 	/**
@@ -70,7 +79,7 @@ public class ReasonerTwoOntologies extends Reasoner {
 	 * @return
 	 * @throws ComplexMappingException
 	 */
-    public Set<OWLClass> getTypeClassesBothOntologies(OWLDescription con, int type) throws ComplexMappingException {
+    public Set<OWLClass> getTypeClassesBothOntologies(OWLClassExpression con, int type) throws ComplexMappingException {
     	
     	Set<OWLClass> all = new HashSet<OWLClass>();
     	
@@ -78,31 +87,35 @@ public class ReasonerTwoOntologies extends Reasoner {
 			HashMap<String,OWLClass> classesOnt2 = new HashMap<String, OWLClass>();
 			
 			//Hashmap with all classes of the second ontology, later used to get the classes if only the url of a class is given
-			for(OWLClass cls : this.ontology2.getReferencedClasses()) {
-				classesOnt2.put(cls.getURI().toString(), cls);
+			for(OWLClass cls : this.ontology2.getClassesInSignature(true)) {
+				classesOnt2.put(cls.getIRI().toString(), cls);
 			}
 
                         //add all sub/super/descendant/ancestor classes
-			Set<Set<OWLClass>> subClsSets = getClasses(type, this.reasoner1, con);
+			NodeSet<OWLClass> subClsSets = getClasses(type, this.reasoner1, con);
                         Set<OWLClass> conClass = new HashSet<OWLClass>();
                         //also add the class itself
                         conClass.add(((OWLClass) con));
-                        subClsSets.add(conClass);
+                        
+                        
+			// subClsSets.add(conClass);       
+            DefaultNodeSet<OWLClass> other = new OWLClassNodeSet(subClsSets.getNodes());
+            other.addDifferentEntities(conClass); // other.addSameEntities(conClass); ???
 			
 			//Set for the equivalent classes in the other ontology
 			Set<OWLClass> equivalentClassesOtherOntotology = new HashSet<OWLClass>();
 			    		
 			//iterate through all sub/super classes and check if the reference contains this class, add the class to the classes which will be returned
-			for(Set<OWLClass> set : subClsSets) {    					
+			for(Node<OWLClass> set : other) {    					
 				for(OWLClass cls : set) {    				
 					//iterate through all correspondences of the reference mapping
 					for(Correspondence corres : this.correspondences) {
-						if(cls.getURI().toString().equals(corres.getSourceEntityUri()) && corres.getRelation().toString().equals("=")) {
+						if(cls.getIRI().toString().equals(corres.getSourceEntityUri()) && corres.getRelation().toString().equals("=")) {
 							//save the class which is the target class of the correspondence into a set
 							equivalentClassesOtherOntotology.add(classesOnt2.get(corres.getTargetEntityUri()));
 						}
 						
-						if(cls.getURI().toString().equals(corres.getTargetEntityUri()) && corres.getRelation().toString().equals("=")) {
+						if(cls.getIRI().toString().equals(corres.getTargetEntityUri()) && corres.getRelation().toString().equals("=")) {
 							equivalentClassesOtherOntotology.add(classesOnt2.get(corres.getSourceEntityUri()));  								
 						}          					
   					}					
@@ -110,7 +123,8 @@ public class ReasonerTwoOntologies extends Reasoner {
 				}
 			}
 						
-			subClsSets.clear();
+			// subClsSets.clear();
+			subClsSets = new OWLClassNodeSet();
 			
 			for(OWLClass cls : equivalentClassesOtherOntotology) { 
 				if(cls != null) {
@@ -119,12 +133,13 @@ public class ReasonerTwoOntologies extends Reasoner {
 				
 				all.add(cls);
     					
-				for(Set<OWLClass> set : subClsSets) {    
+				for(Node<OWLClass> set : subClsSets) {    
 					for(OWLClass cls2 : set) {  
 						all.add(cls2);
 					}    					
 				}
-				subClsSets.clear();
+				// subClsSets.clear();
+				subClsSets = new OWLClassNodeSet();
 			}          			              
     
     	}catch(UnsupportedOperationException exception) {
