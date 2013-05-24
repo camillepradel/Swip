@@ -1,28 +1,33 @@
- + interface d'administration
++ interface d'administration
    - gestion des patrons: création, édition, évolution, (dés)activation
    - gestion des matchings
    - gestion des *TypeProperties
    - gestion du cache
    - ajout de labels utiles
- + visualisation de plein de trucs et notamment des mappings (avec Fresnel?)
- + génération de phrase descriptives directement à partir de requêtes SPARQL (sans template)
-   - partir du papier envoyé par Cassia (ou d'autres si y'en a d'autres)
-   - implémenter la méthode ou récupérer une implem
-   - comparer avec l'approche actuelle
- + optimisation de PivotToMappings
+
++ interface utilisateur
+   - permettre à l'utilisateur d'intéragir avec les matchings utilisés dans la suite
+   - permettre l'exécution des étapes pas à pas
+   - visualisation de plein de trucs et notamment des mappings (avec Fresnel?)
+   - visualisation plus sexy des résultats
+   - intégrer le travail de Basil
+
++ optimisation de PivotToMappings
+   - améliorer la phase de matching
    - décomposition de requêtes SPARQL
    - orientation de la recherche pour générer moins de mappings
    - suppression des mauvais mappings pendant le calcul de la note de pertinence
- + optimisation de NlToPivot
+   - prendre en compte la ressemblance des graphes pour la note de pertinence
+
++ optimisation de NlToPivot
    - implémentation d'autres parseurs ou de nouveaux modèles
    - ajout du français
    - optimisation pour "garder le parseur en mémoire"
    - raffinage des règles
- + dégager le pivot
-   - explooiter directement l'arbre de dépendances (idéalement au format NIF: http://nlp2rdf.org/)
- + nouvelle implem de NlToPivot à base d'apprentissage
- + participation à QALD-3 pour le dataset DbPedia
-   - définition des patrons
-   - raffinage des règles NlToPivot
- + prendre en compte la ressemblance des graphes pour la note de pertinence
- + alignement/homogénéisation ontologie patrons <-> SPIN  
+
++ dégager le pivot
+   - exploiter directement l'arbre de dépendances (idéalement au format NIF: http://nlp2rdf.org/)
+
++ nouvelle implem de NlToPivot à base d'apprentissage
+
++ alignement/homogénéisation ontologie patrons <-> SPIN

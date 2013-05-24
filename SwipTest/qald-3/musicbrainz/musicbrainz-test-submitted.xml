@@ -14,11 +14,6 @@ SELECT DISTINCT ?person WHERE
 <status>OK</status>
 </question>
 
-<question aggregation="false" answertype="resource" id="52">
-<string lang="en"><![CDATA[In which countries was the single Incomplete published?]]></string>
-<status>pivot failed, not covered anyway</status>
-</question>
-
 <question aggregation="false" answertype="boolean" id="8">
 <string lang="en"><![CDATA[Is Bugs a track on the album Vitalogy?]]></string>
 <pivotQuery>Vitalogy: album. track: Bugs. track: Vitalogy. ASK.</pivotQuery>
@@ -63,12 +58,6 @@ SELECT DISTINCT ?person WHERE
 <status>OK</status>
 </question>
 
-<question aggregation="false" answertype="resource" id="50">
-<string lang="en"><![CDATA[On which singles did Robbie Williams collaborate with Nicole Kidman?]]></string>
-<pivotQuery></pivotQuery>
-<status>TRY AGAIN: data doesn't respect definition of rel:collaboratesWith (problematic question)</status>
-</question>
-
 <question aggregation="true" answertype="number" id="21">
 <string lang="en"><![CDATA[How many singles did Brian Eno record?]]></string>
 <pivotQuery></pivotQuery>
@@ -82,11 +71,6 @@ SELECT COUNT (DISTINCT ?single) WHERE
 }
 ]]></query>
 <status>probably OK</status>
-</question>
-
-<question aggregation="false" answertype="resource" id="7">
-<string lang="en"><![CDATA[Which artists turned 60 on May 15, 2011?]]></string>
-<status>not supported</status>
 </question>
 
 <question aggregation="true" answertype="resource" id="1">
@@ -105,13 +89,6 @@ SELECT DISTINCT ?group WHERE
 <status>OK</status>
 </question>
 
-<question aggregation="false" answertype="string" id="54">
-<string lang="en"><![CDATA[What is the legal name of Loona?]]></string>
-<status>plop</status>
-</question>
-
-<!-- 10 -->
-
 <question aggregation="true" answertype="number" id="14">
 <string lang="en"><![CDATA[How many singles did the Scorpions release?]]></string>
 <pivotQuery>release: Scorpions. single: release. COUNT.</pivotQuery>
@@ -126,11 +103,6 @@ SELECT (COUNT(DISTINCT ?single)) WHERE
 ]]></query>
 <comment>had to change 'the Scorpions' into 'Scorpions'</comment>
 <status>probably OK</status>
-</question>
-
-<question aggregation="false" answertype="resource" id="27">
-<string lang="en"><![CDATA[What kind of record is Hijo de la luna?]]></string>
-<status>not supported</status>
 </question>
 
 <question aggregation="true" answertype="resource" id="41">
@@ -148,11 +120,6 @@ SELECT DISTINCT ?album WHERE
 <status>not really supported, but quite OK</status>
 </question>
 
-<question aggregation="false" answertype="string" id="49">
-<string lang="en"><![CDATA[In which language does Marco Borsato sing?]]></string>
-<status>not covered (plop?)</status>
-</question>
-
 <question aggregation="true" answertype="number" id="5">
 <string lang="en"><![CDATA[How many tracks does Erotica have?]]></string>
 <pivotQuery>track: Erotica. COUNT.</pivotQuery>
@@ -167,13 +134,6 @@ SELECT (COUNT(DISTINCT ?track)) WHERE
 ]]></query>
 <comments>returns the total number of tracks in all albums named Erotica (consistent with the way entyties are resolved in the gold standart training set, but not very accurate in this case)</comments>
 <status>more or less OK (problematic question)</status>
-</question>
-
-<!-- 15 -->
-
-<question aggregation="true" answertype="resource" id="45">
-<string lang="en"><![CDATA[Give me all solo artists born in March.]]></string>
-<status>not supported (quite silly question)</status>
 </question>
 
 <question aggregation="false" answertype="date" id="33">
@@ -240,8 +200,6 @@ SELECT (COUNT(DISTINCT ?cpe_b365b8f66a2a4a3c8983176c4ea966f7)) WHERE
 <status>OK</status>
 </question>
 
-<!-- 20 -->
-
 <question aggregation="false" answertype="resource" id="48">
 <string lang="en"><![CDATA[Give me all soundtracks composed by the Pet Shop Boys.]]></string>
 <pivotQuery>?soundtrack: compose= Pet_Shop_Boys.</pivotQuery>
@@ -259,21 +217,6 @@ SELECT DISTINCT ?soundtrack WHERE
 <status>more or less OK</status>
 </question>
 
-<question aggregation="true" answertype="resource" id="43">
-<string lang="en"><![CDATA[Which members of The Beatles have more than one child?]]></string>
-<status>not supported</status>
-</question>
-
-<question aggregation="false" answertype="resource" id="37">
-<string lang="en"><![CDATA[Give me all artists who were in a band as well as released a solo album.]]></string>
-<status>not covered</status>
-</question>
-
-<question aggregation="true" answertype="resource" id="23">
-<string lang="en"><![CDATA[Who was born on the same day as Tina Turner?]]></string>
-<status>not supported</status>
-</question>
-
 <question aggregation="false" answertype="resource" id="28">
 <string lang="en"><![CDATA[By whom is the song Everlong?]]></string>
 <pivotQuery>Everlong: song; ?person.</pivotQuery>
@@ -287,13 +230,6 @@ SELECT DISTINCT ?person WHERE
 }
 ]]></query>
 <status>OK</status>
-</question>
-
-<!-- 25 -->
-
-<question aggregation="true" answertype="resource" id="55">
-<string lang="en"><![CDATA[Which member of Take That recorded the most albums?]]></string>
-<status>not supported</status>
 </question>
 
 <question aggregation="true" answertype="number" id="22">
@@ -361,8 +297,6 @@ SELECT DISTINCT ?person WHERE
 <comment>returns producer of Automatic for the People (only)</comment>
 <status>more or less OK</status>
 </question>
-
-<!-- 30 -->
 
 <question aggregation="true" answertype="number" id="32">
 <string lang="en"><![CDATA[How many pieces of work did Mozart create?]]></string>
@@ -440,8 +374,6 @@ SELECT DISTINCT ?person WHERE
 <status>OK</status>
 </question>
 
-<!-- 35 -->
-
 <question aggregation="false" answertype="resource" id="6">
 <string lang="en"><![CDATA[Who composed the soundtrack for Blade Runner?]]></string>
 <pivotQuery>soundtrack: Blade_Runner. ?person: compose= soundtrack.</pivotQuery>
@@ -454,16 +386,6 @@ SELECT DISTINCT ?person WHERE
 }
 ]]></query>
 <status>OK</status>
-</question>
-
-<question aggregation="false" answertype="number" id="36">
-<string lang="en"><![CDATA[How old is Rod Morgenstein?]]></string>
-<status>not supported</status>
-</question>
-
-<question aggregation="true" answertype="resource" id="20">
-<string lang="en"><![CDATA[Give me all bands whose name starts with The.]]></string>
-<status>not supported</status>
 </question>
 
 <question aggregation="false" answertype="boolean" id="51">
@@ -498,8 +420,6 @@ SELECT DISTINCT ?duration WHERE
 <status>OK</status>
 </question>
 
-<!-- 40 -->
-
 <question aggregation="false" answertype="resource" id="38">
 <string lang="en"><![CDATA[On which albums does the song Because You Loved Me appear?]]></string>
 <pivotQuery>Because_You_Loved_Me: appear. album: song= Because_You_Loved_Me.</pivotQuery>
@@ -530,16 +450,6 @@ SELECT DISTINCT ?compilation WHERE
 <status>OK</status>
 </question>
 
-<question aggregation="true" answertype="resource" id="53">
-<string lang="en"><![CDATA[Which group had 70 members?]]></string>
-<status>not supported</status>
-</question>
-
-<question aggregation="true" answertype="resource" id="29">
-<string lang="en"><![CDATA[Which bands recorded more than 50 albums?]]></string>
-<status>not supported</status>
-</question>
-
 <question aggregation="false" answertype="date" id="31">
 <string lang="en"><![CDATA[When did Ludwig van Beethoven die?]]></string>
 <pivotQuery>die: date&lt;?&gt;. die: Ludwig_van_Beethoven.</pivotQuery>
@@ -557,8 +467,6 @@ SELECT DISTINCT ?literal_8b99bad69bfe4b59b8405f077bcd12c1 WHERE
 <status>OK</status>
 </question>
 
-<!-- 45 -->
-
 <question aggregation="false" answertype="resource" id="19">
 <string lang="en"><![CDATA[With whom did Phil Collins work together?]]></string>
 <pivotQuery>Phil_Collins: work= ?person.</pivotQuery>
@@ -571,16 +479,6 @@ SELECT DISTINCT ?person WHERE
 ]]></query>
 <comment>no result</comment>
 <status>probably not good</status>
-</question>
-
-<question aggregation="true" answertype="resource" id="12">
-<string lang="en"><![CDATA[Give me all albums which have the name of their artist as their title.]]></string>
-<status>not supported</status>
-</question>
-
-<question aggregation="true" answertype="resource" id="4">
-<string lang="en"><![CDATA[Give me all solo artists who contributed to more than three collaborations.]]></string>
-<status>not supported</status>
 </question>
 
 <question aggregation="false" answertype="resource" id="26">
@@ -614,7 +512,5 @@ SELECT DISTINCT ?person WHERE
 <comment>no composer is specified. some foaf:makers are specified but it is not what is asked in the NL query</comment>
 <status>fail (problematic question)</status>
 </question>
-
-<!-- 50 -->
 
 </dataset>

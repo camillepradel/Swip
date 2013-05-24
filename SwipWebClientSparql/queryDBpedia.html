@@ -46,9 +46,29 @@
 	                <tr>
 	                    <th>Web service: </th>
 	                    <th>
-	                    	<!-- <input name="nltpwebservice" class="nltpwebservice" value="http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP" /> -->
-	                    	<input name="nltpwebservice" class="nltpwebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/nlToPivotJSONP" />
-	                    	<!-- <input name="nltpwebservice" class="nltpwebservice" value="http://192.168.250.91/PivotToMappings/resources/rest/nlToPivotJSONP" /> -->
+	                    	<input name="wfwebservice" class="wfwebservice" value="http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP" />
+	                    	<!-- <input name="wfwebservice" class="wfwebservice" value="http://localhost:8080/SwipWorkflow/resources/rest/nlToPivotJSONP" /> -->
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Gazetteer WS (for workflow): </th>
+	                    <th>
+	                    	<input name="gazwebservice" class="gazwebservice" value="http://swip.univ-tlse2.fr/NlToPivotGazetteer/resources/rest/gatherNamedEntities" />
+	                    	<!-- <input name="gazwebservice" class="gazwebservice" value="http://localhost:8080/NlToPivotGazetteer/resources/rest/gatherNamedEntities" /> -->
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Dependency parser WS (for workflow): </th>
+	                    <th>
+	                    	<input name="dpwebservice" class="dpwebservice" value="http://swip.univ-tlse2.fr/NlToPivotParser/resources/rest/nlToDependenciesJson" />
+	                    	<!-- <input name="dpwebservice" class="dpwebservice" value="http://localhost:8080/NlToPivotParser/resources/rest/nlToDependenciesJson" /> -->
+	                    </th>
+	                </tr>
+	                <tr>
+	                    <th>Rules WS (for workflow): </th>
+	                    <th>
+	                    	<input name="ruleswebservice" class="ruleswebservice" value="http://swip.univ-tlse2.fr/NlToPivotRules/resources/rest/dependenciesToPivot" />
+	                    	<!-- <input name="ruleswebservice" class="ruleswebservice" value="http://localhost:8080/NlToPivotRules/resources/rest/dependenciesToPivot" /> -->
 	                    </th>
 	                </tr>
 	                <tr>

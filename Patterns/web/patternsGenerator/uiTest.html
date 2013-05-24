@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Pattern Generator</title>
+	<link rel="stylesheet" href="uiTest.css" type="text/css">
+</head>
+<body>
+  <canvas id="viewport" width="800" height="600"></canvas>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.ui.touch-punch.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.jsPlumb-1.3.16-all-min.js "></script>
+  <script type="text/javascript" src="lib/arbor.js"></script>
+
+  <script type="text/javascript" src="uiTest.js"></script>
+
+  <div id="main">
+    <div id="render"></div>
+    <div class='patternCandidate node' id='a'><input type="checkbox" name="a" value="selected">a</div>
+    <div class='patternCandidate node' id='b'><input type="checkbox" name="b" value="selected">b</div>
+    <div class='patternCandidate node' id='c'><input type="checkbox" name="c" value="selected">c</div>
+    <div class='patternCandidate node' id='d'><input type="checkbox" name="d" value="selected">d</div>
+    <div class='patternCandidate node' id='e'><input type="checkbox" name="e" value="selected">e</div>
+  </div>
+
+  <button type="button" id="particleSystemOnOff">Stop moving!</button> 
+
+</body>
+</html>

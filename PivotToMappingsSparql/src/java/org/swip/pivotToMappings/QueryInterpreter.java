@@ -81,6 +81,7 @@ public class QueryInterpreter extends Thread {
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingMatching");
 
         String query = "# matching keywords to KB labels\n"
+                + "# step 1: identify potential matchings\n"
                 + "PREFIX queries:   <http://swip.univ-tlse2.fr/ontologies/Queries#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX pf:   <http://jena.hpl.hp.com/ARQ/property#>\n"
@@ -109,7 +110,8 @@ public class QueryInterpreter extends Thread {
                 + "        FILTER NOT EXISTS { ?keyword queries:keywordAlreadyMatched \"true\"^^xsd:boolean. }\n"
                 + "      }\n"
 //                + "      {\n"
-//                + "    # subquery with DISTINCT to solve unidentified problem apparently due to larq\n"
+//                + "    # subquery with DISTINCT needed in case there are several times the same literal in the KB\n"
+//                + "    # not needed anymore because we use the same uri for each matching matching a same keyword to a same label\n"
 //                + "    SELECT DISTINCT * WHERE\n"
 //                + "    {\n"
                 + "        " + ((useFederatedSparql) ? "SERVICE" : "GRAPH") + " <" + kbLocation + ">\n";

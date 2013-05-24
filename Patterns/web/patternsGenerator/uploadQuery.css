@@ -1,0 +1,15 @@
+.CodeMirror {
+    background-color: #E4CA95;
+    height: auto;
+}
+
+.CodeMirror-scroll {
+    overflow-y: hidden;
+    overflow-x: auto;
+    height: auto;
+    min-height: 100px;
+}
+
+input {
+    width: 500px;
+}

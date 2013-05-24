@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Upload SPARQL query</title>
+
+  <script type="text/javascript" src="lib/jquery.js"></script>
+  <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+  <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
+
+  <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
+  <script src="lib/codemirror/lib/codemirror.js"></script>
+  <script src="lib/codemirror/mode/turtle/turtle.js"></script>
+  <script src="lib/codemirror/mode/sparql/sparql.js"></script>
+  <script src="lib/codemirror/mode/xml/xml.js"></script>
+
+  <script type="text/javascript" src="uploadQuery.js"></script>
+  <link rel="stylesheet" href="uploadQuery.css" type="text/css">
+</head>
+<body>
+    SPARQL Query:
+    <textarea id="sparqlquery" name="sparqlquery">PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX mo: &lt;http://purl.org/ontology/mo/&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+SELECT COUNT(DISTINCT ?album)
+WHERE {
+  ?album rdf:type mo:Record .
+  ?album foaf:maker ?artist .
+  ?artist foaf:name 'Michael Jackson' .
+}
+    </textarea>
+    <br />
+    <button id="sparqlToSpinButton">Convert to SPIN RDF syntax</button>
+    <br />
+
+    SPIN query:
+    <textarea id="spinquery" name="spinquery"></textarea>
+    <br />
+
+    <table>
+      <tr>
+        <td>Named graph:</td>
+        <td><input type="text" id="namedgraph" value="http://swip.univ-tlse2.fr/patternGeneration/graph1" /></td>
+      </tr>
+      <tr>
+        <td>URI prefix:</td>
+        <td><input type="text" id="uriprefix" value="http://swip.univ-tlse2.fr/patternGeneration/query/" /></td>
+      </tr>
+      <tr>
+        <td>Query URI local name:</td>
+        <td><input type="text" id="urilocalname" value="" /></td>
+        <td><button id="md5">MD5 of SPARQL query</button><button id="sha1">SHA1 of SPARQL query</button></td>
+      </tr>
+    </table>
+
+    <button id="generate">Generate SPARQL updtae</button>
+    <br />
+
+    <form id='postform' action="http://swip.univ-tlse2.fr:8080/musicbrainz/update" method="post" accept-charset="UTF-8">
+      SPARQL update query:
+      <textarea id="updatequery" name="update"></textarea>
+      POST url:
+      <input type="text" id="posturl" value="http://swip.univ-tlse2.fr:8080/musicbrainz/update" />
+      <br />
+      <input type="submit" id="commit" value="Commit to SPARQL server">
+    </form>
+
+    <br />
+    <span id='commitresult'></span>
+</body>
+</html>

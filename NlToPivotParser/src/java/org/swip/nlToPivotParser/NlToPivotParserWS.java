@@ -17,9 +17,9 @@ import org.maltparser.core.syntaxgraph.DependencyStructure;
 public class NlToPivotParserWS {
 
     private static final Logger logger = Logger.getLogger(NlToPivotParserWS.class);
-    StanfordParser sp = null;
-    TreeTagger tt = null;
-    MaltParser mp = null;
+    static StanfordParser sp = null;
+    static TreeTagger tt = null;
+    static MaltParser mp = null;
 
     StanfordParser getSp() {
         if (sp == null) {
