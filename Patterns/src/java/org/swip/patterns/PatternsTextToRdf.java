@@ -1,5 +1,7 @@
 package org.swip.patterns;
 
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.rdf.model.InfModel;
 import org.swip.patterns.antlr.LexicalErrorRuntimeException;
 import org.swip.patterns.antlr.patternsDefinitionGrammarParser;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -7,6 +9,8 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFWriter;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.reasoner.Reasoner;
+import com.hp.hpl.jena.reasoner.ReasonerRegistry;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -18,6 +22,8 @@ import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
+import org.mindswap.pellet.jena.PelletInfGraph;
+import org.mindswap.pellet.jena.PelletReasonerFactory;
 import org.swip.patterns.antlr.patternsDefinitionGrammarLexer;
 import org.swip.patterns.sentence.ForLoopInTemplate;
 import org.swip.patterns.sentence.PeInTemplate;
@@ -35,6 +41,7 @@ public class PatternsTextToRdf {
     static Resource patternClass = null;
     static Resource patternTripleClass = null;
     static Resource subPatternCollectionClass = null;
+//    static Resource patternElementClass = null;
     static Resource classPatternElementClass = null;
     static Resource literalPatternElementClass = null;
     static Resource blankNodePatternElementClass = null;
@@ -56,6 +63,8 @@ public class PatternsTextToRdf {
     static Property hasSubjectProp = null;
     static Property hasPropertyProp = null;
     static Property hasObjectProp = null;
+    static Property targetsProp = null;
+//    static Property targetsKBElementProp = null;
     static Property targetsClassProp = null;
     static Property targetsPropertyProp = null;
     static Property targetsLiteralTypeProp = null;
@@ -67,6 +76,8 @@ public class PatternsTextToRdf {
     static Property sstTargetsPcProp = null;
     static Property rdfFirstProp = null;
     static Property rdfRestProp = null;
+    static Property patternHasID = null;
+    static Property patternIsActive = null;
     // data properties
     static Property hasCardMinProp = null;
     static Property hasCardMaxProp = null;
@@ -136,6 +147,7 @@ public class PatternsTextToRdf {
             patternClass = model.createResource(patternOntologyUri + "#Pattern");
             patternTripleClass = model.createResource(patternOntologyUri + "#PatternTriple");
             subPatternCollectionClass = model.createResource(patternOntologyUri + "#SubpatternCollection");
+//            patternElementClass = model.createResource(patternOntologyUri + "#PatternElement");
             classPatternElementClass = model.createResource(patternOntologyUri + "#ClassPatternElement");
             propertyPatternElementClass = model.createResource(patternOntologyUri + "#PropertyPatternElement");
             listClass = model.createResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#List");
@@ -151,7 +163,9 @@ public class PatternsTextToRdf {
             numberOfQualifyingPEProp = model.createProperty(patternOntologyUri + "#numberOfQualifyingPE");
             sstTargetsPcProp = model.createProperty(patternOntologyUri + "#sstTargetsPc");
             rdfFirstProp = model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#first");
-            rdfRestProp = model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");
+            rdfRestProp = model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");            
+            patternHasID = model.createProperty(patternOntologyUri + "#patternHasID");
+            patternIsActive = model.createProperty(patternOntologyUri + "#patternIsActive");
             hasMappingConditionsProp = model.createProperty(patternOntologyUri + "#hasMappingConditions");
             ssitHasValueProp = model.createProperty(patternOntologyUri + "#ssitHasValue");
             isPatternMadeUpOfProp = model.createProperty(patternOntologyUri + "#isPatternMadeUpOf");
@@ -166,6 +180,8 @@ public class PatternsTextToRdf {
             hasObjectProp = model.createProperty(patternOntologyUri + "#hasObject");
             hasCardMinProp = model.createProperty(patternOntologyUri + "#hasCardinalityMin");
             hasCardMaxProp = model.createProperty(patternOntologyUri + "#hasCardinalityMax");
+            targetsProp = model.createProperty(patternOntologyUri + "#targets");
+//            targetsKBElementProp = model.createProperty(patternOntologyUri + "#targetsKBElement");
             targetsClassProp = model.createProperty(patternOntologyUri + "#targetsClass");
             targetsPropertyProp = model.createProperty(patternOntologyUri + "#targetsProperty");
             targetsLiteralTypeProp = model.createProperty(patternOntologyUri + "#targetsLiteralType");
@@ -187,6 +203,7 @@ public class PatternsTextToRdf {
                 Resource patternResource = model.createResource(uriStart + p.getName(), patternClass);
                 patternResource.addProperty(patternHasAuthorProp, authorResource);
                 patternResource.addProperty(targetsOntologyProp, ontologyResource);
+//                patternResource.addProperty(targetsProp, ontologyResource); // when no reasoner
                 patternResource.addProperty(hasSentenceTemplateProp, processSentenceTemplate(p, patternResource));
                 patternResource.addLiteral(hasSentenceTemplateStringProp, p.getSentenceTemplate().toString());
                 int numberOfQualifyingPE = 0;
@@ -200,7 +217,19 @@ public class PatternsTextToRdf {
                     logger.info("  - subpattern: " + ((SubpatternCollection) sp).getId());
                     patternResource.addProperty(patternHasDirectSubpatternProp, processSubpattern(sp, p, patternResource));
                 }
+                patternResource.addLiteral(patternHasID, p.getName());
+                patternResource.addLiteral(patternIsActive, true);
             }
+            
+            // make some inferences
+//            logger.info("Make some inferences");
+            // RDFS
+//            InfModel inf = ModelFactory.createRDFSModel(model);
+            // OWL
+//            Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
+//            reasoner = reasoner.bindSchema(model);
+//            InfModel inf = ModelFactory.createInfModel(reasoner, model);
+            
             // ugly n-triple serialization is ugly, because turtle and N3 print object lists as
             // comma separated lists and thus we loose URIs assigned to lists (which are required
             // during the interpretation process)
@@ -208,6 +237,7 @@ public class PatternsTextToRdf {
             OutputStream os = new ByteArrayOutputStream();
 //            writer.write(model, os, patternOntologyUri);
             model.write(os);
+            logger.info("done");
             return os.toString();
 
         } catch (PatternsParsingException ex) {
@@ -229,7 +259,7 @@ public class PatternsTextToRdf {
             for (Subpattern spIn : spc.getSubpatterns()) {
                 Resource spResource = processSubpattern(spIn, pattern, patternResource);
                 result.addProperty(hasDirectSubpatternProp, spResource);
-                patternResource.addProperty(patternHasSubpatternProp, spResource);
+//                patternResource.addProperty(patternHasSubpatternProp, spResource); // when no reasoner
             }
             if (spc.getMinOccurrences() == 0 || spc.getMaxOccurrences() > 1) {
                 result.addProperty(hasDeterminingElementProp,
@@ -263,10 +293,18 @@ public class PatternsTextToRdf {
                 result = model.createResource(generatePatternElementUri(pe, pattern), blankNodePatternElementClass);
             } else {
                 if (pe instanceof ClassPatternElement) {
-                    result = model.createResource(generatePatternElementUri(pe, pattern), classPatternElementClass).addProperty(targetsClassProp, model.createResource(kbpe.getUri())).addLiteral(isQualifyingProp, kbpe.isQualifying());
+                    result = model.createResource(generatePatternElementUri(pe, pattern), classPatternElementClass)
+                            .addProperty(targetsClassProp, model.createResource(kbpe.getUri()))
+//                            .addProperty(targetsProp, model.createResource(kbpe.getUri())) // when no reasoner
+//                            .addProperty(targetsKBElementProp, model.createResource(kbpe.getUri())) // when no reasoner
+                            .addLiteral(isQualifyingProp, kbpe.isQualifying());
                 } else if (pe instanceof PropertyPatternElement) {
                     PropertyPatternElement ppe = (PropertyPatternElement) pe;
-                    result = model.createResource(generatePatternElementUri(pe, pattern), propertyPatternElementClass).addProperty(targetsPropertyProp, model.createResource(ppe.getUri())).addLiteral(isQualifyingProp, ppe.isQualifying());
+                    result = model.createResource(generatePatternElementUri(pe, pattern), propertyPatternElementClass)
+                            .addProperty(targetsPropertyProp, model.createResource(ppe.getUri()))
+//                            .addProperty(targetsProp, model.createResource(ppe.getUri())) // when no reasoner
+//                            .addProperty(targetsKBElementProp, model.createResource(ppe.getUri())) // when no reasoner
+                            .addLiteral(isQualifyingProp, ppe.isQualifying());
                     for (Integer referedElement : ppe.getReferedElements()) {
                         result.addProperty(refersToPatternElementProp,
                                 model.createResource(generatePatternElementUri(pattern.getPatternElementById(referedElement), pattern)));
@@ -275,7 +313,11 @@ public class PatternsTextToRdf {
             }
         } else if (pe instanceof LiteralPatternElement) {
             LiteralPatternElement lpe = (LiteralPatternElement) pe;
-            result = model.createResource(generatePatternElementUri(pe, pattern), literalPatternElementClass).addProperty(targetsLiteralTypeProp, model.createResource(lpe.getType())).addLiteral(isQualifyingProp, lpe.isQualifying());
+            result = model.createResource(generatePatternElementUri(pe, pattern), literalPatternElementClass)
+                    .addProperty(targetsLiteralTypeProp, model.createResource(lpe.getType()))
+//                    .addProperty(targetsProp, model.createResource(lpe.getType())) // when no reasoner
+//                    .addProperty(targetsKBElementProp, model.createResource(lpe.getType())) // when no reasoner
+                    .addLiteral(isQualifyingProp, lpe.isQualifying());
         }
 
         result.addLiteral(patternElementHasIdProp, pe.getId());
@@ -349,6 +391,7 @@ public class PatternsTextToRdf {
         String patternName = pattern.getName();
         Resource result = model.createResource(uriStart + patternName + "_peit_" + peit.getPe().getId(), peInTemplateClass);
         result.addProperty(sstTargetsPcProp, model.createResource(generatePatternElementUri(peit.getPe(), pattern)));
+//                .addProperty(sstTargetsPcProp, model.createResource(generatePatternElementUri(peit.getPe(), pattern))); // when no reasoner
         return result;
     }
 
@@ -364,6 +407,7 @@ public class PatternsTextToRdf {
         Resource result = model.createResource(uriStart + patternName + "_spcit_" + spcit.getSpc().getId(), spcInTemplateClass);
 
         result.addProperty(sstTargetsPcProp, model.createResource(generateSubpatternCollectionUri(spcit.getSpc(), pattern)));
+//                .addProperty(targetsProp, model.createResource(generateSubpatternCollectionUri(spcit.getSpc(), pattern))); // when no reasoner
 
         int iter = 0;
         Resource previousList = null;
@@ -398,6 +442,7 @@ public class PatternsTextToRdf {
         Resource result = model.createResource(uriStart + patternName + "_flit_" + flit.getSpc().getId(), forLoopInTemplateClass);
 
         result.addProperty(sstTargetsPcProp, model.createResource(generateSubpatternCollectionUri(flit.getSpc(), pattern)));
+//                .addProperty(targetsProp, model.createResource(generateSubpatternCollectionUri(flit.getSpc(), pattern))); // when no reasoner
 
         int iter = 0;
         Resource previousList = null;

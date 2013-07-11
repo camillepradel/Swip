@@ -76,6 +76,7 @@ function beforePivotToSparql() {
 	animateLogo();
     $('.searchButton').attr('disabled', 'disabled');
     $('#processingstate').css('display', 'block');
+	$('#processingstate li').removeClass("done");
 }
 
 function donePivotToSparql(data, sparqlEndpointUri, queriesNamedGraphUrii, patternsNamedGraphUrii) {
@@ -164,7 +165,7 @@ function diplayMatching(queryUri, sparqlEndpointUri)
 					+ "}\n"
 					// + "GROUP BY ?keywordValue DESC(?score)";
 					+ "ORDER BY ?keywordValue DESC(?score)";
-		console.log(sparqlQuery);
+		// console.log(sparqlQuery);
 		var callback = function(data) {
 		waitingForAnswer = false;
 
@@ -176,7 +177,7 @@ function diplayMatching(queryUri, sparqlEndpointUri)
 			var keyword = ((currentKeywordValue == val.keywordValue.value)? "" : "<a href='" + val.qe.value + "'>" + val.keywordValue.value + "</a>");
 			var matchedLabel = "<a href='" + val.resource.value + "' title='matched resource: " + val.resource.value + "'>" + val.matchedLabel.value + "</a>";
 			var score = val.score.value;
-			var uri = "<a href='" + val.matching.value + "' name='" + val.matching.value + "'>link</a>";
+			var uri = "<a href='" + val.matching.value + "' name='" + val.matching.value + "'><img src='img/link-icon.png'></img></a>";
 			table += "<tr><td>" + keyword + "</td><td>" + matchedLabel + "</td><td>" + score + "</td><td>" + uri + "</td></tr></a>";
 			currentKeywordValue = val.keywordValue.value;
 		});
@@ -226,7 +227,7 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					+ "  }\n"
 					+ "}\n"
 					+ "ORDER BY ?p ?pe ?em DESC(?score)";
-		// console.log(sparqlQuery);
+		console.log(sparqlQuery);
 		var callback = function(data) {
 			waitingForAnswer = false;
 			
@@ -247,7 +248,7 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					}
 					currentPattern = val.p.value;
 					list += "<li>Pattern " + formatUriForDisplay(currentPattern) + "</li>";
-					list += "<table><tr><th>pattern element</th><th>target</th><th>em link</th><th>score</th><th>subsentence</th><th>query element</th><th>match link</th><th>matched label</th><th>res link</th></tr>";
+					list += "<table><tr><th>pattern element</th><th>target</th><th>em link</th><th>score</th><th>subsentence</th><th>query element</th><th>match link</th><th>matched label</th><th>res link</img></th></tr>";
 				}
 					var pe = val.pe.value;
 					var shortPe = pe.replace(currentPattern, "...");
@@ -256,11 +257,11 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 					var targetHtml = "<a href='" + target + "'>" + formatUriForDisplay(target) + "</a>";
 					var qeHTML = val.qeValue? "<a href='" + val.qe.value + "'>" + val.qeValue.value + "</a>" : "-";//"<i>empty mapping</i>";
 					var labelHtml = val.label? val.label.value : "-";
-					var resHtml = val.resource? "<a href='" + val.resource.value + "'>link</a>" : "-";
+					var resHtml = val.resource? "<a href='" + val.resource.value + "'><img src='img/link-icon.png'></img></a>" : "-";
 					var subsentHtml = val.subsent? val.subsent.value : "-";
 					var scoreHtml = (val.score? val.score.value : "-");
-					var matchingHtml = val.m? "<a href='#" + val.m.value + "'>link</a>" : "-";
-					var emHtml = "<a href='" + val.em.value + "'>link</a>";
+					var matchingHtml = val.m? "<a href='#" + val.m.value + "'><img src='img/link-icon.png'></img></a>" : "-";
+					var emHtml = "<a href='" + val.em.value + "'><img src='img/link-icon.png'></img></a>";
 					if (peHtml == lastPeHtml) {
 						peHtml = "";
 						targetHtml = "";
@@ -331,6 +332,11 @@ function diplayElementMapping(queryUri, sparqlEndpointUri)
 			$('#elementmappingresults').html(list);
 			$('#elementmappingresultsH').click( function() {
 				$('#elementmappingresults').toggle();
+			});
+			$('#elementmappingresults li').click( function(event) {
+				console.log(event.delegateTarget);
+				console.log($(this));
+				$(this).next('table').toggle();
 			});
 		}
 		waitingForAnswer = true;

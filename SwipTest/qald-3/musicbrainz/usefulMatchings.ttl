@@ -419,22 +419,24 @@ graph:person a queries:KeywordQueryElement ;
     a queries:Matching;
     queries:matchingHasKeyword graph:person;
     queries:matchingHasResource foaf:Agent;
-    queries:matchingHasScore "20"^^xsd:float;
-    queries:matchingHasMatchedLabel "person".
-
-<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_person2>
-    a queries:Matching;
-    queries:matchingHasKeyword graph:person;
     queries:matchingHasResource mo:Performer;
-    queries:matchingHasScore "20"^^xsd:float;
-    queries:matchingHasMatchedLabel "person".
-
-<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_person3>
-    a queries:Matching;
-    queries:matchingHasKeyword graph:person;
     queries:matchingHasResource mo:MusicArtist;
     queries:matchingHasScore "20"^^xsd:float;
     queries:matchingHasMatchedLabel "person".
+
+#<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_person2>
+#    a queries:Matching;
+#    queries:matchingHasKeyword graph:person;
+#    queries:matchingHasResource mo:Performer;
+#    queries:matchingHasScore "20"^^xsd:float;
+#    queries:matchingHasMatchedLabel "person".
+
+#<http://swip.univ-tlse2.fr:8080/musicbrainz/matches/match_person3>
+#    a queries:Matching;
+#    queries:matchingHasKeyword graph:person;
+#    queries:matchingHasResource mo:MusicArtist;
+#    queries:matchingHasScore "20"^^xsd:float;
+#    queries:matchingHasMatchedLabel "person".
 
 
 ################

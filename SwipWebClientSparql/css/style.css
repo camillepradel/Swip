@@ -167,7 +167,7 @@ h2
 
 #processingstate .done
 {
-	list-style-image: url('../img/done.svg');
+	list-style-image: url('../img/done-small.svg');
 }
 
 
@@ -198,15 +198,9 @@ h2
 }
 
 
-/**
- * Loading icon
- **/
-
 #result img
 {
-	display: block;
-	margin: 30px auto;
-	text-align: center;
+	width: 12px;
 }
 
 
@@ -240,6 +234,15 @@ h2
 	background-color: rgb(120, 90, 90);
 }
 
+#elementmappingresults li:hover
+{
+	cursor:  pointer;
+}
+
+#elementmappingresults table
+{
+	display: none;
+}
 
 .mark
 {

@@ -31,16 +31,20 @@ public class QueryInterpreter extends Thread {
     @Override
     public void run() {
         boolean commitUpdate = true;
-        boolean logQuery = false;
+        boolean logQuery = true;
+        logger.info("================================================================");
+        logger.info("Infer triples on patterns named graph:");
+        logger.info("--------------------------------------\n");
+        inferTriples(queryUri, sparqlClient, commitUpdate, logQuery);
         logger.info("================================================================");
         logger.info("Matching query elements to knowledge base elements:");
         logger.info("---------------------------------------------------\n");
         performMatching(queryUri, sparqlClient, commitUpdate, logQuery);
-//        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping patterns elements:");
         logger.info("--------------------------\n");
         performElementMapping(queryUri, sparqlClient, commitUpdate, logQuery);
+        commitUpdate = false;
         logger.info("================================================================");
         logger.info("Mapping subpattern collections:");
         logger.info("------------------------------\n");
@@ -74,6 +78,78 @@ public class QueryInterpreter extends Thread {
         logger.info("-----\n");
         // change query processing state
         Controller.getInstance().changeQueryProcessingState(queryUri, sparqlClient, queriesNamedGraphUri, "QueryProcessed");
+    }
+
+    private void inferTriples(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
+        // change query processing state
+        Controller.getInstance().changeQueryProcessingState(queryUri, sparqlServer, queriesNamedGraphUri, "PerformingMatching");
+
+        String query = "# infer some usefull triples\n"
+                + "# hasSubpattern o hasPatternElement -> hasPatternElement\n"
+                + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
+                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX pf:   <http://jena.hpl.hp.com/ARQ/property#>\n"
+                + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
+                + "PREFIX bif:  <http://bif.org/>\n"
+                + "INSERT\n"
+                + "{\n"
+                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?a patterns:hasPatternElement ?b.\n"
+                + "  }\n"
+                + "}\n"
+                + "WHERE\n"
+                + "{\n"
+                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?a (patterns:hasSubpattern / patterns:hasPatternElement) ?b.\n"
+                + "  }\n"
+                + "}";
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+        
+        query = "# hasSubpattern is transitive\n"
+                + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
+                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX pf:   <http://jena.hpl.hp.com/ARQ/property#>\n"
+                + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
+                + "PREFIX bif:  <http://bif.org/>\n"
+                + "INSERT\n"
+                + "{\n"
+                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?a patterns:hasSubpattern ?b.\n"
+                + "  }\n"
+                + "}\n"
+                + "WHERE\n"
+                + "{\n"
+                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?a patterns:hasSubpattern+ ?b.\n"
+                + "  }\n"
+                + "}";
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
+        
+        query = "# isMadeUpOf is transitive\n"
+                + "PREFIX patterns:   <http://swip.univ-tlse2.fr/ontologies/Patterns#>\n"
+                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX pf:   <http://jena.hpl.hp.com/ARQ/property#>\n"
+                + "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n"
+                + "PREFIX bif:  <http://bif.org/>\n"
+                + "INSERT\n"
+                + "{\n"
+                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?a patterns:isMadeUpOf ?b.\n"
+                + "  }\n"
+                + "}\n"
+                + "WHERE\n"
+                + "{\n"
+                + "  GRAPH <" + patternsNamedGraphUri + ">\n"
+                + "  {\n"
+                + "    ?a patterns:isMadeUpOf+ ?b.\n"
+                + "  }\n"
+                + "}";
+        logAndCommitQuery(query, sparqlServer, commitUpdate, logQuery);
     }
 
     private void performMatching(String queryUri, SparqlClient sparqlServer, boolean commitUpdate, boolean logQuery) {
@@ -340,7 +416,9 @@ public class QueryInterpreter extends Thread {
                 + "  }\n"
                 + "  GRAPH <" + patternsNamedGraphUri + ">\n"
                 + "  {\n"
-                + "    ?p patterns:patternHasPatternElement ?pe.\n"
+                + "    # consider only active patterns\n"
+                + "    ?p patterns:patternIsActive \"true\"^^xsd:boolean;\n"
+                + "       patterns:patternHasPatternElement ?pe.\n"
                 + "    ?pe patterns:isQualifying \"true\"^^xsd:boolean;\n"
                 + "        patterns:targetsKBElement ?kbe.\n"
                 + "  }\n"
@@ -650,7 +728,7 @@ public class QueryInterpreter extends Thread {
                 + "    # generated SPARQL\n"
                 + "    ?emUri queries:hasSparqlRepresentation ?rep.\n"
                 + "    ?tripleUri sp:subject   ?s ;\n"
-                + "               sp:predicate ?p ;\n"
+                + "               sp:predicate ?pred ;\n"
                 + "               sp:object    ?o .\n"
                 + "  }\n"
                 + "}\n"
@@ -658,6 +736,9 @@ public class QueryInterpreter extends Thread {
                 + "{\n"
                 + "  GRAPH <" + patternsNamedGraphUri + ">\n"
                 + "  {\n"
+                + "    # consider only active patterns\n"
+                + "    ?p patterns:patternIsActive \"true\"^^xsd:boolean;\n"
+                + "       patterns:patternHasPatternElement ?pe.\n"
                 + "    ?pe a patterns:PatternElement;\n"
                 + "        patterns:isQualifying \"true\"^^xsd:boolean;\n"
                 + "        patterns:targetsKBElement ?kbe.\n"
@@ -666,7 +747,7 @@ public class QueryInterpreter extends Thread {
                 + "    {\n"
                 + "      ?pe a patterns:ClassPatternElement.\n"
                 + "  BIND (CONCAT (\"?cpe_\", REPLACE(STRUUID(), \"-\", \"\", \"i\")) AS ?rep)\n"
-                + "      BIND (?rep AS ?s) BIND (rdf:type AS ?p) BIND (?kbe AS ?o)\n"
+                + "      BIND (?rep AS ?s) BIND (rdf:type AS ?pred) BIND (?kbe AS ?o)\n"
                 + "    }\n"
                 + "    UNION {\n"
                 + "      ?pe a patterns:LiteralPatternElement.\n"
@@ -803,7 +884,7 @@ public class QueryInterpreter extends Thread {
         startMapping(queryUri, sparqlServer, commitUpdate, logQuery);
         preventFrom(queryUri, sparqlServer, commitUpdate, logQuery);
 //            commitUpdate = false;
-        for (int j = 0; j < 12; j++) {
+        for (int j = 0; j < 5; j++) {
             makeProgress(queryUri, sparqlServer, commitUpdate, logQuery);
         }
         validateMappings(queryUri, sparqlServer, commitUpdate, logQuery);

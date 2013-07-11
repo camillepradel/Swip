@@ -1,0 +1,57 @@
+#!/usr/bin/expect -f
+
+
+# Mise à jour des patrons de musicbrainz
+send_user " *******************************************\n"
+send_user " *  Transfert des patrons musicbrainz via scp  *\n"
+send_user " *******************************************\n"
+
+spawn scp /mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/patterns-nt/patterns-rdf.xml gpeyet@192.168.250.91:/stockage/data/musicbrainz/rdfdata-patterns/
+
+expect "password: "
+send -- "gpeyet\r"
+
+send_user "\n"
+expect ".*"
+send_user "\n\n\n"
+
+
+send_user " ****************************\n"
+send_user " *  Indexation des patrons  *\n"
+send_user " ****************************\n"
+
+spawn ssh gpeyet@192.168.250.91
+expect "password: "
+send "gpeyet\r\n"
+
+expect "$ "
+send "cd /stockage/data/musicbrainz/\r"
+
+expect "$ "
+send "./tdbloader-patterns.sh\r"
+
+expect "$ "
+send "su\r"
+
+expect "Mot de passe : "
+send "toorop\r"
+
+expect "# "
+send "cd /stockage/\r"
+
+expect "# "
+send "chgrp -R users data/\r"
+
+expect "# "
+send "chmod -R ug+rw data/\r"
+
+expect "# "
+send "chmod -R o-wx data/\r"
+
+expect "# "
+send "exit\r"
+
+expect "$ "
+send "exit\r"
+
+interact

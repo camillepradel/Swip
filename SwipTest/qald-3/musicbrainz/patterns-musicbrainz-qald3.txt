@@ -44,9 +44,9 @@ question 19 : Who produced the album In Utero?
 
 pattern cd_info
 	query
-		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:0..2/3/*0..1/3*/
-		[ 1							6_mo:producer(7)			7_foaf:Agent;			]producer:0..1/7
-		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..1/9/*0..1/9*/
+		[ 1_mo:MusicalManifestation	2_foaf:maker(3)				3_mo:MusicArtist;		]creator:0..2/3
+		[ 1							6_mo:producer(7)			7_foaf:Agent;			]producer:1..1/7
+		[ 1							8_mo:composer(9)			9_foaf:Agent;			]composer:0..1/9
 		[ 1							10_mo:singer(11)			11_mo:Performer;		]vocal:0..2/11
 		[ 1							12_mo:release_status(13)	13_mo:ReleaseStatus;	]status:0..1/13
 		[ 1							14_mo:lyricist(15)			15_mo:MusicArtist;		]lyricist:0..1/15

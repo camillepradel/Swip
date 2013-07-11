@@ -1,0 +1,18 @@
+#!/usr/bin/expect -f
+
+
+send_user " *******************************************\n"
+send_user " *  Transfert des usefull matchings via scp  *\n"
+send_user " *******************************************\n"
+
+spawn scp /mnt/data/gitSwip/SwipTest/qald-3/musicbrainz/usefulMatchings.ttl gpeyet@192.168.250.91:/stockage/data/musicbrainz/rdfdata-queries/
+
+expect "password: "
+send -- "gpeyet\r"
+
+send_user "\n"
+expect ".*"
+send_user "\n\n\n"
+
+
+interact

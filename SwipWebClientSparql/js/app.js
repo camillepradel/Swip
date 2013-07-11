@@ -1,7 +1,7 @@
 
 $(function()
 {
-	$('#searchField2').focus();
+	$('#searchField1').focus();
 
 	/** 
 	 * Submits the form when the return key
@@ -85,6 +85,7 @@ function nlToPivot(nlQuery)
         $('#nltopivot').append('<p><b>Pivot query:</b> <i>' + (data2['pivotQuery']) + '</i></p>');
         $('#searchField2').val(data2['pivotQuery']);
         $('.searchButton').removeAttr('disabled');
+        $('#searchField2').focus();
     }).fail(function(jqXHR, textStatus) {
         alert('Ajax error, please try again !');
         $('.searchButton').removeAttr('disabled');
