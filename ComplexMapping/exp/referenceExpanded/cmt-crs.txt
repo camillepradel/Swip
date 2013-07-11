@@ -1,0 +1,8 @@
+http://cmt#Document = http://crs#document | 1.0
+http://cmt#PaperAbstract = http://crs#abstract | 1.0
+http://cmt#PaperFullVersion = http://crs#article | 1.0
+http://cmt#Review = http://crs#review | 1.0
+http://cmt#Person = http://crs#person | 1.0
+http://cmt#Author = http://crs#author | 1.0
+http://cmt#Chairman = http://crs#chair | 1.0
+http://cmt#Reviewer = http://crs#reviewer | 1.0

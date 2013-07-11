@@ -1,0 +1,8 @@
+http://ekaw#Conference = http://pcs#Conference | 1.0
+http://ekaw#Document = http://pcs#DOCUMENT | 1.0
+http://ekaw#Paper = http://pcs#Paper | 1.0
+http://ekaw#Accepted_Paper = http://pcs#Accepted_paper | 1.0
+http://ekaw#Rejected_Paper = http://pcs#Rejected_paper  | 1.0
+http://ekaw#Review = http://pcs#Review | 1.0
+http://ekaw#Person = http://pcs#PERSON  | 1.0
+http://ekaw#Paper_Author = http://pcs#Author | 1.0

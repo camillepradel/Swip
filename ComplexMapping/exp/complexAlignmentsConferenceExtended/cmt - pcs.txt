@@ -1,0 +1,1 @@
+Forall x (pcs#CommitteeMember(x) <-> Exists y (cmt#hasConferenceMember(y,x) and cmt#ConferenceMember(x)))

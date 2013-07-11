@@ -1,0 +1,55 @@
+*******************************
+* AddPredicates documentation *
+*******************************
+
+The aim of this application is to add some predicates to a knowledge base writen
+in a RDF serialisation language. It supports OWL, Turtle and N-Triples formats.
+
+
+I - First use
+______________
+
+You can launch this application using the command :
+		java -jar AddPredicates.jar
+
+The fist execution of the program will generate a default configuration file
+(cf. part III), and two direcories "knowledge_base" and "generated_files" in the
+same directory in which you placed the jar file.
+
+II - Default use and configuration
+___________________________________
+
+When the default configuration is settled, you must place all your files that you
+want to analyse in the knowledge_base directory.
+When you run this program for the second time, it tries to load each file in the
+knowledge_base directory and write for each one (in separated files) the description
+of the added predicates in the generated_files directory.
+
+With the default configuration, the program searches all resources that have not
+a predicate <http://www.w3.org/2000/01/rdf-schema#label> defined. For each one,
+it extracts the name parsing its URI : it takes first the end part of the URI
+(the local part) and parses it replacing all underscores by spaces and separating
+differents words used, according to the CamelCase format. Finally, it generates
+a file containing all triplets defining a new <http://www.w3.org/2000/01/rdf-schema#label>
+predicate which value is the name extracted from the URI.
+
+You can change this default behavior by editing the configuration file generated
+at the first use of this application.
+
+III - The configuration file
+_____________________________
+
+The configuration file let you the possibility to define seven properties :
+		- MODE
+		- KB_PATH
+		- GENERATED_PATH
+		- SEARCHED_PREDICATE
+		- ADDED_PREDICATE
+		- LANGUAGE_TAG
+		- IGNORED_PREFIXES
+
+The usage of each property is explain in the configuration file. If you remove
+one of those properties, it is restaured with default value(s). If you want to
+settle the default configuration, you just have to remove this configuration file.
+
+

@@ -1,0 +1,10 @@
+http://cmt#Conference = http://sofsem#Conference | 1.0
+http://cmt#Document = http://sofsem#Conference_document | 1.0
+http://cmt#PaperFullVersion = http://sofsem#Paper | 1.0
+http://cmt#Review = http://sofsem#Review | 1.0
+http://cmt#Person = http://sofsem#Person | 1.0
+http://cmt#Author = http://sofsem#Regular_author | 1.0
+http://cmt#Co-author = http://sofsem#Contribution_co-author | 1.0
+http://cmt#Reviewer = http://sofsem#Reviewer | 1.0
+http://cmt#SubjectArea = http://sofsem#Topic | 1.0
+http://cmt#ProgramCommittee = http://sofsem#Program_committee | 1.0

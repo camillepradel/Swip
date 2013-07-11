@@ -1,0 +1,1 @@
+Forall x,z (openconf#Comments_for_Author(x,z) <-> Exists y (cmt#hasCo-author(x,y) and cmt#name(y,z)))

@@ -1,0 +1,9 @@
+http://sofsem#Conference = http://crs#conference | 1.0
+http://sofsem#Conference_document = http://crs#document | 1.0
+http://sofsem#Abstract = http://crs#abstract | 1.0
+http://sofsem#Paper = http://crs#article | 1.0
+http://sofsem#Review = http://crs#review | 1.0
+http://sofsem#Person = http://crs#person | 1.0
+http://sofsem#Regular_author = http://crs#author | 1.0
+http://sofsem#Conference_participant = http://crs#participant | 1.0
+http://sofsem#Reviewer = http://crs#reviewer | 1.0

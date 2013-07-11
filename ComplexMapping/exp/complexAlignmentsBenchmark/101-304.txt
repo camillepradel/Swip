@@ -1,0 +1,3 @@
+Forall x,z (101/onto.rdf#startPage(x,z) <-> Exists y (304/onto.rdf#pages(x,y) and 304/onto.rdf#startPage(y,z)))
+Forall x,z (101/onto.rdf#endPage(x,z) <-> Exists y (304/onto.rdf#pages(x,y) and 304/onto.rdf#endPage(y,z)))
+Forall x,z (101/onto.rdf#language(x,z) <-> Exists y (304/onto.rdf#language(x,y) and 304/onto.rdf#lang(y,z)))

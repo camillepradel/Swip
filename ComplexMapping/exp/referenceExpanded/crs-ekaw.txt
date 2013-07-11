@@ -1,0 +1,10 @@
+http://crs#document = http://ekaw#Document | 1.0
+http://crs#abstract = http://ekaw#Abstract | 1.0
+http://crs#article = http://ekaw#Paper | 1.0
+http://crs#review = http://ekaw#Review | 1.0
+http://crs#event = http://ekaw#Event | 1.0
+http://crs#conference = http://ekaw#Conference | 1.0
+http://crs#session = http://ekaw#Session | 1.0
+http://crs#person = http://ekaw#Person | 1.0
+http://crs#author = http://ekaw#Paper_Author | 1.0
+http://crs#participant = http://ekaw#Conference_Participant | 1.0

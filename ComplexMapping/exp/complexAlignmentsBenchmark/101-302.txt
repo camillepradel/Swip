@@ -1,0 +1,7 @@
+Forall x,z (publication.owl#pages(x,z) <-> Exists y (101/onto.rdf#pages(x,y) and 101/onto.rdf#name(y,z)))
+Forall x,z (publication.owl#institution(x,z) <-> Exists y (101/onto.rdf#institution(x,y) and 101/onto.rdf#name(y,z)))
+Forall x,z (publication.owl#address(x,z) <-> Exists y (101/onto.rdf#address(x,y) and 101/onto.rdf#name(y,z)))
+Forall x,z (publication.owl#organization(x,z) <-> Exists y (101/onto.rdf#organization(x,y) and 101/onto.rdf#name(y,z)))
+Forall x,z (publication.owl#publisher(x,z) <-> Exists y (101/onto.rdf#publisher(x,y) and 101/onto.rdf#name(y,z)))
+Forall x,z (publication.owl#school(x,z) <-> Exists y (101/onto.rdf#school(x,y) and 101/onto.rdf#name(y,z)))
+Forall x,z (publication.owl#journal(x,z) <-> Exists y (101/onto.rdf#journal(x,y) and 101/onto.rdf#name(y,z)))

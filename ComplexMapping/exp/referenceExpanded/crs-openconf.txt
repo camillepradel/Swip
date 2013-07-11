@@ -1,0 +1,4 @@
+http://crs#article = http://openConf#Paper | 1.0
+http://crs#person = http://openConf#People | 1.0
+http://crs#author = http://openConf#Author | 1.0
+http://crs#reviewer = http://openConf#Reviewer | 1.0

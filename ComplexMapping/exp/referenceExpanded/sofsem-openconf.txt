@@ -1,0 +1,8 @@
+http://sofsem#Committee = http://openconf#Committees | 1.0
+http://sofsem#Program_committee = http://openconf#Program_Committee | 1.0
+http://sofsem#Paper = http://openconf#Paper | 1.0
+http://sofsem#Review = http://openconf#Paper_Review | 1.0
+http://sofsem#Person = http://openconf#People | 1.0
+http://sofsem#Regular_author = http://openconf#Author | 1.0
+http://sofsem#Reviewer = http://openconf#Reviewer | 1.0
+http://sofsem#Topic = http://openconf#Topics | 1.0

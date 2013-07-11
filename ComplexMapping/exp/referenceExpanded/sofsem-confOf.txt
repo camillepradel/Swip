@@ -1,0 +1,10 @@
+http://sofsem#Conference = http://confOf#Conference | 1.0
+http://sofsem#Conference_contribution = http://confOf#Contribution | 1.0
+http://sofsem#Poster = http://confOf#Poster | 1.0
+http://sofsem#Paper = http://confOf#Paper | 1.0
+http://sofsem#Tutorial = http://confOf#Tutorial | 1.0
+http://sofsem#Workshop = http://confOf#Workshop | 1.0
+http://sofsem#Organization = http://confOf#Organization | 1.0
+http://sofsem#Person = http://confOf#Person | 1.0
+http://sofsem#Conference_participant = http://confOf#Participant | 1.0
+http://sofsem#Topic = http://confOf#Topic | 1.0

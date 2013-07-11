@@ -1,0 +1,5 @@
+http://openconf#Conference_Program = http://pcs#Programme | 1.0
+http://openconf#Paper = http://pcs#Paper | 1.0
+http://openconf#Paper_Review = http://pcs#Review | 1.0
+http://openconf#People = http://pcs#PERSON | 1.0
+http://openconf#Author = http://pcs#Author | 1.0

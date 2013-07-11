@@ -1,0 +1,6 @@
+http://pcs#Conference = http://sigkdd#Conference | 1.0
+http://pcs#DOCUMENT = http://sigkdd#Document | 1.0
+http://pcs#Paper = http://sigkdd#Paper | 1.0
+http://pcs#Review = http://sigkdd#Review | 1.0
+http://pcs#PERSON = http://sigkdd#Person | 1.0
+http://pcs#Author = http://sigkdd#Author | 1.0

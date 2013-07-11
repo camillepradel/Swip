@@ -1,0 +1,10 @@
+http://htt#Conference = http://ekaw#Conference | 1.0
+http://cmt#Document = http://ekaw#Document | 1.0
+http://cmt#PaperAbstract = http://ekaw#Abstract | 1.0
+http://cmt#PaperFullVersion = http://ekaw#Paper | 1.0
+http://cmt#Review = http://ekaw#Review | 1.0
+http://cmt#Person = http://ekaw#Person | 1.0
+http://cmt#Author = http://ekaw#Paper_Author | 1.0
+http://cmt#ProgramCommitteeChair = http://ekaw#PC_Chair | 1.0
+http://cmt#ProgramCommitteeMember = http://ekaw#PC_Member | 1.0
+http://cmt#SubjectArea = http://ekaw#Research_Topic | 1.0

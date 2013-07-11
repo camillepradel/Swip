@@ -1,0 +1,10 @@
+http://cmt#Conference = http://sigkdd#Conference | 1.0
+http://cmt#Document = http://sigkdd#Document | 1.0
+http://cmt#PaperFullVersion = http://sigkdd#Paper | 1.0
+http://cmt#PaperAbstract = http://sigkdd#Abstract | 1.0
+http://cmt#Review = http://sigkdd#Review | 1.0
+http://cmt#Person = http://sigkdd#Person | 1.0
+http://cmt#Author = http://sigkdd#Author | 1.0
+http://cmt#ProgramCommitteeChair = http://sigkdd#Program_Chair | 1.0
+http://cmt#ProgramCommitteeMember = http://sigkdd#Program_Committee_member | 1.0
+http://cmt#ProgramCommittee = http://sigkdd#Program_Committee | 1.0

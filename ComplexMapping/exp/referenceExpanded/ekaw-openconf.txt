@@ -1,0 +1,6 @@
+http://ekaw#Paper = http://openconf#Paper | 1.0
+http://ekaw#Submitted_Paper = http://openconf#Submitted_Paper | 1.0
+http://ekaw#Review = http://openconf#Paper_Review | 1.0
+http://ekaw#Person = http://openconf#People | 1.0
+http://ekaw#Paper_Author = http://openconf#Author | 1.0
+http://ekaw#Research_Topic = http://openconf#Topics | 1.0

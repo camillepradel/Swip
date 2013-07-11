@@ -1,0 +1,5 @@
+http://confOf#Paper = http://sigkdd#Paper | 1.0
+http://confOf#Person = http://sigkdd#Person | 1.0
+http://confOf#Author = http://sigkdd#Author | 1.0
+http://confOf#Chair_PC = http://sigkdd#Program_Chair | 1.0
+http://confOf#Member_PC = http://sigkdd#Program_Committe_member | 1.0

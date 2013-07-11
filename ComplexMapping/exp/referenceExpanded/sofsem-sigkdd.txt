@@ -1,0 +1,11 @@
+http://sofsem#Committee = http://sigkdd#Committee | 1.0
+http://sofsem#Organizing_committee = http://sigkdd#Organizing_Committee | 1.0
+http://sofsem#Program_committee = http://sigkdd#Program_Committee | 1.0
+http://sofsem#Conference = http://sigkdd#Conference | 1.0
+http://sofsem#Conference_document = http://sigkdd#Document | 1.0
+http://sofsem#Abstract = http://sigkdd#Abstract | 1.0
+http://sofsem#Paper = http://sigkdd#Paper | 1.0
+http://sofsem#Review = http://sigkdd#Review | 1.0
+http://sofsem#Conference_fees = http://sigkdd#Fee | 1.0
+http://sofsem#Person = http://sigkdd#Person | 1.0
+http://sofsem#Invited_speaker = http://sigkdd#Invited_Speaker | 1.0

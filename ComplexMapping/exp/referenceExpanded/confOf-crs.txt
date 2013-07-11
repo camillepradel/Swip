@@ -1,0 +1,6 @@
+http://confOf#Paper = http://crs#article | 1.0
+http://confOf#Event = http://crs#event | 1.0
+http://confOf#Conference = http://crs#conference | 1.0
+http://confOf#Person = http://crs#person | 1.0
+http://confOf#Author = http://crs#author | 1.0
+http://confOf#Participant = http://crs#participant | 1.0

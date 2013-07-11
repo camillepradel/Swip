@@ -1,0 +1,8 @@
+http://htt#Conference = http://confOf#Conference | 1.0
+http://cmt#Paper = http://confOf#Paper | 1.0
+http://cmt#Person = http://confOf#Person | 1.0
+http://cmt#Author = http://confOf#Author | 1.0
+http://cmt#ProgramCommitteeChair = http://confOf#Chair_PC | 1.0
+http://cmt#ProgramCommitteeMember = http://confOf#Member_PC | 1.0
+http://cmt#Administrator = http://confOf#Administrator | 1.0
+http://cmt#SubjectArea = http://confOf#Topic | 1.0

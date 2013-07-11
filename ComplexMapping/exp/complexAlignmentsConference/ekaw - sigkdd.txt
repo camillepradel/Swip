@@ -1,0 +1,1 @@
+Forall x (sigkdd#Organizator(x) <-> Exists y (ekaw#organisedBy(y,x) and ekaw#Person(x)))

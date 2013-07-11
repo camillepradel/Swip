@@ -1,0 +1,9 @@
+http://htt#Conference = http://pcs#Conference | 1.0
+http://cmt#Document = http://pcs#DOCUMENT | 1.0
+http://cmt#Paper = http://pcs#Paper | 1.0
+http://cmt#Review = http://pcs#Review | 1.0
+http://cmt#ExternalReviewer = http://pcs#External_Reviewer | 1.0
+http://cmt#Person = http://pcs#PERSON | 1.0
+http://cmt#Administrator = http://pcs#Administrator | 1.0
+http://cmt#ConferenceMember = http://pcs#ConferenceMember | 1.0
+http://cmt#Author = http://pcs#Author | 1.0

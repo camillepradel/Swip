@@ -1,0 +1,8 @@
+http://sofsem#Conference = http://pcs#Conference | 1.0
+http://sofsem#Conference_document = http://pcs#DOCUMENT | 1.0
+http://sofsem#Paper = http://pcs#Paper | 1.0
+http://sofsem#Review = http://pcs#Review | 1.0
+http://sofsem#Conference_www = http://pcs#Web_site | 1.0
+http://sofsem#Person = http://pcs#PERSON | 1.0
+http://sofsem#Committee_member = http://pcs#CommitteeMember | 1.0
+http://sofsem#Regular_author = http://pcs#Author | 1.0

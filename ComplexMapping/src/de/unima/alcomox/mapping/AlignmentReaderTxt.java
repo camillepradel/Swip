@@ -1,0 +1,94 @@
+package de.unima.alcomox.mapping;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import de.unima.alcomox.exceptions.CorrespondenceException;
+import de.unima.alcomox.exceptions.MappingException;
+
+
+/**
+* A mapping reader for txt format reads mappings from txt-files. 
+*
+*/
+public class AlignmentReaderTxt implements AlignmentReader {
+	
+	public AlignmentReaderTxt() {	}
+	
+	public Alignment getMapping(String filepath) throws MappingException {
+		File file = new File(filepath);
+		Alignment mapping = new Alignment();
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			ArrayList<Correspondence> correspondences = new ArrayList<Correspondence>();
+			String[] parts;
+			Correspondence correspondence;
+			String line;
+			double sim;
+			try {
+				
+				while ((line = reader.readLine())!= null) {
+					if (line.length() == 0 || line.startsWith("#")) {
+						// do nothing if line is empty or comment	
+					}
+					else if (line.contains("|") && (!line.startsWith("#"))) {
+						parts = line.split(" .{1,2} ");
+						sim = Double.parseDouble(parts[2]);
+						SemanticRelation sr = null;
+						if (line.contains(" = ")) { sr = new SemanticRelation(SemanticRelation.EQUIV); }
+						else if (line.contains(" < ")) { sr = new SemanticRelation(SemanticRelation.SUB); }
+						else if (line.contains(" > ")) { sr = new SemanticRelation(SemanticRelation.SUPER); }
+						else if (line.contains(" != ")) { sr = new SemanticRelation(SemanticRelation.DIS); }
+						else { sr = new SemanticRelation(SemanticRelation.NA); }
+						correspondence = new Correspondence(parts[0].trim(), parts[1].trim(), sr, sim);
+						correspondences.add(correspondence);
+					}
+					else {
+						throw new MappingException(
+								MappingException.INVALID_FORMAT,
+								"format of " + file.toString() + " is invalid (see line '" + line + "')"
+						);						
+						
+					}
+				}
+			}
+			catch (CorrespondenceException ce) {
+				throw new MappingException(
+						MappingException.CORRESPONDENCE_PROBLEM,
+						"correspondences in " + file.toString() + " is invalid",
+						ce
+				);
+			}
+			catch (NumberFormatException nfe) {
+				throw new MappingException(
+						MappingException.IO_ERROR,
+						"caused by " + file.toString() + " where a number has been expected",
+						nfe
+				);
+			}
+			catch (IOException ioe) {
+				throw new MappingException(
+						MappingException.IO_ERROR,
+						"file at " + file.toString() + " cannot be accessed",
+						ioe
+				);
+			}
+			mapping.setCorrespondences(correspondences);	
+		}
+		catch (FileNotFoundException e) {
+			throw new MappingException(
+					MappingException.IO_ERROR,
+					"file at " + file.toString() + " not found",
+					e
+			);
+		}
+		return mapping;
+	}
+	
+	
+}

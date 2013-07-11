@@ -1,0 +1,5 @@
+http://confOf#Conference = http://pcs#Conference | 1.0
+http://confOf#Paper = http://pcs#Paper | 1.0
+http://confOf#Person = http://pcs#PERSON | 1.0
+http://confOf#Administrator = http://pcs#Administrator | 1.0
+http://confOf#Author = http://pcs#Author | 1.0

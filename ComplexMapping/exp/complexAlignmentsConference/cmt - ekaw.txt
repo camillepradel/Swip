@@ -1,0 +1,1 @@
+Forall x (cmt#Meta-Review(x) <-> Exists y (ekaw#hasReview(y,x) and ekaw#Review(x)))

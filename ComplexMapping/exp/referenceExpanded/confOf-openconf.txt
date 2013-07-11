@@ -1,0 +1,6 @@
+http://confOf#Paper = http://openconf#Paper | 1.0
+http://confOf#Person = http://openconf#People | 1.0
+http://confOf#Author = http://openconf#Author | 1.0
+http://confOf#Topic = http://openconf#Topics | 1.0
+
+

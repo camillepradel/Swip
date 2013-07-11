@@ -1,0 +1,11 @@
+http://ekaw#Conference = http://sigkdd#Conference | 1.0
+http://ekaw#Document = http://sigkdd#Document | 1.0
+http://ekaw#Abstract = http://sigkdd#Abstract | 1.0
+http://ekaw#Paper = http://sigkdd#Paper | 1.0
+http://ekaw#Review = http://sigkdd#Review | 1.0
+http://ekaw#Person = http://sigkdd#Person | 1.0
+http://ekaw#PC_Chair = http://sigkdd#Program_Chair | 1.0
+http://ekaw#OC_Member = http://sigkdd#Organizing_Committee_member | 1.0
+http://ekaw#Invited_Speaker = http://sigkdd#Invited_Speaker | 1.0
+http://ekaw#Author = http://sigkdd#Paper_Author | 1.0
+http://ekaw#Location = http://sigkdd#Place | 1.0

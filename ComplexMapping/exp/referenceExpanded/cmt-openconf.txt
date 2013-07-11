@@ -1,0 +1,6 @@
+http://cmt#Paper = http://openconf#Paper | 1.0
+http://cmt#Review = http://openconf#Paper_Review | 1.0
+http://cmt#Person = http://openconf#People | 1.0
+http://cmt#Author = http://openconf#Author | 1.0
+http://cmt#Reviewer = http://openconf#Reviewer | 1.0
+http://cmt#SubjectArea = http://openconf#Topics | 1.0
