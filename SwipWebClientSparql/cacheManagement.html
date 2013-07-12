@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cache Management</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/main.css">
+		<link rel="icon" href="img/muffin-favicon.ico" />
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+		<div id = "leftTab">
+			<div id = "controlPanel">
+			</div>
+			
+			<div id = "navigation">
+				<a href = "./welcome.html" title = "Welcome">
+					<img src = "./img/Home_Icon.svg" />
+				</a>
+				<a href = "./index.html" title = "SWIP querying interface">
+					<img src="./img/muffin-favicon.ico" />
+				</a>
+				<a href = "./patternViewer.html" title = "Patterns visualisation">
+					<img src = "./img/patterns-logo.svg" />
+				</a>
+				<a href = "./usefulMatchings.html" title = "Useful matchings">
+					<img src = "./img/patterns-logo.svg" />
+				</a>
+				
+				<img class = "active" src = "./img/patterns-logo.svg" />
+				
+				<a href = "./typeProperties.html" title = "*TypeProperties management">
+					<img src = "./img/patterns-logo.svg" />
+				</a>
+			</div>
+		
+			<div class = "item" id = "connection">
+				<img class = "showHideButton" src = "./img/padlock.png" />
+				<form class = "panel" action = "./PHP/admin.php" method = "post">
+					<label for = "id">Login: </label>
+					<input type = "text" id = "id" name = "id" />
+					<br />
+					<label for = "mdp">Password: </label>
+					<input type = "password" id = "mdp" name = "mdp" />
+					<br />
+					<input type = "submit" id = "connectButton" value = "Log in" />
+				</form>
+			</div>
+		</div>
+		
+		<div id = "content">
+		</div>
+		
+		<!-- scripts template -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.ui.touch-punch.min.js"></script>
+		
+		<!-- scripts perso -->
+        <script src="./js/global.js"></script>
+    </body>
+</html>

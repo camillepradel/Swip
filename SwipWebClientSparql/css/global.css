@@ -1,0 +1,139 @@
+/*
+ * Left tab
+ */
+#leftTab
+{
+	position: fixed;
+	top: 20px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#panelLocked
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	min-height: 100%;
+	background-color: rgba(190, 190, 190, 0.6);
+	z-index : 29;
+	display : none;
+}
+
+/*
+ * Control Panel
+ */
+#controlPanel
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+.showHideButton
+{
+	z-index: 31;
+	position: absolute;
+	margin: 0px;
+	margin-bottom: 8px;
+	padding: 4px;
+	background-color: #e6e6e6;
+}
+
+.showHideButton:hover, .showHideButtonSelected
+{
+	background-color: #9fbfdf;
+	padding-left: 14px;
+	padding-right: 14px;
+}
+
+.panel
+{
+	z-index: 30;
+	position: absolute;
+	margin: 0px;
+	margin-left: 44px;
+	padding: 20px;
+	display: none;
+}
+
+.itemControlPanelSelected
+{
+	background-color: #9fbfdf;
+}
+
+/*
+ *	Navigation Panel
+ */
+#navigation
+{
+	margin-top: 250px;
+}
+
+#navigation img
+{
+	display: block;
+	z-index: 30;
+	margin: 0px;
+	margin-bottom: 8px;
+	padding: 4px;
+	background-color: #e6e6e6;
+	width: 16px;
+	height: 16px;
+}
+
+#navigation .active
+{
+	background-color: #9fbfdf;
+	width: 32px;
+	height: 32px;
+}
+
+/*
+ * Connection Panel
+ */
+#connection
+{
+	margin-top: 100px;
+	position: relative;
+}
+
+#connection .panel
+{
+	width: 370px;
+}
+
+#connection label
+{
+	display: inline-block;
+	width: 110px;
+	line-height: 25px;
+	text-align: right;
+	margin-right: 5px;
+}
+
+#connection input[type="submit"]
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#connection p
+{
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 15px;
+	text-align: center;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+/*
+ * Contenu
+ */
+#content
+{
+	margin: 0px 50px;
+}

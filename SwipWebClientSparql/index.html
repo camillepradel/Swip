@@ -1,217 +1,293 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Swip Search Engine</title>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Swip Search Engine</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="codemirror/lib/codemirror.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="icon" href="img/muffin-favicon.ico" />
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+		<div id = "leftTab">
+			<div id = "controlPanel">
+				<div class = "item">
+					<img class = "showHideButton" src="./img/disclaimer.svg" />
+					<div class="panel" style = "width: 700px;">
+						<h2>Disclaimer.</h2>
+						<p>SWIP is an approach aiming at translating user natural language queries into SPARQL queries targetting a given knowledge base. This web page is an interface to an implementation of this approach, currently in active development. It is provided to you for illustration purpose only.</p>
+						<p>Please note that the server hosting this application is also used for the development version and that some web services are shared. This may cause some unplanified inconveniences. If you enconter any problem preventing you from testing this service, please <a href="mailto:camillepradel@gmail.com">contact us</a>; we will react as promptly as possible.</p>
+					</div>
+				</div>
+				<div class = "item" id = "configurations">
+					<img class = "showHideButton" src = "./img/configurations.png" />
+					<div class = "panel" style = "width : 700px; font-size: 0.8em">
+						<h2>Configurations (staff only!)</h2>
+						<h3>Web client</h3>
+						<table>
+							<tr>
+								<th>Sparql endpoint for client: </th>
+								<th>
+									<input name="sparqlenpoint" class="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
+								</th>
+							</tr>
+						</table>
+						<h3>NL to Pivot</h3>
+						<table>
+							<tr>
+								<th>Workflow web service: </th>
+								<th>
+									<input name="wfwebservice" class="wfwebservice" value="http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP" />
+									<!-- <input name="wfwebservice" class="wfwebservice" value="http://localhost:8080/SwipWorkflow/resources/rest/nlToPivotJSONP" /> -->
+								</th>
+							</tr>
+							<tr>
+								<th>Gazetteer WS (for workflow): </th>
+								<th>
+									<input name="gazwebservice" class="gazwebservice" value="http://swip.univ-tlse2.fr/NlToPivotGazetteer/resources/rest/gatherNamedEntities" />
+									<!-- <input name="gazwebservice" class="gazwebservice" value="http://localhost:8080/NlToPivotGazetteer/resources/rest/gatherNamedEntities" /> -->
+								</th>
+							</tr>
+							<tr>
+								<th>Dependency parser WS (for workflow): </th>
+								<th>
+									<input name="dpwebservice" class="dpwebservice" value="http://swip.univ-tlse2.fr/NlToPivotParser/resources/rest/nlToDependenciesJson" />
+									<!-- <input name="dpwebservice" class="dpwebservice" value="http://localhost:8080/NlToPivotParser/resources/rest/nlToDependenciesJson" /> -->
+								</th>
+							</tr>
+							<tr>
+								<th>Rules WS (for workflow): </th>
+								<th>
+									<input name="ruleswebservice" class="ruleswebservice" value="http://swip.univ-tlse2.fr/NlToPivotRules/resources/rest/dependenciesToPivot" />
+									<!-- <input name="ruleswebservice" class="ruleswebservice" value="http://localhost:8080/NlToPivotRules/resources/rest/dependenciesToPivot" /> -->
+								</th>
+							</tr>
+							<tr>
+								<th>KB name: </th>
+								<th>
+									<input name="kbname" class="kbname" value="musicbrainz" />
+								</th>
+							</tr>
+							<tr>
+								<th>Language: </th>
+								<th>
+									<input name="lang" class="lang" value="en" />
+								</th>
+							</tr>
+							<tr>
+								<th>POS tagger: </th>
+								<th>
+									<input name="pos" class="pos" value="treeTagger" />
+								</th>
+							</tr>
+							<tr>
+								<th>Dependency parser: </th>
+								<th>
+									<input name="dep" class="dep" value="malt" />
+								</th>
+							</tr>
+						</table>
+						<h3>Pivot to SPARQL</h3>
+						<table>
+							<tr>
+								<th>Web service: </th>
+								<th>
+									<input name="ptswebservice" class="ptswebservice" value="http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" />
+									<!-- <input name="ptswebservice" class="ptswebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" /> -->
+									<!-- <input name="ptswebservice" class="ptswebservice" value="http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP" /> -->
+								</th>
+							</tr>
+							<tr>
+								<th>Sparql endpoint for server: </th>
+								<th>
+									<input name="sparqlenpointserver" class="sparqlenpointserver" value="http://localhost:8080/musicbrainz/" />
+									<!-- <input name="sparqlenpointserver" class="sparqlenpointserver" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" /> -->
+								</th>
+							</tr>
+							<tr>
+								<th>Use Federated SPARQL: </th>
+								<th>
+									<input type="checkbox" class="usefederatedsparql" />
+								</th>
+							</tr>
+							<tr>
+								<th>Use Larq: </th>
+								<th>
+									<input type="checkbox" class="uselarq" checked="checked" />
+								</th>
+							</tr>
+							<tr>
+								<th>Larq params: </th>
+								<th>
+									<input name="larqparams" class="larqparams" value="8.0" />
+								</th>
+							</tr>
+							<tr>
+								<th>KB location: </th>
+								<th>
+									<input name="kblocation" class="kblocation" value="http://swip.univ-tlse2.fr/musicbrainz/kb" />
+									<!-- <input name="kblocation" class="kblocation" value="http://api.wunderfacts.com/virtuoso/sparql?default-graph-uri=" /> -->
+								</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th>
+									(named graph or SPARQL endpoint)
+								</th>
+							</tr>
+							<tr>
+								<th>Queries Named Graph URI: </th>
+								<th>
+									<input name="queriesuri" class="queriesuri" value="http://swip.univ-tlse2.fr/musicbrainz/queries" />
+								</th>
+							</tr>
+							<tr>
+								<th>Patterns Named Graph URI: </th>
+								<th>
+									<input name="patternsuri" class="patternsuri" value="http://swip.univ-tlse2.fr/musicbrainz/patterns" />
+								</th>
+							</tr>
+							<tr>
+								<th>Number of mappings: </th>
+								<th>
+									<input name="nbmappings" class="nbmappings" type="number" size="1" value="50" />
+								</th>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class = "item" id = "prefixes">
+					<img class = "showHideButton" src = "./img/prefixes.png" />
+					<p class = "panel">
+						<span class = 'listLabel'>No prefixes founded.</span>
+					</p>
+				</div>
+			</div>
+			
+			<div id = "navigation">
+				<a href = "./welcome.html" title = "Welcome">
+					<img src = "./img/Home_Icon.svg" />
+				</a>
+				<img class = "active" src="./img/muffin-favicon.ico" />
+				<a href = "./patternViewer.html" title = "Patterns visualisation">
+					<img src = "./img/patterns-logo.svg" />
+				</a>
+				<a href = "./usefulMatchings.html" title = "Useful matchings">
+					<img src = "./img/patterns-logo.svg" />
+				</a>
+				<a href = "./cacheManagement.html" title = "Cache management">
+					<img src = "./img/patterns-logo.svg" />
+				</a>
+				<a href = "./typeProperties.html" title = "*TypeProperties management">
+					<img src = "./img/patterns-logo.svg" />
+				</a>
+			</div>
+		
+			<div class = "item" id = "connection">
+				<img class = "showHideButton" src = "./img/padlock.png" />
+				<form class = "panel" action = "./PHP/admin.php" method = "post">
+					<label for = "id">Login: </label>
+					<input type = "text" id = "id" name = "id" />
+					<br />
+					<label for = "mdp">Password: </label>
+					<input type = "password" id = "mdp" name = "mdp" />
+					<br />
+					<input type = "submit" id = "connectButton" value = "Log in" />
+				</form>
+			</div>
+		</div>
+		
+		<div id = "content">
+			<div id="logo">
+				<img id="swiplogo" src="img/swip-melodi.jpg" alt="Swip"/>
+				<img id="halo" src="img/halo2.png" alt="Swip"/>
+			</div>
+
+			<div id="form">
+				<table>
+					<tr>
+						<th>Nl query:</th>
+						<td>
+							<!-- <input type="text" id="searchField1" class="searchField" value="Who produced the album In Utero?" /> -->
+							<input type="text" id="searchField1" class="searchField" value="Who composed The Heroes of Telemark?" />
+							<button id="searchButton1" class="searchButton" enabled="false">Get pivot query</button><br />
+						</td>
+					</tr>
+					<tr>
+						<th>Pivot query:</th>
+						<td>
+							<!-- <input type="text" id="searchField2" class="searchField" value="?person: The_Heroes_of_Telemark." /> -->
+							<!-- <input type="text" id="searchField2" class="searchField" value="In_Utero: album. ?person: produce= In_Utero." /> -->
+							<input type="text" id="searchField2" class="searchField" value="" />
+							<button id="searchButton2" class="searchButton" enabled="false">Get mappings</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="processingstate">
+				<h2>Processing state</h2>
+				<ol>
+					<li id="PerformingMatching_state">Matching</li>
+					<li id="PerformingElementMapping_state">Mapping pattern elements</li>
+					<li id="PerformingSpCollectionMapping_state">Mapping subpattern collections</li>
+					<li id="PerformingPatternMapping_state">Mapping patterns</li>
+					<li id="PerformingMappingRanking_state">Ranking mappings</li>
+					<li id="PerformingMappingsClearing_state">Clearing bad mappings</li>
+					<li id="PerformingKbClearing_state">Clearing KB</li>
+					<li id="PerformingSentenceGeneration_state">Generating NL sentences</li>
+					<li id="PerformingSparqlQueryGeneration_state">Generating SPARQL queries</li>
+				</ol>
+			</div>
+
+			<div id="result">
+				<div id="nltopivot"></div>
+				<div id="pivottomappings"></div>
+			</div>
+		</div>
+		
+		<!-- scripts template -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.ui.touch-punch.min.js"></script>
+		
+		<!-- scripts perso -->
 		<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
 		<script type="text/javascript" src="codemirror/mode/sparql/sparql.js"></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="icon" href="img/muffin-favicon.ico" />
 		<script type="text/javascript" src="js/lib/jquery.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/displayPivotToMappings.js"></script>
-		<script type="text/javascript" src="js/disclaimer.js"></script>
-	</head>
-
-	<body>
 		
-		<div class="lefttab" id="disclaimer">
-			<div class="openCloseIdentifier"></div>
-    		<div class="content">
-        		<h2>Disclaimer.</h2>
-				<p>SWIP is an approach aiming at translating user natural language queries into SPARQL queries targetting a given knowledge base. This web page is an interface to an implementation of this approach, currently in active development. It is provided to you for illustration purpose only.</p>
-				<p>Please note that the server hosting this application is also used for the development version and that some web services are shared. This may cause some unplanified inconveniences. If you enconter any problem preventing you from testing this service, please <a href="mailto:camillepradel@gmail.com">contact us</a>; we will react as promptly as possible.</p>
-    		</div>
-			<div class="showHideButton"></div>
-	    </div>
-		
-		<div class="lefttab" id="configurations">
-			<div class="openCloseIdentifier"></div>
-    		<div class="content">
-        		<h2>Configurations (staff only!)</h2>
-        		<h3>Web client</h3>
-	            <table>
-	                <tr>
-	                    <th>Sparql endpoint for client: </th>
-	                    <th>
-	                    	<input name="sparqlenpoint" class="sparqlenpoint" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
-	                    </th>
-	                </tr>
-	            </table>
-	            <h3>NL to Pivot</h3>
-	            <table>
-	                <tr>
-	                    <th>Workflow web service: </th>
-	                    <th>
-	                    	<input name="wfwebservice" class="wfwebservice" value="http://swip.univ-tlse2.fr/SwipWorkflow/resources/rest/nlToPivotJSONP" />
-	                    	<!-- <input name="wfwebservice" class="wfwebservice" value="http://localhost:8080/SwipWorkflow/resources/rest/nlToPivotJSONP" /> -->
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Gazetteer WS (for workflow): </th>
-	                    <th>
-	                    	<input name="gazwebservice" class="gazwebservice" value="http://swip.univ-tlse2.fr/NlToPivotGazetteer/resources/rest/gatherNamedEntities" />
-	                    	<!-- <input name="gazwebservice" class="gazwebservice" value="http://localhost:8080/NlToPivotGazetteer/resources/rest/gatherNamedEntities" /> -->
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Dependency parser WS (for workflow): </th>
-	                    <th>
-	                    	<input name="dpwebservice" class="dpwebservice" value="http://swip.univ-tlse2.fr/NlToPivotParser/resources/rest/nlToDependenciesJson" />
-	                    	<!-- <input name="dpwebservice" class="dpwebservice" value="http://localhost:8080/NlToPivotParser/resources/rest/nlToDependenciesJson" /> -->
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Rules WS (for workflow): </th>
-	                    <th>
-	                    	<input name="ruleswebservice" class="ruleswebservice" value="http://swip.univ-tlse2.fr/NlToPivotRules/resources/rest/dependenciesToPivot" />
-	                    	<!-- <input name="ruleswebservice" class="ruleswebservice" value="http://localhost:8080/NlToPivotRules/resources/rest/dependenciesToPivot" /> -->
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>KB name: </th>
-	                    <th>
-	                    	<input name="kbname" class="kbname" value="musicbrainz" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Language: </th>
-	                    <th>
-	                    	<input name="lang" class="lang" value="en" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>POS tagger: </th>
-	                    <th>
-	                    	<input name="pos" class="pos" value="treeTagger" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Dependency parser: </th>
-	                    <th>
-	                    	<input name="dep" class="dep" value="malt" />
-	                    </th>
-	                </tr>
-	            </table>
-	            <h3>Pivot to SPARQL</h3>
-	            <table>
-	                <tr>
-	                    <th>Web service: </th>
-	                    <th>
-	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://swip.univ-tlse2.fr/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" /> -->
-	                    	<input name="ptswebservice" class="ptswebservice" value="http://localhost:8080/PivotToMappingsSparql/resources/rest/generateBestMappingsJSONP" />
-	                    	<!-- <input name="ptswebservice" class="ptswebservice" value="http://192.168.250.91/PivotToMappings/resources/rest/generateBestMappingsJSONP" /> -->
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Sparql endpoint for server: </th>
-	                    <th>
-	                    	<!-- <input name="sparqlenpointserver" class="sparqlenpointserver" value="http://localhost:8080/musicbrainz/" /> -->
-	                    	<input name="sparqlenpointserver" class="sparqlenpointserver" value="http://swip.univ-tlse2.fr:8080/musicbrainz/" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Use Federated SPARQL: </th>
-	                    <th>
-	                    	<input type="checkbox" class="usefederatedsparql" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Use Larq: </th>
-	                    <th>
-	                    	<input type="checkbox" class="uselarq" checked="checked" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Larq params: </th>
-	                    <th>
-	                    	<input name="larqparams" class="larqparams" value="8.0" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>KB location: </th>
-	                    <th>
-	                    	<input name="kblocation" class="kblocation" value="http://swip.univ-tlse2.fr/musicbrainz/kb" />
-	                    	<!-- <input name="kblocation" class="kblocation" value="http://api.wunderfacts.com/virtuoso/sparql?default-graph-uri=" /> -->
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th></th>
-	                    <th>
-	                    	(named graph or SPARQL endpoint)
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Queries Named Graph URI: </th>
-	                    <th>
-	                    	<input name="queriesuri" class="queriesuri" value="http://swip.univ-tlse2.fr/musicbrainz/queries" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Patterns Named Graph URI: </th>
-	                    <th>
-	                    	<input name="patternsuri" class="patternsuri" value="http://swip.univ-tlse2.fr/musicbrainz/patterns" />
-	                    </th>
-	                </tr>
-	                <tr>
-	                    <th>Number of mappings: </th>
-	                    <th>
-	                        <input name="nbmappings" class="nbmappings" type="number" size="1" value="50" />
-	                    </th>
-	                </tr>
-	            </table>
-    		</div>
-			<div class="showHideButton"></div>
-	    </div>
-
-		<div id="logo">
-			<img id="swiplogo" src="img/swip-melodi.jpg" alt="Swip"/>
-			<img id="halo" src="img/halo2.png" alt="Swip"/>
-		</div>
-
-		<div id="form">
-			<table>
-				<tr>
-					<th>Nl query:</th>
-					<td>
-						<!-- <input type="text" id="searchField1" class="searchField" value="Who produced the album In Utero?" /> -->
-						<input type="text" id="searchField1" class="searchField" value="Who composed The Heroes of Telemark?" />
-						<button id="searchButton1" class="searchButton" enabled="false">Get pivot query</button><br />
-					</td>
-				</tr>
-				<tr>
-					<th>Pivot query:</th>
-					<td>
-						<!-- <input type="text" id="searchField2" class="searchField" value="?person: The_Heroes_of_Telemark." /> -->
-						<!-- <input type="text" id="searchField2" class="searchField" value="In_Utero: album. ?person: produce= In_Utero." /> -->
-						<input type="text" id="searchField2" class="searchField" value="" />
-						<button id="searchButton2" class="searchButton" enabled="false">Get mappings</button>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<div id="processingstate">
-			<h2>Processing state</h2>
-			<ol>
-				<li id="PerformingMatching_state">Matching</li>
-				<li id="PerformingElementMapping_state">Mapping pattern elements</li>
-				<li id="PerformingSpCollectionMapping_state">Mapping subpattern collections</li>
-				<li id="PerformingPatternMapping_state">Mapping patterns</li>
-				<li id="PerformingMappingRanking_state">Ranking mappings</li>
-				<li id="PerformingMappingsClearing_state">Clearing bad mappings</li>
-				<li id="PerformingKbClearing_state">Clearing KB</li>
-				<li id="PerformingSentenceGeneration_state">Generating NL sentences</li>
-				<li id="PerformingSparqlQueryGeneration_state">Generating SPARQL queries</li>
-			</ol>
-		</div>
-
-		<div id="result">
-			<div id="nltopivot"></div>
-			<div id="pivottomappings"></div>
-		</div>
-	</body>
+        <script src="./js/global.js"></script>
+    </body>
 </html>

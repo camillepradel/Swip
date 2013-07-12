@@ -33,83 +33,6 @@ h2
 
 
 /**
- * left tabs
- **/
-
- .lefttab .showHideButton {
-	z-index: 1;
-	position:fixed;
-	left: 0;
-	background-repeat:no-repeat;
-	background-position: center;
-	background-color: rgb(230, 230, 230);
-	height: 22px;
-	width: 22px;
- }
-
-.lefttab .content {
-	z-index: 1;
-	position:fixed;
-	background-color: rgb(230, 230, 230);
-	width: 700px;
-	padding: 10px;
-	left: -920px;
-}
-
-.lefttab .content h2 {
-	margin-top: 0px;
-}
-
-#disclaimer .showHideButton {
-	top: 20px;
-	background-image:url(../img/disclaimer.svg);
-}
-
-#disclaimer .content {
-	top: 20px;
-}
-
-#configurations .showHideButton {
-	top: 50px;
-	background-image:url(../img/configurations.svg);
-}
-
-#configurations .content {
-	top: 50px;
-}
-
-
-
-/**
- * Config panel
- **/
-
-#configurations th:first-child
-{
-	text-align: right;
-	width: 200px;
-}
-
-#configurations th:nth-child(2)
-{
-	text-align: left;
-}
-
-#configurations table
-{
-	width: 100%;
-	font-size: 75%;
-}
-
-#configurations input
-{
-	width: 100%;
-	height: 12px;
-	font-size: 120%;
-}
-
-
-/**
  * Logo
  **/
 
@@ -262,23 +185,6 @@ h2
 	border-radius: 0px 30px;
 	margin-right: auto;
 }
-
-
-/**
- * jQuery UI override
- **/
-
-#results li .ui-icon-close { float: left; margin: 4px 0px 0px 0px; cursor: pointer; }
-
-
-
-
-
-
-
-
-
-
 
 
 #result .pivottomappings .spcollectionmappings li
