@@ -10,8 +10,9 @@ body
 h1
 {
 	text-align: center;
-	font-size: 1.3em;
+	font-size: 1.5em;
 	margin: 10px;
+	color: rgb(100, 60, 60);
 }
 
 /*
@@ -186,12 +187,19 @@ input[type="button"]:active, input[type="submit"]:active, button:active {
 /*
  * graphe
  */
+._jsPlumb_connector { z-index: 19; }
+
+._jsPlumb_endpoint { z-index: 20; }
+
+._jsPlumb_overlay { z-index: 21; }
+
 .graph {
 	margin: 0px auto;
 	border: dashed 1px gray;
 }
 
 .node {
+	z-index: 20;
 	margin: 0px;
 	padding: 10px;
 	position: absolute;

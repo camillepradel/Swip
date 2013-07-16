@@ -95,8 +95,8 @@
  */
 #connection
 {
-	margin-top: 100px;
-	position: relative;
+	position: absolute;
+	bottom: 0px;
 }
 
 #connection .panel

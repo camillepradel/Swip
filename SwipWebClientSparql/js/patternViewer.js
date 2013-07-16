@@ -241,7 +241,7 @@ function listPatterns() {
 					+ "    ?uri patternOnt:patternHasID ?id.\n"
 					+ "    ?uri patternOnt:patternIsActive 'true'^^xsd:boolean"
 					+ "  }\n"
-					+ "}";
+					+ "} order by ?id";
 	processSparqlQuery(sparqlQuery, $('#sparqlendpoint').val(), function(data) {
 		$("#layout").empty();
 		
@@ -320,7 +320,6 @@ function displayPattern() {
 					+ "    { ?object patternOnt:targetsClass ?objectTarget. }\n"
 					+ "  }\n"
 					+ "}";
-	console.log(sparqlQuery);
 	processSparqlQuery(sparqlQuery, $('#sparqlendpoint').val(), function(data){
 		$.each(data.results.bindings, function(i, val) {
 			var subject = {
@@ -676,14 +675,18 @@ $(function(){
 			var selectedElem = $('#namedgraph option:selected').val();
 			$('#namedgraph').empty();
 			$.each(data.results.bindings, function(i, val) {
-				if (selectedElem == val.graphName.value)
-					$('#namedgraph').prepend("<option selected='selected'>" +
-												val.graphName.value +
-											 "</option>");
-				else
-					$('#namedgraph').prepend("<option>" +
-												val.graphName.value +
-											 "</option>");
+				// si la fin du nom des copies de graphe doit changer alors il faut changer cette regex
+				var regex = /_copy$/;
+				if (regex.test(val.graphName.value)) {
+					if (selectedElem == val.graphName.value)
+						$('#namedgraph').prepend("<option selected='selected'>" +
+													val.graphName.value +
+												 "</option>");
+					else
+						$('#namedgraph').prepend("<option>" +
+													val.graphName.value +
+												 "</option>");
+				}
 			});
 		});
 	});

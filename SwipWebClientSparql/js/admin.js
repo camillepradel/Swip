@@ -210,7 +210,7 @@ $(function (){
 						+ "    ?uri patternOnt:patternHasID ?id.\n"
 						+ "    ?uri patternOnt:patternIsActive \"false\"^^xsd:boolean"
 						+ "  }\n"
-						+ "}";
+						+ "} order by ?id";
 		processSparqlQuery(sparqlQuery, $('#sparqlendpoint').val(), function(data){
 			var displayFirst = ($("#selectPattern option").length == 0)? true : false;
 			
@@ -218,7 +218,18 @@ $(function (){
 				var patternID = val.id.value;
 				var patternURI = val.uri.value;
 				
-				$("#selectPattern").append("<option value = '" + patternURI + "'>" + patternID + "</option>\n");
+				$("#selectPattern option").each(function (i, val){
+					if (val.innerHTML.toLowerCase() > patternID.toLowerCase()){
+						val.id = "insertBefore";
+					}
+				});
+				
+				if ($("#insertBefore").length == 0) {
+					$("#selectPattern").append("<option class = 'patternDisactivated' value = '" + patternURI + "'>" + patternID + "</option>\n");
+				} else {
+					$("#insertBefore").before("<option class = 'patternDisactivated' value = '" + patternURI + "'>" + patternID + "</option>\n");
+					$("#insertBefore").removeAttr("id");
+				}
 				
 				var div = "<div class = 'pattern' id = '" + patternID + "'>\n"
 						+  "	<div class = 'graph'>\n"
@@ -297,10 +308,13 @@ $(function (){
 								+ "    }\n"
 								+ "}\n";
 				processSparqlPostQuery(sparqlQuery, $('#sparqlendpoint').val(), function(){
-					if (activate)
+					if (activate) {
 						content = "disactivate pattern";
-					else
+						$('option:selected').removeClass('patternDisactivated');
+					} else {
 						content = "activate pattern";
+						$('option:selected').addClass('patternDisactivated');
+					}
 						
 					$('#' + patternID + "_activate").html(content);
 					alert("You need to clear cache memory !");

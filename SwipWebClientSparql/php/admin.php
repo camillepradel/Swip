@@ -1,11 +1,9 @@
 <?php
-session_start();
-include "fonctions.php";
+	include 'util/sessions.php';
+	
+	initConnections();
+?>
 
-$erreur = false;
-
-// entête html commune
-$page = <<<EOF
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
 	<head>
@@ -17,38 +15,30 @@ $page = <<<EOF
 	</head>
 	
 	<body>
-
-EOF;
-
-// si on vient du formulaire de connexion
-if (isset($_POST['id']) && isset($_POST['mdp'])) {
-	if (verifAcces($_POST['id'], $_POST['mdp'])) {
-		/* si l'identifiant et le mot de passe sont corrects, on défini
-		les variables de session permettant d'accéder aux différentes pages d'administration. */
-		$_SESSION['id'] = $_POST['id'];
-		$_SESSION['mdp'] = $_POST['mdp'];
-	} else {
-		// sinon on affiche une erreur
-		$erreur = true;
-		$page .= <<<EOF
-		<div id = "connexion">
-			<p>
-				L'identifiant ou le mot de passe est incorrect.<br />
-				<a href = "../patternViewer.html">
-					Retour à la page de connexion.
-				</a>
-			</p>
-		</div>
-
-EOF;
-	}
-}
-
-if (isset($_SESSION['id']) && isset($_SESSION['mdp']) && verifAcces($_SESSION['id'], $_SESSION['mdp']))
-{
-	$id = $_SESSION['id'];
-	// si on a les droits d'administration, alors on affiche la page suivante
-	$page .= <<<EOF
+	<?php
+		if (!$isConnected)
+		{
+			if ($formSubmitted) {
+	?>
+		<p>
+			L'identifiant ou le mot de passe est incorrect.<br />
+			<a href = "../patternViewer.html">
+				Retour à la page de connexion.
+			</a>
+		</p>
+	<?php
+			} else {
+	?>
+		<p>
+			Pour accéder à cette page, vous devez vous connecter en cliquant
+			<a href = "../patternViewer.html">
+				ici.
+			</a>
+		</p>
+	<?php
+			}
+		} else {
+	?>
 		<div id = "leftTab">
 			<div id = "controlPanel">
 				<div class = "item" id = "configuration">
@@ -59,8 +49,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['mdp']) && verifAcces($_SESSION['i
 						<br />
 						<label for = "namedgraph">Named Graph: </label>
 						<select id = "namedgraph" name = "namedgraph">
-							<option value = "http://swip.univ-tlse2.fr/musicbrainz/patterns">
-								http://swip.univ-tlse2.fr/musicbrainz/patterns
+							<option value = "http://swip.univ-tlse2.fr/musicbrainz/patterns_copy">
+								http://swip.univ-tlse2.fr/musicbrainz/patterns_copy
 							</option>
 						</select>
 						<br />
@@ -102,15 +92,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['mdp']) && verifAcces($_SESSION['i
 				<img class = "active" src = "../img/patterns-logo.svg" />
 				
 				<a href = "./usefulMatchings.html" title = "Useful matchings">
-					<img src = "./img/patterns-logo.svg" />
+					<img src = "../img/patterns-logo.svg" />
 				</a>
 				
 				<a href = "./cacheManagement.html" title = "Cache management">
-					<img src = "./img/patterns-logo.svg" />
+					<img src = "../img/patterns-logo.svg" />
 				</a>
 				
 				<a href = "./typeProperties.html" title = "*TypeProperties management">
-					<img src = "./img/patterns-logo.svg" />
+					<img src = "../img/patterns-logo.svg" />
 				</a>
 			</div>
 		
@@ -118,7 +108,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['mdp']) && verifAcces($_SESSION['i
 				<img class = "showHideButton" src = "../img/unlock_padlock.png" />
 				<form class = "panel" action = "../patternViewer.html" method = "post">
 					<p>
-						$id
+						<?php echo $_SESSION['id']; ?>
 					</p>
 					<input type = "submit" id = "connectButton" value = "Log out" />
 				</form>
@@ -143,34 +133,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['mdp']) && verifAcces($_SESSION['i
 		<script type = "text/javascript" src = "../js/global.js"></script>
 		<script type = "text/javascript" src = "../js/patternViewer.js"></script>
 		<script type = "text/javascript" src = "../js/admin.js"></script>
-EOF;
-} else if (!$erreur) {
-	// sinon on demande de se connecter (à condition qu'on n'ait pas fait de demande de connexion)
-	$page .= <<<EOF
-		<div id = "connexion">
-			<p>
-				Pour accéder à cette page, vous devez vous connecter en cliquant
-				<a href = "../patternViewer.html">
-					ici.
-				</a>
-			</p>
-		</div>
-
-EOF;
-}
-
-$page .= <<<EOF
+	<?php
+		}
+	?>
 	</body>
 </html>
-EOF;
-
-echo $page;
-/*
-extract css + js
-lien elem - txt
-liste ss pattern
-inmport
-
-icone patrons
-placement des icones, */
-?>

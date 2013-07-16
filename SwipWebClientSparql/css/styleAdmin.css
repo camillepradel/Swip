@@ -36,3 +36,8 @@ fieldset
 {
 	border: groove 2px #508AC5;
 }
+
+.patternDisactivated
+{
+	background-color: #FF8282;
+}
