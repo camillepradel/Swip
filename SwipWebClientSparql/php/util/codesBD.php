@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	// identifiants de connexion en local :
 	define('LOGIN', "root");
 	define('PASSWORD', "");

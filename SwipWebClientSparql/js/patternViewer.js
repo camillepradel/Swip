@@ -191,7 +191,7 @@ function loadPrefixes()
 	({
         type: 'GET',
         dataType: "json",
-        url: 'http://localhost/SWIP_Admin/php/listPrefixes.php'
+        url: 'http://swip.univ-tlse2.fr/SwipWebClient/php/listPrefixes.php'
     })
     .done(function(data) {
 		listPrefixes = data;

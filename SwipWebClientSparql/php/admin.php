@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="../css/global.css" type="text/css">
 		<link rel="stylesheet" href="../css/patternViewer.css" type="text/css">
 		<link rel="stylesheet" href="../css/styleAdmin.css" type="text/css">
-	</head>
+	</head>	
 	
 	<body>
 	<?php
@@ -118,6 +118,30 @@
 		<div id = "content">
 			<button id = "toggleMoving">Stop moving</button>
 			<div id = "layout">
+			</div>
+			<h1>Update Patterns</h1>
+			<div id = "updatePatterns">
+				<form>
+					<input type = "file" id = "inputFile" name = "inputFile" />
+					<input type = "button" id = "selectFileButton" value = "Load file" />
+					<br />
+					<textarea id = "patternText"></textarea>
+					<br />
+					
+					<h2>Translating Options</h2>
+					<p id = "translatingOptionsPart">
+						<label for = "patternName">Pattern set name:</label>
+						<input type = "text" id = "patternName" value = "musicbrainz"/>
+						<br />
+						<label for = "ontologyUri">Targeted ontology URI:</label>
+						<input type = "text" id = "ontologyUri" value = "http://purl.org/ontology/mo/"/>
+						<br />
+						<label for = "authorUri">Author URI:</label>
+						<input type = "text" id = "authorUri" value = "http://camillepradel.com/uris#me"/>
+					</p>
+					
+					<input type = "button" id = "upload" value = "Upload patterns" />
+				</form>
 			</div>
 		</div>
 		

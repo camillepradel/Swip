@@ -6,7 +6,7 @@ function removePrefix(event) {
 	$.ajax
 	({
 		type: 'POST',
-		url: 'http://localhost/SWIP_Admin/php/deletePrefixes.php',
+		url: 'http://swip.univ-tlse2.fr/SwipWebClient/php/deletePrefixes.php',
 		data: { uri: id }
 	})
 	.done(function(data) {
@@ -27,7 +27,124 @@ function removePrefix(event) {
 	});
 }
 
+function showHideAfterTitle()
+{
+	var nextElem = $(this).next();
+	
+	if (nextElem.is(':visible'))
+		nextElem.slideUp('normal');
+	else
+		nextElem.slideDown('normal', function () {
+			var scollHeight = nextElem.offset().top;
+			
+			$('html,body').animate({
+				scrollTop: scollHeight
+			}, 'normal');
+		});
+}
+
 $(function (){
+	// upload des nouveau patterns
+	$('h1, h2').click(showHideAfterTitle);
+	
+	$('#selectFileButton').click(function(){
+		$('#inputFile').click();
+	});
+	
+	$('#inputFile').change(function(){
+		var form = new FormData($('#updatePatterns form')[0]);
+		
+        $.ajax({
+            url: './readFile.php',
+            type: 'POST',
+            xhr: function() {
+                var myXhr = $.ajaxSettings.xhr();
+                return myXhr;
+            },
+            data: form,
+            cache: false,
+            contentType: false,
+            processData: false
+        })
+		.success(function (data) {
+			$('#patternText').val(data);
+		})
+		.error(function(jqXHR){
+			alert('Unable to load this file...\n' + jqXHR.responseText);
+		});
+	});
+	
+	$('#upload').click(function(){
+		var patternName = $('#patternName').val();
+		var ontologyUri = $('#ontologyUri').val();
+		var authorUri = $('#authorUri').val();
+		var patternsText = $('#patternText').val();
+		
+		$.ajax({
+            url: 'http://swip.univ-tlse2.fr/Patterns/PatternsWS/rest/patternsTextToRdf',
+            type: 'POST',
+			dataType: 'text',
+            data: {
+				setName: patternName,
+				ontologyUri: ontologyUri,
+				authorUri: authorUri,
+				patterns: patternsText
+            }
+        })
+		.success(function (data) {
+			if ($('#results').length == 0) {
+				$('#updatePatterns').append("<h2 id = 'titleResultsPart'>Translation results</h2>\n" +
+											"<form>\n" +
+											"	<textarea id = 'results'>\n" +
+													data + "\n" +
+											"	</textarea>\n" +
+											"	<br />\n" +
+											"	<h2 id = 'titleSendingPart'>Sending Options</h2>\n" +
+											"	<div id = 'sendingOptionsPart'>\n" +
+											"		<label for = 'dir'>Directory" +
+											"		<sup title = 'Subdirectory of \"/stockage/data/\"'>1</sup>:" +
+											"		</label>\n" +
+											"		<input type='text' id='dir' value='musicbrainz/rdfdata-patterns/' />\n"+
+											"		<br />\n" +
+											"		<label for = 'fName'>File name:</label>" +
+											"		<input type = 'text' id = 'fName' value = 'patterns-rdf.xml' />" +
+											"	</div>\n" +
+											"	<input id = 'sendServer' type = 'button' value = 'Send to the server' />\n"+
+											"</form>\n");
+				$('#titleSendingPart').click(showHideAfterTitle);
+				$('#sendServer').click(function(){
+					var patternsXML = $('#results').val();
+					var dir = $('#dir').val();
+					var fName = $('#fName').val();
+					$.ajax({
+						url: 'http://swip.univ-tlse2.fr/SwipWebClient/php/saveFile.php',
+						type: 'POST',
+						dataType: 'text',
+						data: {
+							subdirectory: dir,
+							fileName: fName,
+							content: patternsXML
+						}
+					})
+					.success(function () {
+						alert('Patterns saved ! Think to launch tdbloader and restart fuseki...')
+					})
+					.error(function(jqXHR){
+						alert("Unable to save patterns : " + jqXHR.responseText);
+					});
+				});
+			} else {
+				$('#results').val(data);
+			}
+			
+			if (!$('#titleResultsPart').is(':visible'))
+				$('#titleResultsPart').click(showHideAfterTitle).click();
+		})
+		.error(function(jqXHR){
+			alert('Unable to upload patterns...');
+		});
+	});
+	
 	// anime le bouton d'ajout de préfixe
 	$('#addButton').mousedown(function(){
 		this.src = "../img/addButtonClick.png";
@@ -75,7 +192,7 @@ $(function (){
 				$.ajax
 				({
 					type: 'POST',
-					url: 'http://localhost/SWIP_Admin/php/addPrefixes.php',
+					url: 'http://swip.univ-tlse2.fr/SwipWebClient/php/addPrefixes.php',
 					data: { uri: uri, prefix: prefix }
 				})
 				.done(function(data) {

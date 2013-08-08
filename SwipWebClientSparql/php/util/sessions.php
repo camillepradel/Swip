@@ -2,7 +2,7 @@
 // Initialisation des variables de sessions.
 session_start();
 
-// Import des fonctions permettant de gerer la base de donnÈe relationnelle
+// Import des fonctions permettant de gerer la base de donn√©e relationnelle
 include "dataBases.php";
 
 /******************************************
@@ -10,9 +10,9 @@ include "dataBases.php";
  ******************************************/
 function initConnections() {
 	/*
-	 * DÈfinition de la variable globale $isConnected permettant de vÈrifier si
-	 * l'utilisateur est connectÈ ou non, et la variable globale $formSubmitted
-	 * permettant de savoir si l'utilisateur est arrivÈ sur cette page aprËs
+	 * D√©finition de la variable globale $isConnected permettant de v√©rifier si
+	 * l'utilisateur est connect√© ou non, et la variable globale $formSubmitted
+	 * permettant de savoir si l'utilisateur est arriv√© sur cette page apr√®s
 	 * avoir soumit un formulaire de connexion ou non
 	 */
 	global $isConnected, $formSubmitted;
@@ -23,7 +23,7 @@ function initConnections() {
 	if (isset($_POST['id']) && isset($_POST['mdp'])) {
 		$formSubmitted = true;
 		
-		// VÈrification de la validitÈ de l'identifiant et du mot de passe.
+		// V√©rification de la validit√© de l'identifiant et du mot de passe.
 		if (verifAcces($_POST['id'], $_POST['mdp'])) {
 			$isConnected = true;
 			$_SESSION['id'] = $_POST['id'];
@@ -31,7 +31,7 @@ function initConnections() {
 		} else {
 			$isConnected = false;
 		}
-	} elseif (isset($_SESSION['id']) && isset($_SESSION['mdp'])) { // sinon s'il s'est dÈj‡ connectÈ
+	} elseif (isset($_SESSION['id']) && isset($_SESSION['mdp'])) { // sinon s'il s'est d√©j√† connect√©
 		if (verifAcces($_SESSION['id'], $_SESSION['mdp'])) { // et que l'identifiant et le mot de passe restent bons
 			$isConnected = true;
 		} else {
@@ -43,13 +43,13 @@ function initConnections() {
 }
 
 /*
- * vÈrifie si $id et $mdp correspondent bien ‡ l'identifiant et le mot de passe
- * d'un administrateur (enregistrÈ dans la base de donnÈes de swip).
+ * v√©rifie si $id et $mdp correspondent bien √† l'identifiant et le mot de passe
+ * d'un administrateur (enregistr√© dans la base de donn√©es de swip).
  */
 function verifAcces($id, $mdp) {
 	/*
-	 * DÈfinition des variables globales $idIsValid et $mdpIsValid
-	 * permettant de vÈrifier que l'identifiant et le mot de passe entrÈs
+	 * D√©finition des variables globales $idIsValid et $mdpIsValid
+	 * permettant de v√©rifier que l'identifiant et le mot de passe entr√©s
 	 * sont corrects.
 	 */
 	global $idIsValid, $mdpIsValid;
@@ -59,16 +59,16 @@ function verifAcces($id, $mdp) {
 	$currentID = $id;
 	$currentMdp = $mdp;
 	
-	// connexion ‡ la base de donnÈes de swip
+	// connexion √† la base de donn√©es de swip
 	dbConnect();
 	
-	// liste de tous les administrateurs et comparaisons avec l'identifiant et le mot de passe donnÈs
+	// liste de tous les administrateurs et comparaisons avec l'identifiant et le mot de passe donn√©s
 	$sqlQuery = "select * from administrators;";
 	
 	processSqlQuery($sqlQuery, function ($resp) {
 		global $idIsValid, $mdpIsValid, $currentID, $currentMdp;
 		
-		// pour chaque entrÈe trouvÈe
+		// pour chaque entr√©e trouv√©e
 		while ($data = mysql_fetch_assoc($resp)) {
 			if ($currentID == $data['id']) {
 				$idIsValid = true;

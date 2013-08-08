@@ -1,3 +1,22 @@
+/*
+ * Généralités
+ */
+h1, h2
+{
+	cursor: pointer;
+}
+
+h2
+{
+	text-align: center;
+	font-size: 1.2em;
+	margin: 10px;
+	color: rgb(100, 60, 60);
+}
+
+/*
+ * Styles d'édition des préfixes
+ */
 #prefixes label
 {
 	display: inline-block;
@@ -37,7 +56,54 @@ fieldset
 	border: groove 2px #508AC5;
 }
 
+/*
+ * Mise en évidence des patrons désactivés
+ */
+
 .patternDisactivated
 {
 	background-color: #FF8282;
+}
+
+/*
+ * partie Update Patterns
+ */
+#updatePatterns
+{
+	text-align: center;
+	display: none;
+}
+
+#translatingOptionsPart, #sendingOptionsPart
+{
+	display: none;
+}
+
+#inputFile
+{
+	display: none;
+}
+
+#selectFileButton
+{
+	margin-bottom: 10px;
+}
+
+#updatePatterns textarea
+{
+	width: 800px;
+	height: 400px;
+}
+
+#updatePatterns label
+{
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+	margin-left: 5px;
+}
+
+#updatePatterns input[type=text]
+{
+	width: 300px;
 }
